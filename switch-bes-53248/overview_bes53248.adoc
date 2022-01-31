@@ -1,0 +1,82 @@
+---
+permalink: switch-bes-53248/overview-bes53248.html 
+sidebar: sidebar 
+keywords: cluster-mode,supported versions,switches supported,cluster network,efos 
+summary: Broadcom 지원 BES-53248 클러스터 스위치는 ONTAP 9.5P8 이상에서 2-24개 노드 범위의 클러스터에서 작동하도록 설계되었습니다. 40/100 GbE 클러스터 포트 지원은 EFOS 펌웨어 버전 3.4.4.6 이상에서 시작됩니다. 
+---
+= Broadcom 지원 BES-53248 클러스터 스위치의 개요
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Broadcom 지원 BES-53248 클러스터 스위치는 ONTAP 9.5P8 이상에서 2-24개 노드 범위의 클러스터에서 작동하도록 설계되었습니다. 40/100 GbE 클러스터 포트 지원은 EFOS 펌웨어 버전 3.4.4.6 이상에서 시작됩니다.
+
+BES-53248은 이더넷 패브릭 OS(EFOS)라고 하는 Broadcom 내장 OS에서 실행되는 스위치입니다.
+
+다음 표에는 BES-53248 클러스터 스위치, 랙 마운트 레일 키트, 팬 및 전원 공급 장치에 대한 부품 번호 및 설명이 나와 있습니다.
+
+[cols="1,2"]
+|===
+| 부품 번호 | 설명 
+
+
+ a| 
+X190005
+ a| 
+BES-53248, CLSW, 16Pt10/25GB, PTSX, BRDCM SUPP(PTSX = Port Side Exhaust)
+
+
+
+ a| 
+X190005R
+ a| 
+BES-53248, CLSW, 16Pt10/25GB, PSIN, BRDCM SUPP(PSIN = 포트 측 흡기)
+
+
+
+ a| 
+X-레일-4POST-190005
+ a| 
+랙 마운트 레일 키트 Ozeki 4 포스트 19"
+
+
+
+ a| 
+X-FAN-190005-R
+ a| 
+팬, 포트 측 흡기 X190005
+
+
+
+ a| 
+X-FAN-190005-F
+ a| 
+팬, 포트 측 배기 X190005
+
+
+
+ a| 
+X-PSU-190005-R
+ a| 
+전원 공급 장치, 포트 측 흡기 X190005
+
+
+
+ a| 
+X-PSU-190005-F
+ a| 
+전원 공급 장치, 포트 측 배기 X190005
+
+|===
+제공되는 두 가지 모델을 기반으로 한 공기 흐름 개요:
+
+* 포트 측 배기 공기 흐름(표준 공기): 차가운 공기는 차가운 통로에 있는 팬 및 전원 공급 장치 모듈을 통해 섀시에 유입되고 뜨거운 통로에 있는 섀시의 포트 끝을 통해 배출됩니다. 파란색은 포트 쪽 배기가스의 공기 흐름을 나타냅니다. 가장 일반적인 옵션입니다.
+* 포트측 흡입 공기 흐름(역풍): 차가운 공기는 차가운 통로의 포트 끝을 통해 섀시에 유입되고 뜨거운 통로의 팬 및 전원 공급 장치 모듈을 통해 배출됩니다.
+
+
+를 참조하십시오 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/How_to_add_Additional_Port_Licensing_for_the_Broadcom-Supported_BES-53248_Switch["NetApp KB 문서: Broadcom 지원 BES-53248 스위치에 대해 포트 라이센스를 추가하는 방법"^] 추가 포트 라이센스 추가에 대한 자세한 내용은 를 참조하십시오.
+
+부품 번호와 함께 사용할 관련 커넥터 및 케이블 옵션에 대한 자세한 내용은 를 참조하십시오 https://hwu.netapp.com/Home/Index["NetApp Hardware Universe를 참조하십시오"^].
+
+자세한 내용은 BES-53248 스위치 다운로드 사이트에서 _Cluster Network and Management Network Compatibility Matrix_를 참조하십시오 https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["Broadcom 클러스터 스위치"^].

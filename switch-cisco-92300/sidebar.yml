@@ -1,0 +1,66 @@
+---
+section: switch-cisco-92300
+title: Cisco 92300YC 스위치
+entries:
+- title: 개요
+  url: "/switch-cisco-92300/92300-overview.html"
+- title: 설정
+  entries:
+  - title: ONTAP에서 지원하는 스위치
+    url: "/switch-cisco-9336/setup-supported-switches.html"
+  - title: 스위치를 설정합니다
+    url: "/switch-cisco-9336/setup-switches.html"
+  - title: 필수 클러스터 구성 정보
+    url: "/switch-cisco-9336/setup-required-information.html"
+  - title: 92300YC 스위치용 CSHM(Cluster Switch Health Monitor) 구성 파일을 설치합니다
+    url: "/switch-cisco-9336/setup-install-cshm-file.html"
+  - title: 필수 문서
+    url: "/switch-cisco-9336/setup-required-documentation.html"
+  - title: Smart Call Home 사용에 대한 고려 사항
+    url: "/switch-cisco-9336/setup-considerations-smart-call.html"
+  - title: 케이블 연결 워크시트 예제 및 빈
+    entries:
+    - title: Cisco Nexus 9336C-FX2 케이블링 워크시트
+      url: "/switch-cisco-9336/setup-worksheet-9336c.html"
+    - title: Cisco Nexus 92300YC 케이블 연결 워크시트
+      url: "/switch-cisco-9336/setup-worksheet-92300yc.html"
+    - title: Cisco Nexus 3232C 케이블 연결 워크시트
+      url: "/switch-cisco-9336/setup-worksheet-3232c.html"
+    - title: Cisco Nexus 3132Q-V 케이블링 워크시트
+      url: "/switch-cisco-9336/setup-worksheet-3132q.html"
+    - title: Cisco Nexus 5596UP 및 5596T 케이블 연결 워크시트
+      url: "/switch-cisco-9336/setup-worksheet-5596.html"
+    - title: 케이블 연결 워크시트 예
+      url: "/switch-cisco-9336/setup-worksheets-sample-cabling.html"
+- title: Cisco Nexus 92300YC 클러스터 스위치에 NX-OS 소프트웨어 및 RCF를 설치합니다
+  entries:
+  - title: 개요
+    url: "/switch-cisco-92300/install-nxos-overview.html"
+  - title: NX-OS 소프트웨어를 설치합니다
+    url: "/switch-cisco-92300/install-nxos-software.html"
+  - title: RCF(Reference Configuration File) 설치
+    url: "/switch-cisco-92300/install-nxos-rcf.html"
+- title: 새 Cisco Nexus 92300YC 스위치를 구성합니다
+  entries:
+  - title: 개요
+    url: "/switch-cisco-92300/configure-overview.html"
+  - title: Cisco Nexus 92300YC 스위치의 초기 설치
+    url: "/switch-cisco-92300/configure-install-initial.html"
+  - title: NX-OS 소프트웨어를 설치합니다
+    url: "/switch-cisco-92300/configure-install-nxos.html"
+  - title: RCF(Reference Configuration File) 설치
+    url: "/switch-cisco-92300/configure-install-rcf.html"
+- title: Cisco Nexus 92300YC 스위치를 교체합니다
+  url: "/switch-cisco-92300/replace-92300yc.html"
+- title: Cisco Nexus 92300YC 스위치를 사용하여 2노드 스위치 클러스터로 마이그레이션합니다
+  entries:
+  - title: 개요
+    url: "/switch-cisco-92300/migrate-to-2n-switched-overview.html"
+  - title: 마이그레이션 방법
+    url: "/switch-cisco-92300/migrate-to-2n-switched.html"
+- title: Cisco 스위치에서 Cisco Nexus 92300YC 스위치로 마이그레이션합니다
+  entries:
+  - title: 개요
+    url: "/switch-cisco-92300/migrate-to-92300yc-overview.html"
+  - title: Cisco 스위치에서 Cisco Nexus 92300YC 스위치로 마이그레이션하는 방법
+    url: "/switch-cisco-92300/migrate-to-92300yc.html"

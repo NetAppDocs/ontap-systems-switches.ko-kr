@@ -1,0 +1,147 @@
+---
+permalink: switch-bes-53248/replace-install.html 
+sidebar: sidebar 
+keywords: procedure, perform, initial, installation, bes, cluster, switch, initial installation of the bes-53428 cluster switch - bes-53428 switches 
+summary: 이 절차를 사용하여 BES-53248 클러스터 스위치의 초기 설치를 수행할 수 있습니다. 
+---
+= BES-53248 클러스터 스위치의 초기 설치
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 절차를 사용하여 BES-53248 클러스터 스위치의 초기 설치를 수행할 수 있습니다.
+
+에서 클러스터 스위치에 해당하는 Broadcom EFOS 소프트웨어를 다운로드할 수 있습니다 https://www.broadcom.com/support/bes-switch["Broadcom Ethernet 스위치 지원"^] 사이트.
+
+EFOS는 데이터 센터 애플리케이션을 위한 다양한 이더넷 및 IP 인프라스트럭처 시스템을 개발하는 데 필요한 고급 네트워킹 기능 및 프로토콜로 구성된 광범위한 소프트웨어 세트입니다. EFOS 소프트웨어는 철저한 패킷 검사나 분리를 필요로 하는 첨단 애플리케이션을 사용하는 모든 네트워크 조직 장치에 적합한 아키텍처입니다.
+
+이 절차에서는 스위치를 설치하고 실행하기 위한 프로세스를 간략하게 설명합니다.
+
+.단계
+. 직렬 포트를 선택한 호스트 또는 직렬 포트에 연결합니다.
+. 관리 포트(스위치 왼쪽에 있는 RJ-45 렌치 포트)를 TFTP 서버가 있는 동일한 네트워크에 연결합니다.
+. 콘솔에서 호스트 측 직렬 설정을 설정합니다.
++
+** 115200 보드
+** 8 데이터 비트
+** 1 정지 비트
+** 패리티: 없음
+** 흐름 제어: 없음
+
+
+. 스위치에 admin으로 로그인하고 암호를 묻는 메시지가 표시되면 Enter 키를 누릅니다. 기본 스위치 이름은 라우팅입니다. "활성화"라는 메시지가 표시됩니다. 이렇게 하면 스위치 구성을 위한 관리자 EXEC 모드에 액세스할 수 있습니다.
++
+[listing]
+----
+User: admin
+Password:
+(Routing)> enable
+Password:
+(Routing) #
+----
+. 스위치 이름을 CS2로 변경합니다.
++
+[listing]
+----
+(Routing) # hostname cs2
+(cs2) #
+----
+. 고정 IP 주소를 설정하려면 예에서와 같이 serviceport 프로토콜, 네트워크 프로토콜 및 serviceport IP 명령을 사용합니다.
++
+serviceport는 기본적으로 DHCP를 사용하도록 설정됩니다. IP 주소, 서브넷 마스크 및 기본 게이트웨이 주소는 자동으로 할당됩니다.
+
++
+[listing]
+----
+(cs2) # serviceport protocol none
+(cs2) # network protocol none
+(cs2) # serviceport ip ipaddr netmask gateway
+----
+. 다음 명령을 사용하여 결과를 확인합니다.
++
+서비스서비스
+
++
+다음 예에서는 DHCP 서버에서 제공하는 IP 정보를 보여 줍니다.
+
++
+[listing]
+----
+(cs2) # show serviceport
+Interface Status............................... Up
+IP Address..................................... 172.19.2.2
+Subnet Mask.................................... 255.255.255.0
+Default Gateway................................ 172.19.2.254
+IPv6 Administrative Mode....................... Enabled
+IPv6 Prefix is ................................ fe80::dac4:97ff:fe71:123c/64
+IPv6 Default Router............................ fe80::20b:45ff:fea9:5dc0
+Configured IPv4 Protocol....................... DHCP
+Configured IPv6 Protocol....................... None
+IPv6 AutoConfig Mode........................... Disabled
+Burned In MAC Address.......................... D8:C4:97:71:12:3C
+----
+. 도메인 및 이름 서버 구성:
++
+'설정'을 클릭합니다
+
++
+[listing]
+----
+(cs2) # configure
+(cs2) (Config)#ip domain name company.com
+(cs2) (Config)#ip name server 10.10.99.1 10.10.99.2
+(cs2) (Config)#exit
+(cs2) (Config)#
+----
+. NTP 서버를 구성합니다.
++
+.. 시간대 및 시간 동기화(SNTP) 구성:
++
+'NTP'입니다
+
++
+[listing]
+----
+(cs2) #
+(cs2) (Config)#sntp client mode unicast
+(cs2) (Config)#sntp server 10.99.99.5
+(cs2) (Config)#clock timezone -7
+(cs2) (Config)#exit
+(cs2) (Config)#
+----
+.. 시간을 수동으로 구성합니다.
++
+시계
+
++
+[listing]
+----
+(cs2) #config
+(cs2) (Config)#no sntp client mode
+(cs2) (Config)#clock summer-time recurring 1 sun mar 02:00 1 sun nov 02:00 offset 60 zone EST
+(cs2) (Config)#clock timezone -5 zone EST
+(cs2) (Config)#clock set 07:00:00
+(cs2) (Config)#clock set 10/20/2020
+
+(cs2) (Config)#show clock
+
+07:00:11 EST(UTC-5:00) Oct 20 2020
+No time source
+
+(cs2) (Config)#exit
+
+(cs2) #write memory
+
+This operation may take a few minutes.
+Management interfaces will not be available during this time.
+
+Are you sure you want to save? (y/n) **y**
+
+Config file 'startup-config' created successfully .
+
+Configuration Saved!
+----
+
+
+

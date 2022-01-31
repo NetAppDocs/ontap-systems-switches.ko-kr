@@ -1,0 +1,204 @@
+---
+permalink: switch-bes-53248/configure-efos-software.html 
+sidebar: sidebar 
+keywords: BES-53248 cluster switches,installing EFOS software 
+summary: 이 절차를 사용하여 BES-53248 클러스터 스위치에 EFOS 소프트웨어를 설치할 수 있습니다. Broadcom Ethernet 스위치 지원 사이트에서 클러스터 스위치에 해당하는 Broadcom EFOS 소프트웨어를 다운로드할 수 있습니다. 
+---
+= EFOS 소프트웨어를 설치합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 절차를 사용하여 BES-53248 클러스터 스위치에 EFOS 소프트웨어를 설치할 수 있습니다. Broadcom Ethernet 스위치 지원 사이트에서 클러스터 스위치에 해당하는 Broadcom EFOS 소프트웨어를 다운로드할 수 있습니다.
+
+.단계
+. BES-53248 클러스터 스위치를 관리 네트워크에 연결합니다.
+. "ping" 명령을 사용하여 EFOS, 라이센스 및 RCF 파일을 호스팅하는 서버에 대한 연결을 확인합니다.
++
+이 예에서는 스위치가 IP 주소 172.19.2.1로 서버에 연결되어 있는지 확인합니다.
+
++
+[listing]
+----
+(cs2) # ping 172.19.2.1
+Pinging 172.19.2.1 with 0 bytes of data:
+
+Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
+----
+. CS2에서 현재 활성 이미지 백업:
++
+'How bootvar'입니다
+
++
+[listing]
+----
+(cs2) # show bootvar
+
+ Image Descriptions
+
+ active :
+ backup :
+
+
+ Images currently available on Flash
+
+--------------------------------------------------------------------
+ unit      active      backup        current-active    next-active
+--------------------------------------------------------------------
+
+    1      3.4.3.3     Q.10.22.1     3.4.3.3           3.4.3.3
+(cs2) # copy active backup
+Copying active to backup
+Management access will be blocked for the duration of the operation
+Copy operation successful
+
+(cs2) # show bootvar
+
+Image Descriptions
+
+ active :
+ backup :
+
+
+ Images currently available on Flash
+
+--------------------------------------------------------------------
+ unit      active      backup      current-active    next-active
+--------------------------------------------------------------------
+
+    1      3.4.3.3     3.4.3.3     3.4.3.3           3.4.3.3
+(cs2) #
+----
+. 실행 중인 EFOS 소프트웨어 버전을 확인합니다.
++
+'How version'입니다
+
++
+[listing]
+----
+(cs2) # show version
+
+Switch: 1
+
+System Description............................. Quanta IX8-B 48x25GB SFP 8x100GB QSFP, 3.4.3.3, Linux 4.4.117-ceeeb99d, 2016.05.00.04
+Machine Type................................... Quanta IX8-B 48x25GB SFP 8x100GB QSFP
+Machine Model.................................. IX8-B
+Serial Number.................................. QTFCU38260014
+Maintenance Level.............................. A
+Manufacturer................................... 0xbc00
+Burned In MAC Address.......................... D8:C4:97:71:12:3D
+Software Version............................... 3.4.3.3
+Operating System............................... Linux 4.4.117-ceeeb99d
+Network Processing Device...................... BCM56873_A0
+CPLD Version................................... 0xff040c03
+
+Additional Packages............................ BGP-4
+...............................................	QOS
+...............................................	Multicast
+............................................... IPv6
+............................................... Routing
+............................................... Data Center
+............................................... OpEN API
+............................................... Prototype Open API
+----
+. 이미지 파일을 스위치에 다운로드합니다.
++
+이미지 파일을 활성 이미지로 복사하는 것은 재부팅할 때 해당 이미지가 실행 중인 EFOS 버전을 설정한다는 것을 의미합니다. 이전 이미지는 백업으로 사용할 수 있습니다.
+
++
+[listing]
+----
+(cs2) # copy sftp://root@172.19.2.1//tmp/EFOS-3.4.4.6.stk active
+Remote Password:********
+
+Mode........................................... SFTP
+Set Server IP.................................. 172.19.2.1
+Path........................................... //tmp/
+Filename....................................... EFOS-3.4.4.6.stk
+Data Type...................................... Code
+Destination Filename........................... active
+
+Management access will be blocked for the duration of the transfer
+Are you sure you want to start? (y/n) y
+SFTP Code transfer starting...
+
+
+File transfer operation completed successfully.
+----
+. 활성 및 백업 구성에 대한 부팅 이미지를 표시합니다.
++
+'How bootvar'입니다
+
++
+[listing]
+----
+(cs2) # show bootvar
+
+Image Descriptions
+
+ active :
+ backup :
+
+
+ Images currently available on Flash
+
+--------------------------------------------------------------------
+ unit      active      backup     current-active        next-active
+--------------------------------------------------------------------
+
+    1     3.4.3.3     3.4.3.3            3.4.3.3            3.4.4.6
+----
+. 스위치를 재부팅합니다.
++
+다시 로드
+
++
+[listing]
+----
+(cs2) # reload
+
+The system has unsaved changes.
+Would you like to save them now? (y/n) y
+
+Config file 'startup-config' created successfully .
+Configuration Saved!
+System will now restart!
+----
+. 다시 로그인하여 EFOS 소프트웨어의 새 버전을 확인합니다.
++
+'How version'입니다
+
++
+[listing]
+----
+(cs2) # show version
+
+Switch: 1
+
+System Description............................. x86_64-quanta_common_rglbmc-r0, 3.4.4.6, Linux 4.4.211-28a6fe76, 2016.05.00.04
+Machine Type................................... x86_64-quanta_common_rglbmc-r0
+Machine Model.................................. BES-53248
+Serial Number.................................. QTFCU38260023
+Maintenance Level.............................. A
+Manufacturer................................... 0xbc00
+Burned In MAC Address.......................... D8:C4:97:71:0F:40
+Software Version............................... 3.4.4.6
+Operating System............................... Linux 4.4.211-28a6fe76
+Network Processing Device...................... BCM56873_A0
+CPLD Version................................... 0xff040c03
+
+Additional Packages............................ BGP-4
+...............................................	QOS
+...............................................	Multicast
+............................................... IPv6
+............................................... Routing
+............................................... Data Center
+............................................... OpEN API
+............................................... Prototype Open API
+----
+
+
+* 관련 정보 *
+
+https://www.broadcom.com/support/bes-switch["Broadcom Ethernet 스위치 지원"^]

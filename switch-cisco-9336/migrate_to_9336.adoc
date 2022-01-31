@@ -1,0 +1,548 @@
+---
+permalink: switch-cisco-9336/migrate-to-9336.html 
+sidebar: sidebar 
+keywords: migrating to a cluster with Cisco Nexus 9336C-FX2 cluster switches, how to migrate 
+summary: ONTAP 클러스터에 대한 운영 중단 없이 이전 Cisco 클러스터 스위치를 Cisco Nexus 9336C-FX2 클러스터 네트워크 스위치로 마이그레이션할 수 있습니다. 
+---
+= Cisco 스위치에서 Cisco Nexus 9336C-FX2 클러스터 스위치로 마이그레이션하는 방법
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 클러스터에 대한 운영 중단 없이 이전 Cisco 클러스터 스위치를 Cisco Nexus 9336C-FX2 클러스터 네트워크 스위치로 마이그레이션할 수 있습니다.
+
+* 기존 클러스터가 올바르게 설정되고 작동해야 합니다.
+* 무중단 운영을 보장하기 위해 모든 클러스터 포트가 가동 상태여야 합니다.
+* Nexus 9336C-FX2 클러스터 스위치는 적절한 버전의 NX-OS 설치 및 RCF(Reference Configuration File)를 적용하여 구성 및 작동해야 합니다.
+* 기존 클러스터 네트워크 구성에는 다음이 있어야 합니다.
++
+** 구형 Cisco 스위치를 사용하는 완전히 기능이 정상 작동하는 중복 NetApp 클러스터입니다.
+** 이전 Cisco 스위치와 새 스위치 모두에 대한 관리 연결 및 콘솔 액세스
+** 클러스터 LIF를 사용하는 UP 상태의 모든 클러스터 LIF는 홈 포트에 있습니다.
+** 이전 Cisco 스위치 간에 또는 새 스위치 간에 연결되고 연결된 ISL 포트
+
+
+
+
+이 절차의 예에서는 다음 스위치 및 노드 명명법을 사용합니다.
+
+* 기존 Cisco Nexus 5596UP 클러스터 스위치는 C1 및 C2입니다.
+* 새로운 Nexus 9336C-FX2 클러스터 스위치는 CS1과 CS2입니다.
+* 노드는 노드 1과 노드 2입니다.
+* 클러스터 LIF는 노드 1의 node1_clus1 및 node1_clus2이고, 노드 2의 node2_clus1 및 node2_clus2입니다.
+* 스위치 C2가 먼저 스위치 CS2로 대체된 다음 스위치 C1이 스위치 CS1로 대체됩니다.
++
+** 임시 ISL은 C1을 CS1에 연결하는 CS1에 구축됩니다.
+** 그런 다음 노드와 C2 사이의 케이블 연결을 C2에서 분리하고 CS2에 다시 연결합니다.
+** 그런 다음, 노드와 C1 사이의 케이블 연결을 C1에서 분리하고 CS1에 다시 연결합니다.
+** 그런 다음 C1과 CS1 사이의 임시 ISL이 제거됩니다.
++
+... 이 클러스터에서 AutoSupport가 활성화되어 있으면 'system node AutoSupport invoke -node * -type all-message maINT=xh' AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다
++
+여기서 x는 유지 보수 기간(시간)입니다.
+
++
+
+NOTE: AutoSupport 메시지는 유지보수 기간 동안 자동 케이스 생성이 억제되도록 이 유지보수 작업의 기술 지원에 알립니다.
+
+... 권한 수준을 고급으로 변경하고 'Set-Privilege advanced'라는 메시지가 나타나면 * y * 를 입력합니다
++
+고급 프롬프트(*>)가 나타납니다.
+
+... 모든 클러스터 LIF에서 'network interface show-vserver Cluster-fields auto-revert'라는 자동 되돌리기 기능이 설정되어 있는지 확인합니다
++
+[listing]
+----
+cluster1::*> network interface show -vserver Cluster -fields auto-revert
+
+          Logical
+Vserver   Interface     Auto-revert
+--------- ------------- ------------
+Cluster
+          node1_clus1   true
+          node1_clus2   true
+          node2_clus1   true
+          node2_clus2   true
+
+4 entries were displayed.
+----
+... 각 클러스터 인터페이스의 관리 또는 운영 상태 확인:
++
+각 포트는 Link에, Health Status에 대해서는 Healthy로 표시되어야 합니다.
+
++
+.... 네트워크 포트 속성 'network port show-ipSpace Cluster'를 표시합니다
++
+[listing]
+----
+cluster1::*> network port show -ipspace Cluster
+
+Node: node1
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+Node: node2
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+4 entries were displayed.
+----
+.... 논리 인터페이스 및 지정된 홈 노드에 대한 정보를 표시합니다. 네트워크 인터페이스 show-vserver 클러스터
++
+각 LIF는 '상태 관리/작업'에 대해 위/위로 표시되고 '홈'에 대해서는 true로 표시되어야 합니다.
+
++
+[listing]
+----
+cluster1::*> network interface show -vserver Cluster
+
+            Logical      Status     Network            Current       Current Is
+Vserver     Interface    Admin/Oper Address/Mask       Node          Port    Home
+----------- -----------  ---------- ------------------ ------------- ------- ----
+Cluster
+            node1_clus1  up/up      169.254.209.69/16  node1         e0a     true
+            node1_clus2  up/up      169.254.49.125/16  node1         e0b     true
+            node2_clus1  up/up      169.254.47.194/16  node2         e0a     true
+            node2_clus2  up/up      169.254.19.183/16  node2         e0b     true
+
+4 entries were displayed.
+----
+
+
+... 각 노드의 클러스터 포트는 'network device-discovery show-protocol CDP' 명령을 사용하여 노드 관점에서 기존 클러스터 스위치에 연결됩니다
++
+[listing]
+----
+cluster1::*> network device-discovery show -protocol cdp
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------  ----------------
+node2      /cdp
+            e0a    c1                        0/2               N5K-C5596UP
+            e0b    c2                        0/2               N5K-C5596UP
+node1      /cdp
+            e0a    c1                        0/1               N5K-C5596UP
+            e0b    c2                        0/1               N5K-C5596UP
+
+4 entries were displayed.
+----
+... 클러스터 포트와 스위치는 'show CDP neighbors' 명령을 사용하여 스위치의 관점에서 다음과 같이 연결됩니다
++
+[listing]
+----
+c1# show cdp neighbors
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+
+Device-ID             Local Intrfce Hldtme Capability  Platform         Port ID
+node1                 Eth1/1         124   H           FAS2750          e0a
+node2                 Eth1/2         124   H           FAS2750          e0a
+c2                    Eth1/41        179   S I s       N5K-C5596UP      Eth1/41
+c2                    Eth1/42        175   S I s       N5K-C5596UP      Eth1/42
+c2                    Eth1/43        179   S I s       N5K-C5596UP      Eth1/43
+c2                    Eth1/44        175   S I s       N5K-C5596UP      Eth1/44
+c2                    Eth1/45        179   S I s       N5K-C5596UP      Eth1/45
+c2                    Eth1/46        179   S I s       N5K-C5596UP      Eth1/46
+c2                    Eth1/47        175   S I s       N5K-C5596UP      Eth1/47
+c2                    Eth1/48        179   S I s       N5K-C5596UP      Eth1/48
+Total entries displayed: 10
+
+c2# show cdp neighbors
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+
+Device-ID             Local Intrfce Hldtme Capability  Platform         Port ID
+node1                 Eth1/1        124    H           FAS2750          e0b
+node2                 Eth1/2        124    H           FAS2750          e0b
+c1                    Eth1/41       175    S I s       N5K-C5596UP      Eth1/41
+c1                    Eth1/42       175    S I s       N5K-C5596UP      Eth1/42
+c1                    Eth1/43       175    S I s       N5K-C5596UP      Eth1/43
+c1                    Eth1/44       175    S I s       N5K-C5596UP      Eth1/44
+c1                    Eth1/45       175    S I s       N5K-C5596UP      Eth1/45
+c1                    Eth1/46       175    S I s       N5K-C5596UP      Eth1/46
+c1                    Eth1/47       176    S I s       N5K-C5596UP      Eth1/47
+c1                    Eth1/48       176    S I s       N5K-C5596UP      Eth1/48
+----
+... 'cluster ping -cluster -node -name' 명령을 사용하여 클러스터 네트워크가 완전히 연결되어 있는지 확인합니다
++
+[listing]
+----
+
+
+cluster1::*> cluster ping-cluster -node node2
+Host is node2
+Getting addresses from network interface table...
+Cluster node1_clus1 169.254.209.69 node1     e0a
+Cluster node1_clus2 169.254.49.125 node1     e0b
+Cluster node2_clus1 169.254.47.194 node2     e0a
+Cluster node2_clus2 169.254.19.183 node2     e0b
+Local = 169.254.47.194 169.254.19.183
+Remote = 169.254.209.69 169.254.49.125
+Cluster Vserver Id = 4294967293
+Ping status:
+....
+Basic connectivity succeeds on 4 path(s)
+Basic connectivity fails on 0 path(s)
+................
+Detected 9000 byte MTU on 4 path(s):
+    Local 169.254.19.183 to Remote 169.254.209.69
+    Local 169.254.19.183 to Remote 169.254.49.125
+    Local 169.254.47.194 to Remote 169.254.209.69
+    Local 169.254.47.194 to Remote 169.254.49.125
+Larger than PMTU communication succeeds on 4 path(s)
+RPC status:
+2 paths up, 0 paths down (tcp check)
+2 paths up, 0 paths down (udp check)
+----
+... C1 및 CS1 사이에 있는 포트 e1/41-48의 cs1에 임시 ISL을 구성합니다.
++
+다음 예에서는 새 ISL이 C1 및 CS1에 어떻게 구성되어 있는지 보여 줍니다.
+
++
+[listing]
+----
+cs1# configure
+Enter configuration commands, one per line. End with CNTL/Z.
+cs1(config)# interface e1/41-48
+cs1(config-if-range)# description temporary ISL between Nexus 5596UP and Nexus 9336C
+cs1(config-if-range)# no lldp transmit
+cs1(config-if-range)# no lldp receive
+cs1(config-if-range)# switchport mode trunk
+cs1(config-if-range)# no spanning-tree bpduguard enable
+cs1(config-if-range)# channel-group 101 mode active
+cs1(config-if-range)# exit
+cs1(config)# interface port-channel 101
+cs1(config-if)# switchport mode trunk
+cs1(config-if)# spanning-tree port type network
+cs1(config-if)# exi
+cs1(config)# exit
+----
+... 포트 1/41-48에서 ISL 케이블을 C2에서 분리하고 케이블을 CS1의 포트 1/41-48에 연결합니다.
+... ISL 포트 및 포트 채널이 C1 및 CS1을 연결하는 작동 중인지 확인합니다. '포트 채널 요약 정보'
++
+다음 예에서는 ISL 포트가 C1 및 CS1에서 작동하는지 확인하는 데 사용되는 Cisco show port-channel summary 명령을 보여 줍니다.
+
++
+[listing]
+----
+c1# show port-channel summary
+Flags:  D - Down        P - Up in port-channel (members)
+        I - Individual  H - Hot-standby (LACP only)
+        s - Suspended   r - Module-removed
+        b - BFD Session Wait
+        S - Switched    R - Routed
+        U - Up (port-channel)
+        p - Up in delay-lacp mode (member)
+        M - Not in use. Min-links not met
+--------------------------------------------------------------------------------
+Group Port-       Type     Protocol  Member Ports
+      Channel
+--------------------------------------------------------------------------------
+1     Po1(SU)     Eth      LACP      Eth1/41(P)   Eth1/42(P)   Eth1/43(P)
+                                     Eth1/44(P)   Eth1/45(P)   Eth1/46(P)
+                                     Eth1/47(P)   Eth1/48(P)
+
+
+cs1# show port-channel summary
+Flags:  D - Down        P - Up in port-channel (members)
+        I - Individual  H - Hot-standby (LACP only)
+        s - Suspended   r - Module-removed
+        b - BFD Session Wait
+        S - Switched    R - Routed
+        U - Up (port-channel)
+        p - Up in delay-lacp mode (member)
+        M - Not in use. Min-links not met
+--------------------------------------------------------------------------------
+Group Port-       Type     Protocol  Member Ports
+      Channel
+--------------------------------------------------------------------------------
+1     Po1(SU)     Eth      LACP      Eth1/35(P)   Eth1/36(P)
+101   Po101(SU)   Eth      LACP      Eth1/41(P)   Eth1/42(P)   Eth1/43(P)
+                                     Eth1/44(P)   Eth1/45(P)   Eth1/46(P)
+                                     Eth1/47(P)   Eth1/48(P)
+----
+... 노드 1의 경우 C2의 e1/1에서 케이블을 분리한 다음 Nexus 9336C-FX2에서 지원하는 적절한 케이블을 사용하여 CS2의 e1/1에 케이블을 연결합니다.
+... 노드 2의 경우 C2의 e1/2에서 케이블을 분리한 다음 Nexus 9336C-FX2에서 지원하는 적절한 케이블을 사용하여 CS2의 e1/2에 케이블을 연결합니다.
+... 각 노드의 클러스터 포트는 이제 노드의 관점에서 클러스터 스위치에 다음과 같이 연결됩니다. 'network device-discovery show-protocol CDP'
++
+[listing]
+----
+cluster1::*> network device-discovery show -protocol cdp
+
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------  ----------------
+node2      /cdp
+            e0a    c1                        0/2               N5K-C5596UP
+            e0b    cs2                       0/2               N9K-C9336C
+node1      /cdp
+            e0a    c1                        0/1               N5K-C5596UP
+            e0b    cs2                       0/1               N9K-C9336C
+
+4 entries were displayed.
+----
+... 노드 1의 경우, 1C1의 e1/1에서 케이블을 분리한 다음 Nexus 9336C-FX2에서 지원하는 적절한 케이블을 사용하여 CS1의 e1/1에 케이블을 연결합니다.
+... 노드 2의 경우, C1의 e1/2에서 케이블을 분리한 다음 Nexus 9336C-FX2에서 지원하는 적절한 케이블을 사용하여 CS1의 e1/2에 케이블을 연결합니다.
+... 각 노드의 클러스터 포트는 이제 노드의 관점에서 클러스터 스위치에 다음과 같이 연결됩니다. 'network device-discovery show-protocol CDP'
++
+[listing]
+----
+cluster1::*> network device-discovery show -protocol cdp
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------  ----------------
+node2      /cdp
+            e0a    cs1                       0/2               N9K-C9336C
+            e0b    cs2                       0/2               N9K-C9336C
+node1      /cdp
+            e0a    cs1                       0/1               N9K-C9336C
+            e0b    cs2                       0/1               N9K-C9336C
+4 entries were displayed.
+----
+... CS1과 C1 사이의 임시 ISL을 삭제합니다.
++
+[listing]
+----
+cs1(config)# no interface port-channel 10
+cs1(config)# interface e1/41-48
+cs1(config-if-range)# lldp transmit
+cs1(config-if-range)# lldp receive
+cs1(config-if-range)# no switchport mode trunk
+cs1(config-if-range)# no channel-group
+cs1(config-if-range)# description 10GbE Node Port
+cs1(config-if-range)# spanning-tree bpduguard enable
+cs1(config-if-range)# exit
+cs1(config)# exit
+----
+... 클러스터의 최종 구성 'network port show-ipSpace Cluster'를 확인합니다
++
+각 포트는 Link에, Health Status에 대해서는 Healthy로 표시되어야 합니다.
+
++
+[listing]
+----
+cluster1::*> network port show -ipspace Cluster
+
+Node: node1
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+Node: node2
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+4 entries were displayed.
+
+
+cluster1::*> network interface show -vserver Cluster
+
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ----
+Cluster
+            node1_clus1  up/up    169.254.209.69/16  node1         e0a     true
+            node1_clus2  up/up    169.254.49.125/16  node1         e0b     true
+            node2_clus1  up/up    169.254.47.194/16  node2         e0a     true
+            node2_clus2  up/up    169.254.19.183/16  node2         e0b     true
+
+4 entries were displayed.
+
+
+cluster1::*> network device-discovery show -protocol cdp
+
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------  ----------------
+node2      /cdp
+            e0a    cs1                       0/2               N9K-C9336C
+            e0b    cs2                       0/2               N9K-C9336C
+node1      /cdp
+            e0a    cs1                       0/1               N9K-C9336C
+            e0b    cs2                       0/1               N9K-C9336C
+
+4 entries were displayed.
+
+
+cs1# show cdp neighbors
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
+node1              Eth1/1         124    H           FAS2750       e0a
+node2              Eth1/2         124    H           FAS2750       e0a
+cs2                Eth1/35        179    R S I s     N9K-C9336C    Eth1/35
+cs2                Eth1/36        179    R S I s     N9K-C9336C    Eth1/36
+
+
+cs2# show cdp neighbors
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
+node1              Eth1/1         124    H           FAS2750       e0b
+node2              Eth1/2         124    H           FAS2750       e0b
+cs1                Eth1/35        179    R S I s     N9K-C9336C    Eth1/35
+cs1                Eth1/36        179    R S I s     N9K-C9336C    Eth1/36
+
+Total entries displayed: 4
+----
+... 클러스터 네트워크에 'cluster ping-cluster-node-name'(클러스터 ping-cluster-node-name)이 완전히 연결되어 있는지 확인합니다
++
+[listing]
+----
+cluster1::*> set -priv advanced
+
+Warning: These advanced commands are potentially dangerous; use them only when
+         directed to do so by NetApp personnel.
+Do you want to continue? {y|n}: y
+
+cluster1::*> **cluster ping-cluster -node node2**
+Host is node2
+Getting addresses from network interface table...
+Cluster node1_clus1 169.254.209.69 node1     e0a
+Cluster node1_clus2 169.254.49.125 node1     e0b
+Cluster node2_clus1 169.254.47.194 node2     e0a
+Cluster node2_clus2 169.254.19.183 node2     e0b
+Local = 169.254.47.194 169.254.19.183
+Remote = 169.254.209.69 169.254.49.125
+Cluster Vserver Id = 4294967293
+Ping status:
+....
+Basic connectivity succeeds on 4 path(s)
+Basic connectivity fails on 0 path(s)
+................
+Detected 9000 byte MTU on 4 path(s):
+    Local 169.254.19.183 to Remote 169.254.209.69
+    Local 169.254.19.183 to Remote 169.254.49.125
+    Local 169.254.47.194 to Remote 169.254.209.69
+    Local 169.254.47.194 to Remote 169.254.49.125
+Larger than PMTU communication succeeds on 4 path(s)
+RPC status:
+2 paths up, 0 paths down (tcp check)
+2 paths up, 0 paths down (udp check)
+
+
+cluster1::*> set -privilege admin
+cluster1::*>
+----
+... ONTAP 9.8 이상에서는 시스템 스위치 이더넷 로그 설정 암호 시스템 스위치 이더넷 로그 활성화 수집 명령을 사용하여 스위치 관련 로그 파일을 수집하는 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화합니다
++
+[listing]
+----
+cluster1::*> system switch ethernet log setup-password
+Enter the switch name: <return>
+The switch name entered is not recognized.
+Choose from the following list:
+cs1
+cs2
+
+cluster1::*> system switch ethernet log setup-password
+
+Enter the switch name: cs1
+RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
+Do you want to continue? {y|n}::[n] y
+
+Enter the password: <enter switch password>
+Enter the password again: <enter switch password>
+
+cluster1::*> system switch ethernet log setup-password
+
+Enter the switch name: cs2
+RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
+Do you want to continue? {y|n}:: [n] y
+
+Enter the password: <enter switch password>
+Enter the password again: <enter switch password>
+
+cluster1::*> system  switch ethernet log enable-collection
+
+Do you want to enable cluster log collection for all nodes in the cluster?
+{y|n}: [n] y
+
+Enabling cluster switch log collection.
+
+cluster1::*>
+----
++
+
+NOTE: 이러한 명령에서 오류가 반환되면 NetApp 지원에 문의하십시오.
+
+... ONTAP 릴리스 9.5P16, 9.6P12 및 9.7P10 이상의 패치 릴리스의 경우, 'system cluster cluster-switch log setup-password system cluster-switch log enable-collection' 명령을 사용하여 스위치 관련 로그 파일을 수집하기 위한 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화합니다
++
+[listing]
+----
+cluster1::*> system cluster-switch log setup-password
+Enter the switch name: <return>
+The switch name entered is not recognized.
+Choose from the following list:
+cs1
+cs2
+
+cluster1::*> system cluster-switch log setup-password
+
+Enter the switch name: cs1
+RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
+Do you want to continue? {y|n}::[n] y
+
+Enter the password: <enter switch password>
+Enter the password again: <enter switch password>
+
+cluster1::*> system cluster-switch log setup-password
+
+Enter the switch name: cs2
+RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
+Do you want to continue? {y|n}:: [n] y
+
+Enter the password: <enter switch password>
+Enter the password again: <enter switch password>
+
+cluster1::*> system cluster-switch log enable-collection
+
+Do you want to enable cluster log collection for all nodes in the cluster?
+{y|n}: [n] y
+
+Enabling cluster switch log collection.
+
+cluster1::*>
+----
++
+
+NOTE: 이러한 명령에서 오류가 반환되면 NetApp 지원에 문의하십시오.
+
+... 자동 케이스 생성을 억제한 경우 AutoSupport 메시지 '시스템 노드 AutoSupport invoke -node * -type all-message MAINT=end'를 호출하여 다시 활성화합니다
+
+
+
+
+

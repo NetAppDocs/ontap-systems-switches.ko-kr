@@ -1,0 +1,128 @@
+---
+permalink: switch-bes-53248/configure-edit-rcf.html 
+sidebar: sidebar 
+keywords: edit rcf bes-53248 
+summary: 새로 라이센스가 부여된 포트를 활성화하려면 최신 버전의 RCF를 편집하고 해당 포트 세부 정보의 주석을 해제해야 합니다. 기본 라이센스는 포트 0/1 - 0/16 및 0/55 - 0/56 을 활성화하며, 새로 라이센스가 부여된 포트는 사용 가능한 라이센스의 유형과 수에 따라 포트 0/17 - 0/54 사이에 있게 됩니다. 
+---
+= RCF(Reference Configuration File) - BES-53248 스위치를 편집합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+새로 라이센스가 부여된 포트를 활성화하려면 최신 버전의 RCF를 편집하고 해당 포트 세부 정보의 주석을 해제해야 합니다. 기본 라이센스는 포트 0/1 - 0/16 및 0/55 - 0/56 을 활성화하며, 새로 라이센스가 부여된 포트는 사용 가능한 라이센스의 유형과 수에 따라 포트 0/17 - 0/54 사이에 있게 됩니다.
+
+BES-53248 클러스터 스위치에서 사용할 수 있는 라이센스 유형에 대한 자세한 내용은 을 참조하십시오 link:configure-licenses.html["BES-53248 클러스터 스위치용 라이센스 설치"^].
+
+예를 들어, SW-BES54248-40-100G-LIC 라이센스를 활성화하려면 RCF에서 다음 섹션의 주석을 해제해야 합니다.
+
+[listing]
+----
+.
+.
+!
+! 2-port or 6-port 40/100GbE node port license block
+!
+interface 0/49
+no shutdown
+description "40/100GbE Node Port"
+!speed 100G full-duplex
+speed 40G full-duplex
+service-policy in WRED_100G
+spanning-tree edgeport
+mtu 9216
+switchport mode trunk
+datacenter-bridging
+priority-flow-control mode on
+priority-flow-control priority 5 no-drop
+exit
+exit
+!
+interface 0/50
+no shutdown
+description "40/100GbE Node Port"
+!speed 100G full-duplex
+speed 40G full-duplex
+service-policy in WRED_100G
+spanning-tree edgeport
+mtu 9216
+switchport mode trunk
+datacenter-bridging
+priority-flow-control mode on
+priority-flow-control priority 5 no-drop
+exit
+exit
+!
+interface 0/51
+no shutdown
+description "40/100GbE Node Port"
+speed 100G full-duplex
+!speed 40G full-duplex
+service-policy in WRED_100G
+spanning-tree edgeport
+mtu 9216
+switchport mode trunk
+datacenter-bridging
+priority-flow-control mode on
+priority-flow-control priority 5 no-drop
+exit
+exit
+!
+interface 0/52
+no shutdown
+description "40/100GbE Node Port"
+speed 100G full-duplex
+!speed 40G full-duplex
+service-policy in WRED_100G
+spanning-tree edgeport
+mtu 9216
+switchport mode trunk
+datacenter-bridging
+priority-flow-control mode on
+priority-flow-control priority 5 no-drop
+exit
+exit
+!
+interface 0/53
+no shutdown
+description "40/100GbE Node Port"
+speed 100G full-duplex
+!speed 40G full-duplex
+service-policy in WRED_100G
+spanning-tree edgeport
+mtu 9216
+switchport mode trunk
+datacenter-bridging
+priority-flow-control mode on
+priority-flow-control priority 5 no-drop
+exit
+exit
+!
+interface 0/54
+no shutdown
+description "40/100GbE Node Port"
+speed 100G full-duplex
+!speed 40G full-duplex
+service-policy in WRED_100G
+spanning-tree edgeport
+mtu 9216
+switchport mode trunk
+datacenter-bridging
+priority-flow-control mode on
+priority-flow-control priority 5 no-drop
+exit
+exit
+!
+.
+.
+----
+
+NOTE: 0/49에서 0/54까지의 고속 포트에서는 각 포트에 대해 코멘트를 하지 않고 각 포트에 대해 RCF에 하나의 * 속도 * 라인만을 주석으로 표시하되, 다음 중 하나를 수행합니다.
+
+* 속도 100G 전이중
+* 속도 40G 전이중
+
+
+예를 참조하십시오.
+
+17/0/48 사이의 저속 포트의 경우, 적절한 라이센스가 활성화된 경우 전체 8포트 섹션의 설명을 해제하십시오.

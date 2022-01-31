@@ -1,0 +1,296 @@
+---
+sidebar: sidebar 
+permalink: switch-cisco-9336c-shared/9336c_setup_and_configuration_guide_for_cisco_shared_switches.html 
+keywords:  
+summary:  
+---
+= Cisco 공유 스위치에 대한 설정 및 구성 가이드
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+
+
+== ONTAP에서 지원하는 스위치
+
+ONTAP 9.9.1에서 Cisco Nexus 9336C-FX2 스위치를 사용하여 스토리지 및 클러스터 기능을 공유 스위치 시나리오에 결합할 수 있습니다. 2개 이상의 노드로 ONTAP 네트워크를 구축하려면 두 개의 지원되는 네트워크 스위치가 필요합니다.
+
+다음 Cisco 공유 네트워크 스위치가 지원됩니다.
+
+
+
+=== Nexus 9336C-FX2
+
+Cisco Nexus 9336C-FX2 스위치(X190200/X190210)는 스위치에 포함된 표준 브래킷을 사용하여 NetApp 시스템 캐비닛 또는 타사 캐비닛에 설치할 수 있습니다.
+
+다음 표에는 9336C-FX2 스위치, 팬 및 전원 공급 장치에 대한 부품 번호 및 설명이 나와 있습니다.
+
+|===
+| 부품 번호 | 설명 
+
+
+| X190200-CS-PE | N9K-9336C-FX2, CS, PTSX, 36PT10/25/40/100GQSFP28 
+
+
+| X190200-CS-PI | N9K-9336C-FX2, CS, PSIN, 36PT10/25/40/100GQSFP28 
+
+
+| X190210-FE-PE | N9K-9336C, FTE, PTSX, 36PT10/25/40/100GQSFP28 
+
+
+| X190210-FE-PI | N9K-9336C, FTE, PSIN, 36PT10/25/40/100GQSFP28 
+
+
+| X190002 | 액세서리 키트 X190001/X190003 
+
+
+| X-NXA-PAC-1100W-PE2 | N9K-9336C AC 1100W PSU - 포트 쪽 배기구 통기구 
+
+
+| X-NXA-PAC-1100W-PI2 | N9K-9336C AC 1100W PSU - 포트 쪽 흡입 공기 흐름 
+
+
+| X-NXA-FAN-65CFM-PE | N9K-9336C 65CFM, 포트 쪽 배기구 통기구 
+
+
+| X-NXA-FAN-65CFM-PI | N9K-9336C 65CFM, 포트 쪽 흡입 공기 흐름 
+|===
+
+
+== 스위치를 설정합니다
+
+필요한 구성 정보 및 설명서가 없는 경우 공유 스위치를 설정하기 전에 해당 정보를 수집해야 합니다.
+
+.시작하기 전에
+* 해당 NX-OS 및 RCF(Reference Configuration File) 릴리즈를 다운로드하려면 설치 사이트에서 HTTP, FTP 또는 TFTP 서버에 액세스할 수 있어야 합니다.
+* 필요한 공유 스위치 문서가 있어야 합니다.
++
+을 참조하십시오 <<Required documentation for shared switches>> 를 참조하십시오.
+
+* 필요한 컨트롤러 설명서와 ONTAP 설명서가 있어야 합니다.
++
+을 참조하십시오 https://docs.netapp.com/us-en/ontap/index.html["NetApp ONTAP 문서"].
+
+* 해당 라이센스, 네트워크 및 구성 정보, 케이블이 있어야 합니다.
+* 완성된 케이블링 워크시트가 있어야 합니다.
+
+
+
+NOTE: 이 가이드에서는 케이블 연결 그래픽 외에도 네트워크 설정에 사용할 수 있는 권장 포트 할당 및 빈 워크시트가 포함된 예제 워크시트를 제공합니다. 자세한 내용은 를 참조하십시오 https://hwu.netapp.com["Hardware Universe"].
+
+모든 Cisco 공유 스위치는 표준 Cisco 공장 출하시 기본 구성으로 제공됩니다. 이러한 스위치에는 최신 버전의 NX-OS 소프트웨어도 있지만 RCFs가 로드되지 않았습니다.
+
+* 주의: * 에서 해당 NetApp RCF를 다운로드해야 합니다 https://mysupport.netapp.com["NetApp Support 사이트"] 를 선택합니다.
+
+
+
+=== 절차를 참조하십시오
+
+. 스위치 및 컨트롤러를 랙에 장착 를 참조하십시오https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-sw-9336c-install-cabinet/GUID-92287262-E7A6-4A62-B159-7F148097B33B.html["NetApp 캐비닛에 Cisco Nexus 9336C-FX2 클러스터 스위치 및 패스스루 패널 설치"] NetApp 캐비닛에 스위치를 설치하는 지침 가이드
+. 스위치 및 컨트롤러의 전원을 켭니다.
+. [[step3]] 에 제공된 정보를 기반으로 스위치의 초기 구성을 수행합니다 <<Required configuration information>>.
+. 설정 끝에 나타나는 디스플레이에서 선택한 구성을 확인하고 구성을 저장했는지 확인합니다.
+. 스위치에서 소프트웨어 버전을 확인하고 필요한 경우 NetApp 지원 소프트웨어 버전을 스위치에 다운로드합니다.
++
+NetApp 지원 소프트웨어 버전을 다운로드할 경우 NetApp 네트워크 스위치 참조 구성 파일 을 다운로드하여 에 저장된 구성과 병합해야 합니다 <<step3,3단계>>. 에서 파일과 지침을 다운로드할 수 있습니다 https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치"] 페이지. 자체 스위치가 있는 경우 을 참조하십시오 사이트.
+
+
+
+
+
+=== 필수 구성 정보입니다
+
+구성을 위해서는 해당 스위치에 맞는 케이블 및 케이블 커넥터 수와 유형이 필요합니다. 처음 구성하는 스위치의 유형에 따라 포함된 콘솔 케이블을 사용하여 스위치 콘솔 포트에 연결해야 합니다. 또한 특정 네트워크 정보를 제공해야 합니다.
+
+
+
+=== 모든 스위치에 필요한 네트워크 정보
+
+* 모든 스위치 구성에 대해 다음 네트워크 정보가 필요합니다.
++
+** 관리 네트워크 트래픽을 위한 IP 서브넷입니다
+** 각 스토리지 시스템 컨트롤러 및 해당하는 모든 스위치의 호스트 이름 및 IP 주소
+** 대부분의 스토리지 시스템 컨트롤러는 이더넷 서비스 포트(렌치 아이콘)에 연결하여 e0M 인터페이스를 통해 관리됩니다. AFF A800 및 AFF A700 시스템에서 e0M 인터페이스는 전용 이더넷 포트를 사용합니다.
+
+
+* 을 참조하십시오 https://hwu.netapp.com["Hardware Universe"] 를 참조하십시오.
+
+
+
+
+=== Cisco Nexus 9336C-FX2 스위치에 필요한 네트워크 정보
+
+Cisco Nexus 9336C-FX2 스위치의 경우 스위치를 처음 부팅할 때 다음과 같은 초기 설정 질문에 적절한 응답을 제공해야 합니다. 사이트의 보안 정책에서는 다음과 같은 작업을 수행할 수 있는 응답 및 서비스를 정의합니다.
+
+. 자동 프로비저닝을 중단하고 일반 설정으로 계속하시겠습니까? (예/아니요)
++
+yes * 로 응답합니다. 기본값은 no 입니다
+
+. 보안 암호 표준을 적용하시겠습니까? (예/아니요)
++
+yes * 로 응답합니다. 기본값은 yes입니다.
+
+. admin의 암호를 입력합니다.
++
+기본 암호는 admin입니다. 강력한 새 암호를 만들어야 합니다.
+
++
+약한 암호는 거부될 수 있습니다.
+
+. 기본 구성 대화 상자를 입력하시겠습니까? (예/아니요)
++
+스위치의 초기 구성에서 * yes * 로 응답합니다.
+
+. 다른 로그인 계정을 만드시겠습니까? (예/아니요)
++
+대체 관리자에 대한 사이트 정책에 따라 답이 달라집니다. 기본값은 no 입니다
+
+. 읽기 전용 SNMP 커뮤니티 문자열을 구성하시겠습니까? (예/아니요)
++
+응답 * 없음 *. 기본값은 no 입니다
+
+. 읽기-쓰기 SNMP 커뮤니티 문자열을 구성하시겠습니까? (예/아니요)
++
+응답 * 없음 *. 기본값은 no 입니다
+
+. 스위치 이름을 입력합니다.
++
+스위치 이름은 63자의 영숫자로 제한됩니다.
+
+. 대역 외(mgmt0) 관리 구성을 계속하시겠습니까? (예/아니요)
++
+이 프롬프트에서 * yes * (기본값)로 응답합니다. mgmt0 IPv4 주소: 프롬프트에서 IP 주소:ip_address를 입력합니다
+
+. 기본 게이트웨이를 구성하시겠습니까? (예/아니요)
++
+yes * 로 응답합니다. default-gateway: 프롬프트의 IPv4 주소에 default_gateway를 입력합니다.
+
+. 고급 IP 옵션을 구성하시겠습니까? (예/아니요)
++
+응답 * 없음 *. 기본값은 no 입니다
+
+. 텔넷 서비스를 활성화하시겠습니까? (예/아니요)
++
+응답 * 없음 *. 기본값은 no 입니다
+
+. SSH 서비스를 활성화하시겠습니까? (예/아니요)
++
+yes * 로 응답합니다. 기본값은 yes입니다.
+
+
+
+
+NOTE: CSHM(Cluster Switch Health Monitor)을 로그 수집 기능에 사용할 때는 SSH를 사용하는 것이 좋습니다. SSHv2는 향상된 보안에도 권장됩니다.
+
+. [[step14]] 생성하려는 SSH 키의 유형을 입력합니다(DSA/RSA/rsa1). 기본값은 RSA입니다.
+. 키 비트 수(1024 - 2048)를 입력합니다.
+. NTP 서버를 구성하시겠습니까? (예/아니요)
++
+응답 * 없음 *. 기본값은 no 입니다
+
+. 기본 인터페이스 계층 구성(L3/L2):
++
+L2 * 로 응답합니다. 기본값은 L2입니다.
+
+. 기본 스위치 포트 인터페이스 상태 구성(종료/종료):
++
+응답: * NOshut *. 기본값은 noshut 입니다.
+
+. CoPP 시스템 프로필 구성(엄격한/보통/관대함/조밀함):
++
+엄격한 * 으로 응답합니다. 기본값은 strict 입니다.
+
+. 구성을 편집하시겠습니까? (예/아니요)
++
+이제 새 구성이 표시됩니다. 방금 입력한 구성을 검토하고 필요에 따라 변경합니다. 구성에 만족하면 프롬프트에 No로 응답합니다. 구성 설정을 편집하려면 * 예 * 로 응답하십시오.
+
+. 이 구성을 사용하여 저장하시겠습니까? (예/아니요)
++
+구성을 저장하려면 * yes * 로 응답합니다. 그러면 킥스타트 및 시스템 이미지가 자동으로 업데이트됩니다.
+
+
+
+
+NOTE: 이 단계에서 구성을 저장하지 않으면 다음에 스위치를 재부팅할 때 변경 내용이 적용되지 않습니다.
+
+스위치의 초기 구성에 대한 자세한 내용은 다음 설명서를 참조하십시오. https://www.cisco.com/c/en/us/td/docs/dcn/hw/nx-os/nexus9000/9336c-fx2-e/cisco-nexus-9336c-fx2-e-nx-os-mode-switch-hardware-installation-guide.html["Cisco Nexus 9336C-FX2 설치 및 업그레이드 가이드 를 참조하십시오"].
+
+
+
+===== 공유 스위치에 대한 필수 문서입니다
+
+ONTAP 네트워크를 설정하려면 특정 스위치 및 컨트롤러 설명서가 필요합니다.
+
+Cisco Nexus 9336C-FX2 공유 스위치를 설정하려면 을 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Cisco Nexus 9000 시리즈 스위치 지원"] 페이지.
+
+|===
+| 문서 제목 | 설명 
+
+
+| link:https://www.cisco.com/c/en/us/td/docs/dcn/hw/nx-os/nexus9000/9336c-fx2-e/cisco-nexus-9336c-fx2-e-nx-os-mode-switch-hardware-installation-guide.html["Nexus 9000 시리즈 하드웨어 설치 가이드 를 참조하십시오"] | 사이트 요구 사항, 스위치 하드웨어 세부 정보 및 설치 옵션에 대한 자세한 내용은 에 나와 있습니다. 
+
+
+| link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-installation-and-configuration-guides-list.html["Cisco Nexus 9000 시리즈 스위치 소프트웨어 구성 가이드"] (스위치에 설치된 NX-OS 릴리즈 가이드 선택) | ONTAP 작동을 위해 스위치를 구성하기 전에 필요한 초기 스위치 구성 정보를 제공합니다. 
+
+
+| link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#InstallandUpgrade["Cisco Nexus 9000 Series NX-OS 소프트웨어 업그레이드 및 다운그레이드 가이드"] (스위치에 설치된 NX-OS 릴리즈 가이드 선택) | 필요한 경우 스위치를 ONTAP 지원 스위치 소프트웨어로 다운그레이드하는 방법에 대한 정보를 제공합니다. 
+
+
+| link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Cisco Nexus 9000 Series NX-OS 명령 참조 마스터 인덱스"] | Cisco에서 제공하는 다양한 명령 참조에 대한 링크를 제공합니다. 
+
+
+| link:https://www.cisco.com/c/en/us/td/docs/switches/datacenter/sw/mib/quickreference/b_Cisco_Nexus_7000_Series_and_9000_Series_NX-OS_MIB_Quick_Reference.html["Cisco Nexus 9000 MIB 참조"] | 에서는 Nexus 9000 스위치에 대한 MIB(Management Information Base) 파일에 대해 설명합니다. 
+
+
+| link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-system-message-guides-list.html["Nexus 9000 Series NX-OS 시스템 메시지 참조"] | Cisco Nexus 9000 시리즈 스위치의 시스템 메시지, 정보를 제공하는 스위치 및 링크, 내부 하드웨어 또는 시스템 소프트웨어의 문제를 진단하는 데 도움이 되는 기타 메시지를 설명합니다. 
+
+
+| link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#ReleaseandCompatibility["Cisco Nexus 9000 시리즈 NX-OS 릴리즈 노트"] (스위치에 설치된 NX-OS 릴리스에 대한 참고 사항 선택) | Cisco Nexus 9000 시리즈의 기능, 버그 및 제한에 대해 설명합니다. 
+
+
+| link:https://www.cisco.com/c/en/us/td/docs/switches/datacenter/mds9000/hw/regulatory/compliance/RCSI.html["Cisco Nexus 9000 시리즈에 대한 규정 준수 및 안전 정보"] | Nexus 9000 시리즈 스위치에 대한 국제 기관의 규정 준수, 안전 및 법적 정보를 제공합니다. 
+|===
+
+
+== Cisco Nexus 9336C-FX2 케이블 연결 세부 정보
+
+다음 케이블 연결 이미지를 사용하여 컨트롤러와 스위치 간의 케이블 연결을 완료할 수 있습니다.
+
+* 스위치 연결 *image:9336c_image1.jpg["스위치 연결"]
+
+공유 스위치 스토리지 포트를 사용하는 대신 직접 연결 스토리지 케이블을 연결하려면 직접 연결 다이어그램 * 을 따르십시오image:9336c_image2.jpg["직접 연결"]
+
+
+
+=== Cisco Nexus 9336C-FX2 케이블링 워크시트
+
+지원되는 플랫폼을 문서화하려면 작성한 샘플 케이블 연결 워크시트를 참조하여 빈 케이블 연결 워크시트를 작성해야 합니다.
+
+각 스위치 쌍의 샘플 포트 정의는 다음과 같습니다.image:cabling_worksheet.jpg["케이블 연결 워크시트"]
+
+여기서,
+
+* 100g ISL을 통해 스위치 A 포트 35에 연결
+* 100g ISL을 통해 스위치 A 포트 36에 연결
+* 100g ISL을 통해 스위치 B 포트 35에 연결
+* 100g ISL을 통해 스위치 B 포트 36에 연결
+
+
+
+
+=== 빈 케이블 연결 워크시트
+
+빈 케이블 연결 워크시트를 사용하여 클러스터에서 노드로 지원되는 플랫폼을 문서화할 수 있습니다. Hardware Universe의 지원되는 클러스터 연결 표에는 플랫폼에서 사용되는 클러스터 포트가 정의되어 있습니다.
+
+image:blank_cabling_worksheet.jpg["빈 케이블 연결 워크시트"]
+
+여기서,
+
+* 100g ISL을 통해 스위치 A 포트 35에 연결
+* 100g ISL을 통해 스위치 A 포트 36에 연결
+* 100g ISL을 통해 스위치 B 포트 35에 연결
+* 100g ISL을 통해 스위치 B 포트 36에 연결
+

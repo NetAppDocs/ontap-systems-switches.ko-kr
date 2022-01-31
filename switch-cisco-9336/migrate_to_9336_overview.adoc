@@ -1,0 +1,71 @@
+---
+permalink: switch-cisco-9336/migrate-to-9336-overview.html 
+sidebar: sidebar 
+keywords: Cisco Nexus cluster switches,replacing older Cisco switches,9336C-FX2 cluster switches,migrate to newer cisco cluster switch 
+summary: 일부 구형 Cisco Nexus 클러스터 스위치를 Cisco Nexus 9336C-FX2 클러스터 스위치로 교체할 경우 특정 구성 정보, 포트 연결 및 케이블 연결 요구 사항을 알고 있어야 합니다. 
+---
+= Cisco 스위치에서 Cisco Nexus 9336C-FX2 클러스터 스위치로 마이그레이션합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+일부 구형 Cisco Nexus 클러스터 스위치를 Cisco Nexus 9336C-FX2 클러스터 스위치로 교체할 경우 특정 구성 정보, 포트 연결 및 케이블 연결 요구 사항을 알고 있어야 합니다.
+
+* 지원되는 클러스터 스위치는 다음과 같습니다.
++
+** Nexus 9336C-FX2
+** Nexus 92300YC
+** Nexus 5596UP
+** Nexus 5020
+** Nexus 5010
+
+
+* 클러스터 스위치는 노드 연결에 다음 포트를 사용합니다.
++
+** Nexus 9336C-FX2:
++
+*** 포트 1-3: 중단모드(4x10G) 클러스터 내 포트, int e1/1/1-4, e1/2/1-4, e1/3/1-4
+*** 포트 4-6: 클러스터 내부/HA 포트(4x25G), 내부 e1/4/1-4, e1/5/1-4, e1/6/1-4
+*** 포트 7-34:40/100GbE 내부 클러스터/HA 포트, int e1/7-34
+
+
+** Nexus 92300YC:
++
+*** 포트 e1/1-48(10/25 GbE) e1/49-64(40/100 GbE)
+
+
+** Nexus 5596UP:
++
+*** 포트 1/1-40(10GbE)
+
+
+** Nexus 5020:
++
+*** 포트 1/1-32(10GbE)
+
+
+** Nexus 5010(확장 포함):
++
+*** 포트 e1/1-12, e2/1-6(10GbE)
+
+
+
+
+* 클러스터 스위치는 다음과 같은 ISL(Inter-Switch Link) 포트를 사용합니다.
++
+** 포트 int e1/35-36: Nexus 9336C-FX2
+** 포트 e1/65-66 (100GbE): Nexus 92300YC
+** 포트 e1/41-48(10GbE): Nexus 5596UP
+** 포트 e1/33-40 (10GbE): Nexus 5020
+** 포트 e1/13-20 (10GbE): Nexus 5010
+
+
+* Hardware Universe_에는 모든 클러스터 스위치에 대해 지원되는 케이블 연결에 대한 정보가 포함되어 있습니다.
+* Nexus 9336C-FX2 스위치의 일부 포트가 10GbE 또는 40GbE에서 실행되도록 구성했습니다.
+* 노드에서 Nexus 9336C-FX2 클러스터 스위치로 10GbE 및 40GbE 연결을 계획, 마이그레이션 및 문서화했습니다.
+* 이 절차에서 지원되는 ONTAP 및 NX-OS 버전은 _Cisco 이더넷 스위치_ 페이지에 있습니다.
++
+https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치"^]
+
+

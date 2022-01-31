@@ -1,0 +1,52 @@
+---
+permalink: switch-bes-53248/migrate-cn1610-overview.html 
+sidebar: sidebar 
+keywords: BES-53248 switches,replacing with BES-53248 switches, migrate cluster switches 
+summary: CN1610 클러스터 스위치를 Broadcom 지원 BES-53248 클러스터 스위치로 마이그레이션할 때 특정 구성 정보, 포트 연결 및 케이블 연결 요구 사항을 알고 있어야 합니다. 
+---
+= CN1610 클러스터 스위치를 Broadcom 지원 BES-53248 클러스터 스위치로 마이그레이션합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+CN1610 클러스터 스위치를 Broadcom 지원 BES-53248 클러스터 스위치로 마이그레이션할 때 특정 구성 정보, 포트 연결 및 케이블 연결 요구 사항을 알고 있어야 합니다.
+
+* 지원되는 클러스터 스위치는 다음과 같습니다.
++
+** CN1610
+** BES-53248
+
+
+* 클러스터 스위치는 다음과 같은 노드 연결을 지원합니다.
++
+** NetApp CN1610: 포트 0/1~0/12(10GbE)
+** BES-53248: 포트 0/1-0/16(10/25 GbE)
++
+
+NOTE: 포트 라이센스를 구입하면 추가 포트를 활성화할 수 있습니다.
+
+
+
+* 클러스터 스위치는 다음과 같은 ISL(Inter-Switch Link) 포트를 사용합니다.
++
+** NetApp CN1610: 포트 0/13~0/16(10GbE)
+** BES-53248: 포트 0/55-0/56(100GbE)
+
+
+* Hardware Universe에는 ONTAP 호환성, 지원되는 EFOS 펌웨어 및 BES-53248 클러스터 스위치 케이블 연결에 대한 정보가 포함되어 있습니다.
+* 적절한 ISL 케이블 연결은 다음과 같습니다.
++
+** * 시작: * CN1610 연결(SFP+에서 SFP+로), SFP+ 광 파이버 4개 또는 구리 직접 연결 케이블용
+** * Interim: * BES-53248(SFP+에서 SFP28) CN1610, 10G SFP+ 광 트랜시버/파이버 또는 구리 직접 연결 케이블 4개.
+** * 최종: * BES-53248 ~ BES-53248(QSFP28 ~ QSFP28)용, 2개의 QSFP28 광 트랜시버/광섬유 또는 구리 직접 연결 케이블.
+
+
+
+
+
+NOTE: 마이그레이션이 완료된 후 BES-53248 클러스터 스위치용 CSHM(Cluster Switch Health Monitor)을 지원하기 위해 필요한 구성 파일을 설치해야 할 수 있습니다.
+
+을 참조하십시오 http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-sw-ix8-setup/GUID-211616A4-C962-464A-A70E-5E057D7B13E1.html["CSHM(Cluster Switch Health Monitor) 구성 파일 설치"] Broadcom에서 지원하는 BES-53248 스위치_가이드의 _스위치 설정 및 구성 안내서 를 참조하십시오.
+
+에서 클러스터 스위치 로그 수집 기능 구성 _ 을(를) 참조하십시오 http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-sw-ix8-setup/home.html["Broadcom 지원 BES-53248 스위치에 대한 스위치 설정 및 구성 설명서"] 스위치 관련 로그 파일을 수집하는 데 사용되는 클러스터 상태 스위치 로그 수집을 활성화하는 데 필요한 단계를 확인합니다.

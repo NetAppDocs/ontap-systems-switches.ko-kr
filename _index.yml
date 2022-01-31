@@ -1,0 +1,36 @@
+---
+indexpage:
+  lead: 이 사이트의 문서를 사용하여 클러스터 및 스토리지 스위치를 설치, 업그레이드 및 유지 관리할 수 있습니다.
+  tiles:
+  - title: 시작하십시오
+    links:
+    - title: ONTAP 릴리즈 노트
+      url: https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508
+  - title: 스위치
+    links:
+    - title: Broadcom 지원 BES-53248
+      url: "/switch-bes-53248/overview-bes53248.html"
+    - title: Cisco 9336)을 참조하십시오
+      url: "/switch-cisco-9336/9336-overview.html"
+    - title: 공유 구성의 Cisco 9336
+      url: "/switch-cisco-9336c-shared/9336c_setup_and_configuration_guide_for_cisco_shared_switches.html"
+    - title: Cisco 92300YC
+      url: "/switch-cisco-92300/92300-overview.html"
+    - title: 기타 스위치 모델
+      url: "/other/switch-linkout.html"
+  - title: 더 많은 리소스
+    links:
+    - title: AFF and FAS 설명서
+      url: https://docs.netapp.com/us-en/ontap-systems/index.html
+    - title: AFF 및 FAS 업그레이드 설명서
+      url: https://docs.netapp.com/us-en/ontap-systems-upgrade/index.html
+    - title: ONTAP 설명서
+      url: https://docs.netapp.com/us-en/ontap/index.html
+    - title: NetApp Hardware Universe를 참조하십시오
+      url: https://hwu.netapp.com/
+    - title: NetApp Active IQ Config Advisor를 참조하십시오
+      url: https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor
+    - title: NetApp 상호 운용성 매트릭스
+      url: https://mysupport.netapp.com/matrix/#welcome
+    - title: NetApp 커뮤니티
+      url: https://community.netapp.com/t5/ONTAP-and-FAS/ct-p/fas-ontap-oncommand-and-related-plug-ins

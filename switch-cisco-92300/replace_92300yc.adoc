@@ -1,0 +1,520 @@
+---
+permalink: switch-cisco-92300/replace-92300yc.html 
+sidebar: sidebar 
+keywords: replace,upgrade cisco nexus 92300yc cluster switch 
+summary: '클러스터 네트워크에서 결함이 있는 Nexus 92300YC 스위치를 교체하는 것은 무중단 절차(NDU\)입니다.' 
+---
+= Cisco Nexus 92300YC 스위치를 교체합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+클러스터 네트워크에서 결함이 있는 Nexus 92300YC 스위치를 교체하는 것은 무중단 절차(NDU)입니다.
+
+현재 환경 및 교체 스위치에서 스위치 교체를 수행하기 전에 다음 조건이 충족되어야 합니다.
+
+* 기존 클러스터 및 네트워크 인프라:
++
+** 기존 클러스터가 완전히 연결된 클러스터 스위치를 한 개 이상 사용하여 완전하게 작동하는지 확인해야 합니다.
+** 모든 클러스터 포트가 작동 중이어야 합니다.
+** 모든 클러스터 논리 인터페이스(LIF)가 홈 포트에 있어야 합니다.
+** ONTAP cluster ping -cluster -node node1 명령은 기본 접속과 PMTU 통신 이상의 통신이 모든 경로에서 성공했음을 나타내야 합니다.
+
+
+* Nexus 92300YC 교체 스위치:
++
+** 교체 스위치의 관리 네트워크 연결이 작동해야 합니다.
+** 교체 스위치에 대한 콘솔 액세스가 있어야 합니다.
+** 노드 연결은 1/1 - 1/64의 포트입니다.
+** 모든 ISL(Inter-Switch Link) 포트는 포트 1/65 및 1/66에서 비활성화해야 합니다.
+** 원하는 RCF(Reference Configuration File) 및 NX-OS 운영 체제 이미지 스위치를 스위치에 로드해야 합니다.
+** 스위치의 초기 사용자 지정은 에 자세히 설명된 대로 완료해야 합니다.
++
+link:configure_overview.md#["새 Cisco Nexus 92300YC 스위치 구성"]
+
++
+STP, SNMP, SSH 등의 이전 사이트 사용자 지정은 새 스위치에 복사해야 합니다.
+
+
+
+
+
+클러스터 LIF가 호스팅된 노드에서 클러스터 LIF를 마이그레이션하기 위한 명령을 실행해야 합니다.
+
+이 절차의 예에서는 다음 스위치 및 노드 명명법을 사용합니다.
+
+* 기존 Nexus 92300YC 스위치의 이름은 CS1 및 CS2입니다.
+* 새 Nexus 92300YC 스위치의 이름은 newcs2입니다.
+* 노드 이름은 노드 1과 노드 2입니다.
+* 각 노드의 클러스터 포트 이름은 e0a 및 e0b입니다.
+* 클러스터 LIF 이름은 노드 1의 경우 node1_clus1 및 node1_clus2이고, 노드 2의 경우 node2_clus1 및 node2_clus2입니다.
+* 모든 클러스터 노드에 대한 변경 프롬프트는 cluster1:: *>입니다
+
+
+
+NOTE: 다음 절차는 클러스터 네트워크 토폴로지를 기준으로 합니다.
+
+[listing]
+----
+cluster1::*> **network port show -ipspace Cluster**
+
+Node: node1
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+Node: node2
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+4 entries were displayed.
+
+
+
+cluster1::*> **network interface show -vserver Cluster**
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ----
+Cluster
+            node1_clus1  up/up    169.254.209.69/16  node1         e0a     true
+            node1_clus2  up/up    169.254.49.125/16  node1         e0b     true
+            node2_clus1  up/up    169.254.47.194/16  node2         e0a     true
+            node2_clus2  up/up    169.254.19.183/16  node2         e0b     true
+4 entries were displayed.
+
+
+
+cluster1::*> **network device-discovery show -protocol cdp**
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------  ----------------
+node2      /cdp
+            e0a    cs1                       Eth1/2            N9K-C92300YC
+            e0b    cs2                       Eth1/2            N9K-C92300YC
+node1      /cdp
+            e0a    cs1                       Eth1/1            N9K-C92300YC
+            e0b    cs2                       Eth1/1            N9K-C92300YC
+4 entries were displayed.
+
+
+
+cs1# **show cdp neighbors**
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
+node1              Eth1/1         144    H           FAS2980       e0a
+node2              Eth1/2         145    H           FAS2980       e0a
+cs2(FDO220329V5)   Eth1/65        176    R S I s     N9K-C92300YC  Eth1/65
+cs2(FDO220329V5)   Eth1/66        176    R S I s     N9K-C92300YC  Eth1/66
+
+Total entries displayed: 4
+
+
+
+cs2# **show cdp neighbors**
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
+node1              Eth1/1         139    H           FAS2980       e0b
+node2              Eth1/2         124    H           FAS2980       e0b
+cs1(FDO220329KU)   Eth1/65        178    R S I s     N9K-C92300YC  Eth1/65
+cs1(FDO220329KU)   Eth1/66        178    R S I s     N9K-C92300YC  Eth1/66
+
+Total entries displayed: 4
+----
+.단계
+. 스위치에 적절한 RCF 및 이미지를 설치하고 newcs2를 설치한 후 필요한 현장 준비를 합니다.
++
+필요한 경우 새 스위치에 적합한 버전의 RCF 및 NX-OS 소프트웨어를 확인, 다운로드 및 설치합니다. 새 스위치가 올바르게 설정되어 있고 RCF 및 NX-OS 소프트웨어 업데이트가 필요하지 않은 경우 2단계를 계속 진행하십시오.
+
++
+.. NetApp Support 사이트에서 _NetApp 클러스터 및 관리 네트워크 스위치 참조 구성 파일 설명 페이지_로 이동하십시오.
+.. 클러스터 네트워크 및 관리 네트워크 호환성 매트릭스 _ 에 대한 링크를 클릭한 다음 필요한 스위치 소프트웨어 버전을 확인합니다.
+.. 브라우저의 뒤로 화살표를 클릭하여 * 설명 * 페이지로 돌아가 * 계속 * 을 클릭하고 사용권 계약에 동의한 다음 * 다운로드 * 페이지로 이동합니다.
+.. 다운로드 페이지의 단계에 따라 설치할 ONTAP 소프트웨어 버전에 맞는 올바른 RCF 및 NX-OS 파일을 다운로드하십시오.
+
+
+. 새 스위치에서 admin으로 로그인하고 노드 클러스터 인터페이스(포트 1/1 - 1/64)에 연결할 모든 포트를 종료합니다.
++
+교체 중인 스위치가 작동하지 않고 전원이 꺼진 경우 4단계로 이동합니다. 클러스터 노드의 LIF는 각 노드의 다른 클러스터 포트로 페일오버했어야 합니다.
+
++
+[listing]
+----
+newcs2# **config**
+Enter configuration commands, one per line. End with CNTL/Z.
+newcs2(config)# **interface e1/1-64**
+newcs2(config-if-range)# **shutdown**
+----
+. 모든 클러스터 LIF에서 자동 되돌리기 기능이 설정되어 있는지 확인합니다.
++
+'network interface show-vserver Cluster-fields auto-revert'
+
++
+[listing]
+----
+cluster1::> **network interface show -vserver Cluster -fields auto-revert**
+
+             Logical
+Vserver      Interface     Auto-revert
+------------ ------------- -------------
+Cluster      node1_clus1   true
+Cluster      node1_clus2   true
+Cluster      node2_clus1   true
+Cluster      node2_clus2   true
+
+4 entries were displayed.
+----
+. 모든 클러스터 LIF가 통신할 수 있는지 확인:
++
+'클러스터 ping 클러스터'
+
++
+[listing]
+----
+cluster1::*> **cluster ping-cluster node1**
+
+Host is node2
+Getting addresses from network interface table...
+Cluster node1_clus1 169.254.209.69 node1 e0a
+Cluster node1_clus2 169.254.49.125 node1 e0b
+Cluster node2_clus1 169.254.47.194 node2 e0a
+Cluster node2_clus2 169.254.19.183 node2 e0b
+Local = 169.254.47.194 169.254.19.183
+Remote = 169.254.209.69 169.254.49.125
+Cluster Vserver Id = 4294967293
+Ping status:
+....
+Basic connectivity succeeds on 4 path(s)
+Basic connectivity fails on 0 path(s)
+................
+Detected 9000 byte MTU on 4 path(s):
+Local 169.254.47.194 to Remote 169.254.209.69
+Local 169.254.47.194 to Remote 169.254.49.125
+Local 169.254.19.183 to Remote 169.254.209.69
+Local 169.254.19.183 to Remote 169.254.49.125
+Larger than PMTU communication succeeds on 4 path(s)
+RPC status:
+2 paths up, 0 paths down (tcp check)
+2 paths up, 0 paths down (udp check)
+----
+. Nexus 92300YC 스위치 CS1에서 ISL 포트 1/65 및 1/66을 종료합니다.
++
+[listing]
+----
+cs1# **configure**
+Enter configuration commands, one per line. End with CNTL/Z.
+cs1(config)# **interface e1/65-66**
+cs1(config-if-range)# **shutdown**
+cs1(config-if-range)#
+----
+. Nexus 92300YC CS2 스위치에서 모든 케이블을 분리한 다음 Nexus 92300YC newcs2 스위치의 같은 포트에 연결합니다.
+. CS1과 newcs2 스위치 사이에 ISL 포트 1/65 및 1/66을 표시한 다음 포트 채널 작동 상태를 확인합니다.
++
+포트-채널은 PO1(SU)을 나타내고 구성원 포트는 Eth1/65(P) 및 Eth1/66(P)을 나타내야 합니다.
+
++
+이 예에서는 ISL 포트 1/65 및 1/66을 활성화하고 스위치 CS1에 포트 채널 요약을 표시합니다.
+
++
+[listing]
+----
+cs1# **configure**
+Enter configuration commands, one per line. End with CNTL/Z.
+cs1(config)# **int e1/65-66**
+cs1(config-if-range)# **no shutdown**
+
+cs1(config-if-range)# show port-channel summary
+Flags:  D - Down        P - Up in port-channel (members)
+        I - Individual  H - Hot-standby (LACP only)
+        s - Suspended   r - Module-removed
+        b - BFD Session Wait
+        S - Switched    R - Routed
+        U - Up (port-channel)
+        p - Up in delay-lacp mode (member)
+        M - Not in use. Min-links not met
+--------------------------------------------------------------------------------
+Group Port-       Type     Protocol  Member Ports
+      Channel
+--------------------------------------------------------------------------------
+1     Po1(SU)     Eth      LACP      Eth1/65(P)   Eth1/66(P)
+
+cs1(config-if-range)#
+----
+. 모든 노드에서 포트 e0b가 작동 중인지 확인:
++
+네트워크 포트에는 IPSpace 클러스터가 표시됩니다
+
++
+출력은 다음과 비슷해야 합니다.
+
++
+[listing]
+----
+cluster1::*> **network port show -ipspace Cluster**
+
+Node: node1
+                                                                        Ignore
+                                                   Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU   Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ----- ----------- -------- -------
+e0a       Cluster      Cluster          up   9000  auto/10000  healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000  healthy  false
+
+Node: node2
+                                                                        Ignore
+                                                   Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU   Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ----- ----------- -------- -------
+e0a       Cluster      Cluster          up   9000  auto/10000  healthy  false
+e0b       Cluster      Cluster          up   9000  auto/auto   -        false
+
+4 entries were displayed.
+----
+. 이전 단계에서 사용한 것과 동일한 노드에서 네트워크 인터페이스 되돌리기 명령을 사용하여 이전 단계의 포트에 연결된 클러스터 LIF를 되돌립니다.
++
+이 예제에서는 Home 값이 true 이고 포트가 e0b인 경우 노드 1의 LIF node1_clus2가 성공적으로 되돌려집니다.
+
++
+다음 명령을 실행하면 node1의 node1_clus2 가 홈 포트 e0a로 반환되고 두 노드의 LIF에 대한 정보가 표시됩니다. 첫 번째 노드를 가져오는 작업은 두 클러스터 인터페이스 모두에 대해 "홈" 열이 참이고 노드 1의 "e0a" 및 "e0b" 예제에서 올바른 포트 할당을 표시하는 경우 성공적으로 완료된 것입니다.
+
++
+[listing]
+----
+cluster1::*> **network interface show -vserver Cluster**
+
+            Logical      Status     Network            Current    Current Is
+Vserver     Interface    Admin/Oper Address/Mask       Node       Port    Home
+----------- ------------ ---------- ------------------ ---------- ------- -----
+Cluster
+            node1_clus1  up/up      169.254.209.69/16  node1      e0a     true
+            node1_clus2  up/up      169.254.49.125/16  node1      e0b     true
+            node2_clus1  up/up      169.254.47.194/16  node2      e0a     true
+            node2_clus2  up/up      169.254.19.183/16  node2      e0a     false
+
+4 entries were displayed.
+----
+. 클러스터의 노드에 대한 정보를 표시합니다.
++
+'클러스터 쇼'
+
++
+이 예제에서는 이 클러스터의 노드 1과 노드 2에 대한 노드 상태가 true인 것을 보여 줍니다.
+
++
+[listing]
+----
+cluster1::*> **cluster show**
+
+Node          Health  Eligibility
+------------- ------- ------------
+node1         false   true
+node2         true    true
+----
+. 모든 물리적 클러스터 포트가 작동하는지 확인합니다.
++
+네트워크 포트에는 IPSpace 클러스터가 표시됩니다
+
++
+[listing]
+----
+cluster1::*> **network port show -ipspace Cluster**
+
+Node: node1
+																																									 					 																					 	  Ignore
+                                                    Speed(Mbps) Health   Health
+Port      IPspace     Broadcast Domain  Link  MTU   Admin/Oper  Status   Status
+--------- ----------- ----------------- ----- ----- ----------- -------- ------
+e0a       Cluster     Cluster           up    9000  auto/10000  healthy  false
+e0b       Cluster     Cluster           up    9000  auto/10000  healthy  false
+
+Node: node2
+                                                                         Ignore
+                                                    Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link  MTU   Admin/Oper  Status   Status
+--------- ------------ ---------------- ----- ----- ----------- -------- ------
+e0a       Cluster      Cluster          up    9000  auto/10000  healthy  false
+e0b       Cluster      Cluster          up    9000  auto/10000  healthy  false
+
+4 entries were displayed.
+----
+. 모든 클러스터 LIF가 통신할 수 있는지 확인:
++
+'클러스터 ping 클러스터'
+
++
+[listing]
+----
+cluster1::*> **cluster ping-cluster -node node2**
+Host is node2
+Getting addresses from network interface table...
+Cluster node1_clus1 169.254.209.69 node1 e0a
+Cluster node1_clus2 169.254.49.125 node1 e0b
+Cluster node2_clus1 169.254.47.194 node2 e0a
+Cluster node2_clus2 169.254.19.183 node2 e0b
+Local = 169.254.47.194 169.254.19.183
+Remote = 169.254.209.69 169.254.49.125
+Cluster Vserver Id = 4294967293
+Ping status:
+....
+Basic connectivity succeeds on 4 path(s)
+Basic connectivity fails on 0 path(s)
+................
+Detected 9000 byte MTU on 4 path(s):
+Local 169.254.47.194 to Remote 169.254.209.69
+Local 169.254.47.194 to Remote 169.254.49.125
+Local 169.254.19.183 to Remote 169.254.209.69
+Local 169.254.19.183 to Remote 169.254.49.125
+Larger than PMTU communication succeeds on 4 path(s)
+RPC status:
+2 paths up, 0 paths down (tcp check)
+2 paths up, 0 paths down (udp check)
+----
+. 다음 클러스터 네트워크 구성을 확인합니다.
++
+네트워크 포트 쇼
+
++
+[listing]
+----
+cluster1::*> **network port show -ipspace Cluster**
+Node: node1
+																																																																			 	  Ignore
+                                       Speed(Mbps)            Health   Health
+Port      IPspace     Broadcast Domain Link MTU   Admin/Oper  Status   Status
+--------- ----------- ---------------- ---- ----- ----------- -------- ------
+e0a       Cluster     Cluster          up   9000  auto/10000  healthy  false
+e0b       Cluster     Cluster          up   9000  auto/10000  healthy  false
+
+Node: node2
+                                                                       Ignore
+                                        Speed(Mbps)           Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000 auto/10000  healthy  false
+e0b       Cluster      Cluster          up   9000 auto/10000  healthy  false
+
+4 entries were displayed.
+
+
+cluster1::*> **network interface show -vserver Cluster**
+
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ----
+Cluster
+            node1_clus1  up/up    169.254.209.69/16  node1         e0a     true
+            node1_clus2  up/up    169.254.49.125/16  node1         e0b     true
+            node2_clus1  up/up    169.254.47.194/16  node2         e0a     true
+            node2_clus2  up/up    169.254.19.183/16  node2         e0b     true
+
+4 entries were displayed.
+
+cluster1::> **network device-discovery show -protocol cdp**
+
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------  ----------------
+node2      /cdp
+            e0a    cs1                       0/2               N9K-C92300YC
+            e0b    newcs2                    0/2               N9K-C92300YC
+node1      /cdp
+            e0a    cs1                       0/1               N9K-C92300YC
+            e0b    newcs2                    0/1               N9K-C92300YC
+
+4 entries were displayed.
+
+
+cs1# **show cdp neighbors**
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+Device-ID            Local Intrfce  Hldtme Capability  Platform      Port ID
+node1                Eth1/1         144    H           FAS2980       e0a
+node2                Eth1/2         145    H           FAS2980       e0a
+newcs2(FDO296348FU)  Eth1/65        176    R S I s     N9K-C92300YC  Eth1/65
+newcs2(FDO296348FU)  Eth1/66        176    R S I s     N9K-C92300YC  Eth1/66
+
+
+Total entries displayed: 4
+
+
+cs2# **show cdp neighbors**
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
+node1              Eth1/1         139    H           FAS2980       e0b
+node2              Eth1/2         124    H           FAS2980       e0b
+cs1(FDO220329KU)   Eth1/65        178    R S I s     N9K-C92300YC  Eth1/65
+cs1(FDO220329KU)   Eth1/66        178    R S I s     N9K-C92300YC  Eth1/66
+
+Total entries displayed: 4
+----
+. ONTAP 9.4 이상의 경우 스위치 관련 로그 파일을 수집하기 위해 클러스터 스위치 상태 모니터 로그 수집 기능을 활성화합니다.
++
+'system cluster-switch log setup-password system cluster-switch log enable-collection'을 참조하십시오
+
++
+[listing]
+----
+cluster1::*> **system cluster-switch log setup-password**
+Enter the switch name: <return>
+The switch name entered is not recognized.
+Choose from the following list:
+NBS-NIC-NXYC-01
+NBS-NIC-NXYC-02
+
+cluster1::*> **system cluster-switch log setup-password**
+
+Enter the switch name: **NBS-NIC-NXYC-01
+**RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
+Do you want to continue? {y|n}::[n] **y**
+
+Enter the password: <enter switch password>
+Enter the password again: <enter switch password>
+
+cluster1::*> **system cluster-switch log setup-password**
+
+Enter the switch name: **NBS-NIC-NXYC-02**
+RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
+Do you want to continue? {y|n}:: [n] **y**
+
+Enter the password: <enter switch password>
+Enter the password again: <enter switch password>
+
+cluster1::*> **system cluster-switch log enable-collection**
+
+Do you want to enable cluster log collection for all nodes in the cluster?
+{y|n}: [n] **y**
+
+Enabling cluster switch log collection.
+
+cluster1::*>
+----
++
+
+NOTE: 이러한 명령에서 오류가 반환되면 NetApp 지원에 문의하십시오.
+
+
