@@ -1398,7 +1398,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-01-31 18:50:13 +0000">01/31/2022</time>
+    <time datetime="2022-02-04 13:23:41 +0000">02/04/2022</time>
     
   
 
@@ -1408,6 +1408,14 @@
           alt="netapp-martyh"
           width="20" height="20"
           src="https://avatars.githubusercontent.com/u/66496079?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
+  <a target="_blank" href="https://github.com/netapp-aoife">
+    <img  class="avatar avatar-small"
+          alt="netapp-aoife"
+          width="20" height="20"
+          src="https://avatars.githubusercontent.com/u/92876203?v=4"
           style="border-radius: 50%;"/>
   </a>
   
@@ -1425,9 +1433,345 @@
 </p>
 
 
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph lead">
-<p>BES-53248 클러스터 스위치를 처음 설정하고 새 라이센스 또는 라이센스를 적용한 후 RCF를 설치할 수 있습니다. 이전 버전에서 RCF를 업그레이드하는 경우 파일이 효과적으로 병합되고 여기에 설명된 단계를 완료합니다.</p>
+<p>BES-53248 클러스터 스위치를 처음 설정하고 새 라이센스 또는 라이센스를 적용한 후 RCF를 설치할 수 있습니다. 이전 버전에서 RCF를 업그레이드하는 경우 Broadcom 스위치 설정을 재설정하고 기본 구성을 수행하여 RCF를 다시 적용해야 합니다. RCF를 업그레이드하거나 변경하려면 항상 이 작업을 수행해야 합니다.</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="broadcom-ip-스위치를-출하-시-기본값으로-재설정합니다">Broadcom IP 스위치를 출하 시 기본값으로 재설정합니다</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>새 스위치 소프트웨어 버전과 RCFs를 설치하기 전에 Broadcom 스위치 설정을 지우고 기본 구성을 수행해야 합니다.</p>
+</div>
+<div class="ulist">
+<div class="title">이 작업에 대해</div>
+<ul>
+<li>
+<p>각 클러스터 스위치에서 이 단계를 반복해야 합니다.</p>
+</li>
+<li>
+<p>직렬 콘솔을 사용하여 스위치에 연결해야 합니다.</p>
+</li>
+<li>
+<p>이 작업은 관리 네트워크의 구성을 재설정합니다.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">단계</div>
+<ol class="arabic">
+<li>
+<p>상승된 권한의 명령 프롬프트('#')로 변경합니다</p>
+<div class="listingblock">
+<div class="content">
+<pre>(cs2)&gt; enable
+(cs2) #</pre>
+</div>
+</div>
+</li>
+<li>
+<p>시작 구성을 지우고 배너를 제거합니다</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>시작 구성을 지웁니다.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>'erase startup-config' *</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>(cs2) #erase startup-config
+Are you sure you want to clear the configuration? (y/n) y
+(cs2) #</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>+
+이 명령은 배너를 지우지 않습니다.</p>
+</div>
+</li>
+<li>
+<p>배너 제거:</p>
+<div class="paragraph">
+<p>"세트 피너 없음" *</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>(cs2) #configure
+(cs2)(Config) # no set clibanner
+(cs2)(Config) #</pre>
+</div>
+</div>
+</li>
+<li>
+<p>스위치를 재부팅합니다. * '(CS2) #reload * '</p>
+<div class="listingblock">
+<div class="content">
+<pre>Are you sure you would like to reset the system? (y/n) y</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/ontap-systems-switches/images/note.svg" alt="참고">
+</td>
+<td class="content">
+스위치를 다시 로드하기 전에 저장되지 않은 구성이나 변경된 구성을 저장할지 묻는 메시지가 나타나면 * No * 를 선택합니다.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>스위치가 다시 로드될 때까지 기다린 다음 스위치에 로그인합니다.</p>
+<div class="paragraph">
+<p>기본 사용자는 ""admin""이고 암호가 설정되어 있지 않습니다. 다음과 유사한 프롬프트가 표시됩니다.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>(Routing)&gt;</pre>
+</div>
+</div>
+</li>
+<li>
+<p>상승된 권한의 명령 프롬프트로 변경합니다.</p>
+<div class="paragraph">
+<p>"활성화"를 선택합니다</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Routing)&gt; enable
+(Routing) #</pre>
+</div>
+</div>
+</li>
+<li>
+<p>service port protocol을 none으로 설정한다.</p>
+<div class="paragraph">
+<p>'저빙항프로토콜 없음</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>(Routing) #serviceport protocol none
+Changing protocol mode will reset ip configuration.
+Are you sure you want to continue? (y/n) y
+
+(Routing) #</pre>
+</div>
+</div>
+</li>
+<li>
+<p>IP 주소를 서비스 포트에 할당합니다.</p>
+<div class="paragraph">
+<p>'erviceport IP_IP-address<em>netmask</em>gateway_'</p>
+</div>
+<div class="paragraph">
+<p>다음 예에서는 서브넷 "255.255.255.0" 및 게이트웨이 "10.10.10.1"이 있는 서비스 포트에 할당된 IP 주소 "10.10.10.10"을 보여 줍니다.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>(Routing) #serviceport ip 10.10.10.10 255.255.255.0 10.10.10.1</pre>
+</div>
+</div>
+</li>
+<li>
+<p>서비스 포트가 올바르게 구성되었는지 확인합니다.</p>
+<div class="paragraph">
+<p>서비스서비스</p>
+</div>
+<div class="paragraph">
+<p>다음 예에서는 포트가 작동 가능하며 올바른 주소가 할당되었음을 보여 줍니다.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>(Routing) #show serviceport
+
+Interface Status............................... Up
+IP Address..................................... 10.10.10.10
+Subnet Mask.................................... 255.255.255.0
+Default Gateway................................ 10.10.10.1
+IPv6 Administrative Mode....................... Enabled
+IPv6 Prefix is ................................ fe80::dac4:97ff:fe56:87d7/64
+IPv6 Default Router............................ fe80::222:bdff:fef8:19ff
+Configured IPv4 Protocol....................... None
+Configured IPv6 Protocol....................... None
+IPv6 AutoConfig Mode........................... Disabled
+Burned In MAC Address.......................... D8:C4:97:56:87:D7
+
+(Routing) #</pre>
+</div>
+</div>
+</li>
+<li>
+<p>필요한 경우 SSH 서버를 구성합니다.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/ontap-systems-switches/images/note.svg" alt="참고">
+</td>
+<td class="content">
+RCF 파일은 텔넷 프로토콜을 비활성화합니다. SSH 서버를 구성하지 않으면 직렬 포트 연결을 통해서만 브리지에 액세스할 수 있습니다.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>RSA 키를 생성합니다.</p>
+<div class="listingblock">
+<div class="content">
+<pre>(Routing) #configure
+(Routing) (Config)#crypto key generate rsa</pre>
+</div>
+</div>
+</li>
+<li>
+<p>DSA 키 생성(선택 사항)</p>
+<div class="listingblock">
+<div class="content">
+<pre>(Routing) #configure
+(Routing) (Config)#crypto key generate dsa</pre>
+</div>
+</div>
+</li>
+<li>
+<p>FIPS 호환 버전의 EFOS를 사용하는 경우 ECDSA 키를 생성합니다. 다음 예제에서는 길이가 256인 키를 만듭니다. 유효한 값은 256, 384 또는 521입니다.</p>
+<div class="listingblock">
+<div class="content">
+<pre>(Routing) #configure
+(Routing) (Config)#crypto key generate ecdsa 256</pre>
+</div>
+</div>
+</li>
+<li>
+<p>SSH 서버를 활성화합니다.</p>
+<div class="paragraph">
+<p>필요한 경우 구성 컨텍스트를 종료합니다.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>(Routing) (Config)#end
+(Routing) #ip ssh server enable</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>+</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/ontap-systems-switches/images/note.svg" alt="참고">
+</td>
+<td class="content">
+키가 이미 있으면 덮어쓸지 묻는 메시지가 나타날 수 있습니다.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>필요한 경우 도메인 및 이름 서버를 구성합니다.</p>
+<div class="paragraph">
+<p>'설정&#8217;을 클릭합니다</p>
+</div>
+<div class="paragraph">
+<p>다음 예에서는 IP domain과 IP name server 명령을 보여 줍니다.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>(Routing) # configure
+(Routing) (Config)#ip domain name lab.netapp.com
+(Routing) (Config)#ip name server 10.99.99.1 10.99.99.2
+(Routing) (Config)#exit
+(Routing) (Config)#</pre>
+</div>
+</div>
+</li>
+<li>
+<p>필요한 경우 시간대 및 시간 동기화(SNTP)를 구성합니다.</p>
+<div class="paragraph">
+<p>다음 예에서는 SNTP 서버의 IP 주소와 상대 시간대 등을 지정하는 'sNTP' 명령어를 보여준다.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>(Routing) #
+(Routing) (Config)#sntp client mode unicast
+(Routing) (Config)#sntp server 10.99.99.5
+(Routing) (Config)#clock timezone -7
+(Routing) (Config)#exit
+(Routing) (Config)#</pre>
+</div>
+</div>
+</li>
+<li>
+<p>스위치 이름 구성:</p>
+<div class="paragraph">
+<p>호스트 이름 CS2</p>
+</div>
+<div class="paragraph">
+<p>스위치 프롬프트에는 새 이름이 표시됩니다.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>(Routing) # hostname cs2
+
+(cs2) #</pre>
+</div>
+</div>
+</li>
+<li>
+<p>구성을 저장합니다.</p>
+<div class="paragraph">
+<p>쓰기 메모리</p>
+</div>
+<div class="paragraph">
+<p>다음 예와 유사한 프롬프트 및 출력이 표시됩니다.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>(cs2) #write memory
+
+This operation may take a few minutes.
+Management interfaces will not be available during this time.
+
+Are you sure you want to save? (y/n) y
+
+Config file 'startup-config' created successfully .
+
+
+Configuration Saved!
+
+(cs2) #</pre>
+</div>
+</div>
+</li>
+<li>
+<p>다른 클러스터 스위치에 대해 이전 단계를 반복합니다.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="rcfreference-configuration-file-설치">RCF(Reference Configuration File) 설치</h2>
+<div class="sectionbody">
 <div class="olist arabic">
 <div class="title">단계</div>
 <ol class="arabic">
@@ -1628,6 +1972,8 @@ System will now restart!</pre>
 </div>
 </li>
 </ol>
+</div>
+</div>
 </div>
 
     </article>
