@@ -1903,4 +1903,48 @@
   <block id="75bf1ff39699eec70a56fedc142b67fd" category="sidebar">마이그레이션할 준비를 합니다</block>
   <block id="446e9d64184ff722494a9a706bbd9d06" category="sidebar">스위치 NetApp 클러스터 환경으로 마이그레이션</block>
   <block id="7f23f37c2e179a209bf0e1a2006c18c5" category="sidebar">Cisco 92300YC 스위치</block>
+  <block id="efe89bf343d312a234f5bbce5643025f" category="paragraph">BES-53248 클러스터 스위치를 처음 설정하고 새 라이센스 또는 라이센스를 적용한 후 RCF를 설치할 수 있습니다. 이전 버전에서 RCF를 업그레이드하는 경우 Broadcom 스위치 설정을 재설정하고 기본 구성을 수행하여 RCF를 다시 적용해야 합니다. RCF를 업그레이드하거나 변경하려면 항상 이 작업을 수행해야 합니다.</block>
+  <block id="5a3808eade7ae7dfc1128e76ac8a6b87" category="section-title">Broadcom IP 스위치를 출하 시 기본값으로 재설정합니다</block>
+  <block id="7e1b69484a310996db5f7ad71d667d8d" category="paragraph">새 스위치 소프트웨어 버전과 RCFs를 설치하기 전에 Broadcom 스위치 설정을 지우고 기본 구성을 수행해야 합니다.</block>
+  <block id="7fc6a7ab6d34416c2ea560cd8b6f72ee" category="list-text">각 클러스터 스위치에서 이 단계를 반복해야 합니다.</block>
+  <block id="cf8c4cbc63a2e42b70c4b4beddd2e366" category="list-text">직렬 콘솔을 사용하여 스위치에 연결해야 합니다.</block>
+  <block id="55b0c310e4703cc82f05f8c44c9d0d39" category="list-text">이 작업은 관리 네트워크의 구성을 재설정합니다.</block>
+  <block id="7903ea9f597270ba2cf2405fbc17ebd8" category="list-text">상승된 권한의 명령 프롬프트('#')로 변경합니다</block>
+  <block id="4be4d4968b5e919059610e2ee4b965ce" category="list-text">시작 구성을 지우고 배너를 제거합니다</block>
+  <block id="56c0e77173118d9438d0428e9dc7a715" category="list-text">시작 구성을 지웁니다.</block>
+  <block id="4995c150e07b7ecfa34c3c0fbef2e928" category="paragraph">* 'erase startup-config' *</block>
+  <block id="9110bdab8c504a110b30d190f31ab08f" category="paragraph">이 명령은 배너를 지우지 않습니다.</block>
+  <block id="2f7236901427b3d791b59473a9846d56" category="list-text">배너 제거:</block>
+  <block id="45fcd6873eadf29e5cd4cc3b0c7d3340" category="paragraph">"세트 피너 없음" *</block>
+  <block id="15e72b47dbb995b61466370093745e4c" category="list-text">스위치를 재부팅합니다. * '(CS2) #reload * '</block>
+  <block id="671537f32d06de75a977dc3008daeff5" category="admonition">스위치를 다시 로드하기 전에 저장되지 않은 구성이나 변경된 구성을 저장할지 묻는 메시지가 나타나면 * No * 를 선택합니다.</block>
+  <block id="574f9a8da95ec242c137072cf107f07d" category="list-text">스위치가 다시 로드될 때까지 기다린 다음 스위치에 로그인합니다.</block>
+  <block id="abcf8ee1041922b5a789f2316fa6df7b" category="paragraph">기본 사용자는 ""admin""이고 암호가 설정되어 있지 않습니다. 다음과 유사한 프롬프트가 표시됩니다.</block>
+  <block id="ec5c3bc0d9af5e6eaa0a026335b11755" category="list-text">상승된 권한의 명령 프롬프트로 변경합니다.</block>
+  <block id="237ceede529524160f9215c07a41b01a" category="paragraph">"활성화"를 선택합니다</block>
+  <block id="4fee2f5aadc66b5f313f985dffa0efdf" category="list-text">service port protocol을 none으로 설정한다.</block>
+  <block id="e080aeaf0a61fd1dc4cdb4d64b02bc7d" category="paragraph">'저빙항프로토콜 없음</block>
+  <block id="58f78231db30eb9bd647143ab366e4a6" category="list-text">IP 주소를 서비스 포트에 할당합니다.</block>
+  <block id="b3a59792f2fc6fd4ff36da2d078ff315" category="paragraph">'erviceport IP_IP-address__netmask__gateway_'</block>
+  <block id="6de48d562b4f5fed6e4d8e07b41b7226" category="paragraph">다음 예에서는 서브넷 "255.255.255.0" 및 게이트웨이 "10.10.10.1"이 있는 서비스 포트에 할당된 IP 주소 "10.10.10.10"을 보여 줍니다.</block>
+  <block id="1a6a0860d4f85d812a58145da3c63dd2" category="list-text">서비스 포트가 올바르게 구성되었는지 확인합니다.</block>
+  <block id="3f0f3a6fe3831ca46e275019ef0c0976" category="paragraph">다음 예에서는 포트가 작동 가능하며 올바른 주소가 할당되었음을 보여 줍니다.</block>
+  <block id="f279cda33d8658b285d1ba4a42773651" category="list-text">필요한 경우 SSH 서버를 구성합니다.</block>
+  <block id="f0630dda98a33b3b99be916ac28603b0" category="admonition">RCF 파일은 텔넷 프로토콜을 비활성화합니다. SSH 서버를 구성하지 않으면 직렬 포트 연결을 통해서만 브리지에 액세스할 수 있습니다.</block>
+  <block id="4cbd2061568d423e0fdf461dfa55b473" category="list-text">RSA 키를 생성합니다.</block>
+  <block id="bb618b144b7c6895aa5a8818fa66c1b2" category="list-text">DSA 키 생성(선택 사항)</block>
+  <block id="d034cc5a3446b99507240baca90266a0" category="list-text">FIPS 호환 버전의 EFOS를 사용하는 경우 ECDSA 키를 생성합니다. 다음 예제에서는 길이가 256인 키를 만듭니다. 유효한 값은 256, 384 또는 521입니다.</block>
+  <block id="2adc88e53d20b1a61cccff951117e58f" category="list-text">SSH 서버를 활성화합니다.</block>
+  <block id="a3fec8a700961f2756fa87e70ed3f889" category="paragraph">필요한 경우 구성 컨텍스트를 종료합니다.</block>
+  <block id="b5a5b3a0219f19569613cb2962fe0ab6" category="admonition">키가 이미 있으면 덮어쓸지 묻는 메시지가 나타날 수 있습니다.</block>
+  <block id="32ab81665d9086e806520c2291eae40b" category="list-text">필요한 경우 도메인 및 이름 서버를 구성합니다.</block>
+  <block id="8b21803dd26fcf6e70719722e9f4acbb" category="paragraph">다음 예에서는 IP domain과 IP name server 명령을 보여 줍니다.</block>
+  <block id="9aa02a19669e4a71f489b7faca58d1d7" category="list-text">필요한 경우 시간대 및 시간 동기화(SNTP)를 구성합니다.</block>
+  <block id="61921cfd1af201be4eff2b26f7f38fd8" category="paragraph">다음 예에서는 SNTP 서버의 IP 주소와 상대 시간대 등을 지정하는 'sNTP' 명령어를 보여준다.</block>
+  <block id="8093e28dbe8feb9bac45f540897d8548" category="list-text">스위치 이름 구성:</block>
+  <block id="e7f56ab50ea481ba40b8e4f75ab763f1" category="paragraph">호스트 이름 CS2</block>
+  <block id="13c6cdda41ef7917c3cb0c05a8aa463c" category="paragraph">스위치 프롬프트에는 새 이름이 표시됩니다.</block>
+  <block id="33779c44170cc34cb1bbefd6d30a5208" category="list-text">구성을 저장합니다.</block>
+  <block id="f1782a056fe3c67c3b672e085d43d4d7" category="paragraph">다음 예와 유사한 프롬프트 및 출력이 표시됩니다.</block>
+  <block id="89c1d1cf1e23e598f92306efc57e5831" category="list-text">다른 클러스터 스위치에 대해 이전 단계를 반복합니다.</block>
 </blocks>
