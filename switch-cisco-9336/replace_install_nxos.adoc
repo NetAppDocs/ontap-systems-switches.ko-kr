@@ -12,6 +12,7 @@ summary: 이 절차를 사용하여 Nexus 9336C-FX2 클러스터 스위치에 NX
 [role="lead"]
 이 절차를 사용하여 Nexus 9336C-FX2 클러스터 스위치에 NX-OS 소프트웨어를 설치할 수 있습니다.
 
+.단계
 . 클러스터 스위치를 관리 네트워크에 연결합니다.
 . ping 명령을 사용하여 NX-OS 소프트웨어 및 RCF를 호스팅하는 서버에 대한 연결을 확인하십시오.
 +
@@ -166,7 +167,7 @@ Module   Image    Running-Version(pri:alt                  New-Version         U
 
 
 Switch will be reloaded for disruptive upgrade.
-Do you want to continue with the installation (y/n)?  [n] **y**
+Do you want to continue with the installation (y/n)?  [n] y
 
 
 Install is in progress, please wait.

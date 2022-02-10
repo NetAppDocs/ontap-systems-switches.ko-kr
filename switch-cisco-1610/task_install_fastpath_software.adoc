@@ -1,0 +1,335 @@
+---
+permalink: switch-cisco-1610/task_install_fastpath_software.html 
+sidebar: sidebar 
+keywords: install, fastpath, software 
+summary: NetApp 스위치에 FASTPATH 소프트웨어를 설치할 때는 두 번째 스위치인 CS2로 업그레이드를 시작해야 합니다. 
+---
+= FASTPATH 소프트웨어를 설치합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NetApp 스위치에 FASTPATH 소프트웨어를 설치할 때 두 번째 스위치인 _CS2_로 업그레이드를 시작해야 합니다.
+
+
+
+== 단계
+
+. 이 클러스터에서 AutoSupport가 활성화되어 있는 경우 AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다.
++
+'System node AutoSupport invoke-node * -type all-message maINT=xh'
+
++
+_x_는 유지보수 기간(시간)입니다.
+
++
+[NOTE]
+====
+AutoSupport 메시지는 유지보수 기간 동안 자동 케이스 생성이 억제되도록 이 유지보수 작업의 기술 지원에 알립니다.
+
+====
+. 스위치에 admin으로 로그인합니다. 기본적으로 암호는 없습니다. '(CS2)#' 프롬프트에서 enable 명령을 입력한다. 마찬가지로, 기본적으로 암호는 없습니다. 이렇게 하면 네트워크 인터페이스를 구성할 수 있는 권한이 있는 EXEC 모드에 액세스할 수 있습니다.
++
+[listing]
+----
+(cs2) # enable
+Password (Enter)
+(cs2) #
+----
+. 각 노드의 콘솔에서 포트 E1A:'네트워크 인터페이스 마이그레이션'으로 clus2를 마이그레이션합니다
++
+[listing]
+----
+cluster::*> network interface migrate -vserver vs1 -lif clus2 -source-node node1 -destnode node1 -dest-port e1a
+cluster::*> network interface migrate -vserver vs2 -lif clus2 -source-node node2 -destnode node2 -dest-port e1a
+----
+. 각 노드의 콘솔에서 마이그레이션이 완료되었는지 확인합니다. 'network interface show'
++
+다음 예에서는 두 노드 모두에서 clus2가 포트 E1A로 마이그레이션되었음을 보여 줍니다.
+
++
+[listing]
+----
+cluster::*> network interface show -role cluster
+
+         Logical    Status     Network        Current  Current  Is
+Vserver  Interface  Admin/Open Address/Mask   Node     Port     Home
+-------- ---------- ---------- -------------- -------- -------  ----
+vs1
+         clus1      up/up      10.10.10.1/16  node1    e1a      true
+         clus2      up/up      10.10.10.2/16  node1    e1a      false
+vs2
+         clus1      up/up      10.10.10.1/16  node2    e1a      true
+         clus2      up/up      10.10.10.2/16  node2    e1a      false
+----
+. 두 노드 모두에서 클러스터 포트 e2a를 종료합니다. 즉, '네트워크 포트 수정'입니다
++
+다음 예는 두 노드에서 종료되는 포트 e2a를 보여줍니다.
+
++
+[listing]
+----
+cluster::*> network port modify -node node1 -port e2a -up-admin false
+cluster::*> network port modify -node node2 -port e2a -up-admin false
+----
+. 두 노드 모두에서 포트 e2a가 종료되었는지 확인합니다. "network port show"
++
+[listing]
+----
+cluster::*> network port show -role cluster
+
+                                 Auto-Negot  Duplex      Speed (Mbps)
+Node   Port Role     Link MTU    Admin/Oper  Admin/Oper  Admin/Oper
+------ ---- -------- ---- -----  ----------  ----------  ------------
+node1
+       e1a  cluster  up   9000   true/true   full/full   auto/10000
+       e2a  cluster  down 9000   true/true   full/full   auto/10000
+node2
+       e1a  cluster  up   9000   true/true   full/full   auto/10000
+       e2a  cluster  down 9000   true/true   full/full   auto/10000
+----
+. CS1의 ISL(Inter-Switch Link) 포트, 활성 NetApp 스위치를 종료합니다.
++
+[listing]
+----
+(cs1) # configure
+(cs1)(config) # interface 0/13-0/16
+(cs1)(Interface 0/13-0/16) # shutdown
+(cs1)(Interface 0/13-0/16) # exit
+(cs1)(config) # exit
+----
+. CS2에서 현재 활성 이미지를 백업합니다.
++
+[listing]
+----
+(cs2) # show bootvar
+
+ Image Descriptions   .
+
+  active:
+  backup:
+
+ Images currently available on Flash
+
+----------------------------------------------------------------------
+ unit        active       backup     current-active       next-active
+----------------------------------------------------------------------
+
+    1        1.1.0.3      1.1.0.1          1.1.0.3           1.1.0.3
+
+(cs2) # copy active backup
+Copying active to backup
+Copy operation successful
+
+(cs2) #
+----
+. 이미지 파일을 스위치에 다운로드합니다.
++
+이미지 파일을 활성 이미지로 복사하면 재부팅할 때 해당 이미지가 실행 중인 FASTPATH 버전을 설정하게 됩니다. 이전 이미지는 백업으로 사용할 수 있습니다.
+
++
+[listing]
+----
+(cs2) # copy tftp://10.0.0.1/NetApp_CN1610_1.1.0.5.stk active
+
+
+Mode...................................... TFTP
+Set Server IP............................. 10.0.0.1
+Path...................................... ./
+Filename.................................. NetApp_CN1610_1.1.0.5.stk
+Data Type................................. Code
+Destination Filename...................... active
+
+Management access will be blocked for the duration of the transfer
+Are you sure you want to start? (y/n) y
+TFTP Code transfer starting...
+
+
+File transfer operation completed successfully.
+----
+. FASTPATH 소프트웨어의 실행 버전을 확인합니다.
++
+[listing]
+----
+(cs2) # show version
+
+Switch: 1
+
+System Description.................. Broadcom Scorpion 56820
+                                     Development System - 16 TENGIG,
+                                     1.1.0.3, Linux 2.6.21.7
+Machine Type........................ Broadcom Scorpion 56820
+                                     Development System - 16TENGIG
+Machine Model....................... BCM-56820
+Serial Number....................... 10611100004
+FRU Number..........................
+Part Number......................... BCM56820
+Maintenance Level................... A
+Manufacturer........................ 0xbc00
+Burned In MAC Address............... 00:A0:98:4B:A9:AA
+Software Version.................... 1.1.0.3
+Operating System.................... Linux 2.6.21.7
+Network Processing Device........... BCM56820_B0
+Additional Packages................. FASTPATH QOS
+                                     FASTPATH IPv6 Management
+----
+. 활성 및 백업 구성에 대한 부팅 이미지를 봅니다.
++
+[listing]
+----
+(cs2) # show bootvar
+
+Image Descriptions
+
+ active :
+ backup :
+
+ Images currently available on Flash
+
+----------------------------------------------------------------------
+ unit        active       backup     current-active       next-active
+----------------------------------------------------------------------
+
+    1        1.1.0.3      1.1.0.3          1.1.0.3           1.1.0.5
+----
+. 스위치를 재부팅합니다.
++
+[listing]
+----
+(cs2) # reload
+
+Are you sure you would like to reset the system? (y/n)  y
+
+System will now restart!
+----
+. 다시 로그인하여 FASTPATH 소프트웨어의 새 버전을 확인합니다.
++
+[listing]
+----
+(cs2) # show version
+
+Switch: 1
+
+System Description................... Broadcom Scorpion 56820
+                                      Development System - 16 TENGIG,
+                                      1.1.0.5, Linux 2.6.21.7
+Machine Type......................... Broadcom Scorpion 56820
+                                      Development System - 16TENGIG
+Machine Model........................ BCM-56820
+Serial Number........................ 10611100004
+FRU Number...........................
+Part Number.......................... BCM56820
+Maintenance Level.................... A
+Manufacturer......................... 0xbc00
+Burned In MAC Address................ 00:A0:98:4B:A9:AA
+Software Version..................... 1.1.0.5
+Operating System..................... Linux 2.6.21.7
+Network Processing Device............ BCM56820_B0
+Additional Packages.................. FASTPATH QOS
+                                      FASTPATH IPv6 Management
+----
+. 활성 스위치인 CS1에서 ISL 포트를 불러옵니다.
++
+[listing]
+----
+(cs1) # configure
+(cs1) (config) # interface 0/13-0/16
+(cs1) (Interface 0/13-0/16) # no shutdown
+(cs1) (Interface 0/13-0/16) # exit
+(cs1) (config) # exit
+----
+. ISL이 작동 중인지 'sch port-channel 3/1'인지 확인합니다
++
+링크 상태 필드는 '위로'를 표시해야 합니다.
+
++
+[listing]
+----
+(cs2) # show port-channel 3/1
+
+Local Interface................................ 3/1
+Channel Name................................... ISL-LAG
+Link State..................................... Up
+Admin Mode..................................... Enabled
+Type........................................... Static
+Load Balance Option............................ 7
+(Enhanced hashing mode)
+
+Mbr    Device/       Port      Port
+Ports  Timeout       Speed     Active
+------ ------------- --------- -------
+0/13   actor/long    10G Full  True
+       partner/long
+0/14   actor/long    10G Full  True
+       partner/long
+0/15   actor/long    10G Full  True
+       partner/long
+0/16   actor/long    10G Full  True
+       partner/long
+----
+. 소프트웨어 버전 및 스위치 설정에 만족하면 'running-config' 파일을 'startup-config' 파일로 복사합니다.
++
+[listing]
+----
+(cs2) # write memory
+
+This operation may take a few minutes.
+Management interfaces will not be available during this time.
+
+Are you sure you want to save? (y/n) y
+
+Config file 'startup-config' created successfully .
+
+Configuration Saved!
+----
+. 각 노드에서 두 번째 클러스터 포트 e2a를 활성화합니다. "network port modify"
++
+[listing]
+----
+cluster::*> network port modify -node node1 -port e2a -up-admin true
+cluster::*> **network port modify -node node2 -port e2a -up-admin true**
+----
+. 포트 e2a와 연결된 clus2를 '네트워크 인터페이스 되돌리기'로 되돌립니다
++
+LIF는 ONTAP 소프트웨어 버전에 따라 자동으로 되돌릴 수 있습니다.
+
++
+[listing]
+----
+cluster::*> network interface revert -vserver Cluster -lif n1_clus2
+cluster::*> network interface revert -vserver Cluster -lif n2_clus2
+----
+. LIF가 양쪽 노드에서 홈('true')인지 확인합니다. network interface show -_role cluster _
++
+[listing]
+----
+cluster::*> network interface show -role cluster
+
+          Logical    Status     Network        Current  Current Is
+Vserver   Interface  Admin/Oper Address/Mask   Node     Port    Home
+--------  ---------- ---------- -------------- -------- ------- ----
+vs1
+          clus1      up/up      10.10.10.1/24  node1    e1a     true
+          clus2      up/up      10.10.10.2/24  node1    e2a     true
+vs2
+          clus1      up/up      10.10.10.1/24  node2    e1a     true
+          clus2      up/up      10.10.10.2/24  node2    e2a     true
+----
+. 노드 상태 보기: cluster show
++
+[listing]
+----
+cluster::> cluster show
+
+Node                 Health  Eligibility
+-------------------- ------- ------------
+node1                true    true
+node2                true    true
+----
+. 1단계부터 18단계까지 반복하여 다른 스위치 CS1의 FASTPATH 소프트웨어를 업그레이드합니다.
+. 자동 케이스 생성을 억제한 경우 AutoSupport 메시지를 호출하여 다시 활성화합니다.
++
+'System node AutoSupport invoke-node * -type all-message maINT=end'
+
+

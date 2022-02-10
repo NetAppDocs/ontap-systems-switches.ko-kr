@@ -29,20 +29,18 @@ NOTE: 케이블 레이어를 보여줌으로써 발생할 수 있는 복잡성 �
 
 +
 
-NOTE: 자세한 내용은 _Hardware Universe_를 참조하십시오.
+NOTE: 자세한 내용은 를 참조하십시오 https://hwu.netapp.com["Hardware Universe"^].
 
-+
-https://hwu.netapp.com["Hardware Universe"^]
+* 모든 Cisco 클러스터 네트워크 및 관리 네트워크 스위치는 표준 Cisco 공장 출하시 기본 구성으로 제공됩니다. 이러한 스위치에는 최신 버전의 NX-OS 소프트웨어도 있지만 RCFs가 로드되지 않았습니다.
 
-
-
-모든 Cisco 클러스터 네트워크 및 관리 네트워크 스위치는 표준 Cisco 공장 출하시 기본 구성으로 제공됩니다. 이러한 스위치에는 최신 버전의 NX-OS 소프트웨어도 있지만 RCFs가 로드되지 않았습니다.
 
 
 NOTE: NetApp Support 사이트 에서 해당 NetApp 클러스터 네트워크 및 관리 네트워크 RCF를 다운로드해야 합니다 http://mysupport.netapp.com/["mysupport.netapp.com"^] 를 선택합니다.
 
-또한 92300YC 클러스터 스위치용 CSHM(Cluster Switch Health Monitor)을 지원하기 위해 필요한 구성 파일을 설치해야 할 수도 있습니다. 을 참조하십시오 link:setup_install_cshm_file.md#["92300YC 스위치용 CSHM(Cluster Switch Health Monitor) 구성 파일 설치"] 를 참조하십시오.
+* 또한 92300YC 클러스터 스위치용 CSHM(Cluster Switch Health Monitor)을 지원하기 위해 필요한 구성 파일을 설치해야 할 수도 있습니다. 을 참조하십시오 link:setup_install_cshm_file.md#["92300YC 스위치용 CSHM(Cluster Switch Health Monitor) 구성 파일 설치"] 를 참조하십시오.
 
+
+.단계
 . 클러스터 네트워크 및 관리 네트워크 스위치와 컨트롤러를 랙에 연결합니다.
 +
 [cols="1,2"]

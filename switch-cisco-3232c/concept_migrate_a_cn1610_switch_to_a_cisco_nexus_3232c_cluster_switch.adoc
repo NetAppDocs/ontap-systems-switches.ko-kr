@@ -1,0 +1,72 @@
+---
+permalink: switch-cisco-3232c/concept_migrate_a_cn1610_switch_to_a_cisco_nexus_3232c_cluster_switch.html 
+sidebar: sidebar 
+keywords: migrate, cn1610 switch, cisco nexus 3232c cluster 
+summary: CN1610 클러스터 스위치를 Cisco Nexus 3232C 클러스터 스위치로 교체할 때 특정 구성 정보, 포트 연결, 케이블 연결 요구사항을 알고 있어야 합니다. 
+---
+= CN1610 스위치를 Cisco Nexus 3232C 클러스터 스위치에 마이그레이션
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+CN1610 클러스터 스위치를 Cisco Nexus 3232C 클러스터 스위치로 교체할 때 특정 구성 정보, 포트 연결, 케이블 연결 요구사항을 알고 있어야 합니다.
+
+클러스터 스위치는 다음과 같은 노드 연결을 지원합니다.
+
+* NetApp CN1610: 포트 0/1~0/12(10GbE)
+* Cisco Nexus 3232C: 포트 e1/1-30(40 또는 100 또는 4x10GbE)
+
+
+클러스터 스위치는 다음과 같은 ISL(Inter-Switch Link) 포트를 사용합니다.
+
+* NetApp CN1610: 포트 0/13~0/16(10GbE)
+* Cisco Nexus 3232C: 포트 1/31-32(100GbE)
+
+
+[NOTE]
+====
+Cisco Nexus 3232C 클러스터 스위치에서 4x10G 브레이크아웃 케이블을 사용해야 합니다.
+
+====
+다음 표에는 NetApp CN1610 스위치에서 Cisco Nexus 3232C 클러스터 스위치로 전환할 때 각 단계에서 필요한 케이블 연결 연결이 나와 있습니다.
+
+|===
+| 단계 | 설명 | 필수 케이블 
+
+
+ a| 
+초기
+ a| 
+CN1610 대 CN1610(SFP+에서 SFP+)
+ a| 
+4 SFP+ 광 파이버 또는 구리 직접 연결 케이블
+
+
+
+ a| 
+전환
+ a| 
+3232C(QSFP-SFP+) CN1610
+ a| 
+1 QSFP 및 4 SFP+ 광 파이버 또는 구리 브레이크아웃 케이블
+
+
+
+ a| 
+최종
+ a| 
+3232C~3232C(QSFP에서 QSFP로)
+ a| 
+QSFP 광 파이버 또는 구리 직접 연결 케이블 2개
+
+|===
+해당 참조 구성 파일(RCFs)을 다운로드해야 합니다. 10GbE 및 40/100 GbE 포트 수는 에서 사용할 수 있는 RCFs에 정의되어 있습니다 https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Cisco ® 클러스터 네트워크 스위치 참조 구성 파일 다운로드"^] 페이지.
+
+이 절차에서 지원되는 ONTAP 및 NX-OS 버전은 Cisco 이더넷 스위치 페이지에 나열되어 있습니다.
+
+https://mysupport.netapp.com/NOW/download/software/cm_switches/["Cisco 이더넷 스위치"^]
+
+이 절차에서 지원되는 ONTAP 및 FASTPATH 버전이 NetApp CN1601 및 CN1610 스위치 페이지에 나열됩니다.
+
+http://support.netapp.com/NOW/download/software/cm_switches_ntap/["NetApp CN1601 및 CN1610 스위치"^]

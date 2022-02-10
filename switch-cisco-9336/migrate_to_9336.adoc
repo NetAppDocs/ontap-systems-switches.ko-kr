@@ -37,8 +37,12 @@ ONTAP 클러스터에 대한 운영 중단 없이 이전 Cisco 클러스터 스�
 ** 그런 다음 노드와 C2 사이의 케이블 연결을 C2에서 분리하고 CS2에 다시 연결합니다.
 ** 그런 다음, 노드와 C1 사이의 케이블 연결을 C1에서 분리하고 CS1에 다시 연결합니다.
 ** 그런 다음 C1과 CS1 사이의 임시 ISL이 제거됩니다.
-+
-... 이 클러스터에서 AutoSupport가 활성화되어 있으면 'system node AutoSupport invoke -node * -type all-message maINT=xh' AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다
+
+
+
+
+.단계
+. 이 클러스터에서 AutoSupport가 활성화되어 있으면 'system node AutoSupport invoke -node * -type all-message maINT=xh' AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다
 +
 여기서 x는 유지 보수 기간(시간)입니다.
 
@@ -46,11 +50,11 @@ ONTAP 클러스터에 대한 운영 중단 없이 이전 Cisco 클러스터 스�
 
 NOTE: AutoSupport 메시지는 유지보수 기간 동안 자동 케이스 생성이 억제되도록 이 유지보수 작업의 기술 지원에 알립니다.
 
-... 권한 수준을 고급으로 변경하고 'Set-Privilege advanced'라는 메시지가 나타나면 * y * 를 입력합니다
+. 권한 수준을 고급으로 변경하고 'Set-Privilege advanced'라는 메시지가 나타나면 * y * 를 입력합니다
 +
 고급 프롬프트(*>)가 나타납니다.
 
-... 모든 클러스터 LIF에서 'network interface show-vserver Cluster-fields auto-revert'라는 자동 되돌리기 기능이 설정되어 있는지 확인합니다
+. 모든 클러스터 LIF에서 'network interface show-vserver Cluster-fields auto-revert'라는 자동 되돌리기 기능이 설정되어 있는지 확인합니다
 +
 [listing]
 ----
@@ -67,12 +71,12 @@ Cluster
 
 4 entries were displayed.
 ----
-... 각 클러스터 인터페이스의 관리 또는 운영 상태 확인:
+. 각 클러스터 인터페이스의 관리 또는 운영 상태 확인:
 +
 각 포트는 Link에, Health Status에 대해서는 Healthy로 표시되어야 합니다.
 
 +
-.... 네트워크 포트 속성 'network port show-ipSpace Cluster'를 표시합니다
+.. 네트워크 포트 속성 'network port show-ipSpace Cluster'를 표시합니다
 +
 [listing]
 ----
@@ -96,7 +100,7 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 
 4 entries were displayed.
 ----
-.... 논리 인터페이스 및 지정된 홈 노드에 대한 정보를 표시합니다. 네트워크 인터페이스 show-vserver 클러스터
+.. 논리 인터페이스 및 지정된 홈 노드에 대한 정보를 표시합니다. 네트워크 인터페이스 show-vserver 클러스터
 +
 각 LIF는 '상태 관리/작업'에 대해 위/위로 표시되고 '홈'에 대해서는 true로 표시되어야 합니다.
 
@@ -118,7 +122,7 @@ Cluster
 ----
 
 
-... 각 노드의 클러스터 포트는 'network device-discovery show-protocol CDP' 명령을 사용하여 노드 관점에서 기존 클러스터 스위치에 연결됩니다
+. 각 노드의 클러스터 포트는 'network device-discovery show-protocol CDP' 명령을 사용하여 노드 관점에서 기존 클러스터 스위치에 연결됩니다
 +
 [listing]
 ----
@@ -135,7 +139,7 @@ node1      /cdp
 
 4 entries were displayed.
 ----
-... 클러스터 포트와 스위치는 'show CDP neighbors' 명령을 사용하여 스위치의 관점에서 다음과 같이 연결됩니다
+. 클러스터 포트와 스위치는 'show CDP neighbors' 명령을 사용하여 스위치의 관점에서 다음과 같이 연결됩니다
 +
 [listing]
 ----
@@ -180,13 +184,12 @@ c1                    Eth1/46       175    S I s       N5K-C5596UP      Eth1/46
 c1                    Eth1/47       176    S I s       N5K-C5596UP      Eth1/47
 c1                    Eth1/48       176    S I s       N5K-C5596UP      Eth1/48
 ----
-... 'cluster ping -cluster -node -name' 명령을 사용하여 클러스터 네트워크가 완전히 연결되어 있는지 확인합니다
+. 'cluster ping -cluster -node -name' 명령을 사용하여 클러스터 네트워크가 완전히 연결되어 있는지 확인합니다
 +
 [listing]
 ----
-
-
 cluster1::*> cluster ping-cluster -node node2
+
 Host is node2
 Getting addresses from network interface table...
 Cluster node1_clus1 169.254.209.69 node1     e0a
@@ -211,7 +214,7 @@ RPC status:
 2 paths up, 0 paths down (tcp check)
 2 paths up, 0 paths down (udp check)
 ----
-... C1 및 CS1 사이에 있는 포트 e1/41-48의 cs1에 임시 ISL을 구성합니다.
+. 포트 e1/41-48의 CS1에서 C1과 CS1 사이에 임시 ISL을 구성합니다.
 +
 다음 예에서는 새 ISL이 C1 및 CS1에 어떻게 구성되어 있는지 보여 줍니다.
 
@@ -231,11 +234,11 @@ cs1(config-if-range)# exit
 cs1(config)# interface port-channel 101
 cs1(config-if)# switchport mode trunk
 cs1(config-if)# spanning-tree port type network
-cs1(config-if)# exi
+cs1(config-if)# exit
 cs1(config)# exit
 ----
-... 포트 1/41-48에서 ISL 케이블을 C2에서 분리하고 케이블을 CS1의 포트 1/41-48에 연결합니다.
-... ISL 포트 및 포트 채널이 C1 및 CS1을 연결하는 작동 중인지 확인합니다. '포트 채널 요약 정보'
+. 포트 1/41-48에서 ISL 케이블을 C2에서 분리하고 케이블을 CS1의 포트 1/41-48에 연결합니다.
+. ISL 포트 및 포트 채널이 C1 및 CS1을 연결하는 작동 중인지 확인합니다. '포트 채널 요약 정보'
 +
 다음 예에서는 ISL 포트가 C1 및 CS1에서 작동하는지 확인하는 데 사용되는 Cisco show port-channel summary 명령을 보여 줍니다.
 
@@ -278,9 +281,9 @@ Group Port-       Type     Protocol  Member Ports
                                      Eth1/44(P)   Eth1/45(P)   Eth1/46(P)
                                      Eth1/47(P)   Eth1/48(P)
 ----
-... 노드 1의 경우 C2의 e1/1에서 케이블을 분리한 다음 Nexus 9336C-FX2에서 지원하는 적절한 케이블을 사용하여 CS2의 e1/1에 케이블을 연결합니다.
-... 노드 2의 경우 C2의 e1/2에서 케이블을 분리한 다음 Nexus 9336C-FX2에서 지원하는 적절한 케이블을 사용하여 CS2의 e1/2에 케이블을 연결합니다.
-... 각 노드의 클러스터 포트는 이제 노드의 관점에서 클러스터 스위치에 다음과 같이 연결됩니다. 'network device-discovery show-protocol CDP'
+. 노드 1의 경우 C2의 e1/1에서 케이블을 분리한 다음 Nexus 9336C-FX2에서 지원하는 적절한 케이블을 사용하여 CS2의 e1/1에 케이블을 연결합니다.
+. 노드 2의 경우 C2의 e1/2에서 케이블을 분리한 다음 Nexus 9336C-FX2에서 지원하는 적절한 케이블을 사용하여 CS2의 e1/2에 케이블을 연결합니다.
+. 각 노드의 클러스터 포트는 이제 노드의 관점에서 클러스터 스위치에 다음과 같이 연결됩니다. 'network device-discovery show-protocol CDP'
 +
 [listing]
 ----
@@ -298,9 +301,9 @@ node1      /cdp
 
 4 entries were displayed.
 ----
-... 노드 1의 경우, 1C1의 e1/1에서 케이블을 분리한 다음 Nexus 9336C-FX2에서 지원하는 적절한 케이블을 사용하여 CS1의 e1/1에 케이블을 연결합니다.
-... 노드 2의 경우, C1의 e1/2에서 케이블을 분리한 다음 Nexus 9336C-FX2에서 지원하는 적절한 케이블을 사용하여 CS1의 e1/2에 케이블을 연결합니다.
-... 각 노드의 클러스터 포트는 이제 노드의 관점에서 클러스터 스위치에 다음과 같이 연결됩니다. 'network device-discovery show-protocol CDP'
+. 노드 1의 경우, 1C1의 e1/1에서 케이블을 분리한 다음 Nexus 9336C-FX2에서 지원하는 적절한 케이블을 사용하여 CS1의 e1/1에 케이블을 연결합니다.
+. 노드 2의 경우, C1의 e1/2에서 케이블을 분리한 다음 Nexus 9336C-FX2에서 지원하는 적절한 케이블을 사용하여 CS1의 e1/2에 케이블을 연결합니다.
+. 각 노드의 클러스터 포트는 이제 노드의 관점에서 클러스터 스위치에 다음과 같이 연결됩니다. 'network device-discovery show-protocol CDP'
 +
 [listing]
 ----
@@ -316,7 +319,7 @@ node1      /cdp
             e0b    cs2                       0/1               N9K-C9336C
 4 entries were displayed.
 ----
-... CS1과 C1 사이의 임시 ISL을 삭제합니다.
+. CS1과 C1 사이의 임시 ISL을 삭제합니다.
 +
 [listing]
 ----
@@ -331,7 +334,7 @@ cs1(config-if-range)# spanning-tree bpduguard enable
 cs1(config-if-range)# exit
 cs1(config)# exit
 ----
-... 클러스터의 최종 구성 'network port show-ipSpace Cluster'를 확인합니다
+. 클러스터의 최종 구성 'network port show-ipSpace Cluster'를 확인합니다
 +
 각 포트는 Link에, Health Status에 대해서는 Healthy로 표시되어야 합니다.
 
@@ -386,8 +389,14 @@ node1      /cdp
             e0b    cs2                       0/1               N9K-C9336C
 
 4 entries were displayed.
+----
+. 두 노드 모두 각 스위치에 대해 'CDP neighbors 확인'이라는 하나의 연결이 있는지 확인합니다
++
+다음 예에서는 두 스위치에 대해 적절한 결과를 보여 줍니다.
 
-
++
+[listing]
+----
 cs1# show cdp neighbors
 
 Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
@@ -417,7 +426,7 @@ cs1                Eth1/36        179    R S I s     N9K-C9336C    Eth1/36
 
 Total entries displayed: 4
 ----
-... 클러스터 네트워크에 'cluster ping-cluster-node-name'(클러스터 ping-cluster-node-name)이 완전히 연결되어 있는지 확인합니다
+. 클러스터 네트워크에 'cluster ping-cluster-node-name'(클러스터 ping-cluster-node-name)이 완전히 연결되어 있는지 확인합니다
 +
 [listing]
 ----
@@ -427,7 +436,7 @@ Warning: These advanced commands are potentially dangerous; use them only when
          directed to do so by NetApp personnel.
 Do you want to continue? {y|n}: y
 
-cluster1::*> **cluster ping-cluster -node node2**
+cluster1::*> cluster ping-cluster -node node2
 Host is node2
 Getting addresses from network interface table...
 Cluster node1_clus1 169.254.209.69 node1     e0a
@@ -456,7 +465,7 @@ RPC status:
 cluster1::*> set -privilege admin
 cluster1::*>
 ----
-... ONTAP 9.8 이상에서는 시스템 스위치 이더넷 로그 설정 암호 시스템 스위치 이더넷 로그 활성화 수집 명령을 사용하여 스위치 관련 로그 파일을 수집하는 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화합니다
+. ONTAP 9.8 이상의 경우, '시스템 스위치 이더넷 로그 설정-암호'와 '시스템 스위치 이더넷 로그 활성화-수집'이라는 두 가지 명령을 사용하여 스위치 관련 로그 파일을 수집하기 위한 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화합니다
 +
 [listing]
 ----
@@ -498,7 +507,7 @@ cluster1::*>
 
 NOTE: 이러한 명령에서 오류가 반환되면 NetApp 지원에 문의하십시오.
 
-... ONTAP 릴리스 9.5P16, 9.6P12 및 9.7P10 이상의 패치 릴리스의 경우, 'system cluster cluster-switch log setup-password system cluster-switch log enable-collection' 명령을 사용하여 스위치 관련 로그 파일을 수집하기 위한 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화합니다
+. ONTAP 릴리스 9.5P16, 9.6P12 및 9.7P10 이상의 패치 릴리스의 경우 'system cluster-switch log setup-password' 및 'system cluster-switch log enable-collection' 명령을 사용하여 스위치 관련 로그 파일을 수집하기 위한 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화합니다
 +
 [listing]
 ----
@@ -540,9 +549,5 @@ cluster1::*>
 
 NOTE: 이러한 명령에서 오류가 반환되면 NetApp 지원에 문의하십시오.
 
-... 자동 케이스 생성을 억제한 경우 AutoSupport 메시지 '시스템 노드 AutoSupport invoke -node * -type all-message MAINT=end'를 호출하여 다시 활성화합니다
-
-
-
-
+. 자동 케이스 생성을 억제한 경우 AutoSupport 메시지 '시스템 노드 AutoSupport invoke -node * -type all-message MAINT=end'를 호출하여 다시 활성화합니다
 

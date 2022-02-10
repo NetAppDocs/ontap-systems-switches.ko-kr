@@ -12,12 +12,13 @@ summary: 이 절차를 사용하여 Cisco Nexus 9336C-FX2 스위치의 초기 �
 [role="lead"]
 이 절차를 사용하여 Cisco Nexus 9336C-FX2 스위치의 초기 설치를 수행할 수 있습니다.
 
-스위치에 해당하는 NetApp Cisco NX-OS 소프트웨어를 다운로드하려면 NetApp Support 사이트 에서 다운로드할 수 있습니다 http://mysupport.netapp.com/["mysupport.netapp.com"^]
+스위치에 해당하는 NetApp Cisco NX-OS 소프트웨어를 다운로드하려면 NetApp Support 사이트 에서 다운로드할 수 있습니다 http://mysupport.netapp.com/["mysupport.netapp.com"^].
 
 NX-OS는 Cisco Systems에서 제공하는 Nexus 시리즈 이더넷 스위치 및 MDS 시리즈 FC(Fibre Channel) 스토리지 영역 네트워크 스위치용 네트워크 운영 체제입니다.
 
 이 절차에서는 스위치를 설치하고 실행하기 위한 프로세스를 간략하게 설명합니다.
 
+.단계
 . 직렬 포트를 선택한 호스트 또는 직렬 포트에 연결합니다.
 . 관리 포트(스위치의 포트 측 아님)를 SFTP 서버가 있는 동일한 네트워크에 연결합니다.
 . 콘솔에서 호스트 측 직렬 설정을 설정합니다.
@@ -31,16 +32,14 @@ NX-OS는 Cisco Systems에서 제공하는 Nexus 시리즈 이더넷 스위치 �
 
 . 처음으로 부팅하거나 실행 중인 구성을 지운 후 재부팅하는 경우 부팅 주기에서 Nexus 9336C-FX2 스위치 루프가 발생합니다. Auto Provisioning의 전원을 중단하려면 * yes * 를 입력하여 이 주기를 중단합니다. 그러면 시스템 관리자 계정 설정이 표시됩니다.
 +
-....
-$ VDC-1 %$ %POAP-2-POAP_INFO:   - Abort Power On Auto Provisioning [yes - continue with normal setup, skip - bypass password and basic configuration, no - continue with Power On Auto Provisioning] (yes/skip/no)[no]:
-**yes**
+[listing]
+----
+$ VDC-1 %$ %POAP-2-POAP_INFO:   - Abort Power On Auto Provisioning [yes - continue with normal setup, skip - bypass password and basic configuration, no - continue with Power On Auto Provisioning] (yes/skip/no)[no]: yes
 Disabling POAP.......Disabling POAP
 2019 Apr 10 00:36:17 switch %$ VDC-1 %$ poap: Rolling back, please wait... (This may take 5-15 minutes)
-....
-+
- ---- System Admin Account Setup ----
-+
- Do you want to enforce secure password standard (yes/no) [y]:
+
+---- System Admin Account Setup ----
+----
 . 보안 암호 표준을 적용하려면 * y * 를 입력합니다.
 +
 [listing]
@@ -125,9 +124,9 @@ Enable the telnet service? (yes/no) [n]: n
 ----
 Enable the ssh service? (yes/no) [y]: y
 
-       Type of ssh key you would like to generate (dsa/rsa) [rsa]: rsa
+Type of ssh key you would like to generate (dsa/rsa) [rsa]: rsa
 
-       Number of rsa key bits <1024-2048> [1024]: 2048
+Number of rsa key bits <1024-2048> [1024]: 2048
 ----
 . 기타 설정 구성:
 +
@@ -153,7 +152,7 @@ Use this configuration and save it? (yes/no) [y]: y
 Copy complete, now saving to disk (please wait)...
 Copy complete.
 ----
-. ONTAP 9.8 이상에서는 시스템 스위치 이더넷 로그 설정 암호 시스템 스위치 이더넷 로그 활성화 수집 명령을 사용하여 스위치 관련 로그 파일을 수집하는 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화합니다
+. ONTAP 9.8 이상에서는 시스템 스위치 이더넷 로그 설정-암호, 시스템 스위치 이더넷 로그 활성화-수집 등의 명령을 사용하여 스위치 관련 로그 파일을 수집하기 위한 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화합니다
 +
 [listing]
 ----
@@ -195,7 +194,7 @@ cluster1::*>
 
 NOTE: 이러한 명령에서 오류가 반환되면 NetApp 지원에 문의하십시오.
 
-. ONTAP 릴리스 9.5P16, 9.6P12 및 9.7P10 이상의 패치 릴리스의 경우, 'system cluster-switch log setup-password' 'system cluster-switch log enable-collection' 명령을 사용하여 스위치 관련 로그 파일을 수집하기 위한 Ethernet 스위치 상태 모니터 로그 수집 기능을 활성화합니다
+. ONTAP 릴리스 9.5P16, 9.6P12 및 9.7P10 이상의 패치 릴리스의 경우 'system cluster-switch log setup-password' 및 'system cluster-switch log enable-collection' 명령을 사용하여 스위치 관련 로그 파일을 수집하기 위한 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화합니다
 +
 [listing]
 ----

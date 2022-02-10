@@ -26,7 +26,7 @@ Cisco Nexus 9336C-FX2 스위치 구성:
 * 클러스터 스위치에 대한 콘솔 액세스가 있어야 합니다.
 * Nexus 9336C-FX2 노드 간 스위치 및 스위치 간 연결은 Twinax 또는 파이버 케이블을 사용해야 합니다.
 +
-Hardware Universe*에는 케이블 연결에 대한 자세한 정보가 포함되어 있습니다.
+를 클릭합니다 https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - 스위치"^] 케이블 연결에 대한 자세한 내용은 에 나와 있습니다.
 
 +
 https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - 스위치"^]
@@ -48,13 +48,12 @@ https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - 스위치"^]
 * 'cluster1:: *>' 프롬프트는 클러스터의 이름을 나타냅니다.
 * 이 절차에 사용되는 클러스터 포트는 e0a 및 e0b입니다.
 +
-Hardware Universe * 에는 플랫폼의 실제 클러스터 포트에 대한 최신 정보가 들어 있습니다.
+를 클릭합니다 https://hwu.netapp.com["Hardware Universe"^] 에는 해당 플랫폼의 실제 클러스터 포트에 대한 최신 정보가 나와 있습니다.
 
-+
-https://hwu.netapp.com["Hardware Universe"^]
 
-+
-.. 이 클러스터에서 AutoSupport가 활성화되어 있으면 'system node AutoSupport invoke -node * -type all-message maINT=xh' AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다
+
+.단계
+. 이 클러스터에서 AutoSupport가 활성화되어 있으면 'system node AutoSupport invoke -node * -type all-message maINT=xh' AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다
 +
 여기서 x는 유지 보수 기간(시간)입니다.
 
@@ -62,11 +61,11 @@ https://hwu.netapp.com["Hardware Universe"^]
 
 NOTE: AutoSupport 메시지는 유지보수 기간 동안 자동 케이스 생성이 억제되도록 이 유지보수 작업의 기술 지원에 알립니다.
 
-.. 권한 수준을 고급으로 변경하고, 'Set-Privilege advanced'라는 메시지가 나타나면 y를 입력합니다
+. 권한 수준을 고급으로 변경하고, 'Set-Privilege advanced'라는 메시지가 나타나면 y를 입력합니다
 +
 고급 프롬프트('*>')가 나타납니다.
 
-.. 새 클러스터 스위치 CS1과 CS2 모두에서 ISL 포트가 아닌 모든 노드 대상 포트를 비활성화합니다.
+. 새 클러스터 스위치 CS1과 CS2 모두에서 ISL 포트가 아닌 모든 노드 대상 포트를 비활성화합니다.
 +
 ISL 포트를 비활성화해서는 안 됩니다.
 
@@ -81,7 +80,7 @@ Enter configuration commands, one per line. End with CNTL/Z.
 cs1(config)# interface e/1-34
 cs1(config-if-range)# shutdown
 ----
-.. 두 9336C-FX2 스위치 CS1과 CS2 사이의 ISL과 ISL의 물리적 포트가 포트 1/35 및 1/36:'포트-채널 요약 정보'에 있는지 확인합니다
+. 두 9336C-FX2 스위치 CS1과 CS2 사이의 ISL과 ISL의 물리적 포트가 포트 1/35 및 1/36:'포트-채널 요약 정보'에 있는지 확인합니다
 +
 다음 예에서는 스위치 CS1에서 ISL 포트가 작동 중인 것을 보여 줍니다.
 
@@ -126,7 +125,7 @@ Group Port-       Type     Protocol  Member Ports
 --------------------------------------------------------------------------------
 1     Po1(SU)     Eth      LACP      Eth1/35(P)   Eth1/36(P)
 ----
-.. 주변 디바이스 목록 표시:'CDP neighbors 표시
+. 주변 디바이스 목록 표시:'CDP neighbors 표시
 +
 이 명령은 시스템에 연결된 장치에 대한 정보를 제공합니다.
 
@@ -168,7 +167,7 @@ cs1           )    Eth1/36        177    R S I s     N9K-C9336C    Eth1/36
 
 Total entries displayed: 2
 ----
-.. 모든 클러스터 포트가 작동 중인지 확인합니다. 'network port show-ipSpace Cluster'
+. 모든 클러스터 포트가 작동 중인지 확인합니다. 'network port show-ipSpace Cluster'
 +
 각 포트는 Link에, Health Status에 대해서는 Healthy로 표시되어야 합니다.
 
@@ -195,7 +194,7 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy
 
 4 entries were displayed.
 ----
-.. 모든 클러스터 LIF가 작동 중인지 확인합니다. 'network interface show -vserver Cluster'
+. 모든 클러스터 LIF가 작동 중인지 확인합니다. 'network interface show -vserver Cluster'
 +
 각 클러스터 LIF는 '홈'에 대해 '상태 관리/작업'이 UP/UP인 '상태 관리/작업'에 대해 '참'으로 표시되어야 합니다
 
@@ -214,7 +213,7 @@ Cluster
             node2_clus2  up/up    169.254.19.183/16  node2         e0b     true
 4 entries were displayed.
 ----
-.. 모든 클러스터 LIF에서 'network interface show-vserver Cluster-fields auto-revert'라는 자동 되돌리기 기능이 설정되어 있는지 확인합니다
+. 모든 클러스터 LIF에서 'network interface show-vserver Cluster-fields auto-revert'라는 자동 되돌리기 기능이 설정되어 있는지 확인합니다
 +
 [listing]
 ----
@@ -231,15 +230,15 @@ Cluster
 
 4 entries were displayed.
 ----
-.. 9336C-FX2 스위치가 지원하는 적절한 케이블을 사용하여 노드 1의 클러스터 포트 e0a에서 케이블을 분리한 다음 클러스터 스위치 CS1의 포트 1에 e0a를 연결합니다.
+. 9336C-FX2 스위치가 지원하는 적절한 케이블을 사용하여 노드 1의 클러스터 포트 e0a에서 케이블을 분리한 다음 클러스터 스위치 CS1의 포트 1에 e0a를 연결합니다.
 +
-Hardware Universe*에는 케이블 연결에 대한 자세한 정보가 포함되어 있습니다.
+를 클릭합니다 https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - 스위치"] 케이블 연결에 대한 자세한 내용은 에 나와 있습니다.
 
 +
 https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - 스위치"^]
 
-.. 9336C-FX2 스위치가 지원하는 적절한 케이블을 사용하여 노드 2의 클러스터 포트 e0a에서 케이블을 분리한 다음 클러스터 스위치 CS1의 포트 2에 e0a를 연결합니다.
-.. 클러스터 스위치 CS1에서 모든 노드 대상 포트를 활성화합니다.
+. 9336C-FX2 스위치가 지원하는 적절한 케이블을 사용하여 노드 2의 클러스터 포트 e0a에서 케이블을 분리한 다음 클러스터 스위치 CS1의 포트 2에 e0a를 연결합니다.
+. 클러스터 스위치 CS1에서 모든 노드 대상 포트를 활성화합니다.
 +
 다음 예에서는 스위치 CS1에서 포트 1/1에서 1/34 사이의 포트가 활성화되어 있음을 보여 줍니다.
 
@@ -251,7 +250,7 @@ Enter configuration commands, one per line. End with CNTL/Z.
 cs1(config)# interface e1/1-34
 cs1(config-if-range)# no shutdown
 ----
-.. 모든 클러스터 LIF가 작동 중이고 '홈'에 대해 '홈'으로 표시되는지 확인합니다. network interface show -vserver cluster'
+. 모든 클러스터 LIF가 작동 중이고 '홈'에 대해 '홈'으로 표시되는지 확인합니다. network interface show -vserver cluster'
 +
 다음 예에서는 모든 LIF가 node1과 node2에 있으며 "홈" 결과가 true인 것을 보여 줍니다.
 
@@ -271,7 +270,7 @@ Cluster
 
 4 entries were displayed.
 ----
-.. 클러스터의 노드 상태에 대한 정보를 cluster show 로 표시합니다
+. 클러스터의 노드 상태에 대한 정보를 cluster show 로 표시합니다
 +
 다음 예제에는 클러스터에 있는 노드의 상태 및 자격에 대한 정보가 표시됩니다.
 
@@ -287,9 +286,9 @@ node2                true    true          false
 
 2 entries were displayed.
 ----
-.. 9336C-FX2 스위치가 지원하는 적절한 케이블을 사용하여 노드 1의 클러스터 포트 e0b에서 케이블을 분리한 다음 클러스터 스위치 CS2의 포트 1에 e0b를 연결합니다.
-.. 9336C-FX2 스위치가 지원하는 적절한 케이블을 사용하여 노드 2의 클러스터 포트 e0b에서 케이블을 분리한 다음 클러스터 스위치 CS2의 포트 2에 e0b를 연결합니다.
-.. 클러스터 스위치 CS2에서 모든 노드 대상 포트를 활성화합니다.
+. 9336C-FX2 스위치가 지원하는 적절한 케이블을 사용하여 노드 1의 클러스터 포트 e0b에서 케이블을 분리한 다음 클러스터 스위치 CS2의 포트 1에 e0b를 연결합니다.
+. 9336C-FX2 스위치가 지원하는 적절한 케이블을 사용하여 노드 2의 클러스터 포트 e0b에서 케이블을 분리한 다음 클러스터 스위치 CS2의 포트 2에 e0b를 연결합니다.
+. 클러스터 스위치 CS2에서 모든 노드 대상 포트를 활성화합니다.
 +
 다음 예에서는 스위치 CS2에서 포트 1/1 ~ 1/34 가 활성화되어 있음을 보여 줍니다.
 
@@ -301,7 +300,7 @@ Enter configuration commands, one per line. End with CNTL/Z.
 cs2(config)# interface e1/1-34
 cs2(config-if-range)# no shutdown
 ----
-.. 모든 클러스터 포트가 작동 중인지 확인합니다. 'network port show-ipSpace Cluster'
+. 모든 클러스터 포트가 작동 중인지 확인합니다. 'network port show-ipSpace Cluster'
 +
 다음 예에서는 모든 클러스터 포트가 노드 1과 노드 2에 있음을 보여 줍니다.
 
@@ -328,7 +327,7 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 
 4 entries were displayed.
 ----
-.. 모든 인터페이스가 '홈'에 대해 true로 표시되는지 확인합니다. 네트워크 인터페이스 show-vserver Cluster
+. 모든 인터페이스가 '홈'에 대해 true로 표시되는지 확인합니다. 네트워크 인터페이스 show-vserver Cluster
 +
 
 NOTE: 이 작업을 완료하는 데 몇 분 정도 걸릴 수 있습니다.
@@ -352,7 +351,7 @@ Cluster
 
 4 entries were displayed.
 ----
-.. 두 노드 모두 각 스위치에 대해 'CDP neighbors 확인'이라는 하나의 연결이 있는지 확인합니다
+. 두 노드 모두 각 스위치에 대해 'CDP neighbors 확인'이라는 하나의 연결이 있는지 확인합니다
 +
 다음 예에서는 두 스위치에 대해 적절한 결과를 보여 줍니다.
 
@@ -389,7 +388,7 @@ cs1                Eth1/36        175    R S I s     N9K-C9336C    Eth1/36
 
 Total entries displayed: 4
 ----
-.. 클러스터에서 검색된 네트워크 디바이스, 즉 'network device-discovery show-protocol CDP'에 대한 정보를 표시합니다
+. 클러스터에서 검색된 네트워크 디바이스, 즉 'network device-discovery show-protocol CDP'에 대한 정보를 표시합니다
 +
 [listing]
 ----
@@ -406,7 +405,7 @@ node1      /cdp
 
 4 entries were displayed.
 ----
-.. 'network options switchless-cluster show' 설정이 비활성화되어 있는지 확인합니다
+. 'network options switchless-cluster show' 설정이 비활성화되어 있는지 확인합니다
 +
 
 NOTE: 명령이 완료되는 데 몇 분 정도 걸릴 수 있습니다. '3분 수명 만료' 메시지가 표시될 때까지 기다립니다.
@@ -420,7 +419,7 @@ NOTE: 명령이 완료되는 데 몇 분 정도 걸릴 수 있습니다. '3분 �
 cluster1::*> network options switchless-cluster show
 Enable Switchless Cluster: false
 ----
-.. 클러스터의 노드 멤버 상태를 'cluster show'로 확인한다
+. 클러스터의 노드 멤버 상태를 'cluster show'로 확인한다
 +
 다음 예는 클러스터에 있는 노드의 상태 및 적격성에 대한 정보를 보여줍니다.
 
@@ -434,7 +433,7 @@ Node                 Health  Eligibility   Epsilon
 node1                true    true          false
 node2                true    true          false
 ----
-.. 클러스터 네트워크에 'cluster ping-cluster-node-name'(클러스터 ping-cluster-node-name)이 완전히 연결되어 있는지 확인합니다
+. 클러스터 네트워크에 'cluster ping-cluster-node-name'(클러스터 ping-cluster-node-name)이 완전히 연결되어 있는지 확인합니다
 +
 [listing]
 ----
@@ -463,8 +462,8 @@ RPC status:
 2 paths up, 0 paths down (tcp check)
 2 paths up, 0 paths down (udp check)
 ----
-.. 권한 수준을 다시 admin:'Set-Privilege admin'으로 변경합니다
-.. ONTAP 9.8 이상에서는 시스템 스위치 이더넷 로그 설정 암호 시스템 스위치 이더넷 로그 활성화 수집 명령을 사용하여 스위치 관련 로그 파일을 수집하는 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화합니다
+. 권한 수준을 다시 admin:'Set-Privilege admin'으로 변경합니다
+. ONTAP 9.8 이상에서는 시스템 스위치 이더넷 로그 설정-암호, 시스템 스위치 이더넷 로그 활성화-수집 등의 명령을 사용하여 스위치 관련 로그 파일을 수집하기 위한 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화합니다
 +
 [listing]
 ----
@@ -493,7 +492,7 @@ Do you want to continue? {y|n}:: [n] y
 Enter the password: <enter switch password>
 Enter the password again: <enter switch password>
 
-cluster1::*> system  switch ethernet log enable-collection
+cluster1::*> system switch ethernet log enable-collection
 
 Do you want to enable cluster log collection for all nodes in the cluster?
 {y|n}: [n] y
@@ -506,7 +505,7 @@ cluster1::*>
 
 NOTE: 이러한 명령에서 오류가 반환되면 NetApp 지원에 문의하십시오.
 
-.. ONTAP 릴리스 9.5P16, 9.6P12 및 9.7P10 이상의 패치 릴리스의 경우, 'system cluster-switch log setup-password' 'system cluster-switch log enable-collection' 명령을 사용하여 스위치 관련 로그 파일을 수집하기 위한 Ethernet 스위치 상태 모니터 로그 수집 기능을 활성화합니다
+. ONTAP 릴리스 9.5P16, 9.6P12 및 9.7P10 이상의 패치 릴리스의 경우 'system cluster-switch log setup-password' 및 'system cluster-switch log enable-collection' 명령을 사용하여 스위치 관련 로그 파일을 수집하기 위한 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화합니다
 +
 [listing]
 ----
@@ -548,7 +547,5 @@ cluster1::*>
 
 NOTE: 이러한 명령에서 오류가 반환되면 NetApp 지원에 문의하십시오.
 
-.. 자동 케이스 생성을 억제한 경우 AutoSupport 메시지 '시스템 노드 AutoSupport invoke -node * -type all-message MAINT=end'를 호출하여 다시 활성화합니다
-
-
+. 자동 케이스 생성을 억제한 경우 AutoSupport 메시지 '시스템 노드 AutoSupport invoke -node * -type all-message MAINT=end'를 호출하여 다시 활성화합니다
 

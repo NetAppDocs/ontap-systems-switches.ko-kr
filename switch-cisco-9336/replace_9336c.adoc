@@ -78,7 +78,7 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 
 
 
-cluster1::*> **network interface show -vserver Cluster**
+cluster1::*> network interface show -vserver Cluster
             Logical    Status     Network            Current       Current Is
 Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
 ----------- ---------- ---------- ------------------ ------------- ------- ----
@@ -456,7 +456,7 @@ cs1                Eth1/36        178    R S I s     N9K-C9336C    Eth1/36
 
 Total entries displayed: 4
 ----
-. ONTAP 9.8 이상에서는 시스템 스위치 이더넷 로그 설정 암호 시스템 스위치 이더넷 로그 활성화 수집 명령을 사용하여 스위치 관련 로그 파일을 수집하는 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화합니다
+. ONTAP 9.8 이상에서는 시스템 스위치 이더넷 로그 설정-암호, 시스템 스위치 이더넷 로그 활성화-수집 등의 명령을 사용하여 스위치 관련 로그 파일을 수집하기 위한 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화합니다
 +
 [listing]
 ----
@@ -498,7 +498,7 @@ cluster1::*>
 
 NOTE: 이러한 명령에서 오류가 반환되면 NetApp 지원에 문의하십시오.
 
-. ONTAP 릴리스 9.5P16, 9.6P12 및 9.7P10 이상의 패치 릴리스의 경우, 'system cluster-switch log setup-password' 'system cluster-switch log enable-collection' 명령을 사용하여 스위치 관련 로그 파일을 수집하기 위한 Ethernet 스위치 상태 모니터 로그 수집 기능을 활성화합니다
+. ONTAP 릴리스 9.5P16, 9.6P12 및 9.7P10 이상의 패치 릴리스의 경우 'system cluster-switch log setup-password' 및 'system cluster-switch log enable-collection' 명령을 사용하여 스위치 관련 로그 파일을 수집하기 위한 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화합니다
 +
 [listing]
 ----

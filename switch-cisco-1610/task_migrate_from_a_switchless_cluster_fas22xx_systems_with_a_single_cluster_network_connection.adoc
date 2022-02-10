@@ -1,0 +1,196 @@
+---
+permalink: switch-cisco-1610/task_migrate_from_a_switchless_cluster_fas22xx_systems_with_a_single_cluster_network_connection.html 
+sidebar: sidebar 
+keywords: migrate, two-node switched cluster, fas22xx systems, single, network connection 
+summary: 스위치가 없는 기존 2노드 클러스터에서 FAS22xx 시스템을 사용하고 각 컨트롤러 모듈에 클러스터 연결을 위한 단일 후면 10GbE 연결이 있다면, 스위치가 없는 클러스터 네트워킹 옵션을 사용하여 직접 후면 연결을 스위치 연결로 대체할 수 있습니다. 
+---
+= FAS22xx 시스템에서 단일 클러스터 네트워크 연결이 포함된 2노드 스위치 클러스터로 마이그레이션합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+스위치가 없는 기존 2노드 클러스터에서 FAS22xx 시스템을 사용하고 각 컨트롤러 모듈에 클러스터 연결을 위한 단일 후면 10GbE 연결이 있다면, 스위치가 없는 클러스터 네트워킹 옵션을 사용하여 직접 후면 연결을 스위치 연결로 대체할 수 있습니다.
+
+
+
+== 필요한 것
+
+* 스위치가 없는 구성에서 스위치 있는 구성으로 마이그레이션하려면 2개의 클러스터 연결이 필요합니다.
+* 클러스터가 정상 상태여야 하며 Back-to-Back 연결을 통해 연결된 2개의 노드로 구성되어 있어야 합니다.
+* 노드에서 ONTAP 8.2 이상이 실행되고 있어야 합니다.
+* 스위치가 없는 클러스터 기능은 2개 이상의 노드에서 사용할 수 없습니다.
+* 모든 클러스터 포트는 UP 상태여야 합니다.
+
+
+
+
+== 이 작업에 대해
+
+이 절차는 스위치가 없는 환경에서 직접 클러스터의 연결을 제거하고 스위치에 대한 각 연결을 파트너 노드에 대한 연결로 교체하는 무중단 절차입니다.
+
+
+
+== 단계
+
+. 권한 수준을 고급으로 변경하고, 'Set-Privilege advanced'라는 메시지가 나타나면 y를 입력합니다
++
+고급 프롬프트('*>')가 나타납니다.
+
+. 두 노드 중 하나의 시스템 콘솔에서 'cluster show'의 클러스터 상태를 확인합니다
++
+다음 예제에는 클러스터에 있는 노드의 상태 및 자격에 대한 정보가 표시됩니다.
+
++
+[listing]
+----
+
+cluster::*> cluster show
+Node                 Health  Eligibility   Epsilon
+-------------------- ------- ------------  ------------
+node1                true    true          false
+node2                true    true          false
+
+2 entries were displayed.
+----
+. 두 노드 중 하나의 시스템 콘솔에서 HA 쌍의 상태를 확인합니다. 'Storage failover show'
++
+다음 예제에서는 node1과 node2의 상태를 보여 줍니다.
+
++
+[listing]
+----
+
+Node           Partner        Possible State Description
+-------------- -------------- -------- -------------------------------------
+node1          node2          true      Connected to node2
+node2          node1          true      Connected to node1
+
+2 entries were displayed.
+----
+. 이 클러스터에서 AutoSupport가 활성화되어 있으면 'system node AutoSupport invoke -node * -type all-message maINT=xh' AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다
++
+x는 유지 보수 기간(시간)입니다.
+
++
+[NOTE]
+====
+이 메시지는 유지보수 작업 중에 자동 케이스 생성이 억제되도록 이 유지보수 작업의 기술 지원 부서에 알립니다.
+
+====
++
+다음 명령을 실행하면 2시간 동안 자동 케이스가 생성되지 않습니다.
+
++
+[listing]
+----
+cluster::*> system node autosupport invoke -node * -type all -message MAINT=2h
+----
+. 스위치가 없는 클러스터의 현재 상태가 "참"인지 확인한 다음 스위치가 없는 클러스터 모드, 즉 "network options switchless-cluster modify -enabled false"를 비활성화합니다
+. 'storage failover takeover -ofnode_target_node_name_' 타겟 노드를 인수합니다
++
+어떤 노드가 타겟 노드인지 중요하지 않습니다. 이 작업이 수행되면 타겟 노드가 자동으로 재부팅되고 'Waiting for 반환...' 메시지가 표시됩니다.
+
++
+활성 노드가 현재 인수된 파트너(타겟) 노드에 대한 데이터를 제공하고 있습니다.
+
+. 장애가 발생한 노드를 테이크오버 상태로 성공했는지 확인하는 데 2분이 걸릴 때까지 기다립니다.
+. 타겟 노드에 'Waiting for 반환 중...' 메시지가 표시된 상태에서 종료한다.
++
+노드를 종료하는 데 사용하는 방법은 노드 서비스 프로세서(SP)를 통해 원격 관리를 사용하는지 여부에 따라 달라집니다.
+
++
+|===
+| SP인 경우 | 그러면... 
+
+
+ a| 
+가 구성됩니다
+ a| 
+장애가 발생한 노드 SP에 로그인한 다음 시스템 전원을 끕니다
+
+
+
+ a| 
+구성되지 않았습니다
+ a| 
+노드 장애 프롬프트에서 Ctrl+C를 누른 다음 y를 눌러 노드를 중단합니다.
+
+|===
+. 각 컨트롤러 모듈에서 10GbE 클러스터 포트를 스위치가 없는 클러스터에 연결하는 케이블을 분리합니다.
+. 10GbE 클러스터 포트를 두 컨트롤러 모듈의 스위치에 연결합니다.
+. 스위치에 연결된 10GbE 클러스터 포트가 동일한 VLAN의 일부로 구성되어 있는지 확인합니다.
++
+각 컨트롤러 모듈의 클러스터 포트를 다른 스위치에 연결하려는 경우 각 스위치에서 클러스터 포트가 연결되는 포트가 동일한 VLAN에 맞게 구성되고 두 스위치에서 트렁킹이 올바르게 구성되었는지 확인해야 합니다.
+
+. 타겟 노드에 스토리지 복구: 'Storage failover 반환 - ofnode node2'를 제공합니다
+. 반환 작업의 진행상황, 즉 'storage failover show-반환'을 모니터링합니다
+. 반환 작업이 완료된 후 HA 쌍이 정상 작동 중인지, 테이크오버가 가능한지, 즉 '스토리지 페일오버 표시'인지 확인합니다
++
+출력은 다음과 비슷해야 합니다.
+
++
+[listing]
+----
+
+Node           Partner        Possible State Description
+-------------- -------------- -------- -------------------------------------
+node1          node2          true      Connected to node2
+node2          node1          true      Connected to node1
+
+2 entries were displayed.
+----
+. 클러스터 포트 LIF가 'network interface show-role cluster'로 올바르게 작동하는지 확인합니다
++
+다음 예제에서는 node1과 node2에서 LIF가 "up"이고 "is Home" 열 결과가 "true"임을 보여 줍니다.
+
++
+[listing]
+----
+
+cluster::*> network interface show -role cluster
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ----
+node1
+            clus1        up/up    192.168.177.121/24  node1        e1a     true
+node2
+            clus1        up/up    192.168.177.123/24  node2        e1a     true
+
+2 entries were displayed.
+----
+. 두 노드 중 하나의 시스템 콘솔에서 'cluster show'의 클러스터 상태를 확인합니다
++
+다음 예제에는 클러스터에 있는 노드의 상태 및 자격에 대한 정보가 표시됩니다.
+
++
+[listing]
+----
+
+cluster::*> cluster show
+Node                 Health  Eligibility   Epsilon
+-------------------- ------- ------------  ------------
+node1                true    true          false
+node2                true    true          false
+
+2 entries were displayed.
+----
+. 클러스터 포트를 ping하여 클러스터 접속 상태를 확인합니다. 'cluster ping-cluster local'
++
+명령 출력에는 모든 클러스터 포트 간의 접속이 표시되어야 합니다.
+
+. 자동 케이스 생성을 억제한 경우 AutoSupport 메시지를 호출하여 다시 활성화합니다.
++
+'System node AutoSupport invoke-node * -type all-message maINT=end'
+
++
+[listing]
+----
+cluster::*> system node autosupport invoke -node * -type all -message MAINT=END
+----
+. 권한 수준을 다시 admin:'Set-Privilege admin'으로 변경합니다
+
+
+* 관련 정보 *
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_suppress_automatic_case_creation_during_scheduled_maintenance_windows["NetApp KB 문서 101010449: 예약된 유지 관리 창에서 자동 케이스 생성을 억제하는 방법"^]

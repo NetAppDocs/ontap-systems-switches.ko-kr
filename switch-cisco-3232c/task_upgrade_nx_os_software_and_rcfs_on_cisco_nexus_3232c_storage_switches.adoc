@@ -1,0 +1,418 @@
+---
+permalink: switch-cisco-3232c/task_upgrade_nx_os_software_and_rcfs_on_cisco_nexus_3232c_storage_switches.html 
+sidebar: sidebar 
+keywords: upgrade, cisco nexus, 3232c storage switch 
+summary: 'Cisco Nexus 3232C 스토리지 스위치에서 Cisco NX-OS 소프트웨어 및 참조 구성 파일(RCF)을 업그레이드할 수 있습니다.' 
+---
+= Cisco Nexus 3232C 스토리지 스위치를 업그레이드하십시오
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cisco Nexus 3232C 스토리지 스위치에서 Cisco NX-OS 소프트웨어 및 참조 구성 파일(RCF)을 업그레이드할 수 있습니다.
+
+
+
+== 필요한 것
+
+스토리지 스위치에서 NX-OS 소프트웨어 및 RCFs를 업그레이드하기 전에 다음 조건이 존재해야 합니다.
+
+* 스위치가 완전히 작동해야 합니다(로그에 오류가 없거나 이와 유사한 문제가 없어야 함).
+* NX-OS만 설치하고 현재 RCF 버전을 유지하는 경우 원하는 부팅 이미지를 반영하도록 RCF에서 원하는 부팅 변수를 확인하거나 설정해야 합니다.
++
+현재 부팅 이미지를 반영하도록 부팅 변수를 변경해야 하는 경우, 나중에 재부팅할 때 올바른 버전이 인스턴스화되도록 RCF를 다시 적용하기 전에 이 작업을 수행해야 합니다.
+
+* Cisco 스토리지 업그레이드 및 다운그레이드 절차에 대한 전체 문서를 보려면 Cisco 웹 사이트에서 제공하는 적절한 소프트웨어 및 업그레이드 가이드를 참조해야 합니다.
++
+http://www.cisco.com/en/US/products/ps9670/prod_installation_guides_list.html["Cisco Nexus 3000 시리즈 스위치"^]
+
+* 10GbE 및 40/100 GbE 포트 수는 에서 사용할 수 있는 RCFs(참조 구성 파일)에 정의되어 있습니다 https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco ® 이더넷 스위치"^]페이지.
+
+
+* 절차 요약: *
+
+* 저는 스위치 및 포트의 상태를 확인합니다(, 1-4단계)
+* *II. RCF를 Cisco 스위치 S2에 복사합니다(5-8단계)
+* * III. NX-OS 이미지를 Cisco 스위치 S2로 다운로드하고 재부팅합니다(9-12단계) *
+* IV 스위치 및 포트의 상태를 다시 확인합니다(13-15단계)
+* V. Cisco 스위치 S1에 대해 1-17단계를 반복합니다
+
+
+이 절차의 예에서는 스토리지 포트가 2개인 노드 1과 스토리지 포트가 2개인 노드 2를 사용합니다. Hardware Universe를 참조하여 플랫폼에서 올바른 스토리지 포트를 확인하십시오.
+
+https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^]
+
+[NOTE]
+====
+명령 출력은 ONTAP의 릴리즈별로 다를 수 있습니다.
+
+====
+이 절차의 예에서는 다음 스위치 및 노드 명명법을 사용합니다.
+
+* 두 스토리지 스위치의 이름은 S1과 S2입니다.
+* 노드는 노드 1과 노드 2입니다.
+
+
+[NOTE]
+====
+이 절차를 수행하려면 ONTAP 명령과 Cisco Nexus 3000 시리즈 스위치 명령을 모두 사용해야 합니다. ONTAP 명령은 별도의 표시가 없는 한 사용됩니다.
+
+====
+
+
+== 단계
+
+. 이 클러스터에서 AutoSupport가 활성화되어 있으면 'system node AutoSupport invoke -node * -type all-message maINT=xh' AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다
++
+_x_는 유지보수 기간(시간)입니다.
+
++
+[NOTE]
+====
+AutoSupport 메시지는 유지보수 기간 동안 자동 케이스 생성이 억제되도록 이 유지보수 작업의 기술 지원에 알립니다.
+
+====
+. 스토리지 스위치를 사용할 수 있는지 확인합니다. '시스템 스위치 이더넷 표시'입니다
++
+[listing]
+----
+storage::*> system switch ethernet show
+Switch                      Type               Address          Model
+--------------------------- ------------------ ---------------- ---------------
+S1
+                            storage-network    172.17.227.5     NX3232C
+     Serial Number: FOC221206C2
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    9.3(3)
+    Version Source: CDP
+
+S2
+                            storage-network    172.17.227.6     NX3232C
+     Serial Number: FOC220443LZ
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    9.3(3)
+    Version Source: CDP
+
+2 entries were displayed.
+storage::*>
+----
+. 노드 포트가 정상 작동 중인지 'Storage port show-port-type ENET'인지 확인합니다
++
+[listing]
+----
+storage::*> storage port show -port-type ENET
+                                      Speed                       VLAN
+Node               Port Type  Mode    (Gb/s) State    Status        ID
+------------------ ---- ----- ------- ------ -------- ----------- ----
+node1
+                   e3a  ENET  storage    100 enabled  online        30
+                   e3b  ENET  storage      0 enabled  offline       30
+                   e7a  ENET  storage      0 enabled  offline       30
+                   e7b  ENET  storage    100 enabled  online        30
+node2
+                   e3a  ENET  storage    100 enabled  online        30
+                   e3b  ENET  storage      0 enabled  offline       30
+                   e7a  ENET  storage      0 enabled  offline       30
+                   e7b  ENET  storage    100 enabled  online        30
+----
+. 'system health alert show-instance'라는 클러스터에는 스토리지 스위치 또는 케이블 연결 문제가 없는지 확인합니다
++
+[listing]
+----
+storage::*> system health alert show -instance
+There are no entries matching your query.
+----
+. FTP, HTTP, TFTP, SFTP 또는 SCP 전송 프로토콜 중 하나를 사용하여 스위치 S2의 RCF를 스위치 bootflash에 복사합니다.
++
+Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^].
+
++
+다음 예에서는 스위치 S2에서 RCF를 부트 플래시 로 복사하는 데 사용되는 HTTP를 보여 줍니다.
+
++
+[listing]
+----
+S2# copy http://172.16.10.1//cfg/Nexus_3232C_RCF_v1.6-Storage.txt bootflash: vrf management
+% Total    % Received % Xferd  Average  Speed   Time    Time     Time                          Current
+                               Dload    Upload  Total   Spent    Left                          Speed
+  100        3254       100    3254     0       0       8175     0 --:--:-- --:--:-- --:--:–   8301
+Copy complete, now saving to disk (please wait)...
+Copy complete.
+S2#
+----
+. 이전에 다운로드한 RCF를 bootflash:"copy bootflash:"에 적용합니다
++
+다음 예에서는 스위치 S2에 설치된 RCF 파일 "Nexus_3232C_RCF_v1.6 - Storage.txt"를 보여 줍니다.
+
++
+[listing]
+----
+S2# copy Nexus_3232C_RCF_v1.6-Storage.txt running-config echo-commands
+----
+. RCF 파일이 올바른 최신 버전인 'show running-config'인지 확인합니다
++
+출력을 점검하여 올바른 RCF가 있는지 확인할 때 다음 정보가 올바른지 확인하십시오.
+
++
+** RCF 배너
+** 노드 및 포트 설정입니다
+** 사용자 지정 출력은 사이트 구성에 따라 달라집니다. 포트 설정을 확인하고 설치된 RCF에 대한 변경 사항은 릴리스 노트를 참조하십시오.
+
+
++
+[NOTE]
+====
+'show banner motd' 명령의 배너 출력에서, 스위치의 올바른 구성과 작동을 위해 * 중요 참고 사항 * 섹션의 지침을 읽고 따라야 합니다.
+
+====
+
+
+[listing]
+----
+S2# show banner motd
+
+******************************************************************************
+* NetApp Reference Configuration File (RCF)
+*
+* Switch   : Cisco Nexus 3232C
+* Filename : Nexus_3232C_RCF_v1.6-Storage.txt
+* Date     : Oct-20-2020
+* Version  : v1.6
+*
+* Port Usage : Storage configuration
+* Ports  1-32: Controller and Shelf Storage Ports
+* Ports 33-34: Disabled
+*
+* IMPORTANT NOTES*
+* - This RCF utilizes QoS and requires TCAM re-configuration, requiring RCF
+*   to be loaded twice with the Storage Switch rebooted in between.
+*
+* - Perform the following 4 steps to ensure proper RCF installation:
+*
+*   (1) Apply RCF first time, expect following messages:
+*       - Please save config and reload the system...
+*       - Edge port type (portfast) should only be enabled on ports...
+*       - TCAM region is not configured for feature QoS class IPv4 ingress...
+*
+*   (2) Save running-configuration and reboot Cluster Switch
+*
+*   (3) After reboot, apply same RCF second time and expect following messages:
+*       - % Invalid command at '^' marker
+*       - Syntax error while parsing...
+*
+*   (4) Save running-configuration again
+******************************************************************************
+S2#
+----
+. 소프트웨어 버전과 스위치 설정이 올바른지 확인한 후, 'running-config' 파일을 스위치 S2의 'startup-config' 파일로 복사합니다.
++
+Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^].
+
++
+다음 예에서는 'running-config' 파일이 'startup-config' 파일에 성공적으로 복사되었음을 보여 줍니다.
+
++
+[listing]
+----
+S2# copy running-config startup-config
+[########################################] 100% Copy complete.
+----
+. NX-OS 이미지를 스위치 S2로 다운로드합니다.
+. 다음에 스위치 S2를 재부팅할 때 새 버전이 로드되도록 시스템 이미지를 설치합니다.
++
+스위치는 다음 출력에 표시된 것처럼 새 이미지와 함께 10초 후에 재부팅됩니다.
+
++
+[listing]
+----
+S2# install all nxos bootflash:nxos.9.3.4.bin
+Installer will perform compatibility check first. Please wait.
+Installer is forced disruptive
+
+Verifying image bootflash:/nxos.9.3.4.bin for boot variable "nxos".
+[####################] 100% -- SUCCESS
+
+Verifying image type.
+[[####################] 100% -- SUCCESS
+
+Preparing "nxos" version info using image bootflash:/nxos.9.3.4.bin.
+[####################] 100% -- SUCCESS
+
+Preparing "bios" version info using image bootflash:/nxos.9.3.4.bin.
+[####################] 100% -- SUCCESS
+
+Performing module support checks.
+[####################] 100% -- SUCCESS
+
+Notifying services about system upgrade.
+[####################] 100% -- SUCCESS
+
+
+Compatibility check is done:
+Module  bootable          Impact  Install-type  Reason
+------  --------  --------------  ------------  ------
+     1       yes      disruptive         reset  default upgrade is not hitless
+
+
+Images will be upgraded according to following table:
+Module       Image                  Running-Version(pri:alt)           New-Version  Upg-Required
+------  ----------  ----------------------------------------  --------------------  ------------
+     1        nxos                                    9.3(3)                9.3(4)           yes
+     1        bios     v08.37(01/28/2020):v08.23(09/23/2015)    v08.38(05/29/2020)            no
+
+
+Switch will be reloaded for disruptive upgrade.
+Do you want to continue with the installation (y/n)?  [n]  y
+input string too long
+Do you want to continue with the installation (y/n)?  [n] y
+
+Install is in progress, please wait.
+
+Performing runtime checks.
+[####################] 100% -- SUCCESS
+
+Setting boot variables.
+[####################] 100% -- SUCCESS
+
+Performing configuration copy.
+[####################] 100% -- SUCCESS
+
+Module 1: Refreshing compact flash and upgrading bios/loader/bootrom.
+Warning: please do not remove or power off the module at this time.
+[####################] 100% -- SUCCESS
+
+
+Finishing the upgrade, switch will reboot in 10 seconds.
+S2#
+----
+. 구성을 저장합니다.
++
+Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^].
+
++
+다음 예와 같이 시스템을 재부팅하라는 메시지가 표시됩니다.
+
++
+[listing]
+----
+S2# copy running-config startup-config
+[########################################] 100% Copy complete.
+S2# reload
+This command will reboot the system. (y/n)?  [n] y
+----
+. 새 NX-OS 버전 번호가 스위치에 있는지 확인합니다.
++
+[listing]
+----
+S2# show version
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2020, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or
+Lesser General Public License (LGPL) Version 2.0.
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+
+Software
+  BIOS: version 08.38
+ NXOS: version 9.3(4)
+  BIOS compile time:  05/29/2020
+  NXOS image file is: bootflash:///nxos.9.3.4.bin
+  NXOS compile time:  4/28/2020 21:00:00 [04/29/2020 02:28:31]
+
+
+Hardware
+  cisco Nexus3000 C3232C Chassis (Nexus 9000 Series)
+  Intel(R) Xeon(R) CPU E5-2403 v2 @ 1.80GHz with 8154432 kB of memory.
+  Processor Board ID FOC20291J6K
+
+  Device name: S2
+  bootflash:   53298520 kB
+Kernel uptime is 0 day(s), 0 hour(s), 3 minute(s), 42 second(s)
+
+Last reset at 157524 usecs after Mon Nov  2 18:32:06 2020
+  Reason: Reset due to upgrade
+  System version: 9.3(3)
+  Service:
+
+plugin
+  Core Plugin, Ethernet Plugin
+
+Active Package(s):
+
+S2#
+----
+. 스토리지 스위치를 다시 부팅한 후 사용할 수 있는지 다시 확인합니다. '시스템 스위치 이더넷 표시'입니다
++
+[listing]
+----
+storage::*> system switch ethernet show
+Switch                      Type               Address          Model
+--------------------------- ------------------ ---------------- ---------------
+S1
+                            storage-network    172.17.227.5     NX3232C
+     Serial Number: FOC221206C2
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    9.3(4)
+    Version Source: CDP
+
+S2
+                            storage-network    172.17.227.6     NX3232C
+     Serial Number: FOC220443LZ
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    9.3(4)
+    Version Source: CDP
+
+2 entries were displayed.
+storage::*>
+----
+. 재부팅 후 스위치 포트가 정상 작동 중인지 확인합니다. 'Storage port show-port-type ENET'입니다
++
+[listing]
+----
+storage::*> storage port show -port-type ENET
+                                      Speed                       VLAN
+Node               Port Type  Mode    (Gb/s) State    Status        ID
+------------------ ---- ----- ------- ------ -------- ----------- ----
+node1
+                   e3a  ENET  storage    100 enabled  online        30
+                   e3b  ENET  storage      0 enabled  offline       30
+                   e7a  ENET  storage      0 enabled  offline       30
+                   e7b  ENET  storage    100 enabled  online        30
+node2
+                   e3a  ENET  storage    100 enabled  online        30
+                   e3b  ENET  storage      0 enabled  offline       30
+                   e7a  ENET  storage      0 enabled  offline       30
+                   e7b  ENET  storage    100 enabled  online        30
+----
+. 클러스터에 스토리지 스위치 또는 케이블 연결 문제가 없는지 다시 확인합니다. 'system health alert show-instance'
++
+[listing]
+----
+storage::*> system health alert show -instance
+There are no entries matching your query.
+----
+. 이 절차를 반복하여 NX-OS 소프트웨어와 스위치 S1의 RCF를 업그레이드합니다.
+. 자동 케이스 생성을 억제한 경우 AutoSupport 메시지 '시스템 노드 AutoSupport invoke -node * -type all-message MAINT=end'를 호출하여 다시 활성화합니다
+

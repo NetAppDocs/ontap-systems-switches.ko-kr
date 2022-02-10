@@ -23,6 +23,7 @@ Nexus 9336C-FX2 스위치를 처음 설정한 후 RCF를 설치할 수 있습니
 
 NOTE: 이 절차를 수행하려면 ONTAP 명령과 Cisco Nexus 9000 시리즈 스위치 명령을 모두 사용해야 합니다. 달리 표시되지 않는 한 ONTAP 명령이 사용됩니다.
 
+.단계
 . 클러스터 스위치에 연결된 각 노드의 클러스터 포트 'network device-discovery show'를 표시합니다
 +
 [listing]
@@ -385,6 +386,8 @@ cs2                         cluster-network    10.233.205.91    NX9-C9336C
 
 NOTE: 이전에 스위치에 로드된 RCF 버전에 따라 CS1 스위치 콘솔에서 다음 출력을 관찰할 수 있습니다.
 
+
+
 +
 [listing]
 ----
@@ -392,8 +395,6 @@ NOTE: 이전에 스위치에 로드된 RCF 버전에 따라 CS1 스위치 콘솔
 2020 Nov 17 16:07:23 cs1 %$ VDC-1 %$ %STP-2-BLOCK_PVID_PEER: Blocking port-channel1 on VLAN0001. Inconsistent peer vlan.
 2020 Nov 17 16:07:23 cs1 %$ VDC-1 %$ %STP-2-BLOCK_PVID_LOCAL: Blocking port-channel1 on VLAN0092. Inconsistent local vlan.
 ----
-
-
 . 클러스터 스위치 CS1에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.
 +
 다음 예제에서는 1단계의 인터페이스 예제 출력을 사용합니다.
@@ -445,7 +446,7 @@ cluster1::*>
 ----
 cluster1::*> network interface modify -vserver Cluster -lif \* -auto-revert True
 ----
-. 스위치 CS1을 재부팅합니다. 이렇게 하면 클러스터 LIF가 홈 포트로 복구되도록 트리거됩니다. 스위치가 재부팅되는 동안 노드에 보고된 ""클러스터 포트 다운"" 이벤트를 무시할 수 있습니다.
+. 스위치 CS1을 재부팅합니다. 이렇게 하면 클러스터 LIF가 홈 포트로 되돌아갈 수 있습니다. 스위치가 재부팅되는 동안 노드에 보고된 ""클러스터 포트 다운"" 이벤트를 무시할 수 있습니다.
 +
 [listing]
 ----

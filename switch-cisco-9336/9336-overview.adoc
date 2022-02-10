@@ -110,6 +110,6 @@ Nexus 5596UP 스위치는 1개 또는 2개의 16포트 확장 모듈(X1988-R6)�
 Nexus 5596T 스위치는 FAS2520의 클러스터 인터커넥트 스위치로만 지원되며 무중단 하드웨어 업그레이드를 수행하는 데 사용하도록 설계되었습니다.
 
 +
-http://support.netapp.com/info/communications/ECMP12454150.html["공급 종료"] 세부 정보.
+http://support.netapp.com/info/communications/ECMP12454150.html["공급 종료"^] 세부 정보.
 
 

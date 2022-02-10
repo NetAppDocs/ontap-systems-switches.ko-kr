@@ -1,0 +1,37 @@
+---
+section: switch-cisco-1610
+title: Cisco 1610 스위치
+entries:
+- title: NetApp 클러스터 스위치에 FASTPATH 소프트웨어 및 RCF를 설치합니다
+  url: "/switch-cisco-1610/task_install_fastpath_software_and_rcfs_on_netapp_cluster_switch.html"
+  entries:
+  - title: FASTPATH 소프트웨어를 설치합니다
+    url: "/switch-cisco-1610/task_install_fastpath_software.html"
+  - title: CN1610 스위치에 참조 구성 파일을 설치합니다
+    url: "/switch-cisco-1610/task_install_an_rcf_on_a_cn1610_switch.html"
+- title: ONTAP 8.3.1 이상을 실행하는 NetApp 클러스터 스위치에 FASTPATH 소프트웨어 및 RCF를 설치합니다
+  url: "/switch-cisco-1610/task_install_fastpath_software_and_rcf_files_on_netapp_cluster_switches.html"
+- title: NetApp CN1610 클러스터 스위치를 사용하여 2노드 스위치 클러스터로 마이그레이션합니다
+  url: "/switch-cisco-1610/task_migrate_to_a_two_node_switched_cluster_with_netapp_cn1610_cluster_switches.html"
+- title: 스위치가 없는 클러스터 환경에서 스위치 있는 NetApp CN1610 클러스터 환경으로 마이그레이션하십시오
+  url: "/switch-cisco-1610/task_migrate_from_a_switchless_cluster_to_a_switched_netapp_cn1610_cluster_environment.html"
+- title: FAS22xx 시스템에서 단일 클러스터 네트워크 연결이 포함된 2노드 스위치 클러스터로 마이그레이션합니다
+  url: "/switch-cisco-1610/task_migrate_from_a_switchless_cluster_fas22xx_systems_with_a_single_cluster_network_connection.html"
+- title: CN1601 및 CN1610 스위치 설정 및 구성 가이드
+  url: "/switch-cisco-1610/switch-setup-configuration-guide-linkout.html"
+- title: CN1610 네트워크 스위치 CLI 명령 참조 - 버전 1.1.x.x
+  url: "/switch-cisco-1610/switch-cli-command-reference-version-11xx-linkout.html"
+- title: CN1610 네트워크 스위치 CLI 명령 참조 - 버전 1.2.x.x
+  url: "/switch-cisco-1610/switch-cli-command-reference-version-12xx-linkout.html"
+- title: NetApp 10G Cluster-Mode 스위치 설치 가이드
+  url: "/switch-cisco-1610/netapp-10g-cluster-mode-switch-installation-guide.html"
+- title: NetApp CN1610 스위치 관리자 가이드 - 버전 1.1.x.x
+  url: "/switch-cisco-1610/switch-administrator-guide-version-11xx-linkout.html"
+- title: NetApp CN1610 스위치 관리자 가이드 - 버전 1.2.x.x
+  url: "/switch-cisco-1610/switch-administrator-guide-version-12xx-linkout.html"
+- title: CN1601 네트워크 스위치 CLI 명령 참조
+  url: "/switch-cisco-1610/switch-cli-command-reference-linkout.html"
+- title: CN1601 스위치 관리자 가이드
+  url: "/switch-cisco-1610/switch-administrator-guide-linkout.html"
+- title: NetApp 1G 클러스터 모드 스위치 설치 가이드
+  url: "/switch-cisco-1610/netapp-1g-cluster-mode-switch-installation-guide-linkout.html"
