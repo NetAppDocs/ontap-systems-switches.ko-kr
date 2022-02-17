@@ -1,0 +1,35 @@
+---
+section: switch-cisco-3132q-v
+title: Cisco 3132Q-V 스위치
+entries:
+- title: 개요
+  url: switch-cisco-3132q-v/index.html
+- title: Cisco Nexus 3132Q-V 클러스터 스위치를 사용하여 2노드 스위치 클러스터로 마이그레이션합니다
+  url: "/switch-cisco-3132q-v/concept-migrate-from-a-two-node-switchless-cluster-to-a-cluster-with-cisco-nexus-3232c-cluster-switches.html"
+  entries:
+  - title: Cisco Nexus 3132Q-V 클러스터 스위치를 사용하여 2노드 스위치 클러스터를 마이그레이션하는 방법
+    url: "/switch-cisco-3132q-v/task-how-to-migrate-from-a-two-node-switchless-cluster-to-a-cluster-with-cisco-nexus-3132q-v-cluster-switches.html"
+- title: NetApp 캐비닛에 Cisco Nexus 3132Q-V 클러스터 스위치 및 통과 패널을 설치합니다
+  url: "/switch-cisco-3132q-v/task-install-a-cisco-nexus-3232c-cluster-switch-and-pass-through-panel-in-a-netapp-cabinet.html"
+- title: Cisco Nexus 3132Q-V 클러스터 스위치에 NX-OS 소프트웨어 및 RCFs를 설치합니다
+  url: "/switch-cisco-3132q-v/task-install-nx-os-software-and-rcfs-on-cisco-nexus-3132q-v-cluster-switches.html"
+  entries:
+  - title: NX-OS 소프트웨어를 설치합니다
+    url: "/switch-cisco-3132q-v/task-install-the-nx-os-software-3132q-v.html"
+  - title: RCF(Reference Configuration File) 설치
+    url: "/switch-cisco-3132q-v/task-install-the-reference-configuration-file-rcf-3132q-v.html"
+- title: Cisco Nexus 3132Q-V 클러스터 스위치를 교체합니다
+  url: "/switch-cisco-3132q-v/concept-replace-cisco-nexus-3132q-v-cluster-switches.html"
+  entries:
+  - title: Cisco Nexus 3132Q-V 클러스터 스위치를 교체하는 방법
+    url: "/switch-cisco-3132q-v/task-how-to-replace-cisco-nexus-3132q-v-cluster-switches.html"
+- title: Cisco Nexus 5596 클러스터 스위치를 Cisco Nexus 3132Q-V 클러스터 스위치로 교체합니다
+  url: "/switch-cisco-3132q-v/concept-migrate-from-a-cisco-5596-switch-to-a-cisco-nexus-3232c.html"
+  entries:
+  - title: Cisco Nexus 5596 클러스터 스위치를 Cisco Nexus 3132Q-V 클러스터 스위치로 교체하는 방법
+    url: "/switch-cisco-3132q-v/task-how-to-migrate-from-a-cisco-nexus-5596-cluster-switch-to-a-cisco-nexus-3232c-cluster-switch.html"
+- title: CN1610 클러스터 스위치를 Cisco Nexus 3132Q-V 클러스터 스위치로 교체합니다
+  url: "/switch-cisco-3132q-v/concept-migrate-a-cn1610-switch-to-a-cisco-nexus-3232c-cluster-switch.html"
+  entries:
+  - title: CN1610 클러스터 스위치를 Cisco Nexus 3132Q-V 클러스터 스위치로 교체하는 방법
+    url: "/switch-cisco-3132q-v/task-how-to-replace-cn1610-cluster-switches-with-cisco-nexus-3232c-cluster-switches.html"

@@ -1,0 +1,155 @@
+---
+sidebar: sidebar 
+permalink: switch-cisco-9336c-fx2-shared/9336c_migrate_from_a_switched_cluster_with_sat_storage_by_reusing_the_storage_switches.html 
+keywords:  
+summary:  
+---
+= 스토리지 스위치를 재사용하여 SAT 스토리지가 있는 스위치 클러스터에서 마이그레이션합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+
+
+== 스토리지 스위치를 마이그레이션합니다
+
+스토리지 스위치를 재사용하면 HA 쌍 1의 스토리지 스위치가 공유 스위치가 됩니다. * 스위치 연결 * 용 케이블 다이어그램image:9336c_image1.jpg["스위치 연결"]
+
+.단계
+. HA 쌍 1(및 HA 쌍 2)의 스토리지 구성이 올바르고 오류가 없는지 확인합니다. '시스템 스위치 이더넷 표시'입니다
+
+
+[listing]
+----
+storage::*> system switch ethernet show
+Switch                    Type               Address          Model
+------------------------- ------------------ ---------------- ----------
+sh1
+                          storage-network    172.17.227.5     C9336C
+
+     Serial Number: FOC221206C2
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    9.3(5)
+       Version Source: CDP
+sh2
+                          storage-network    172.17.227.6     C9336C
+     Serial Number: FOC220443LZ
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    9.3(5)
+    Version Source: CDP
+2 entries were displayed.
+storage::*>
+----
+. [[step2]] HA 쌍 1, NSM224 경로 A 케이블을 스토리지 스위치 A에서 스토리지 스위치 A의 NSM224 스토리지 포트(HA 쌍 1의 경우), 스토리지 스위치 A의 경로 A로 이동합니다
+. HA 쌍 1, 노드 A, 경로 A에서 스토리지 스위치 A의 노드 A, HA 쌍 1을 위한 NSM224 스토리지 포트로 케이블을 이동합니다
+. HA 쌍 1, 노드 B, 경로 A에서 스토리지 스위치 A의 노드 B, HA 쌍 1을 위한 NSM224 스토리지 포트로 케이블을 이동합니다
+. HA Pair 1에 연결된 스토리지, 스토리지 스위치 A가 정상 상태인지 확인합니다. 스토리지 포트 show-port-type ENET입니다
+
+
+[listing]
+----
+storage::*> storage port show -port-type ENET
+                                   Speed                             VLAN
+Node    Port    Type    Mode       (Gb/s)       State     Status       ID
+------- ------- ------- ---------- ------------ --------- --------- -----
+node1
+        e0c     ENET    storage            100  enabled   online       30
+        e0d     ENET    storage            100  enabled   online       30
+        e5a     ENET    storage            100  enabled   online       30
+        e5b     ENET    storage            100  enabled   online       30
+
+node2
+        e0c     ENET    storage            100  enabled   online       30
+        e0d     ENET    storage            100  enabled   online       30
+        e5a     ENET    storage            100  enabled   online       30
+        e5b     ENET    storage            100  enabled   online       30
+----
+. [[step6]] 공유 스위치 A의 스토리지 RCF를 공유 RCF 파일로 교체합니다. 을 참조하십시오 link:9336c_install_nx-os_software_and_reference_configuration_files_rcfs.html#install-the-rcf-on-a-cisco-nexus-9336c-fx2-shared-switch["Cisco Nexus 9336C-FX2 공유 스위치에 RCF를 설치합니다"] 를 참조하십시오.
+. HA Pair 1에 연결된 스토리지, 스토리지 스위치 A가 정상 상태인지 확인합니다. 'system health alert show-instance'
+
+
+[listing]
+----
+storage::*> system health alert show -instance
+There are no entries matching your query.
+----
+. [[step8]] HA 쌍 1, NSM224 경로 B 케이블을 스토리지 스위치 B에서 HA 쌍 1, 경로 B에서 스토리지 스위치 B로 공유 NS224 스토리지 포트로 이동합니다
+. HA 쌍 1, 노드 A, 경로 B에서 스토리지 스위치 B의 HA 쌍 1, 노드 A, 경로 B에 대한 공유 스토리지 포트로 케이블을 이동합니다
+. HA 쌍 1, 노드 B, 경로 B에서 스토리지 스위치 B의 경로 B에 대한 공유 스토리지 포트로 케이블을 이동합니다
+. HA Pair 1에 연결된 스토리지, 스토리지 스위치 B가 정상 상태인지 확인합니다. 'system health alert show-instance'
+
+
+[listing]
+----
+storage::*> system health alert show -instance
+There are no entries matching your query.
+----
+. [[12단계]] 공유 스위치 B의 스토리지 RCF 파일을 공유 RCF 파일로 교체합니다. 을 참조하십시오 link:9336c_install_nx-os_software_and_reference_configuration_files_rcfs.html#install-the-rcf-on-a-cisco-nexus-9336c-fx2-shared-switch["Cisco Nexus 9336C-FX2 공유 스위치에 RCF를 설치합니다"] 를 참조하십시오.
+. HA Pair 1에 연결된 스토리지, 스토리지 스위치 B가 정상 상태인지 확인합니다. 'system health alert show-instance'
+
+
+[listing]
+----
+storage::*> system health alert show -instance
+There are no entries matching your query.
+----
+. [[pep14]] HA Pair 1의 스토리지 구성이 올바르고 오류가 없는지 확인: 'system switch ethernet show'
+
+
+[listing]
+----
+storage::*> system switch ethernet show
+Switch                    Type                 Address          Model
+------------------------- -------------------- ---------------- ----------
+sh1
+                          storage-network      172.17.227.5     C9336C
+
+    Serial Number: FOC221206C2
+     Is Monitored: true
+           Reason: None
+ Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                   9.3(5)
+   Version Source: CDP
+sh2
+                          storage-network      172.17.227.6     C9336C
+    Serial Number: FOC220443LZ
+     Is Monitored: true
+           Reason: None
+ Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                   9.3(5)
+   Version Source: CDP
+2 entries were displayed.
+storage::*>
+----
+. [[step15]] 공유 스위치 A와 공유 스위치 B 사이에 ISL 설치:
+
+
+[listing]
+----
+sh1# configure
+Enter configuration commands, one per line. End with CNTL/Z.
+sh1 (config)# interface e1/35-36
+sh1 (config-if-range)# no lldp transmit
+sh1 (config-if-range)# no lldp receive
+sh1 (config-if-range)# switchport mode trunk
+sh1 (config-if-range)# no spanning-tree bpduguard enable
+sh1 (config-if-range)# channel-group 101 mode active
+sh1 (config-if-range)# exit
+sh1 (config)# interface port-channel 101
+sh1 (config-if)# switchport mode trunk
+sh1 (config-if)# spanning-tree port type network
+sh1 (config-if)# exit
+sh1 (config)# exit
+----
+. [[step16]] 스위치 교체 절차 및 공유 RCF를 사용하여 클러스터 네트워킹을 기존 클러스터 스위치에서 공유 스위치로 마이그레이션합니다. 새 공유 스위치 A는 "CS1"입니다. 새 공유 스위치 B는 "CS2"입니다. 을 참조하십시오 link:9336c_replace_a_cisco_nexus_9336c-fx2_shared_switch.html["Cisco Nexus 9336C-FX2 공유 스위치를 교체합니다"] 및  를 참조하십시오.
+. Switched networking 설정이 유효한지 'network port show'를 확인한다
+. 사용되지 않는 클러스터 스위치를 제거합니다.
+. 사용하지 않는 스토리지 스위치를 제거합니다.
+

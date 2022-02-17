@@ -1,0 +1,13 @@
+---
+permalink: switch-cisco-9336c-fx2/setup-worksheets-sample-cabling.html 
+sidebar: sidebar 
+keywords: worksheet,cabling sample,blank worksheet 
+summary: 케이블 연결 워크시트 예는 스위치에서 컨트롤러까지 권장되는 포트 할당의 예를 제공합니다. 빈 워크시트는 클러스터 설정에 사용할 수 있는 템플릿을 제공합니다. 
+---
+= 케이블 연결 워크시트 예제 및 빈
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+케이블 연결 워크시트 예는 스위치에서 컨트롤러까지 권장되는 포트 할당의 예를 제공합니다. 빈 워크시트는 클러스터 설정에 사용할 수 있는 템플릿을 제공합니다.

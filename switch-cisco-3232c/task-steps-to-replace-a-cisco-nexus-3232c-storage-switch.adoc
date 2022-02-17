@@ -1,0 +1,205 @@
+---
+permalink: switch-cisco-3232c/task-steps-to-replace-a-cisco-nexus-3232c-storage-switch.html 
+sidebar: sidebar 
+keywords: replace, cisco nexus, 3232c storage switch 
+summary: 특정 작업 시퀀스를 실행하여 결함이 있는 Cisco Nexus 3232C 스토리지 스위치를 중단 없이 교체할 수 있습니다. 
+---
+= Cisco Nexus 3232C 스토리지 스위치를 교체하는 단계
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+특정 작업 시퀀스를 실행하여 결함이 있는 Cisco Nexus 3232C 스토리지 스위치를 중단 없이 교체할 수 있습니다.
+
+
+
+== 필요한 것
+
+기존 네트워크 구성에는 다음과 같은 특성이 있어야 합니다.
+
+* Cisco 이더넷 스위치 페이지에는 스위치에 최신 RCF 및 NX-OS 버전이 있습니다.
+* 두 스위치 모두에 관리 연결이 있어야 합니다. -
+
+
+====
+모든 문제 해결 단계가 완료되었는지 확인하여 스위치를 교체해야 하는지 확인합니다.
+
+====
+교체 Cisco Nexus 3232C 스위치의 특징은 다음과 같습니다.
+
+* 관리 네트워크 연결이 작동해야 합니다.
+* 교체 스위치에 대한 콘솔 액세스가 있어야 합니다.
+* 적절한 RCF 및 NX-OS 운영 체제 이미지를 스위치에 로드해야 합니다.
+* 스위치의 초기 사용자 정의를 완료해야 합니다.
+
+
+* 절차 요약: *
+
+* * 교체할 스위치가 S2(1-5단계) * 인지 확인합니다
+* * 스위치 S2에서 케이블을 분리합니다(6단계) *
+* * 케이블을 다시 연결하여 NS2(7단계) 전환 * 을 합니다
+* * 스위치 NS2의 모든 장치 구성을 확인합니다(8-10단계) *
+* 이 절차는 두 번째 Nexus 3232C 스토리지 스위치 S2를 새로운 3232C 스위치 NS2로 대체합니다
+* 두 노드는 노드 1과 노드 2입니다.
+
+
+
+
+== 단계
+
+. 이 클러스터에서 AutoSupport가 활성화되어 있으면 'system node AutoSupport invoke -node * -type all-message maINT=xh' AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다
++
+_x_는 유지보수 기간(시간)입니다.
+
++
+[NOTE]
+====
+AutoSupport 메시지는 유지보수 기간 동안 자동 케이스 생성이 억제되도록 이 유지보수 작업의 기술 지원에 알립니다.
+
+====
+. 스토리지 노드 포트의 상태를 확인하여 스토리지 스위치 S1에 접속되어 있는지 확인합니다. 스토리지 포트 show-port-type ENET
++
+[listing]
+----
+storage::*> storage port show -port-type ENET
+                                      Speed                     VLAN
+Node               Port Type  Mode    (Gb/s) State    Status      ID
+------------------ ---- ----- ------- ------ -------- --------- ----
+node1
+                   e3a  ENET  storage    100 enabled  online      30
+                   e3b  ENET  storage      0 enabled  offline     30
+                   e7a  ENET  storage      0 enabled  offline     30
+                   e7b  ENET  storage      0 enabled  offline     30
+node2
+                   e3a  ENET  storage    100 enabled  online      30
+                   e3b  ENET  storage      0 enabled  offline     30
+                   e7a  ENET  storage      0 enabled  offline     30
+                   e7b  ENET  storage      0 enabled  offline     30
+----
+. 스토리지 스위치 S1을 사용할 수 있는지 확인합니다. 'network device-discovery show
++
+[listing]
+----
+storage::*> network device-discovery show
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------- ----------------
+node1/cdp
+            e3a    S1                        Ethernet1/1       NX3232C
+            e4a    node2                     e4a               AFF-A700
+            e4e    node2                     e4e               AFF-A700
+node1/lldp
+            e3a    S1                        Ethernet1/1       -
+            e4a    node2                     e4a               -
+            e4e    node2                     e4e               -
+node2/cdp
+            e3a    S1                        Ethernet1/2       NX3232C
+            e4a    node1                     e4a               AFF-A700
+            e4e    node1                     e4e               AFF-A700
+node2/lldp
+            e3a    S1                        Ethernet1/2       -
+            e4a    node1                     e4a               -
+            e4e    node1                     e4e               -
+----
+. 작동 스위치에서 'show lldp neighbors' 명령을 실행하여 노드와 모든 쉘프를 볼 수 있는지 확인합니다. 'show lldp neighbors'
++
+[listing]
+----
+S1# show lldp neighbors
+Capability codes:
+  (R) Router, (B) Bridge, (T) Telephone, (C) DOCSIS Cable Device
+  (W) WLAN Access Point, (P) Repeater, (S) Station, (O) Other
+Device ID               Local Intf      Hold-time  Capability  Port ID
+node1                   Eth1/1          121        S           e3a
+node2                   Eth1/2          121        S           e3a
+SHFGD2008000011         Eth1/5          121        S           e0a
+SHFGD2008000011         Eth1/6          120        S           e0a
+SHFGD2008000022         Eth1/7          120        S           e0a
+SHFGD2008000022         Eth1/8          120        S           e0a
+----
+. 스토리지 시스템의 Shelf port show-fields remote-device, remote-port를 확인한다
++
+[listing]
+----
+storage::*> storage shelf port show -fields remote-device,remote-port
+
+shelf  id  remote-port  remote-device
+-----  --  -----------  -------------
+3.20   0   Ethernet1/5  S1
+3.20   1   -            -
+3.20   2   Ethernet1/6  S1
+3.20   3   -            -
+3.30   0   Ethernet1/7  S1
+3.20   1   -            -
+3.30   2   Ethernet1/8  S1
+3.20   3   -            -
+----
+. 스토리지 스위치 S2에 연결된 모든 케이블을 분리합니다.
+. 교체 스위치 NS2에 모든 케이블을 다시 연결합니다.
+. 스토리지 노드 포트의 상태를 다시 확인합니다. 스토리지 포트 show-port-type ENET입니다
++
+[listing]
+----
+storage::*> storage port show -port-type ENET
+                                      Speed                       VLAN
+Node               Port Type  Mode    (Gb/s) State    Status        ID
+------------------ ---- ----- ------- ------ -------- ------------ ---
+node1
+                   e3a  ENET  storage    100 enabled  online        30
+                   e3b  ENET  storage      0 enabled  offline       30
+                   e7a  ENET  storage      0 enabled  offline       30
+                   e7b  ENET  storage    100 enabled  online        30
+node2
+                   e3a  ENET  storage    100 enabled  online        30
+                   e3b  ENET  storage      0 enabled  offline       30
+                   e7a  ENET  storage      0 enabled  offline       30
+                   e7b  ENET  storage    100 enabled  online        30
+----
+. 두 스위치를 모두 사용할 수 있는지 확인합니다. 'network device-discovery show'
++
+[listing]
+----
+storage::*> network device-discovery show
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------  --------
+node1/cdp
+            e3a    S1                        Ethernet1/1       NX3232C
+            e4a    node2                     e4a               AFF-A700
+            e4e    node2                     e4e               AFF-A700
+            e7b    NS2                       Ethernet1/1       NX3232C
+node1/lldp
+            e3a    S1                        Ethernet1/1       -
+            e4a    node2                     e4a               -
+            e4e    node2                     e4e               -
+            e7b    NS2                       Ethernet1/1       -
+node2/cdp
+            e3a    S1                        Ethernet1/2       NX3232C
+            e4a    node1                     e4a               AFF-A700
+            e4e    node1                     e4e               AFF-A700
+            e7b    NS2                       Ethernet1/2       NX3232C
+node2/lldp
+            e3a    S1                        Ethernet1/2       -
+            e4a    node1                     e4a               -
+            e4e    node1                     e4e               -
+            e7b    NS2                       Ethernet1/2       -
+----
+. 스토리지 시스템의 Shelf port show-fields remote-device, remote-port를 확인한다
++
+[listing]
+----
+storage::*> storage shelf port show -fields remote-device,remote-port
+shelf id remote-port remote-device
+----- -- ----------- -------------
+3.20  0  Ethernet1/5 S1
+3.20  1  Ethernet1/5 NS2
+3.20  2  Ethernet1/6 S1
+3.20  3  Ethernet1/6 NS2
+3.30  0  Ethernet1/7 S1
+3.20  1  Ethernet1/7 NS2
+3.30  2  Ethernet1/8 S1
+3.20  3  Ethernet1/8 NS2
+----
+. 자동 케이스 생성을 억제한 경우 AutoSupport 메시지 '시스템 노드 AutoSupport invoke -node * -type all-message MAINT=end'를 호출하여 다시 활성화합니다
+

@@ -1,0 +1,135 @@
+---
+permalink: switch-cisco-9336c-fx2/setup-required-information.html 
+sidebar: sidebar 
+keywords: configure, cluster, appropriate, number, cable, connector, switch, type, configuring, configure, console, port, network, information, required cluster configuration information - cisco nexus 9336c-fx2 
+summary: 클러스터를 구성하려면 스위치에 맞는 케이블 및 케이블 커넥터 수와 유형이 필요합니다. 처음 구성하는 스위치의 유형에 따라 포함된 콘솔 케이블을 사용하여 스위치 콘솔 포트에 연결해야 합니다. 또한 특정 네트워크 정보를 제공해야 합니다. 
+---
+= 필수 클러스터 구성 정보
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+클러스터를 구성하려면 스위치에 맞는 케이블 및 케이블 커넥터 수와 유형이 필요합니다. 처음 구성하는 스위치의 유형에 따라 포함된 콘솔 케이블을 사용하여 스위치 콘솔 포트에 연결해야 합니다. 또한 특정 네트워크 정보를 제공해야 합니다.
+
+
+
+== 모든 스위치에 필요한 네트워크 정보
+
+모든 스위치 구성에 대해 다음 네트워크 정보가 필요합니다.
+
+* 관리 네트워크 트래픽을 위한 IP 서브넷입니다
+* 각 스토리지 시스템 컨트롤러 및 해당하는 모든 스위치의 호스트 이름 및 IP 주소
+* 대부분의 스토리지 시스템 컨트롤러는 이더넷 서비스 포트(렌치 아이콘)에 연결하여 e0M 인터페이스를 통해 관리됩니다. AFF A800 및 AFF A700 시스템에서 e0M 인터페이스는 전용 이더넷 포트를 사용합니다.
+
+
+을 참조하십시오 https://hwu.netapp.com["Hardware Universe"^] 최신 정보를 확인하십시오.
+
+
+
+== Cisco Nexus 9336C-FX2, 92300YC, 3232C, 3132Q-V 및 5596UP/5596T 스위치에 대한 네트워크 정보가 필요합니다
+
+Cisco Nexus 9336C-FX2, 92300YC, 3232C, 3132Q-V 및 5596UP/5596T 스위치의 경우, 스위치를 처음 부팅할 때 다음과 같은 초기 설정 질문에 대해 적절한 응답을 제공해야 합니다. 사이트의 보안 정책은 사용할 응답 및 서비스를 정의합니다.
+
+* 자동 프로비저닝을 중단하고 일반 설정으로 계속하시겠습니까? (예/아니요)
++
+yes * 로 응답합니다. 기본값은 no 입니다
+
+* 보안 암호 표준을 적용하시겠습니까? (예/아니요)
++
+yes * 로 응답합니다. 기본값은 yes입니다.
+
+* admin의 암호를 입력합니다.
++
+기본 암호는 ""admin""이며 강력한 새 암호를 만들어야 합니다. 약한 암호는 거부될 수 있습니다.
+
+* 기본 구성 대화 상자를 입력하시겠습니까? (예/아니요)
++
+스위치의 초기 구성에서 * yes * 로 응답합니다.
+
+* 다른 로그인 계정을 만드시겠습니까? (예/아니요)
++
+대체 관리자에 대한 사이트 정책에 따라 답이 달라집니다. 기본값은 * no * 입니다.
+
+* 읽기 전용 SNMP 커뮤니티 문자열을 구성하시겠습니까? (예/아니요)
++
+응답 * 없음 *. 기본값은 no 입니다
+
+* 읽기-쓰기 SNMP 커뮤니티 문자열을 구성하시겠습니까? (예/아니요)
++
+응답 * 없음 *. 기본값은 no 입니다
+
+* 스위치 이름을 입력합니다.
++
+스위치 이름은 63자의 영숫자로 제한됩니다.
+
+* 대역 외(mgmt0) 관리 구성을 계속하시겠습니까? (예/아니요)
++
+이 프롬프트에서 * yes * (기본값)로 응답합니다. mgmt0 IPv4 주소: 프롬프트에서 IP 주소:ip_address를 입력합니다.
+
+* 기본 게이트웨이를 구성하시겠습니까? (예/아니요)
++
+yes * 로 응답합니다. default-gateway: 프롬프트의 IPv4 주소에 default_gateway를 입력합니다.
+
+* 고급 IP 옵션을 구성하시겠습니까? (예/아니요)
++
+응답 * 없음 *. 기본값은 no 입니다
+
+* 텔넷 서비스를 활성화하시겠습니까? (예/아니요)
++
+응답 * 없음 *. 기본값은 no 입니다
+
+* SSH 서비스를 활성화했습니까? (예/아니요)
++
+yes * 로 응답합니다. 기본값은 yes입니다.
+
++
+
+NOTE: CSHM(Cluster Switch Health Monitor)을 로그 수집 기능에 사용할 때는 SSH를 사용하는 것이 좋습니다. SSHv2는 향상된 보안에도 권장됩니다.
+
+* 생성하려는 SSH 키 유형(DSA/RSA/rsa1)을 입력합니다. 기본값은 * RSA * 입니다.
+* 키 비트 수(1024 - 2048)를 입력합니다.
+* NTP 서버를 구성하시겠습니까? (예/아니요)
++
+응답 * 없음 *. 기본값은 no 입니다
+
+* 기본 인터페이스 계층 구성(L3/L2):
++
+L2 * 로 응답합니다. 기본값은 L2입니다.
+
+* 기본 스위치 포트 인터페이스 상태 구성(종료/종료):
++
+응답: * NOshut *. 기본값은 noshut 입니다.
+
+* CoPP 시스템 프로필 구성(엄격한/보통/관대함/조밀함):
++
+엄격한 * 으로 응답합니다. 기본값은 strict 입니다.
+
+* 구성을 편집하시겠습니까? (예/아니요)
++
+이제 새 구성이 표시됩니다. 방금 입력한 구성을 검토하고 필요에 따라 변경합니다. 구성에 만족하면 프롬프트에 * NO * 로 응답합니다. 구성 설정을 편집하려면 * 예 * 로 응답하십시오.
+
+* 이 구성을 사용하여 저장하시겠습니까? (예/아니요)
++
+구성을 저장하려면 * yes * 로 응답합니다. 그러면 킥스타트 및 시스템 이미지가 자동으로 업데이트됩니다.
+
++
+
+NOTE: 이 단계에서 구성을 저장하지 않으면 다음에 스위치를 재부팅할 때 변경 내용이 적용되지 않습니다.
+
++
+스위치의 초기 구성에 대한 자세한 내용은 다음 설명서를 참조하십시오.
+
++
+https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#InstallandUpgradeGuides["Cisco Nexus 9336C-FX2 설치 및 업그레이드 가이드"^]
+
++
+https://www.cisco.com/c/en/us/support/switches/nexus-92300yc-switch/model.html#InstallandUpgradeGuides["Cisco Nexus 92300YC 설치 및 업그레이드 가이드"^]
+
++
+https://www.cisco.com/c/en/us/support/switches/nexus-5000-series-switches/products-installation-guides-list.html["Cisco Nexus 5000 시리즈 하드웨어 설치 가이드"^]
+
++
+https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Cisco Nexus 3000 시리즈 하드웨어 설치 가이드 를 참조하십시오"^]
+
+
