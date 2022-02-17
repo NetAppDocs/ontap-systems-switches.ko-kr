@@ -1,0 +1,2757 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head class="at-element-marker">
+  <title>Cisco Nexus 9336C-FX2 클러스터 스위치를 사용하여 전환된 NetApp 클러스터 환경으로 마이그레이션하는 방법</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Cisco Nexus 9336C-FX2 클러스터 스위치를 사용하여 전환된 NetApp 클러스터 환경으로 마이그레이션하는 방법" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/ko-kr/ontap-systems-switches/switch-cisco-9336c-fx2/migrate-to-2n-switched.html" />
+	<meta property="og:description" content="스위치가 없는 기존 2노드 클러스터 환경이 구축된 경우 Cisco Nexus 9336C-FX2 스위치를 사용하여 2노드 스위치 클러스터 환경으로 마이그레이션하여 클러스터 내의 2개 노드 이상으로 확장할 수 있습니다." />
+  <meta property="og:image" content="https://docs.netapp.com/ko-kr/ontap-systems-switches/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/>
+  
+  <meta name="description" content="스위치가 없는 기존 2노드 클러스터 환경이 구축된 경우 Cisco Nexus 9336C-FX2 스위치를 사용하여 2노드 스위치 클러스터 환경으로 마이그레이션하여 클러스터 내의 2개 노드 이상으로 확장할 수 있습니다.">
+  <meta name="keywords" content=" two-node switchless cluster environments,migrating to a two-node switched 9336C-FX2 cluster environment,switchless cluster environments,9336C-FX2 switches">
+  
+  
+
+  <!-- Icons -->
+  <link rel="icon" href="/ko-kr/ontap-systems-switches/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed -->
+  
+
+  <!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+  <!-- Elastic Search -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+
+  <!-- Controls AsciiDoctor Admonition Blocks -->
+  <link rel="stylesheet" type="text/css" href="/ko-kr/ontap-systems-switches/css/font-awesome.min.css">
+
+  <!-- Controls the shadow effect for search dropdown menu -->
+  <link rel="stylesheet" href="/ko-kr/ontap-systems-switches/css/boxshadowproperties.css">
+
+  <!-- NetApp CSS controls the technical content -->
+  <link rel="stylesheet" type="text/css" href="/ko-kr/ontap-systems-switches/css/netapp.css">
+
+  <!-- WWW CSS Content -->
+  <link rel="stylesheet" type="text/css" href="/ko-kr/ontap-systems-switches/css/www-luci-dotcom.min.css">
+  <link rel="stylesheet" type="text/css" href="/ko-kr/ontap-systems-switches/css/www-netapp-dotcom.css">
+  <link rel="stylesheet" href="/ko-kr/ontap-systems-switches/css/www-netapp-library-critical.min.css" media="all" >
+  <link rel="stylesheet" href="/ko-kr/ontap-systems-switches/css/www-netapp-library-non-critical.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="stylesheet" href="/ko-kr/ontap-systems-switches/css/www-netapp-library-global-header-footer.min.css">
+
+  <!-- NetApp IE Customizations -->
+  <link rel="stylesheet" href='/ko-kr/ontap-systems-switches/css/na-utility.css' type='text/css'>
+  <link rel="stylesheet" href='/ko-kr/ontap-systems-switches/css/na-sidebar.css' type='text/css'>
+  <link rel='stylesheet' href='/ko-kr/ontap-systems-switches/css/clouddocs.css' type='text/css'>
+  <link rel='stylesheet' href='/ko-kr/ontap-systems-switches/css/na-pagenav.css' type='text/css'>
+
+  
+  <link rel="stylesheet" href="/ko-kr/ontap-systems-switches/css/landing-page.css" type="text/css">
+  <link rel="stylesheet" href="/ko-kr/ontap-systems-switches/css/tabbed-blocks.css" type="text/css">
+  <link rel="stylesheet" href='/ko-kr/ontap-systems-switches/css/product-family.css' type="text/css">
+  
+
+  
+  <link rel='stylesheet' href='/ko-kr/ontap-systems-switches/css/na-feature.css' type='text/css'>
+  
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  <!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
+  
+    <script src='/ko-kr/ontap-systems-switches/js/na-search.js'></script>
+  
+
+  
+  <script src='/ko-kr/ontap-systems-switches/js/na-pagenav.js'></script>
+  
+
+  <link rel='stylesheet' href='/ko-kr/ontap-systems-switches/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/ko-kr/ontap-systems-switches/css/prism-netapp.css' type='text/css'>
+
+
+  <script src='/ko-kr/ontap-systems-switches/js/na-utility.js'></script>
+  <script src='/ko-kr/ontap-systems-switches/js/clouddocs.js'></script>
+  <script>
+  if (document.location.hostname === "docs.netapp.com") {
+    var head = document.getElementsByTagName('head')[0];
+    var adobe = document.createElement("script");
+    adobe.type = "text/javascript";
+    adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/launch-e9ff3acac59f.min.js";
+    head.appendChild(adobe);
+  }
+  </script>
+  <script src='/ko-kr/ontap-systems-switches/js/jquery.navgoco.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src='/ko-kr/ontap-systems-switches/js/toc.js'></script>
+  <script src='/ko-kr/ontap-systems-switches/js/customscripts.js'></script>
+
+  <script>
+      $(document).ready(function() {
+          
+          var collapseOnInit = true;
+          
+
+          var navSettings = {
+              "caretHtml": '',
+              "accordion": collapseOnInit,
+              "openClass": 'active', // open
+              "save": false, // leave false or nav highlighting doesn't work right
+              "cookie": {
+                  "name": 'navgoco',
+                  "expires": false,
+                  "path": '/'
+              },
+              "slide": {
+                  "duration": 400,
+                  "easing": 'swing'
+              }
+          };
+
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco(navSettings);
+          
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+      });
+
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script><script async src="https://www.googletagmanager.com/gtag/js?id=UA-81697994-3"></script>
+  <script>
+  if (document.location.hostname === "docs.netapp.com") {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-81697994-3');
+  }
+  </script>
+  <script src='/ko-kr/ontap-systems-switches/js/version-dropdown.js'></script>
+  <script src='/ko-kr/ontap-systems-switches/js/product-family.js'></script>
+  <script src='/ko-kr/ontap-systems-switches/js/FileSaver.min.js'></script>
+  <script src='/ko-kr/ontap-systems-switches/js/jszip-utils.min.js'></script>
+  <script src='/ko-kr/ontap-systems-switches/js/jszip.min.js'></script>
+  <script src='/ko-kr/ontap-systems-switches/js/pdf-ux.js'></script>
+</head>
+
+
+  <body class role="document">
+    <div id="page" class="n-off-canvas-menu">
+      <div class="n-off-canvas-menu__menu"><!--TODO: Add offcanvas code --></div>
+      <div class="n-off-canvas-menu__content-wrap">
+        <header class="site-header" id="banner">
+  <!-- Start top_hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/products-a-z/" class="n-top-hat__link">제품 및 솔루션</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/support-and-training/netapp-university/" class="n-top-hat__link">지원 및 교육</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://cloud.netapp.com" class="n-top-hat__link">Cloud Central</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://community.netapp.com/" class="n-top-hat__link">커뮤니티</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://blog.netapp.com/" class="n-top-hat__link">블로그</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://customers.netapp.com/en/" class="n-top-hat__link">고객 성공 사례</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/us/contact-us/index.aspx" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">연락처</a>
+          </li>
+        </ul>
+      </div>
+      <div class="n-top-hat__utils">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/us/contact-us/index.aspx" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">연락처</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- End top_hat -->
+
+  <!-- Start property bar -->
+  <style>
+    .n-property-navigation-bar__menus--desktop-experience .n-menu--mega__default-content__heading span {
+    color: #34B0FF;
+    }
+  </style>
+  <div class="n-property-bar " data-ntap-ui="sticky-nav">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link">
+          <span class="n-property-bar__menu-toggle-text">Menu</span>
+          <svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+            <title>bars</title>
+            <use xlink:href="/ko-kr/ontap-systems-switches/common/svg/sprite.svg#bars"></use>
+          </svg>
+        </a>
+      </div>
+      <div class="n-property-bar__property-mark ">
+        <a href="https://www.netapp.com" class="n-property-bar__property-link">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="/ko-kr/ontap-systems-switches/common/svg/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg class="n-icon-netapp-logo n-property-bar__logo-svg" aria-labelledby="title">
+              <title>netapp-logo</title>
+              <use xlink:href="/ko-kr/ontap-systems-switches/common/svg/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      
+      <div class="search-property-bar">
+        <div id="search-demo-container" class="searchbox n-property-bar__search">
+          <div id="react-search" 
+          data-search-html="/ko-kr/ontap-systems-switches/search.html"
+          data-type="widget" 
+          data-placeholder="설명서 검색" 
+          data-no-results-found="{query}에 대한 결과를 찾을 수 없음" 
+          data-did-you-mean="{suggestion}을(를) 검색해보십시오." 
+          data-no-results-found-did-you-mean="{query}에 대한 결과를 찾을 수 없습니다. {suggestion}을(를) 검색하려 하셨습니까?" 
+          data-results-found="{hitCount}개의 결과를 찾음"  
+          data-sk-es-pf-indexes=""></div>
+          <button class="n-property-bar__search-toggle-button" type="button">
+            <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
+              <title>search</title>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ko-kr/ontap-systems-switches/common/svg/sprite.svg#search"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="n-property-bar__toolbar">
+    <!-- Start Language Selector --><div id="ie-i18n" class="n-property-bar__lang-selector">
+      <div id="ie-i18n-menu">
+      <span class="ie-i18n-lang">한국어</span>
+        <button class="ie-i18n-icon-container" type="button">
+          <svg class="n-globe__icon" aria-labelledby="title">
+            <title>globe</title>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ko-kr/ontap-systems-switches/common/svg/sprite.svg#globe"></use>
+          </svg>
+        </button>
+      </div>
+      <div id="n-property-navigation-bar__menu--language-selector" class="ie-i18n-results-container n-menu n-menu--v3 n-menu--is-active" style="display: none;">
+        <div class="n-language-selector-menu">
+          <ul class="n-menu__list">
+            <li class="n-menu__list-column">
+              <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/ko-kr/ontap-systems-switches/switch-cisco-9336c-fx2/migrate-to-2n-switched.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-9336c-fx2/migrate-to-2n-switched.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/ja-jp/ontap-systems-switches/switch-cisco-9336c-fx2/migrate-to-2n-switched.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/zh-cn/ontap-systems-switches/switch-cisco-9336c-fx2/migrate-to-2n-switched.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
+                </li></ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div><!-- End Language Selector -->
+
+    <div class="n-property-bar__cta"></div>
+  </div>
+  <script>
+    $(function(){
+        var currentLocalization = $('html').attr('lang');
+
+        var localizationsDictionary = {
+            "en-CA" : "https://www.netapp.com/search/index.aspx?for_cr=canada&",
+            "en-IN" : "https://www.netapp.com/search/index.aspx?for_cr=india&",
+            "nl-NL" : "https://www.netapp.com/search/index.aspx?for_cr=netherlands&",
+            "ru-RU" : "https://www.netapp.com/search/index.aspx?for_cr=russia&",
+            "sv-SE" : "https://www.netapp.com/search/index.aspx?for_cr=sweden&",
+            "it-IT" : "https://www.netapp.com/search/index.aspx?for_cr=italy&",
+            "he-IL" : "https://www.netapp.com/search/index.aspx?for_cr=israel&",
+            "ko-KR" : "https://www.netapp.com/search/index.aspx?for_cr=korea&",
+            "zh-TW" : "https://www.netapp.com/search/index.aspx?for_cr=taiwan&",
+            "en-GB" : "https://www.netapp.com/search/index.aspx?for_cr=unitedkingdom&",
+            "en-SG" : "https://www.netapp.com/search/index.aspx?for_cr=asean&",
+            "en-AU" : "https://www.netapp.com/search/index.aspx?for_cr=australia&",
+            "pt-BR" : "https://www.netapp.com/search/index.aspx?for_cr=brasil&",
+            "de-CH" : "https://www.netapp.com/search/index.aspx?for_cr=switzerland&",
+            "es-MX" : "https://www.netapp.com/search/index.aspx?for_cr=mexico&"
+        };
+
+        if($('html').hasClass('ntap-whitelisted') && localizationsDictionary.hasOwnProperty(currentLocalization)) {
+            $('.n-property-bar__property-link').attr('href', '/');
+        }
+    });
+  </script>
+  <!-- End property bar -->
+</header>
+
+
+        <main id="n-main-content" class="n-main-content">
+          <!-- Start Documentation Content -->
+<div class="ie-main">
+  <!-- Sidebar Column -->
+  
+  <div class="col-md-3" id="sidebar-height">
+      <div class="n-pdf-header">
+  <a id="toggleButtonPdf" class="n-pdf-button" type="button">
+    <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>사용 가능한 PDF<span>
+    </span>
+  </a>
+</div>
+<div class="n-pdf-body-container">
+  <ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><li class="pdf-ux-container">
+        <a target="_blank" href="/ko-kr/ontap-systems-switches/pdfs/fullsite-sidebar/AFF_및_FAS_스위치_문서.pdf" >
+          <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>이 문서 사이트의 PDF</a>
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ko-kr/ontap-systems-switches/pdfs/sidebar/BES_53248_스위치.pdf" 
+            
+          >
+            <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>
+            BES-53248 스위치
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ko-kr/ontap-systems-switches/pdfs/sidebar/스위치를_설정합니다.pdf" 
+            
+          >
+            <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>
+            스위치를 설정합니다
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ko-kr/ontap-systems-switches/pdfs/sidebar/라이센스를_설치합니다.pdf" 
+            
+          >
+            <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>
+            라이센스를 설치합니다
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ko-kr/ontap-systems-switches/pdfs/sidebar/NDO_NDU_환경의_스위치를_업그레이드하십시오.pdf" 
+            
+          >
+            <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>
+            NDO/NDU 환경의 스위치를 업그레이드하십시오
+          </a>
+          
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ko-kr/ontap-systems-switches/pdfs/sidebar/라이센스를_설치합니다.pdf" 
+            
+          >
+            <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>
+            라이센스를 설치합니다
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ko-kr/ontap-systems-switches/pdfs/sidebar/CN1610_스위치에서_BES_53248_스위치로_마이그레이션합니다.pdf" 
+            
+          >
+            <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>
+            CN1610 스위치에서 BES-53248 스위치로 마이그레이션합니다
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ko-kr/ontap-systems-switches/pdfs/sidebar/스위치가_있는_2노드_클러스터로_마이그레이션합니다.pdf" 
+            
+          >
+            <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>
+            스위치가 있는 2노드 클러스터로 마이그레이션합니다
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ko-kr/ontap-systems-switches/pdfs/sidebar/Cisco_3132Q_V_스위치.pdf" 
+            
+          >
+            <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>
+            Cisco 3132Q-V 스위치
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ko-kr/ontap-systems-switches/pdfs/sidebar/Cisco_Nexus_3132Q_V_클러스터_스위치를_사용하여_2노드_스위치_클러스터로_마이그레이션합니다.pdf" 
+            
+          >
+            <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>
+            Cisco Nexus 3132Q-V 클러스터 스위치를 사용하여 2노드 스위치 클러스터로 마이그레이션합니다
+          </a>
+          
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ko-kr/ontap-systems-switches/pdfs/sidebar/Cisco_Nexus_3132Q_V_클러스터_스위치에_NX_OS_소프트웨어_및_RCFs를_설치합니다.pdf" 
+            
+          >
+            <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>
+            Cisco Nexus 3132Q-V 클러스터 스위치에 NX-OS 소프트웨어 및 RCFs를 설치합니다
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ko-kr/ontap-systems-switches/pdfs/sidebar/Cisco_Nexus_3132Q_V_클러스터_스위치를_교체합니다.pdf" 
+            
+          >
+            <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>
+            Cisco Nexus 3132Q-V 클러스터 스위치를 교체합니다
+          </a>
+          
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ko-kr/ontap-systems-switches/pdfs/sidebar/Cisco_Nexus_5596_클러스터_스위치를_Cisco_Nexus_3132Q_V_클러스터_스위치로_교체합니다.pdf" 
+            
+          >
+            <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>
+            Cisco Nexus 5596 클러스터 스위치를 Cisco Nexus 3132Q-V 클러스터 스위치로 교체합니다
+          </a>
+          
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ko-kr/ontap-systems-switches/pdfs/sidebar/CN1610_클러스터_스위치를_Cisco_Nexus_3132Q_V_클러스터_스위치로_교체합니다.pdf" 
+            
+          >
+            <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>
+            CN1610 클러스터 스위치를 Cisco Nexus 3132Q-V 클러스터 스위치로 교체합니다
+          </a>
+          
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ko-kr/ontap-systems-switches/pdfs/sidebar/Cisco_3232C_스위치.pdf" 
+            
+          >
+            <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>
+            Cisco 3232C 스위치
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ko-kr/ontap-systems-switches/pdfs/sidebar/CN1610_스위치를_Cisco_Nexus_3232C_클러스터_스위치에_마이그레이션.pdf" 
+            
+          >
+            <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>
+            CN1610 스위치를 Cisco Nexus 3232C 클러스터 스위치에 마이그레이션
+          </a>
+          
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ko-kr/ontap-systems-switches/pdfs/sidebar/Cisco_Nexus_3232C_클러스터_스위치에_NX_OS_소프트웨어_및_RCFs를_설치합니다.pdf" 
+            
+          >
+            <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>
+            Cisco Nexus 3232C 클러스터 스위치에 NX-OS 소프트웨어 및 RCFs를 설치합니다
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ko-kr/ontap-systems-switches/pdfs/sidebar/Cisco_Nexus_5596_스위치에서_Cisco_Nexus_3232C_스위치로_마이그레이션합니다.pdf" 
+            
+          >
+            <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>
+            Cisco Nexus 5596 스위치에서 Cisco Nexus 3232C 스위치로 마이그레이션합니다
+          </a>
+          
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ko-kr/ontap-systems-switches/pdfs/sidebar/스위치가_없는_2노드_클러스터에서_Cisco_Nexus_3232C_클러스터_스위치를_사용하는_클러스터로_마이그레이션할_수_있습니다.pdf" 
+            
+          >
+            <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>
+            스위치가 없는 2노드 클러스터에서 Cisco Nexus 3232C 클러스터 스위치를 사용하는 클러스터로 마이그레이션할 수 있습니다
+          </a>
+          
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ko-kr/ontap-systems-switches/pdfs/sidebar/Cisco_Nexus_3232C_클러스터_스위치를_교체합니다.pdf" 
+            
+          >
+            <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>
+            Cisco Nexus 3232C 클러스터 스위치를 교체합니다
+          </a>
+          
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ko-kr/ontap-systems-switches/pdfs/sidebar/Cisco_Nexus_3232C_스토리지_스위치를_교체합니다.pdf" 
+            
+          >
+            <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>
+            Cisco Nexus 3232C 스토리지 스위치를 교체합니다
+          </a>
+          
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ko-kr/ontap-systems-switches/pdfs/sidebar/Cisco_9336C_FX2_스위치.pdf" 
+            
+          >
+            <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>
+            Cisco 9336C-FX2 스위치
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ko-kr/ontap-systems-switches/pdfs/sidebar/설정.pdf" 
+            
+          >
+            <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>
+            설정
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ko-kr/ontap-systems-switches/pdfs/sidebar/필수_클러스터_구성_정보.pdf" 
+            
+          >
+            <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>
+            필수 클러스터 구성 정보
+          </a>
+          
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ko-kr/ontap-systems-switches/pdfs/sidebar/케이블_연결_워크시트_예제_및_빈.pdf" 
+            
+          >
+            <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>
+            케이블 연결 워크시트 예제 및 빈
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ko-kr/ontap-systems-switches/pdfs/sidebar/Cisco_Nexus_9336C_FX2_클러스터_스위치에_NX_OS_소프트웨어_및_RCF를_설치합니다.pdf" 
+            
+          >
+            <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>
+            Cisco Nexus 9336C-FX2 클러스터 스위치에 NX-OS 소프트웨어 및 RCF를 설치합니다
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ko-kr/ontap-systems-switches/pdfs/sidebar/Cisco_스위치에서_Cisco_Nexus_9336C_FX2_클러스터_스위치로_마이그레이션합니다.pdf" 
+            
+          >
+            <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>
+            Cisco 스위치에서 Cisco Nexus 9336C-FX2 클러스터 스위치로 마이그레이션합니다
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ko-kr/ontap-systems-switches/pdfs/sidebar/Cisco_Nexus_9336C_FX2_클러스터_스위치를_사용하여_2노드_스위치_클러스터로_마이그레이션합니다.pdf" 
+            
+          >
+            <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>
+            Cisco Nexus 9336C-FX2 클러스터 스위치를 사용하여 2노드 스위치 클러스터로 마이그레이션합니다
+          </a>
+          
+
+
+    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
+  <a target="_blank" href="/ko-kr/ontap-systems-switches/pdfs/pages/switch-cisco-9336c-fx2/migrate-to-2n-switched.pdf" >
+    <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>
+    PDF of this page
+  </a>
+</li>
+
+</ul>
+  
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ko-kr/ontap-systems-switches/pdfs/sidebar/Cisco_Nexus_9336C_FX2_클러스터_스위치를_구성합니다.pdf" 
+            
+          >
+            <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>
+            Cisco Nexus 9336C-FX2 클러스터 스위치를 구성합니다
+          </a>
+          
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ko-kr/ontap-systems-switches/pdfs/sidebar/Cisco_9336C_FX2_공유_스위치.pdf" 
+            
+          >
+            <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>
+            Cisco 9336C-FX2 공유 스위치
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ko-kr/ontap-systems-switches/pdfs/sidebar/Cisco_92300YC_스위치.pdf" 
+            
+          >
+            <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>
+            Cisco 92300YC 스위치
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ko-kr/ontap-systems-switches/pdfs/sidebar/설정.pdf" 
+            
+          >
+            <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>
+            설정
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ko-kr/ontap-systems-switches/pdfs/sidebar/케이블_연결_워크시트_예제_및_빈.pdf" 
+            
+          >
+            <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>
+            케이블 연결 워크시트 예제 및 빈
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ko-kr/ontap-systems-switches/pdfs/sidebar/Cisco_Nexus_92300YC_클러스터_스위치에_NX_OS_소프트웨어_및_RCF를_설치합니다.pdf" 
+            
+          >
+            <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>
+            Cisco Nexus 92300YC 클러스터 스위치에 NX-OS 소프트웨어 및 RCF를 설치합니다
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ko-kr/ontap-systems-switches/pdfs/sidebar/새_Cisco_Nexus_92300YC_스위치를_구성합니다.pdf" 
+            
+          >
+            <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>
+            새 Cisco Nexus 92300YC 스위치를 구성합니다
+          </a>
+          
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ko-kr/ontap-systems-switches/pdfs/sidebar/Cisco_Nexus_92300YC_스위치를_사용하여_2노드_스위치_클러스터로_마이그레이션합니다.pdf" 
+            
+          >
+            <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>
+            Cisco Nexus 92300YC 스위치를 사용하여 2노드 스위치 클러스터로 마이그레이션합니다
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ko-kr/ontap-systems-switches/pdfs/sidebar/Cisco_스위치에서_Cisco_Nexus_92300YC_스위치로_마이그레이션합니다.pdf" 
+            
+          >
+            <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>
+            Cisco 스위치에서 Cisco Nexus 92300YC 스위치로 마이그레이션합니다
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ko-kr/ontap-systems-switches/pdfs/sidebar/NetApp_CN1610_스위치.pdf" 
+            
+          >
+            <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>
+            NetApp CN1610 스위치
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ko-kr/ontap-systems-switches/pdfs/sidebar/NetApp_클러스터_스위치에_FASTPATH_소프트웨어_및_RCF를_설치합니다.pdf" 
+            
+          >
+            <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>
+            NetApp 클러스터 스위치에 FASTPATH 소프트웨어 및 RCF를 설치합니다
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ko-kr/ontap-systems-switches/pdfs/sidebar/기타_스위치_모델.pdf" 
+            
+          >
+            <img src="/ko-kr/ontap-systems-switches/images/pdf.png" width="16" height="16"/>
+            기타 스위치 모델
+          </a>
+          
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+</li></ul>
+  <div class="zip-pdf-link-container" style="display: none;">   
+    <a href="#" id="zipPdf">
+      <img src="/ko-kr/ontap-systems-switches/images/pdf-zip.png" width="16" height="16"/>
+      <pre>별도의 PDF 문서 모음<span class="zip-size"></span></pre>
+    </a><div id="zip-link-popup" class="hide">
+    <div class="inner-modal">
+        <div class="downloading-progress">
+            <div class="spinner"></div>
+            <h1>Creating your file...</h1>
+            <div>This may take a few minutes. Thanks for your patience.</div>
+            <button class="cancel-download-btn" type="button">Cancel</button>
+        </div>
+        <div class="download-complete hide">
+            <div class="done-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+            </div>
+            <div>Your file is ready</div>
+            <button class="cancel-download-btn" type="button">OK</button>
+        </div>
+    </div>
+</div>
+<script>
+    $(".cancel-download-btn").click(function(){
+        $("#zip-link-popup").addClass("hide");
+        $("#zip-link-popup .downloading-progress").removeClass("hide");
+        $("#zip-link-popup .download-complete").addClass("hide");
+    });
+</script></div>
+</div>
+<script>
+  $("#toggleContainerPdf li.active:last-child").parents('ul.subfolders').toggle('display');
+  $("#toggleButtonPdf").click(function () {
+    $("#toggleContainerPdf").toggle('display');
+    $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+  });
+</script><div class="sidebar-nav-container">
+  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/index.html">
+        AFF 및 FAS 스위치 문서
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> BES-53248 스위치</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-bes-53248/overview-bes53248.html">
+        BES-53248 클러스터 스위치의 개요
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 스위치를 설정합니다</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-bes-53248/replace-required-documentation.html">
+        필수 문서
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-bes-53248/replace-requirements.html">
+        BES-53248 클러스터 스위치 구성 요구 사항
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-bes-53248/configure-new-switch.html">
+        새 BES-53248 스위치를 구성합니다
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-bes-53248/configure-install-initial.html">
+        초기 설치
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-bes-53248/configure-ssh.html">
+        BES-53248 클러스터 스위치에서 SSH를 활성화합니다
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-bes-53248/configure-efos-software.html">
+        EFOS 소프트웨어를 설치합니다
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 라이센스를 설치합니다</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-bes-53248/configure-licenses.html">
+        BES-53248 클러스터 스위치용 라이센스를 설치합니다
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-bes-53248/configure-restrictions.html">
+        제한 및 제한 사항
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-bes-53248/configure-edit-rcf.html">
+        RCF(Reference Configuration File) 편집
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-bes-53248/configure-install-rcf.html">
+        RCF(Reference Configuration File) 설치
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-bes-53248/configure-log-collection.html">
+        클러스터 스위치 로그 수집 기능을 구성합니다
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-bes-53248/configure-health-monitor.html">
+        CSHM(Cluster Switch Health Monitor) 구성 파일을 설치합니다
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> NDO/NDU 환경의 스위치를 업그레이드하십시오</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-bes-53248/replace-upgrade.html">
+        개요
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-bes-53248/replace-prepare-controller.html">
+        컨트롤러를 준비합니다
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-bes-53248/replace-install-efos.html">
+        EFOS 소프트웨어를 설치합니다
+      </a></li><li class="subfolders "><a href="/ko-kr/ontap-systems-switches/switch-bes-53248/replace-install-licenses.html">
+        <div class="na-navbar-padding"> 라이센스를 설치합니다</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-bes-53248/replace-restrictions.html">
+        제한 및 제한 사항
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-bes-53248/replace-edit-rcf.html">
+        RCF(Reference Configuration File) 편집
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-bes-53248/replace-install-rcf.html">
+        RCF(Reference Configuration File) 설치
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-bes-53248/replace-configure-log-collection.html">
+        클러스터 스위치 로그 수집 기능을 구성합니다
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-bes-53248/replace-install-cshm-file.html">
+        CSHM(Cluster Switch Health Monitor) 구성 파일을 설치합니다
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-bes-53248/replace-verify.html">
+        구성을 확인합니다
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-bes-53248/replace-switch.html">
+        BES-53248 스위치를 교체합니다
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> CN1610 스위치에서 BES-53248 스위치로 마이그레이션합니다</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-bes-53248/migrate-cn1610-overview.html">
+        시작하기 전에
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-bes-53248/migrate-cn1610.html">
+        마이그레이션 방법
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 스위치가 있는 2노드 클러스터로 마이그레이션합니다</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-bes-53248/migrate-to-2n-switched.html">
+        마이그레이션할 준비를 합니다
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-bes-53248/migrate-to-2n-switched-overview.html">
+        스위치 NetApp 클러스터 환경으로 마이그레이션
+      </a></li></ul></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> Cisco 3132Q-V 스위치</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-3132q-vindex.html">
+        개요
+      </a></li><li class="subfolders "><a href="/ko-kr/ontap-systems-switches/switch-cisco-3132q-v/concept-migrate-from-a-two-node-switchless-cluster-to-a-cluster-with-cisco-nexus-3232c-cluster-switches.html">
+        <div class="na-navbar-padding"> Cisco Nexus 3132Q-V 클러스터 스위치를 사용하여 2노드 스위치 클러스터로 마이그레이션합니다</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-3132q-v/task-how-to-migrate-from-a-two-node-switchless-cluster-to-a-cluster-with-cisco-nexus-3132q-v-cluster-switches.html">
+        Cisco Nexus 3132Q-V 클러스터 스위치를 사용하여 2노드 스위치 클러스터를 마이그레이션하는 방법
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-3132q-v/task-install-a-cisco-nexus-3232c-cluster-switch-and-pass-through-panel-in-a-netapp-cabinet.html">
+        NetApp 캐비닛에 Cisco Nexus 3132Q-V 클러스터 스위치 및 통과 패널을 설치합니다
+      </a></li><li class="subfolders "><a href="/ko-kr/ontap-systems-switches/switch-cisco-3132q-v/task-install-nx-os-software-and-rcfs-on-cisco-nexus-3132q-v-cluster-switches.html">
+        <div class="na-navbar-padding"> Cisco Nexus 3132Q-V 클러스터 스위치에 NX-OS 소프트웨어 및 RCFs를 설치합니다</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-3132q-v/task-install-the-nx-os-software-3132q-v.html">
+        NX-OS 소프트웨어를 설치합니다
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-3132q-v/task-install-the-reference-configuration-file-rcf-3132q-v.html">
+        RCF(Reference Configuration File) 설치
+      </a></li></ul></li><li class="subfolders "><a href="/ko-kr/ontap-systems-switches/switch-cisco-3132q-v/concept-replace-cisco-nexus-3132q-v-cluster-switches.html">
+        <div class="na-navbar-padding"> Cisco Nexus 3132Q-V 클러스터 스위치를 교체합니다</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-3132q-v/task-how-to-replace-cisco-nexus-3132q-v-cluster-switches.html">
+        Cisco Nexus 3132Q-V 클러스터 스위치를 교체하는 방법
+      </a></li></ul></li><li class="subfolders "><a href="/ko-kr/ontap-systems-switches/switch-cisco-3132q-v/concept-migrate-from-a-cisco-5596-switch-to-a-cisco-nexus-3232c.html">
+        <div class="na-navbar-padding"> Cisco Nexus 5596 클러스터 스위치를 Cisco Nexus 3132Q-V 클러스터 스위치로 교체합니다</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-3132q-v/task-how-to-migrate-from-a-cisco-nexus-5596-cluster-switch-to-a-cisco-nexus-3232c-cluster-switch.html">
+        Cisco Nexus 5596 클러스터 스위치를 Cisco Nexus 3132Q-V 클러스터 스위치로 교체하는 방법
+      </a></li></ul></li><li class="subfolders "><a href="/ko-kr/ontap-systems-switches/switch-cisco-3132q-v/concept-migrate-a-cn1610-switch-to-a-cisco-nexus-3232c-cluster-switch.html">
+        <div class="na-navbar-padding"> CN1610 클러스터 스위치를 Cisco Nexus 3132Q-V 클러스터 스위치로 교체합니다</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-3132q-v/task-how-to-replace-cn1610-cluster-switches-with-cisco-nexus-3232c-cluster-switches.html">
+        CN1610 클러스터 스위치를 Cisco Nexus 3132Q-V 클러스터 스위치로 교체하는 방법
+      </a></li></ul></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> Cisco 3232C 스위치</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-3232c/index.html">
+        개요
+      </a></li><li class="subfolders "><a href="/ko-kr/ontap-systems-switches/switch-cisco-3232c/concept-migrate-a-cn1610-switch-to-a-cisco-nexus-3232c-cluster-switch.html">
+        <div class="na-navbar-padding"> CN1610 스위치를 Cisco Nexus 3232C 클러스터 스위치에 마이그레이션</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-3232c/task-how-to-replace-cn1610-cluster-switches-with-cisco-nexus-3232c-cluster-switches.html">
+        CN1610 클러스터 스위치를 Cisco Nexus 3232C 클러스터 스위치로 마이그레이션하는 방법
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-3232c/task-install-a-cisco-nexus-3232c-cluster-switch-and-pass-through-panel-in-a-netapp-cabinet.html">
+        NetApp 캐비닛에 Cisco Nexus 3232C 클러스터 스위치 및 통과 패널을 설치합니다
+      </a></li><li class="subfolders "><a href="/ko-kr/ontap-systems-switches/switch-cisco-3232c/task-install-nx-os-software-and-rcfs-on-cisco-nexus-3232-cluster-switches-running-ontap-9-4-and-later.html">
+        <div class="na-navbar-padding"> Cisco Nexus 3232C 클러스터 스위치에 NX-OS 소프트웨어 및 RCFs를 설치합니다</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-3232c/task-install-the-nx-os-software-3232c-cluster-switch.html">
+        NX-OS 소프트웨어를 설치합니다
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-3232c/task-install-the-reference-configuration-file-rcf-3232c-cluster-switch.html">
+        RCF(Reference Configuration File) 설치
+      </a></li></ul></li><li class="subfolders "><a href="/ko-kr/ontap-systems-switches/switch-cisco-3232c/concept-migrate-from-a-cisco-5596-switch-to-a-cisco-nexus-3232c.html">
+        <div class="na-navbar-padding"> Cisco Nexus 5596 스위치에서 Cisco Nexus 3232C 스위치로 마이그레이션합니다</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-3232c/task-how-to-migrate-from-a-cisco-nexus-5596-cluster-switch-to-a-cisco-nexus-3232c-cluster-switch.html">
+        Cisco Nexus 5596 클러스터 스위치에서 Cisco Nexus 3232C 클러스터 스위치로 마이그레이션하는 방법
+      </a></li></ul></li><li class="subfolders "><a href="/ko-kr/ontap-systems-switches/switch-cisco-3232c/concept-migrate-from-a-two-node-switchless-cluster-to-a-cluster-with-cisco-nexus-3232c-cluster-switches.html">
+        <div class="na-navbar-padding"> 스위치가 없는 2노드 클러스터에서 Cisco Nexus 3232C 클러스터 스위치를 사용하는 클러스터로 마이그레이션할 수 있습니다</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-3232c/task-how-to-migrate-from-a-two-node-switchless-cluster-to-a-cluster-with-cisco-nexus-3132q-v-cluster-switches.html">
+        스위치가 없는 2노드 클러스터에서 Cisco Nexus 3232C 클러스터 스위치를 사용하는 클러스터로 마이그레이션하는 방법
+      </a></li></ul></li><li class="subfolders "><a href="/ko-kr/ontap-systems-switches/switch-cisco-3232c/concept-replace-a-cisco-nexus-3232c-cluster-switch.html">
+        <div class="na-navbar-padding"> Cisco Nexus 3232C 클러스터 스위치를 교체합니다</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-3232c/task-how-to-replace-a-cisco-nexus-3232c-cluster-switch.html">
+        Cisco Nexus 3232C 클러스터 스위치를 교체하는 방법
+      </a></li></ul></li><li class="subfolders "><a href="/ko-kr/ontap-systems-switches/switch-cisco-3232c/concept-replace-a-cisco-nexus-3232c-storage-switch.html">
+        <div class="na-navbar-padding"> Cisco Nexus 3232C 스토리지 스위치를 교체합니다</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-3232c/task-steps-to-replace-a-cisco-nexus-3232c-storage-switch.html">
+        Cisco Nexus 3232C 스토리지 스위치를 교체하는 단계
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-3232c/task-upgrade-nx-os-software-and-rcfs-on-cisco-nexus-3232c-storage-switches.html">
+        Cisco Nexus 3232C 스토리지 스위치를 업그레이드하십시오
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> Cisco 9336C-FX2 스위치</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336c-fx2/9336-overview.html">
+        개요
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 설정</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336c-fx2/setup-switches.html">
+        스위치를 설정합니다
+      </a></li><li class="subfolders "><a href="/ko-kr/ontap-systems-switches/switch-cisco-9336c-fx2/setup-required-information.html">
+        <div class="na-navbar-padding"> 필수 클러스터 구성 정보</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336c-fx2/setup-install-cshm-file.html">
+        92300YC 스위치용 CSHM(Cluster Switch Health Monitor) 구성 파일을 설치합니다
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336c-fx2/setup-required-documentation.html">
+        필수 문서
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336c-fx2/setup-considerations-smart-call.html">
+        Smart Call Home 사용에 대한 고려 사항
+      </a></li><li class="subfolders "><a href="/ko-kr/ontap-systems-switches/switch-cisco-9336c-fx2/setup-worksheets-sample-cabling.html">
+        <div class="na-navbar-padding"> 케이블 연결 워크시트 예제 및 빈</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336c-fx2/setup-worksheet-9336c.html">
+        Cisco Nexus 9336C-FX2 케이블링 워크시트
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336c-fx2/setup-worksheet-92300yc.html">
+        Cisco Nexus 92300YC 케이블 연결 워크시트
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336c-fx2/setup-worksheet-3232c.html">
+        Cisco Nexus 3232C 케이블 연결 워크시트
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336c-fx2/setup-worksheet-3132q.html">
+        Cisco Nexus 3132Q-V 케이블링 워크시트
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336c-fx2/setup-worksheet-5596.html">
+        Cisco Nexus 5596UP 및 5596T 케이블 연결 워크시트
+      </a></li></ul></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> Cisco Nexus 9336C-FX2 클러스터 스위치에 NX-OS 소프트웨어 및 RCF를 설치합니다</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336c-fx2/install-nxos-overview.html">
+        개요
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336c-fx2/install-nxos-software.html">
+        NX-OS 소프트웨어를 설치합니다
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336c-fx2/install-nxos-rcf.html">
+        RCF(Reference Configuration File) 설치
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> Cisco 스위치에서 Cisco Nexus 9336C-FX2 클러스터 스위치로 마이그레이션합니다</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336c-fx2/migrate-to-9336-overview.html">
+        개요
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336c-fx2/migrate-to-9336.html">
+        Cisco 스위치에서 Cisco Nexus 9336C-FX2 클러스터 스위치로 마이그레이션하는 방법
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> Cisco Nexus 9336C-FX2 클러스터 스위치를 사용하여 2노드 스위치 클러스터로 마이그레이션합니다</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336c-fx2/migrate-to-2n-switched-overview.html">
+        개요
+      </a></li><li class="  active "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336c-fx2/migrate-to-2n-switched.html">
+        Cisco Nexus 9336C-FX2 클러스터 스위치를 사용하여 전환된 NetApp 클러스터 환경으로 마이그레이션하는 방법
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> Cisco Nexus 9336C-FX2 클러스터 스위치를 구성합니다</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336c-fx2/replace-configure-new-switch.html">
+        개요
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336c-fx2/replace-install-initial.html">
+        Nexus 9336C-FX2 클러스터 스위치의 초기 설치
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336c-fx2/replace-install-nxos.html">
+        NX-OS 소프트웨어를 설치합니다
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336c-fx2/replace-install-rcf.html">
+        RCF(Reference Configuration File) 설치
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336c-fx2/replace-9336c.html">
+        Cisco Nexus 9336C-FX2 클러스터 스위치를 교체합니다
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336c-fx2/replace_9336c_storage_switch.html">
+        Cisco Nexus 9336C-FX2 스토리지 스위치를 교체합니다
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336c-fx2/install-switch-and-passthrough-panel.html">
+        NetApp 캐비닛에 Cisco Nexus 9336C-FX2 스위치 및 패스스루 패널을 설치합니다
+      </a></li></ul></li><li class="subfolders "><a href="/ko-kr/ontap-systems-switches/switch-cisco-9336c-fx2-shared/index.html">
+        <div class="na-navbar-padding"> Cisco 9336C-FX2 공유 스위치</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336c-fx2-shared/9336c_setup_and_configuration_guide_for_cisco_shared_switches.html">
+        Cisco 공유 스위치에 대한 설정 및 구성 가이드
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336c-fx2-shared/9336c_install_nx-os_software_and_reference_configuration_files_rcfs.html">
+        NX-OS 소프트웨어 및 참조 구성 파일(RCFs) 설치
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336c-fx2-shared/9336c_migrate_from_a_switchless_cluster_with_dat_storage_by_adding_two_new_shared_switches.html">
+        2개의 새 공유 스위치를 추가하여 DAT 스토리지가 있는 스위치가 없는 클러스터에서 마이그레이션합니다
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336c-fx2-shared/9336c_migrate_from_a_switched_configuration_with_dat_storage_by_adding_two_new_shared_switches.html">
+        새 공유 스위치 2개를 추가하여 DAT 스토리지를 사용하는 스위치 구성에서 마이그레이션합니다
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336c-fx2-shared/9336c_migrate_from_a_switchless_configuration_with_sat_storage_by_reusing_the_storage_switches.html">
+        스토리지 스위치를 재사용하여 SAT 스토리지를 사용하는 스위치가 없는 구성에서 마이그레이션합니다
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336c-fx2-shared/9336c_migrate_from_a_switched_cluster_with_sat_storage_by_reusing_the_storage_switches.html">
+        스토리지 스위치를 재사용하여 SAT 스토리지가 있는 스위치 클러스터에서 마이그레이션합니다
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336c-fx2-shared/9336c_replace_a_cisco_nexus_9336c-fx2_shared_switch.html">
+        Cisco Nexus 9336C-FX2 공유 스위치를 교체합니다
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> Cisco 92300YC 스위치</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-92300/92300-overview.html">
+        개요
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 설정</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336/setup-supported-switches.html">
+        ONTAP에서 지원하는 스위치
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336/setup-switches.html">
+        스위치를 설정합니다
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336/setup-required-information.html">
+        필수 클러스터 구성 정보
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336/setup-install-cshm-file.html">
+        92300YC 스위치용 CSHM(Cluster Switch Health Monitor) 구성 파일을 설치합니다
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336/setup-required-documentation.html">
+        필수 문서
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336/setup-considerations-smart-call.html">
+        Smart Call Home 사용에 대한 고려 사항
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 케이블 연결 워크시트 예제 및 빈</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336/setup-worksheet-9336c.html">
+        Cisco Nexus 9336C-FX2 케이블링 워크시트
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336/setup-worksheet-92300yc.html">
+        Cisco Nexus 92300YC 케이블 연결 워크시트
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336/setup-worksheet-3232c.html">
+        Cisco Nexus 3232C 케이블 연결 워크시트
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336/setup-worksheet-3132q.html">
+        Cisco Nexus 3132Q-V 케이블링 워크시트
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336/setup-worksheet-5596.html">
+        Cisco Nexus 5596UP 및 5596T 케이블 연결 워크시트
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-9336/setup-worksheets-sample-cabling.html">
+        케이블 연결 워크시트 예
+      </a></li></ul></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> Cisco Nexus 92300YC 클러스터 스위치에 NX-OS 소프트웨어 및 RCF를 설치합니다</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-92300/install-nxos-overview.html">
+        개요
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-92300/install-nxos-software.html">
+        NX-OS 소프트웨어를 설치합니다
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-92300/install-nxos-rcf.html">
+        RCF(Reference Configuration File) 설치
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 새 Cisco Nexus 92300YC 스위치를 구성합니다</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-92300/configure-overview.html">
+        개요
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-92300/configure-install-initial.html">
+        Cisco Nexus 92300YC 스위치의 초기 설치
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-92300/configure-install-nxos.html">
+        NX-OS 소프트웨어를 설치합니다
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-92300/configure-install-rcf.html">
+        RCF(Reference Configuration File) 설치
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-92300/replace-92300yc.html">
+        Cisco Nexus 92300YC 스위치를 교체합니다
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> Cisco Nexus 92300YC 스위치를 사용하여 2노드 스위치 클러스터로 마이그레이션합니다</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-92300/migrate-to-2n-switched-overview.html">
+        개요
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-92300/migrate-to-2n-switched.html">
+        마이그레이션 방법
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> Cisco 스위치에서 Cisco Nexus 92300YC 스위치로 마이그레이션합니다</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-92300/migrate-to-92300yc-overview.html">
+        개요
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-cisco-92300/migrate-to-92300yc.html">
+        Cisco 스위치에서 Cisco Nexus 92300YC 스위치로 마이그레이션하는 방법
+      </a></li></ul></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> NetApp CN1610 스위치</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-netapp-cn1610/index.html">
+        개요
+      </a></li><li class="subfolders "><a href="/ko-kr/ontap-systems-switches/switch-netapp-cn1610/task-install-fastpath-software-and-rcfs-on-netapp-cluster-switch.html">
+        <div class="na-navbar-padding"> NetApp 클러스터 스위치에 FASTPATH 소프트웨어 및 RCF를 설치합니다</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-netapp-cn1610/task-install-fastpath-software.html">
+        FASTPATH 소프트웨어를 설치합니다
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-netapp-cn1610/task-install-an-rcf-on-a-cn1610-switch.html">
+        CN1610 스위치에 참조 구성 파일을 설치합니다
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-netapp-cn1610/task-install-fastpath-software-and-rcf-files-on-netapp-cluster-switches.html">
+        ONTAP 8.3.1 이상을 실행하는 NetApp 클러스터 스위치에 FASTPATH 소프트웨어 및 RCF를 설치합니다
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-netapp-cn1610/task-migrate-to-a-two-node-switched-cluster-with-netapp-cn1610-cluster-switches.html">
+        NetApp CN1610 클러스터 스위치를 사용하여 2노드 스위치 클러스터로 마이그레이션합니다
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-netapp-cn1610/task-migrate-from-a-switchless-cluster-to-a-switched-netapp-cn1610-cluster-environment.html">
+        스위치가 없는 클러스터 환경에서 스위치 있는 NetApp CN1610 클러스터 환경으로 마이그레이션하십시오
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-netapp-cn1610/task-migrate-from-a-switchless-cluster-fas22xx-systems-with-a-single-cluster-network-connection.html">
+        FAS22xx 시스템에서 단일 클러스터 네트워크 연결이 포함된 2노드 스위치 클러스터로 마이그레이션합니다
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-netapp-cn1610/switch-setup-configuration-guide-linkout.html">
+        CN1601 및 CN1610 스위치 설정 및 구성 가이드
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-netapp-cn1610/switch-cli-command-reference-version-11xx-linkout.html">
+        CN1610 네트워크 스위치 CLI 명령 참조 - 버전 1.1.x.x
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-netapp-cn1610/switch-cli-command-reference-version-12xx-linkout.html">
+        CN1610 네트워크 스위치 CLI 명령 참조 - 버전 1.2.x.x
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-netapp-cn1610/netapp-10g-cluster-mode-switch-installation-guide.html">
+        NetApp 10G Cluster-Mode 스위치 설치 가이드
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-netapp-cn1610/switch-administrator-guide-version-11xx-linkout.html">
+        NetApp CN1610 스위치 관리자 가이드 - 버전 1.1.x.x
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-netapp-cn1610/switch-administrator-guide-version-12xx-linkout.html">
+        NetApp CN1610 스위치 관리자 가이드 - 버전 1.2.x.x
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-netapp-cn1610/switch-cli-command-reference-linkout.html">
+        CN1601 네트워크 스위치 CLI 명령 참조
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-netapp-cn1610/switch-administrator-guide-linkout.html">
+        CN1601 스위치 관리자 가이드
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/switch-netapp-cn1610/netapp-1g-cluster-mode-switch-installation-guide-linkout.html">
+        NetApp 1G 클러스터 모드 스위치 설치 가이드
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 기타 스위치 모델</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/other/switch-linkout.html">
+        기타 스위치 모델
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/ontap-systems-switches/legal-notices.html">
+        법적 고지
+      </a></li></ul>
+</div>
+<script>
+  window.onscroll = () => {
+    const value = -40 - (document.body.scrollHeight - (window.innerHeight + document.scrollingElement.scrollTop));
+    
+    document.getElementById("sidebar-height").style.bottom = Math.max(0,value) + "px";
+};
+</script>
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+  </div>
+  
+
+  <div class="ie-content-pane n-doc__component-detail-content n-doc__component-detail-content--show-code">
+    <!-- Begin of page container -->
+    <article class="page-content">
+      <div class="ie-utility">
+  <div class="ie-menu">
+    <div class="n-breadcrumb">
+      <ul class="n-breadcrumb__list">
+        <li class="n-breadcrumb__list-item">
+          <a href="https://www.netapp.com">홈</a>
+        </li>
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com">설명서</a>
+        </li>
+        
+
+        <li class="n-breadcrumb__list-item">
+          <a href="/ko-kr/ontap-systems-switches/">ONTAP&nbsp;Systems&nbsp;Switches</a>
+        </li>
+        <li class="n-breadcrumb__list-item">
+          Cisco Nexus 9336C-FX2 클러스터 스위치를 사용하여 전환된 NetApp 클러스터 환경으로 마이그레이션하는 방법
+        </li>
+      </ul>
+    </div>
+    <div style="clear: both"></div><!-- Main needs to have height -->
+  </div>
+</div>
+
+      <div class="ie-nmt-disclaimer">
+  <span>
+    <div class="ie-nmt-disclaimer-container">
+      <div class="ie-nmt-disclaimer-icon">
+        <svg class="luci-icon" aria-hidden="true">
+          <use xlink:href="/ko-kr/ontap-systems-switches/common/svg/sprite.svg#circle-info">
+        </svg>
+      </div>
+      <div class="ie-nmt-disclaimer-content">
+        <span> 본 한국어 번역은 사용자 편의를 위해 제공되는 기계 번역입니다. 영어 버전과 한국어 버전이 서로 어긋나는 경우에는 언제나 영어 버전이 우선합니다. </span>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+  </span>
+</div><div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">Cisco Nexus 9336C-FX2 클러스터 스위치를 사용하여 전환된 NetApp 클러스터 환경으로 마이그레이션하는 방법</h1>
+</div>
+
+
+<p class="page-details">
+  
+    
+    <time datetime="2022-02-17 18:59:51 +0000">02/17/2022</time>
+    
+  
+
+<span>기여자
+  <a target="_blank" href="https://github.com/netapp-martyh">
+    <img  class="avatar avatar-small"
+          alt="netapp-martyh"
+          width="20" height="20"
+          src="https://avatars.githubusercontent.com/u/66496079?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
+</span>
+
+
+</p>
+
+
+<div class="paragraph lead">
+<p>스위치가 없는 기존 2노드 클러스터 환경이 구축된 경우 Cisco Nexus 9336C-FX2 스위치를 사용하여 2노드 스위치 클러스터 환경으로 마이그레이션하여 클러스터 내의 2개 노드 이상으로 확장할 수 있습니다.</p>
+</div>
+<div class="paragraph">
+<p>스위치가 없는 2노드 구성:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>스위치가 없는 2노드 구성이 올바르게 설정 및 작동해야 합니다.</p>
+</li>
+<li>
+<p>노드는 ONTAP 9.8 이상을 실행해야 합니다.</p>
+</li>
+<li>
+<p>모든 클러스터 포트는 UP 상태여야 합니다.</p>
+</li>
+<li>
+<p>모든 클러스터 논리 인터페이스(LIF)는 홈 포트와 위쪽 상태여야 합니다.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Cisco Nexus 9336C-FX2 스위치 구성:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>두 스위치 모두 관리 네트워크 연결이 있어야 합니다.</p>
+</li>
+<li>
+<p>클러스터 스위치에 대한 콘솔 액세스가 있어야 합니다.</p>
+</li>
+<li>
+<p>Nexus 9336C-FX2 노드 간 스위치 및 스위치 간 연결은 Twinax 또는 파이버 케이블을 사용해야 합니다.</p>
+<div class="paragraph">
+<p>를 클릭합니다 <a href="https://hwu.netapp.com/SWITCH/INDEX" target="_blank" rel="noopener">"Hardware Universe - 스위치"</a> 케이블 연결에 대한 자세한 내용은 에 나와 있습니다.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://hwu.netapp.com/SWITCH/INDEX" target="_blank" rel="noopener">"Hardware Universe - 스위치"</a></p>
+</div>
+</li>
+<li>
+<p>ISL(Inter-Switch Link) 케이블은 두 9336C-FX2 스위치에서 포트 1/35 및 1/36 에 연결해야 합니다.</p>
+</li>
+<li>
+<p>두 9336C-FX2 스위치의 초기 사용자 정의를 완료해야 합니다. 따라서 다음을 수행합니다.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>9336C-FX2 스위치는 최신 버전의 소프트웨어를 실행하고 있습니다</p>
+</li>
+<li>
+<p>RCFs(Reference Configuration Files)가 스위치에 적용되었습니다. SMTP, SNMP, SSH 등의 사이트 사용자 지정이 새 스위치에 구성되어야 합니다.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>이 절차의 예에서는 다음과 같은 클러스터 스위치 및 노드 명명법을 사용합니다.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>9336C-FX2 스위치의 이름은 CS1과 CS2입니다.</p>
+</li>
+<li>
+<p>클러스터 SVM의 이름은 노드 1과 노드 2입니다.</p>
+</li>
+<li>
+<p>LIF의 이름은 노드 1의 node1_clus1 및 node1_clus2이고, 노드 2의 node2_clus1 및 node2_clus2입니다.</p>
+</li>
+<li>
+<p>'cluster1:: *&gt;' 프롬프트는 클러스터의 이름을 나타냅니다.</p>
+</li>
+<li>
+<p>이 절차에 사용되는 클러스터 포트는 e0a 및 e0b입니다.</p>
+<div class="paragraph">
+<p>를 클릭합니다 <a href="https://hwu.netapp.com" target="_blank" rel="noopener">"Hardware Universe"</a> 에는 해당 플랫폼의 실제 클러스터 포트에 대한 최신 정보가 나와 있습니다.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">단계</div>
+<ol class="arabic">
+<li>
+<p>이 클러스터에서 AutoSupport가 활성화되어 있으면 'system node AutoSupport invoke -node * -type all-message maINT=xh' AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다</p>
+<div class="paragraph">
+<p>여기서 x는 유지 보수 기간(시간)입니다.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/ontap-systems-switches/images/note.svg" alt="참고">
+</td>
+<td class="content">
+AutoSupport 메시지는 유지보수 기간 동안 자동 케이스 생성이 억제되도록 이 유지보수 작업의 기술 지원에 알립니다.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>권한 수준을 고급으로 변경하고, 'Set-Privilege advanced&#8217;라는 메시지가 나타나면 y를 입력합니다</p>
+<div class="paragraph">
+<p>고급 프롬프트('*&gt;')가 나타납니다.</p>
+</div>
+</li>
+<li>
+<p>새 클러스터 스위치 CS1과 CS2 모두에서 ISL 포트가 아닌 모든 노드 대상 포트를 비활성화합니다.</p>
+<div class="paragraph">
+<p>ISL 포트를 비활성화해서는 안 됩니다.</p>
+</div>
+<div class="paragraph">
+<p>다음 예에서는 스위치 CS1에서 노드 방향 포트 1부터 34까지 비활성 상태를 보여 줍니다.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>cs1# config
+Enter configuration commands, one per line. End with CNTL/Z.
+cs1(config)# interface e/1-34
+cs1(config-if-range)# shutdown</pre>
+</div>
+</div>
+</li>
+<li>
+<p>두 9336C-FX2 스위치 CS1과 CS2 사이의 ISL과 ISL의 물리적 포트가 포트 1/35 및 1/36:'포트-채널 요약 정보&#8217;에 있는지 확인합니다</p>
+<div class="paragraph">
+<p>다음 예에서는 스위치 CS1에서 ISL 포트가 작동 중인 것을 보여 줍니다.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>cs1# show port-channel summary
+
+Flags:  D - Down        P - Up in port-channel (members)
+        I - Individual  H - Hot-standby (LACP only)
+        s - Suspended   r - Module-removed
+        b - BFD Session Wait
+        S - Switched    R - Routed
+        U - Up (port-channel)
+        p - Up in delay-lacp mode (member)
+        M - Not in use. Min-links not met
+--------------------------------------------------------------------------------
+Group Port-       Type     Protocol  Member Ports
+      Channel
+--------------------------------------------------------------------------------
+1     Po1(SU)     Eth      LACP      Eth1/35(P)   Eth1/36(P)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>다음 예에서는 스위치 CS2에서 ISL 포트가 작동 중인 것을 보여 줍니다.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>(cs2)# show port-channel summary
+
+Flags:  D - Down        P - Up in port-channel (members)
+        I - Individual  H - Hot-standby (LACP only)
+        s - Suspended   r - Module-removed
+        b - BFD Session Wait
+        S - Switched    R - Routed
+        U - Up (port-channel)
+        p - Up in delay-lacp mode (member)
+        M - Not in use. Min-links not met
+--------------------------------------------------------------------------------
+Group Port-       Type     Protocol  Member Ports
+      Channel
+--------------------------------------------------------------------------------
+1     Po1(SU)     Eth      LACP      Eth1/35(P)   Eth1/36(P)</pre>
+</div>
+</div>
+</li>
+<li>
+<p>주변 디바이스 목록 표시:'CDP neighbors 표시</p>
+<div class="paragraph">
+<p>이 명령은 시스템에 연결된 장치에 대한 정보를 제공합니다.</p>
+</div>
+<div class="paragraph">
+<p>다음 예에서는 스위치 CS1의 인접 장치를 나열합니다.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>cs1# show cdp neighbors
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
+cs2                Eth1/35        175    R S I s     N9K-C9336C    Eth1/35
+cs2                Eth1/36        175    R S I s     N9K-C9336C    Eth1/36
+
+Total entries displayed: 2</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>다음 예에서는 스위치 CS2의 인접 장치를 나열합니다.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>cs2# show cdp neighbors
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
+cs1                Eth1/35        177    R S I s     N9K-C9336C    Eth1/35
+cs1           )    Eth1/36        177    R S I s     N9K-C9336C    Eth1/36
+
+Total entries displayed: 2</pre>
+</div>
+</div>
+</li>
+<li>
+<p>모든 클러스터 포트가 작동 중인지 확인합니다. 'network port show-ipSpace Cluster'</p>
+<div class="paragraph">
+<p>각 포트는 Link에, Health Status에 대해서는 Healthy로 표시되어야 합니다.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>cluster1::*&gt; network port show -ipspace Cluster
+
+Node: node1
+
+                                                  Speed(Mbps) Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status
+--------- ------------ ---------------- ---- ---- ----------- --------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy
+
+Node: node2
+
+                                                  Speed(Mbps) Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status
+--------- ------------ ---------------- ---- ---- ----------- --------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy
+
+4 entries were displayed.</pre>
+</div>
+</div>
+</li>
+<li>
+<p>모든 클러스터 LIF가 작동 중인지 확인합니다. 'network interface show -vserver Cluster'</p>
+<div class="paragraph">
+<p>각 클러스터 LIF는 '홈&#8217;에 대해 '상태 관리/작업&#8217;이 UP/UP인 '상태 관리/작업&#8217;에 대해 '참&#8217;으로 표시되어야 합니다</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>cluster1::*&gt; network interface show -vserver Cluster
+
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- -----
+Cluster
+            node1_clus1  up/up    169.254.209.69/16  node1         e0a     true
+            node1_clus2  up/up    169.254.49.125/16  node1         e0b     true
+            node2_clus1  up/up    169.254.47.194/16  node2         e0a     true
+            node2_clus2  up/up    169.254.19.183/16  node2         e0b     true
+4 entries were displayed.</pre>
+</div>
+</div>
+</li>
+<li>
+<p>모든 클러스터 LIF에서 'network interface show-vserver Cluster-fields auto-revert&#8217;라는 자동 되돌리기 기능이 설정되어 있는지 확인합니다</p>
+<div class="listingblock">
+<div class="content">
+<pre>cluster1::*&gt; network interface show -vserver Cluster -fields auto-revert
+
+          Logical
+Vserver   Interface     Auto-revert
+--------- ------------- ------------
+Cluster
+          node1_clus1   true
+          node1_clus2   true
+          node2_clus1   true
+          node2_clus2   true
+
+4 entries were displayed.</pre>
+</div>
+</div>
+</li>
+<li>
+<p>9336C-FX2 스위치가 지원하는 적절한 케이블을 사용하여 노드 1의 클러스터 포트 e0a에서 케이블을 분리한 다음 클러스터 스위치 CS1의 포트 1에 e0a를 연결합니다.</p>
+<div class="paragraph">
+<p>를 클릭합니다 <a href="https://hwu.netapp.com/SWITCH/INDEX">"Hardware Universe - 스위치"</a> 케이블 연결에 대한 자세한 내용은 에 나와 있습니다.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://hwu.netapp.com/SWITCH/INDEX" target="_blank" rel="noopener">"Hardware Universe - 스위치"</a></p>
+</div>
+</li>
+<li>
+<p>9336C-FX2 스위치가 지원하는 적절한 케이블을 사용하여 노드 2의 클러스터 포트 e0a에서 케이블을 분리한 다음 클러스터 스위치 CS1의 포트 2에 e0a를 연결합니다.</p>
+</li>
+<li>
+<p>클러스터 스위치 CS1에서 모든 노드 대상 포트를 활성화합니다.</p>
+<div class="paragraph">
+<p>다음 예에서는 스위치 CS1에서 포트 1/1에서 1/34 사이의 포트가 활성화되어 있음을 보여 줍니다.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>cs1# config
+Enter configuration commands, one per line. End with CNTL/Z.
+cs1(config)# interface e1/1-34
+cs1(config-if-range)# no shutdown</pre>
+</div>
+</div>
+</li>
+<li>
+<p>모든 클러스터 LIF가 작동 중이고 '홈&#8217;에 대해 '홈&#8217;으로 표시되는지 확인합니다. network interface show -vserver cluster'</p>
+<div class="paragraph">
+<p>다음 예에서는 모든 LIF가 node1과 node2에 있으며 "홈" 결과가 true인 것을 보여 줍니다.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>cluster1::*&gt; network interface show -vserver Cluster
+
+         Logical      Status     Network            Current     Current Is
+Vserver  Interface    Admin/Oper Address/Mask       Node        Port    Home
+-------- ------------ ---------- ------------------ ----------- ------- ----
+Cluster
+         node1_clus1  up/up      169.254.209.69/16  node1       e0a     true
+         node1_clus2  up/up      169.254.49.125/16  node1       e0b     true
+         node2_clus1  up/up      169.254.47.194/16  node2       e0a     true
+         node2_clus2  up/up      169.254.19.183/16  node2       e0b     true
+
+4 entries were displayed.</pre>
+</div>
+</div>
+</li>
+<li>
+<p>클러스터의 노드 상태에 대한 정보를 cluster show 로 표시합니다</p>
+<div class="paragraph">
+<p>다음 예제에는 클러스터에 있는 노드의 상태 및 자격에 대한 정보가 표시됩니다.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>cluster1::*&gt; cluster show
+
+Node                 Health  Eligibility   Epsilon
+-------------------- ------- ------------  ------------
+node1                true    true          false
+node2                true    true          false
+
+2 entries were displayed.</pre>
+</div>
+</div>
+</li>
+<li>
+<p>9336C-FX2 스위치가 지원하는 적절한 케이블을 사용하여 노드 1의 클러스터 포트 e0b에서 케이블을 분리한 다음 클러스터 스위치 CS2의 포트 1에 e0b를 연결합니다.</p>
+</li>
+<li>
+<p>9336C-FX2 스위치가 지원하는 적절한 케이블을 사용하여 노드 2의 클러스터 포트 e0b에서 케이블을 분리한 다음 클러스터 스위치 CS2의 포트 2에 e0b를 연결합니다.</p>
+</li>
+<li>
+<p>클러스터 스위치 CS2에서 모든 노드 대상 포트를 활성화합니다.</p>
+<div class="paragraph">
+<p>다음 예에서는 스위치 CS2에서 포트 1/1 ~ 1/34 가 활성화되어 있음을 보여 줍니다.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>cs2# config
+Enter configuration commands, one per line. End with CNTL/Z.
+cs2(config)# interface e1/1-34
+cs2(config-if-range)# no shutdown</pre>
+</div>
+</div>
+</li>
+<li>
+<p>모든 클러스터 포트가 작동 중인지 확인합니다. 'network port show-ipSpace Cluster'</p>
+<div class="paragraph">
+<p>다음 예에서는 모든 클러스터 포트가 노드 1과 노드 2에 있음을 보여 줍니다.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>cluster1::*&gt; network port show -ipspace Cluster
+
+Node: node1
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+Node: node2
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+4 entries were displayed.</pre>
+</div>
+</div>
+</li>
+<li>
+<p>모든 인터페이스가 '홈&#8217;에 대해 true로 표시되는지 확인합니다. 네트워크 인터페이스 show-vserver Cluster</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/ontap-systems-switches/images/note.svg" alt="참고">
+</td>
+<td class="content">
+이 작업을 완료하는 데 몇 분 정도 걸릴 수 있습니다.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>다음 예에서는 모든 LIF가 node1과 node2에 있으며 "홈" 결과가 true인 것을 보여 줍니다.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>cluster1::*&gt; network interface show -vserver Cluster
+
+          Logical      Status     Network            Current    Current Is
+Vserver   Interface    Admin/Oper Address/Mask       Node       Port    Home
+--------- ------------ ---------- ------------------ ---------- ------- ----
+Cluster
+          node1_clus1  up/up      169.254.209.69/16  node1      e0a     true
+          node1_clus2  up/up      169.254.49.125/16  node1      e0b     true
+          node2_clus1  up/up      169.254.47.194/16  node2      e0a     true
+          node2_clus2  up/up      169.254.19.183/16  node2      e0b     true
+
+4 entries were displayed.</pre>
+</div>
+</div>
+</li>
+<li>
+<p>두 노드 모두 각 스위치에 대해 'CDP neighbors 확인&#8217;이라는 하나의 연결이 있는지 확인합니다</p>
+<div class="paragraph">
+<p>다음 예에서는 두 스위치에 대해 적절한 결과를 보여 줍니다.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>(cs1)# show cdp neighbors
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
+node1              Eth1/1         133    H           FAS2980       e0a
+node2              Eth1/2         133    H           FAS2980       e0a
+cs2                Eth1/35        175    R S I s     N9K-C9336C    Eth1/35
+cs2                Eth1/36        175    R S I s     N9K-C9336C    Eth1/36
+
+Total entries displayed: 4
+
+(cs2)# show cdp neighbors
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
+node1              Eth1/1         133    H           FAS2980       e0b
+node2              Eth1/2         133    H           FAS2980       e0b
+cs1                Eth1/35        175    R S I s     N9K-C9336C    Eth1/35
+cs1                Eth1/36        175    R S I s     N9K-C9336C    Eth1/36
+
+Total entries displayed: 4</pre>
+</div>
+</div>
+</li>
+<li>
+<p>클러스터에서 검색된 네트워크 디바이스, 즉 'network device-discovery show-protocol CDP&#8217;에 대한 정보를 표시합니다</p>
+<div class="listingblock">
+<div class="content">
+<pre>cluster1::*&gt; network device-discovery show -protocol cdp
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------  ----------------
+node2      /cdp
+            e0a    cs1                       0/2               N9K-C9336C
+            e0b    cs2                       0/2               N9K-C9336C
+node1      /cdp
+            e0a    cs1                       0/1               N9K-C9336C
+            e0b    cs2                       0/1               N9K-C9336C
+
+4 entries were displayed.</pre>
+</div>
+</div>
+</li>
+<li>
+<p>'network options switchless-cluster show' 설정이 비활성화되어 있는지 확인합니다</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/ontap-systems-switches/images/note.svg" alt="참고">
+</td>
+<td class="content">
+명령이 완료되는 데 몇 분 정도 걸릴 수 있습니다. '3분 수명 만료' 메시지가 표시될 때까지 기다립니다.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>다음 예제의 false 출력은 구성 설정이 비활성화되어 있음을 보여 줍니다.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>cluster1::*&gt; network options switchless-cluster show
+Enable Switchless Cluster: false</pre>
+</div>
+</div>
+</li>
+<li>
+<p>클러스터의 노드 멤버 상태를 'cluster show&#8217;로 확인한다</p>
+<div class="paragraph">
+<p>다음 예는 클러스터에 있는 노드의 상태 및 적격성에 대한 정보를 보여줍니다.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>cluster1::*&gt; cluster show
+
+Node                 Health  Eligibility   Epsilon
+-------------------- ------- ------------  --------
+node1                true    true          false
+node2                true    true          false</pre>
+</div>
+</div>
+</li>
+<li>
+<p>클러스터 네트워크에 'cluster ping-cluster-node-name'(클러스터 ping-cluster-node-name)이 완전히 연결되어 있는지 확인합니다</p>
+<div class="listingblock">
+<div class="content">
+<pre>cluster1::*&gt; cluster ping-cluster -node node2
+Host is node2
+Getting addresses from network interface table...
+Cluster node1_clus1 169.254.209.69 node1 e0a
+Cluster node1_clus2 169.254.49.125 node1 e0b
+Cluster node2_clus1 169.254.47.194 node2 e0a
+Cluster node2_clus2 169.254.19.183 node2 e0b
+Local = 169.254.47.194 169.254.19.183
+Remote = 169.254.209.69 169.254.49.125
+Cluster Vserver Id = 4294967293
+Ping status:
+
+Basic connectivity succeeds on 4 path(s)
+Basic connectivity fails on 0 path(s)
+
+Detected 9000 byte MTU on 4 path(s):
+Local 169.254.47.194 to Remote 169.254.209.69
+Local 169.254.47.194 to Remote 169.254.49.125
+Local 169.254.19.183 to Remote 169.254.209.69
+Local 169.254.19.183 to Remote 169.254.49.125
+Larger than PMTU communication succeeds on 4 path(s)
+RPC status:
+2 paths up, 0 paths down (tcp check)
+2 paths up, 0 paths down (udp check)</pre>
+</div>
+</div>
+</li>
+<li>
+<p>권한 수준을 다시 admin:'Set-Privilege admin&#8217;으로 변경합니다</p>
+</li>
+<li>
+<p>ONTAP 9.8 이상에서는 시스템 스위치 이더넷 로그 설정-암호, 시스템 스위치 이더넷 로그 활성화-수집 등의 명령을 사용하여 스위치 관련 로그 파일을 수집하기 위한 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화합니다</p>
+<div class="listingblock">
+<div class="content">
+<pre>cluster1::*&gt; system switch ethernet log setup-password
+Enter the switch name: &lt;return&gt;
+The switch name entered is not recognized.
+Choose from the following list:
+cs1
+cs2
+
+cluster1::*&gt; system switch ethernet log setup-password
+
+Enter the switch name: cs1
+RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
+Do you want to continue? {y|n}::[n] y
+
+Enter the password: &lt;enter switch password&gt;
+Enter the password again: &lt;enter switch password&gt;
+
+cluster1::*&gt; system switch ethernet log setup-password
+
+Enter the switch name: cs2
+RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
+Do you want to continue? {y|n}:: [n] y
+
+Enter the password: &lt;enter switch password&gt;
+Enter the password again: &lt;enter switch password&gt;
+
+cluster1::*&gt; system switch ethernet log enable-collection
+
+Do you want to enable cluster log collection for all nodes in the cluster?
+{y|n}: [n] y
+
+Enabling cluster switch log collection.
+
+cluster1::*&gt;</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/ontap-systems-switches/images/note.svg" alt="참고">
+</td>
+<td class="content">
+이러한 명령에서 오류가 반환되면 NetApp 지원에 문의하십시오.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>ONTAP 릴리스 9.5P16, 9.6P12 및 9.7P10 이상의 패치 릴리스의 경우 'system cluster-switch log setup-password' 및 'system cluster-switch log enable-collection' 명령을 사용하여 스위치 관련 로그 파일을 수집하기 위한 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화합니다</p>
+<div class="listingblock">
+<div class="content">
+<pre>cluster1::*&gt; system cluster-switch log setup-password
+Enter the switch name: &lt;return&gt;
+The switch name entered is not recognized.
+Choose from the following list:
+cs1
+cs2
+
+cluster1::*&gt; system cluster-switch log setup-password
+
+Enter the switch name: cs1
+RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
+Do you want to continue? {y|n}::[n] y
+
+Enter the password: &lt;enter switch password&gt;
+Enter the password again: &lt;enter switch password&gt;
+
+cluster1::*&gt; system cluster-switch log setup-password
+
+Enter the switch name: cs2
+RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
+Do you want to continue? {y|n}:: [n] y
+
+Enter the password: &lt;enter switch password&gt;
+Enter the password again: &lt;enter switch password&gt;
+
+cluster1::*&gt; system cluster-switch log enable-collection
+
+Do you want to enable cluster log collection for all nodes in the cluster?
+{y|n}: [n] y
+
+Enabling cluster switch log collection.
+
+cluster1::*&gt;</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/ontap-systems-switches/images/note.svg" alt="참고">
+</td>
+<td class="content">
+이러한 명령에서 오류가 반환되면 NetApp 지원에 문의하십시오.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>자동 케이스 생성을 억제한 경우 AutoSupport 메시지 '시스템 노드 AutoSupport invoke -node * -type all-message MAINT=end&#8217;를 호출하여 다시 활성화합니다</p>
+</li>
+</ol>
+</div>
+
+    </article>
+    <!-- Page Container -->
+  </div>
+
+  
+  <!-- Start Page Toolbar -->
+  <div class="page-nav-toolbar">
+    <div id="version-dropdown"></div>
+    <div class="page-nav-contribute"  >
+      <a target="_blank" href="https://github.com/NetAppDocs/ontap-systems-switches/issues/new?body=Page%3A%20[Cisco Nexus 9336C-FX2 클러스터 스위치를 사용하여 전환된 NetApp 클러스터 환경으로 마이그레이션하는 방법](https://docs.netapp.com/ko-kr/ontap-systems-switches/switch-cisco-9336c-fx2/migrate-to-2n-switched.html)" class="page-nav-contribute-link" role="button"><img src="/ko-kr/ontap-systems-switches/images/discuss-sm.svg" class="github-icon" />문서 변경 요청</a>
+      <a target="_blank" href="https://github.com/NetAppDocs/ontap-systems-switches/blob/main/switch-cisco-9336c-fx2/migrate_to_2n_switched.adoc" class="page-nav-contribute-link" role="button"><img src="/ko-kr/ontap-systems-switches/images/edit-sm.svg" class="github-icon" />이 페이지 편집</a>
+      <a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ko-kr/ontap-systems-switches/images/article-sm.svg" class="github-icon" />기여하는 방법 자세히 알아보기</a>
+    </div>
+    <div class="page-nav-container">
+      <nav class="page-nav-fixed">
+        <div class="page-nav-title">이 페이지의 내용</div>
+        <div class="page-nav-links">
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
+  <div style="clear: both"></div><!-- Main needs to have height -->
+</div>
+
+        </main>
+
+        <footer class="n-footer">
+  <div class="n-footer__bottom">
+    <div class="n-container">
+      <div class="n-footer__bottom-left">
+
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+            <a href="https://www.netapp.com/us/legal/copyright.aspx">© 2022 NetApp, Inc.</a>
+            </li>
+
+</ul>
+</div>
+<div class="n-footer__social-links">
+<ul class="n-footer__social-link-list">
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-blog" href="https://blog.netapp.com" target="_blank" title="blog" alt="blog">
+<span class="n-footer__social-link-text">blog</span>
+<svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+  <title>blog@</title>
+  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ko-kr/ontap-systems-switches/common/svg/sprite.svg#blog"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-community" href="https://community.netapp.com/" target="_blank" title="community" alt="community">
+<span class="n-footer__social-link-text">community</span>
+<svg class="n-icon-community n-footer__social-link-icon" aria-labelledby="title">
+<title>community@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ko-kr/ontap-systems-switches/common/svg/sprite.svg#comments"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netapp" target="_blank" title="twitter" alt="twitter">
+<span class="n-footer__social-link-text">twitter</span>
+<svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+<title>twitter@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ko-kr/ontap-systems-switches/common/svg/sprite.svg#twitter"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-facebook" href="https://www.facebook.com/NetApp" target="_blank" title="facebook" alt="facebook">
+<span class="n-footer__social-link-text">facebook</span>
+<svg class="n-icon-facebook n-footer__social-link-icon" aria-labelledby="title">
+<title>facebook@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ko-kr/ontap-systems-switches/common/svg/sprite.svg#facebook"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-linkedin" href="https://www.linkedin.com/company/netapp" target="_blank" title="linkedin" alt="linkedin">
+<span class="n-footer__social-link-text">linkedin</span>
+<svg class="n-icon-linkedin n-footer__social-link-icon" aria-labelledby="title">
+<title>linkedin@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ko-kr/ontap-systems-switches/common/svg/sprite.svg#linkedin"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-youtube" href="https://www.youtube.com/user/NetAppTV" target="_blank" title="youtube" alt="youtube">
+<span class="n-footer__social-link-text">youtube</span>
+<svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+<title>youtube@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ko-kr/ontap-systems-switches/common/svg/sprite.svg#youtube"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-slideshare" href="https://www.slideshare.net/NetApp" target="_blank" title="slideshare" alt="slideshare">
+<span class="n-footer__social-link-text">slideshare</span>
+<svg class="n-icon-slideshare n-footer__social-link-icon" aria-labelledby="title">
+<title>slideshare@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ko-kr/ontap-systems-switches/common/svg/sprite.svg#slideshare"></use>
+</svg>
+
+</a>
+</li>
+</ul>
+</div>
+
+</div>
+<div class="n-footer__bottom-right">
+  <p class="n-footer__fine-print">웹 사이트에 대한 피드백이 있으십니까?<a target="_self" href="javascript:netapp_mailto()" class="n-footer__copyright">의견을 공유해 주십시오</a>
+  <a href="https://docs.netapp.com/ko-kr/announcements/" class="n-footer__copyright">공지 사항</a>
+  </p>
+</div>
+</div>
+</div>
+</footer>
+
+      </div>
+
+      <!-- Elasticsearch JS -->
+      <script type="text/javascript" src='/ko-kr/ontap-systems-switches/js/bundle.js'></script>
+
+      <!-- Syntax Highlighting -->
+      <script type="text/javascript" src='/ko-kr/ontap-systems-switches/js/prism.js'></script>
+      <script type="text/javascript" src='/ko-kr/ontap-systems-switches/js/prism-curl.js'></script>
+    </div>
+    <script>
+      document.body.offsetWidth=1903;
+      cookieLaw = {}
+      cookieLaw.euCountry = "US";
+      cookieLaw.invoke = function(){return false;}
+    </script>
+    <script src='/ko-kr/ontap-systems-switches/js/www-ntap.js'></script>
+    <script src='/ko-kr/ontap-systems-switches/js/tabbed-blocks.js'></script>
+  </body>
+
+  
+</html>
