@@ -12,10 +12,7 @@ summary: 이 절차를 사용하여 Nexus 3232C 클러스터 스위치에 NX-OS 
 [role="lead"]
 이 절차를 사용하여 Nexus 3232C 클러스터 스위치에 NX-OS 소프트웨어를 설치할 수 있습니다.
 
-
-
-== 단계
-
+.단계
 . 클러스터 스위치를 관리 네트워크에 연결합니다.
 . "ping" 명령을 사용하여 NX-OS 소프트웨어 및 RCF를 호스팅하는 서버에 대한 연결을 확인합니다.
 +
@@ -29,9 +26,6 @@ Pinging 172.19.2.1 with 0 bytes of data:
 
 Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
 ----
-+
--
-
 . NX-OS 소프트웨어 및 EPLD 이미지를 Nexus 3232C 스위치에 복사합니다.
 +
 [listing]

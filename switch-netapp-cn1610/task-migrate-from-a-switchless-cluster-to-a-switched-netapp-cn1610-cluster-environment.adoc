@@ -12,10 +12,6 @@ summary: 스위치가 없는 기존 2노드 클러스터 환경이 있는 경우
 [role="lead"]
 스위치가 없는 기존 2노드 클러스터 환경이 있는 경우, 두 노드 이상으로 확장할 수 있는 CN1610 클러스터 네트워크 스위치를 사용하여 2노드 스위치 클러스터 환경으로 마이그레이션할 수 있습니다.
 
-
-
-== 필요한 것
-
 스위치가 없는 2노드 구성:
 
 * 스위치가 없는 2노드 구성이 올바르게 설정 및 작동해야 합니다.
@@ -31,10 +27,7 @@ CN1610 클러스터 스위치 구성:
 * 클러스터 스위치에 대한 콘솔 액세스가 있어야 합니다.
 * CN1610 노드 간 스위치 및 스위치 간 연결에는 twinax 또는 파이버 케이블을 사용해야 합니다.
 +
-NetAppHardware Universe_에 케이블 연결에 대한 자세한 내용이 있습니다.
-
-+
-https://hwu.netapp.com/Switch/Index["Hardware Universe - 스위치"^]
+를 클릭합니다 https://hwu.netapp.com/["Hardware Universe"^] 케이블 연결에 대한 자세한 내용은 에 나와 있습니다.
 
 * 두 CN1610 스위치 모두에서 ISL(Inter-Switch Link) 케이블을 포트 13~16에 연결해야 합니다.
 * 두 CN1610 스위치의 초기 사용자 지정을 완료해야 합니다.
@@ -42,10 +35,6 @@ https://hwu.netapp.com/Switch/Index["Hardware Universe - 스위치"^]
 SMTP, SNMP, SSH 등의 이전 사이트 사용자 지정은 새 스위치에 복사해야 합니다.
 
 
-
-
-
-== 이 작업에 대해
 
 이 절차의 예에서는 다음과 같은 클러스터 스위치 및 노드 명명법을 사용합니다.
 
@@ -55,14 +44,11 @@ SMTP, SNMP, SSH 등의 이전 사이트 사용자 지정은 새 스위치에 복
 * 'cluster::: *>' 프롬프트는 클러스터의 이름을 나타냅니다.
 * 이 절차에 사용되는 클러스터 포트는 E1A와 e2a입니다.
 +
-_Hardware Universe_에는 플랫폼의 실제 클러스터 포트에 대한 최신 정보가 들어 있습니다.
+를 클릭합니다 https://hwu.netapp.com/["Hardware Universe"^] 에는 해당 플랫폼의 실제 클러스터 포트에 대한 최신 정보가 나와 있습니다.
 
 
 
-
-
-== 단계
-
+.단계
 . 권한 수준을 고급으로 변경하고, 'Set-Privilege advanced'라는 메시지가 나타나면 y를 입력합니다
 +
 고급 프롬프트(*>)가 나타납니다.
@@ -72,11 +58,9 @@ _Hardware Universe_에는 플랫폼의 실제 클러스터 포트에 대한 최�
 _x_는 유지보수 기간(시간)입니다.
 
 +
-[NOTE]
-====
-AutoSupport 메시지는 유지보수 기간 동안 자동 케이스 생성이 억제되도록 이 유지보수 작업의 기술 지원에 알립니다.
 
-====
+NOTE: AutoSupport 메시지는 유지보수 기간 동안 자동 케이스 생성이 억제되도록 이 유지보수 작업의 기술 지원에 알립니다.
+
 +
 다음 명령을 실행하면 2시간 동안 자동 케이스가 생성되지 않습니다.
 
@@ -295,11 +279,9 @@ node2
 4 entries were displayed.
 ----
 +
-[NOTE]
-====
-10단계에서 13단계까지 다음과 같은 수정 및 마이그레이션 명령을 로컬 노드에서 수행해야 합니다.
 
-====
+NOTE: 10단계에서 13단계까지 다음과 같은 수정 및 마이그레이션 명령을 로컬 노드에서 수행해야 합니다.
+
 . 모든 클러스터 포트가 UP인지 확인합니다. 네트워크 포트 show-IPSpace Cluster인지 확인합니다
 +
 [listing]
@@ -329,11 +311,9 @@ cluster::*> network interface modify -vserver node2 -lif clus1 -auto-revert fals
 cluster::*> network interface modify -vserver node2 -lif clus2 -auto-revert false
 ----
 +
-[NOTE]
-====
-릴리즈 8.3 이상에서는 'network interface modify -vserver Cluster-lif * -auto-revert false' 명령을 사용합니다
 
-====
+NOTE: 릴리즈 8.3 이상에서는 'network interface modify -vserver Cluster-lif * -auto-revert false' 명령을 사용합니다
+
 . 클러스터 포트를 ping하여 클러스터 접속 상태를 확인합니다. 'cluster ping-cluster local'
 +
 명령 출력에는 모든 클러스터 포트 간의 연결이 표시됩니다.
@@ -350,11 +330,9 @@ cluster::*> network interface migrate -vserver node1 -lif clus1 -source-node nod
 cluster::*> network interface migrate -vserver node2 -lif clus1 -source-node node2 -dest-node node2 -dest-port e2a
 ----
 +
-[NOTE]
-====
-릴리즈 8.3 이상에서는 'network interface migrate-vserver Cluster-lif clus1-destination-node node1-destination-port e2a' 명령을 사용합니다
 
-====
+NOTE: 릴리즈 8.3 이상에서는 'network interface migrate-vserver Cluster-lif clus1-destination-node node1-destination-port e2a' 명령을 사용합니다
+
 . 마이그레이션이 'network interface show -vserver cluster'인지 확인합니다
 +
 다음 예제에서는 clus1이 node1과 node2의 포트 e2a로 마이그레이션되었는지 확인합니다.
@@ -410,10 +388,7 @@ node2
 ----
 . 노드 1의 클러스터 포트 E1A에서 케이블을 분리한 다음, CN1610 스위치가 지원하는 적절한 케이블을 사용하여 클러스터 스위치 CS1의 포트 1에 E1A를 연결합니다.
 +
-케이블 연결에 대한 자세한 내용은 _NetApp Hardware Universe_를 참조하십시오.
-
-+
-https://hwu.netapp.com/Switch/Index["Hardware Universe - 스위치"^]
+를 클릭합니다 link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] 케이블 연결에 대한 자세한 내용은 에 나와 있습니다.
 
 . 노드 2의 클러스터 포트 E1A에서 케이블을 분리한 다음, CN1610 스위치가 지원하는 적절한 케이블을 사용하여 클러스터 스위치 CS1의 포트 2에 E1A를 연결합니다.
 . 클러스터 스위치 CS1의 모든 노드 대상 포트를 활성화합니다.
@@ -474,11 +449,9 @@ cluster::*> network interface revert -vserver node1 -lif clus1
 cluster::*> network interface revert -vserver node2 -lif clus1
 ----
 +
-[NOTE]
-====
-릴리즈 8.3 이상에서는 ' network interface revert-vserver cluster-lif <nodename_clus <N>>' 명령을 사용합니다
 
-====
+NOTE: 릴리즈 8.3 이상에서는 ' network interface revert-vserver cluster-lif <nodename_clus <N>>' 명령을 사용합니다
+
 . 모든 클러스터 LIF가 "홈" 열 "네트워크 인터페이스 show-vserver Cluster"에서 "up", "operational" 및 "true"로 표시되는지 확인합니다
 +
 다음 예에서는 node1과 node2에서 모든 LIF가 "up"이고 "is Home" 열 결과가 "true"임을 보여 줍니다.
@@ -526,11 +499,9 @@ cluster::*> network interface migrate -vserver node1 -lif clus2 -source-node nod
 cluster::*> network interface migrate -vserver node2 -lif clus2 -source-node node2 -dest-node node2 -dest-port e1a
 ----
 +
-[NOTE]
-====
-릴리즈 8.3 이상에서는 'network interface migrate-vserver Cluster-lif node1_clus2-dest-node node1-dest-port E1A' 명령을 사용합니다
 
-====
+NOTE: 릴리즈 8.3 이상에서는 'network interface migrate-vserver Cluster-lif node1_clus2-dest-node node1-dest-port E1A' 명령을 사용합니다
+
 . 마이그레이션이 'network interface show -vserver cluster'인지 확인합니다
 +
 다음 예제에서는 clus2가 노드 1과 노드 2의 포트 E1A로 마이그레이션되었는지 확인합니다.
@@ -644,15 +615,9 @@ cluster::*> network interface revert -vserver node1 -lif clus2
 cluster::*> network interface revert -vserver node2 -lif clus2
 ----
 +
-[NOTE]
-====
-릴리즈 8.3 이상에서는 다음과 같은 명령이 사용됩니다.
 
-....
-cluster::*> network interface revert -vserver Cluster -lif node1_clus2
-cluster::*> network interface revert -vserver Cluster -lif node2_clus2
-....
-====
+NOTE: 릴리즈 8.3 이상에서는 'cluster::: * > network interface revert-vserver cluster-lif node1_clus2' 및 'cluster:: * > network interface revert-vserver cluster-lif node2_clus2' 명령이 있습니다
+
 . 모든 인터페이스가 "홈" 열 "네트워크 인터페이스 show-vserver 클러스터"에 "참"으로 표시되는지 확인합니다
 +
 다음 예에서는 node1과 node2에서 모든 LIF가 "up"이고 "is Home" 열 결과가 "true"임을 보여 줍니다.
@@ -721,11 +686,9 @@ cs1                    0/16         11        S            CN1610    0/16
 cluster::*> network options detect-switchless modify -enabled false
 ----
 +
-[NOTE]
-====
-릴리스 9.2 이상의 경우 구성이 자동으로 변환되므로 이 단계를 건너뛰십시오.
 
-====
+NOTE: 릴리스 9.2 이상의 경우 구성이 자동으로 변환되므로 이 단계를 건너뛰십시오.
+
 . 'network options detect-switchless-cluster show' 설정이 비활성화되어 있는지 확인합니다
 +
 다음 예제의 "false" 출력은 구성 설정이 비활성화되어 있음을 보여 줍니다.
@@ -738,11 +701,9 @@ cluster::*> network options detect-switchless-cluster show
 Enable Switchless Cluster Detection: false
 ----
 +
-[NOTE]
-====
-릴리스 9.2 이상의 경우 '스위치 없는 클러스터 활성화'가 false로 설정될 때까지 기다립니다. 이 작업은 최대 3분 정도 걸릴 수 있습니다.
 
-====
+NOTE: 릴리스 9.2 이상의 경우 스위치 없는 클러스터 활성화 가 false 로 설정될 때까지 기다립니다. 이 작업은 최대 3분 정도 걸릴 수 있습니다.
+
 . 각 노드에서 자동 되돌리기 및 확인을 위해 클러스터 clus1 및 clus2를 구성합니다.
 +
 [listing]
@@ -754,11 +715,9 @@ cluster::*> network interface modify -vserver node2 -lif clus1 -auto-revert true
 cluster::*> network interface modify -vserver node2 -lif clus2 -auto-revert true
 ----
 +
-[NOTE]
-====
-릴리즈 8.3 이상의 경우 클러스터의 모든 노드에서 자동 복원을 활성화하려면 'network interface modify -vserver Cluster-lif * -auto-revert true' 명령을 사용하십시오.
 
-====
+NOTE: 릴리즈 8.3 이상의 경우 클러스터의 모든 노드에서 자동 복원을 활성화하려면 'network interface modify -vserver Cluster-lif * -auto-revert true' 명령을 사용하십시오.
+
 . 클러스터의 노드 멤버 상태를 'cluster show'로 확인한다
 +
 다음 예는 클러스터에 있는 노드의 상태 및 적격성에 대한 정보를 보여줍니다.

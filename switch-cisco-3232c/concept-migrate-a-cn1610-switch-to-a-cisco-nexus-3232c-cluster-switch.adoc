@@ -63,10 +63,6 @@ QSFP 광 파이버 또는 구리 직접 연결 케이블 2개
 |===
 해당 참조 구성 파일(RCFs)을 다운로드해야 합니다. 10GbE 및 40/100 GbE 포트 수는 에서 사용할 수 있는 RCFs에 정의되어 있습니다 https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Cisco ® 클러스터 네트워크 스위치 참조 구성 파일 다운로드"^] 페이지.
 
-이 절차에서 지원되는 ONTAP 및 NX-OS 버전은 Cisco 이더넷 스위치 페이지에 나열되어 있습니다.
+이 절차에서 지원되는 ONTAP 및 NX-OS 버전이 에 나열되어 있습니다 link:https://mysupport.netapp.com/NOW/download/software/cm_switches/.html["Cisco 이더넷 스위치 페이지"^].
 
-https://mysupport.netapp.com/NOW/download/software/cm_switches/["Cisco 이더넷 스위치"^]
-
-이 절차에서 지원되는 ONTAP 및 FASTPATH 버전이 NetApp CN1601 및 CN1610 스위치 페이지에 나열됩니다.
-
-http://support.netapp.com/NOW/download/software/cm_switches_ntap/["NetApp CN1601 및 CN1610 스위치"^]
+이 절차에서 지원되는 ONTAP 및 FASTPATH 버전은 에 나열되어 있습니다 link:http://support.netapp.com/NOW/download/software/cm_switches_ntap/.html["NetApp CN1601 및 CN1610 스위치 페이지"^].

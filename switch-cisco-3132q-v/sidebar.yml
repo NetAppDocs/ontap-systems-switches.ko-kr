@@ -1,9 +1,9 @@
 ---
 section: switch-cisco-3132q-v
-title: Cisco 3132Q-V 스위치
+title: Cisco Nexus 3132Q-V 스위치
 entries:
 - title: 개요
-  url: switch-cisco-3132q-v/index.html
+  url: "/switch-cisco-3132q-v/index.html"
 - title: Cisco Nexus 3132Q-V 클러스터 스위치를 사용하여 2노드 스위치 클러스터로 마이그레이션합니다
   url: "/switch-cisco-3132q-v/concept-migrate-from-a-two-node-switchless-cluster-to-a-cluster-with-cisco-nexus-3232c-cluster-switches.html"
   entries:

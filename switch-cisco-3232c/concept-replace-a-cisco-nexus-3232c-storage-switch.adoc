@@ -22,6 +22,6 @@ Cisco Nexus 스토리지 스위치에 NX-OS 소프트웨어 및 RCFs를 설치�
 RCF 및 NX-OS 버전의 명령 구문 간에는 종속 관계가 있을 수 있습니다.
 
 ====
-* Cisco 스위치 업그레이드 및 다운그레이드 절차에 대한 전체 문서를 보려면 Cisco 웹 사이트에서 제공하는 적절한 소프트웨어 및 업그레이드 가이드를 참조해야 합니다. http://www.cisco.com/en/US/products/ps9670/prod_installation_guides_list.html["Cisco Nexus 3000 시리즈 스위치"^]
+* Cisco 스위치 업그레이드 및 다운그레이드 절차에 대한 전체 문서를 보려면 Cisco 웹 사이트에서 제공되는 적절한 소프트웨어 및 업그레이드 가이드를 참조해야 합니다 link:http://www.cisco.com/en/US/products/ps9670/prod_installation_guides_list.html["Cisco Nexus 3000 시리즈 스위치"^].
 * 해당 RCFs를 다운로드해야 합니다.
 

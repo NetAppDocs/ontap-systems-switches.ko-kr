@@ -1,7 +1,7 @@
 ---
 permalink: switch-netapp-cn1610/task-install-an-rcf-on-a-cn1610-switch.html 
 sidebar: sidebar 
-keywords: reference configuration, file ,install, cn1610, switch 
+keywords: reference configuration, file ,install, cn1610, switch, install rcf 
 summary: 'RCF(Reference Configuration File)를 설치하는 경우 먼저 클러스터 LIF를 스위치 CS2에서 마이그레이션해야 합니다. RCF를 설치 및 검증한 후 LIF를 다시 마이그레이션할 수 있습니다.' 
 ---
 = CN1610 스위치에 참조 구성 파일을 설치합니다
@@ -12,16 +12,9 @@ summary: 'RCF(Reference Configuration File)를 설치하는 경우 먼저 클러
 [role="lead"]
 RCF(Reference Configuration File)를 설치하는 경우 먼저 클러스터 LIF를 스위치 CS2에서 마이그레이션해야 합니다. RCF를 설치 및 검증한 후 LIF를 다시 마이그레이션할 수 있습니다.
 
-
-
-== 필요한 것
-
 현재 스위치에서 실행 중인 구성을 저장해야 합니다.
 
-
-
-== 단계
-
+.단계
 . 현재 스위치 구성 정보를 '메모리 쓰기'로 저장합니다
 +
 다음 예에서는 스위치 CS2의 시작 구성('Startup-config') 파일에 현재 스위치 구성이 저장되어 있음을 보여 줍니다.
@@ -96,11 +89,9 @@ node2
 ----
 . RCF를 스위치에 복사합니다.
 +
-[NOTE]
-====
-스크립트를 호출하기 전에 파일 이름의 일부로 '.scr' 확장자를 설정해야 합니다. 이 확장명은 FASTPATH 운영 체제의 확장입니다.
 
-====
+NOTE: 스크립트를 호출하기 전에 파일 이름의 일부로 '.scr' 확장자를 설정해야 합니다. 이 확장명은 FASTPATH 운영 체제의 확장입니다.
+
 +
 스위치는 스크립트가 스위치에 다운로드될 때 자동으로 스크립트의 유효성을 검사하며 출력은 콘솔로 이동합니다.
 
@@ -128,11 +119,9 @@ CN1610_CS_RCF_v1.1.scr           2199
 ----
 . 스크립트의 유효성을 검사합니다.
 +
-[NOTE]
-====
-스크립트는 다운로드 중에 유효성을 확인하여 각 줄이 유효한 스위치 명령줄인지 확인합니다.
 
-====
+NOTE: 스크립트는 다운로드 중에 유효성을 확인하여 각 줄이 유효한 스위치 명령줄인지 확인합니다.
+
 +
 [listing]
 ----

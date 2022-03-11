@@ -12,10 +12,7 @@ summary: NetApp 스위치에 FASTPATH 소프트웨어를 설치할 때는 두 �
 [role="lead"]
 NetApp 스위치에 FASTPATH 소프트웨어를 설치할 때 두 번째 스위치인 _CS2_로 업그레이드를 시작해야 합니다.
 
-
-
-== 단계
-
+.단계
 . 이 클러스터에서 AutoSupport가 활성화되어 있는 경우 AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다.
 +
 'System node AutoSupport invoke-node * -type all-message maINT=xh'
@@ -24,11 +21,9 @@ NetApp 스위치에 FASTPATH 소프트웨어를 설치할 때 두 번째 스위�
 _x_는 유지보수 기간(시간)입니다.
 
 +
-[NOTE]
-====
-AutoSupport 메시지는 유지보수 기간 동안 자동 케이스 생성이 억제되도록 이 유지보수 작업의 기술 지원에 알립니다.
 
-====
+NOTE: AutoSupport 메시지는 유지보수 기간 동안 자동 케이스 생성이 억제되도록 이 유지보수 작업의 기술 지원에 알립니다.
+
 . 스위치에 admin으로 로그인합니다. 기본적으로 암호는 없습니다. '(CS2)#' 프롬프트에서 enable 명령을 입력한다. 마찬가지로, 기본적으로 암호는 없습니다. 이렇게 하면 네트워크 인터페이스를 구성할 수 있는 권한이 있는 EXEC 모드에 액세스할 수 있습니다.
 +
 [listing]

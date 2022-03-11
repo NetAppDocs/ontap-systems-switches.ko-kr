@@ -12,10 +12,7 @@ summary: 설치 단계는 NetApp CN1601 관리 스위치와 ONTAP 8.3.1 이상�
 [role="lead"]
 설치 단계는 NetApp CN1601 관리 스위치와 ONTAP 8.3.1 이상을 실행하는 CN1610 클러스터 스위치에 대해 동일합니다. 그러나 두 모델은 서로 다른 소프트웨어와 RCFs를 필요로 합니다.
 
-
-
-== 필요한 것
-
+.시작하기 전에
 * 클러스터가 완전하게 작동하는 클러스터여야 합니다.
 * 클러스터 NIC에 결함이 없어야 하며, 두 클러스터 스위치의 연결된 모든 포트가 작동해야 합니다.
 * 모든 클러스터 포트가 작동 중이어야 합니다.
@@ -23,16 +20,9 @@ summary: 설치 단계는 NetApp CN1601 관리 스위치와 ONTAP 8.3.1 이상�
 * ONTAP(Privilege:advanced) cluster ping-cluster-node node1 명령은 모든 경로에서 "PMTU 통신보다 큼"이 성공했음을 나타내야 합니다.
 * 지원되는 FASTPATH, RCF 및 ONTAP 버전을 사용해야 합니다.
 +
-RCF 및 FASTPATH 버전의 명령 구문 간에는 명령 의존성이 있을 수 있습니다. 스위치 호환성 페이지에 지원되는 버전이 나열됩니다.
-
-+
-http://mysupport.netapp.com/NOW/download/software/cm_switches_ntap/["NetApp CN1601 및 CN1610 스위치"^]
+RCF 및 FASTPATH 버전의 명령 구문 간에는 명령 의존성이 있을 수 있습니다. 스위치 호환성 페이지에 지원되는 버전이 나열됩니다. 을 참조하십시오 http://mysupport.netapp.com/NOW/download/software/cm_switches_ntap/["NetApp CN1601 및 CN1610 스위치"^] 를 참조하십시오.
 
 
-
-
-
-== 이 작업에 대해
 
 이 절차의 예에서는 다음 스위치 및 노드 명명법을 사용합니다.
 
@@ -42,7 +32,7 @@ http://mysupport.netapp.com/NOW/download/software/cm_switches_ntap/["NetApp CN16
 * 'cluster1:: *>' 프롬프트는 클러스터의 이름을 나타냅니다.
 * 각 노드의 클러스터 포트 이름은 e0a 및 e0b입니다.
 +
-_Hardware Universe_에는 플랫폼에서 지원되는 실제 클러스터 포트가 포함되어 있습니다.
+를 클릭합니다 https://hwu.netapp.com/["Hardware Universe"^] 플랫폼에 지원되는 실제 클러스터 포트가 포함되어 있습니다.
 
 * NetApp 클러스터 스위치에 지원되는 ISL(Inter-Switch Link)은 포트 0/13 ~ 0/16입니다.
 * NetApp 클러스터 스위치에 지원되는 노드 연결은 포트 0/1 에서 0/12까지입니다.
@@ -51,10 +41,7 @@ _Hardware Universe_에는 플랫폼에서 지원되는 실제 클러스터 포�
 * 예제 및 출력은 FASTPATH, RCF 및 ONTAP의 릴리즈에 따라 달라질 수 있습니다.
 
 
-
-
-== 단계
-
+.단계
 . 클러스터의 네트워크 포트에 대한 정보를 표시합니다.
 +
 'network port show -_IPSpace cluster _'
@@ -114,11 +101,9 @@ cluster1::> network interface migrate -vserver Cluster -lif node1_clus2 -destina
 cluster1::> network interface migrate -vserver Cluster -lif node2_clus2 -destination-node node2 -destination-port e0a
 ----
 +
-[NOTE]
-====
-이 명령에서 클러스터의 이름은 대소문자를 구분하며 각 노드에서 명령을 실행해야 합니다. 일반 클러스터 LIF에서 이 명령을 실행할 수 없습니다.
 
-====
+NOTE: 이 명령에서 클러스터의 이름은 대소문자를 구분하며 각 노드에서 명령을 실행해야 합니다. 일반 클러스터 LIF에서 이 명령을 실행할 수 없습니다.
+
 . 노드에서 network interface show 명령을 사용하여 마이그레이션이 실행되었는지 확인합니다.
 +
 다음 예제에서는 clus2가 노드 1과 노드 2의 포트 e0a로 마이그레이션되었음을 보여 줍니다.
@@ -318,11 +303,9 @@ Configuration script validated.
 File transfer operation completed successfully.
 ----
 +
-[NOTE]
-====
-스크립트를 호출하기 전에 '.scr' 확장자를 파일 이름의 일부로 설정해야 합니다. 이 확장명은 FASTPATH 운영 체제용으로 제공됩니다.
 
-====
+NOTE: 스크립트를 호출하기 전에 '.scr' 확장자를 파일 이름의 일부로 설정해야 합니다. 이 확장명은 FASTPATH 운영 체제용으로 제공됩니다.
+
 +
 스위치는 스크립트가 스위치에 다운로드될 때 자동으로 스크립트의 유효성을 검사합니다. 출력은 콘솔로 전달됩니다.
 

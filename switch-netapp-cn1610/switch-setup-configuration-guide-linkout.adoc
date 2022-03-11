@@ -4,12 +4,12 @@ sidebar: sidebar
 keywords: cn1601, cn1610 switch setup, configuration guide 
 summary: 이 가이드에서는 클러스터 환경에 맞게 스위치 하드웨어 및 소프트웨어를 구성하는 방법을 설명합니다. 
 ---
-= CN1601 및 CN1610 스위치 설정 및 구성 가이드
+= CN1601 및 CN1610 스위치 설정 및 구성
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-이 가이드에서는 클러스터 환경에 맞게 스위치 하드웨어 및 소프트웨어를 구성하는 방법을 설명합니다.
+에서는 클러스터 환경에 맞게 스위치 하드웨어 및 소프트웨어를 구성하는 방법에 대해 자세히 설명합니다.
 
 https://library.netapp.com/ecm/ecm_download_file/ECMP1118645["설정 및 구성"^]

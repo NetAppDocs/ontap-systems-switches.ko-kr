@@ -14,7 +14,7 @@ Cisco Nexus 3132Q-V 클러스터 스위치를 사용하여 2노드 스위치 클
 
 * 10GbE 및 40/100 GbE 포트 수는 에서 사용할 수 있는 RCFs(참조 구성 파일)에 정의되어 있습니다 https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Cisco ® 클러스터 네트워크 스위치 참조 구성 파일 다운로드"^] 페이지.
 * 클러스터 스위치는 ISL(Inter-Switch Link) 포트 e1/31-32를 사용합니다.
-* Hardware Universe_에는 Nexus 3132Q-V 스위치에 대해 지원되는 케이블 연결에 대한 정보가 포함되어 있습니다.
+* 를 클릭합니다 link:https://hwu.netapp.com/["Hardware Universe"^] Nexus 3132Q-V 스위치에 대한 지원되는 케이블 연결에 대한 자세한 내용은 다음을 참조하십시오.
 +
 ** 10GbE 클러스터 연결이 있는 노드에는 브레이크아웃 파이버 케이블이 있는 QSFP 광 모듈 또는 QSFP-SFP+ 구리 브레이크아웃 케이블이 필요합니다.
 ** 40/100 GbE 클러스터 연결이 있는 노드에는 파이버 케이블 또는 QSFP/QSFP28 구리 직접 연결 케이블이 있는 지원되는 QSFP/QSFP28 광 모듈이 필요합니다.
@@ -38,9 +38,6 @@ Cisco Nexus 3132Q-V 클러스터 스위치를 사용하여 2노드 스위치 클
 
 * 계획, 마이그레이션을 완료한 후 노드에서 Nexus 3132Q-V 클러스터 스위치까지 10GbE 및 40/100 GbE 연결에 대한 필수 설명서를 읽어야 합니다.
 +
-Cisco 이더넷 스위치 _ 페이지에는 이 절차에서 지원되는 ONTAP 및 NX-OS 버전에 대한 정보가 있습니다.
-
-+
-http://mysupport.netapp.com/NOW/download/software/cm_switches/["Cisco 이더넷 스위치"^]
+를 클릭합니다 link:http://mysupport.netapp.com/NOW/download/software/cm_switches/["Cisco 이더넷 스위치"^] 이 절차에서 지원되는 ONTAP 및 NX-OS 버전에 대한 정보가 페이지에 있습니다.
 
 
