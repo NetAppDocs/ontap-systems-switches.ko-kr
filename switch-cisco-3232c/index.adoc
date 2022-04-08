@@ -1,8 +1,8 @@
 ---
 permalink: switch-cisco-3232c/index.html 
 sidebar: sidebar 
-keywords: cisco 3232c 
-summary: Cisco 3232C 스위치 메쉬 
+keywords: cisco 3232c, cluster switches 
+summary: Cisco Nexus 3232C 스위치를 AFF 또는 FAS 클러스터에서 클러스터 스위치로 사용할 수 있습니다. 
 ---
 = Cisco Nexus 3232C 스위치
 :icons: font
@@ -12,9 +12,74 @@ summary: Cisco 3232C 스위치 메쉬
 [role="lead"]
 Cisco Nexus 3232C 스위치를 AFF 또는 FAS 클러스터에서 클러스터 스위치로 사용할 수 있습니다.
 
+.개요
 * 스위치를 설치하고, 기존 스위치에서 마이그레이션하고, 스위치를 교체하고, 스위치에서 RCF 파일을 업데이트할 수 있습니다.
 * NX-OS 및 RCF(참조 구성 파일)를 Cisco Nexus 3232C 클러스터 스위치에 설치할 수 있습니다.
 * 스위치가 없는 2노드 클러스터에서 Cisco Nexus 3232C 클러스터 스위치를 사용하는 클러스터로 마이그레이션할 수 있습니다.
 * Cisco Nexus 3232C 클러스터 또는 스토리지 스위치를 교체할 수 있습니다.
 * 스위치와 함께 제공된 사용자 지정 브래킷을 사용하여 Cisco Nexus 3232C 스위치(X190100) NetApp 시스템 캐비닛을 설치하거나, 스위치에 포함되어 있는 표준 브래킷이 있는 랙에 설치할 수 있습니다.
 
+
+다음 표에는 Cisco Nexus 3232C 스위치에 대해 사용 가능한 설명서가 나열되어 있습니다.
+
+|===
+
+
+| 제목 | 설명 
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-3232c/task-install-a-cisco-nexus-3232c-cluster-switch-and-pass-through-panel-in-a-netapp-cabinet.html["_NetApp ® 캐비닛에 Cisco ® Nexus 3232C 클러스터 스위치 및 통과 패널을 설치합니다. _"^]
+ a| 
+전원 커넥터가 섀시 전면에 있고 배전 장치가 섀시 후면에 있는 시스템 캐비닛에 통과 패널을 설치하는 방법에 대해 설명합니다.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-9336c-fx2/setup-switches.html["_Cisco ® Nexus 3232C 클러스터 스위치를 설정합니다. _"^]
+ a| 
+Cisco Nexus 3232C 클러스터 스위치를 설정 및 구성하는 방법을 설명합니다.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-3232c/task-install-nx-os-software-and-rcfs-on-cisco-nexus-3232-cluster-switches-running-ontap-9-4-and-later.html["_NX-OS 및 참조 구성 파일(RCFs)_을 설치합니다"^]
+ a| 
+Nexus 3232C 클러스터 스위치에 NX-OS 및 참조 구성 파일(RCFs)을 설치하는 방법을 설명합니다.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-3232c/concept-migrate-from-a-cisco-5596-switch-to-a-cisco-nexus-3232c.html["_Cisco Nexus 5596 스위치에서 Cisco Nexus 3232C 스위치로 마이그레이션 _"^]
+ a| 
+이전 Cisco 스위치를 사용하는 환경에서 Cisco 3232C 스위치를 사용하는 환경으로 마이그레이션하는 방법을 설명합니다.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-3232c/concept-migrate-a-cn1610-switch-to-a-cisco-nexus-3232c-cluster-switch.html["_CN1610 스위치에서 Cisco Nexus 3232C 스위치로 마이그레이션 _"^]
+ a| 
+CN1610 스위치를 Cisco Nexus 3232C 클러스터 스위치로 교체하는 절차를 설명합니다.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-3232c/concept-migrate-from-a-two-node-switchless-cluster-to-a-cluster-with-cisco-nexus-3232c-cluster-switches.html["_2노드 스위치 없는 클러스터에서 마이그레이션 _"^]
+ a| 
+Cisco Nexus 3232C 클러스터 스위치를 사용하여 스위치가 없는 2노드 클러스터 환경에서 2노드 스위치 환경으로 마이그레이션하는 방법을 설명합니다.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-3232c/concept-replace-a-cisco-nexus-3232c-cluster-switch.html["_Cisco Nexus 3232C 클러스터 스위치를 교체하십시오 _"^]
+ a| 
+에서는 클러스터에서 결함 있는 Cisco Nexus 3232C 스위치를 교체하고 스위치 운영 체제 및 참조 구성 파일을 다운로드하는 절차를 설명합니다.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-3232c/concept-replace-a-cisco-nexus-3232c-storage-switch.html["_Cisco Nexus 3232C 스토리지 스위치를 교체하십시오 _"^]
+ a| 
+에서는 결함이 있는 Cisco Nexus 3232C 스토리지 스위치를 교체하고 스위치 운영 체제 및 참조 구성 파일을 다운로드하는 절차를 설명합니다.
+
+|===

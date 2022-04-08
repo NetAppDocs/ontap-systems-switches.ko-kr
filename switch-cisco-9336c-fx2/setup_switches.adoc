@@ -96,8 +96,6 @@ NetApp 지원 소프트웨어 버전을 다운로드할 경우 _NetApp 관리 �
 
 
 
-* 관련 정보 *
-
 xref:setup-required-information.adoc[필수 클러스터 구성 정보]
 
 xref:setup-required-documentation.adoc[필수 문서]

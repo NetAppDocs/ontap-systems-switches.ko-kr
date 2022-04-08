@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cisco nexus 92300YC 
 summary: 2개 이상의 노드로 ONTAP 클러스터를 구축하려면 두 개의 지원되는 클러스터 네트워크 스위치가 필요합니다. 선택 사항인 관리 스위치를 추가로 사용할 수 있습니다. 
 ---
-= ONTAP에서 지원하는 스위치
+= Cisco Nexus 92300YC 스위치 개요
 :icons: font
 :imagesdir: ../media/
 
@@ -68,10 +68,7 @@ Cisco Nexus 92300YC 스위치 공기 흐름 세부 정보:
 * 포트 쪽 흡입 공기 흐름(역풍) -- 차가운 공기는 차가운 통로의 포트 끝을 통해 섀시에 유입되고 뜨거운 통로의 팬 및 전원 공급 장치 모듈을 통해 배출됩니다. 버건디 색상의 포트 쪽 흡입 공기 흐름
 
 
-
-
-== 기타 지원되는 스위치
-
+.기타 지원되는 스위치
 * Nexus 3232C
 +
 스위치와 함께 제공된 사용자 지정 브래킷을 사용하여 Cisco Nexus 3232C 스위치(X190100) NetApp 시스템 캐비닛을 설치하거나, 스위치에 포함되어 있는 표준 브래킷이 있는 랙에 설치할 수 있습니다.
@@ -98,3 +95,53 @@ Nexus 5596T 스위치는 FAS2520의 클러스터 인터커넥트 스위치로만
 http://support.netapp.com/info/communications/ECMP12454150.html["공급 종료"] 세부 정보.
 
 
+
+다음 표에는 Cisco Nexus 92300YC 스위치에 사용할 수 있는 설명서가 나와 있습니다.
+
+|===
+
+
+| 제목 | 설명 
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-9336c-fx2/setup-switches.html["_Cisco ® Nexus 92300YC 클러스터 스위치 설정 _"^]
+ a| 
+Cisco Nexus 92300YC 클러스터 스위치를 설정하고 구성하는 방법에 대해 설명합니다.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/install-nxos-overview.html["_NX-OS 및 참조 구성 파일(RCFs)_을 설치합니다"^]
+ a| 
+Nexus 92300YC 클러스터 스위치에 NX-OS 및 참조 구성 파일(RCFs)을 설치하는 방법에 대해 설명합니다.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/configure-overview.html["_새 Cisco Nexus 92300YC 스위치 _ 를 구성합니다"^]
+ a| 
+이전 Cisco 스위치를 사용하는 환경에서 Cisco 92300YC 스위치를 사용하는 환경으로 마이그레이션하는 방법에 대해 설명합니다.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/migrate-to-92300yc-overview.html["_ 이전 Cisco 스위치에서 Cisco Nexus 92300YC 스위치로 마이그레이션 _"^]
+ a| 
+이전 Cisco 스위치를 Cisco Nexus 92300YC 클러스터 스위치로 교체하는 절차를 설명합니다.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/migrate-to-2n-switched.html["_2노드 스위치 없는 클러스터에서 마이그레이션 _"^]
+ a| 
+Cisco Nexus 92300YC 클러스터 스위치를 사용하여 스위치가 없는 2노드 클러스터 환경에서 2노드 스위치 환경으로 마이그레이션하는 방법을 설명합니다.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/replace-92300yc.html["_Cisco Nexus 92300YC 클러스터 스위치 _ 를 교체하십시오"^]
+ a| 
+에서는 클러스터의 결함 있는 Cisco Nexus 92300YC 스위치를 교체하고 스위치 운영 체제 및 참조 구성 파일을 다운로드하는 절차를 설명합니다.
+
+|===

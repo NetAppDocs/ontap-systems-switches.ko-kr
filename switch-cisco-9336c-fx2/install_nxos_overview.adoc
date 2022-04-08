@@ -16,10 +16,7 @@ Cisco NX-OS 소프트웨어 및 참조 구성 파일(RCFs)은 Cisco Nexus 9336C-
 * NX-OS만 설치하고 현재 RCF 버전을 유지하는 경우 원하는 부팅 이미지를 반영하도록 RCF에서 원하는 부팅 구성을 확인하거나 설정해야 합니다.
 * 현재 부팅 이미지를 반영하도록 부팅 구성을 변경해야 하는 경우, 나중에 재부팅할 때 올바른 버전이 인스턴스화되도록 RCF를 다시 적용하기 전에 이 구성을 변경해야 합니다.
 * RCF를 설치할 때 필요한 스위치에 콘솔 연결이 있어야 합니다.
-* 지원되는 ONTAP, NX-OS 및 RCF 버전은 Cisco 이더넷 스위치 페이지의 스위치 호환성 표를 참조하십시오.
-+
-https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치"^]
-
+* 의 스위치 호환성 표를 참조하십시오 https://mysupport.netapp.com/site/info/cisco-ethernet-switch["_Cisco 이더넷 스위치 _"^] 지원되는 ONTAP, NX-OS 및 RCF 버전에 대한 페이지입니다.
 * RCF의 명령 구문과 NX-OS 버전에 있는 명령 구문 간에 명령 의존성이 있을 수 있습니다.
 * Cisco 스위치 업그레이드 및 다운그레이드 절차에 대한 자세한 내용을 Cisco 웹 사이트에서 제공하는 적절한 소프트웨어 및 업그레이드 가이드를 * Cisco Nexus 9000 시리즈 스위치 * 에 참조해 주십시오.
 +

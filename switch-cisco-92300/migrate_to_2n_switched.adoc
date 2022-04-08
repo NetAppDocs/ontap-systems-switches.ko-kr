@@ -26,10 +26,7 @@ Cisco Nexus 92300YC 스위치 구성:
 * 클러스터 스위치에 대한 콘솔 액세스가 있어야 합니다.
 * Nexus 92300YC 노드-노드 스위치 및 스위치-스위치 연결은 twinax 또는 파이버 케이블을 사용해야 합니다.
 +
-Hardware Universe*에는 케이블 연결에 대한 자세한 정보가 포함되어 있습니다.
-
-+
-https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - 스위치"]
+를 클릭합니다 https://hwu.netapp.com/SWITCH/INDEX["_Hardware Universe - 스위치 _"^] 케이블 연결에 대한 자세한 내용은 에 나와 있습니다.
 
 * ISL(Inter-Switch Link) 케이블은 두 92300YC 스위치의 포트 1/65 및 1/66 에 연결해야 합니다.
 * 두 92300YC 스위치의 초기 사용자 정의를 완료해야 합니다. 따라서 다음을 수행합니다.
@@ -48,10 +45,7 @@ https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - 스위치"]
 * 'cluster1:: *>' 프롬프트는 클러스터의 이름을 나타냅니다.
 * 이 절차에 사용되는 클러스터 포트는 e0a 및 e0b입니다.
 +
-Hardware Universe * 에는 플랫폼의 실제 클러스터 포트에 대한 최신 정보가 들어 있습니다.
-
-+
-https://hwu.netapp.com["Hardware Universe"]
+를 클릭합니다 https://hwu.netapp.com["_Hardware Universe _"^] 에는 해당 플랫폼의 실제 클러스터 포트에 대한 최신 정보가 나와 있습니다.
 
 
 
@@ -78,9 +72,9 @@ NOTE: AutoSupport 메시지는 유지보수 기간 동안 자동 케이스 생�
 다음 명령을 실행하면 2시간 동안 자동 케이스가 생성되지 않습니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> **system node autosupport invoke -node * -type all -message MAINT=2h**
+cluster1::*> *system node autosupport invoke -node * -type all -message MAINT=2h*
 ----
 . 새 클러스터 스위치 CS1과 CS2 모두에서 ISL 포트가 아닌 모든 노드 대상 포트를 비활성화합니다.
 +
@@ -90,12 +84,12 @@ ISL 포트를 비활성화해서는 안 됩니다.
 다음 예에서는 스위치 CS1에서 노드 방향 포트 1부터 64까지 비활성 상태를 보여 줍니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cs1# **config**
+cs1# *config*
 Enter configuration commands, one per line. End with CNTL/Z.
-cs1(config)# **interface e/1-64**
-cs1(config-if-range)# **shutdown**
+cs1(config)# *interface e/1-64*
+cs1(config-if-range)# *shutdown*
 ----
 . 두 92300YC 스위치 CS1과 CS2 사이의 ISL과 ISL의 물리적 포트가 포트 1/65와 1/66에서 작동하는지 확인합니다.
 +
@@ -105,9 +99,9 @@ cs1(config-if-range)# **shutdown**
 다음 예에서는 스위치 CS1에서 ISL 포트가 작동 중인 것을 보여 줍니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cs1# **show port-channel summary**
+cs1# *show port-channel summary*
 
 Flags:  D - Down        P - Up in port-channel (members)
         I - Individual  H - Hot-standby (LACP only)
@@ -127,9 +121,9 @@ Group Port-       Type     Protocol  Member Ports
 다음 예에서는 스위치 CS2에서 ISL 포트가 작동 중인 것을 보여 줍니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs2)# **show port-channel summary**
+(cs2)# *show port-channel summary*
 
 Flags:  D - Down        P - Up in port-channel (members)
         I - Individual  H - Hot-standby (LACP only)
@@ -156,9 +150,9 @@ CDP 이웃의 성전
 다음 예에서는 스위치 CS1의 인접 장치를 나열합니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cs1# **show cdp neighbors**
+cs1# *show cdp neighbors*
 
 Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
                   S - Switch, H - Host, I - IGMP, r - Repeater,
@@ -175,9 +169,9 @@ Total entries displayed: 2
 다음 예에서는 스위치 CS2의 인접 장치를 나열합니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cs2# **show cdp neighbors**
+cs2# *show cdp neighbors*
 
 Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
                   S - Switch, H - Host, I - IGMP, r - Repeater,
@@ -198,9 +192,9 @@ Total entries displayed: 2
 각 포트는 Link에, Health Status에 대해서는 Healthy로 표시되어야 합니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> **network port show -ipspace Cluster**
+cluster1::*> *network port show -ipspace Cluster*
 
 Node: node1
 
@@ -228,9 +222,9 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy
 각 클러스터 LIF는 '홈'에 대해 '상태 관리/작업'이 UP/UP인 '상태 관리/작업'에 대해 '참'으로 표시되어야 합니다
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> **network interface show -vserver Cluster**
+cluster1::*> *network interface show -vserver Cluster*
 
             Logical    Status     Network            Current       Current Is
 Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
@@ -247,9 +241,9 @@ Cluster
 'network interface show-vserver Cluster-fields auto-revert'
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> **network interface show -vserver Cluster -fields auto-revert**
+cluster1::*> *network interface show -vserver Cluster -fields auto-revert*
 
           Logical
 Vserver   Interface     Auto-revert
@@ -264,10 +258,7 @@ Cluster
 ----
 . 92300YC 스위치에서 지원하는 적절한 케이블을 사용하여 노드 1의 클러스터 포트 e0a에서 케이블을 분리한 다음 클러스터 스위치 CS1의 포트 1에 e0a를 연결합니다.
 +
-Hardware Universe*에는 케이블 연결에 대한 자세한 정보가 포함되어 있습니다.
-
-+
-https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - 스위치"]
+를 클릭합니다 https://hwu.netapp.com/SWITCH/INDEX["_Hardware Universe - 스위치 _"^] 케이블 연결에 대한 자세한 내용은 에 나와 있습니다.
 
 . 92300YC 스위치에서 지원하는 적절한 케이블을 사용하여 노드 2의 클러스터 포트 e0a에서 케이블을 분리한 다음 클러스터 스위치 CS1의 포트 2에 e0a를 연결합니다.
 . 클러스터 스위치 CS1에서 모든 노드 대상 포트를 활성화합니다.
@@ -275,12 +266,12 @@ https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - 스위치"]
 다음 예에서는 스위치 CS1에서 포트 1/1-1/64가 활성화되어 있음을 보여 줍니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cs1# **config**
+cs1# *config*
 Enter configuration commands, one per line. End with CNTL/Z.
-cs1(config)# **interface e1/1-64**
-cs1(config-if-range)# **no shutdown**
+cs1(config)# *interface e1/1-64*
+cs1(config-if-range)# *no shutdown*
 ----
 . 모든 클러스터 LIF가 가동되고 작동 가능하며 '홈'에 대해 true로 표시되는지 확인합니다.
 +
@@ -290,9 +281,9 @@ cs1(config-if-range)# **no shutdown**
 다음 예에서는 모든 LIF가 node1과 node2에 있으며 "홈" 결과가 true인 것을 보여 줍니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> **network interface show -vserver Cluster**
+cluster1::*> *network interface show -vserver Cluster*
 
          Logical      Status     Network            Current     Current Is
 Vserver  Interface    Admin/Oper Address/Mask       Node        Port    Home
@@ -313,9 +304,9 @@ Cluster
 다음 예제에는 클러스터에 있는 노드의 상태 및 자격에 대한 정보가 표시됩니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> **cluster show**
+cluster1::*> *cluster show*
 
 Node                 Health  Eligibility   Epsilon
 -------------------- ------- ------------  ------------
@@ -331,12 +322,12 @@ node2                true    true          false
 다음 예에서는 스위치 CS2에서 포트 1/1 ~ 1/64 가 활성화되어 있음을 보여 줍니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cs2# **config**
+cs2# *config*
 Enter configuration commands, one per line. End with CNTL/Z.
-cs2(config)# **interface e1/1-64**
-cs2(config-if-range)# **no shutdown**
+cs2(config)# *interface e1/1-64*
+cs2(config-if-range)# *no shutdown*
 ----
 . 모든 클러스터 포트가 작동하는지 확인합니다.
 +
@@ -346,9 +337,9 @@ cs2(config-if-range)# **no shutdown**
 다음 예에서는 모든 클러스터 포트가 노드 1과 노드 2에 있음을 보여 줍니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> **network port show -ipspace Cluster**
+cluster1::*> *network port show -ipspace Cluster*
 
 Node: node1
                                                                        Ignore
@@ -380,9 +371,9 @@ NOTE: 이 작업을 완료하는 데 몇 분 정도 걸릴 수 있습니다.
 다음 예에서는 모든 LIF가 node1과 node2에 있으며 "홈" 결과가 true인 것을 보여 줍니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> **network interface show -vserver Cluster**
+cluster1::*> *network interface show -vserver Cluster*
 
           Logical      Status     Network            Current    Current Is
 Vserver   Interface    Admin/Oper Address/Mask       Node       Port    Home
@@ -403,10 +394,9 @@ CDP 이웃의 성전
 다음 예에서는 두 스위치에 대해 적절한 결과를 보여 줍니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-
-(cs1)# **show cdp neighbors**
+(cs1)# *show cdp neighbors*
 
 Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
                   S - Switch, H - Host, I - IGMP, r - Repeater,
@@ -422,7 +412,7 @@ cs2(FDO220329V5)    Eth1/66        175    R S I s   N9K-C92300YC  Eth1/66
 Total entries displayed: 4
 
 
-(cs2)# **show cdp neighbors**
+(cs2)# *show cdp neighbors*
 
 Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
                   S - Switch, H - Host, I - IGMP, r - Repeater,
@@ -444,9 +434,9 @@ Total entries displayed: 4
 네트워크 디바이스 검색 표시 프로토콜 CDP
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> **network device-discovery show -protocol cdp**
+cluster1::*> *network device-discovery show -protocol cdp*
 Node/       Local  Discovered
 Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
 ----------- ------ ------------------------- ----------------  ----------------
@@ -471,9 +461,9 @@ NOTE: 명령이 완료되는 데 몇 분 정도 걸릴 수 있습니다. '3분 �
 다음 예제의 false 출력은 구성 설정이 비활성화되어 있음을 보여 줍니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> **network options switchless-cluster show**
+cluster1::*> *network options switchless-cluster show*
 Enable Switchless Cluster: false
 ----
 . 클러스터에서 노드 구성원의 상태를 확인합니다.
@@ -484,9 +474,9 @@ Enable Switchless Cluster: false
 다음 예는 클러스터에 있는 노드의 상태 및 적격성에 대한 정보를 보여줍니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> **cluster show**
+cluster1::*> *cluster show*
 
 Node                 Health  Eligibility   Epsilon
 -------------------- ------- ------------  --------
@@ -498,9 +488,9 @@ node2                true    true          false
 'cluster ping-cluster-node-name'입니다
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::> cluster ping-cluster -node node2
+cluster1::> *cluster ping-cluster -node node2*
 Host is node2
 Getting addresses from network interface table...
 Cluster node1_clus1 169.254.209.69 node1 e0a
@@ -530,50 +520,50 @@ RPC status:
 'System node AutoSupport invoke-node * -type all-message maINT=end'
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> **system node autosupport invoke -node * -type all -message MAINT=END**
+cluster1::*> *system node autosupport invoke -node * -type all -message MAINT=END*
 ----
 . 권한 수준을 admin으로 다시 변경합니다.
 +
 'Set-Privilege admin'입니다
 
-. ONTAP 9.4 이상의 경우 스위치 관련 로그 파일을 수집하기 위해 클러스터 스위치 상태 모니터 로그 수집 기능을 활성화합니다.
+. ONTAP 9.4 이상의 경우 명령을 사용하여 스위치 관련 로그 파일을 수집하기 위해 클러스터 스위치 상태 모니터 로그 수집 기능을 사용하도록 설정합니다.
 +
-시스템 cluster-switch log setup-password 'system cluster-switch log enable-collection'
+System cluster-switch log setup-password와 system cluster-switch log enable-collection
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> **system cluster-switch log setup-password**
+cluster1::*> *system cluster-switch log setup-password*
 Enter the switch name: <return>
 The switch name entered is not recognized.
 Choose from the following list:
-NBS-NIC-NXYC-01
-NBS-NIC-NXYC-02
+cs1
+cs2
 
-cluster1::*> **system cluster-switch log setup-password**
+cluster1::*> *system cluster-switch log setup-password*
 
-Enter the switch name: **NBS-NIC-NXYC-01
-**RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
-Do you want to continue? {y|n}::[n] **y**
+Enter the switch name: *cs1*
+RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
+Do you want to continue? {y|n}::[n] *y*
 
 Enter the password: <enter switch password>
 Enter the password again: <enter switch password>
 
-cluster1::*> **system cluster-switch log setup-password**
+cluster1::*> *system cluster-switch log setup-password*
 
-Enter the switch name: **NBS-NIC-NXYC-02**
+Enter the switch name: *cs2*
 RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
-Do you want to continue? {y|n}:: [n] **y**
+Do you want to continue? {y|n}:: [n] *y*
 
 Enter the password: <enter switch password>
 Enter the password again: <enter switch password>
 
-cluster1::*> **system cluster-switch log enable-collection**
+cluster1::*> *system cluster-switch log enable-collection*
 
 Do you want to enable cluster log collection for all nodes in the cluster?
-{y|n}: [n] **y**
+{y|n}: [n] *y*
 
 Enabling cluster switch log collection.
 

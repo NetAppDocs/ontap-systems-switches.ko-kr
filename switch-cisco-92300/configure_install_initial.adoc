@@ -31,22 +31,23 @@ NX-OS는 Cisco Systems에서 제공하는 Nexus 시리즈 이더넷 스위치 �
 
 
 . 처음으로 부팅하거나 실행 중인 구성을 지운 후 재부팅하면 부팅 주기에서 Nexus 92300YC 스위치 루프가 됩니다. Auto Provisioning의 전원을 중단하려면 * yes * 를 입력하여 이 주기를 중단합니다. 그러면 시스템 관리자 계정 설정이 표시됩니다.
-+
-....
-$ VDC-1 %$ %POAP-2-POAP_INFO:   - Abort Power On Auto Provisioning [yes - continue with normal setup, skip - bypass password and basic configuration, no - continue with Power On Auto Provisioning] (yes/skip/no)[no]:
-**yes**
-Disabling POAP.......Disabling POAP
-2019 Apr 10 00:36:17 switch %$ VDC-1 %$ poap: Rolling back, please wait... (This may take 5-15 minutes)
-....
-+
- ---- System Admin Account Setup ----
-+
- Do you want to enforce secure password standard (yes/no) [y]:
-. 보안 암호 표준을 적용하려면 * y * 를 입력합니다.
-+
+
+
 [listing]
 ----
-Do you want to enforce secure password standard (yes/no) [y]: **y**
+$ VDC-1 %$ %POAP-2-POAP_INFO:   - Abort Power On Auto Provisioning [yes - continue with normal setup, skip - bypass password and basic configuration, no - continue with Power On Auto Provisioning] (yes/skip/no)[no]: *y*
+Disabling POAP.......Disabling POAP
+2019 Apr 10 00:36:17 switch %$ VDC-1 %$ poap: Rolling back, please wait... (This may take 5-15 minutes)
+
+          ---- System Admin Account Setup ----
+
+Do you want to enforce secure password standard (yes/no) [y]:
+----
+. 보안 암호 표준을 적용하려면 * y * 를 입력합니다.
++
+[listing, subs="+quotes"]
+----
+Do you want to enforce secure password standard (yes/no) [y]: *y*
 ----
 . admin 사용자의 암호를 입력하고 확인합니다.
 +
@@ -89,66 +90,65 @@ Configure read-write SNMP community string (yes/no) [n]:
 ----
 . 클러스터 스위치 이름 구성:
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-Enter the switch name : **cs2**
+Enter the switch name : *cs2*
 ----
 . 대역외 관리 인터페이스 구성:
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-
-Continue with Out-of-band (mgmt0) management configuration? (yes/no) [y]: **y**
+Continue with Out-of-band (mgmt0) management configuration? (yes/no) [y]: *y*
 
 Mgmt0 IPv4 address : 172.22.133.216
 
 Mgmt0 IPv4 netmask : 255.255.224.0
 
-Configure the default gateway? (yes/no) [y]: **y**
+Configure the default gateway? (yes/no) [y]: *y*
 
 IPv4 address of the default gateway : 172.22.128.1
 ----
 . 고급 IP 옵션 구성:
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-Configure advanced IP options? (yes/no) [n]: **n**
+Configure advanced IP options? (yes/no) [n]: *n*
 ----
 . 텔넷 서비스 구성:
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-Enable the telnet service? (yes/no) [n]: **n**
+Enable the telnet service? (yes/no) [n]: *n*
 ----
 . SSH 서비스 및 SSH 키 구성:
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-Enable the ssh service? (yes/no) [y]: **y**
+Enable the ssh service? (yes/no) [y]: *y*
 
-       Type of ssh key you would like to generate (dsa/rsa) [rsa]: **rsa**
+       Type of ssh key you would like to generate (dsa/rsa) [rsa]: *rsa*
 
-       Number of rsa key bits <1024-2048> [1024]: **2048**
+       Number of rsa key bits <1024-2048> [1024]: *2048*
 ----
 . 기타 설정 구성:
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-Configure the ntp server? (yes/no) [n]: **n**
+Configure the ntp server? (yes/no) [n]: *n*
 
-  Configure default interface layer (L3/L2) [L2]: **L2**
+  Configure default interface layer (L3/L2) [L2]: *L2*
 
-  Configure default switchport interface state (shut/noshut) [noshut]: **noshut**
+  Configure default switchport interface state (shut/noshut) [noshut]: *noshut*
 
-  Configure CoPP system profile (strict/moderate/lenient/dense) [strict]: **strict**
+  Configure CoPP system profile (strict/moderate/lenient/dense) [strict]: *strict*
 ----
 . 스위치 정보를 확인하고 구성을 저장합니다.
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-Would you like to edit the configuration? (yes/no) [n]: **n**
+Would you like to edit the configuration? (yes/no) [n]: *n*
 
-Use this configuration and save it? (yes/no) [y]: **y**
+Use this configuration and save it? (yes/no) [y]: *y*
 
 [########################################] 100%
 Copy complete, now saving to disk (please wait)...

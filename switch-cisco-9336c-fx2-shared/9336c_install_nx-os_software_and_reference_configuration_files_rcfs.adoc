@@ -4,7 +4,7 @@ permalink: switch-cisco-9336c-fx2-shared/9336c_install_nx-os_software_and_refere
 keywords: rcfs, nx-os, install 
 summary:  
 ---
-= NX-OS 소프트웨어 및 참조 구성 파일(RCFs) 설치
+= NX-OS 소프트웨어 및 RCFs를 설치합니다
 :hardbreaks:
 :nofooter: 
 :icons: font
@@ -14,13 +14,9 @@ summary:
 
 
 
-== Cisco Nexus 9336C-FX2 클러스터 스위치에 NX-OS 소프트웨어 및 RCF를 설치합니다
+== Cisco Nexus 9336C-FX2 스위치에 NX-OS 소프트웨어 및 RCF를 설치합니다
 
 Cisco NX-OS 소프트웨어 및 RCF(Reference Configuration File)는 Cisco Nexus 9336C-FX2 클러스터 스위치에 설치해야 합니다.
-
-
-
-=== 시작하기 전에
 
 클러스터 스위치에 NX-OS 소프트웨어 및 RCF를 설치하기 전에 다음 조건이 충족되어야 합니다.
 
@@ -33,10 +29,6 @@ Cisco NX-OS 소프트웨어 및 RCF(Reference Configuration File)는 Cisco Nexus
 * Cisco Nexus 9000 시리즈 스위치의 Cisco 스위치 업그레이드 및 다운그레이드 절차에 대한 전체 문서를 보려면 Cisco 웹 사이트에서 제공되는 적절한 소프트웨어 및 업그레이드 가이드를 참조해야 합니다. 을 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html["Cisco Nexus 9000 시리즈 스위치"] 를 참조하십시오.
 * 현재 RCF가 있어야 합니다.
 
-
-
-
-=== 초기 설정
 
 이 절차의 예에서는 두 개의 노드를 사용합니다. 이들 노드는 A400 컨트롤러에 따라 2개의 100GbE 클러스터 인터커넥트 포트 e3a 및 e3b를 사용합니다. 를 참조하십시오 https://hwu.netapp.com["Hardware Universe"] 사용 중인 플랫폼에서 올바른 클러스터 포트를 확인하려면 다음을 수행합니다.
 

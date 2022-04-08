@@ -4,6 +4,8 @@ title: Cisco Nexus 9336C-FX2 스위치
 entries:
 - title: 개요
   url: "/switch-cisco-9336c-fx2/9336-overview.html"
+- title: NetApp 캐비닛에 Cisco Nexus 9336C-FX2 스위치 및 패스스루 패널을 설치합니다
+  url: "/switch-cisco-9336c-fx2/install-switch-and-passthrough-panel.html"
 - title: 설정
   entries:
   - title: 스위치를 설정합니다
@@ -64,5 +66,3 @@ entries:
   url: "/switch-cisco-9336c-fx2/replace-9336c.html"
 - title: Cisco Nexus 9336C-FX2 스토리지 스위치를 교체합니다
   url: "/switch-cisco-9336c-fx2/replace_9336c_storage_switch.html"
-- title: NetApp 캐비닛에 Cisco Nexus 9336C-FX2 스위치 및 패스스루 패널을 설치합니다
-  url: "/switch-cisco-9336c-fx2/install-switch-and-passthrough-panel.html"

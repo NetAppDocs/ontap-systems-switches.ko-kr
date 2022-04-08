@@ -32,6 +32,18 @@ entries:
     url: "/switch-bes-53248/configure-log-collection.html"
   - title: CSHM(Cluster Switch Health Monitor) 구성 파일을 설치합니다
     url: "/switch-bes-53248/configure-health-monitor.html"
+- title: CN1610 스위치에서 BES-53248 스위치로 마이그레이션합니다
+  entries:
+  - title: 시작하기 전에
+    url: "/switch-bes-53248/migrate-cn1610-overview.html"
+  - title: 마이그레이션 방법
+    url: "/switch-bes-53248/migrate-cn1610.html"
+- title: 스위치가 있는 2노드 클러스터로 마이그레이션합니다
+  entries:
+  - title: 마이그레이션할 준비를 합니다
+    url: "/switch-bes-53248/migrate-to-2n-switched.html"
+  - title: 스위치 NetApp 클러스터 환경으로 마이그레이션
+    url: "/switch-bes-53248/migrate-to-2n-switched-overview.html"
 - title: NDO/NDU 환경의 스위치를 업그레이드하십시오
   entries:
   - title: 개요
@@ -57,15 +69,3 @@ entries:
     url: "/switch-bes-53248/replace-verify.html"
 - title: BES-53248 스위치를 교체합니다
   url: "/switch-bes-53248/replace-switch.html"
-- title: CN1610 스위치에서 BES-53248 스위치로 마이그레이션합니다
-  entries:
-  - title: 시작하기 전에
-    url: "/switch-bes-53248/migrate-cn1610-overview.html"
-  - title: 마이그레이션 방법
-    url: "/switch-bes-53248/migrate-cn1610.html"
-- title: 스위치가 있는 2노드 클러스터로 마이그레이션합니다
-  entries:
-  - title: 마이그레이션할 준비를 합니다
-    url: "/switch-bes-53248/migrate-to-2n-switched.html"
-  - title: 스위치 NetApp 클러스터 환경으로 마이그레이션
-    url: "/switch-bes-53248/migrate-to-2n-switched-overview.html"

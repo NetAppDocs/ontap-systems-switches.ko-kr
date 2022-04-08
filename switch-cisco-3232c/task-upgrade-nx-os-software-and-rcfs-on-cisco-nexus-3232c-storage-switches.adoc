@@ -190,6 +190,10 @@ S2# show banner motd
 ******************************************************************************
 S2#
 ----
++
+
+NOTE: RCF를 처음 적용할 때 * ERROR: Failed to write VSH commands * 메시지가 예상되며 무시해도 됩니다.
+
 . [[step8_upgrade_32c] 소프트웨어 버전 및 스위치 설정이 올바른지 확인한 후 스위치 S2의 'startup-config' 파일에 'running-config' 파일을 복사합니다.
 +
 Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^].

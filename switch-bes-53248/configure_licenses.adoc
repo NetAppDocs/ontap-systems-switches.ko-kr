@@ -123,25 +123,27 @@ License Index  License Type     Status
 
 No license file found.
 ----
-. 라이센스 파일을 설치합니다. 다음 예제에서는 HTTP를 사용하여 라이센스 파일을 키 인덱스 1에 복사합니다.
+. 라이센스 파일을 설치합니다. 다음 예에서는 SFTP를 사용하여 라이센스 파일을 키 인덱스 1에 복사합니다.
 +
 이 단계를 반복하여 더 많은 라이선스를 로드하고 다른 키 인덱스 번호를 사용합니다.
 
 +
 [listing]
 ----
-(cs2) # copy http://172.19.2.1/tmp/efos/license1.dat nvram:license-key 1
+(cs2) #copy sftp://root@172.19.2.1/var/lib/tftpboot/license.dat nvram:license-key 1
+Remote Password:********
 
-Mode........................................... HTTP
+Mode........................................... SFTP
 Set Server IP.................................. 172.19.2.1
-Path........................................... tmp/efos/
-Filename....................................... license1.dat
+Path........................................... /var/lib/tftpboot/
+Filename....................................... license.dat
 Data Type...................................... license
 
 Management access will be blocked for the duration of the transfer
 Are you sure you want to start? (y/n) y
 
 File transfer in progress. Management access will be blocked for the duration of the transfer. Please wait...
+
 
 License Key transfer operation completed successfully. System reboot is required.
 ----

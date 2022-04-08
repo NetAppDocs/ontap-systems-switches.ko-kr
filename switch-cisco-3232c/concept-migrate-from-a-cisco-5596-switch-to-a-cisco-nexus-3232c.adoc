@@ -30,7 +30,7 @@ Cisco Nexus 5596 클러스터 스위치를 Cisco Nexus 3232C 클러스터 스위
 ** 포트 e1/31-32(40/100 GbE): Nexus 3232C
 
 
-* Hardware Universe_에는 Nexus 3232C 스위치에 지원되는 케이블 연결에 대한 정보가 포함되어 있습니다.
+* 를 클릭합니다 link:https://hwu.netapp.com/["_Hardware Universe _"^] Nexus 3232C 스위치에 대해 지원되는 케이블 연결에 대한 정보를 포함합니다.
 +
 ** 10GbE 클러스터 연결이 있는 노드는 QSFP-SFP+ 광 파이버 브레이크아웃 케이블 또는 QSFP-SFP+ 구리 브레이크아웃 케이블이 필요합니다.
 ** 40/100 GbE 클러스터 연결이 있는 노드에는 파이버 케이블 또는 QSFP/QSFP28 구리 직접 연결 케이블이 있는 지원되는 QSFP/QSFP28 광 모듈이 필요합니다.
