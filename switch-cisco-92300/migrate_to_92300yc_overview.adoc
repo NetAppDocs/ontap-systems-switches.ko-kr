@@ -5,6 +5,7 @@ keywords: migrate to cisco nx 92300yc cluster switch,new cluster switch migratio
 summary: 일부 구형 Cisco Nexus 클러스터 스위치를 Cisco Nexus 92300YC 클러스터 스위치로 교체할 경우 특정 구성 정보, 포트 연결 및 케이블 연결 요구 사항을 알고 있어야 합니다. 
 ---
 = Cisco 스위치에서 Cisco Nexus 92300YC 스위치로 마이그레이션합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

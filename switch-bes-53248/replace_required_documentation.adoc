@@ -5,6 +5,7 @@ keywords: documentation requirements, BES-53248 switches,cluster switches
 summary: Cluster-Mode 구성을 설정하려면 특정 스위치 및 컨트롤러 설명서가 필요합니다. 
 ---
 = BES-53248 클러스터 스위치 필수 설명서
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

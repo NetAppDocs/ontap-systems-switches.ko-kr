@@ -5,6 +5,7 @@ keywords: install, fastpath, software
 summary: NetApp 스위치에 FASTPATH 소프트웨어를 설치할 때는 두 번째 스위치인 CS2로 업그레이드를 시작해야 합니다. 
 ---
 = FASTPATH 소프트웨어를 설치합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: fastpath, software, install, netapp cluster switches, rcfs, ontap
 summary: 설치 단계는 NetApp CN1601 관리 스위치와 ONTAP 8.3.1 이상을 실행하는 CN1610 클러스터 스위치에 대해 동일합니다. 그러나 두 모델은 서로 다른 소프트웨어와 RCFs를 필요로 합니다. 
 ---
 = ONTAP 8.3.1 이상을 실행하는 NetApp 클러스터 스위치에 FASTPATH 소프트웨어 및 RCF를 설치합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

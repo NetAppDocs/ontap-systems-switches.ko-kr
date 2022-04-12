@@ -5,6 +5,7 @@ keywords: problem, arise, install, license, debug, command, copy, restriction, l
 summary: 라이센스를 설치할 때 문제가 발생하면 copy 명령을 다시 실행하여 라이센스를 설치하기 전에 다음 디버그 명령을 실행해야 합니다. 
 ---
 = 제한 사항 및 제한 사항 - BES-53248 스위치
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

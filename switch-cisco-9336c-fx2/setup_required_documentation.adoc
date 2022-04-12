@@ -5,6 +5,7 @@ keywords: controller, documentation, ontap, cluster, required documentation - ci
 summary: ONTAP 클러스터를 설정하려면 특정 스위치 및 컨트롤러 설명서가 필요합니다. 
 ---
 = 필수 문서
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

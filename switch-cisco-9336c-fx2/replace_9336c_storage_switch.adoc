@@ -5,6 +5,7 @@ keywords: replacing, replace, defective, nexus, switch, cluster, network, nondis
 summary: '클러스터 네트워크에서 결함이 있는 Nexus 9336C-FX2 스위치를 교체하는 것은 무중단 절차(NDU\)입니다.' 
 ---
 = Cisco Nexus 9336C-FX2 스토리지 스위치를 교체합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

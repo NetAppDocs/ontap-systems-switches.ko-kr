@@ -6,6 +6,7 @@ summary:
 ---
 = 2개의 새 공유 스위치를 추가하여 DAT 스토리지가 있는 스위치가 없는 클러스터에서 마이그레이션합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

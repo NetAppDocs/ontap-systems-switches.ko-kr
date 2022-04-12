@@ -6,6 +6,7 @@ summary:
 ---
 = Cisco 공유 스위치에 대한 설정 및 구성 가이드
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -5,6 +5,7 @@ keywords: install rcf
 summary: Nexus 3132Q-V 스위치를 처음 설정한 후 RCF를 설치할 수 있으며, 이 절차를 사용하여 RCF 버전을 업그레이드할 수도 있습니다. 
 ---
 = RCF(Reference Configuration File) 설치
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

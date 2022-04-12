@@ -5,6 +5,7 @@ keywords: migrate, two-node switched cluster, cisco nexus 3132q-v
 summary: 스위치가 없는 2노드 클러스터가 있는 경우 Cisco Nexus 3132Q-V 클러스터 네트워크 스위치를 포함하는 2노드 스위치 클러스터로 중단 없이 마이그레이션할 수 있습니다. 
 ---
 = Cisco Nexus 3132Q-V 클러스터 스위치를 사용하여 2노드 스위치 클러스터를 마이그레이션하는 방법
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

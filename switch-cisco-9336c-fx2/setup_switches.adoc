@@ -5,6 +5,7 @@ keywords: require, configuration, information, documentation, cluster, managemen
 summary: 필요한 구성 정보 및 설명서가 없는 경우 클러스터 및 관리 네트워크 스위치를 설정하기 전에 해당 정보를 수집해야 합니다. 
 ---
 = 스위치를 설정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

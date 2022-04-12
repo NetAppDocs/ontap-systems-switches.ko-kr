@@ -5,6 +5,7 @@ keywords: replace, cisco nexus, 3232c storage switch
 summary: 특정 작업 시퀀스를 실행하여 결함이 있는 Cisco Nexus 3232C 스토리지 스위치를 중단 없이 교체할 수 있습니다. 
 ---
 = Cisco Nexus 3232C 스토리지 스위치를 교체하는 단계
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

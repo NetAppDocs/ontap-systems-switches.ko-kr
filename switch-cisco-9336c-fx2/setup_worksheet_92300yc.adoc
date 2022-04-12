@@ -5,6 +5,7 @@ keywords: cable worksheet, Cisco NX 92300YC
 summary: 지원되는 플랫폼을 문서화하려면 작성한 샘플 케이블 연결 워크시트를 참조하여 빈 케이블 연결 워크시트를 작성해야 합니다. 
 ---
 = Cisco Nexus 92300YC 케이블 연결 워크시트
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

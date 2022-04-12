@@ -5,6 +5,7 @@ keywords: install, fastpath, software, rcfs
 summary: cn1610, 스위치, netapp 
 ---
 = NetApp CN1610 스위치
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

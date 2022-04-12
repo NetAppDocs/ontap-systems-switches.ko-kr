@@ -5,6 +5,7 @@ keywords: BES-53248 switches,initial installation,new install
 summary: 이 장에 설명된 단계를 완료하여 새 BES-53248 클러스터 스위치를 구성할 수 있습니다. 
 ---
 = 새 BES-53248 클러스터 스위치를 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

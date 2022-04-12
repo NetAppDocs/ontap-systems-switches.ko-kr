@@ -5,6 +5,7 @@ keywords: install cisco 92300YC cluster switch, cisco nx 92300yc
 summary: 이 절차를 사용하여 Cisco Nexus 92300YC 스위치의 초기 설치를 수행할 수 있습니다. 
 ---
 = Cisco Nexus 92300YC 스위치의 초기 설치
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

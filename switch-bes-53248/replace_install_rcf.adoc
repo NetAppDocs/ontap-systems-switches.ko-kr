@@ -5,6 +5,7 @@ keywords: rcf,install rcf,bes-53248 switch
 summary: BES-53248 클러스터 스위치를 처음 설정하고 새 라이센스 또는 라이센스를 적용한 후 RCF를 설치할 수 있습니다. 이전 버전에서 RCF를 업그레이드하는 경우 파일이 효과적으로 병합되고 여기에 설명된 단계를 완료합니다. 
 ---
 = RCF(Reference Configuration File) 설치
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

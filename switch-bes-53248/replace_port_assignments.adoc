@@ -5,6 +5,7 @@ keywords: bes, cluster, switch, port, assignment, table, configure, bes-53428 cl
 summary: BES-53248 클러스터 스위치 포트 할당 표를 참조하여 클러스터를 구성할 수 있습니다. 
 ---
 = BES-53248 클러스터 스위치 포트 할당 - BES-53248 스위치
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

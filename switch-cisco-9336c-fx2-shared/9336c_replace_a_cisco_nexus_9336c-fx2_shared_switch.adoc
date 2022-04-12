@@ -6,6 +6,7 @@ summary:
 ---
 = Cisco Nexus 9336C-FX2 공유 스위치를 교체합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

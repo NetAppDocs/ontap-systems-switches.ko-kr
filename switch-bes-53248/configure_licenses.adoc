@@ -5,6 +5,7 @@ keywords: bes, cluster, switch, base, model, license, 10gbe, 25gbe, 100gbe, port
 summary: BES-53248 클러스터 스위치 기본 모델은 10GbE 또는 25GbE 포트 16개와 100GbE 포트 2개에 대해 라이센스가 부여됩니다. 라이센스를 더 구매하여 새 포트를 추가할 수 있습니다. 
 ---
 = BES-53248 클러스터 스위치용 라이센스 설치 - BES-53248 스위치
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

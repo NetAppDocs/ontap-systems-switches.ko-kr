@@ -5,6 +5,7 @@ keywords: ssh, requirement, cluster, switch, health, monitor, chsm, log, collect
 summary: '클러스터 스위치 상태 모니터\(CSMM\) 및 로그 수집 기능을 사용하려면 SSH가 필요합니다. BES-53248 클러스터 스위치에서 SSH를 활성화하려면 먼저 SSH 키를 생성한 다음 SSH를 활성화합니다.' 
 ---
 = BES-53248 클러스터 스위치에서 SSH 활성화 - BES-53248 스위치
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

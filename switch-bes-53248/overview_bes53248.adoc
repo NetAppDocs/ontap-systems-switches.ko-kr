@@ -5,6 +5,7 @@ keywords: cluster-mode,supported versions,switches supported,cluster network,efo
 summary: Broadcom 지원 BES-53248 클러스터 스위치는 ONTAP 9.5P8 이상에서 2-24개 노드 범위의 클러스터에서 작동하도록 설계되었습니다. 40/100 GbE 클러스터 포트 지원은 EFOS 펌웨어 버전 3.4.4.6 이상에서 시작됩니다. 
 ---
 = Broadcom 지원 BES-53248 클러스터 스위치의 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

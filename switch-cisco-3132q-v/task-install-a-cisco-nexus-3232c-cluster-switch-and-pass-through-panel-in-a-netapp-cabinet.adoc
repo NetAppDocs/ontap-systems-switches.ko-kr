@@ -5,6 +5,7 @@ keywords: install, cisco nexus 3132q-v cluster switch, pass-through panel, netap
 summary: Cisco Nexus 3132Q-V 스위치 및 패스스루 패널을 스위치에 포함된 표준 브래킷과 함께 NetApp 캐비닛에 설치할 수 있습니다. 
 ---
 = NetApp 캐비닛에 Cisco Nexus 3132Q-V 클러스터 스위치 및 통과 패널을 설치합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

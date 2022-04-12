@@ -5,6 +5,7 @@ keywords: Nexus 9336C-FX2 switches initial installation, configure cisco cluster
 summary: 이 장에 설명된 단계를 완료하여 새 Nexus 9336C-FX2 스위치를 구성할 수 있습니다. 
 ---
 = Cisco Nexus 9336C-FX2 클러스터 스위치를 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

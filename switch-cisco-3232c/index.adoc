@@ -5,6 +5,7 @@ keywords: cisco 3232c, cluster switches
 summary: Cisco Nexus 3232C 스위치를 AFF 또는 FAS 클러스터에서 클러스터 스위치로 사용할 수 있습니다. 
 ---
 = Cisco Nexus 3232C 스위치
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

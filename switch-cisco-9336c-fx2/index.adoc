@@ -5,6 +5,7 @@ keywords: cisco, switch, cisco 9336 switch
 summary: 'Cisco 9336-FX2" 스위치' 
 ---
 = Cisco 9336C-FX2 스위치
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

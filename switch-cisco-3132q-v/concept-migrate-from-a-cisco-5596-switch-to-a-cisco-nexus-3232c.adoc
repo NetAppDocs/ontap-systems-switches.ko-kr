@@ -5,6 +5,7 @@ keywords: replace, cisco nexus 5596 cluster switch, 3132q-v
 summary: Cisco Nexus 5596 클러스터 스위치를 Cisco Nexus 3132Q-V 클러스터 스위치로 교체할 때 특정 구성 정보, 포트 연결 및 케이블 연결 요구 사항을 알고 있어야 합니다. 
 ---
 = Cisco Nexus 5596 클러스터 스위치를 Cisco Nexus 3132Q-V 클러스터 스위치로 교체합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: reference configuration, file ,install, cn1610, switch, install rcf
 summary: 'RCF(Reference Configuration File)를 설치하는 경우 먼저 클러스터 LIF를 스위치 CS2에서 마이그레이션해야 합니다. RCF를 설치 및 검증한 후 LIF를 다시 마이그레이션할 수 있습니다.' 
 ---
 = CN1610 스위치에 참조 구성 파일을 설치합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

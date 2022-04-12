@@ -5,6 +5,7 @@ keywords: install, cisco nexus, 3232c cluster switch, pass-through panel, netapp
 summary: Cisco Nexus 3232C 스위치 및 통과 패널을 NetApp 캐비닛에 설치하고 스위치에 포함된 표준 브래킷을 사용할 수 있습니다. 
 ---
 = NetApp 캐비닛에 Cisco Nexus 3232C 클러스터 스위치 및 통과 패널을 설치합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

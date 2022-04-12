@@ -5,6 +5,7 @@ keywords: BES-53248 switches,preparing for upgrade,upgrade bes-53248 switch
 summary: 이 절차를 사용하여 BES-53248 클러스터 스위치 업그레이드를 위한 컨트롤러를 준비할 수 있습니다. 
 ---
 = 클러스터 스위치의 업그레이드를 위해 컨트롤러를 준비합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

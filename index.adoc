@@ -8,6 +8,7 @@ summary: 이 사이트의 문서를 사용하여 클러스터, 공유 스토리�
 ---
 = AFF 및 FAS 스위치 문서
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -5,6 +5,7 @@ keywords: BES-53248 switches,upgrading,BES-53248 switches
 summary: 'BES-53248 클러스터 스위치 업그레이드는 컨트롤러를 업그레이드하기 위한 준비, EFOS 소프트웨어, 라이센스 및 RCF(Reference Configuration File)\ 설치 등으로 시작됩니다. 설치 후 무중단 업그레이드\(NDU\) 및 무중단 운영\(NDO\) 환경에서 컨트롤러 구성을 복원할 수 있습니다.' 
 ---
 = NDO/NDU 환경에서 BES-53248 클러스터 스위치를 업그레이드합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

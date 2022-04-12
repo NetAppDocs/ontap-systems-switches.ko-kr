@@ -5,6 +5,7 @@ keywords: Cisco, 3132Q-V
 summary: 2노드 스위치 클러스터로 마이그레이션 
 ---
 = Cisco Nexus 3132Q-V 스위치
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

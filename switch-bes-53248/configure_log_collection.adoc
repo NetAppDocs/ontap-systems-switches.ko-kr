@@ -5,6 +5,7 @@ keywords: log collection feature,collect switch-related log files,SSh key,crypto
 summary: 클러스터 스위치 상태 모니터 로그 수집 기능은 ONTAP에서 스위치 관련 로그 파일을 수집하는 데 사용됩니다. 여기에 설명된 대로 BES-53248 클러스터 스위치 CLI를 사용하여 환경을 설정해야 합니다. 
 ---
 = 클러스터 스위치 로그 수집 기능을 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

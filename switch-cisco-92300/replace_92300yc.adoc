@@ -5,6 +5,7 @@ keywords: replace,upgrade cisco nexus 92300yc cluster switch
 summary: '클러스터 네트워크에서 결함이 있는 Nexus 92300YC 스위치를 교체하는 것은 무중단 절차(NDU\)입니다.' 
 ---
 = Cisco Nexus 92300YC 스위치를 교체합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

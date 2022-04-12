@@ -5,6 +5,7 @@ keywords: broadcom, support, bes, cluster, switch, broadcam-supported bes-53248 
 summary: Broadcom 지원 BES-53248 클러스터 스위치 
 ---
 = Broadcom 지원 BES-53248 클러스터 스위치
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

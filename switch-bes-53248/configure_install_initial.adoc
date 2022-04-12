@@ -5,6 +5,7 @@ keywords: switches initial setup,initial setup,efos download
 summary: 이 절차를 사용하여 BES-53248 클러스터 스위치의 초기 설치를 수행할 수 있습니다. 
 ---
 = BES-53248 클러스터 스위치의 초기 설치 - BES-53248 스위치
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: confiure 92300yc cluster switch, cisco 92300yc
 summary: 이 장에 설명된 단계를 완료하여 새 Nexus 92300YC 스위치를 구성할 수 있습니다. 
 ---
 = 새 Cisco Nexus 92300YC 스위치를 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
