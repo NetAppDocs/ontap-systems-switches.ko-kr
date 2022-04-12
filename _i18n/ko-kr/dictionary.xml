@@ -1096,7 +1096,6 @@
   <block id="d828933791a5e7d1ea631c7a04ff2147" category="list-text">자동 케이스 생성을 억제한 경우 AutoSupport 메시지 '시스템 노드 AutoSupport invoke -node * -type all-message MAINT=end'를 호출하여 다시 활성화합니다</block>
   <block id="eac9e7086f92a026c0dbe06001206204" category="doc">Cisco 공유 스위치에 대한 설정 및 구성 가이드</block>
   <block id="949a9350bf341b8fa64977aa3c2584c5" category="section-title">ONTAP에서 지원하는 스위치</block>
-  <block id="641d7ad5c2ec29d01cc93211bd6393b9" category="paragraph">ONTAP 9.9.1에서 Cisco Nexus 9336C-FX2 스위치를 사용하여 스토리지 및 클러스터 기능을 공유 스위치 시나리오에 결합할 수 있습니다. 2개 이상의 노드로 ONTAP 네트워크를 구축하려면 두 개의 지원되는 네트워크 스위치가 필요합니다.</block>
   <block id="8a5fdb7aa013af2f886a0745ecad55fa" category="paragraph">다음 Cisco 공유 네트워크 스위치가 지원됩니다.</block>
   <block id="f1375f4dce82b7173addf1ef166c2ebc" category="section-title">스위치를 설정합니다</block>
   <block id="7b6ae48e36dd3d7cf6fae83bada46583" category="paragraph">필요한 구성 정보 및 설명서가 없는 경우 공유 스위치를 설정하기 전에 해당 정보를 수집해야 합니다.</block>
@@ -1109,8 +1108,6 @@
   <block id="9d2169c1c2855b78a7aeaa4f42d27dc7" category="inline-link">NetApp Support 사이트</block>
   <block id="8c4271e6faf2cea4cfc8e5b7108d8ee9" category="section-title">절차를 참조하십시오</block>
   <block id="b01c82f53d899ee81ba67bfac6270f54" category="inline-link">NetApp 캐비닛에 Cisco Nexus 9336C-FX2 클러스터 스위치 및 패스스루 패널 설치</block>
-  <block id="d3e18e6cda55c62cb1229ed70a876467" category="list-text">스위치 및 컨트롤러를 랙에 장착 를 참조하십시오<block ref="90faa892a4d50a53b0a7930f42b5c315" category="inline-link-rx"></block> NetApp 캐비닛에 스위치를 설치하는 지침 가이드</block>
-  <block id="78e6dfddb13e04b530aa5e137fbcffcb" category="list-text">스위치 및 컨트롤러의 전원을 켭니다.</block>
   <block id="6ee5954a9939ee0324616b71255a1ea7" category="list-text">[[step3]] 에 제공된 정보를 기반으로 스위치의 초기 구성을 수행합니다 <block ref="4e098ee0fc4ed6ae0122d7d616100d24" category="inline-xref-macro-rx"></block>.</block>
   <block id="39ea6d6c5412ec7e0e17dd391cd35f3a" category="list-text">스위치에서 소프트웨어 버전을 확인하고 필요한 경우 NetApp 지원 소프트웨어 버전을 스위치에 다운로드합니다.</block>
   <block id="7b1d1185b835814de783483f686e9825" category="inline-link">Cisco의</block>
@@ -1158,7 +1155,6 @@
   <block id="b3c830c1f46c78e5e5bfa160bf68597f" category="cell"><block ref="2ac6309dec20e42c583f3092a07361f2" category="inline-link-macro-rx"></block> (스위치에 설치된 NX-OS 릴리스에 대한 참고 사항 선택)</block>
   <block id="83a1f0b32ba6ed26d00737e3faf8fc2e" category="cell"><block ref="83a1f0b32ba6ed26d00737e3faf8fc2e" category="inline-link-macro-rx"></block></block>
   <block id="fd063930033e8c3d34fa893faa14f4ee" category="section-title">Cisco Nexus 9336C-FX2 케이블 연결 세부 정보</block>
-  <block id="5a5c48f7dd282373e89a35f202529de4" category="paragraph">다음 케이블 연결 이미지를 사용하여 컨트롤러와 스위치 간의 케이블 연결을 완료할 수 있습니다.</block>
   <block id="4e4e9a3c74ffafdd7400bec54125834f" category="inline-image-macro">직접 연결</block>
   <block id="d2aa2982691bcb6b044696b6691d5677" category="paragraph">지원되는 플랫폼을 문서화하려면 작성한 샘플 케이블 연결 워크시트를 참조하여 빈 케이블 연결 워크시트를 작성해야 합니다.</block>
   <block id="3d7fd5afdd3e2a9008c8eb6e9d19e41c" category="inline-image-macro">케이블 연결 워크시트</block>
@@ -3111,7 +3107,6 @@
   <block id="3ebdfe501befb632f105d0771d49b2ed" category="section-title">직접 연결 스토리지를 사용하여 스위치가 없는 클러스터에서 마이그레이션</block>
   <block id="a4d6f36c2fec3f157bf2efa75150d45d" category="admonition">에서 해당 NetApp RCF를 다운로드해야 합니다<block ref="1ccfcc282c22bbf629043880b6e3d7b2" category="inline-link-rx"></block> 를 선택합니다.</block>
   <block id="6a2cf54f6a37518ec42d92fd7fd3e59c" category="paragraph"><block ref="6a2cf54f6a37518ec42d92fd7fd3e59c" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="0b33aa659f82969dceca5746d61c3616" category="paragraph">공유 스위치 스토리지 포트를 사용하는 대신 스토리지를 직접 연결 으로 케이블로 연결하려면 직접 연결 다이어그램을 따르십시오.</block>
   <block id="6c2050d09711322397bf2564af018947" category="paragraph"><block ref="6c2050d09711322397bf2564af018947" category="inline-image-macro-rx" type="image"></block></block>
   <block id="979ffb8500894419af56930a4367f4cf" category="list-text">라이센스 파일을 설치합니다. 다음 예에서는 SFTP를 사용하여 라이센스 파일을 키 인덱스 1에 복사합니다.</block>
   <block id="dd76252ea7a50def2a98f218cb1505b4" category="inline-link">KB 문서를 참조하십시오</block>
@@ -3260,5 +3255,10 @@
   <block id="403284bd44beda112195a484c8a76421" category="sidebar">스토리지 스위치</block>
   <block id="bc8a2cd252a5beb1dbf4f209baea67eb" category="sidebar">공유 스위치</block>
   <block id="7bd0358c3b996edfe19bd3da912bde62" category="sidebar">Cisco Nexus 9336C-FX2 공유 스위치</block>
-  <block id="e4c1ca77c9404c4e475b957c8cc99c46" category="sidebar">NVIDIA MSN2100 스위치</block>
+  <block id="c362338c56e3a8923a48d3ee53e0fe46" category="paragraph">ONTAP 9.9.1에서 Cisco Nexus 9336C-FX2 스위치를 사용하여 스토리지 및 클러스터 기능을 공유 스위치 구성으로 결합할 수 있습니다. 2개 이상의 노드로 ONTAP 클러스터를 구축하려면 두 개의 지원되는 네트워크 스위치가 필요합니다.</block>
+  <block id="a4e916c58a0625a75d1a7d3a587de12d" category="list-text">스위치, 컨트롤러 및 NS224 NVMe 스토리지 쉘프를 랙 마운트하십시오. 를 참조하십시오<block ref="90faa892a4d50a53b0a7930f42b5c315" category="inline-link-rx"></block> NetApp 캐비닛에 스위치를 설치하는 지침 가이드</block>
+  <block id="33b51f739542d105d7c5028b7244b26e" category="list-text">스위치, 컨트롤러 및 NS224 NVMe 스토리지 쉘프의 전원을 켭니다.</block>
+  <block id="42129f3fe0d8a21bc1cebadaaaa93763" category="list-text">대부분의 스토리지 시스템 컨트롤러는 이더넷 서비스 포트(렌치 아이콘)에 연결하여 e0M 인터페이스를 통해 관리됩니다. AFF A800 및 AFF A700s 시스템에서 e0M 인터페이스는 전용 이더넷 포트를 사용합니다.</block>
+  <block id="59a2ddcfdc456f577bc1f4ec1b24677c" category="paragraph">다음 케이블 연결 이미지를 사용하여 컨트롤러와 스위치 간의 케이블 연결을 완료할 수 있습니다. NS224 스토리지를 스위치 연결 상태로 케이블로 연결하려면 스위치 연결 다이어그램을 따르십시오.</block>
+  <block id="3dda7fcad085dc5c2976b2c7124be51b" category="paragraph">공유 스위치 스토리지 포트를 사용하는 대신 NS224 스토리지를 직접 연결 스토리지 케이블로 연결하려면 직접 연결 다이어그램을 따르십시오.</block>
 </blocks>
