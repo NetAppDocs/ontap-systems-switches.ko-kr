@@ -15,7 +15,7 @@ summary: 이 절차를 사용하여 BES-53248 클러스터 스위치에 EFOS 소
 
 
 
-==== 이 작업에 대해
+== 이 작업에 대해
 
 ====
 * 다음 사항에 유의하십시오. *
@@ -102,9 +102,9 @@ IMPORTANT: BES-53248 클러스터 스위치를 EFOS 3.3.x.x 또는 3.4.x.x에서
 이 예에서는 스위치가 IP 주소 172.19.2.1로 서버에 연결되어 있는지 확인합니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs2) # ping 172.19.2.1
+(cs2)# *ping 172.19.2.1*
 Pinging 172.19.2.1 with 0 bytes of data:
 
 Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
@@ -192,7 +192,7 @@ Additional Packages............................ BGP-4
 +
 [listing]
 ----
-(cs2) # copy sftp://root@172.19.2.1//tmp/EFOS-3.4.4.6.stk active
+(cs2)# *copy sftp://root@172.19.2.1//tmp/EFOS-3.4.4.6.stk active*
 Remote Password:********
 
 Mode........................................... SFTP
@@ -203,7 +203,7 @@ Data Type...................................... Code
 Destination Filename........................... active
 
 Management access will be blocked for the duration of the transfer
-Are you sure you want to start? (y/n) y
+Are you sure you want to start? (y/n) *y*
 SFTP Code transfer starting...
 
 

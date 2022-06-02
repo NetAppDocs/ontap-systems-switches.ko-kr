@@ -35,7 +35,7 @@ NOTE: 포트 라이센스를 구입하면 추가 포트를 활성화할 수 있�
 ** BES-53248: 포트 0/55-0/56(100GbE)
 
 
-* Hardware Universe에는 ONTAP 호환성, 지원되는 EFOS 펌웨어 및 BES-53248 클러스터 스위치 케이블 연결에 대한 정보가 포함되어 있습니다.
+* 를 클릭합니다 https://hwu.netapp.com/Home/Index["_NetApp Hardware Universe _"^] ONTAP 호환성, 지원되는 EFOS 펌웨어 및 BES-53248 클러스터 스위치 케이블 연결에 대한 정보를 제공합니다.
 * 적절한 ISL 케이블 연결은 다음과 같습니다.
 +
 ** * 시작: * CN1610 연결(SFP+에서 SFP+로), SFP+ 광 파이버 4개 또는 구리 직접 연결 케이블용
@@ -48,6 +48,4 @@ NOTE: 포트 라이센스를 구입하면 추가 포트를 활성화할 수 있�
 
 NOTE: 마이그레이션이 완료된 후 BES-53248 클러스터 스위치용 CSHM(Cluster Switch Health Monitor)을 지원하기 위해 필요한 구성 파일을 설치해야 할 수 있습니다.
 
-을 참조하십시오 http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-sw-ix8-setup/GUID-211616A4-C962-464A-A70E-5E057D7B13E1.html["CSHM(Cluster Switch Health Monitor) 구성 파일 설치"] Broadcom에서 지원하는 BES-53248 스위치_가이드의 _스위치 설정 및 구성 안내서 를 참조하십시오.
-
-에서 클러스터 스위치 로그 수집 기능 구성 _ 을(를) 참조하십시오 http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-sw-ix8-setup/home.html["Broadcom 지원 BES-53248 스위치에 대한 스위치 설정 및 구성 설명서"] 스위치 관련 로그 파일을 수집하는 데 사용되는 클러스터 상태 스위치 로그 수집을 활성화하는 데 필요한 단계를 확인합니다.
+을 참조하십시오 link:configure-health-monitor.html["CSHM(Cluster Switch Health Monitor) 구성 파일을 설치합니다"] 및 link:configure-log-collection["클러스터 스위치 로그 수집 기능을 구성합니다"] 스위치 관련 로그 파일을 수집하는 데 사용되는 클러스터 상태 스위치 로그 수집을 활성화하는 데 필요한 단계를 확인합니다.

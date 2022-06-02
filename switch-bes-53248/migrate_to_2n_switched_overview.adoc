@@ -28,10 +28,7 @@ Broadcom 지원 BES-53248 클러스터 스위치 구성:
 * 클러스터 스위치에 대한 콘솔 액세스가 있어야 합니다.
 * BES-53248 노드 간 스위치 및 스위치 간 연결은 Twinax 또는 파이버 케이블을 사용해야 합니다.
 +
-__NetApp__Hardware Universe에는 ONTAP 호환성, 지원되는 EFOS 펌웨어, BES-53248 스위치 케이블 연결에 대한 정보가 포함되어 있습니다.
-
-+
-https://hwu.netapp.com/Switch/Index["Hardware Universe - 스위치"^]
+를 클릭합니다 https://hwu.netapp.com/Home/Index["_NetApp Hardware Universe _"^] ONTAP 호환성, 지원되는 EFOS 펌웨어 및 BES-53248 스위치 케이블 연결에 대한 정보를 제공합니다.
 
 * ISL(Inter-Switch Link) 케이블은 두 BES-53248 스위치의 포트 0/55 및 0/56 포트에 연결해야 합니다.
 * 두 BES-53248 스위치의 초기 사용자 정의를 완료해야 합니다. 따라서 다음을 수행합니다.
@@ -54,10 +51,7 @@ SMTP, SNMP, SSH 등의 사이트 사용자 지정은 새 스위치에서 구성�
 * 'cluster1:: *>' 프롬프트는 클러스터의 이름을 나타냅니다.
 * 이 절차에 사용되는 클러스터 포트는 e0a 및 e0b입니다.
 +
-_Hardware Universe_에는 플랫폼의 실제 클러스터 포트에 대한 최신 정보가 들어 있습니다.
-
-+
-https://hwu.netapp.com["Hardware Universe"^]
+를 클릭합니다 https://hwu.netapp.com/Home/Index["_NetApp Hardware Universe _"^] 에는 해당 플랫폼의 실제 클러스터 포트에 대한 최신 정보가 나와 있습니다.
 
 
 
@@ -97,13 +91,13 @@ NOTE: ISL 포트를 비활성화해서는 안 됩니다.
 다음 예에서는 스위치 CS1에서 노드 방향 포트 1부터 16까지 비활성 상태를 보여 줍니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs1)# configure
-(cs1)(Config)# interface 0/1-0/16
-(cs1)(Interface 0/1-0/16)# shutdown
-(cs1)(Interface 0/1-0/16)# exit
-(cs1)(Config)# exit
+(cs1)# *configure*
+(cs1)(Config)# *interface 0/1-0/16*
+(cs1)(Interface 0/1-0/16)# *shutdown*
+(cs1)(Interface 0/1-0/16)# *exit*
+(cs1)(Config)# *exit*
 ----
 . 두 BES-53248 스위치 CS1과 CS2 사이의 ISL과 ISL의 물리적 포트가 "작동" 상태인지 확인합니다.
 +
@@ -113,9 +107,9 @@ NOTE: ISL 포트를 비활성화해서는 안 됩니다.
 다음 예에서는 스위치 CS1에서 ISL 포트가 작동 중인 것을 보여 줍니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs1)# show port-channel 1/1
+(cs1)# *show port-channel 1/1*
 Local Interface................................ 1/1
 Channel Name................................... Cluster-ISL
 Link State..................................... Up
@@ -138,9 +132,9 @@ Ports  Timeout       Speed      Active
 다음 예에서는 스위치 CS2에서 ISL 포트가 작동 중인 것을 보여 줍니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs2)# show port-channel 1/1
+(cs2)# *show port-channel 1/1*
 Local Interface................................ 1/1
 Channel Name................................... Cluster-ISL
 Link State..................................... Up
@@ -157,7 +151,6 @@ Ports  Timeout       Speed      Active
        partner/long
 0/56   actor/long    100G Full  True
        partner/long
-(cs2) #
 ----
 . 인접 장치 목록을 표시합니다.
 +
@@ -170,9 +163,9 @@ Ports  Timeout       Speed      Active
 다음 예에서는 스위치 CS1의 인접 장치를 나열합니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs1)# show isdp neighbors
+(cs1)# *show isdp neighbors*
 
 Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge,
                   S - Switch, H - Host, I - IGMP, r - Repeater
@@ -185,10 +178,9 @@ cs2            0/56     176       R            BES-53248   0/56
 다음 예에서는 스위치 CS2의 인접 장치를 나열합니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-
-(cs2)# show isdp neighbors
+(cs2)# *show isdp neighbors*
 
 Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge,
                   S - Switch, H - Host, I - IGMP, r - Repeater
@@ -205,9 +197,9 @@ cs2            0/56     176       R            BES-53248   0/56
 각 항구는 건강상태에 대한 Link와 Healthy로 표시되어야 합니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> network port show -ipspace Cluster
+cluster1::*> *network port show -ipspace Cluster*
 
 Node: node1
 
@@ -224,18 +216,15 @@ Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status
 --------- ------------ ---------------- ---- ---- ----------- --------
 e0a       Cluster      Cluster          up   9000  auto/10000 healthy
 e0b       Cluster      Cluster          up   9000  auto/10000 healthy
-
-4 entries were displayed.
 ----
 . 모든 클러스터 LIF가 '작동' 및 'network interface show-vserver Cluster'인지 확인합니다
 +
 각 클러스터 LIF는 '홈'에 대해 '참'으로 표시되어야 하며 '위/위'의 '상태 관리자/작업'이 있어야 합니다
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-
-cluster1::*> network interface show -vserver Cluster
+cluster1::*> *network interface show -vserver Cluster*
 
             Logical    Status     Network            Current       Current Is
 Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
@@ -245,13 +234,12 @@ Cluster
             node1_clus2  up/up    169.254.49.125/16  node1         e0b     true
             node2_clus1  up/up    169.254.47.194/16  node2         e0a     true
             node2_clus2  up/up    169.254.19.183/16  node2         e0b     true
-4 entries were displayed.
 ----
 . 모든 클러스터 LIF에서 'auto-revert'가 활성화되어 있는지 확인합니다. 'network interface show-vserver Cluster-fields auto-revert'
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> network interface show -vserver Cluster -fields auto-revert
+cluster1::*> *network interface show -vserver Cluster -fields auto-revert*
 
           Logical
 Vserver   Interface     Auto-revert
@@ -261,15 +249,10 @@ Cluster
           node1_clus2   true
           node2_clus1   true
           node2_clus2   true
-
-4 entries were displayed.
 ----
 . 노드 1의 클러스터 포트 e0a에서 케이블을 분리한 다음, BES-53248 스위치가 지원하는 적절한 케이블을 사용하여 클러스터 스위치 CS1의 포트 1에 e0a를 연결합니다.
 +
-케이블 연결에 대한 자세한 내용은 _NetApp Hardware Universe_를 참조하십시오.
-
-+
-https://hwu.netapp.com/Switch/Index["Hardware Universe - 스위치"^]
+를 클릭합니다 https://hwu.netapp.com/Home/Index["_NetApp Hardware Universe _"^] 케이블 연결에 대한 자세한 내용은 에 나와 있습니다.
 
 . 노드 2의 클러스터 포트 e0a에서 케이블을 분리한 다음, BES-53248 스위치가 지원하는 적절한 케이블을 사용하여 클러스터 스위치 CS1의 포트 2에 e0a를 연결합니다.
 . 클러스터 스위치 CS1에서 모든 노드 대상 포트를 활성화합니다.
@@ -277,13 +260,13 @@ https://hwu.netapp.com/Switch/Index["Hardware Universe - 스위치"^]
 다음 예에서는 스위치 CS1에서 포트 1 ~ 16이 활성화되어 있음을 보여 줍니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs1)# configure
-(cs1)(Config)# interface 0/1-0/16
-(cs1)(Interface 0/1-0/16)# no shutdown
-(cs1)(Interface 0/1-0/16)# exit
-(cs1)(Config)# exit
+(cs1)# *configure*
+(cs1)(Config)# *interface 0/1-0/16*
+(cs1)(Interface 0/1-0/16)# *no shutdown*
+(cs1)(Interface 0/1-0/16)# *exit*
+(cs1)(Config)# *exit*
 ----
 . 모든 클러스터 LIF가 작동 중이고 "홈"에 대해 "참"으로 표시되는지 확인합니다.
 +
@@ -293,9 +276,9 @@ https://hwu.netapp.com/Switch/Index["Hardware Universe - 스위치"^]
 다음 예에서는 모든 LIF가 node1과 node2에 있고 "홈" 결과가 "참"임을 보여 줍니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> network interface show -vserver Cluster
+cluster1::*> *network interface show -vserver Cluster*
 
          Logical      Status     Network            Current     Current Is
 Vserver  Interface    Admin/Oper Address/Mask       Node        Port    Home
@@ -305,8 +288,6 @@ Cluster
          node1_clus2  up/up      169.254.49.125/16  node1       e0b     true
          node2_clus1  up/up      169.254.47.194/16  node2       e0a     true
          node2_clus2  up/up      169.254.19.183/16  node2       e0b     true
-
-4 entries were displayed.
 ----
 . 클러스터의 노드 상태에 대한 정보를 표시합니다.
 +
@@ -316,16 +297,14 @@ Cluster
 다음 예제에는 클러스터에 있는 노드의 상태 및 자격에 대한 정보가 표시됩니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> cluster show
+cluster1::*> *cluster show*
 
 Node                 Health  Eligibility   Epsilon
 -------------------- ------- ------------  ------------
 node1                true    true          false
 node2                true    true          false
-
-2 entries were displayed.
 ----
 . BES-53248 스위치가 지원하는 적절한 케이블을 사용하여 노드 1의 클러스터 포트 e0b에서 케이블을 분리한 다음 클러스터 스위치 CS2의 포트 1에 e0b를 연결합니다.
 . BES-53248 스위치가 지원하는 적절한 케이블을 사용하여 노드 2의 클러스터 포트 e0b에서 케이블을 분리한 다음 클러스터 스위치 CS2의 포트 2에 e0b를 연결합니다.
@@ -334,13 +313,13 @@ node2                true    true          false
 다음 예에서는 스위치 CS2에서 포트 1부터 16까지 활성화되었음을 보여 줍니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs2)# configure
-(cs2)(Config)# interface 0/1-0/16
-(cs2)(Interface 0/1-0/16)# no shutdown
-(cs2)(Interface 0/1-0/16)# exit
-(cs2)(Config)# exit
+(cs2)# *configure*
+(cs2)(Config)# *interface 0/1-0/16*
+(cs2)(Interface 0/1-0/16)# *no shutdown*
+(cs2)(Interface 0/1-0/16)# *exit*
+(cs2)(Config)# *exit*
 ----
 . 모든 클러스터 포트가 'UP' 상태인지 확인합니다.
 +
@@ -350,9 +329,9 @@ node2                true    true          false
 다음 예에서는 모든 클러스터 포트가 노드 1과 노드 2에 있음을 보여 줍니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> network port show -ipspace Cluster
+cluster1::*> *network port show -ipspace Cluster*
 
 Node: node1
                                                                        Ignore
@@ -369,8 +348,6 @@ Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
 --------- ------------ ---------------- ---- ---- ----------- -------- ------
 e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
 e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
-
-4 entries were displayed.
 ----
 . 모든 인터페이스가 '홈'에 대해 '참'으로 표시되는지 확인합니다.
 +
@@ -384,9 +361,9 @@ NOTE: 이 작업을 완료하는 데 몇 분 정도 걸릴 수 있습니다.
 다음 예에서는 모든 LIF가 node1과 node2에 있고 "홈" 결과가 "참"임을 보여 줍니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> network interface show -vserver Cluster
+cluster1::*> *network interface show -vserver Cluster*
 
           Logical      Status     Network            Current    Current Is
 Vserver   Interface    Admin/Oper Address/Mask       Node       Port    Home
@@ -396,8 +373,6 @@ Cluster
           node1_clus2  up/up      169.254.49.125/16  node1      e0b     true
           node2_clus1  up/up      169.254.47.194/16  node2      e0a     true
           node2_clus2  up/up      169.254.19.183/16  node2      e0b     true
-
-4 entries were displayed.
 ----
 . 두 노드 모두 각 스위치에 하나씩 연결되어 있는지 확인합니다.
 +
@@ -407,9 +382,9 @@ Cluster
 다음 예에서는 두 스위치에 대해 적절한 결과를 보여 줍니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs1)# show isdp neighbors
+(cs1)# *show isdp neighbors*
 
 Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge,
                   S - Switch, H - Host, I - IGMP, r - Repeater
@@ -421,7 +396,7 @@ cs2            0/55         178       R            BES-53248   0/55
 cs2            0/56         178       R            BES-53248   0/56
 
 
-(cs2)# show isdp neighbors
+(cs2)# *show isdp neighbors*
 
 Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge,
                   S - Switch, H - Host, I - IGMP, r - Repeater
@@ -437,9 +412,9 @@ cs1            0/56         175       R            BES-53248   0/56
 네트워크 디바이스 검색 표시 프로토콜 CDP
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> network device-discovery show -protocol cdp
+cluster1::*> *network device-discovery show -protocol cdp*
 Node/       Local  Discovered
 Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
 ----------- ------ ------------------------- ----------------  ----------------
@@ -449,8 +424,6 @@ node2      /cdp
 node1      /cdp
             e0a    cs1                       0/1               BES-53248
             e0b    cs2                       0/1               BES-53248
-
-4 entries were displayed.
 ----
 . 설정이 비활성화되었는지 확인합니다.
 +
@@ -464,9 +437,9 @@ NOTE: 명령이 완료되는 데 몇 분 정도 걸릴 수 있습니다. '3분 �
 다음 예제의 "false" 출력은 구성 설정이 비활성화되어 있음을 보여 줍니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> network options switchless-cluster show
+cluster1::*> *network options switchless-cluster show*
 Enable Switchless Cluster: false
 ----
 . 클러스터에서 노드 구성원의 상태를 확인합니다.
@@ -477,9 +450,9 @@ Enable Switchless Cluster: false
 다음 예는 클러스터에 있는 노드의 상태 및 적격성에 대한 정보를 보여줍니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> cluster show
+cluster1::*> *cluster show*
 
 Node                 Health  Eligibility   Epsilon
 -------------------- ------- ------------  --------
@@ -491,9 +464,9 @@ node2                true    true          false
 'cluster ping-cluster-node_node-name_'
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> cluster ping-cluster -node local
+cluster1::*> *cluster ping-cluster -node local*
 
 Host is node2
 Getting addresses from network interface table...
@@ -534,12 +507,12 @@ cluster1::*> system node autosupport invoke -node \* -type all -message MAINT=EN
 ----
 
 
-에서 클러스터 스위치 로그 수집 기능 구성 _ 을(를) 참조하십시오 http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-sw-ix8-setup/home.html["Broadcom 지원 BES-53248 스위치에 대한 스위치 설정 및 구성 설명서"^] 스위치 관련 로그 파일을 수집하는 데 사용되는 클러스터 상태 스위치 로그 수집을 활성화하는 데 필요한 단계를 확인합니다.
+을 참조하십시오 link:configure-health-monitor.html["CSHM(Cluster Switch Health Monitor) 구성 파일을 설치합니다"] 및 link:configure-log-collection["클러스터 스위치 로그 수집 기능을 구성합니다"] 스위치 관련 로그 파일을 수집하는 데 사용되는 클러스터 상태 스위치 로그 수집을 활성화하는 데 필요한 단계를 확인합니다.
 
 * 관련 정보 *
 
-https://hwu.netapp.com["Hardware Universe"^]
+https://hwu.netapp.com/Home/Index["NetApp Hardware Universe를 참조하십시오"^]
 
-http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-sw-ix8-setup/home.html["Broadcom 지원 BES-53248 스위치에 대한 스위치 설정 및 구성 설명서"^]
+link:replace-requirements.html["Broadcom 지원 BES-53248 스위치 설정 및 구성"^]
 
 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_suppress_automatic_case_creation_during_scheduled_maintenance_windows["NetApp KB 문서: 예약된 유지 관리 창에서 자동 케이스 생성을 억제하는 방법"^]

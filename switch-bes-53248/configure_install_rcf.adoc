@@ -23,58 +23,54 @@ BES-53248 클러스터 스위치를 처음 설정하고 새 라이센스 또는 
 이 예에서는 스위치가 IP 주소 172.19.2.1로 서버에 연결되어 있는지 확인합니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs2) # ping 172.19.2.1
+(cs2)# *ping 172.19.2.1*
 Pinging 172.19.2.1 with 0 bytes of data:
 
 Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
 ----
 . COPY 명령어를 이용하여 BES-53248 클러스터 스위치에 RCF를 설치한다.
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs2) # copy http://172.19.2.1/tmp/BES-53248_RCF_v1.6-Cluster-HA.txt nvram:script BES-53248_RCF_v1.6-Cluster-HA.scr
+(cs2)# *copy sftp://172.19.2.1/tmp/BES-53248_RCF_v1.6-Cluster-HA.txt nvram:script BES-53248_RCF_v1.6-Cluster-HA.scr*
 
-Remote Password ********
+Remote Password:********
 
-Mode........................................... HTTP
+Mode........................................... SFTP
 Set Server IP.................................. 172.19.2.1
 Path........................................... //tmp/
 Filename....................................... BES-53248_RCF_v1.6-Cluster-HA.txt
 Data Type...................................... Config Script
 Destination Filename........................... BES-53248_RCF_v1.6-Cluster-HA.scr
 
-File with same name already exists.
-WARNING:Continuing with this command will overwrite the existing file.
-
 Management access will be blocked for the duration of the transfer
-Are you sure you want to start? (y/n) y
+Are you sure you want to start? (y/n) *y*
+SFTP Code transfer starting...
 
-File transfer in progress. Management access will be blocked for the duration of the transfer. Please wait...
-
-Validating configuration script...
-[the script is now displayed line by line]
-
-Configuration script validated.
 File transfer operation completed successfully.
 ----
 +
 
-NOTE: 환경에 따라 copy 명령에 double 슬래시(예: + copy)를 사용해야 할 수도 있습니다 http://172.19.2.1//tmp/BES-53248_RCF_v1.6-Cluster-HA.txt[] NVRAM: 스크립트 BES-53248_RCF_v1.6 - Cluster-HA.SCR+'.
+NOTE: 환경에 따라 'copy' 명령에서 '+copy sftp://172.19.2.1//tmp/BES-53248_RCF_v1.6-Cluster-HA.txt NVRAM: script BES-53248_RCF_v1.6-Cluster-HA.scr+'와 같은 이중 슬래시를 사용해야 할 수 있습니다.
 
 +
 
-NOTE: 스크립트를 호출하기 전에 '.scr' 확장자를 파일 이름의 일부로 설정해야 합니다. 이 확장은 EFOS 운영 체제의 확장입니다. 스위치는 스크립트가 스위치에 다운로드되면 자동으로 스크립트의 유효성을 검사하며 출력은 콘솔로 전달됩니다. 또한 콘솔 화면에 맞게 '.scr'의 이름을 변경하여 가독성을 높일 수도 있습니다(예: '+copy) http://172.19.2.1/tmp/BES-53248_RCF_v1.6-Cluster-HA.txt[] NVRAM: 스크립트 RCF_v1.6 - Cluster-HA.scr+'.
+NOTE: 스크립트를 호출하기 전에 '.scr' 확장자를 파일 이름의 일부로 설정해야 합니다. 이 확장은 EFOS 운영 체제의 확장입니다. 스위치는 스크립트가 스위치에 다운로드되면 자동으로 스크립트의 유효성을 검사하며 출력은 콘솔로 전달됩니다. 또한 콘솔 화면에 맞게 ".scr"의 이름을 변경하여 가독성을 높일 수도 있습니다. 예를 들어, "+COPY SFTP://172.19.2.1/tmp/BES-53248_RCF_v1.6-Cluster-HA.txt NVRAM: script RCF_v1.6-Cluster-HA.scr+"를 지정할 수 있습니다.
+
++
+
+NOTE: 파일 이름에는 '\/: *?"<>|' 기호가 포함될 수 없으며 허용되는 최대 길이는 32자입니다.
 
 . 스크립트가 다운로드되어 지정한 파일 이름에 저장되었는지 확인합니다.
 +
 '스크립트 목록'
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs2) # script list
+(cs2)# *script list*
 
 Configuration Script Name                  Size(Bytes)  Date of Modification
 -----------------------------------------  -----------  --------------------
@@ -87,14 +83,14 @@ BES-53248_RCF_v1.6-Cluster-HA.scr        2241         2020 09 30 05:41:00
 '스크립트 적용'
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs2) # script apply BES-53248_RCF_v1.6-Cluster-HA.scr
+(cs2)# *script apply BES-53248_RCF_v1.6-Cluster-HA.scr*
 
-Are you sure you want to apply the configuration script? (y/n) y
+Are you sure you want to apply the configuration script? (y/n) *y*
 
 The system has unsaved changes.
-Would you like to save them now? (y/n) y
+Would you like to save them now? (y/n) *y*
 Config file 'startup-config' created successfully .
 Configuration Saved!
 
@@ -105,9 +101,9 @@ Configuration script 'BES-53248_RCF_v1.6-Cluster-HA.scr' applied.
 '모두 포트 보기|분리 제외'
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs2) # show port all \| exclude Detach
+(cs2)# *show port all \| exclude Detach*
 
                  Admin     Physical     Physical   Link   Link    LACP   Actor
 Intf      Type   Mode      Mode         Status     Status Trap    Mode   Timeout
@@ -142,22 +138,22 @@ Intf      Type   Mode      Mode         Status     Status Trap    Mode   Timeout
 'show running-config'를 선택합니다
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs2) # show running-config
+(cs2)# *show running-config*
 ----
 . 스위치를 재부팅할 때 시작 구성이 되도록 실행 중인 구성을 저장합니다.
 +
 쓰기 메모리
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs2) # write memory
+(cs2)# *write memory*
 This operation may take a few minutes.
 Management interfaces will not be available during this time.
 
-Are you sure you want to save? (y/n) y
+Are you sure you want to save? (y/n) *y*
 
 Config file 'startup-config' created successfully.
 
@@ -168,11 +164,11 @@ Configuration Saved!
 다시 로드
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs2) # reload
+(cs2)# *reload*
 
-Are you sure you would like to reset the system? (y/n)y
+Are you sure you would like to reset the system? (y/n) *y*
 
 System will now restart!
 ----

@@ -40,23 +40,23 @@ NOTE: CSHM에서 사용 가능한 모든 기능을 사용하려면 SSH를 활성
 ----
 . 'Set-Privilege Advanced' 명령을 사용하여 클러스터의 ONTAP 시스템 중 하나에서 고급 모드 설정을 액세스합니다.
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::> set -privilege advanced
+cluster1::> *set -privilege advanced*
 ----
 . 스위치 상태 모니터 configure 'system cluster -switch configure -health-monitor -node * -package-url\http://server/file-location`: 명령을 실행합니다
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::> system cluster-switch configure-health-monitor -node * -package-url
-http://192.168.2.20/usr/download/Broadcom_BES-53248.zip
+cluster1::> *system cluster-switch configure-health-monitor -node * -package-url
+http://192.168.2.20/usr/download/Broadcom_BES-53248.zip*
 ----
 . 명령 출력에 "downloaded package processed successfully" 텍스트 문자열이 포함되어 있는지 확인합니다. 오류가 발생하면 NetApp 지원 팀에 문의하십시오.
 . ONTAP 시스템에서 'system cluster-switch show' 명령을 실행하고 모니터링되는 필드가 "True"로 설정된 상태에서 클러스터 스위치가 검색되는지 확인합니다.
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::> system cluster-switch show
+cluster1::> *system cluster-switch show*
 ----
 +
 

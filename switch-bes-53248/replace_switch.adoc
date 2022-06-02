@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: replace, replacing, defective, broadcom-supported, bes, cluster, switch, network, nondisruptive, procedure, ndu, replace a broadcom-supported bes-53428 cluster switch - bes-53428 switches 
 summary: '클러스터 네트워크에서 결함이 있는 Broadcom 지원 BES-53248 클러스터 스위치를 교체하는 것은 무중단 절차\(NDU\)입니다.' 
 ---
-= Broadcom 지원 BES-53248 클러스터 스위치 BES-53248 스위치를 교체합니다
+= Broadcom 지원 BES-53248 클러스터 스위치를 교체합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -29,7 +29,7 @@ summary: '클러스터 네트워크에서 결함이 있는 Broadcom 지원 BES-5
 ** 교체 스위치에 대한 콘솔 액세스가 있어야 합니다.
 ** 노드 접속은 기본 라이센스를 가진 포트 0/1 - 0/16 이다.
 ** 모든 ISL(Inter-Switch Link) 포트는 포트 0/55 및 0/56에서 비활성화해야 합니다.
-** 원하는 RCF(Reference Configuration File)와 EFOS의 운영 체제 스위치 이미지를 스위치에 로드해야 합니다.
+** 원하는 RCF(Reference Configuration File) 및 EFOS 운영 체제 스위치 이미지를 스위치에 로드해야 합니다.
 ** 에 설명된 대로 스위치의 초기 사용자 정의를 완료해야 합니다 xref:configure-new-switch.adoc[새로운 Broadcom 지원 BES-53248 스위치 구성].
 +
 STP, SNMP, SSH 등의 이전 사이트 사용자 지정은 새 스위치에 복사해야 합니다.
@@ -51,9 +51,9 @@ STP, SNMP, SSH 등의 이전 사이트 사용자 지정은 새 스위치에 복�
 
 NOTE: 다음 절차는 클러스터 네트워크 토폴로지를 기준으로 합니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::> network port show -ipspace Cluster
+cluster1::> *network port show -ipspace Cluster*
 
 Node: node1
                                                                        Ignore
@@ -72,10 +72,8 @@ Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
 e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
 e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 
-4 entries were displayed.
 
-
-cluster1::> network interface show -vserver Cluster
+cluster1::> *network interface show -vserver Cluster*
             Logical    Status     Network            Current       Current Is
 Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
 ----------- ---------- ---------- ------------------ ------------- ------- ----
@@ -85,11 +83,8 @@ Cluster
             node2_clus1  up/up    169.254.47.194/16  node2         e0a     true
             node2_clus2  up/up    169.254.19.183/16  node2         e0b     true
 
-4 entries were displayed.
 
-
-
-cluster1::> network device-discovery show -protocol cdp
+cluster1::> *network device-discovery show -protocol cdp*
 Node/       Local  Discovered
 Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
 ----------- ------ ------------------------- ----------------  ----------------
@@ -99,11 +94,10 @@ node2      /cdp
 node1      /cdp
             e0a    cs1                       0/1               BES-53248
             e0b    cs2                       0/1               BES-53248
-
-4 entries were displayed.
-
-
-(cs1) # show isdp neighbors
+----
+[listing, subs="+quotes"]
+----
+(cs1)# *show isdp neighbors*
 
 Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge,
                   S - Switch, H - Host, I - IGMP, r - Repeater
@@ -116,7 +110,7 @@ cs2                      0/55      179       R          BES-53248        0/55
 cs2                      0/56      179       R          BES-53248        0/56
 
 
-(cs2) # show isdp neighbors
+(cs2)# show isdp neighbors
 
 Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge,
                   S - Switch, H - Host, I - IGMP, r - Repeater
@@ -151,25 +145,26 @@ NOTE: 추가 포트에 대한 추가 라이센스를 구입한 경우 이 포트
 NOTE: "활성화" 모드로 들어가려면 비밀번호가 필요하지 않습니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-User: admin
+User: *admin*
 Password:
-(newcs2) >enable
-(newcs2) #config
-(newcs2)(config)#interface 0/1-0/16
-(newcs2)(interface 0/1-0/16)#shutdown
-(newcs2)(interface 0/1-0/16)#exit
-(newcs2)(config)#exit
+(newcs2)> *enable*
+(newcs2)# *config*
+(newcs2)(config)# *interface 0/1-0/16*
+(newcs2)(interface 0/1-0/16)# *shutdown*
+(newcs2)(interface 0/1-0/16)# *exit*
+(newcs2)(config)# *exit*
+(newcs2)#
 ----
 . 모든 클러스터 LIF에 '자동 되돌리기'가 설정되어 있는지 확인합니다.
 +
 'network interface show-vserver Cluster-fields auto-revert'
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::> network interface show -vserver Cluster -fields auto-revert
+cluster1::> *network interface show -vserver Cluster -fields auto-revert*
 
 Logical
 Vserver   Interface    Auto-revert
@@ -177,17 +172,16 @@ Vserver   Interface    Auto-revert
 Cluster   node1_clus1  true
 Cluster   node1_clus2  true
 Cluster   node2_clus1  true
-Cluster			node2_clus2		true
+Cluster   node2_clus2  true
 
-4 entries were displayed.
 ----
 . BES-53248 스위치 CS1에서 ISL 포트 0/55 및 0/56 종료:
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs1) # config
-(cs1)(config)# interface 0/55-0/56
-(cs1)(interface 0/55-0/56)# shutdown
+(cs1)# *config*
+(cs1)(config)# *interface 0/55-0/56*
+(cs1)(interface 0/55-0/56)# *shutdown*
 ----
 . BES-53248 CS2 스위치에서 모든 케이블을 분리한 다음 BES-53248 newcs2 스위치의 동일한 포트에 연결합니다.
 . CS1과 newcs2 스위치 사이에 ISL 포트 0/55 및 0/56을 가져와 포트 채널 작동 상태를 확인합니다.
@@ -198,13 +192,13 @@ Cluster			node2_clus2		true
 이 예에서는 ISL 포트 0/55 및 0/56을 활성화하고 스위치 CS1의 포트 채널 1/1에 대한 링크 상태를 표시합니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs1) # config
-(cs1)(config)# interface 0/55-0/56
-(cs1)(interface 0/55-0/56)# no shutdown
-(cs1) # show port-channel 1/1
-
+(cs1)# *config*
+(cs1)(config)# *interface 0/55-0/56*
+(cs1)(interface 0/55-0/56)# *no shutdown*
+(cs1)(interface 0/55-0/56)# *exit*
+(cs1)# *show port-channel 1/1*
 
 Local Interface................................ 1/1
 Channel Name................................... Cluster-ISL
@@ -229,16 +223,16 @@ Ports  Timeout       Speed      Active
 NOTE: 추가 포트에 대한 추가 라이센스를 구입한 경우 이 포트도 종료합니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
 User:admin
 Password:
-(newcs2) >enable
-(newcs2) #config
-(newcs2)(config)#interface 0/1-0/16
-(newcs2)(interface 0/1-0/16)#no shutdown
-(newcs2)(interface 0/1-0/16)#exit
-(newcs2)(config)#exit
+(newcs2)> *enable*
+(newcs2)# *config*
+(newcs2)(config)# *interface 0/1-0/16*
+(newcs2)(interface 0/1-0/16)# *no shutdown*
+(newcs2)(interface 0/1-0/16)# *exit*
+(newcs2)(config)# *exit*
 ----
 . 포트 e0b가 'UP' 상태인지 확인:
 +
@@ -248,9 +242,9 @@ Password:
 출력은 다음과 비슷해야 합니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::> network port show -ipspace Cluster
+cluster1::> *network port show -ipspace Cluster*
 
 Node: node1
                                                                         Ignore
@@ -267,8 +261,6 @@ Port      IPspace      Broadcast Domain Link MTU   Admin/Oper  Status   Status
 --------- ------------ ---------------- ---- ----- ----------- -------- -------
 e0a       Cluster      Cluster          up   9000  auto/10000  healthy  false
 e0b       Cluster      Cluster          up   9000  auto/auto   -        false
-
-4 entries were displayed.
 ----
 . 이전 단계에서 사용한 것과 같은 노드에서 노드 1의 클러스터 LIF 노드 1_clus2가 자동 되돌아갈 때까지 기다립니다.
 +
@@ -278,9 +270,9 @@ e0b       Cluster      Cluster          up   9000  auto/auto   -        false
 다음 명령을 실행하면 두 노드의 LIF에 대한 정보가 표시됩니다. 첫 번째 노드 가져오기는 두 클러스터 인터페이스에 대해 "홈"이 "참"이고 노드 1의 "e0a"와 "e0b"의 예에서 올바른 포트 할당을 표시하는 경우 성공합니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::> network interface show -vserver Cluster
+cluster::> *network interface show -vserver Cluster*
 
             Logical      Status     Network            Current    Current Is
 Vserver     Interface    Admin/Oper Address/Mask       Node       Port    Home
@@ -290,30 +282,28 @@ Cluster
             node1_clus2  up/up      169.254.49.125/16  node1      e0b     true
             node2_clus1  up/up      169.254.47.194/16  node2      e0a     true
             node2_clus2  up/up      169.254.19.183/16  node2      e0a     false
-
-4 entries were displayed.
 ----
 . 클러스터의 노드에 대한 정보를 'cluster show'로 표시합니다
 +
 이 예에서는 이 클러스터의 노드 1과 노드2의 노드 상태가 "참"임을 보여 줍니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::> cluster show
-Node                   Health Eligibility    Epsilon
---------------------   ------- ------------  --------
-node1                   true    true           true
-node2                   true    true           true
+cluster1::> *cluster show*
+Node   Health   Eligibility   Epsilon
+------ -------- ------------  --------
+node1  true     true          true
+node2  true     true          true
 ----
 . 다음 클러스터 네트워크 구성을 확인합니다.
 +
 네트워크 포트 쇼
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::> network port show -ipspace Cluster
+cluster1::> *network port show -ipspace Cluster*
 Node: node1
                                                                        Ignore
                                        Speed(Mbps)            Health   Health
@@ -330,10 +320,8 @@ Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
 e0a       Cluster      Cluster          up   9000 auto/10000  healthy  false
 e0b       Cluster      Cluster          up   9000 auto/10000  healthy  false
 
-4 entries were displayed.
 
-
-cluster1::> network interface show -vserver Cluster
+cluster1::> *network interface show -vserver Cluster*
 
             Logical    Status     Network            Current       Current Is
 Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
@@ -344,10 +332,11 @@ Cluster
             node2_clus1  up/up    169.254.47.194/16  node2         e0a     true
             node2_clus2  up/up    169.254.19.183/16  node2         e0b     true
 4 entries were displayed.
-
-
-
-cs1# show cdp neighbors
+----
++
+[listing, subs="+quotes"]
+----
+cs1# *show cdp neighbors*
 
 Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
                   S - Switch, H - Host, I - IGMP, r - Repeater,
@@ -361,10 +350,7 @@ newcs2(FDO296348FU)  Eth1/65        176    R S I s     N9K-C92300YC  Eth1/65
 newcs2(FDO296348FU)  Eth1/66        176    R S I s     N9K-C92300YC  Eth1/66
 
 
-Total entries displayed: 4
-
-
-cs2# show cdp neighbors
+cs2# *show cdp neighbors*
 
 Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
                   S - Switch, H - Host, I - IGMP, r - Repeater,
@@ -376,17 +362,15 @@ node1              Eth1/1         139    H           FAS2980       e0b
 node2              Eth1/2         124    H           FAS2980       e0b
 cs1(FDO220329KU)   Eth1/65        178    R S I s     N9K-C92300YC  Eth1/65
 cs1(FDO220329KU)   Eth1/66        178    R S I s     N9K-C92300YC  Eth1/66
-
-Total entries displayed: 4
 ----
 . 클러스터 네트워크가 정상인지 확인합니다.
 +
 'ISDP 네이버 표시
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs1)# show isdp neighbors
+(cs1)# *show isdp neighbors*
 Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge,
 S - Switch, H - Host, I - IGMP, r - Repeater
 Device ID    Intf    Holdtime    Capability    Platform    Port ID
@@ -396,7 +380,7 @@ node2        0/2     152         H             FAS2750     e0a
 newcs2       0/55    179         R             BES-53248   0/55
 newcs2       0/56    179         R             BES-53248   0/56
 
-(newcs2) # show isdp neighbors
+(newcs2)# *show isdp neighbors*
 Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge,
 S - Switch, H - Host, I - IGMP, r - Repeater
 
@@ -417,4 +401,4 @@ https://mysupport.netapp.com/["NetApp Support 사이트"^]
 
 https://hwu.netapp.com/["NetApp Hardware Universe를 참조하십시오"^]
 
-http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-sw-ix8-setup/home.html["Broadcom 지원 BES-53248 스위치에 대한 스위치 설정 및 구성 설명서"^]
+link:replace-requirements.html["Broadcom 지원 BES-53248 스위치 설정 및 구성"^]

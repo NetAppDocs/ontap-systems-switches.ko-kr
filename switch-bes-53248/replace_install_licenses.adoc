@@ -101,9 +101,9 @@ EFOS 3.4.4.6 이상
 이 예에서는 스위치가 IP 주소 172.19.2.1로 서버에 연결되어 있는지 확인합니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs2) # ping 172.19.2.1
+(cs2)# *ping 172.19.2.1*
 Pinging 172.19.2.1 with 0 bytes of data:
 
 Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
@@ -113,9 +113,9 @@ Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
 'How license'입니다
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs2) # show license
+(cs2)# *show license*
 Reboot needed.................................. No
 Number of active licenses...................... 0
 
@@ -129,9 +129,9 @@ No license file found.
 이 단계를 반복하여 더 많은 라이선스를 로드하고 다른 키 인덱스 번호를 사용합니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs2) #copy sftp://root@172.19.2.1/var/lib/tftpboot/license.dat nvram:license-key 1
+(cs2)# *copy sftp://root@172.19.2.1/var/lib/tftpboot/license.dat nvram:license-key 1*
 Remote Password:********
 
 Mode........................................... SFTP
@@ -142,10 +142,9 @@ Data Type...................................... license
 
 
 Management access will be blocked for the duration of the transfer
-Are you sure you want to start? (y/n) y
+Are you sure you want to start? (y/n) *y*
 
 File transfer in progress. Management access will be blocked for the duration of the transfer. Please wait...
-
 
 License Key transfer operation completed successfully. System reboot is required.
 ----
@@ -154,9 +153,9 @@ License Key transfer operation completed successfully. System reboot is required
 'How license'입니다
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs2) # show license
+(cs2)# *show license*
 
 Reboot needed.................................. Yes
 Number of active licenses...................... 0
@@ -174,9 +173,9 @@ License Index  License Type      Status
 스위치가 재부팅될 때까지 추가 라이센스 파일의 포트는 표시되지 않습니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs2) # show port all \| exclude Detach
+(cs2)# *show port all \| exclude Detach*
 
                  Admin     Physical   Physical   Link   Link    LACP   Actor
 Intf      Type   Mode      Mode       Status     Status Trap    Mode   Timeout
@@ -205,26 +204,26 @@ Intf      Type   Mode      Mode       Status     Status Trap    Mode   Timeout
 다시 로드
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs2) # reload
+(cs2)# *reload*
 
 The system has unsaved changes.
-Would you like to save them now? (y/n) y
+Would you like to save them now? (y/n) *y*
 
 Config file 'startup-config' created successfully .
 
 Configuration Saved!
-Are you sure you would like to reset the system? (y/n) y
+Are you sure you would like to reset the system? (y/n) *y*
 ----
 . 새 라이센스가 활성화되어 있는지 확인하고 라이센스가 적용되었는지 확인합니다.
 +
 'How license'입니다
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs2) # show license
+(cs2)# *show license*
 
 Reboot needed.................................. No
 Number of installed licenses................... 1
@@ -234,16 +233,15 @@ Total Uplink Ports enabled..................... 8
 License Index  License Type              Status
 -------------- ------------------------- -----------------------------------
 1              Port                      License applied
-(cs2) #
 ----
 . 모든 새 포트를 사용할 수 있는지 확인합니다.
 +
 '모두 포트 보기|분리 제외'
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs2) # show port all \| exclude Detach
+(cs2)# *show port all \| exclude Detach*
 
                  Admin     Physical   Physical   Link   Link    LACP   Actor
 Intf      Type   Mode      Mode       Status     Status Trap    Mode   Timeout
@@ -272,7 +270,8 @@ Intf      Type   Mode      Mode       Status     Status Trap    Mode   Timeout
 0/54             Disable   100G Full             Down   Enable  Enable long
 0/55             Disable   100G Full             Down   Enable  Enable long
 0/56             Disable   100G Full             Down   Enable  Enable long
-
-(cs2) #
 ----
 
+
+
+CAUTION: 추가 라이센스를 설치할 때는 새 인터페이스를 수동으로 구성해야 합니다. RCF를 기존의 작동 중인 프로덕션 스위치에 다시 적용하는 것은 바람직하지 않습니다.

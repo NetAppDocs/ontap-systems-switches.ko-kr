@@ -28,10 +28,10 @@ BES-53248 클러스터 스위치를 처음 설정하고 새 라이센스 또는 
 .단계
 . 상승된 권한의 명령 프롬프트('#')로 변경합니다
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs2)> enable
-(cs2) #
+(cs2)> *enable*
+(cs2)#
 ----
 . 시작 구성을 지우고 배너를 제거합니다
 +
@@ -40,11 +40,11 @@ BES-53248 클러스터 스위치를 처음 설정하고 새 라이센스 또는 
 * 'erase startup-config' *
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs2) #erase startup-config
-Are you sure you want to clear the configuration? (y/n) y
-(cs2) #
+(cs2)# *erase startup-config*
+Are you sure you want to clear the configuration? (y/n) *y*
+(cs2)#
 ----
 +
 이 명령은 배너를 지우지 않습니다.
@@ -54,19 +54,19 @@ Are you sure you want to clear the configuration? (y/n) y
 "세트 피너 없음" *
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs2) #configure
-(cs2)(Config) # no set clibanner
-(cs2)(Config) #
+(cs2)# *configure*
+(cs2)(Config)# *no set clibanner*
+(cs2)(Config)#
 ----
 
 
 . 스위치를 재부팅합니다. * '(CS2) #reload * '
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-Are you sure you would like to reset the system? (y/n) y
+Are you sure you would like to reset the system? (y/n) *y*
 ----
 +
 
@@ -86,22 +86,21 @@ NOTE: 스위치를 다시 로드하기 전에 저장되지 않은 구성이나 �
 "활성화"를 선택합니다
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-Routing)> enable
-(Routing) #
+Routing)> *enable*
+(Routing)#
 ----
 . service port protocol을 none으로 설정한다.
 +
 '저빙항프로토콜 없음
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(Routing) #serviceport protocol none
+(Routing)# *serviceport protocol none*
 Changing protocol mode will reset ip configuration.
-Are you sure you want to continue? (y/n) y
-
+Are you sure you want to continue? (y/n) *y*
 (Routing) #
 ----
 . IP 주소를 서비스 포트에 할당합니다.
@@ -112,9 +111,9 @@ Are you sure you want to continue? (y/n) y
 다음 예에서는 서브넷 "255.255.255.0" 및 게이트웨이 "10.10.10.1"이 있는 서비스 포트에 할당된 IP 주소 "10.10.10.10"을 보여 줍니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(Routing) #serviceport ip 10.10.10.10 255.255.255.0 10.10.10.1
+(Routing)# *serviceport ip 10.10.10.10 255.255.255.0 10.10.10.1*
 ----
 . 서비스 포트가 올바르게 구성되었는지 확인합니다.
 +
@@ -124,10 +123,9 @@ Are you sure you want to continue? (y/n) y
 다음 예에서는 포트가 작동 가능하며 올바른 주소가 할당되었음을 보여 줍니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(Routing) #show serviceport
-
+(Routing)# *show serviceport*
 Interface Status............................... Up
 IP Address..................................... 10.10.10.10
 Subnet Mask.................................... 255.255.255.0
@@ -139,7 +137,6 @@ Configured IPv4 Protocol....................... None
 Configured IPv6 Protocol....................... None
 IPv6 AutoConfig Mode........................... Disabled
 Burned In MAC Address.......................... D8:C4:97:56:87:D7
-
 (Routing) #
 ----
 . 필요한 경우 SSH 서버를 구성합니다.
@@ -150,34 +147,34 @@ NOTE: RCF 파일은 텔넷 프로토콜을 비활성화합니다. SSH 서버를 
 +
 .. RSA 키를 생성합니다.
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(Routing) #configure
-(Routing) (Config)#crypto key generate rsa
+(Routing)# *configure*
+(Routing) (Config)# *crypto key generate rsa*
 ----
 .. DSA 키 생성(선택 사항)
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(Routing) #configure
-(Routing) (Config)#crypto key generate dsa
+(Routing)# *configure*
+(Routing) (Config)# *crypto key generate dsa*
 ----
 .. FIPS 호환 버전의 EFOS를 사용하는 경우 ECDSA 키를 생성합니다. 다음 예제에서는 길이가 256인 키를 만듭니다. 유효한 값은 256, 384 또는 521입니다.
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(Routing) #configure
-(Routing) (Config)#crypto key generate ecdsa 256
+(Routing)# *configure*
+(Routing) (Config)# *crypto key generate ecdsa 256*
 ----
 .. SSH 서버를 활성화합니다.
 +
 필요한 경우 구성 컨텍스트를 종료합니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(Routing) (Config)#end
-(Routing) #ip ssh server enable
+(Routing) (Config)# *end*
+(Routing)# *ip ssh server enable*
 ----
 +
 
@@ -193,27 +190,25 @@ NOTE: 키가 이미 있으면 덮어쓸지 묻는 메시지가 나타날 수 있
 다음 예에서는 IP domain과 IP name server 명령을 보여 줍니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(Routing) # configure
-(Routing) (Config)#ip domain name lab.netapp.com
-(Routing) (Config)#ip name server 10.99.99.1 10.99.99.2
-(Routing) (Config)#exit
-(Routing) (Config)#
+(Routing)# *configure*
+(Routing) (Config)# *ip domain name lab.netapp.com*
+(Routing) (Config)# *ip name server 10.99.99.1 10.99.99.2*
+(Routing) (Config)# *exit*
 ----
 . 필요한 경우 시간대 및 시간 동기화(SNTP)를 구성합니다.
 +
 다음 예에서는 SNTP 서버의 IP 주소와 상대 시간대 등을 지정하는 'sNTP' 명령어를 보여준다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(Routing) #
-(Routing) (Config)#sntp client mode unicast
-(Routing) (Config)#sntp server 10.99.99.5
-(Routing) (Config)#clock timezone -7
-(Routing) (Config)#exit
-(Routing) (Config)#
+(Routing)# *configure*
+(Routing) (Config)# *sntp client mode unicast*
+(Routing) (Config)# *sntp server 10.99.99.5*
+(Routing) (Config)# *clock timezone -7*
+(Routing) (Config)# *exit*
 ----
 . 스위치 이름 구성:
 +
@@ -223,11 +218,9 @@ NOTE: 키가 이미 있으면 덮어쓸지 묻는 메시지가 나타날 수 있
 스위치 프롬프트에는 새 이름이 표시됩니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(Routing) # hostname cs2
-
-(cs2) #
+(Routing)# *hostname cs2*
 ----
 . 구성을 저장합니다.
 +
@@ -237,23 +230,19 @@ NOTE: 키가 이미 있으면 덮어쓸지 묻는 메시지가 나타날 수 있
 다음 예와 유사한 프롬프트 및 출력이 표시됩니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs2) #write memory
+(cs2)# *write memory*
 
 This operation may take a few minutes.
 Management interfaces will not be available during this time.
 
-Are you sure you want to save? (y/n) y
+Are you sure you want to save? (y/n) *y*
 
-Config file 'startup-config' created successfully .
-
+Config file 'startup-config' created successfully.
 
 Configuration Saved!
-
-(cs2) #
 ----
-. 다른 클러스터 스위치에 대해 이전 단계를 반복합니다.
 
 
 
@@ -270,62 +259,58 @@ Configuration Saved!
 이 예에서는 스위치가 IP 주소 172.19.2.1로 서버에 연결되어 있는지 확인합니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs2) # ping 172.19.2.1
+(cs2)# *ping 172.19.2.1*
 Pinging 172.19.2.1 with 0 bytes of data:
 
 Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
 ----
 . copy 명령을 사용하여 BES-53248 클러스터 스위치에 RCF를 설치합니다.
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs2) # copy http://172.19.2.1/tmp/BES-53248_RCF_v1.6-Cluster-HA.txt nvram:script BES-53248_RCF_v1.6-Cluster-HA.scr
+(cs2)# *copy sftp://172.19.2.1/tmp/BES-53248_RCF_v1.6-Cluster-HA.txt nvram:script BES-53248_RCF_v1.6-Cluster-HA.scr*
 
-Remote Password ********
+Remote Password:********
 
-Mode........................................... HTTP
+Mode........................................... SFTP
 Set Server IP.................................. 172.19.2.1
 Path........................................... //tmp/
 Filename....................................... BES-53248_RCF_v1.6-Cluster-HA.txt
 Data Type...................................... Config Script
 Destination Filename........................... BES-53248_RCF_v1.6-Cluster-HA.scr
 
-File with same name already exists.
-WARNING:Continuing with this command will overwrite the existing file.
-
 Management access will be blocked for the duration of the transfer
-Are you sure you want to start? (y/n) y
+Are you sure you want to start? (y/n) *y*
+SFTP Code transfer starting...
 
-File transfer in progress. Management access will be blocked for the duration of the transfer. Please wait...
-
-Validating configuration script...
-[the script is now displayed line by line]
-
-Configuration script validated.
 File transfer operation completed successfully.
 ----
 +
 
-NOTE: 환경에 따라 copy 명령에 "+copy와 같은 이중 슬래시를 사용해야 할 수도 있습니다 http://172.19.2.1//tmp/BES-53248_RCF_v1.6-Cluster-HA.txt[] NVRAM: 스크립트 BES-53248_RCF_v1.6 - Cluster-HA.SCR+'.
+NOTE: 환경에 따라 복사 명령에서 "+COPY SFTP://19.2.1/172.tmp/BES-53248_RCF_v1.6-Cluster-HA.txt NVRAM:script BES-53248_RCF_v1.6-Cluster-HA.SCR+"와 같은 이중 슬래시를 사용해야 할 수 있습니다.
 
 +
 
-NOTE: 스크립트를 호출하기 전에 '.scr' 확장자를 파일 이름의 일부로 설정해야 합니다. 이 확장은 EFOS 운영 체제의 확장입니다. 스위치는 스크립트가 스위치에 다운로드되면 자동으로 스크립트의 유효성을 검사하며 출력은 콘솔로 전달됩니다. 또한 콘솔 화면에 맞게 '.scr'의 이름을 변경하여 가독성을 높일 수도 있습니다(예: '+copy) http://172.19.2.1/tmp/BES-53248_RCF_v1.6-Cluster-HA.txt[] NVRAM: 스크립트 RCF_v1.6 - Cluster-HA.scr+'.
+NOTE: 스크립트를 호출하기 전에 '.scr' 확장자를 파일 이름의 일부로 설정해야 합니다. 이 확장은 EFOS 운영 체제의 확장입니다. 스위치는 스크립트가 스위치에 다운로드되면 자동으로 스크립트의 유효성을 검사하며 출력은 콘솔로 전달됩니다. 또한 콘솔 화면에 맞게 ".scr"의 이름을 변경하여 가독성을 높일 수도 있습니다. 예를 들어, "+COPY SFTP://172.19.2.1/tmp/BES-53248_RCF_v1.6-Cluster-HA.txt NVRAM: script RCF_v1.6-Cluster-HA.scr+"를 지정할 수 있습니다.
+
++
+
+NOTE: 파일 이름에는 '\/: *?"<>|' 기호가 포함될 수 없으며 허용되는 최대 길이는 32자입니다.
 
 . 스크립트가 다운로드되어 지정한 파일 이름에 저장되었는지 확인합니다.
 +
 '스크립트 목록'
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs2) # script list
+(cs2)# *script list*
 
 Configuration Script Name                  Size(Bytes)  Date of Modification
 -----------------------------------------  -----------  --------------------
-BES-53248_RCF_v1.6-Cluster-HA.scr        2241         2020 09 30 05:41:00
+BES-53248_RCF_v1.6-Cluster-HA.scr          2241         2020 09 30 05:41:00
 
 1 configuration script(s) found.
 ----
@@ -334,15 +319,15 @@ BES-53248_RCF_v1.6-Cluster-HA.scr        2241         2020 09 30 05:41:00
 '스크립트 적용'
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs2) # script apply BES-53248_RCF_v1.6-Cluster-HA.scr
+(cs2)# *script apply BES-53248_RCF_v1.6-Cluster-HA.scr*
 
-Are you sure you want to apply the configuration script? (y/n) y
+Are you sure you want to apply the configuration script? (y/n) *y*
 
 The system has unsaved changes.
-Would you like to save them now? (y/n) y
-Config file 'startup-config' created successfully .
+Would you like to save them now? (y/n) *y*
+Config file 'startup-config' created successfully.
 Configuration Saved!
 
 Configuration script 'BES-53248_RCF_v1.6-Cluster-HA.scr' applied.
@@ -352,13 +337,13 @@ Configuration script 'BES-53248_RCF_v1.6-Cluster-HA.scr' applied.
 '모두 포트 보기|분리 제외'
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs2) # show port all \| exclude Detach
+(cs2)# *show port all \| exclude Detach*
 
                  Admin     Physical     Physical   Link   Link    LACP   Actor
 Intf      Type   Mode      Mode         Status     Status Trap    Mode   Timeout
---------- ------ --------- ---------- ---------- ------ ------- ------ --------
+--------- ------ --------- ------------ ---------- ------ ------- ------ -------
 0/1              Enable    Auto                    Down   Enable  Enable long
 0/2              Enable    Auto                    Down   Enable  Enable long
 0/3              Enable    Auto                    Down   Enable  Enable long
@@ -389,22 +374,22 @@ Intf      Type   Mode      Mode         Status     Status Trap    Mode   Timeout
 'show running-config'를 선택합니다
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs2) # show running-config
+(cs2)# *show running-config*
 ----
 . 스위치를 재부팅할 때 시작 구성이 되도록 실행 중인 구성을 저장합니다.
 +
 쓰기 메모리
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs2) # write memory
+(cs2)# *write memory*
 This operation may take a few minutes.
 Management interfaces will not be available during this time.
 
-Are you sure you want to save? (y/n) y
+Are you sure you want to save? (y/n) *y*
 
 Config file 'startup-config' created successfully.
 
@@ -415,12 +400,18 @@ Configuration Saved!
 다시 로드
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs2) # reload
+(cs2)# *reload*
 
-Are you sure you would like to reset the system? (y/n) y
+Are you sure you would like to reset the system? (y/n) *y*
 
 System will now restart!
 ----
 
+
+
+NOTE: RCF가 첫 번째 스위치에 설치되면 다음 단계를 반복하여 두 번째 클러스터 스위치에 RCF를 설치합니다.
+
+
+CAUTION: 자세한 내용은 다음을 참조하십시오 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/BES-53248_communication_issue_after_firmware%2F%2FRCF_upgrade["KB를 클릭합니다"^] MetroCluster용 RCF를 설치할 때 자세한 내용을 확인하십시오.

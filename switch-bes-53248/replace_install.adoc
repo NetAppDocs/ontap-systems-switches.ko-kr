@@ -33,31 +33,31 @@ EFOS는 데이터 센터 애플리케이션을 위한 다양한 이더넷 및 IP
 
 . 스위치에 admin으로 로그인하고 암호를 묻는 메시지가 표시되면 Enter 키를 누릅니다. 기본 스위치 이름은 라우팅입니다. "활성화"라는 메시지가 표시됩니다. 이렇게 하면 스위치 구성을 위한 관리자 EXEC 모드에 액세스할 수 있습니다.
 +
-[listing]
+[listing, subs="+quotes"]
 ----
 User: admin
 Password:
-(Routing)> enable
+(Routing)> *enable*
 Password:
 (Routing) #
 ----
 . 스위치 이름을 CS2로 변경합니다.
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(Routing) # hostname cs2
-(cs2) #
+(Routing)# *hostname cs2*
+(cs2)#
 ----
 . 고정 IP 주소를 설정하려면 예에서와 같이 serviceport 프로토콜, 네트워크 프로토콜 및 serviceport IP 명령을 사용합니다.
 +
 serviceport는 기본적으로 DHCP를 사용하도록 설정됩니다. IP 주소, 서브넷 마스크 및 기본 게이트웨이 주소는 자동으로 할당됩니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs2) # serviceport protocol none
-(cs2) # network protocol none
-(cs2) # serviceport ip ipaddr netmask gateway
+(cs2)# *serviceport protocol none*
+(cs2)# *network protocol none*
+(cs2)# *serviceport ip ipaddr netmask gateway*
 ----
 . 다음 명령을 사용하여 결과를 확인합니다.
 +
@@ -67,9 +67,9 @@ serviceport는 기본적으로 DHCP를 사용하도록 설정됩니다. IP 주�
 다음 예에서는 DHCP 서버에서 제공하는 IP 정보를 보여 줍니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs2) # show serviceport
+(cs2)# *show serviceport*
 Interface Status............................... Up
 IP Address..................................... 172.19.2.2
 Subnet Mask.................................... 255.255.255.0
@@ -87,13 +87,13 @@ Burned In MAC Address.......................... D8:C4:97:71:12:3C
 '설정'을 클릭합니다
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs2) # configure
-(cs2) (Config)#ip domain name company.com
-(cs2) (Config)#ip name server 10.10.99.1 10.10.99.2
-(cs2) (Config)#exit
-(cs2) (Config)#
+(cs2)# *configure*
+(cs2) (Config)# *ip domain name company.com*
+(cs2) (Config)# *ip name server 10.10.99.1 10.10.99.2*
+(cs2) (Config)# *exit*
+(cs2)#
 ----
 . NTP 서버를 구성합니다.
 +
@@ -102,42 +102,42 @@ Burned In MAC Address.......................... D8:C4:97:71:12:3C
 'NTP'입니다
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs2) #
-(cs2) (Config)#sntp client mode unicast
-(cs2) (Config)#sntp server 10.99.99.5
-(cs2) (Config)#clock timezone -7
-(cs2) (Config)#exit
-(cs2) (Config)#
+(cs2)# *configure*
+(cs2) (Config)# *sntp client mode unicast*
+(cs2) (Config)# *sntp server 10.99.99.5*
+(cs2) (Config)# *clock timezone -7*
+(cs2) (Config)# *exit*
+(cs2)#
 ----
 .. 시간을 수동으로 구성합니다.
 +
 시계
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs2) #config
-(cs2) (Config)#no sntp client mode
-(cs2) (Config)#clock summer-time recurring 1 sun mar 02:00 1 sun nov 02:00 offset 60 zone EST
-(cs2) (Config)#clock timezone -5 zone EST
-(cs2) (Config)#clock set 07:00:00
-(cs2) (Config)#clock set 10/20/2020
+(cs2) # *configure*
+(cs2) (Config)# *no sntp client mode*
+(cs2) (Config)# *clock summer-time recurring 1 sun mar 02:00 1 sun nov 02:00 offset 60* zone EST
+(cs2) (Config)# *clock timezone -5 zone EST*
+(cs2) (Config)# *clock set 07:00:00*
+(cs2) (Config)# *clock set 10/20/2020*
 
-(cs2) (Config)#show clock
+(cs2) (Config)# *show clock*
 
 07:00:11 EST(UTC-5:00) Oct 20 2020
 No time source
 
-(cs2) (Config)#exit
+(cs2) (Config)# *exit*
 
-(cs2) #write memory
+(cs2)# *write memory*
 
 This operation may take a few minutes.
 Management interfaces will not be available during this time.
 
-Are you sure you want to save? (y/n) **y**
+Are you sure you want to save? (y/n) *y*
 
 Config file 'startup-config' created successfully .
 

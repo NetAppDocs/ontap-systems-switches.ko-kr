@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: problem, arise, install, license, debug, command, copy, restriction, limitation, restrictions and limitations - bes-53248 
 summary: 라이센스를 설치할 때 문제가 발생하면 copy 명령을 다시 실행하여 라이센스를 설치하기 전에 다음 디버그 명령을 실행해야 합니다. 
 ---
-= 제한 사항 및 제한 사항 - BES-53248 스위치
+= 제한 및 제한 사항
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,15 +13,13 @@ summary: 라이센스를 설치할 때 문제가 발생하면 copy 명령을 다
 [role="lead"]
 사용권을 설치할 때 문제가 발생하면 'copy' 명령을 다시 실행하여 사용권을 설치하기 전에 다음 디버그 명령을 실행해야 합니다.
 
-사용할 디버그 명령:
+debug transfer와 debug license를 사용하기 위한 debug 명령어
 
-debug transfer debug license'를 누릅니다
-
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs2) # debug transfer
+(cs2)# *debug transfer*
 Debug transfer output is enabled.
-(cs2) # debug license
+(cs2)# *debug license*
 Enabled capability licensing debugging.
 ----
 debug transfer와 debug license 옵션을 설정한 상태에서 copy 명령을 실행하면 다음과 같은 로그 출력이 반환됩니다.
@@ -60,9 +58,9 @@ CAPABILITY LICENSING : Fri Sep 11 13:41:32 2020: Applying license file 1.
 
 "copy" 명령을 사용하여 서버에 포트 라이센스를 백업합니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-(cs2) # copy nvram:license-key 1 scp://<UserName>@<IP_address>/saved_license_1.dat
+(cs2)# *copy nvram:license-key 1 scp://<UserName>@<IP_address>/saved_license_1.dat*
 ----
 을 참조하십시오 link:configure-licenses.html["BES-53248 클러스터 스위치용 라이센스 설치"] 사용 가능한 라이센스에 대해 지원되는 펌웨어 버전에 대한 자세한 내용은 를 참조하십시오.
 
