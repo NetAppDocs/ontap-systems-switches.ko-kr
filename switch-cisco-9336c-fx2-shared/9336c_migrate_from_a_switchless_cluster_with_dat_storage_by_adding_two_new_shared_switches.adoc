@@ -77,24 +77,22 @@ NOTE: AutoSupport 메시지는 유지보수 기간 동안 자동 케이스 생�
 +
 다음 예에서는 스위치 CS1에서 노드 방향 포트 1부터 34까지 비활성 상태를 보여 줍니다.
 
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cs1# config
+cs1# *config*
 Enter configuration commands, one per line. End with CNTL/Z.
-cs1(config)# interface e/1-34
-cs1(config-if-range)# shutdown
+cs1(config)# *interface e/1-34*
+cs1(config-if-range)# *shutdown*
 ----
 . [[4단계] 두 9336C-FX2 스위치 CS1과 CS2 사이의 ISL과 ISL의 물리적 포트가 포트 1/35 및 1/36:'포트-채널 요약 정보'에 있는지 확인합니다
 +
 다음 예에서는 스위치 CS1에서 ISL 포트가 작동 중인 것을 보여 줍니다.
 
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cs1# show port-channel summary
+cs1# *show port-channel summary*
 Flags:  D - Down        P - Up in port-channel (members)
         I - Individual  H - Hot-standby (LACP only)
         s - Suspended   r - Module-removed
@@ -109,11 +107,13 @@ Group Port-       Type     Protocol  Member Ports
 --------------------------------------------------------------------------------
 1     Po1(SU)     Eth      LACP      Eth1/35(P)   Eth1/36(P)
 ----
++
 다음 예에서는 스위치 CS2에서 ISL 포트가 작동 중인 것을 보여 줍니다.
 
-[listing]
++
+[listing, subs="+quotes"]
 ----
-       cs2# show port-channel summary
+       cs2# *show port-channel summary*
         Flags:  D - Down        P - Up in port-channel (members)
         I - Individual  H - Hot-standby (LACP only)
         s - Suspended   r - Module-removed
@@ -132,11 +132,10 @@ Group Port-       Type     Protocol  Member Ports
 +
 이 명령은 시스템에 연결된 장치에 대한 정보를 제공합니다. 다음 예에서는 스위치 CS1의 인접 장치를 나열합니다.
 
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cs1# show cdp neighbors
+cs1# *show cdp neighbors*
 Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
                   S - Switch, H - Host, I - IGMP, r - Repeater,
                   V - VoIP-Phone, D - Remotely-Managed-Device,
@@ -146,11 +145,13 @@ cs2                Eth1/35        175    R S I s     N9K-C9336C    Eth1/35
 cs2                Eth1/36        175    R S I s     N9K-C9336C    Eth1/36
 Total entries displayed: 2
 ----
++
 다음 예에서는 스위치 CS2의 인접 장치를 나열합니다.
 
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cs2# show cdp neighbors
+cs2# *show cdp neighbors*
 Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
                   S - Switch, H - Host, I - IGMP, r - Repeater,
                   V - VoIP-Phone, D - Remotely-Managed-Device,
@@ -165,11 +166,10 @@ Total entries displayed: 2
 +
 각 포트는 Link 및 Health Status에 대해 Healthy로 표시되어야 합니다.
 
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cluster1::*> network port show -ipspace Cluster
+cluster1::*> *network port show -ipspace Cluster*
 
 Node: node1
                                                   Speed(Mbps)  Health
@@ -190,11 +190,10 @@ e3b       Cluster      Cluster          up   9000  auto/100000 healthy
 +
 각 클러스터 LIF는 '홈'에 대해 '참'으로 표시되고 상태 관리/권한 상승/위에서는 '참'으로 표시되어야 합니다.
 
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cluster1::*> network interface show -vserver Cluster
+cluster1::*> *network interface show -vserver Cluster*
             Logical     Status     Network            Current       Current Is
 Vserver     Interface   Admin/Oper Address/Mask       Node          Port    Home
 ----------- ---------- ---------- ------------------ ------------- ------- -----
@@ -206,11 +205,10 @@ Cluster
 4 entries were displayed.
 ----
 . [[step8]] 모든 클러스터 LIF에서 자동 복원이 활성화되어 있는지 확인합니다. 'network interface show -vserver Cluster-fields auto-revert'
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cluster1::*> network interface show -vserver Cluster -fields auto-revert
+cluster1::*> *network interface show -vserver Cluster -fields auto-revert*
        Logical
 Vserver   Interface     Auto-revert
 --------- ------------- ------------
@@ -230,24 +228,22 @@ Cluster
 +
 다음 예에서는 스위치 CS1에서 포트 1/1에서 1/34 사이의 포트가 활성화되어 있음을 보여 줍니다.
 
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cs1# config
+cs1# *config*
 Enter configuration commands, one per line. End with CNTL/Z.
-cs1(config)# interface e1/1-34
-cs1(config-if-range)# no shutdown
+cs1(config)# *interface e1/1-34*
+cs1(config-if-range)# *no shutdown*
 ----
 . [[step12]]모든 클러스터 LIF가 * 업 *, 운영 및 '홈'에 대해 TRUE로 표시되는지 확인합니다. 네트워크 인터페이스 show-vserver Cluster
 +
 다음 예에서는 node1과 node2에 모든 LIF가 * up * 이고 "is Home" 결과가 * TRUE * 임을 보여 줍니다.
 
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cluster1::*> network interface show -vserver Cluster
+cluster1::*> *network interface show -vserver Cluster*
           Logical      Status     Network            Current     Current Is
 Vserver   Interface    Admin/Oper Address/Mask       Node        Port    Home
 --------- ------------ ---------- ------------------ ----------- ------- ----
@@ -262,11 +258,10 @@ Cluster
 +
 다음 예제에는 클러스터에 있는 노드의 상태 및 자격에 대한 정보가 표시됩니다.
 
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cluster1::*> cluster show
+cluster1::*> *cluster show*
 Node                 Health  Eligibility   Epsilon
 -------------------- ------- ------------  ------------
 node1                true    true          false
@@ -279,24 +274,22 @@ node2                true    true          false
 +
 다음 예에서는 스위치 CS2에서 포트 1/1 ~ 1/34 가 활성화되어 있음을 보여 줍니다.
 
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cs2# config
+cs2# *config*
 Enter configuration commands, one per line. End with CNTL/Z.
-cs2(config)# interface e1/1-34
-cs2(config-if-range)# no shutdown
+cs2(config)# *interface e1/1-34*
+cs2(config-if-range)# *no shutdown*
 ----
 . [[step17]] 모든 클러스터 포트가 작동 중인지 확인합니다. 'network port show - IPSpace Cluster'
 +
 다음 예제에서는 모든 클러스터 포트가 노드 1과 노드 2에 있는 것을 보여 줍니다.
 
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cluster1::*> network port show -ipspace Cluster
+cluster1::*> *network port show -ipspace Cluster*
 
 Node: node1
                                                                         Ignore
@@ -316,16 +309,17 @@ e3b       Cluster      Cluster          up   9000  auto/100000 healthy  false
 4 entries were displayed.
 ----
 . [[step18]]모든 인터페이스가 '홈'에 대해 '참'으로 표시되는지 확인합니다. 네트워크 인터페이스 show -vserver Cluster'입니다
-
-
++
 
 NOTE: 이 작업을 완료하는 데 몇 분 정도 걸릴 수 있습니다.
 
++
 다음 예에서는 node1과 node2에 모든 LIF가 * up * 이고 "is Home" 결과가 true인 것을 보여 줍니다.
 
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cluster1::*> network interface show -vserver Cluster
+cluster1::*> *network interface show -vserver Cluster*
           Logical      Status     Network            Current    Current Is
 Vserver   Interface    Admin/Oper Address/Mask       Node       Port    Home
 --------- ------------ ---------- ------------------ ---------- ------- ----
@@ -340,11 +334,10 @@ Cluster
 +
 다음 예에서는 두 스위치에 대해 적절한 결과를 보여 줍니다.
 
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cs1# show cdp neighbors
+cs1# *show cdp neighbors*
 Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
                   S - Switch, H - Host, I - IGMP, r - Repeater,
                   V - VoIP-Phone, D - Remotely-Managed-Device,
@@ -368,11 +361,10 @@ cs1                Eth1/36        175    R S I s     N9K-C9336C    Eth1/36
 Total entries displayed: 4
 ----
 . [[step20] 클러스터에서 검색된 네트워크 장치에 대한 정보를 표시합니다: "network device-discovery show-protocol CDP"
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cluster1::*> network device-discovery show -protocol cdp
+cluster1::*> *network device-discovery show -protocol cdp*
 Node/       Local  Discovered
 Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
 ----------- ------ ------------------------- ----------------  ----------------
@@ -386,11 +378,10 @@ node1       /cdp
 4 entries were displayed.
 ----
 . [[step21]]HA Pair 1(및 HA Pair 2)의 스토리지 구성이 올바르고 오류가 없는지 확인합니다. 'system switch ethernet show'
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-storage::*> system switch ethernet show
+storage::*> *system switch ethernet show*
 Switch                    Type                   Address         Model
 ------------------------- ---------------------- --------------- ----------
 sh1
@@ -414,38 +405,37 @@ sh2
 storage::*>
 ----
 . [[step22]]설정이 비활성화되었는지 확인합니다. 'network options switchless-cluster show'
-
-
++
 
 NOTE: 명령이 완료되는 데 몇 분 정도 걸릴 수 있습니다. '3분 수명 만료' 메시지가 표시될 때까지 기다립니다.
 
++
 다음 예제의 "false" 출력은 구성 설정이 비활성화되어 있음을 보여 줍니다.
 
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cluster1::*> network options switchless-cluster show
+cluster1::*> *network options switchless-cluster show*
 Enable Switchless Cluster: false
 ----
 . [[step23]]클러스터의 노드 멤버 상태를 확인하십시오: 'cluster show'
 +
 다음 예는 클러스터에 있는 노드의 상태 및 적격성에 대한 정보를 보여줍니다.
 
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cluster1::*> cluster show
+cluster1::*> *cluster show*
 Node                 Health  Eligibility   Epsilon
 -------------------- ------- ------------  --------
 node1                true    true          false
 node2                true    true          false
 ----
 . [[step24]] 클러스터 네트워크에 'cluster ping-cluster-node-name'(클러스터 ping-cluster-node-node-name)이 완전히 연결되어 있는지 확인합니다
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cluster1::*> cluster ping-cluster -node node2
+cluster1::*> *cluster ping-cluster -node node2*
 Host is node2
 Getting addresses from network interface table...
 Cluster node1_clus1 169.254.209.69 node1 e3a
@@ -475,36 +465,37 @@ RPC status:
 +
 ** 'System switch Ethernet log setup - password'(시스템 스위치 이더넷 로그 설정 - 암호)
 ** System switch Ethernet log enable-collection
-
-
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cluster1::*> system switch ethernet log setup-password
+cluster1::*> *system switch ethernet log setup-password*
 Enter the switch name: <return>
 The switch name entered is not recognized.
 
 Choose from the following list:
-cs1
-cs2
-cluster1::*> system switch ethernet log setup-password
-Enter the switch name: cs1
+*cs1*
+*cs2*
+cluster1::*> *system switch ethernet log setup-password*
+Enter the switch name: *cs1*
 RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
-Do you want to continue? {y|n}::[n] y
+Do you want to continue? {y|n}::[n] *y*
 Enter the password: <enter switch password>
 Enter the password again: <enter switch password>
-cluster1::*> system switch ethernet log setup-password
-Enter the switch name: cs2
+cluster1::*> *system switch ethernet log setup-password*
+Enter the switch name: *cs2*
 RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
-Do you want to continue? {y|n}:: [n] y
+Do you want to continue? {y|n}:: [n] *y*
 Enter the password: <enter switch password>
 Enter the password again: <enter switch password>
-cluster1::*> system  switch ethernet log enable-collection
-Do you want to enable cluster log collection for all nodes in the cluster? {y|n}: [n] y
+cluster1::*> *system  switch ethernet log enable-collection*
+Do you want to enable cluster log collection for all nodes in the cluster? {y|n}: [n] *y*
 Enabling cluster switch log collection.
 cluster1::*>
 ----
+
+
+
+
 
 
 ==== 공유 스위치를 설정합니다
@@ -520,11 +511,10 @@ NOTE: 이 절차를 수행하려면 ONTAP 명령과 Cisco Nexus 9000 시리즈 �
 
 .단계
 . HA 쌍 1(및 HA 쌍 2)의 스토리지 구성이 올바르고 오류가 없는지 확인합니다. '시스템 스위치 이더넷 표시'입니다
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-storage::*> system switch ethernet show
+storage::*> *system switch ethernet show*
 Switch                    Type                   Address         Model
 ------------------------- ---------------------  --------------- -------
 sh1
@@ -548,11 +538,10 @@ sh2
 storage::*>
 ----
 . [[step2]] 스토리지 노드 포트가 정상 작동 중인지 확인합니다. 스토리지 포트 show-port-type ENET
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-storage::*> storage port show -port-type ENET
+storage::*> *storage port show -port-type ENET*
                                    Speed                             VLAN
 Node    Port    Type    Mode       (Gb/s)      State      Status       ID
 ------- ------- ------- ---------- ----------- ---------- ---------- -----
@@ -572,11 +561,10 @@ node2
 . HA 쌍 1, 노드 1, 경로 A에서 SH1 포트 범위 11-22까지 케이블을 설치합니다. 예를 들어, AFF A400의 스토리지 포트 경로는 e0c입니다.
 . HA 쌍 1, 노드 2, 경로 A에서 SH1 포트 범위 11-22까지 케이블을 설치합니다.
 . 노드 포트가 정상 작동 중인지 'Storage port show-port-type ENET'인지 확인합니다
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-storage::*> storage port show -port-type ENET
+storage::*> *storage port show -port-type ENET*
                                    Speed                             VLAN
 Node    Port    Type    Mode       (Gb/s)      State      Status       ID
 ------- ------- ------- ---------- ----------- ---------- ---------- -----
@@ -593,22 +581,20 @@ node2
         e5b     ENET  storage           100      enabled  online        30
 ----
 . [[step7] 클러스터에 스토리지 스위치 또는 케이블 연결 문제가 없는지 확인합니다. 'system health alert show-instance'
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-storage::*> system health alert show -instance
+storage::*> *system health alert show -instance*
 There are no entries matching your query.
 ----
 . [[step8]] HA 쌍 1, NSM224 경로 B 포트를 SH2 포트 범위 11-22로 이동합니다.
 . HA 쌍 1, 노드 1, 경로 B에서 SH2 포트 범위 11-22까지 케이블을 설치합니다. 예를 들어, AFF A400의 경로 B 스토리지 포트는 e5b입니다.
 . HA 쌍 1, 노드 2, 경로 B에서 SH2 포트 범위 11-22까지 케이블을 설치합니다.
 . 노드 포트가 정상 작동 중인지 'Storage port show-port-type ENET'인지 확인합니다
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-storage::*> storage port show -port-type ENET
+storage::*> *storage port show -port-type ENET*
                                    Speed                             VLAN
 Node    Port    Type    Mode       (Gb/s)      State      Status       ID
 ------- ------- ------- ---------- ----------- ---------- ---------- -----
@@ -625,11 +611,10 @@ node2
         e5b     ENET  storage           100      enabled  online        30
 ----
 . [[12단계] HA Pair 1의 스토리지 구성이 올바르고 오류가 없는지 확인합니다. 'system switch ethernet show'
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-storage::*> system switch ethernet show
+storage::*> *system switch ethernet show*
 Switch                    Type                   Address          Model
 ------------------------- ---------------------- ---------------- ----------
 sh1
@@ -653,16 +638,19 @@ sh2
 storage::*>
 ----
 . [[13단계] HA 쌍 1의 사용되지 않은(컨트롤러) 2차 스토리지 포트를 스토리지에서 네트워킹으로 재구성합니다. 둘 이상의 NS224가 직접 연결된 경우 포트를 재구성해야 합니다.
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
 storage port modify –node [node name] –port [port name] –mode network
 ----
++
 스토리지 포트를 브로드캐스트 도메인에 배치하려면
 
-* 'Network port broadcast-domain create'(필요한 경우 새 도메인 생성)
-* 'Network port broadcast-domain add-ports'(기존 도메인에 포트 추가)
++
+** 'Network port broadcast-domain create'(필요한 경우 새 도메인 생성)
+** 'Network port broadcast-domain add-ports'(기존 도메인에 포트 추가)
+
+
 
 
 . [[step14]] 자동 케이스 생성을 억제한 경우 AutoSupport 메시지 '시스템 노드 AutoSupport invoke -node * -type all-message MAINT=end'를 호출하여 다시 활성화합니다

@@ -21,9 +21,13 @@ Nexus 9336C-FX2 스위치를 처음 설정한 후 RCF를 설치할 수 있습니
 * 'cluster1:: *>' 프롬프트는 클러스터의 이름을 나타냅니다.
 
 
+[NOTE]
+====
+* 이 절차를 수행하려면 ONTAP 명령과 Cisco Nexus 9000 시리즈 스위치 명령을 모두 사용해야 합니다. 달리 표시되지 않는 한 ONTAP 명령이 사용됩니다.
+* 이 절차를 수행하기 전에 스위치 구성의 현재 백업이 있는지 확인하십시오.
 
-NOTE: 이 절차를 수행하려면 ONTAP 명령과 Cisco Nexus 9000 시리즈 스위치 명령을 모두 사용해야 합니다. 달리 표시되지 않는 한 ONTAP 명령이 사용됩니다.
 
+====
 .단계
 . 클러스터 스위치에 연결된 각 노드의 클러스터 포트 'network device-discovery show'를 표시합니다
 +
@@ -182,6 +186,12 @@ cluster1-03          true    true          true
 cluster1-04          true    true          false
 4 entries were displayed.
 cluster1::*>
+----
+. 아직 구성하지 않은 경우 다음 명령의 출력을 로그 파일에 복사하여 현재 스위치 구성을 저장합니다.
++
+[listing]
+----
+show running-config
 ----
 . 스위치 CS2의 구성을 청소하고 기본 설정을 수행합니다.
 +

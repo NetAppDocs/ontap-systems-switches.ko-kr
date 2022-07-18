@@ -1,0 +1,420 @@
+---
+permalink: switch-nvidia-sn2100/replace_sn2100_switch_cluster.html 
+sidebar: sidebar 
+keywords: replacing, replace, defective, nvidia, switch, cluster, network, nondisruptive, procedure, ndu, replace a nvidia msn2100 cluster switch - nvidia SN2100 
+summary: '클러스터 네트워크에서 결함이 있는 NVIDIA SN2100 스위치를 교체하는 것은 무중단 절차(NDU\)입니다.' 
+---
+= NVIDIA SN2100 클러스터 스위치를 교체합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+클러스터 네트워크에서 결함이 있는 NVIDIA SN2100 스위치를 교체하는 것은 무중단 절차(NDU)입니다.
+
+현재 환경 및 교체 스위치에서 스위치 교체를 수행하기 전에 다음 조건이 충족되어야 합니다.
+
+* 기존 클러스터 및 네트워크 인프라:
++
+** 기존 클러스터가 완전히 연결된 클러스터 스위치를 한 개 이상 사용하여 완전하게 작동하는지 확인해야 합니다.
+** 모든 클러스터 포트가 작동 중이어야 합니다.
+** 모든 클러스터 논리 인터페이스(LIF)가 홈 포트에 있어야 합니다.
+** ONTAP의 cluster ping-cluster-node node1 명령은 기본 접속과 PMTU 통신 이상의 통신이 모든 경로에서 성공했음을 나타내야 합니다.
+
+
+* NVIDIA SN2100 교체 스위치:
++
+** 교체 스위치의 관리 네트워크 연결이 작동해야 합니다.
+** 교체 스위치에 대한 콘솔 액세스가 있어야 합니다.
+** 노드 연결은 swp1~swp14 포트 입니다.
+** 포트 swp15 및 swp16에서 모든 ISL(Inter-Switch Link) 포트를 비활성화해야 합니다.
+** 원하는 RCF(Reference Configuration File) 및 Cumulus 운영 체제 이미지 스위치를 스위치에 로드해야 합니다.
+** 스위치의 초기 사용자 지정은 에 자세히 설명된 대로 완료해야 합니다.
++
+STP, SNMP, SSH 등의 이전 사이트 사용자 지정은 새 스위치에 복사해야 합니다.
+
+
+
+
+
+클러스터 LIF가 호스팅된 노드에서 클러스터 LIF를 마이그레이션하기 위한 명령을 실행해야 합니다.
+
+이 절차의 예에서는 다음 스위치 및 노드 명명법을 사용합니다.
+
+* 기존 NVIDIA SN2100 스위치의 이름은 _SW1_와 _SW2_입니다.
+* 새 NVIDIA SN2100 스위치의 이름은 _nsw2_입니다.
+* 노드 이름은 _node1_and_node2_입니다.
+* 각 노드의 클러스터 포트 이름은 _e3a_와 _e3b_입니다.
+* 클러스터 LIF 이름은 노드 1의 경우 _node1_clus1_and_node1_clus2_이고, 노드 2의 경우 _node2_clus1_and_node2_clus2_입니다.
+* 모든 클러스터 노드의 변경 프롬프트는 'cluster1:: * >'입니다
+* 브레이크아웃 포트는 SWP [port]s [브레이크아웃 포트 0-3] 형식을 사용합니다. 예를 들어 swp1의 4개의 브레이크아웃 포트는 _swp1s0_, _swp1s1_, _swp1s2_ 및 _swp1s3_입니다.
++
+
+NOTE: 다음 절차는 클러스터 네트워크 토폴로지를 기준으로 합니다.
+
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+
+Node: node1
+                                                                        Ignore
+                                                  Speed(Mbps)  Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper   Status   Status
+--------- ------------ ---------------- ---- ---- ------------ -------- ------
+e3a       Cluster      Cluster          up   9000  auto/100000 healthy  false
+e3b       Cluster      Cluster          up   9000  auto/100000 healthy  false
+
+Node: node2
+                                                                        Ignore
+                                                  Speed(Mbps)  Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper   Status   Status
+--------- ------------ ---------------- ---- ---- ------------ -------- ------
+e3a       Cluster      Cluster          up   9000  auto/100000 healthy  false
+e3b       Cluster      Cluster          up   9000  auto/100000 healthy  false
+
+
+cluster1::*> *network interface show -vserver Cluster*
+
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ----
+Cluster
+            node1_clus1  up/up    169.254.209.69/16  node1         e3a     true
+            node1_clus2  up/up    169.254.49.125/16  node1         e3b     true
+            node2_clus1  up/up    169.254.47.194/16  node2         e3a     true
+            node2_clus2  up/up    169.254.19.183/16  node2         e3b     true
+
+
+cluster1::*> *network device-discovery show -protocol lldp*
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface     Platform
+----------- ------ ------------------------- ------------  ----------------
+node1      /lldp
+            e3a    sw1 (b8:ce:f6:19:1a:7e)   swp3          -
+            e3b    sw2 (b8:ce:f6:19:1b:96)   swp3          -
+node2      /lldp
+            e3a    sw1 (b8:ce:f6:19:1a:7e)   swp4          -
+            e3b    sw2 (b8:ce:f6:19:1b:96)   swp4          -
+----
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *net show lldp*
+
+LocalPort  Speed  Mode        RemoteHost         RemotePort
+---------  -----  ----------  -----------------  -----------
+swp3       100G   Trunk/L2    sw2                e3a
+swp4       100G   Trunk/L2    sw2                e3a
+swp15      100G   BondMember  sw2                swp15
+swp16      100G   BondMember  sw2                swp16
+
+
+cumulus@sw2:~$ *net show lldp*
+
+LocalPort  Speed  Mode        RemoteHost         RemotePort
+---------  -----  ----------  -----------------  -----------
+swp3       100G   Trunk/L2    sw1                e3b
+swp4       100G   Trunk/L2    sw1                e3b
+swp15      100G   BondMember  sw1                swp15
+swp16      100G   BondMember  sw1                swp16
+----
+
+
+.단계
+. 이 클러스터에서 AutoSupport가 활성화되어 있으면 'system node AutoSupport invoke -node * -type all-message maINT=xh' AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다
++
+여기서 _x_는 유지보수 기간(시간)입니다.
+
+. 권한 수준을 고급으로 변경하고 'Set-Privilege advanced'라는 메시지가 나타나면 * y * 를 입력합니다
++
+고급 프롬프트(*>)가 나타납니다.
+
+. 스위치에 적절한 RCF 및 이미지를 설치하고 nsw2를 설치한 후 필요한 현장 준비를 합니다.
++
+필요한 경우 새 스위치에 적합한 RCF 및 Cumulus 소프트웨어 버전을 확인, 다운로드 및 설치합니다. 새 스위치가 올바르게 설정되어 있고 RCF 및 Cumulus 소프트웨어에 대한 업데이트가 필요하지 않음을 확인한 경우 3단계를 계속 진행하십시오. 을 참조하십시오 link:install_setup_sn2100_switches_overview.html["NVIDIA SN2100 스위치를 설정하고 구성합니다"] 를 참조하십시오.
+
++
+.. 클러스터 스위치에 적용할 수 있는 Cumulus 소프트웨어는 _NVIDIA Support_site에서 다운로드할 수 있습니다. 다운로드 페이지의 단계에 따라 설치하려는 ONTAP 소프트웨어 버전에 맞는 Cumulus Linux를 다운로드하십시오.
+.. 에서 적절한 RCF를 사용할 수 있습니다 link:https://mysupport.netapp.com/site/products/all/details/nvidia-cluster-storage-switch/downloads-tab["_NVIDIA 클러스터 및 스토리지 스위치 _"^] 페이지. 다운로드 페이지의 단계에 따라 설치하는 ONTAP 소프트웨어 버전에 맞는 올바른 RCF를 다운로드하십시오.
+
+
+. 새 스위치 nsw2에서 admin으로 로그인하고 노드 클러스터 인터페이스에 연결할 모든 포트(포트 swp1~swp14)를 종료합니다.
++
+교체 중인 스위치가 작동하지 않고 전원이 꺼진 경우 4단계로 이동합니다. 클러스터 노드의 LIF는 각 노드의 다른 클러스터 포트로 페일오버했어야 합니다.
+
++
+[listing, subs="+quotes"]
+----
+cumulus@nsw2:~$ *net add interface swp1s0-3, swp2s0-3, swp3-14 link down*
+cumulus@nsw2:~$ *net pending*
+cumulus@nsw2:~$ *net commit*
+----
+. 클러스터 LIF에서 자동 되돌리기 기능 해제: 'network interface modify -vserver Cluster-lif * -auto-revert false
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert false*
+
+Warning: Disabling the auto-revert feature of the cluster logical interface may effect the availability of your cluster network. Are you sure you want to continue? {y|n}: *y*
+----
+. SN2100 스위치 SW1에서 ISL 포트 swp15 및 swp16을 종료합니다.
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *net add interface swp15-16 link down*
+cumulus@sw1:~$ *net pending*
+cumulus@sw1:~$ *net commit*
+----
+. SN2100 SW1 스위치에서 모든 케이블을 분리한 다음 SN2100 nsw2 스위치의 동일한 포트에 연결합니다.
+. SW1과 nsw2 스위치 사이에 ISL 포트 swp15와 swp16을 불러옵니다.
++
+다음 명령을 실행하면 스위치 SW1에서 ISL 포트 swp15 및 swp16이 활성화됩니다.
+
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *net del interface swp15-16 link down*
+cumulus@sw1:~$ *net pending*
+cumulus@sw1:~$ *net commit*
+----
++
+다음 예에서는 스위치 SW1에서 ISL 포트가 작동 중인 것을 보여 줍니다.
+
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *net show interface*
+
+State  Name         Spd   MTU    Mode        LLDP             Summary
+-----  -----------  ----  -----  ----------  ---------------  ----------------------
+...
+...
+UP     swp15        100G  9216   BondMember  nsw2 (swp15)     Master: cluster_isl(UP)
+UP     swp16        100G  9216   BondMember  nsw2 (swp16)     Master: cluster_isl(UP)
+----
++
+다음 예에서는 스위치 nsw2에서 ISL 포트가 작동 중인 것을 보여 줍니다.
+
++
+[listing, subs="+quotes"]
+----
+cumulus@nsw2:~$ *net show interface*
+
+State  Name         Spd   MTU    Mode        LLDP             Summary
+-----  -----------  ----  -----  ----------  ---------------  -----------------------
+...
+...
+UP     swp15        100G  9216   BondMember  sw1 (swp15)      Master: cluster_isl(UP)
+UP     swp16        100G  9216   BondMember  sw1 (swp16)      Master: cluster_isl(UP)
+----
+. 모든 노드에서 포트 e3b가 네트워크 포트 show-IPSpace 클러스터(network port show-IPSpace Cluster)에 있는지 확인합니다
++
+출력은 다음과 비슷해야 합니다.
+
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+
+Node: node1
+                                                                         Ignore
+                                                   Speed(Mbps)  Health   Health
+Port      IPspace      Broadcast Domain Link MTU   Admin/Oper   Status   Status
+--------- ------------ ---------------- ---- ----- ------------ -------- -------
+e3a       Cluster      Cluster          up   9000  auto/100000  healthy  false
+e3b       Cluster      Cluster          up   9000  auto/100000  healthy  false
+
+
+Node: node2
+                                                                         Ignore
+                                                   Speed(Mbps) Health    Health
+Port      IPspace      Broadcast Domain Link MTU   Admin/Oper  Status    Status
+--------- ------------ ---------------- ---- ----- ----------- --------- -------
+e3a       Cluster      Cluster          up   9000  auto/100000  healthy  false
+e3b       Cluster      Cluster          up   9000  auto/100000  healthy  false
+----
+. 이제 각 노드의 클러스터 포트가 노드의 관점에서 클러스터 스위치에 다음과 같은 방식으로 연결됩니다.
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show -protocol lldp*
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface     Platform
+----------- ------ ------------------------- ------------  ----------------
+node1      /lldp
+            e3a    sw1  (b8:ce:f6:19:1a:7e)   swp3          -
+            e3b    nsw2 (b8:ce:f6:19:1b:b6)   swp3          -
+node2      /lldp
+            e3a    sw1  (b8:ce:f6:19:1a:7e)   swp4          -
+            e3b    nsw2 (b8:ce:f6:19:1b:b6)   swp4          -
+----
+. 모든 노드 클러스터 포트가 작동 중인지 확인합니다. 'net show interface'
++
+[listing, subs="+quotes"]
+----
+cumulus@nsw2:~$ *net show interface*
+
+State  Name         Spd   MTU    Mode        LLDP                Summary
+-----  -----------  ----  -----  ----------  ------------------- ----------------------
+...
+...
+UP     swp3         100G  9216   Trunk/L2                        Master: bridge(UP)
+UP     swp4         100G  9216   Trunk/L2                        Master: bridge(UP)
+UP     swp15        100G  9216   BondMember  sw1 (swp15)         Master: cluster_isl(UP)
+UP     swp16        100G  9216   BondMember  sw1 (swp16)         Master: cluster_isl(UP)
+----
+. 두 노드 모두 각 스위치에 대한 연결이 하나씩 있는지 확인합니다. 'net show lldp'
++
+다음 예에서는 두 스위치에 대해 적절한 결과를 보여 줍니다.
+
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *net show lldp*
+
+LocalPort  Speed  Mode        RemoteHost         RemotePort
+---------  -----  ----------  -----------------  -----------
+swp3       100G   Trunk/L2    node1              e3a
+swp4       100G   Trunk/L2    node2              e3a
+swp15      100G   BondMember  nsw2               swp15
+swp16      100G   BondMember  nsw2               swp16
+
+
+cumulus@nsw2:~$ *net show lldp*
+
+LocalPort  Speed  Mode        RemoteHost         RemotePort
+---------  -----  ----------  -----------------  -----------
+swp3       100G   Trunk/L2    node1                e3b
+swp4       100G   Trunk/L2    node2                e3b
+swp15      100G   BondMember  sw1                swp15
+swp16      100G   BondMember  sw1                swp16
+----
+. 클러스터 LIF에서 자동 되돌리기 사용: 'cluster1:: * > 네트워크 인터페이스 modify -vserver Cluster-lif * -auto-revert true'
+. 스위치 nsw2에서 노드의 네트워크 포트에 연결된 포트를 불러옵니다.
++
+[listing, subs="+quotes"]
+----
+cumulus@nsw2:~$ *net del interface swp1-14 link down*
+cumulus@nsw2:~$ *net pending*
+cumulus@nsw2:~$ *net commit*
+----
+. 클러스터의 노드에 대한 정보를 'cluster show'로 표시합니다
++
+이 예제에서는 이 클러스터의 노드 1과 노드 2에 대한 노드 상태가 true인 것을 보여 줍니다.
+
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster show*
+
+Node          Health  Eligibility
+------------- ------- ------------
+node1         true    true
+node2         true    true
+----
+. 모든 물리적 클러스터 포트가 작동 중인지 확인합니다. 'network port show IPSpace Cluster'
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+
+Node node1                                                               Ignore
+                                                    Speed(Mbps) Health   Health
+Port      IPspace     Broadcast Domain  Link  MTU   Admin/Oper  Status   Status
+--------- ----------- ----------------- ----- ----- ----------- -------- ------
+e3a       Cluster     Cluster           up    9000  auto/10000  healthy  false
+e3b       Cluster     Cluster           up    9000  auto/10000  healthy  false
+
+Node: node2
+                                                                         Ignore
+                                                    Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link  MTU   Admin/Oper  Status   Status
+--------- ------------ ---------------- ----- ----- ----------- -------- ------
+e3a       Cluster      Cluster          up    9000  auto/10000  healthy  false
+e3b       Cluster      Cluster          up    9000  auto/10000  healthy  false
+
+----
+. 클러스터 네트워크가 정상인지 확인합니다.
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *net show lldp*
+
+LocalPort  Speed  Mode        RemoteHost      RemotePort
+---------  -----  ----------  --------------  -----------
+swp3       100G   Trunk/L2    node1           e3a
+swp4       100G   Trunk/L2    node2           e3a
+swp15      100G   BondMember  nsw2            swp15
+swp16      100G   BondMember  nsw2            swp16
+----
+. 'system switch ethernet log setup-password', 'system switch ethernet log enable-collection' 명령을 사용하여 스위치 관련 로그 파일을 수집하기 위한 Ethernet 스위치 상태 모니터 로그 수집 기능을 활성화한다
++
+'시스템 스위치 이더넷 로그 설정 - 암호'를 입력합니다
+
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *system switch ethernet log setup-password*
+Enter the switch name: <return>
+The switch name entered is not recognized.
+Choose from the following list:
+sw1
+nsw2
+
+cluster1::*> *system switch ethernet log setup-password*
+
+Enter the switch name: *sw1*
+RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
+Do you want to continue? {y|n}::[n] *y*
+
+Enter the password: <enter switch password>
+Enter the password again: <enter switch password>
+
+cluster1::*> *system switch ethernet log setup-password*
+
+Enter the switch name: *nsw2*
+RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
+Do you want to continue? {y|n}:: [n] *y*
+
+Enter the password: <enter switch password>
+Enter the password again: <enter switch password>
+----
++
+'시스템 스위치 이더넷 로그 Enable-collection'이 그 뒤를 따랐습니다
+
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *system switch ethernet log enable-collection*
+
+Do you want to enable cluster log collection for all nodes in the cluster?
+{y|n}: [n] *y*
+
+Enabling cluster switch log collection.
+
+cluster1::*>
+----
++
+
+NOTE: 이러한 명령에서 오류가 반환되면 NetApp 지원에 문의하십시오.
+
+. 스위치 로그 수집 기능 '시스템 스위치 이더넷 로그 수집 장치 *'를 시작합니다
++
+10분 정도 기다린 후 'system switch ethernet log show' 명령을 사용하여 로그 수집이 성공했는지 확인합니다
+
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *system switch ethernet log show*
+Log Collection Enabled: true
+
+Index  Switch                       Log Timestamp        Status
+------ ---------------------------- -------------------  ---------    
+1      sw1 (b8:ce:f6:19:1b:42)      4/29/2022 03:05:25   complete   
+2      nsw2 (b8:ce:f6:19:1b:96)     4/29/2022 03:07:42   complete
+----
+. 권한 수준을 다시 admin:'Set-Privilege admin'으로 변경합니다
+. 자동 케이스 생성을 억제한 경우 AutoSupport 메시지 '시스템 노드 AutoSupport invoke -node * -type all-message MAINT=end'를 호출하여 다시 활성화합니다
+

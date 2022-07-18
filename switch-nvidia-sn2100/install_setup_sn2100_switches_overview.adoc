@@ -1,0 +1,22 @@
+---
+permalink: switch-nvidia-sn2100/install_setup_sn2100_switches_overview.html 
+sidebar: sidebar 
+keywords: sn2100 SN2100 switches setup, sn2100 SN2100 switches install, cumulus linux 
+summary: NVIDIA SN2100 스위치는 Cumulus Linux를 실행하는 10/25/40/100 GbE 이더넷 스위치입니다. SN2100 스위치는 ONTAP 9.10.1에서 서로 다른 스위치 쌍에 대한 클러스터 및 스토리지 애플리케이션을 지원합니다. 
+---
+= NVIDIA SN2100 스위치를 설정하고 구성합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NVIDIA SN2100 스위치는 Cumulus Linux를 실행하는 10Gb/25/40/100 Gb 이더넷 스위치입니다. SN2100 스위치는 ONTAP 9.10.1P3에서 서로 다른 스위치 쌍을 통해 클러스터 및 스토리지 애플리케이션을 제공합니다.
+
+Cumulus Linux(CL) OS는 스위치에서 Cumulus Linux 또는 ONIE를 실행할 때 설치할 수 있습니다. 이 릴리즈에서 지원되는 최소 Cumulus Linux 버전은 4.4.2입니다.
+
+
+NOTE: 이 절차에서는 Cumulus Linux에 완벽하게 액세스할 수 있도록 하는 명령줄 인터페이스인 NCLU(Network Command Line Utility)를 사용합니다. NET 명령은 터미널에서 작업을 실행하는 데 사용하는 래퍼 유틸리티입니다.
+
+
+IMPORTANT: 10G 및 25G에 브레이크아웃 케이블을 사용할 경우 자동 협상이 꺼져 있는지 확인하고 스위치의 포트 속도를 하드 설정합니다. 을 참조하십시오 link:install_cabling_config_considerations_sn2100.html["케이블 연결 및 구성 고려 사항"^] 를 참조하십시오.

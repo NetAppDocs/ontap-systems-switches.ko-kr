@@ -44,9 +44,13 @@ NOTE: 명령 출력은 ONTAP의 릴리즈별로 다를 수 있습니다.
 * cluster1:: * > 프롬프트는 클러스터의 이름을 나타냅니다.
 
 
+[NOTE]
+====
+* 이 절차를 수행하려면 ONTAP 명령과 Cisco Nexus 9000 시리즈 스위치 명령을 모두 사용해야 합니다. 달리 표시되지 않는 한 ONTAP 명령이 사용됩니다.
+* 이 절차를 수행하기 전에 스위치 구성의 현재 백업이 있는지 확인하십시오.
 
-NOTE: 이 절차를 수행하려면 ONTAP 명령과 Cisco Nexus 9000 시리즈 스위치 명령을 모두 사용해야 합니다. 달리 표시되지 않는 한 ONTAP 명령이 사용됩니다.
 
+====
 .단계
 . [[step1]] 이 클러스터에서 AutoSupport가 활성화된 경우 'system node AutoSupport invoke -node * -type all-message MAINT=x h' AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다
 +
@@ -59,11 +63,10 @@ NOTE: 이 절차를 수행하려면 ONTAP 명령과 Cisco Nexus 9000 시리즈 �
 고급 프롬프트(*>)가 나타납니다.
 
 . [[step3] 각 클러스터 상호 연결 스위치에 대해 각 노드에 구성된 클러스터 상호 연결 인터페이스의 수를 표시합니다. 'network device-discovery show-protocol CDP'
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cluster1:: network device-discovery show -protocol cdp
+cluster1:: *network device-discovery show -protocol cdp*
 Node/       Local  Discovered
 Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
 ----------- ------ ------------------------- ----------------- --------
@@ -78,13 +81,10 @@ cluster1-01/cdp
 . [[4단계]] 각 클러스터 인터페이스의 관리 또는 운영 상태를 확인합니다.
 +
 .. 네트워크 포트 속성 'network port show – IPSpace Cluster'를 표시합니다
-
-
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cluster1::*> network port show -ipspace Cluster
+cluster1::*> *network port show -ipspace Cluster*
 Node: cluster1-02
                                                   Speed(Mbps)  Health
 Port      IPspace      Broadcast Domain Link MTU  Admin/Oper   Status
@@ -99,14 +99,12 @@ Port      IPspace      Broadcast Domain Link MTU  Admin/Oper   Status
 e3a       Cluster      Cluster          up   9000  auto/100000 healthy
 e3b       Cluster      Cluster          up   9000  auto/100000 healthy
 4 entries were displayed.
-
 ----
-. LIF에 대한 정보를 표시합니다. 'network interface show-vserver Cluster'
-
-
-[listing]
+.. LIF에 대한 정보를 표시합니다. 'network interface show-vserver Cluster'
++
+[listing, subs="+quotes"]
 ----
-cluster1::*> network interface show -vserver Cluster
+cluster1::*> *network interface show -vserver Cluster*
         Logical            Status     Network            Current    Current Is
 Vserver Interface          Admin/Oper Address/Mask       Node        Port   Home
 ------- ------------------ ---------- ------------------ ----------- ------ ----
@@ -117,12 +115,13 @@ Cluster
         cluster1-02_clus2  up/up      169.254.19.183/16  cluster1-02  e3b   true
 4 entries were displayed.
 ----
+
+
 . [[step5]]원격 클러스터 LIF에 대해 Ping을 수행합니다. 'cluster ping-cluster-node-name'
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cluster1::*> cluster ping-cluster -node cluster1-02
+cluster1::*> *cluster ping-cluster -node cluster1-02*
 Host is cluster1-02
 Getting addresses from network interface table...
 Cluster cluster1-01_clus1 169.254.209.69 cluster1-01     e3a
@@ -148,11 +147,10 @@ RPC status:
 2 paths up, 0 paths down (udp check)
 ----
 . [[step6]] 모든 클러스터 LIF에서 자동 되돌리기 명령이 활성화되어 있는지 확인합니다. 'network interface show -vserver Cluster-fields auto-revert'
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cluster1::*> network interface show -vserver Cluster -fields auto-revert
+cluster1::*> *network interface show -vserver Cluster -fields auto-revert*
           Logical
 Vserver   Interface            Auto-revert
 --------- ––––––-------------- ------------
@@ -167,13 +165,10 @@ Cluster
 +
 ** 'System switch Ethernet log setup - password'(시스템 스위치 이더넷 로그 설정 - 암호)
 ** System switch Ethernet log enable-collection
-
-
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cluster1::*> system switch ethernet log setup password
+cluster1::*> *system switch ethernet log setup password*
 Enter the switch name: <return>
 The switch name entered is not recognized.
 Choose from the following list:
@@ -197,6 +192,10 @@ Enabling cluster switch log collection.
 cluster1::*>
 ----
 
+
+
+
+
 NOTE: 이러한 명령에서 오류가 반환되면 NetApp 지원에 문의하십시오.
 
 
@@ -211,54 +210,51 @@ NOTE: 이러한 명령에서 오류가 반환되면 NetApp 지원에 문의하�
 +
 이 예에서는 스위치가 IP 주소 172.19.2.1"에서 서버에 연결할 수 있는지 확인합니다.
 
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cs2# ping 172.19.2.1
+cs2# *ping 172.19.2.1*
 Pinging 172.19.2.1 with 0 bytes of data:
 Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
 ----
 . [[step3]]NX-OS 소프트웨어 및 EPLD 이미지를 Nexus 9336C-FX2 스위치에 복사합니다.
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cs2# copy sftp: bootflash: vrf management
-Enter source filename: /code/nxos.9.3.5.bin
-Enter hostname for the sftp server: 172.19.2.1
-Enter username: user1
+cs2# *copy sftp: bootflash: vrf management*
+Enter source filename: */code/nxos.9.3.5.bin*
+Enter hostname for the sftp server: *172.19.2.1*
+Enter username: *user1*
 Outbound-ReKey for 172.19.2.1:22
 Inbound-ReKey for 172.19.2.1:22
 user1@172.19.2.1's password:
 sftp> progress
 Progress meter enabled
-sftp> get   /code/nxos.9.3.5.bin  /bootflash/nxos.9.3.5.bin
+sftp> get /code/nxos.9.3.5.bin  /bootflash/nxos.9.3.5.bin
 /code/nxos.9.3.5.bin  100% 1261MB   9.3MB/s   02:15
 sftp> exit
 Copy complete, now saving to disk (please wait)...
 Copy complete.
-cs2# copy sftp: bootflash: vrf management
-Enter source filename: /code/n9000-epld.9.3.5.img
-Enter hostname for the sftp server: 172.19.2.1
-Enter username: user1
+cs2# *copy sftp: bootflash: vrf management*
+Enter source filename: */code/n9000-epld.9.3.5.img*
+Enter hostname for the sftp server: *172.19.2.1*
+Enter username: *user1*
 Outbound-ReKey for 172.19.2.1:22
 Inbound-ReKey for 172.19.2.1:22
 user1@172.19.2.1's password:
 sftp> progress
 Progress meter enabled
-sftp> get   /code/n9000-epld.9.3.5.img  /bootflash/n9000-epld.9.3.5.img
+sftp> get /code/n9000-epld.9.3.5.img  /bootflash/n9000-epld.9.3.5.img
 /code/n9000-epld.9.3.5.img  100%  161MB   9.5MB/s   00:16
 sftp> exit
 Copy complete, now saving to disk (please wait)...
 Copy complete.
 ----
 . [[4단계] NX-OS 소프트웨어의 실행 버전을 확인합니다
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cs2# show version
+cs2# *show version*
 Cisco Nexus Operating System (NX-OS) Software
 TAC support: http://www.cisco.com/tac
 Copyright (C) 2002-2020, Cisco and/or its affiliates.
@@ -302,14 +298,14 @@ Active Package(s):
 cs2#
 ----
 . [[5단계]] NX-OS 이미지를 설치합니다.
-
-
++
 
 NOTE: 이미지 파일을 설치하면 스위치를 재부팅할 때마다 이미지 파일이 로드됩니다.
 
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cs2# install all nxos bootflash:nxos.9.3.5.bin
+cs2# *install all nxos bootflash:nxos.9.3.5.bin*
 Installer will perform compatibility check first. Please wait.
 Installer is forced disruptive
 Verifying image bootflash:/nxos.9.3.5.bin for boot variable "nxos".
@@ -349,11 +345,10 @@ Warning: please do not remove or power off the module at this time.
 Finishing the upgrade, switch will reboot in 10 seconds.
 ----
 . [[step6]] 스위치를 재부팅한 후 NX-OS 소프트웨어의 새 버전을 확인합니다
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cs2# show version
+cs2# *show version*
 Cisco Nexus Operating System (NX-OS) Software
 TAC support: http://www.cisco.com/tac
 Copyright (C) 2002-2020, Cisco and/or its affiliates.
@@ -395,11 +390,10 @@ plugin
 Active Package(s):
 ----
 . [[step7]] EPLD image를 업그레이드한 후 switch를 reboot한다.
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cs2# show version module 1 epld
+cs2# *show version module 1 epld*
 EPLD Device                     Version
 ---- -------------------------- -------
 MI   FPGA                        0x7
@@ -409,7 +403,7 @@ GEM  FPGA                        0x2
 GEM  FPGA                        0x2
 GEM  FPGA                        0x2
 GEM  FPGA                        0x2
-cs2# install epld bootflash:n9000-epld.9.3.5.img module 1
+cs2# *install epld bootflash:n9000-epld.9.3.5.img module 1*
 Compatibility check:
 Module      Type        Upgradable  Impact      Reason
 ------  -------------- ------------ ----------- -------
@@ -423,7 +417,7 @@ Module  Type   EPLD              Running-Version   New-Version  Upg-Required
      1  SUP    MI FPGA2          0x02              0x02         No
 The above modules require upgrade.
 The switch will be reloaded at the end of the upgrade
-Do you want to continue (y/n) ?  [n] y
+Do you want to continue (y/n) ?  [n] *y*
 Proceeding to upgrade Modules.
 Starting Module 1 EPLD Upgrade
 Module 1 : IO FPGA [Programming] : 100.00% (     64 of      64 sectors)
@@ -435,11 +429,10 @@ EPLDs upgraded.
 Module 1 EPLD upgrade is successful.
 ----
 . [[step8]] 스위치 재부팅 후 다시 로그인하여 새 버전의 EPLD가 성공적으로 로드되었는지 확인합니다.
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cs2# show version module 1 epld
+cs2# *show version module 1 epld*
 EPLD Device                     Version
 ---- -------------------------- --------
 MI   FPGA                        0x7
@@ -450,6 +443,8 @@ GEM  FPGA                        0x2
 GEM  FPGA                        0x2
 GEM  FPGA                        0x2
 ----
+
+
 
 
 === Cisco Nexus 9336C-FX2 클러스터 스위치에 RCF를 설치합니다
@@ -464,16 +459,19 @@ Nexus 9336C-FX2 클러스터 스위치를 처음 설정한 후 RCF를 설치할 
 * cluster1:: * > 프롬프트는 클러스터의 이름을 나타냅니다.
 
 
+[NOTE]
+====
+* 이 절차를 수행하려면 ONTAP 명령과 Cisco Nexus 9000 시리즈 스위치 명령을 모두 사용해야 합니다. 달리 표시되지 않는 한 ONTAP 명령이 사용됩니다.
+* 이 절차를 수행하기 전에 스위치 구성의 현재 백업이 있는지 확인하십시오.
 
-NOTE: 이 절차를 수행하려면 ONTAP 명령과 Cisco Nexus 9000 시리즈 스위치 명령을 모두 사용해야 합니다. 달리 표시되지 않는 한 ONTAP 명령이 사용됩니다.
 
+====
 .단계
 . [[1단계] 클러스터 스위치에 연결된 각 노드의 클러스터 포트를 네트워크 디바이스 검색 쇼로 표시합니다
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cluster1::*> network device-discovery show
+cluster1::*> *network device-discovery show*
 Node/       Local  Discovered
 Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
 ----------- ------ ------------------------- ----------------  --------
@@ -493,11 +491,10 @@ cluster1::*>
 ----
 . [[2단계]] 각 클러스터 포트의 관리 및 운영 상태를 확인합니다.
 . [[step3] 모든 클러스터 포트가 정상 상태('network port show –role cluster')로 설정되어 있는지 확인합니다
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cluster1::*> network port show -role cluster
+cluster1::*> *network port show -role cluster*
 Node: cluster1-01
                                                                        Ignore
                                                   Speed(Mbps) Health   Health
@@ -531,11 +528,10 @@ e0b       Cluster      Cluster          up   9000  auto/100000 healthy  false
 cluster1::*>
 ----
 . [[step4]] 모든 클러스터 인터페이스(LIF)가 홈 포트 'network interface show-role cluster'에 있는지 확인합니다
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cluster1::*> network interface show -role cluster
+cluster1::*> *network interface show -role cluster*
         Logical            Status     Network         Current      Current Is
 Vserver Interface          Admin/Oper Address/Mask    Node         Port    Home
 ------- ------------------ ---------- --------------- ------------ ------- ----
@@ -552,11 +548,10 @@ Cluster
 cluster1::*>
 ----
 . [[5단계] 클러스터가 'system cluster-switch show-is-monitoring-enabled-operational true'라는 두 클러스터 스위치에 대한 정보를 표시하는지 확인합니다
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cluster1::*> system cluster-switch show -is-monitoring-enabled-operational true
+cluster1::*> *system cluster-switch show -is-monitoring-enabled-operational true*
 Switch                      Type               Address          Model
 --------------------------- ------------------ ---------------- -----
 cs1                         cluster-network    10.233.205.90    N9K-C9336C
@@ -576,26 +571,23 @@ cs2                         cluster-network    10.233.205.91    N9K-C9336C
 cluster1::*>
 ----
 . [[step6]] 클러스터 LIF에서 자동 복원을 사용하지 않도록 설정합니다.
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cluster1::*> network interface modify -vserver Cluster -lif * -auto-revert false
+cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert false*
 ----
 . [[7단계]] 클러스터 스위치 CS2에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cs2(config)# interface eth1/1/1-2,eth1/7-8
-cs2(config-if-range)# shutdown
+cs2(config)# *interface eth1/1/1-2,eth1/7-8*
+cs2(config-if-range)# *shutdown*
 ----
 . [[step8]] 클러스터 LIF가 클러스터 스위치 CS1에 호스팅된 포트로 마이그레이션되었는지 확인합니다. 네트워크 인터페이스 show-role cluster가 몇 초 정도 걸릴 수 있습니다
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cluster1::*> network interface show -role cluster
+cluster1::*> *network interface show -role cluster*
         Logical           Status     Network          Current      Current  Is
 Vserver Interface         Admin/Oper Address/Mask     Node         Port     Home
 ------- ----------------- --------- ---------------- ------------- ------- ----
@@ -612,11 +604,10 @@ Cluster
 cluster1::*>
 ----
 . [[9단계] 클러스터가 정상 상태인지 확인합니다. '클러스터 쇼'
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cluster1::*> cluster show
+cluster1::*> *cluster show*
 Node                 Health  Eligibility   Epsilon
 -------------------- ------- ------------  -------
 cluster1-01          true    true          false
@@ -626,53 +617,55 @@ cluster1-04          true    true          false
 4 entries were displayed.
 cluster1::*>
 ----
-. [[10단계]] 스위치 CS2의 구성을 청소하고 기본 설정을 수행합니다.
+. [[step10]] 아직 구성하지 않은 경우 다음 명령의 출력을 로그 파일에 복사하여 현재 스위치 구성을 저장합니다.
 +
-.. 구성을 청소합니다. 이 단계에서는 스위치에 콘솔 연결이 필요합니다.
-
-
-
-
 [listing]
 ----
-cs2# write erase
+show running-config
+----
+. [[step11]] 스위치 CS2의 구성을 청소하고 기본 설정을 수행합니다.
++
+.. 구성을 청소합니다. 이 단계에서는 스위치에 콘솔 연결이 필요합니다.
++
+[listing, subs="+quotes"]
+----
+cs2# *write erase*
 Warning: This command will erase the startup-configuration.
-Do you wish to proceed anyway? (y/n)  [n] y
-cs2# reload
-This command will reboot the system. (y/n)?  [n] y
+Do you wish to proceed anyway? (y/n)  [n] *y*
+cs2# *reload*
+This command will reboot the system. (y/n)?  [n] *y*
 cs2#
 ----
-. 스위치의 기본 설정을 수행합니다.
+.. 스위치의 기본 설정을 수행합니다.
 
 
-. [[step11]] FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 CS2의 부트플래시에 복사합니다. Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Cisco Nexus 9000 Series NX-OS 명령 참조 가이드"].
+
+
+. [[step12]] FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 CS2의 부트플래시 에 복사합니다. Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Cisco Nexus 9000 Series NX-OS 명령 참조 가이드"].
 +
 이 예에서는 스위치 CS2에서 RCF를 부트 플래시에 복사하는 데 사용되는 TFTP를 보여 줍니다.
 
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cs2# copy tftp: bootflash: vrf management
-Enter source filename: Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt
-Enter hostname for the tftp server: 172.22.201.50
+cs2# *copy tftp: bootflash: vrf management*
+Enter source filename: *Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt*
+Enter hostname for the tftp server: *172.22.201.50*
 Trying to connect to tftp server......Connection to Server Established.
 TFTP get operation was successful
 Copy complete, now saving to disk (please wait)...
 ----
-. [[step12]] 이전에 다운로드한 RCF를 bootflash에 적용합니다. Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Cisco Nexus 9000 Series NX-OS 명령 참조 가이드"].
+. [[step13]]이전에 다운로드한 RCF를 bootflash에 적용합니다. Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Cisco Nexus 9000 Series NX-OS 명령 참조 가이드"].
 +
 이 예에서는 RCF 파일 "Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt"가 스위치 CS2에 설치되어 있음을 보여 줍니다.
 
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cs2# copy Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt running-config echo-commands
+cs2# *copy Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt running-config echo-commands*
 ----
-. [[step13]]'show banner mott' 명령어의 배너 출력을 조사한다. 스위치의 올바른 구성과 작동을 위해 이 지침을 읽고 따라야 합니다.
-
-
+. [[pep14]]'show banner mott' 명령어의 배너 출력을 조사한다. 스위치의 올바른 구성과 작동을 위해 이 지침을 읽고 따라야 합니다.
++
 [listing]
 ----
 cs2# show banner motd
@@ -708,7 +701,7 @@ cs2# show banner motd
 *
 ***************************************************************************
 ----
-. [[step14]] RCF 파일이 올바른 최신 버전인지 확인하십시오: 'show running-config'
+. [[step15]]RCF 파일이 올바른 최신 버전인지 확인하십시오: 'show running-config'
 +
 출력을 점검하여 올바른 RCF가 있는지 확인할 때 다음 정보가 올바른지 확인하십시오.
 
@@ -725,38 +718,32 @@ cs2# show banner motd
 +
 Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Cisco Nexus 9000 Series NX-OS 명령 참조 가이드"].
 
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cs2# copy running-config startup-config [########################################] 100% Copy complete
+cs2# *copy running-config startup-config* [########################################] 100% Copy complete
 ----
-. [[step16]] 스위치 CS2를 재부팅합니다. 스위치가 재부팅되는 동안 노드에 보고된 "클러스터 포트 다운" 이벤트를 무시할 수 있습니다.
-
-
-[listing]
+. [[step17]] 스위치 CS2를 재부팅합니다. 스위치가 재부팅되는 동안 노드에 보고된 "클러스터 포트 다운" 이벤트를 무시할 수 있습니다.
++
+[listing, subs="+quotes"]
 ----
-cs2# reload
-This command will reboot the system. (y/n)?  [n] y
+cs2# *reload*
+This command will reboot the system. (y/n)?  [n] *y*
 ----
-. [[step17]]동일한 RCF를 적용하고 실행 중인 구성을 다시 저장합니다.
-
-
-[listing]
+. [[step18]]동일한 RCF를 적용하고 실행 중인 구성을 다시 저장합니다.
++
+[listing, subs="+quotes"]
 ----
-cs2# copy Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt running-config echo-commands
-cs2# copy running-config startup-config [########################################] 100% Copy complete
+cs2# *copy Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt running-config echo-commands*
+cs2# *copy running-config startup-config* [########################################] 100% Copy complete
 ----
-. [[step18]] 클러스터에서 클러스터 포트의 상태를 확인합니다.
+. [[19단계]] 클러스터의 클러스터 포트 상태를 확인합니다.
 +
 .. 'network port show-role cluster' 클러스터의 모든 노드에서 e0d 포트가 작동 및 정상 상태인지 확인합니다
-
-
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cluster1::*> network port show -role cluster
+cluster1::*> *network port show -role cluster*
 Node: cluster1-01
                                                                    Ignore
                                              Speed(Mbps)  Health   Health
@@ -790,12 +777,11 @@ e3a    Cluster      Cluster        up   9000  auto/100000 healthy  false
 e0d    Cluster      Cluster        up   9000  auto/100000 healthy  false
 8 entries were displayed.
 ----
-. 클러스터에서 스위치 상태를 확인합니다. LIF가 e0d에 홈링되지 않으므로 스위치 CS2가 표시되지 않을 수 있습니다.
-
-
-[listing]
+.. 클러스터에서 스위치 상태를 확인합니다. LIF가 e0d에 홈링되지 않으므로 스위치 CS2가 표시되지 않을 수 있습니다.
++
+[listing, subs="+quotes"]
 ----
-cluster1::*> network device-discovery show -protocol cdp
+cluster1::*> *network device-discovery show -protocol cdp*
 Node/       Local  Discovered
 Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
 ----------- ------ ------------------------- ----------------- --------
@@ -811,7 +797,7 @@ cluster01-3/cdp
 cluster1-04/cdp
             e3a    cs1                       Ethernet1/1/2     N9K-C9336C
             e3b    cs2                       Ethernet1/1/2     N9K-C9336C
-cluster1::*> system cluster-switch show -is-monitoring-enabled-operational true
+cluster1::*> *system cluster-switch show -is-monitoring-enabled-operational true*
 Switch                      Type               Address          Model
 --------------------------- ------------------ ---------------- -----
 cs1                         cluster-network    10.233.205.90    NX9-C9336C
@@ -830,29 +816,31 @@ cs2                         cluster-network    10.233.205.91    NX9-C9336C
     Version Source: CDP
 2 entries were displayed.
 ----
++
 
 NOTE: 이전에 스위치에 로드된 RCF 버전에 따라 CS1 스위치 콘솔에서 다음 출력을 관찰할 수 있습니다.
 
++
 [listing]
 ----
 2020 Nov 17 16:07:18 cs1 %$ VDC-1 %$ %STP-2-UNBLOCK_CONSIST_PORT: Unblocking port port-channel1 on VLAN0092. Port consistency restored.
 2020 Nov 17 16:07:23 cs1 %$ VDC-1 %$ %STP-2-BLOCK_PVID_PEER: Blocking port-channel1 on VLAN0001. Inconsistent peer vlan.
 2020 Nov 17 16:07:23 cs1 %$ VDC-1 %$ %STP-2-BLOCK_PVID_LOCAL: Blocking port-channel1 on VLAN0092. Inconsistent local vlan.
 ----
-. [[step19]] 클러스터 스위치 CS1에서 노드의 클러스터 포트에 연결된 포트를 종료합니다. 다음 예제에서는 1단계의 인터페이스 예제 출력을 사용합니다.
 
 
-[listing]
+. [[step20]] 클러스터 스위치 CS1에서 노드의 클러스터 포트에 연결된 포트를 종료합니다. 다음 예제에서는 1단계의 인터페이스 예제 출력을 사용합니다.
++
+[listing, subs="+quotes"]
 ----
-cs1(config)# interface eth1/1/1-2,eth1/7-8
-cs1(config-if-range)# shutdown
+cs1(config)# *interface eth1/1/1-2,eth1/7-8*
+cs1(config-if-range)# *shutdown*
 ----
-. [[step20]] 클러스터 LIF가 스위치 CS2에 호스팅된 포트로 마이그레이션되었는지 확인합니다. 네트워크 인터페이스 show-role cluster가 몇 초 정도 걸릴 수 있습니다
-
-
-[listing]
+. [[step21]] 클러스터 LIF가 스위치 CS2에 호스팅된 포트로 마이그레이션되었는지 확인합니다. 네트워크 인터페이스 show-role cluster가 몇 초 정도 걸릴 수 있습니다
++
+[listing, subs="+quotes"]
 ----
-cluster1::*> network interface show -role cluster
+cluster1::*> *network interface show -role cluster*
         Logical            Status      Network         Current      Current Is
 Vserver Interface          Admin/Oper  Address/Mask    Node         Port    Home
 ------- ------------------ ----------- --------------- ------------ ------- ----
@@ -868,12 +856,11 @@ Cluster
 8 entries were displayed.
 cluster1::*>
 ----
-. [[step21]] 클러스터의 상태가 양호한지 확인합니다. '클러스터 쇼'
-
-
-[listing]
+. [[step22]] 클러스터의 상태가 양호한지 확인합니다. '클러스터 쇼'
++
+[listing, subs="+quotes"]
 ----
-cluster1::*> cluster show
+cluster1::*> *cluster show*
 Node                 Health   Eligibility   Epsilon
 -------------------- -------- ------------- -------
 cluster1-01          true     true          false
@@ -883,28 +870,25 @@ cluster1-04          true     true          false
 4 entries were displayed.
 cluster1::*>
 ----
-. [[step22]] 스위치 CS1의 7-14단계를 반복합니다.
+. [[step23]] 스위치 CS1의 7-14단계를 반복합니다.
 . 클러스터 LIF에서 자동 되돌리기 기능을 설정합니다.
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cluster1::*> network interface modify -vserver Cluster -lif * -auto-revert True
+cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert True*
 ----
-. [[step24]] 스위치 CS1을 재부팅합니다. 이렇게 하면 클러스터 LIF가 홈 포트로 되돌아갈 수 있습니다. 스위치가 재부팅되는 동안 노드에 보고된 "클러스터 포트 다운" 이벤트를 무시할 수 있습니다.
-
-
-[listing]
+. [[step25]] 스위치 CS1을 재부팅합니다. 이렇게 하면 클러스터 LIF가 홈 포트로 되돌아갈 수 있습니다. 스위치가 재부팅되는 동안 노드에 보고된 "클러스터 포트 다운" 이벤트를 무시할 수 있습니다.
++
+[listing, subs="+quotes"]
 ----
-cs1# reload
-This command will reboot the system. (y/n)?  [n] y
+cs1# *reload*
+This command will reboot the system. (y/n)?  [n] *y*
 ----
-. [[step25]] 클러스터 포트에 연결된 스위치 포트가 작동하는지 확인합니다.
-
-
-[listing]
+. [[step26]] 클러스터 포트에 연결된 스위치 포트가 작동하는지 확인합니다.
++
+[listing, subs="+quotes"]
 ----
-cs1# show interface brief | grep up
+cs1# *show interface brief | grep up*
 .
 .
 Eth1/1/1      1       eth  access up      none                   100G(D) --
@@ -914,12 +898,11 @@ Eth1/8        1       eth  trunk  up      none                   100G(D) --
 .
 .
 ----
-. [[step26]] CS1과 CS2 사이의 ISL이 작동하는지 확인합니다
-
-
-[listing]
+. [[step27] CS1과 CS2 사이의 ISL이 작동하는지 확인합니다. '포트-채널 요약 정보'
++
+[listing, subs="+quotes"]
 ----
-cs1# show port-channel summary
+cs1# *show port-channel summary*
 Flags:  D - Down        P - Up in port-channel (members)
         I - Individual  H - Hot-standby (LACP only)
         s - Suspended   r - Module-removed
@@ -934,12 +917,11 @@ Group Port-       Type     Protocol  Member Ports      Channel
 1     Po1(SU)     Eth      LACP      Eth1/35(P)        Eth1/36(P)
 cs1#
 ----
-. [[step27] 클러스터 LIF가 홈 포트인 ' 네트워크 인터페이스 show-role cluster ' 로 되돌려졌는지 확인합니다
-
-
-[listing]
+. [[step28]] 클러스터 LIF가 홈 포트인 ' 네트워크 인터페이스 show-role cluster ' 로 되돌려졌는지 확인합니다
++
+[listing, subs="+quotes"]
 ----
-cluster1::*> network interface show -role cluster
+cluster1::*> *network interface show -role cluster*
         Logical            Status     Network           Current     Current Is
 Vserver Interface          Admin/Oper Address/Mask      Node        Port    Home
 ------- ------------------ ---------- ----------------- ----------- ------- ----
@@ -955,12 +937,11 @@ Cluster
 8 entries were displayed.
 cluster1::*>
 ----
-. [[step28]] 클러스터의 상태가 양호한지 확인합니다. '클러스터 쇼'
-
-
-[listing]
+. [[step29]] 클러스터가 정상 상태인지 확인합니다. '클러스터 쇼'
++
+[listing, subs="+quotes"]
 ----
-cluster1::*> cluster show
+cluster1::*> *cluster show*
 Node                 Health  Eligibility   Epsilon
 -------------------- ------- ------------- -------
 cluster1-01          true    true          false
@@ -970,12 +951,11 @@ cluster1-04          true    true          false
 4 entries were displayed.
 cluster1::*>
 ----
-. [[step29]]원격 클러스터 인터페이스에 대해 ping을 수행하여 연결을 확인합니다. 'cluster ping-cluster-node local'
-
-
-[listing]
+. [[30단계] 원격 클러스터 인터페이스에 대해 ping을 수행하여 연결을 확인합니다. 'cluster ping-cluster-node local'
++
+[listing, subs="+quotes"]
 ----
-cluster1::*> cluster ping-cluster -node local
+cluster1::*> *cluster ping-cluster -node local*
 Host is cluster1-03
 Getting addresses from network interface table...
 Cluster cluster1-03_clus1 169.254.1.3 cluster1-03 e3a
@@ -1014,6 +994,8 @@ RPC status:
 ----
 
 
+
+
 === Cisco Nexus 9336C-FX2 스토리지 스위치에 RCF를 설치합니다
 
 참조 구성 파일(RCF)은 Cisco Nexus 9336C-FX2 스토리지 스위치에서 업그레이드할 수 있습니다.
@@ -1044,20 +1026,23 @@ NOTE: 명령 출력은 ONTAP의 릴리즈별로 다를 수 있습니다.
 * 노드는 _node1_ 및 _node2_입니다.
 
 
+[NOTE]
+====
+* 이 절차를 수행하려면 ONTAP 명령과 Cisco Nexus 9000 시리즈 스위치 명령을 모두 사용해야 합니다. 달리 표시되지 않는 한 ONTAP 명령이 사용됩니다.
+* 이 절차를 수행하기 전에 스위치 구성의 현재 백업이 있는지 확인하십시오.
 
-NOTE: 이 절차를 수행하려면 ONTAP 명령과 Cisco Nexus 9000 시리즈 스위치 명령을 모두 사용해야 합니다. 달리 표시되지 않는 한 ONTAP 명령이 사용됩니다.
 
+====
 .단계
 . 이 클러스터에서 AutoSupport가 활성화되어 있으면 'system node AutoSupport invoke -node * -type all-message maINT=xh' AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다
 +
 여기서 x는 유지 보수 기간(시간)입니다.
 
 . 스토리지 스위치를 사용할 수 있는지 확인합니다. '시스템 스위치 이더넷 표시'입니다
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-storage::*> system switch ethernet show
+storage::*> *system switch ethernet show*
 Switch                    Type               Address          Model
 ------------------------- ------------------ ---------------- ---------------
 st1
@@ -1080,11 +1065,10 @@ st2
 storage::*>
 ----
 . [[step3] 노드 포트가 정상 작동 중인지 확인합니다. 'storage port show-port-type ENET'
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-storage::*> storage port show -port-type ENET
+storage::*> *storage port show -port-type ENET*
                                    Speed                            VLAN
 Node     Port   Type    Mode       (Gb/s)     State     Status        ID
 ------- ------- ------- ---------- ---------- --------- ----------- -----
@@ -1100,20 +1084,18 @@ node2
         e7b     ENET    storage    100        enabled   online         30
 ----
 . [[step4]] 클러스터에 스토리지 스위치 또는 케이블 연결 문제가 없는지 확인합니다. 'system health alert show-instance'
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-storage::*> system health alert show -instance
+storage::*> *system health alert show -instance*
 There are no entries matching your query.
 ----
 . [[5단계] NX-OS 이미지를 다운로드하여 ST2로 전환하십시오.
 . 다음 번에 스위치 ST2를 재부팅할 때 새 버전이 로드되도록 시스템 이미지를 설치합니다. 스위치는 다음 출력에 표시된 것처럼 새 이미지와 함께 10초 후에 재부팅됩니다.
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-st2# install all nxos bootflash:nxos.9.3. 5.bin
+st2# *install all nxos bootflash:nxos.9.3. 5.bin*
 Installer will perform compatibility check first. Please wait.
 Installer is forced disruptive
 Verifying image bootflash:/nxos.9.3.4.bin for boot variable "nxos".
@@ -1139,9 +1121,9 @@ Module Image        Running-Version(pri:alt)               New-Version  Upg
  1     nxos                                     9.3(3)          9.3(4)       yes
  1     bios      v08.37(01/28/2020):v08.23(09/23/2015)   v08.38(05/29/2020)   no
 Switch will be reloaded for disruptive upgrade.
-Do you want to continue with the installation (y/n)? [n] y
+Do you want to continue with the installation (y/n)? [n] *y*
 input string too long
-Do you want to continue with the installation (y/n)? [n] y
+Do you want to continue with the installation (y/n)? [n] *y*
 Install is in progress, please wait.
 Performing runtime checks.
 [####################] 100% -- SUCCESS
@@ -1159,21 +1141,19 @@ st2#
 +
 다음 예와 같이 시스템을 재부팅하라는 메시지가 표시됩니다.
 
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-st2# copy running-config startup-config
+st2# *copy running-config startup-config*
 [########################################] 100% Copy complete.
-st2# reload
-This command will reboot the system. (y/n)? [n] y
+st2# *reload*
+This command will reboot the system. (y/n)? [n] *y*
 ----
 . [[step8]] 새 NX-OS 버전 번호가 스위치에 있는지 확인합니다.
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-st2# show version
+st2# *show version*
 Cisco Nexus Operating System (NX-OS) Software
 TAC support: http://www.cisco.com/tac
 Upgrading a Cisco Nexus 9336C Storage Switch 6
@@ -1222,11 +1202,10 @@ Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하�
 +
 다음 예에서는 스위치 ST2에서 RCF를 부트 플래시 로 복사하는 데 사용되는 HTTP를 보여 줍니다.
 
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-st2# copy http://172.16.10.1//cfg/Nexus_9336C_RCF_v1.6-Storage.txt bootflash: vrf management
+st2# *copy http://172.16.10.1//cfg/Nexus_9336C_RCF_v1.6-Storage.txt bootflash: vrf management*
 % Total % Received % Xferd   Average   Speed  Time   Time   Time
 Current
    Dload     Upload  Total Spent   Left
@@ -1241,11 +1220,10 @@ st2#
 +
 다음 예에서는 RCF 파일 "Nexus_9336C_RCF_v1.6 - Storage.txt"가 스위치 ST2에 설치된 것을 보여 줍니다.
 
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-st2# copy Nexus_9336C_RCF_v1.6-Storage.txt running-config echo-commands
+st2# *copy Nexus_9336C_RCF_v1.6-Storage.txt running-config echo-commands*
 ----
 . [[step11] RCF 파일이 올바른 최신 버전인지 확인하십시오: 'show running-config'
 +
@@ -1261,10 +1239,7 @@ st2# copy Nexus_9336C_RCF_v1.6-Storage.txt running-config echo-commands
 +
 * 중요: * 'show banner motd' 명령의 배너 출력에서 * 중요 참고 사항 * 섹션의 지침을 읽고 따라 스위치의 올바른 구성과 작동을 확인해야 합니다.
 
-
-
-
-
++
 [listing]
 ----
 st2# show banner motd
@@ -1300,6 +1275,8 @@ st2# show banner motd
 ******************************************************************************
 st2#
 ----
+
+
 . [[step12]] 소프트웨어 버전과 스위치 설정이 올바른지 확인한 후 running-config 파일을 스위치 ST2의 startup-config 파일에 복사합니다.
 +
 Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Cisco Nexus 9000 Series NX-OS 명령 참조 가이드"].
@@ -1307,19 +1284,17 @@ Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하�
 +
 다음 예에서는 'running-config' 파일이 'startup-config' 파일에 성공적으로 복사되었음을 보여 줍니다.
 
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-st2# copy running-config startup-config
+st2# *copy running-config startup-config*
 [########################################] 100% Copy complete.
 ----
 . [[step13]] 스토리지 스위치를 다시 부팅한 후 사용할 수 있는지 다시 확인합니다. 'system switch ethernet show'
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-storage::*> system switch ethernet show
+storage::*> *system switch ethernet show*
 Switch                       Type               Address          Model
 ---------------------------- ------------------ ---------------- ---------------
 st1
@@ -1342,11 +1317,10 @@ st2
 storage::*
 ----
 . [[step14] 재부팅 후 스위치 포트가 정상 작동 중인지 확인합니다. 스토리지 포트 show-port-type ENET
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-storage::*> storage port show -port-type ENET
+storage::*> *storage port show -port-type ENET*
                                    Speed                            VLAN
 Node    Port    Type    Mode       (Gb/s)      State     Status       ID
 ------- ------- ------- ---------- ----------- --------- --------- -----
@@ -1362,11 +1336,10 @@ node2
         e7b     ENET    storage           100   enabled   online       30
 ----
 . [[15단계] 클러스터에 스토리지 스위치 또는 케이블 연결 문제가 없는지 다시 확인합니다. '시스템 상태 경고 표시 - 인스턴스'
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-storage::*> system health alert show -instance
+storage::*> *system health alert show -instance*
 There are no entries matching your query.
 ----
 . [[step16]] 스위치 st1의 RCF에 대해 이 절차를 반복합니다.
@@ -1394,11 +1367,10 @@ Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하�
 +
 다음 예에서는 스위치 SH2에서 RCF를 부트 플래시 로 복사하는 데 사용되는 HTTP를 보여 줍니다.
 
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-sh2# copy http://172.16.10.1//cfg/Nexus_9336C_RCF_v1.7-Cluster-Ha-Storage.txt bootflash: vrf management
+sh2# *copy http://172.16.10.1//cfg/Nexus_9336C_RCF_v1.7-Cluster-Ha-Storage.txt bootflash: vrf management*
 % Total % Received % Xferd   Average   Speed  Time   Time   Time
 Current
    Dload     Upload  Total Spent   Left
@@ -1413,11 +1385,10 @@ sh2#
 +
 다음 예에서는 스위치 SH2에 RCF 파일 'Nexus_9336C_RCF_v1.7-Cluster-HA-Storage.txt 설치하는 것을 보여 줍니다.
 
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-sh2# copy Nexus_9336C_RCF_v1.7-Cluster-HA-Storage.txt running-config echo-commands
+sh2# *copy Nexus_9336C_RCF_v1.7-Cluster-HA-Storage.txt running-config echo-commands*
 ----
 . [[step3] RCF 파일이 올바른 최신 버전인지 확인하십시오: 'show running-config'
 +
@@ -1433,10 +1404,7 @@ sh2# copy Nexus_9336C_RCF_v1.7-Cluster-HA-Storage.txt running-config echo-comman
 +
 * 중요: * 'show banner motd' 명령의 배너 출력에서 * 중요 참고 사항 * 섹션의 지침을 읽고 따라 스위치의 올바른 구성과 작동을 확인해야 합니다.
 
-
-
-
-
++
 [listing]
 ----
 sh2# show banner motd
@@ -1477,6 +1445,8 @@ sh2# show banner motd
 ******************************************************************************
 sh2#
 ----
+
+
 . [[step4]] 소프트웨어 버전과 스위치 설정이 올바른지 확인한 후 스위치 SH2의 startup-config 파일에 'running-config' 파일을 복사합니다.
 +
 Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Cisco Nexus 9000 Series NX-OS 명령 참조 가이드"].
@@ -1484,11 +1454,10 @@ Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하�
 +
 다음 예에서는 'running-config' 파일이 'startup-config' 파일에 성공적으로 복사되었음을 보여 줍니다.
 
-
-
-[listing]
++
+[listing, subs="+quotes"]
 ----
-sh2# copy running-config startup-config
+sh2# *copy running-config startup-config*
 [########################################] 100% Copy complete.
 ----
 . [[5단계]] 스위치 SH1의 RCF에 대해 이 절차를 반복합니다.
