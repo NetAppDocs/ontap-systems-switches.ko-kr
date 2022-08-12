@@ -27,7 +27,10 @@ Pinging 172.19.2.1 with 0 bytes of data:
 
 Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
 ----
-. NX-OS 소프트웨어를 Nexus 3132Q-V 스위치에 복사합니다.
+. FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 NX-OS 소프트웨어를 Nexus 3132Q-V 스위치에 복사합니다. Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Cisco Nexus 3000 Series NX-OS 명령 참조"^] 안내선.
++
+이 예에서는 NX-OS 소프트웨어를 Nexus 3132Q-V 스위치에 복사하는 데 사용되는 SFTP를 보여줍니다.
+
 +
 [listing, subs="+quotes"]
 ----

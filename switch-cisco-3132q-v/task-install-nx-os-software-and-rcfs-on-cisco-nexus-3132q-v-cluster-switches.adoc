@@ -46,7 +46,7 @@ NOTE: 이 절차를 수행하려면 ONTAP 명령과 Cisco Nexus 3000 시리즈 �
 .단계
 . 이 클러스터에서 AutoSupport가 활성화되어 있는 경우 AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다.
 +
-'System node AutoSupport invoke-node * -type all-message maINT=x h'
+'System node AutoSupport invoke-node * -type all-message maINT=xh'
 
 +
 여기서 _x_는 유지보수 기간(시간)입니다.
@@ -80,8 +80,6 @@ cluster1-02/cdp
 cluster1-01/cdp
             e0a    cs1                       Eth1/1            N3K-C3132Q-V
             e0b    cs2                       Eth1/1            N3K-C3132Q-V
-
-4 entries were displayed.
 ----
 . 각 클러스터 인터페이스의 관리 또는 운영 상태를 확인합니다.
 +
@@ -107,8 +105,6 @@ Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status
 --------- ------------ ---------------- ---- ---- ----------- ------
 e0a       Cluster      Cluster          up   9000  auto/10000 healthy
 e0b       Cluster      Cluster          up   9000  auto/10000 healthy
-
-4 entries were displayed.
 ----
 .. LIF 정보 표시:
 +
@@ -127,19 +123,17 @@ Cluster
             cluster1-01_clus2  up/up      169.254.49.125/16  cluster1-01   e0b     true
             cluster1-02_clus1  up/up      169.254.47.194/16  cluster1-02   e0a     true
             cluster1-02_clus2  up/up      169.254.19.183/16  cluster1-02   e0b     true
-
-4 entries were displayed.
 ----
 
 
 . 원격 클러스터 LIF에 대한 ping 실시
 +
-'cluster ping-cluster-node_node-name_'
+'클러스터 ping-cluster-node local'
 
 +
 [listing, subs="+quotes"]
 ----
-cluster1::*> *cluster ping-cluster -node cluster1-02*
+cluster1::*> *cluster ping-cluster -node local*
 Host is cluster1-02
 Getting addresses from network interface table...
 Cluster cluster1-01_clus1 169.254.209.69 cluster1-01     e0a
@@ -181,102 +175,5 @@ Cluster
           cluster1-01_clus2   true
           cluster1-02_clus1   true
           cluster1-02_clus2   true
-4 entries were displayed.
 ----
-. ONTAP 9.8 이상의 경우 다음 명령을 사용하여 스위치 관련 로그 파일을 수집하기 위한 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화합니다.
-+
-'System switch Ethernet log setup - password'(시스템 스위치 이더넷 로그 설정 - 암호)
-
-+
-System switch Ethernet log enable-collection
-
-+
-[listing, subs="+quotes"]
-----
-cluster1::*> *system switch ethernet log setup-password*
-Enter the switch name: *<return>*
-The switch name entered is not recognized.
-Choose from the following list:
-cs1
-cs2
-
-cluster1::*> *system switch ethernet log setup-password*
-
-Enter the switch name: *cs1*
-RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
-Do you want to continue? {y|n}::[n] *y*
-
-Enter the password: *<enter switch password>*
-Enter the password again: *<enter switch password>*
-
-cluster1::*> *system switch ethernet log setup-password*
-
-Enter the switch name: *cs2*
-RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
-Do you want to continue? {y|n}:: [n] *y*
-
-Enter the password: *<enter switch password>*
-Enter the password again: *<enter switch password>*
-
-cluster1::*> *system  switch ethernet log enable-collection*
-
-Do you want to enable cluster log collection for all nodes in the cluster?
-{y|n}: [n] *y*
-
-Enabling cluster switch log collection.
-
-cluster1::*>
-----
-+
-
-NOTE: 이러한 명령에서 오류가 반환되면 NetApp 지원에 문의하십시오.
-
-. ONTAP 릴리스 9.5P16, 9.6P12 및 9.7P10 이상의 패치 릴리스의 경우 다음 명령을 사용하여 스위치 관련 로그 파일을 수집하기 위한 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화합니다.
-+
-'system cluster-switch log setup-password
-
-+
-'system cluster-switch log enable-collection'을 선택합니다
-
-+
-[listing, subs="+quotes"]
-----
-cluster1::*> *system cluster-switch log setup-password*
-Enter the switch name: *<return>*
-The switch name entered is not recognized.
-Choose from the following list:
-cs1
-cs2
-
-cluster1::*> *system cluster-switch log setup-password*
-
-Enter the switch name: *cs1*
-RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
-Do you want to continue? {y|n}::[n] *y*
-
-Enter the password: *<enter switch password>*
-Enter the password again: *<enter switch password>*
-
-cluster1::*> *system cluster-switch log setup-password*
-
-Enter the switch name: cs2
-RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
-Do you want to continue? {y|n}:: [n] *y*
-
-Enter the password: *<enter switch password>*
-Enter the password again: *<enter switch password>*
-
-cluster1::*> *system cluster-switch log enable-collection*
-
-Do you want to enable cluster log collection for all nodes in the cluster?
-{y|n}: [n] *y*
-
-Enabling cluster switch log collection.
-
-cluster1::*>
-----
-+
-
-NOTE: 이러한 명령에서 오류가 반환되면 NetApp 지원에 문의하십시오.
-
 

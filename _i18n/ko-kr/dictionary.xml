@@ -2022,7 +2022,6 @@
   <block id="3c85626b44218f810a57d295c3524acd" category="list-text">클러스터 LIF 이름은 'cluster1-01_clus1', 'cluster1-01_clus2', 'cluster1-02_clus1', 'cluster1-02_clus2', 'cluster1-03_clus1'입니다. 'cluster1-03_clus2', 'cluster1-04_clus1', 'cluster1-04_clus2'.</block>
   <block id="22f2fcbbff69a797e222d54f9d16c383" category="list-text">클러스터 스위치에 연결된 각 노드의 클러스터 포트를 표시합니다.</block>
   <block id="a8a837b1d24982d8fd8c7b71b0da1a7a" category="list-text">모든 클러스터 포트가 정상 상태인지 확인합니다.</block>
-  <block id="1238025070f42c2c91970d4a31d2a5c4" category="paragraph">'network port show – role cluster'</block>
   <block id="d9fb568577d38aa5ca1f9412c1a4e107" category="list-text">모든 클러스터 인터페이스(LIF)가 홈 포트에 있는지 확인합니다.</block>
   <block id="98f234e93ec030ce67a050ab46bd6ee6" category="list-text">클러스터가 두 클러스터 스위치에 대한 정보를 표시하는지 확인합니다.</block>
   <block id="5d0fccc0c22c6cabff0054b67831dfdc" category="paragraph">'system cluster-switch show-is-monitoring-enabled-operational true'</block>
@@ -2036,7 +2035,6 @@
   <block id="0bdc52e912f1ecc312522eb07e5f2cbb" category="list-text">RCF 파일이 올바른 최신 버전인지 확인합니다.</block>
   <block id="f1e487b54b162363f351d5d209fc59ac" category="paragraph">Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오<block ref="a793a8dbe6bab2f66743aaacba3b8ce6" category="inline-link-rx"></block> 안내선.</block>
   <block id="b1d94c7c371efbe2b9e14f1fcde6d912" category="list-text">스위치 CS2를 재부팅합니다. 스위치가 재부팅되는 동안 노드에 보고된 "클러스터 포트 다운" 이벤트를 무시할 수 있습니다.</block>
-  <block id="9b0698c17b659d983261fd45837a5b91" category="list-text">e0d 포트가 클러스터의 모든 노드에서 정상 작동 중인지 확인합니다.</block>
   <block id="50f3bfc2fb822fc9657969a594a33322" category="list-text">클러스터 LIF가 스위치 CS2에 호스팅된 포트로 마이그레이션되었는지 확인합니다. 이 작업은 몇 초 정도 걸릴 수 있습니다.</block>
   <block id="01d6ab89c082cff9a22a80f6236ceceb" category="list-text">스위치 CS1을 재부팅합니다. 이렇게 하면 클러스터 LIF가 홈 포트로 복구되도록 트리거됩니다. 스위치가 재부팅되는 동안 노드에 보고된 "클러스터 포트 다운" 이벤트를 무시할 수 있습니다.</block>
   <block id="ed34b4f07dbb9044c4aec48959bb5c98" category="list-text">CS1과 CS2 사이의 ISL이 작동하는지 확인합니다.</block>
@@ -2914,7 +2912,6 @@
   <block id="dd91c3681cdde4bc7616a4b3ec5f7e72" category="list-text">를 클릭합니다 <block ref="cbfe825e8e02458e2eef3cd048612d7d" category="inline-link-macro-rx"></block> Nexus 3132Q-V 스위치에 대한 지원되는 케이블 연결에 대한 자세한 내용은 다음을 참조하십시오.</block>
   <block id="82638f9455b90aac4ecd3473c4abd282" category="list-text">이 절차에서 지원되는 ONTAP 및 NX-OS 버전이 에 나열되어 있습니다 <block ref="bea6a113c7846200412c9ca0694f7009" category="inline-link-macro-rx"></block> 페이지.</block>
   <block id="a002527eadfaaff725e2967fe87378fd" category="list-text">이 절차에서 지원되는 ONTAP 및 FASTPATH 버전은 에 나열되어 있습니다 <block ref="02204714444b8dc050a0e8cdbf247292" category="inline-link-macro-rx"></block> 페이지.</block>
-  <block id="cb2514d8d13395d7733d05fb287165d2" category="list-text">NX-OS 소프트웨어를 Nexus 3132Q-V 스위치에 복사합니다.</block>
   <block id="615f0ddf4939c2d755829bfd3d0dc075" category="list-text">10GbE 및 40/100 GbE 포트 수는 에서 사용할 수 있는 RCFs(참조 구성 파일)에 정의되어 있습니다 <block ref="fbe8362ccb2da62f365822f496fddba9" category="inline-link-macro-rx"></block> 페이지.</block>
   <block id="20c20e24dfa0ee82d11432c0c1d13fa6" category="list-text">를 클릭합니다 <block ref="9c839fcdfb8699a63c787254d7b1ae03" category="inline-link-macro-rx"></block> Nexus 3132Q-V 스위치에 대한 지원되는 케이블 연결에 대한 자세한 내용은 다음을 참조하십시오.</block>
   <block id="2b6f3ab875b845c218e00770e3512d7b" category="paragraph">를 클릭합니다 <block ref="bd4121ea0586524602af8d06c17dcfca" category="inline-link-macro-rx"></block> 이 절차에서 지원되는 ONTAP 및 NX-OS 버전에 대한 정보가 페이지에 있습니다.</block>
@@ -3277,292 +3274,6 @@
   <block id="a795131211df008d0b468a0608997557" category="list-text">이 절차를 수행하기 전에 스위치 구성의 현재 백업이 있는지 확인하십시오.</block>
   <block id="3f8f6d237f18036be3a3fb24642d16ba" category="list-text">아직 구성하지 않은 경우 다음 명령의 출력을 로그 파일에 복사하여 현재 스위치 구성을 저장합니다.</block>
   <block id="c0693be270b6d9eda70557c59dfec11c" category="list-text">이 절차를 수행하기 전에 스위치 구성의 현재 백업이 있는지 확인하십시오.</block>
-  <block id="1a29ca4be6c9125e8ac9fccfa8df289c" category="summary">NDU\(무중단 절차)에서 결함이 있는 NVIDIA SN2100 스토리지 스위치를 교체하십시오.</block>
-  <block id="ca56e40e95211438888f7e4c9e051ea5" category="doc">NVIDIA SN2100 스토리지 스위치를 교체합니다</block>
-  <block id="fceed1976e801d73d13b11405b47a86b" category="paragraph">NVIDIA SN2100 스토리지 스위치를 교체할 때 특정 구성 정보, 포트 연결 및 케이블 연결 요구 사항을 알고 있어야 합니다.</block>
-  <block id="899d97d3e02cd2b765c3558b86d81068" category="paragraph">NVIDIA SN2100 스토리지 스위치에 Cumulus 소프트웨어 및 RCFs를 설치하기 전에 다음 조건이 존재하는지 확인해야 합니다.</block>
-  <block id="c6198cbcde2894fb96409239ec92a834" category="list-text">이 시스템은 NVIDIA SN2100 스토리지 스위치를 지원할 수 있습니다.</block>
-  <block id="9a6126268af75b2f859c1a03dc4714c1" category="list-text">를 클릭합니다<block ref="b973743bc19e2a373fedee1a51a110cc" category="inline-link-rx"></block> 지원되는 포트 및 해당 구성에 대한 자세한 내용은 에 나와 있습니다.</block>
-  <block id="dba3be5e6f4f846b2a75667e3ff0477a" category="list-text">모든 문제 해결 단계가 완료되었는지 확인하여 스위치를 교체해야 하는지 확인합니다.</block>
-  <block id="e06dcb466641dd36c53f025080bbb45e" category="paragraph">교체 NVIDIA SN2100 스위치의 특징은 다음과 같습니다.</block>
-  <block id="7398a7e3818a30c650d193a2db2016f7" category="list-text">적절한 RCF 및 Cumulus 운영 체제 이미지를 스위치에 로드해야 합니다.</block>
-  <block id="a622ee7c770c8ba1cbb73f2815e7ae56" category="paragraph">이 절차는 두 번째 NVIDIA SN2100 스토리지 스위치 SW2를 새로운 NVIDIA SN2100 스위치 nsw2로 대체합니다. 두 노드는 노드 1과 노드 2입니다.</block>
-  <block id="cc2313221eef083d36ffb52b29f6f98f" category="list-text">교체할 스위치가 SW2인지 확인합니다.</block>
-  <block id="68bdf3a88cf83c1044a28599dd9d552b" category="list-text">스위치 SW2에서 케이블을 분리합니다.</block>
-  <block id="801161caa4832eac3a4336de33e12441" category="list-text">스위치 nsw2에 케이블을 다시 연결합니다.</block>
-  <block id="856b3f22a7bc84281004d6833f8e5dd4" category="list-text">스위치 nsw2의 모든 장치 구성을 확인합니다.</block>
-  <block id="59ca6b134acac6e54edff8bb46ecd484" category="list-text">스토리지 스위치 SW1을 사용할 수 있는지 확인합니다. 'network device-discovery show</block>
-  <block id="9b24f35607cbd93e203a1229537c7235" category="list-text">작동 스위치에서 net show interface 명령을 실행하여 노드와 모든 shelf를 모두 볼 수 있는지 확인합니다</block>
-  <block id="088f485f3bfad97fa43d043685e12b05" category="list-text">스토리지 시스템의 Shelf port show-fields remote-device, remote-port를 확인한다</block>
-  <block id="d8f5536086bacf684c44e47a90fb5320" category="list-text">스토리지 스위치 SW2에 연결된 모든 케이블을 분리합니다.</block>
-  <block id="166bf8fabdaf0d92b7865b37f13efc05" category="list-text">교체 스위치 nsw2에 모든 케이블을 다시 연결합니다.</block>
-  <block id="7c8a62eb89bcf224c1a631d0b7e4a8f8" category="list-text">두 스위치를 모두 사용할 수 있는지 확인합니다. 'net device-discovery show'</block>
-  <block id="b366aa7d44d5ae24af827fa423f8a2f2" category="list-text">'system switch ethernet log setup-password'와 'system switch ethernet log enable-collection' 명령을 사용하여 스위치 관련 로그 파일을 수집하는 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화한다</block>
-  <block id="6d5256d36c2629c07d67ddb2fc78e95c" category="list-text">스위치 로그 수집 기능 '시스템 스위치 이더넷 로그 수집 장치 *'를 시작합니다</block>
-  <block id="676b4f116c6b65afc97655131da52093" category="paragraph">10분 정도 기다린 후 'system switch ethernet log show' 명령을 사용하여 로그 수집이 성공했는지 확인합니다</block>
-  <block id="af0741a63009a71666c8a00c5279b401" category="summary">스위치가 없는 기존 2노드 클러스터 환경이 구축된 경우 NVIDIA SN2100 스위치를 사용하여 2노드 스위치 클러스터 환경으로 마이그레이션하여 클러스터 내 2개 노드 이상으로 확장할 수 있습니다.</block>
-  <block id="47da18a30b9fcd2d1294cf032080276b" category="doc">NVIDIA SN2100 클러스터 스위치를 사용하여 2노드 스위치 클러스터로 마이그레이션합니다</block>
-  <block id="cc3660d80bc2c5730b70b777e1a7f05b" category="paragraph">스위치가 없는 2노드 클러스터를 NVIDIA SN2100 클러스터 스위치가 있는 클러스터로 중단 없이 마이그레이션할 경우 특정 구성 정보, 포트 연결 및 케이블 연결 요구 사항을 알고 있어야 합니다. 사용하는 절차는 각 컨트롤러에 전용 클러스터 네트워크 포트가 2개 있는지, 각 컨트롤러에 단일 클러스터 포트가 있는지 여부에 따라 다릅니다. 문서화된 프로세스는 광 또는 Twinax 포트를 사용하는 모든 노드에 대해 작동하지만, 노드가 클러스터 네트워크 포트에 온보드 10GBASE-T RJ45 포트를 사용하는 경우 이 스위치에서 지원되지 않습니다.</block>
-  <block id="f4d3615da83026723a97f90653b00097" category="list-title">스위치가 없는 2노드 구성</block>
-  <block id="7f9038e0cb80da2d88c487e9bccca0d1" category="list-text">노드는 ONTAP 9.10.1P3 이상을 실행해야 합니다.</block>
-  <block id="4bc0285bd4ff021f690292024f91a657" category="list-title">NVIDIA SN2100 클러스터 스위치 구성</block>
-  <block id="6f604266345008efe009e8a2f02e7dc0" category="list-text">NVIDIA SN2100 노드 간 스위치 및 스위치 간 연결은 Twinax 또는 파이버 케이블을 사용해야 합니다.</block>
-  <block id="1d9152605063cf1b257a36675cece81c" category="inline-link-macro">케이블 연결 및 구성 고려 사항</block>
-  <block id="b8e6dac17b1f60251a359674d65117a9" category="admonition">을 참조하십시오 <block ref="58ea2a922914aa470e8c647f2a05d6be" category="inline-link-macro-rx"></block> 주의 사항 및 자세한 내용은</block>
-  <block id="2ab78bdcb0ea707a89a06e2121680282" category="list-text">ISL(Inter-Switch Link) 케이블은 두 NVIDIA SN2100 스위치 모두에서 포트 swp15 및 swp16에 연결해야 합니다.</block>
-  <block id="2b8ba42446639a6c2fe280c152c68d19" category="list-text">두 SN2100 스위치의 초기 사용자 정의를 완료해야 합니다. 따라서 다음을 수행합니다.</block>
-  <block id="91fff5a6134f2be64c56d1695113e1f9" category="list-text">SN2100 스위치는 최신 버전의 Cumulus Linux를 실행하고 있습니다</block>
-  <block id="8e674e3cc0c8b6ecbd4956d1e90317e0" category="list-text">SN2100 스위치의 이름은 _SW1_와 _SW2_입니다.</block>
-  <block id="ee5bb83d3cbaf132eeecb309a393b94c" category="list-text">이 절차에 사용되는 클러스터 포트는 _e3a_와 _e3b_입니다.</block>
-  <block id="852c5f97fc5712493a0f4ae06bc9d050" category="list-text">브레이크아웃 포트는 SWP [port]s [브레이크아웃 포트 0-3] 형식을 사용합니다. 예를 들어 swp1의 4개의 브레이크아웃 포트는 _swp1s0_, _swp1s1_, _swp1s2_ 및 _swp1s3_입니다.</block>
-  <block id="c844edac5ec41b6dac1cc863f127ff48" category="list-text">새 클러스터 스위치 SW1과 SW2에서 모든 노드 대상 포트(ISL 포트 아님)를 비활성화합니다.</block>
-  <block id="00bb8074e6bd1737f80dabe96f73b517" category="paragraph">다음 명령을 실행하면 스위치 SW1 및 SW2의 노드 대상 포트가 비활성화됩니다.</block>
-  <block id="67931ae596ec519b34f4d63e1772dea2" category="list-text">두 SN2100 스위치 SW1과 SW2 사이의 ISL에 있는 ISL과 물리적 포트가 포트 swp15와 swp16에 있는지 확인합니다</block>
-  <block id="79db2f8f30aa3d04c6b263659d467402" category="paragraph">다음 예에서는 스위치 SW1에서 ISL 포트가 작동 중인 것을 보여 줍니다.</block>
-  <block id="07e4cb210a1196abcb5adb44dde333b4" category="paragraph">다음 예에서는 스위치 SW2에서 ISL 포트가 작동 중인 것을 보여 줍니다.</block>
-  <block id="6bb0bcacdec60dbc4e5eff8e7819821c" category="list-text">모든 클러스터 포트가 작동 중인지 확인합니다. 'network port show'</block>
-  <block id="c0093a431c96f2dc5a1e13aab041a68e" category="list-text">모든 클러스터 LIF가 작동 중인지 확인하십시오. 'network interface show'</block>
-  <block id="e64ef54bc22e89a7865d584c549641bf" category="list-text">클러스터 LIF에서 자동 되돌리기 기능 해제: 'network interface modify -vserver Cluster-lif * -auto-revert false</block>
-  <block id="881b0c6ec04a04c3fcbc1ba781dc7646" category="list-text">노드 1의 클러스터 포트 e3a에서 케이블을 분리한 다음, SN2100 스위치가 지원하는 적절한 케이블을 사용하여 클러스터 스위치 SW1의 포트 3에 e3a를 연결합니다.</block>
-  <block id="89815af81c37a8f9a7a98396057d0bcd" category="list-text">노드 2의 클러스터 포트 e3a에서 케이블을 분리한 다음, SN2100 스위치가 지원하는 적절한 케이블을 사용하여 클러스터 스위치 SW1의 포트 4에 e3a를 연결합니다.</block>
-  <block id="1c0aead7e1e98fe84e1a13e550546826" category="list-text">스위치 SW1에서 모든 노드 대상 포트를 활성화합니다.</block>
-  <block id="e689d496da4acf9b83967f63b30bfff1" category="paragraph">다음 명령을 실행하면 스위치 SW1의 모든 노드 대상 포트가 설정됩니다.</block>
-  <block id="aef48d101ce6aeaf1d9e06a4f8133421" category="list-text">스위치 SW1에서 모든 포트가 작동 중인지 확인합니다. 'net show interface all'</block>
-  <block id="1f365578e399c977a3cb861440635597" category="list-text">노드 1의 클러스터 포트 e3b에서 케이블을 분리한 다음, SN2100 스위치가 지원하는 적절한 케이블을 사용하여 클러스터 스위치 SW2의 포트 3에 e3b를 연결합니다.</block>
-  <block id="2d65594cff5cc6e71db9a1b2fbbe8525" category="list-text">노드 2의 클러스터 포트 e3b에서 케이블을 분리한 다음, SN2100 스위치가 지원하는 적절한 케이블을 사용하여 클러스터 스위치 SW2의 포트 4에 e3b를 연결합니다.</block>
-  <block id="864ef5d9db6d1180631c2ebb8b3bf606" category="list-text">스위치 SW2에서 모든 노드 대상 포트를 활성화합니다.</block>
-  <block id="b9d99f7d075a8daf5ab7e89104f0e843" category="paragraph">다음 명령을 사용하면 스위치 SW2에서 노드 연결 포트를 사용할 수 있습니다.</block>
-  <block id="a2bff1080bbbe5b4e639dc2fbf988208" category="list-text">스위치 SW2에서 모든 포트가 작동 중인지 확인합니다. net show interface all</block>
-  <block id="d09534185b2afa2c71d2d73bab9e4ceb" category="list-text">두 스위치 SW1과 SW2의 경우, 각 노드가 'net show lldp'라는 각 스위치에 하나씩 연결되어 있는지 확인합니다</block>
-  <block id="8bd9cf76d8aa16ab6c3c62b74388262d" category="paragraph">다음 예에서는 스위치 SW1과 SW2에 대해 적절한 결과를 보여 줍니다.</block>
-  <block id="c4578e234eef8aa67fea2889f9b72b89" category="list-text">클러스터에서 검색된 네트워크 장치(net device-discovery show-protocol lldp)에 대한 정보를 표시합니다</block>
-  <block id="a78fbb2a7f637cdf29314befa6e61768" category="list-text">모든 클러스터 LIF에서 자동 되돌리기 사용: 'net interface modify -vserver Cluster-lif * -auto-revert true'</block>
-  <block id="096583756a3fa84e84e5f51c149129b2" category="list-text">모든 인터페이스가 '홈'에 대해 true로 표시되는지 확인합니다. net interface show -vserver cluster</block>
-  <block id="7c1863f1ebbe4335b617904d5c56fbc1" category="admonition">이 작업을 완료하는 데 1분 정도 걸릴 수 있습니다.</block>
-  <block id="efe6750a163af17e0e2f647d97ffba88" category="list-text">'system switch ethernet log setup-password', 'system switch ethernet log enable-collection' 명령을 사용하여 스위치 관련 로그 파일을 수집하기 위한 Ethernet 스위치 상태 모니터 로그 수집 기능을 활성화한다</block>
-  <block id="7c18d4b4801585bab9d42a3318b71c29" category="summary">RCF 스크립트를 설치하기 전에 스위치에서 다음 사항을 사용할 수 있는지 확인합니다</block>
-  <block id="3722090c5c0b0496759b23b1db5566cd" category="doc">RCF 스크립트를 설치합니다</block>
-  <block id="01ed8be95a2e23de884b7ae4035220ed" category="paragraph">RCF 스크립트를 설치하기 전에 스위치에서 다음 사항을 사용할 수 있는지 확인하십시오.</block>
-  <block id="f0628c60efd94ed2822e83944aa83ad5" category="list-text">Cumulus Linux 4.4.2가 설치되었습니다.</block>
-  <block id="90bd80eefde443be8809a3edf64f7ef2" category="list-text">IP 주소, 서브넷 마스크 및 기본 게이트웨이는 DHCP를 통해 정의되거나 수동으로 구성됩니다.</block>
-  <block id="526990b43ff7cafabc1a3c5dda4e8c9b" category="paragraph">클러스터링과 스토리지 애플리케이션에 사용 가능한 RCF 스크립트는 두 가지가 있습니다. 각각의 절차는 동일합니다.</block>
-  <block id="d43ffd29b9c1918eacb74ce61ab9c93d" category="list-text">클러스터링: * MSN2100-RCF-v1.8-클러스터 *</block>
-  <block id="85948408e24eaebde36ef1a070afa259" category="list-text">스토리지: * MSN2100-RCF-v1.8-스토리지 *</block>
-  <block id="6dc14e04a8a9872060eabb70b3146d4f" category="admonition">다음 예제 절차에서는 클러스터에 대한 RCF 스크립트를 다운로드하고 적용하는 방법을 보여 줍니다.</block>
-  <block id="cba289d19a283a01be4ec7d5598b25e8" category="list-text">SN2100 스위치에 사용 가능한 인터페이스를 표시합니다.</block>
-  <block id="3b5e7c0b44bbb42aa1029b700aab77f6" category="list-text">RCF 스크립트를 스위치에 복사합니다.</block>
-  <block id="5bcea87b922ca81c4fc511e929c08c37" category="list-text">RCF 스크립트 * MSN2100-RCF-v1.8-클러스터 * 적용:</block>
-  <block id="04e918e1232eed920664403f155f32ab" category="paragraph">RCF 스크립트는 다음 단계를 완료합니다.</block>
-  <block id="2256b58fcf58cb3dc806692af4a92886" category="list-text">배너 MOTD를 업데이트합니다</block>
-  <block id="d24cee5d31595748374cfe2b0d8f60e6" category="list-text">OS 업데이트에 대한 apt-get을 비활성화합니다</block>
-  <block id="63d6c0b7f07c6f3189dd21648d0b707b" category="list-text">브레이크아웃 및 비브레이크아웃 인터페이스를 정의합니다</block>
-  <block id="411060d174ebfad660d876a708c33ffd" category="list-text">인터페이스 및 SNMP를 구성합니다</block>
-  <block id="0e095946edae537f1daa4858140e3425" category="list-text">CDP를 사용하지 않도록 설정합니다</block>
-  <block id="c9f5089d48a4ebb41131b7219479c281" category="list-text">LLDP 구성을 변경합니다</block>
-  <block id="a39c98037d6a87c77e02c368fa9d3609" category="list-text">RoCE 구성을 추가합니다</block>
-  <block id="b80fb4489f390f48d56968db613b82e3" category="list-text">HA 및 클러스터 RDMA에 대한 RoCE 구성을 수정합니다</block>
-  <block id="49effc2a848dda4523f36af8403e034d" category="list-text">스위치를 재부팅합니다</block>
-  <block id="0cf73b1dd1fc2f75b9293a2ee7043140" category="list-text">재부팅 후 구성을 확인합니다.</block>
-  <block id="b9751a8031dd55824b4acd4237c6eb3b" category="list-text">인터페이스의 트랜시버에 대한 정보를 확인합니다. '넷 쇼 인터페이스 머글'</block>
-  <block id="17eb42e5e21b8a355d025bf8a2ccfb82" category="list-text">각 노드가 각 스위치에 연결되어 있는지 확인합니다. 'net show lldp'</block>
-  <block id="f94f0c733aca2a6e08b26eff8a1263b4" category="list-text">클러스터에서 스위치 상태를 확인합니다. LIF가 e0d에 홈링되지 않으므로 스위치 SW2가 표시되지 않을 수 있습니다.</block>
-  <block id="2e48063923d7005a1d5b4c086c0a902a" category="summary">NVIDIA SN2100 스위치는 Cumulus Linux를 실행하는 10/25/40/100 GbE 이더넷 스위치입니다. SN2100 스위치는 ONTAP 9.10.1에서 서로 다른 스위치 쌍에 대한 클러스터 및 스토리지 애플리케이션을 지원합니다.</block>
-  <block id="736869e2dc47a4e8d50ebe15f7663677" category="doc">NVIDIA SN2100 스위치를 설정하고 구성합니다</block>
-  <block id="80e45406c521e50547dc90b37e743cb3" category="paragraph">NVIDIA SN2100 스위치는 Cumulus Linux를 실행하는 10Gb/25/40/100 Gb 이더넷 스위치입니다. SN2100 스위치는 ONTAP 9.10.1P3에서 서로 다른 스위치 쌍을 통해 클러스터 및 스토리지 애플리케이션을 제공합니다.</block>
-  <block id="d9ce026d1dc9a271f8978a5496b35800" category="paragraph">Cumulus Linux(CL) OS는 스위치에서 Cumulus Linux 또는 ONIE를 실행할 때 설치할 수 있습니다. 이 릴리즈에서 지원되는 최소 Cumulus Linux 버전은 4.4.2입니다.</block>
-  <block id="d3f340b9ec1ceb3e805d6d66529c1899" category="admonition">이 절차에서는 Cumulus Linux에 완벽하게 액세스할 수 있도록 하는 명령줄 인터페이스인 NCLU(Network Command Line Utility)를 사용합니다. NET 명령은 터미널에서 작업을 실행하는 데 사용하는 래퍼 유틸리티입니다.</block>
-  <block id="5d33e9de1f292100664c873ddbc4d5d2" category="admonition">10G 및 25G에 브레이크아웃 케이블을 사용할 경우 자동 협상이 꺼져 있는지 확인하고 스위치의 포트 속도를 하드 설정합니다. 을 참조하십시오 <block ref="58ea2a922914aa470e8c647f2a05d6be" category="inline-link-macro-rx"></block> 를 참조하십시오.</block>
-  <block id="4e4a4a02911e122627365a67b690270e" category="summary">Cumulus Linux(CL) OS는 스위치에서 Cumulus Linux 또는 ONIE를 실행할 때 설치할 수 있습니다.</block>
-  <block id="5c336d9150225836a1bf47b21339dedc" category="doc">ONIE 모드에서 Cumulus Linux를 설치합니다</block>
-  <block id="4937b958fd592ecf33cfd084ea040c92" category="paragraph">네트워크 설치 프로그램 이미지를 자동으로 검색할 수 있도록 ONIE(Open Network Install Environment)를 사용하여 Cumulus Linux를 설치할 수 있습니다. 이를 통해 Cumulus Linux와 같은 운영 체제 선택을 하는 스위치 보안 모델의 시스템 모델을 용이하게 할 수 있습니다. ONIE를 사용하여 Cumulus Linux를 설치하는 가장 쉬운 방법은 로컬 HTTP 검색을 사용하는 것입니다.</block>
-  <block id="fdabb4753161a9b4bd109b3c1128441f" category="admonition">호스트가 IPv6를 사용하는 경우 웹 서버가 실행되고 있는지 확인합니다. 호스트가 IPv4를 사용하는 경우 웹 서버 외에 DHCP를 실행 중인지 확인합니다.</block>
-  <block id="458f980bedd0795625e83f297c0a66fd" category="paragraph">이 절차에서는 ONIE에서 관리자가 부팅된 후 Cumulus Linux를 업그레이드하는 방법을 보여 줍니다.</block>
-  <block id="36f831960326f190db5b27c1556e1475" category="list-text">웹 서버의 루트 디렉터리에 Cumulus Linux 설치 파일을 다운로드합니다. 이 파일의 이름을 onie-installer로 바꿉니다.</block>
-  <block id="2878ffd45e62a3c24da481616a508352" category="list-text">이더넷 케이블을 사용하여 호스트를 스위치의 관리 이더넷 포트에 연결합니다.</block>
-  <block id="a83ecacfc8440093b21963c19b9cac25" category="list-text">스위치의 전원을 켭니다. 스위치가 ONIE 이미지 설치 프로그램을 다운로드하고 부팅합니다. 설치가 완료되면 터미널 창에 Cumulus Linux 로그인 프롬프트가 나타납니다.</block>
-  <block id="815792b56cadfb802621ba5d3728c768" category="admonition">Cumulus Linux를 설치할 때마다 전체 파일 시스템 구조가 지워지고 다시 구축됩니다.</block>
-  <block id="55f75855d3473529a9c81705515c63b5" category="list-text">SN2100 스위치를 재부팅합니다.</block>
-  <block id="bcf1a8adc78a0a57e9bd29992bcba6ab" category="list-text">GNU GRUB 화면에서 * Esc * 키를 눌러 일반 부팅 프로세스를 중단하고 * ONIE * 를 선택한 다음 Enter 키를 누릅니다.</block>
-  <block id="b76e78139e129fd7b040b8c7c0c2cfe8" category="list-text">다음 화면이 표시되면 * ONIE:OS 설치 * 를 선택합니다.</block>
-  <block id="20e1a7fe30403f4a66c9409cc2bf3d02" category="list-text">ONIE 설치 관리자 검색 프로세스가 자동 설치 검색을 실행합니다. Enter 키를 눌러 프로세스를 일시적으로 중지합니다.</block>
-  <block id="42d9c8af3d281f936f3a1eb9fb48e341" category="list-text">검색 프로세스가 중지된 경우:</block>
-  <block id="1e36934707ca773ba62f0533c37dd8ee" category="list-text">DHCP 서비스가 네트워크에서 실행 중인 경우 IP 주소, 서브넷 마스크 및 기본 게이트웨이가 올바르게 할당되었는지 확인합니다.</block>
-  <block id="165a7d7a1fcfac867768dfbb458bd9a0" category="list-text">IP 주소 지정 체계가 수동으로 정의된 경우 다음을 수행합니다.</block>
-  <block id="148ef6fa9ac908db569ad63c96fb01e8" category="list-text">9단계를 반복하여 정적 정보가 올바르게 입력되었는지 확인합니다.</block>
-  <block id="71a98c939bf9fe1ba2c2453cd7777824" category="list-text">Cumulus Linux 설치:</block>
-  <block id="5bb8ca227d3f9b0b9fc45003bbe7d06c" category="list-text">설치가 완료되면 스위치에 로그인합니다.</block>
-  <block id="098d312f939d7511ad5f9bf80ccaea96" category="list-text">Cumulus Linux 버전 확인:</block>
-  <block id="9d36413c7ae238ebf79e37939969b9ee" category="summary">ONTAP 클러스터의 이전 Cisco 스위치는 중단 없이 NVIDIA SN2100 스토리지 스위치로 마이그레이션할 수 있습니다.</block>
-  <block id="c0e54fd32010cccd4fea353a8f62265e" category="doc">Cisco 스토리지 스위치에서 NVIDIA SN2100 스토리지 스위치로 마이그레이션합니다</block>
-  <block id="55f16d2d38939d5e5613dcce4660779c" category="paragraph">일부 구형 Cisco 스위치를 NVIDIA SN2100 스토리지 스위치로 교체하는 경우 특정 구성 정보, 포트 연결 및 케이블 연결 요구 사항을 알고 있어야 합니다.</block>
-  <block id="bdcdaedb42f04c50f04fe5d093e593c6" category="list-text">지원되는 스토리지 스위치는 다음과 같습니다.</block>
-  <block id="2685d1886e5c6ce7a602fe324c7fbea8" category="paragraph">ONTAP 클러스터의 이전 Cisco 스토리지 스위치를 중단 없이 NVIDIA SN2100 스토리지 스위치로 마이그레이션할 수 있습니다.</block>
-  <block id="bc6363ffb66952fddf7b24a035852e22" category="list-text">무중단 운영을 보장하기 위해 모든 스토리지 포트가 가동 상태여야 합니다.</block>
-  <block id="28fa2edb91149d5384166eeb2f7688c8" category="list-text">NVIDIA SN2100 스토리지 스위치는 RCF(Reference Configuration File)가 적용된 Cumulus Linux의 적절한 버전에서 구성 및 작동해야 합니다.</block>
-  <block id="9708d0a2f674de8d78d458c499b9780c" category="list-text">기존 스토리지 네트워크 구성에는 다음이 있어야 합니다.</block>
-  <block id="b51910f2be8efa76921ebe6a40149d60" category="list-text">NVIDIA SN2100 스위치의 일부 포트가 100GbE에서 실행되도록 구성했습니다.</block>
-  <block id="776ee262c20b0dd2648bccba5b2cc347" category="list-text">노드에서 NVIDIA SN2100 스토리지 스위치로의 100GbE 연결을 계획, 마이그레이션 및 문서화했습니다.</block>
-  <block id="9f4cc971f3ab9fd0958fd265eb306525" category="admonition">이 절차에서 Cisco Nexus 9336C-FX2 스토리지 스위치는 명령 및 출력 등의 용도로 사용됩니다.</block>
-  <block id="dab9b0ece6f1f8f1890127dd86465ac5" category="list-text">기존 Cisco Nexus 9336C-FX2 스토리지 스위치는 _S1_과 _S2_입니다.</block>
-  <block id="9e868f2bf21bd2cd90fca2dc5bafc948" category="list-text">새로운 NVIDIA SN2100 스토리지 스위치는 _SW1_와 _SW2_입니다.</block>
-  <block id="f02bf1e73f684a60f05864e6d5488f35" category="list-text">이 절차에 사용되는 네트워크 포트는 _e5a_와 _e5b_입니다.</block>
-  <block id="c0dafa6a26d68c5516d35ddacdc99210" category="list-text">브레이크아웃 포트는 swp1s0-3 형식을 사용합니다. 예를 들어 swp1의 4개의 브레이크아웃 포트는 _swp1s0_, _swp1s1_, _swp1s2_ 및 _swp1s3_입니다.</block>
-  <block id="241262ab86a3f2909548b2df8d4b4ef3" category="list-text">스위치 S2가 스위치 SW2로 먼저 교체된 후 스위치 S1이 스위치 SW1로 교체됩니다.</block>
-  <block id="9fdbbd8b74f2465ba22ef8f94cc417db" category="list-text">그런 다음, 노드와 S2 사이의 케이블 연결을 S2에서 분리하고 SW2에 다시 연결합니다.</block>
-  <block id="4ded409be8e99d0222e6920dab03f559" category="list-text">그런 다음 노드와 S1 사이의 케이블 연결을 S1에서 분리하고 SW1에 다시 연결합니다.</block>
-  <block id="4e7a83da96739a6c51f20930a3c125eb" category="list-text">AutoSupport가 활성화된 경우 'system node AutoSupport invoke -node * -type all-message maINT=xh' AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다</block>
-  <block id="dbcef39ce4cc869cf2edc60abf080ec9" category="list-text">각 스토리지 인터페이스의 관리 또는 운영 상태 확인:</block>
-  <block id="9444ed63276c185ae4fc3959a828cfbf" category="paragraph">각 포트는 '상태'로 활성화 되어 있어야 합니다.</block>
-  <block id="09c14abe0805eabd797e1813234da84d" category="paragraph">네트워크 포트 속성 'Storage port show'를 표시합니다</block>
-  <block id="7208d2743e2eb0a664acffbc1d2bed76" category="list-text">각 노드의 스토리지 포트는 'network device-discovery show -protocol lldp' 명령을 사용하여 노드 관점에서 기존 스토리지 스위치에 연결됩니다</block>
-  <block id="e7e725db477bdb3d29a07c4150816731" category="list-text">스위치 S1과 S2에서 스토리지 포트와 스위치는 'show lldp neighbors' 명령을 사용하여 스위치의 관점에서 다음과 같은 방식으로 연결됩니다</block>
-  <block id="b82d0a886822fefc74546a0db57a5f3f" category="list-text">스위치 SW2에서 디스크 쉘프의 스토리지 포트 및 노드에 연결된 포트를 종료합니다.</block>
-  <block id="ea22015d2dbd58bc8c791b53805a2859" category="list-text">NVIDIA SN2100이 지원하는 적절한 케이블을 사용하여 컨트롤러 및 디스크 쉘프의 노드 스토리지 포트를 이전 스위치 S2에서 새 스위치 SW2로 이동합니다.</block>
-  <block id="af57695f7703a9c9e1b729a8d9522e28" category="list-text">스위치 SW2에서 노드의 스토리지 포트와 디스크 셸프에 연결된 포트를 불러옵니다.</block>
-  <block id="ece31ff94247476496637a7601f809ca" category="list-text">이제 각 노드의 스토리지 포트가 노드의 관점에서 다음과 같은 방식으로 스위치에 연결됩니다.</block>
-  <block id="479f3a8c088d1257d183873dfde80fd3" category="list-text">네트워크 포트 속성 'Storage port show'를 확인합니다</block>
-  <block id="713a50cb8a7385b4bb65e05c034427cd" category="list-text">스위치 SW2에서 모든 노드 스토리지 포트가 작동하는지 확인합니다.</block>
-  <block id="f2b2a4a72d2a8eed29cbd3b748d725d8" category="list-text">스위치 SW1에서 노드의 스토리지 포트와 디스크 셸프에 연결된 포트를 종료합니다.</block>
-  <block id="ec0b0e240b5321461bce6981d9989a3e" category="list-text">NVIDIA SN2100에서 지원하는 적절한 케이블을 사용하여 컨트롤러 및 디스크 쉘프의 노드 스토리지 포트를 이전 스위치 S1에서 새 스위치 SW1로 이동합니다.</block>
-  <block id="9dbf824bd31cc26010a5afdff9a86832" category="list-text">스위치 SW1에서 노드의 스토리지 포트와 디스크 셸프에 연결된 포트를 불러옵니다.</block>
-  <block id="177b054724009ae5ee691333205a7f85" category="list-text">이제 각 노드의 스토리지 포트가 노드의 관점에서 다음과 같은 방식으로 스위치에 연결됩니다.</block>
-  <block id="187000b30b0a352995713820903db6ec" category="list-text">마지막 구성 'Storage port show'를 확인합니다</block>
-  <block id="6a4d86e98be7e5b289b38a5117298bfb" category="paragraph">각 포트는 '상태'로 설정되어 '상태'로 설정되어 있어야 합니다.</block>
-  <block id="4cde2dc8257c4b4ae4c8d09b8edb9633" category="list-text">두 노드 모두 각 스위치에 대한 연결이 하나씩 있는지 확인합니다. 'net show lldp'</block>
-  <block id="aaea07599d1157945444c3c301565e94" category="summary">NVIDIA SN2100 스위치</block>
-  <block id="d502e4d284e017c272fbc044d1c805ee" category="paragraph">ONTAP 9.10.1P3에서 NVIDIA SN2100 스위치를 사용하여 스토리지 및 클러스터 기능을 공유 스위치 시나리오에 결합할 수 있습니다.</block>
-  <block id="268d7e69c1c7b6a30eee297bf5fab5b9" category="summary">NVIDIA SN2100 스위치를 구성하기 전에 다음 정보를 검토하십시오.</block>
-  <block id="e3d3971b51c381172149f6e144f03e90" category="list-text">X1151A NIC, X1146A NIC 또는 온보드 100GbE 포트가 있는 SN2100 스위치에서는 광 연결만 지원됩니다. 예를 들면 다음과 같습니다.</block>
-  <block id="d35d5ab77a6267b38526b184dcfce0af" category="list-text">e0a 및 e0b 포트의 AFF A800</block>
-  <block id="b9017574c175e97b1d6c5e950a79e4c7" category="list-text">e0g 및 e0h 포트의 AFF A320</block>
-  <block id="137008107cba2aab0763be2879d9da87" category="list-text">QSA 어댑터를 사용하여 플랫폼의 온보드 인텔 클러스터 포트에 연결하면 모든 링크가 표시되지 않습니다.</block>
-  <block id="39b92cc163c876722512c8dc4c617b9f" category="paragraph">예 플랫폼은 FAS2750, AFF A300 및 FAS8200(모든 10G) 및 AFF A250(25G)입니다.</block>
-  <block id="b1e03e9ce1f7041c2da53fa42cd21af3" category="paragraph">이 문제를 해결하려면 다음을 수행하십시오.</block>
-  <block id="1257c60c0e4da71f409960bf9095202c" category="list-text">인텔 10G의 경우 swp1s0-3 링크 속도를 10000으로 수동으로 설정하고 자동 협상을 오프셋으로 설정하십시오</block>
-  <block id="b9f4ea426e4b9a2590c25e8559103a64" category="list-text">Chelsio 25G의 경우 swp2s0-3 링크 속도를 25000으로 수동으로 설정하고 자동 협상을 꺼짐으로 설정하십시오</block>
-  <block id="ee42c1d9d1520c3cdd715411436b7999" category="admonition">10G/25G QSA를 사용하여 비 브레이크아웃 40/100G 포트를 사용합니다. 브레이크아웃용으로 구성된 포트에 QSA 어댑터를 삽입하지 마십시오.</block>
-  <block id="2fdeef1f910c4fc8f12a5b45d51952bc" category="list-text">스위치 포트의 트랜시버에 따라 스위치 포트의 속도를 고정 속도로 설정해야 할 수 있습니다. 10G 및 25G 브레이크아웃 포트를 사용하는 경우 자동 협상이 꺼져 있고 스위치의 포트 속도를 하드 설정해야 합니다. 예를 들면 다음과 같습니다.</block>
-  <block id="7b3d3dc3c1c084f2a1b3b79612d49fdd" category="doc">Cumulus 모드에서 Cumulus Linux를 설치합니다</block>
-  <block id="b68d7103bcc4e5db1876ba13a6e45bf9" category="paragraph">다음과 같은 가정이 이루어집니다.</block>
-  <block id="1e5770738372c5d084640412f3475232" category="list-text">중급 수준의 Linux 지식을 보유하고 있습니다.</block>
-  <block id="d4e1be5631ea2ef9eddf5d1491821590" category="list-text">기본적인 텍스트 편집, UNIX 파일 권한 및 프로세스 모니터링에 익숙합니다. vi와 nano 등 다양한 텍스트 편집기가 미리 설치되어 있습니다.</block>
-  <block id="0fd11f677b5f359fd48a5abfac889417" category="list-text">Linux 또는 UNIX 셸에 대한 액세스 권한이 있어야 합니다. Windows를 실행 중인 경우, Linux 환경을 Cumulus Linux와 상호 작용하기 위한 명령줄 도구로 사용합니다.</block>
-  <block id="6ae4d8bf3ebde7936b05c2fe894d7ada" category="admonition">누적 사용자 계정의 기본 암호는 * cumulus * 입니다. Cumulus Linux에 처음으로 로그인할 때 이 기본 암호를 변경해야 합니다. 새 이미지를 설치하기 전에 자동화 스크립트를 업데이트해야 합니다. Cumulus Linux는 설치 프로세스 중 기본 암호를 자동으로 변경하는 명령줄 옵션을 제공합니다.</block>
-  <block id="06c2ede7dabacb6c8f4f628bf6b1de39" category="paragraph">NVIDIA SN2100 스위치 콘솔 액세스를 위해 직렬 콘솔 스위치에서 보드율 요구 사항은 다음과 같이 115200으로 설정되어야 합니다.</block>
-  <block id="b7d317c3216324e11b73a2840fd43e28" category="list-text">스위치에 로그인합니다. 스위치에 처음 로그인할 때는 'SUDO' 권한이 있는 * cumulus * / * cumulus * 의 사용자 이름/암호가 필요합니다.</block>
-  <block id="9e6b336700c1d2e767e05525b2b57ef3" category="list-text">Cumulus Linux 버전 확인:</block>
-  <block id="2667c65a518ae8fb280dc9f6a61de3c5" category="list-text">호스트 이름, IP 주소, 서브넷 마스크 및 기본 게이트웨이를 구성합니다. 새 호스트 이름은 콘솔/SSH 세션을 다시 시작한 후에만 유효합니다.</block>
-  <block id="62b623b92c382746efee9767d590d86c" category="admonition">Cumulus Linux 스위치는 eth0이라는 전용 이더넷 관리 포트를 하나 이상 제공합니다. 이 인터페이스는 특히 대역외 관리를 위해 사용됩니다. 기본적으로 관리 인터페이스는 주소 지정을 위해 DHCPv4를 사용합니다.</block>
-  <block id="91dcca4278a428afbccb2f118d523e13" category="admonition">호스트 이름에 밑줄(_), 아포스트로피(') 또는 비 ASCII 문자를 사용하지 마십시오.</block>
-  <block id="5e82a0b4b15e3bfeac2a57b4a294a39c" category="paragraph">이 명령어는 '/etc/hostname'과 '/etc/hosts' 파일을 모두 수정합니다.</block>
-  <block id="13ddc20a0230a7df1f3c90a8ed3da8a5" category="list-text">호스트 이름, IP 주소, 서브넷 마스크 및 기본 게이트웨이가 업데이트되었는지 확인합니다.</block>
-  <block id="6c42fa7e4c3302fb56f4374e70b97fc2" category="list-text">NTP 대화식 모드를 사용하여 시간대를 구성합니다.</block>
-  <block id="3f13db29081af25b57d3e76ea324a03b" category="list-text">터미널에서 다음 명령을 실행합니다.</block>
-  <block id="83d1563d45527134091bdab8d6e5072d" category="list-text">화면의 메뉴 옵션에 따라 지리적 영역과 영역을 선택합니다.</block>
-  <block id="fe0f6a5f9b992c1eea817100a2c1c148" category="list-text">모든 서비스 및 데몬에 대한 시간대를 설정하려면 스위치를 재부팅합니다.</block>
-  <block id="61d6aab01fc093c66c1e769d05c39812" category="list-text">스위치의 날짜와 시간이 올바른지 확인하고 필요한 경우 업데이트합니다.</block>
-  <block id="f415282bef0374e283b8082be4765eea" category="list-text">Cumulus Linux 4.4.2 설치:</block>
-  <block id="9a828cf107e0b55e82b0e52b871aa982" category="paragraph">설치 프로그램이 다운로드를 시작합니다. 메시지가 나타나면 * y * 를 입력합니다.</block>
-  <block id="b64202cf747d1cf1ed877a2b16051b9b" category="list-text">NVIDIA SN2100 스위치를 재부팅합니다.</block>
-  <block id="9f4f33c5c40ac522549c3e58d187e0a0" category="list-text">설치가 자동으로 시작되고 다음 GRUB 화면이 나타납니다. 선택 안 함 *:</block>
-  <block id="0356af5b3daf1c5f334184d547ba7462" category="list-text">Cumulus - Linux GNU/Linux</block>
-  <block id="a64ef5ea949c8d49f35a27151295f942" category="list-text">ONIE: OS를 설치합니다</block>
-  <block id="e0fb005ad468c2c6da5d94ae5ee83311" category="list-text">Cumulus - 설치</block>
-  <block id="aaf5ecccbfaebfdecab9b13474cd1016" category="list-text">1-4단계를 반복하여 로그인합니다.</block>
-  <block id="c883d7af8e0067ad8d312770086b2d07" category="list-text">Cumulus Linux 버전이 4.4.2인지 확인합니다.</block>
-  <block id="ec456cd346911330a2200aa0d18eceaf" category="list-text">새 사용자를 생성하고 이 사용자를 'SUDO' 그룹에 추가합니다. 이 사용자는 콘솔/SSH 세션을 다시 시작한 후에만 적용됩니다.</block>
-  <block id="6cce5d78fc7baf999a2f91945cec4681" category="doc">NVIDIA SN2100 스위치</block>
-  <block id="d7ddb122f5b0d427125ca1728604348a" category="paragraph">NVIDIA SN2100 스위치(X190006/X190106)는 스위치에 포함된 표준 브래킷을 사용하여 NVIDIA 이중/단일 스위치 캐비닛에 설치합니다.</block>
-  <block id="b0bf0f217cb1d53bd191aca5d6b62108" category="paragraph">다음 표에는 MSN2100 스위치 및 레일 키트에 대한 부품 번호 및 설명이 나와 있습니다.</block>
-  <block id="572fe15be859e8e821675b10e630a4ae" category="paragraph">X190006-PE</block>
-  <block id="1545f8e8b25daf1dcedbccfac0ffeb23" category="paragraph">클러스터 스위치, NVIDIA SN2100, 16pt 100G, PTSX</block>
-  <block id="30f7229b421f56d9234c0201f097a8e0" category="paragraph">X190006-PI</block>
-  <block id="50db68e5e1edfdae301d0e13cf36b35c" category="paragraph">클러스터 스위치, NVIDIA SN2100, 16pt 100G, PSIN</block>
-  <block id="11d13ed1e5722e39b9eed159c504b273" category="paragraph">X190106-FE-PE</block>
-  <block id="af3bf35952bf379b9c77580834f0ccea" category="paragraph">스위치, NVIDIA SN2100, 16pt 100G, PTSX, 프론트 엔드</block>
-  <block id="6c0dabd674a229e6a71c9efa0506c26c" category="paragraph">X190106-FE-PI</block>
-  <block id="89e63d10029caf2d14bf259863a398e7" category="paragraph">스위치, NVIDIA SN2100, 16pt 100G, PSIN, 프런트 엔드</block>
-  <block id="f14cae44efe4b8ece4c67a0bb8c96cf0" category="paragraph">X-MTEF-KIT-D</block>
-  <block id="dd0da9a2cc690d430884295e008a2dab" category="paragraph">레일 키트, NVIDIA 이중 스위치</block>
-  <block id="80ba4b0b3a217933f761ba1440471dee" category="paragraph">X-MTEF-KIT-E</block>
-  <block id="65adcaebf2b7d6b4197e6a8aff31717f" category="paragraph">레일 키트, NVIDIA 단일 스위치 깊이</block>
-  <block id="8a6e8b822a02f19c1d150c230a03bf69" category="inline-link">SN2100 스위치 및 레일 키트 설치</block>
-  <block id="865b448eabcf17df6b422f9231393d1a" category="admonition">에 대한 자세한 내용은 NVIDIA 설명서를 참조하십시오<block ref="39747b316e7d3df3f73757faf591c2d2" category="inline-link-rx"></block>.</block>
-  <block id="4cbae0b27dc5bb331502b630a138cc4a" category="paragraph">다음 표에는 NVIDIA SN2100 스위치에 사용할 수 있는 설명서가 나열되어 있습니다.</block>
-  <block id="b6b0513dd441d375575669499c028d77" category="inline-link-macro">_NVIDIA SN2100 스위치를 설정하고 구성하십시오 _</block>
-  <block id="bc73d70686c873ae5e2f4e513f491722" category="paragraph"><block ref="bc73d70686c873ae5e2f4e513f491722" category="inline-link-macro-rx"></block></block>
-  <block id="77f388375aa4a60bc88c77b1a62210b1" category="paragraph">에서는 Cumulus Linux 및 해당 RCFs 설치를 포함하여 NVIDIA SN2100 스위치를 설정하고 구성하는 방법을 설명합니다.</block>
-  <block id="7f3bf3d40898d5f432e8fac499b35019" category="inline-link-macro">_Cisco 클러스터 스위치에서 NVIDIA SN2100 클러스터 스위치로 마이그레이션 _</block>
-  <block id="3bbe54c8552e40dc5f89b73892046850" category="paragraph"><block ref="3bbe54c8552e40dc5f89b73892046850" category="inline-link-macro-rx"></block></block>
-  <block id="c215cbb78c56580b18190d97abd7667b" category="paragraph">Cisco 클러스터 스위치를 사용하는 환경에서 NVIDIA SN2100 클러스터 스위치를 사용하는 환경으로 마이그레이션하는 방법을 설명합니다.</block>
-  <block id="821a2f7945b3464ddee06f602c686f9b" category="inline-link-macro">_Cisco 스토리지 스위치에서 NVIDIA 스토리지 스위치로 마이그레이션 _</block>
-  <block id="3fbe15969453ca44c2deb4fdfe8323ee" category="paragraph"><block ref="3fbe15969453ca44c2deb4fdfe8323ee" category="inline-link-macro-rx"></block></block>
-  <block id="26872f7030028e1569f2ce01c9bc352c" category="paragraph">Cisco 스토리지 스위치를 사용하는 환경에서 NVIDIA SN2100 스토리지 스위치를 사용하는 환경으로 마이그레이션하는 방법을 설명합니다.</block>
-  <block id="6f2cf7b704c57c57ef32132488de219a" category="inline-link-macro">_NVIDIA SN2100 클러스터 스위치를 사용하여 2노드 스위치 클러스터로 마이그레이션 _</block>
-  <block id="a5fe3028e8bedffa1849e536a4538b5b" category="paragraph"><block ref="a5fe3028e8bedffa1849e536a4538b5b" category="inline-link-macro-rx"></block></block>
-  <block id="f47598dac203329e94811e7ca007b4e2" category="paragraph">에서는 NVIDIA SN2100 클러스터 스위치를 사용하여 2노드 스위치 환경으로 마이그레이션하는 방법을 설명합니다.</block>
-  <block id="704deb422a6b7e49bc71f93eb9153e24" category="inline-link-macro">_NVIDIA SN2100 클러스터 스위치 _ 을(를) 교체합니다</block>
-  <block id="cb35bcc230f43141ffe95979875e1193" category="paragraph"><block ref="cb35bcc230f43141ffe95979875e1193" category="inline-link-macro-rx"></block></block>
-  <block id="04c9967f210e3a292f67ab723d461b51" category="paragraph">에서는 클러스터의 결함 있는 NVIDIA SN2100 스위치를 교체하고 Cumulus Linux 및 참조 구성 파일을 다운로드하는 절차를 설명합니다.</block>
-  <block id="44bb54091263606f157bbaad0fdef9c3" category="inline-link-macro">_NVIDIA SN2100 스토리지 스위치 _ 를 교체합니다</block>
-  <block id="38c797c6506c8619afc1b09c65aa0655" category="paragraph"><block ref="38c797c6506c8619afc1b09c65aa0655" category="inline-link-macro-rx"></block></block>
-  <block id="2875df17f2e2895666eddce90fc6146f" category="paragraph">결함 있는 NVIDIA SN2100 스토리지 스위치를 교체하고 Cumulus Linux 및 참조 구성 파일을 다운로드하는 절차를 설명합니다.</block>
-  <block id="3d9882663c241e5e6078e7d90137ebc4" category="doc">NS224 쉘프를 스위치 연결 스토리지로 케이블로 연결합니다</block>
-  <block id="b154454eef50aecacf60925ed8851078" category="paragraph">NS224 드라이브 쉘프를 직접 연결 스토리지가 아닌 스위치 연결 스토리지로 케이블로 연결해야 하는 시스템이 있는 경우 여기에 제공된 정보를 사용합니다.</block>
-  <block id="0ab54354ff641ba8f3492f71c03aa435" category="list-text">스토리지 스위치를 통해 NS224 드라이브 쉘프 케이블 연결:</block>
-  <block id="afb935b1a48a04ad288c97c7899d840d" category="inline-link">스위치 연결 NS224 드라이브 쉘프 케이블 연결 정보</block>
-  <block id="9824994e3f8651cf2b6d695555bdc011" category="paragraph"><block ref="9824994e3f8651cf2b6d695555bdc011" category="inline-link-rx"></block></block>
-  <block id="d1f671afbf5d4ca47b95e86f70c6bcc1" category="list-text">스토리지 스위치 설치:</block>
-  <block id="008b8867712161228bd794977fcd0d4b" category="paragraph"><block ref="008b8867712161228bd794977fcd0d4b" category="inline-link-rx"></block></block>
-  <block id="4aaebba2a5287c74eb41bf080e6d1fe4" category="list-text">플랫폼 모델에 대해 스토리지 스위치 및 케이블과 같은 지원되는 하드웨어를 확인합니다.</block>
-  <block id="a1db73a47f571c20627d62d37a2069c2" category="summary">클러스터 네트워크에서 결함이 있는 NVIDIA SN2100 스위치를 교체하는 것은 무중단 절차(NDU\)입니다.</block>
-  <block id="a3651ea5ff10cfef31750e91f195d5ee" category="doc">NVIDIA SN2100 클러스터 스위치를 교체합니다</block>
-  <block id="087a0cdfa40d1253f83403998d37833d" category="paragraph">클러스터 네트워크에서 결함이 있는 NVIDIA SN2100 스위치를 교체하는 것은 무중단 절차(NDU)입니다.</block>
-  <block id="6aaebc9be5cb9f30472fb63a824c949e" category="list-text">ONTAP의 cluster ping-cluster-node node1 명령은 기본 접속과 PMTU 통신 이상의 통신이 모든 경로에서 성공했음을 나타내야 합니다.</block>
-  <block id="3d783a6ce1d3577899a2187587c7adeb" category="list-text">NVIDIA SN2100 교체 스위치:</block>
-  <block id="7c203e1a3f4b15f49b599181ccad697e" category="list-text">노드 연결은 swp1~swp14 포트 입니다.</block>
-  <block id="9870eb7c51de1228e9b0b748603b1cc9" category="list-text">포트 swp15 및 swp16에서 모든 ISL(Inter-Switch Link) 포트를 비활성화해야 합니다.</block>
-  <block id="1b7189a6869b63c94afb7f51281b21ff" category="list-text">원하는 RCF(Reference Configuration File) 및 Cumulus 운영 체제 이미지 스위치를 스위치에 로드해야 합니다.</block>
-  <block id="a4c878fb98636575acf74bb5da1fe02d" category="list-text">기존 NVIDIA SN2100 스위치의 이름은 _SW1_와 _SW2_입니다.</block>
-  <block id="7245dce9803a65915577b9b6c0a8fba4" category="list-text">새 NVIDIA SN2100 스위치의 이름은 _nsw2_입니다.</block>
-  <block id="982217e543f0fa5e9da851302f28d805" category="list-text">클러스터 LIF 이름은 노드 1의 경우 _node1_clus1_and_node1_clus2_이고, 노드 2의 경우 _node2_clus1_and_node2_clus2_입니다.</block>
-  <block id="251c6c04656af97cbcbd1aa3eea2bee5" category="list-text">모든 클러스터 노드의 변경 프롬프트는 'cluster1:: * &gt;'입니다</block>
-  <block id="2c84a4166919cc5a80a8c0726d1059e6" category="list-text">스위치에 적절한 RCF 및 이미지를 설치하고 nsw2를 설치한 후 필요한 현장 준비를 합니다.</block>
-  <block id="1eee77e5510e91c39ad8de358a66db8b" category="paragraph">필요한 경우 새 스위치에 적합한 RCF 및 Cumulus 소프트웨어 버전을 확인, 다운로드 및 설치합니다. 새 스위치가 올바르게 설정되어 있고 RCF 및 Cumulus 소프트웨어에 대한 업데이트가 필요하지 않음을 확인한 경우 3단계를 계속 진행하십시오. 을 참조하십시오 <block ref="f205112049fd2d705b8f40351f7959dc" category="inline-link-macro-rx"></block> 를 참조하십시오.</block>
-  <block id="1c7edbc9e87d89abba60270ce35ec08a" category="list-text">클러스터 스위치에 적용할 수 있는 Cumulus 소프트웨어는 _NVIDIA Support_site에서 다운로드할 수 있습니다. 다운로드 페이지의 단계에 따라 설치하려는 ONTAP 소프트웨어 버전에 맞는 Cumulus Linux를 다운로드하십시오.</block>
-  <block id="cb246b83c0c732bd49f45fceb6d1246f" category="inline-link-macro">_NVIDIA 클러스터 및 스토리지 스위치 _</block>
-  <block id="7d496a68b55e69a007c148b8b4cf8fbe" category="list-text">에서 적절한 RCF를 사용할 수 있습니다 <block ref="bf48368f6fb605c4425a53dc48551d85" category="inline-link-macro-rx"></block> 페이지. 다운로드 페이지의 단계에 따라 설치하는 ONTAP 소프트웨어 버전에 맞는 올바른 RCF를 다운로드하십시오.</block>
-  <block id="f9ffe766b106d2867657d83e79723a59" category="list-text">새 스위치 nsw2에서 admin으로 로그인하고 노드 클러스터 인터페이스에 연결할 모든 포트(포트 swp1~swp14)를 종료합니다.</block>
-  <block id="419843a482aac1b6d5c300aad109bf65" category="list-text">SN2100 스위치 SW1에서 ISL 포트 swp15 및 swp16을 종료합니다.</block>
-  <block id="cbcdd16fbdf580bf90f773d5fa321dd0" category="list-text">SN2100 SW1 스위치에서 모든 케이블을 분리한 다음 SN2100 nsw2 스위치의 동일한 포트에 연결합니다.</block>
-  <block id="3e1aa25294b9d1912eb351028c0ddab6" category="list-text">SW1과 nsw2 스위치 사이에 ISL 포트 swp15와 swp16을 불러옵니다.</block>
-  <block id="f49c15d121cb3262e7dc4648fba76e8d" category="paragraph">다음 명령을 실행하면 스위치 SW1에서 ISL 포트 swp15 및 swp16이 활성화됩니다.</block>
-  <block id="b64c4a65624312e01d00d227b23dc7bb" category="paragraph">다음 예에서는 스위치 nsw2에서 ISL 포트가 작동 중인 것을 보여 줍니다.</block>
-  <block id="897e1548fc4ec5cb743ba59eb85c00b1" category="list-text">모든 노드에서 포트 e3b가 네트워크 포트 show-IPSpace 클러스터(network port show-IPSpace Cluster)에 있는지 확인합니다</block>
-  <block id="b277a4be4886a83e4adc96de6cdbe36c" category="list-text">모든 노드 클러스터 포트가 작동 중인지 확인합니다. 'net show interface'</block>
-  <block id="141e7533eab03ff727c6bcbd3b10c6b7" category="list-text">클러스터 LIF에서 자동 되돌리기 사용: 'cluster1:: * &gt; 네트워크 인터페이스 modify -vserver Cluster-lif * -auto-revert true'</block>
-  <block id="4c8512f4b28df0de74c476436e30e971" category="list-text">스위치 nsw2에서 노드의 네트워크 포트에 연결된 포트를 불러옵니다.</block>
-  <block id="0b9620a0fea8fa88010e59eebf7cbf63" category="summary">ONTAP 클러스터의 이전 Cisco 클러스터 스위치를 중단 없이 NVIDIA SN2100 클러스터 네트워크 스위치로 마이그레이션할 수 있습니다.</block>
-  <block id="9cb69df206c9ac9ed5e1f4f5f353f643" category="doc">Cisco 클러스터 스위치에서 NVIDIA SN2100 클러스터 스위치로 마이그레이션합니다</block>
-  <block id="7d5958b12629d1a14fcc8aaf271ffebc" category="paragraph">ONTAP 클러스터용 Cisco 클러스터 스위치를 NVIDIA SN2100 클러스터 스위치로 중단 없이 마이그레이션할 수 있습니다. 일부 구형 Cisco 클러스터 스위치를 NVIDIA SN2100 클러스터 스위치로 교체하는 경우 특정 구성 정보, 포트 연결 및 케이블 연결 요구 사항을 알고 있어야 합니다.</block>
-  <block id="59e1b5d69300b7a66f466e0b62bf4f80" category="paragraph">지원되는 Cisco 클러스터 스위치는 다음과 같습니다.</block>
-  <block id="3c4c5e6b442060363c10c67d61881b89" category="paragraph">ONTAP 클러스터의 이전 Cisco 클러스터 스위치를 중단 없이 NVIDIA SN2100 클러스터 스위치로 마이그레이션할 수 있습니다.</block>
-  <block id="807cbcaff3adfa7ca5f01a1549249db3" category="list-text">NVIDIA SN2100 클러스터 스위치는 RCF(Reference Configuration File)가 적용된 Cumulus Linux의 적절한 버전에서 구성 및 작동해야 합니다.</block>
-  <block id="aa3331890b15956f0bf51715ce392770" category="list-text">NVIDIA SN2100 스위치의 일부 포트가 40GbE 또는 100GbE에서 실행되도록 구성했습니다.</block>
-  <block id="8ff8ee6709912b52c1e6b3870b6b7250" category="list-text">노드에서 NVIDIA SN2100 클러스터 스위치로의 40GbE 및 100GbE 연결을 계획, 마이그레이션 및 문서화했습니다.</block>
-  <block id="55f909861b55f297c21514fdad63abae" category="admonition">이 절차에서 Cisco Nexus 3232C 클러스터 스위치는 명령 및 출력과 같은 용도로 사용됩니다.</block>
-  <block id="6407f122215af9069ce04e183a44eaff" category="list-text">새로운 NVIDIA SN2100 클러스터 스위치는 _SW1_와 _SW2_입니다.</block>
-  <block id="a628f874b9a2e414a9d3d71d13573dfa" category="list-text">스위치 C2가 스위치 SW2로 먼저 교체된 후 스위치 C1이 스위치 SW1로 교체됩니다.</block>
-  <block id="ac84ae267a95761c56ac989f4e20ca23" category="list-text">그런 다음 노드와 C2 사이의 케이블 연결을 C2에서 분리하고 SW2에 다시 연결합니다.</block>
-  <block id="8fe643f8e27975633f1ded07424aa6c9" category="list-text">그런 다음 노드와 C1 사이의 케이블 연결을 C1에서 분리하고 SW1에 다시 연결합니다.</block>
-  <block id="3dc587636ea58bb39b951053c233b58b" category="list-text">각 노드의 클러스터 포트는 'network device-discovery show -protocol lldp' 명령을 사용하여 노드 관점에서 기존 클러스터 스위치에 연결됩니다</block>
-  <block id="9e23ccbda503c8dd0fa60d4057a41702" category="list-text">스위치 C2에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.</block>
-  <block id="aba8d89ac417a82d843ceaf3c6ac2faa" category="list-text">NVIDIA SN2100에서 지원하는 적절한 케이블을 사용하여 노드 클러스터 포트를 이전 스위치 C2에서 새 스위치 SW2로 이동합니다.</block>
-  <block id="203a7f618c9b080eaa78a5e38ccd907d" category="list-text">스위치 SW2에서 모든 노드 클러스터 포트가 작동 중인지 확인합니다. 'net show interface'</block>
-  <block id="fb04bba6a926fcde1b4b8e9928fc6c8c" category="list-text">스위치 C1에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.</block>
-  <block id="43f33859444af6796131da2f85045577" category="list-text">NVIDIA SN2100이 지원하는 적절한 케이블을 사용하여 노드 클러스터 포트를 이전 스위치 C1에서 새 스위치 SW1로 이동합니다.</block>
-  <block id="8c4a30f92fb2c8309be6461a7438998f" category="list-text">스위치 SW1과 SW2에서 모든 노드 클러스터 포트가 작동 중인지 확인합니다. 'net show interface'</block>
-  <block id="43d78ef507715bc4715cbc41d27662ca" category="list-text">모든 클러스터 네트워크 LIF가 홈 포트인 'network interface show'에 있는지 확인합니다</block>
   <block id="bc4274a2b29e343ef128738332ca9770" category="section-title">Cisco Nexus 9336C-FX2 클러스터 스위치에 NX-OS 소프트웨어를 설치합니다</block>
   <block id="3e454cc37301157c6dcaed10a3b08867" category="section-title">Cisco Nexus 9336C-FX2 클러스터 스위치에 RCF를 설치합니다</block>
   <block id="92d9ae69eba0fa3ac3e966c3c94b564f" category="list-text">[[step10]] 아직 구성하지 않은 경우 다음 명령의 출력을 로그 파일에 복사하여 현재 스위치 구성을 저장합니다.</block>
@@ -3586,11 +3297,14 @@
   <block id="e5b11cf3c23c3508c3b896786ad6720a" category="list-text">[[30단계] 원격 클러스터 인터페이스에 대해 ping을 수행하여 연결을 확인합니다. 'cluster ping-cluster-node local'</block>
   <block id="77a2f8547fffecb69f2d5527dcc4cb77" category="list-text">[[5단계] 주변 디바이스 목록 표시: CDP 네이버 표시</block>
   <block id="104f202730dfa230b37a1822877fcba1" category="sidebar">공유 구성의 Cisco Nexus 9336C-FX2</block>
-  <block id="94f92369bb57ec3cd50af356ac87615d" category="sidebar">nVidia SN2100</block>
-  <block id="3ee7af3967e9385ab7a25cd0ac2015ae" category="sidebar">NVIDIA SN2100 스위치</block>
-  <block id="5f0a12b5e055df565d02795623cf4bc2" category="sidebar">NVIDIA SN2100 스위치를 설정하고 구성합니다</block>
-  <block id="2f4146deaddc6e88b575577116cf8ce8" category="sidebar">Cisco 클러스터 스위치에서 NVIDIA SN2100 클러스터 스위치로 마이그레이션합니다</block>
-  <block id="61203301024e828295cf8cd1ef164fc3" category="sidebar">Cisco 스토리지 스위치에서 NVIDIA SN2100 스토리지 스위치로 마이그레이션합니다</block>
-  <block id="fdb05c6a8582161eedd71436841b5d8c" category="sidebar">NVIDIA SN2100 스위치를 사용하여 2노드 스위치 클러스터로 마이그레이션합니다</block>
-  <block id="d758c27204bd1511d766f1b9d917e78a" category="sidebar">NVIDIA SN2100 스위치를 교체합니다</block>
+  <block id="d4d708e45e34a1416e859c8024a9e7c1" category="admonition">ONTAP 9.8 이상에서는 시스템 이더넷 스위치 show-is-monitoring-enabled-operational true 명령을 사용합니다.</block>
+  <block id="5de00a014ac301d274873568153e5b2e" category="paragraph">이 명령을 실행한 후 자동 복귀가 해제되어 있는지 확인합니다.</block>
+  <block id="8fdae5a227344a83423005f83a057331" category="list-text">클러스터 포트가 클러스터의 모든 노드에서 정상 작동하는지 확인합니다.</block>
+  <block id="5d1ccfeff69430937e33ed02e46dbd94" category="list-text">클러스터에서 스위치 상태를 확인합니다.</block>
+  <block id="6481a2a1bc218f845ca90507f5499f21" category="list-text">스위치 CS1에서 7-16단계를 반복합니다.</block>
+  <block id="53a0bfa393247902d9ea8fedde7e8132" category="list-text">스위치 CS1을 재부팅합니다. 이렇게 하면 클러스터 LIF가 홈 포트로 되돌아갈 수 있습니다. 스위치가 재부팅되는 동안 노드에 보고된 "클러스터 포트 다운" 이벤트를 무시할 수 있습니다.</block>
+  <block id="a4a59b3c291a83932a23dc7f2e6fce7a" category="paragraph">'System switch Ethernet log setup-password' 및</block>
+  <block id="91cd808758081ea75f478b14ac3c3471" category="paragraph">'system cluster-switch log setup-password' 및</block>
+  <block id="e01441503925272a0ebbfb7fba0455f0" category="list-text">FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 NX-OS 소프트웨어를 Nexus 3132Q-V 스위치에 복사합니다. Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오<block ref="f93981dab484b88c422e924c27565997" category="inline-link-rx"></block> 안내선.</block>
+  <block id="8722c59bf526716ce1e70019843b09a5" category="paragraph">이 예에서는 NX-OS 소프트웨어를 Nexus 3132Q-V 스위치에 복사하는 데 사용되는 SFTP를 보여줍니다.</block>
 </blocks>

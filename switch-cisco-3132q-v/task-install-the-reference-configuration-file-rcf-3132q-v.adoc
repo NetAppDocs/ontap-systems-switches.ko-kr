@@ -34,9 +34,9 @@ Nexus 3132Q-V 스위치를 처음 설정한 후 RCF를 설치할 수 있습니�
 네트워크 디바이스 발견 쇼
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> network device-discovery show
+cluster1::*> *network device-discovery show*
 Node/       Local  Discovered
 Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
 ----------- ------ ------------------------- ----------------  ------------
@@ -58,12 +58,12 @@ cluster1::*>
 +
 .. 모든 클러스터 포트가 정상 상태인지 확인합니다.
 +
-'network port show – role cluster'
+네트워크 포트 표시 - IPSpace 클러스터
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> network port show -role cluster
+cluster1::*> *network port show -ipspace Cluster*
 
 Node: cluster1-01
                                                                        Ignore
@@ -102,12 +102,12 @@ cluster1::*>
 ----
 .. 모든 클러스터 인터페이스(LIF)가 홈 포트에 있는지 확인합니다.
 +
-네트워크 인터페이스 show-role cluster
+'network interface show-vserver cluster'
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> network interface show -role cluster
+cluster1::*> *network interface show -vserver Cluster*
             Logical            Status     Network           Current      Current Is
 Vserver     Interface          Admin/Oper Address/Mask      Node         Port    Home
 ----------- ------------------ ---------- ----------------- ------------ ------- ----
@@ -120,7 +120,6 @@ Cluster
             cluster1-03_clus2  up/up     169.254.1.1/23     cluster1-03  e0b     true
             cluster1-04_clus1  up/up     169.254.1.6/23     cluster1-04  e0a     true
             cluster1-04_clus2  up/up     169.254.1.7/23     cluster1-04  e0b     true
-8 entries were displayed.
 cluster1::*>
 ----
 .. 클러스터가 두 클러스터 스위치에 대한 정보를 표시하는지 확인합니다.
@@ -128,9 +127,9 @@ cluster1::*>
 'system cluster-switch show-is-monitoring-enabled-operational true'
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> system cluster-switch show -is-monitoring-enabled-operational true
+cluster1::*> *system cluster-switch show -is-monitoring-enabled-operational true*
 Switch                      Type               Address          Model
 --------------------------- ------------------ ---------------- ---------------
 cs1                         cluster-network    10.0.0.1         NX3132QV
@@ -151,30 +150,36 @@ cs2                         cluster-network    10.0.0.2         NX3132QV
 
 2 entries were displayed.
 ----
++
+
+NOTE: ONTAP 9.8 이상에서는 시스템 이더넷 스위치 show-is-monitoring-enabled-operational true 명령을 사용합니다.
+
 
 
 . 클러스터 LIF에서 자동 되돌리기 기능을 해제합니다.
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> network interface modify -vserver Cluster -lif \* -auto-revert false
+cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert false*
+----
++
+이 명령을 실행한 후 자동 복귀가 해제되어 있는지 확인합니다.
 
-----
 . 클러스터 스위치 CS2에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cs2(config)# interface eth1/1/1-2,eth1/7-8
-cs2(config-if-range)# shutdown
+cs2(config)# *interface eth1/1/1-2,eth1/7-8*
+cs2(config-if-range)# *shutdown*
 ----
 . 클러스터 포트가 클러스터 스위치 CS1에 호스팅된 포트로 마이그레이션되었는지 확인합니다. 이 작업은 몇 초 정도 걸릴 수 있습니다.
 +
-네트워크 인터페이스 show-role cluster
+'network interface show-vserver cluster'
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> network interface show -role cluster
+cluster1::*> *network interface show -vserver Cluster*
             Logical           Status     Network            Current       Current Is
 Vserver     Interface         Admin/Oper Address/Mask       Node          Port    Home
 ----------- ----------------- ---------- ------------------ ------------- ------- ----
@@ -187,7 +192,6 @@ Cluster
             cluster1-03_clus2 up/up      169.254.1.1/23     cluster1-03   e0a     false
             cluster1-04_clus1 up/up      169.254.1.6/23     cluster1-04   e0a     true
             cluster1-04_clus2 up/up      169.254.1.7/23     cluster1-04   e0a     false
-8 entries were displayed.
 cluster1::*>
 ----
 . 클러스터가 정상 상태인지 확인합니다.
@@ -195,16 +199,15 @@ cluster1::*>
 '클러스터 쇼'
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> cluster show
+cluster1::*> *cluster show*
 Node                 Health  Eligibility   Epsilon
 -------------------- ------- ------------  -------
 cluster1-01          true    true          false
 cluster1-02          true    true          false
 cluster1-03          true    true          true
 cluster1-04          true    true          false
-4 entries were displayed.
 cluster1::*>
 ----
 . 스위치의 현재 백업이 없는 경우 다음 명령의 출력을 로그 파일에 복사하여 현재 스위치 구성을 저장할 수 있습니다.
@@ -219,13 +222,13 @@ cluster1::*>
 NOTE: 이 단계에서는 스위치에 콘솔 연결이 필요합니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cs2# write erase
+cs2# *write erase*
 Warning: This command will erase the startup-configuration.
-Do you wish to proceed anyway? (y/n)  [n] y
-cs2# reload
-This command will reboot the system. (y/n)?  [n] y
+Do you wish to proceed anyway? (y/n)  [n] *y*
+cs2# *reload*
+This command will reboot the system. (y/n)?  [n] *y*
 cs2#
 ----
 .. 스위치의 기본 설정을 수행합니다.
@@ -236,10 +239,10 @@ cs2#
 이 예에서는 스위치 CS2에서 RCF를 부트 플래시에 복사하는 데 사용되는 TFTP를 보여 줍니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cs2# copy tftp: bootflash: vrf management
-Enter source filename: Nexus_3132QV_RCF_v1.6-Cluster-HA-Breakout.txt
+cs2# *copy tftp: bootflash: vrf management*
+Enter source filename: *Nexus_3132QV_RCF_v1.6-Cluster-HA-Breakout.txt*
 Enter hostname for the tftp server: 172.22.201.50
 Trying to connect to tftp server......Connection to Server Established.
 TFTP get operation was successful
@@ -253,16 +256,15 @@ Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하�
 이 예에서는 RCF 파일 "Nexus_3132QV_RCF_v1.6 - Cluster-HA-Breakout.txt"가 스위치 CS2에 설치되어 있음을 보여 줍니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cs2# copy Nexus_3132QV_RCF_v1.6-Cluster-HA-Breakout.txt running-config echo-commands
+cs2# *copy Nexus_3132QV_RCF_v1.6-Cluster-HA-Breakout.txt running-config echo-commands*
 ----
 . 'show banner mott' 명령어의 배너 출력을 조사한다. 스위치의 올바른 구성 및 작동을 위해 * 중요 참고 * 의 지침을 읽고 준수해야 합니다.
 +
 [listing]
 ----
 cs2# show banner motd
-
 
 ******************************************************************************
 * NetApp Reference Configuration File (RCF)
@@ -319,10 +321,10 @@ cs2# copy running-config startup-config [#######################################
 ----
 . 스위치 CS2를 재부팅합니다. 스위치가 재부팅되는 동안 노드에 보고된 "클러스터 포트 다운" 이벤트를 무시할 수 있습니다.
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cs2# reload
-This command will reboot the system. (y/n)?  [n] y
+cs2# *reload*
+This command will reboot the system. (y/n)?  [n] *y*
 ----
 . 동일한 RCF를 적용하고 실행 중인 구성을 다시 저장합니다.
 +
@@ -333,14 +335,14 @@ cs2# copy running-config startup-config [#######################################
 ----
 . 클러스터에서 클러스터 포트의 상태를 확인합니다.
 +
-.. e0d 포트가 클러스터의 모든 노드에서 정상 작동 중인지 확인합니다.
+.. 클러스터 포트가 클러스터의 모든 노드에서 정상 작동하는지 확인합니다.
 +
-네트워크 포트 show-role cluster
+네트워크 포트 표시 - IPSpace 클러스터
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> network port show -role cluster
+cluster1::*> *network port show -ipspace Cluster*
 
 Node: cluster1-01
                                                                        Ignore
@@ -373,13 +375,12 @@ Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
 --------- ------------ ---------------- ---- ---- ----------- -------- ------
 e0a       Cluster      Cluster          up   9000  auto/100000 healthy false
 e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
-8 entries were displayed.
 ----
-.. 클러스터에서 스위치 상태를 확인합니다. LIF가 e0d에 홈링되지 않으므로 스위치 CS2가 표시되지 않을 수 있습니다.
+.. 클러스터에서 스위치 상태를 확인합니다.
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> network device-discovery show -protocol cdp
+cluster1::*> *network device-discovery show -protocol cdp*
 Node/       Local  Discovered
 Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
 ----------- ------ ------------------------- ----------------- --------
@@ -396,7 +397,7 @@ cluster1-04/cdp
             e0a    cs1                       Ethernet1/1/2     N3K-C3132Q-V
             e0b    cs2                       Ethernet1/1/2     N3K-C3132Q-V
 
-cluster1::*> system cluster-switch show -is-monitoring-enabled-operational true
+cluster1::*> *system cluster-switch show -is-monitoring-enabled-operational true*
 Switch                      Type               Address          Model
 --------------------------- ------------------ ---------------- -----
 cs1                         cluster-network    10.233.205.90    N3K-C3132Q-V
@@ -417,7 +418,9 @@ cs2                         cluster-network    10.233.205.91    N3K-C3132Q-V
 
 2 entries were displayed.
 ----
++
 
+NOTE: ONTAP 9.8 이상에서는 시스템 이더넷 스위치 show-is-monitoring-enabled-operational true 명령을 사용합니다.
 
 +
 [NOTE]
@@ -431,24 +434,26 @@ cs2                         cluster-network    10.233.205.91    N3K-C3132Q-V
 2020 Nov 17 16:07:23 cs1 %$ VDC-1 %$ %STP-2-BLOCK_PVID_LOCAL: Blocking port-channel1 on VLAN0092. Inconsistent local vlan.
 ----
 ====
+
+
 . 클러스터 스위치 CS1에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.
 +
 다음 예제에서는 1단계의 인터페이스 예제 출력을 사용합니다.
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cs1(config)# interface eth1/1/1-2,eth1/7-8
-cs1(config-if-range)# shutdown
+cs1(config)# *interface eth1/1/1-2,eth1/7-8*
+cs1(config-if-range)# *shutdown*
 ----
 . 클러스터 LIF가 스위치 CS2에 호스팅된 포트로 마이그레이션되었는지 확인합니다. 이 작업은 몇 초 정도 걸릴 수 있습니다.
 +
-네트워크 인터페이스 show-role cluster
+'network interface show-vserver cluster'
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> network interface show -role cluster
+cluster1::*> *network interface show -vserver Cluster*
             Logical            Status     Network            Current             Current Is
 Vserver     Interface          Admin/Oper Address/Mask       Node                Port    Home
 ----------- ------------------ ---------- ------------------ ------------------- ------- ----
@@ -461,7 +466,6 @@ Cluster
             cluster1-03_clus2  up/up      169.254.1.1/23     cluster1-03         e0b     true
             cluster1-04_clus1  up/up      169.254.1.6/23     cluster1-04         e0b     false
             cluster1-04_clus2  up/up      169.254.1.7/23     cluster1-04         e0b     true
-8 entries were displayed.
 cluster1::*>
 ----
 . 클러스터가 정상 상태인지 확인합니다.
@@ -469,9 +473,9 @@ cluster1::*>
 '클러스터 쇼'
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> cluster show
+cluster1::*> *cluster show*
 Node                 Health   Eligibility   Epsilon
 -------------------- -------- ------------- -------
 cluster1-01          true     true          false
@@ -481,25 +485,25 @@ cluster1-04          true     true          false
 4 entries were displayed.
 cluster1::*>
 ----
-. 스위치 CS1에서 7-14단계를 반복합니다.
+. 스위치 CS1에서 7-16단계를 반복합니다.
 . 클러스터 LIF에서 자동 되돌리기 기능을 설정합니다.
 +
 [listing]
 ----
-cluster1::*> network interface modify -vserver Cluster -lif \* -auto-revert True
+cluster1::*> network interface modify -vserver Cluster -lif * -auto-revert True
 ----
-. 스위치 CS1을 재부팅합니다. 이렇게 하면 클러스터 LIF가 홈 포트로 복구되도록 트리거됩니다. 스위치가 재부팅되는 동안 노드에 보고된 "클러스터 포트 다운" 이벤트를 무시할 수 있습니다.
+. 스위치 CS1을 재부팅합니다. 이렇게 하면 클러스터 LIF가 홈 포트로 되돌아갈 수 있습니다. 스위치가 재부팅되는 동안 노드에 보고된 "클러스터 포트 다운" 이벤트를 무시할 수 있습니다.
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cs1# reload
-This command will reboot the system. (y/n)?  [n] y
+cs1# *reload*
+This command will reboot the system. (y/n)?  [n] *y*
 ----
 . 클러스터 포트에 연결된 스위치 포트가 작동하는지 확인합니다.
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cs1# show interface brief \| grep up
+cs1# *show interface brief | grep up*
 .
 .
 Eth1/1/1      1       eth  access up      none                    10G(D) --
@@ -514,9 +518,9 @@ Eth1/8        1       eth  trunk  up      none                   100G(D) --
 '포트-채널 요약
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cs1# show port-channel summary
+cs1# *show port-channel summary*
 Flags:  D - Down        P - Up in port-channel (members)
         I - Individual  H - Hot-standby (LACP only)
         s - Suspended   r - Module-removed
@@ -534,12 +538,12 @@ cs1#
 ----
 . 클러스터 LIF가 홈 포트로 되돌려졌는지 확인합니다.
 +
-네트워크 인터페이스 show-role cluster
+'network interface show-vserver cluster'
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> network interface show -role cluster
+cluster1::*> *network interface show -vserver Cluster*
             Logical            Status     Network            Current             Current Is
 Vserver     Interface          Admin/Oper Address/Mask       Node                Port    Home
 ----------- ------------------ ---------- ------------------ ------------------- ------- ----
@@ -552,7 +556,6 @@ Cluster
             cluster1-03_clus2  up/up      169.254.1.1/23     cluster1-03         e0b     true
             cluster1-04_clus1  up/up      169.254.1.6/23     cluster1-04         e0b     true
             cluster1-04_clus2  up/up      169.254.1.7/23     cluster1-04         e0b     true
-8 entries were displayed.
 cluster1::*>
 ----
 . 클러스터가 정상 상태인지 확인합니다.
@@ -560,16 +563,15 @@ cluster1::*>
 '클러스터 쇼'
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> cluster show
+cluster1::*> *cluster show*
 Node                 Health  Eligibility   Epsilon
 -------------------- ------- ------------- -------
 cluster1-01          true    true          false
 cluster1-02          true    true          false
 cluster1-03          true    true          true
 cluster1-04          true    true          false
-4 entries were displayed.
 cluster1::*>
 ----
 . 원격 클러스터 인터페이스에 ping을 수행하여 연결을 확인합니다.
@@ -577,9 +579,9 @@ cluster1::*>
 '클러스터 ping-cluster-node local'
 
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> cluster ping-cluster -node local
+cluster1::*> *cluster ping-cluster -node local*
 Host is cluster1-03
 Getting addresses from network interface table...
 Cluster cluster1-03_clus1 169.254.1.3 cluster1-03 e0a
@@ -616,4 +618,118 @@ RPC status:
 6 paths up, 0 paths down (tcp check)
 6 paths up, 0 paths down (udp check)
 ----
+. ONTAP 9.8 이상의 경우 다음 명령을 사용하여 스위치 관련 로그 파일을 수집하기 위한 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화합니다.
++
+'System switch Ethernet log setup-password' 및
+
++
+System switch Ethernet log enable-collection
+
++
+'시스템 스위치 이더넷 로그 설정 - 암호'를 입력합니다
+
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *system switch ethernet log setup-password*
+Enter the switch name: *<return>*
+The switch name entered is not recognized.
+Choose from the following list:
+*cs1*
+*cs2*
+
+cluster1::*> *system switch ethernet log setup-password*
+
+Enter the switch name: *cs1*
+RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
+Do you want to continue? {y|n}::[n] *y*
+
+Enter the password: *<enter switch password>*
+Enter the password again: *<enter switch password>*
+
+cluster1::*> *system switch ethernet log setup-password*
+
+Enter the switch name: *cs2*
+RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
+Do you want to continue? {y|n}:: [n] *y*
+
+Enter the password: *<enter switch password>*
+Enter the password again: *<enter switch password>*
+----
++
+'시스템 스위치 이더넷 로그 Enable-collection'이 그 뒤를 따랐습니다
+
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *system  switch ethernet log enable-collection*
+
+Do you want to enable cluster log collection for all nodes in the cluster?
+{y|n}: [n] *y*
+
+Enabling cluster switch log collection.
+
+cluster1::*>
+----
++
+
+NOTE: 이러한 명령에서 오류가 반환되면 NetApp 지원에 문의하십시오.
+
+. ONTAP 릴리스 9.5P16, 9.6P12 및 9.7P10 이상의 패치 릴리스의 경우 다음 명령을 사용하여 스위치 관련 로그 파일을 수집하기 위한 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화합니다.
++
+'system cluster-switch log setup-password' 및
+
++
+'system cluster-switch log enable-collection'을 선택합니다
+
++
+'system cluster-switch log setup-password'를 입력합니다
+
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *system cluster-switch log setup-password*
+Enter the switch name: *<return>*
+The switch name entered is not recognized.
+Choose from the following list:
+*cs1*
+*cs2*
+
+cluster1::*> *system cluster-switch log setup-password*
+
+Enter the switch name: *cs1*
+RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
+Do you want to continue? {y|n}::[n] *y*
+
+Enter the password: *<enter switch password>*
+Enter the password again: *<enter switch password>*
+
+cluster1::*> *system cluster-switch log setup-password*
+
+Enter the switch name: *cs2*
+RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
+Do you want to continue? {y|n}:: [n] *y*
+
+Enter the password: *<enter switch password>*
+Enter the password again: *<enter switch password>*
+----
++
+'system cluster-switch log enable-collection'이 그 뒤에 나옵니다
+
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *system cluster-switch log enable-collection*
+
+Do you want to enable cluster log collection for all nodes in the cluster?
+{y|n}: [n] *y*
+
+Enabling cluster switch log collection.
+
+cluster1::*>
+----
++
+
+NOTE: 이러한 명령에서 오류가 반환되면 NetApp 지원에 문의하십시오.
+
 
