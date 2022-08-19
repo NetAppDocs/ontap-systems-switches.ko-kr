@@ -28,6 +28,8 @@ indexpage:
       url: "/switch-cisco-92300/92300-overview.html"
     - title: 기타 스위치 모델
       url: "/other/switch-linkout.html"
+    - title: 기타 스위치 절차
+      url: "/other-procedures/transition-to-two-node-switchless-cluster-index.html"
   - title: 더 많은 리소스
     links:
     - title: 기타 스위치 모델

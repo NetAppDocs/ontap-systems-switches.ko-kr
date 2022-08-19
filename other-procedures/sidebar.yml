@@ -1,0 +1,10 @@
+---
+section: other-procedures
+title: 기타 스위치 절차
+entries:
+- title: 스위치가 없는 2노드 클러스터로 전환합니다
+  entries:
+  - title: 개요
+    url: "/other-procedures/transition-to-two-node-switchless-cluster-index.html"
+  - title: 스위치를 직접 연결로 교체합니다
+    url: "/other-procedures/replace-switches-with-direct-connections.html"
