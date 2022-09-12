@@ -222,7 +222,7 @@ image::../media/tnsc_clusterswitch2_disconnected.PNG[ClusterSwitch2의 연결이
 
 .. 그룹2의 포트를 후면에서 케이블로 연결합니다.
 +
-다음 예제에서 노드 1의 "e0a"는 노드 2의 "e0a"에 연결되고 노드 2의 "e0b"는 노드 2의 "e0b"에 연결됩니다.
+다음 예제에서 노드 1의 "e0a"는 노드 2의 "e0a"에 연결되고 노드 1의 "e0b"는 노드 2의 "e0b"에 연결됩니다.
 
 +
 image::../media/tnsc_node1_and_node2_direct_connection.PNG[노드 1과 노드 2의 포트 간 직접 연결]
