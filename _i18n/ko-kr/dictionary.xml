@@ -521,14 +521,11 @@
   <block id="49dff5e24eb6716bbdb118f5060c6ee9" category="doc">Cisco 스위치에서 Cisco Nexus 9336C-FX2 클러스터 스위치로 마이그레이션하는 방법</block>
   <block id="de1935bd4389d754399850801a81c6d4" category="list-text">기존 클러스터가 올바르게 설정되고 작동해야 합니다.</block>
   <block id="327751f77b91681c4efa7bd01dd923d1" category="list-text">무중단 운영을 보장하기 위해 모든 클러스터 포트가 가동 상태여야 합니다.</block>
-  <block id="4cbca3ab562ce0be7780eefe4a43adad" category="list-text">Nexus 9336C-FX2 클러스터 스위치는 적절한 버전의 NX-OS 설치 및 RCF(Reference Configuration File)를 적용하여 구성 및 작동해야 합니다.</block>
   <block id="3d060124021a6680e2c5665dffef8fba" category="list-text">기존 클러스터 네트워크 구성에는 다음이 있어야 합니다.</block>
   <block id="4911fe5a5a61a43546dd84d203eacf1c" category="list-text">구형 Cisco 스위치를 사용하는 완전히 기능이 정상 작동하는 중복 NetApp 클러스터입니다.</block>
   <block id="c3f3714ca8555fda13d1cbc127147867" category="list-text">이전 Cisco 스위치와 새 스위치 모두에 대한 관리 연결 및 콘솔 액세스</block>
-  <block id="22cd64d0bcf2bc77bfb32f0318d14d3c" category="list-text">클러스터 LIF를 사용하는 UP 상태의 모든 클러스터 LIF는 홈 포트에 있습니다.</block>
   <block id="e1c4ebdf7c0ad72137d57dc5fd646845" category="list-text">이전 Cisco 스위치 간에 또는 새 스위치 간에 연결되고 연결된 ISL 포트</block>
   <block id="861442a3532c3e685a51468723598110" category="list-text">기존 Cisco Nexus 5596UP 클러스터 스위치는 C1 및 C2입니다.</block>
-  <block id="5b0559292b43e5022821fd64e9e153d2" category="list-text">새로운 Nexus 9336C-FX2 클러스터 스위치는 CS1과 CS2입니다.</block>
   <block id="79779dc1801a58ad11dd3078fff93f81" category="list-text">노드는 노드 1과 노드 2입니다.</block>
   <block id="3d1c2ff675fe732df9f817f3321c6054" category="list-text">클러스터 LIF는 노드 1의 node1_clus1 및 node1_clus2이고, 노드 2의 node2_clus1 및 node2_clus2입니다.</block>
   <block id="cd4062096153c60d3a0b62dd4dfe8687" category="list-text">스위치 C2가 먼저 스위치 CS2로 대체된 다음 스위치 C1이 스위치 CS1로 대체됩니다.</block>
@@ -539,23 +536,12 @@
   <block id="9466a05ff7d84aeea31f27e9129682c8" category="list-text">권한 수준을 고급으로 변경하고 'Set-Privilege advanced'라는 메시지가 나타나면 * y * 를 입력합니다</block>
   <block id="4f21ff6f61e1071606649c4871ef7bf7" category="paragraph">고급 프롬프트(*&gt;)가 나타납니다.</block>
   <block id="ab3c28f964de5085a4ea20a8c2a1c6b0" category="list-text">각 클러스터 인터페이스의 관리 또는 운영 상태 확인:</block>
-  <block id="d204eae202d3382d49076db0a6957154" category="list-text">네트워크 포트 속성 'network port show-ipSpace Cluster'를 표시합니다</block>
-  <block id="3c23423d82deff2c49b1f5a675affe46" category="list-text">논리 인터페이스 및 지정된 홈 노드에 대한 정보를 표시합니다. 네트워크 인터페이스 show-vserver 클러스터</block>
   <block id="300c4a8af362f43878948de70117255e" category="paragraph">각 LIF는 '상태 관리/작업'에 대해 위/위로 표시되고 '홈'에 대해서는 true로 표시되어야 합니다.</block>
-  <block id="eac3e7f3f587be64af9579266f4bb66e" category="list-text">각 노드의 클러스터 포트는 'network device-discovery show-protocol CDP' 명령을 사용하여 노드 관점에서 기존 클러스터 스위치에 연결됩니다</block>
-  <block id="866e9195c3f1e53c818cc1513b132bbc" category="list-text">클러스터 포트와 스위치는 'show CDP neighbors' 명령을 사용하여 스위치의 관점에서 다음과 같이 연결됩니다</block>
-  <block id="ac121473c5c5a24690b1a30d179ab677" category="list-text">'cluster ping -cluster -node -name' 명령을 사용하여 클러스터 네트워크가 완전히 연결되어 있는지 확인합니다</block>
   <block id="990838b9b76e69aee53a16fbaf6802e0" category="list-text">C1 및 CS1 사이에 있는 포트 e1/41-48의 cs1에 임시 ISL을 구성합니다.</block>
   <block id="48df2fb4a9556ac37edec166e7e858f9" category="paragraph">다음 예에서는 새 ISL이 C1 및 CS1에 어떻게 구성되어 있는지 보여 줍니다.</block>
   <block id="2aa6bce99f388363decd09b81d00eb7d" category="list-text">포트 1/41-48에서 ISL 케이블을 C2에서 분리하고 케이블을 CS1의 포트 1/41-48에 연결합니다.</block>
   <block id="f428750661677ee18c87e664c0eced86" category="paragraph">다음 예에서는 ISL 포트가 C1 및 CS1에서 작동하는지 확인하는 데 사용되는 Cisco show port-channel summary 명령을 보여 줍니다.</block>
-  <block id="14179f633557b53498f01d3e5c4e5bb8" category="list-text">노드 1의 경우 C2의 e1/1에서 케이블을 분리한 다음 Nexus 9336C-FX2에서 지원하는 적절한 케이블을 사용하여 CS2의 e1/1에 케이블을 연결합니다.</block>
-  <block id="316197794ac20ca2b2b11cb67a072e0f" category="list-text">노드 2의 경우 C2의 e1/2에서 케이블을 분리한 다음 Nexus 9336C-FX2에서 지원하는 적절한 케이블을 사용하여 CS2의 e1/2에 케이블을 연결합니다.</block>
-  <block id="37ef6f0e7348f33c4de46c37e4fd2e10" category="list-text">각 노드의 클러스터 포트는 이제 노드의 관점에서 클러스터 스위치에 다음과 같이 연결됩니다. 'network device-discovery show-protocol CDP'</block>
-  <block id="50cb1cc2d2bb848fa2b74fbbdb5ac123" category="list-text">노드 1의 경우, 1C1의 e1/1에서 케이블을 분리한 다음 Nexus 9336C-FX2에서 지원하는 적절한 케이블을 사용하여 CS1의 e1/1에 케이블을 연결합니다.</block>
-  <block id="2a727a2314a8100587055604ff3e9802" category="list-text">노드 2의 경우, C1의 e1/2에서 케이블을 분리한 다음 Nexus 9336C-FX2에서 지원하는 적절한 케이블을 사용하여 CS1의 e1/2에 케이블을 연결합니다.</block>
   <block id="27781c87d25f863e4d8141fb97e91e1d" category="list-text">CS1과 C1 사이의 임시 ISL을 삭제합니다.</block>
-  <block id="b1bf5b4949e8f0e4eed60de397513799" category="list-text">클러스터의 최종 구성 'network port show-ipSpace Cluster'를 확인합니다</block>
   <block id="a4998c66149f8a98001c236183094243" category="summary">클러스터를 구성하려면 스위치에 맞는 케이블 및 케이블 커넥터 수와 유형이 필요합니다. 처음 구성하는 스위치의 유형에 따라 포함된 콘솔 케이블을 사용하여 스위치 콘솔 포트에 연결해야 합니다. 또한 특정 네트워크 정보를 제공해야 합니다.</block>
   <block id="6ecd82e479020fe457e5ebd56b9012ca" category="doc">필수 클러스터 구성 정보</block>
   <block id="3d8c1e9dc9abd665a6d51aff697d9586" category="section-title">모든 스위치에 필요한 네트워크 정보</block>
@@ -1752,7 +1738,6 @@
   <block id="e73ca78de91a85725d7897c5caaeeb3e" category="list-text">원격 클러스터 LIF에 대한 ping 실시</block>
   <block id="f640804165fe8b3014b443db071bd7c2" category="list-text">모든 클러스터 LIF에서 자동 되돌리기 명령이 설정되었는지 확인합니다.</block>
   <block id="a48132af1a7dae29d069cd55f7d7356c" category="sidebar">이 사이트의 문서를 사용하여 클러스터 및 스토리지 스위치를 설치, 업그레이드 및 유지 관리할 수 있습니다.</block>
-  <block id="ec01d482cf394f212f073921cfd9d5bd" category="sidebar">ONTAP 릴리즈 노트</block>
   <block id="a393cd4f170aafc6db54b17ca62ffb74" category="sidebar">Broadcom 지원 BES-53248</block>
   <block id="2b2815ca4a9fd5973ee66317adb580e4" category="sidebar">기타 스위치 모델</block>
   <block id="dfcc398099d6a64026e51ab282e16253" category="sidebar">더 많은 리소스</block>
@@ -3130,15 +3115,7 @@
   <block id="50de81aaedfa30f3f897982b9385177e" category="paragraph">에서는 결함이 있는 Cisco Nexus 3232C 스토리지 스위치를 교체하고 스위치 운영 체제 및 참조 구성 파일을 다운로드하는 절차를 설명합니다.</block>
   <block id="83e93935173fd08d31ece6da1321250e" category="inline-link">_Cisco 이더넷 스위치 _</block>
   <block id="a38feefa1e0fea9f496938eeb3998bb7" category="list-text">의 스위치 호환성 표를 참조하십시오<block ref="74ad0e8ac749618b09c1515e91099015" category="inline-link-rx"></block> 지원되는 ONTAP, NX-OS 및 RCF 버전에 대한 페이지입니다.</block>
-  <block id="173dae780449dce4bb4a30b4f7977279" category="list-text">임시 ISL은 C2를 CS2에 연결하는 CS2에 구축됩니다.</block>
-  <block id="91d4e443decf449762f863fd540cc820" category="list-text">그런 다음 C2와 CS2 사이의 임시 ISL이 제거됩니다.</block>
-  <block id="a75638c0d1f443fdf3c4471108036c0e" category="list-text">포트 e1/33-34의 CS1에서 C1과 CS1 사이에 임시 ISL을 구성합니다.</block>
-  <block id="7c144395dc06b2e330a55935a8f036c4" category="list-text">포트 1/33-34에서 ISL 케이블을 C2에서 분리하고 케이블을 CS2의 포트 1/33-34에 연결합니다.</block>
-  <block id="57dbb300401ac1a70f8eee6f777ba384" category="list-text">ISL 포트와 포트 채널이 C2와 CS2를 연결하는 작동 중인지 확인합니다. '포트-채널 요약 정보 확인</block>
-  <block id="49257dae1517ce0a266604611f40fe19" category="paragraph">다음 예에서는 ISL 포트가 C2 및 CS2에서 작동하는지 확인하는 데 사용되는 Cisco show port-channel summary 명령을 보여 줍니다.</block>
-  <block id="bb1651f45817be29229f70593583bcd6" category="list-text">ONTAP 9.8 이상의 경우, '시스템 스위치 이더넷 로그 설정 - 암호'와 '시스템 스위치 이더넷 로그 활성화 - 수집'이라는 두 가지 명령을 사용하여 스위치 관련 로그 파일을 수집하기 위한 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화합니다</block>
   <block id="45e50cd7644af8bcb7582afbaff1fd3a" category="paragraph">'시스템 스위치 이더넷 로그 설정 - 암호'를 입력합니다</block>
-  <block id="02365d5fe51965645365010c75105f41" category="paragraph">'시스템 스위치 이더넷 로그 Enable-collection'이 그 뒤를 따랐습니다</block>
   <block id="f596e32c8f97761d44eedfe73defefd2" category="paragraph">'system cluster-switch log setup-password'를 입력합니다</block>
   <block id="87bd9bfab267dc2d9909cf27c375995d" category="paragraph">'system cluster-switch log enable-collection'이 그 뒤에 나옵니다</block>
   <block id="c3cad725709ffee7a5c8b59156b3f365" category="paragraph">다음 표에는 Cisco Nexus 3132Q-V 스위치에 사용할 수 있는 설명서가 나열되어 있습니다.</block>
@@ -3296,7 +3273,6 @@
   <block id="c1149c08490444b20498c10e50c2a14b" category="list-text">[[step29]] 클러스터가 정상 상태인지 확인합니다. '클러스터 쇼'</block>
   <block id="e5b11cf3c23c3508c3b896786ad6720a" category="list-text">[[30단계] 원격 클러스터 인터페이스에 대해 ping을 수행하여 연결을 확인합니다. 'cluster ping-cluster-node local'</block>
   <block id="77a2f8547fffecb69f2d5527dcc4cb77" category="list-text">[[5단계] 주변 디바이스 목록 표시: CDP 네이버 표시</block>
-  <block id="104f202730dfa230b37a1822877fcba1" category="sidebar">공유 구성의 Cisco Nexus 9336C-FX2</block>
   <block id="d4d708e45e34a1416e859c8024a9e7c1" category="admonition">ONTAP 9.8 이상에서는 시스템 이더넷 스위치 show-is-monitoring-enabled-operational true 명령을 사용합니다.</block>
   <block id="5de00a014ac301d274873568153e5b2e" category="paragraph">이 명령을 실행한 후 자동 복귀가 해제되어 있는지 확인합니다.</block>
   <block id="8fdae5a227344a83423005f83a057331" category="list-text">클러스터 포트가 클러스터의 모든 노드에서 정상 작동하는지 확인합니다.</block>
@@ -3383,4 +3359,59 @@
   <block id="e55e97993d59e593f9db82748c7205cd" category="sidebar">기타 스위치 절차</block>
   <block id="66a1a209b630861db25c9013c19efe3b" category="sidebar">스위치가 없는 2노드 클러스터로 전환합니다</block>
   <block id="749e4fff30fa6550a6b7216922e76856" category="paragraph">다음 예제에서 노드 1의 "e0a"는 노드 2의 "e0a"에 연결되고 노드 1의 "e0b"는 노드 2의 "e0b"에 연결됩니다.</block>
+  <block id="f9c5b146fb6da165b4c98f09374af2ac" category="doc">이전 Cisco 스위치에서 Cisco Nexus 9336C-FX2 클러스터 스위치로 마이그레이션합니다</block>
+  <block id="1b8eaf3e7617b6a44d79a24bae0cd120" category="doc">이전 Cisco 스위치에서 Cisco Nexus 9336C-FX2 클러스터 스위치로 마이그레이션하는 방법</block>
+  <block id="1cb5aa8f44865f51a2c94321dd8b41db" category="paragraph">이전 Cisco Nexus 클러스터 스위치를 Cisco Nexus 9336C-FX2 클러스터 스위치로 교체하기 전에 다음 조건이 충족되어야 합니다.</block>
+  <block id="39ab2dde5b8a156f8283ad9532823433" category="list-text">Cisco Nexus 9336C-FX2 스위치의 초기 사용자 정의를 완료해야 합니다. 따라서 다음을 수행합니다.</block>
+  <block id="15ceb34ee806ca103db662b65be6a105" category="list-text">9336C-FX2 스위치는 권장되는 최신 소프트웨어 버전을 실행하고 있습니다</block>
+  <block id="898acfce731a270505031c1f99d814b6" category="list-text">RCF(Reference Configuration Files)가 스위치에 적용되었습니다</block>
+  <block id="efe23bf358b9145750927cc0f07ea121" category="list-text">DNS, NTP, SMTP, SNMP 등의 사이트 사용자 지정 및 SSH는 새 스위치에 구성해야 합니다.</block>
+  <block id="ec8b4a794ba1d9a3b4e29049a5c80f5a" category="list-text">의 스위치 호환성 표를 참조하십시오<block ref="91aaf2f14ce017094691ed108f35b756" category="inline-link-rx"></block> 지원되는 ONTAP, NX-OS 및 RCF 버전에 대한 페이지입니다.</block>
+  <block id="82aa1ff47d80bf012e412296f6a53469" category="inline-link">Nexus 9000 시리즈 스위치</block>
+  <block id="7951817a7bdebe9bf78d64818e47713a" category="list-text">의 Cisco 스위치 업그레이드 및 다운그레이드 절차에 대한 전체 문서를 보려면 Cisco 웹 사이트에서 제공되는 적절한 소프트웨어 및 업그레이드 가이드를 참조해야 합니다<block ref="fe4ad365e2858c06eb4fc7c343be69c7" category="inline-link-rx"></block>.</block>
+  <block id="0db1e0bcdfd24db323c5c37def104aff" category="paragraph">이 절차의 예에서는 두 개의 노드를 사용합니다. 이러한 노드에는 10GbE 클러스터 인터커넥트 포트 2개 e0a 및 e0b가 사용됩니다. 를 참조하십시오<block ref="a9613e1dbacf145285c45df4264fe797" category="inline-link-rx"></block> 사용 중인 플랫폼에서 올바른 클러스터 포트를 확인하려면 다음을 수행합니다.</block>
+  <block id="4ad14943532a190c518f634a57c3dbc8" category="admonition">명령 출력은 ONTAP의 다른 릴리즈에 따라 달라질 수 있습니다.</block>
+  <block id="ff3339197a97612c0ebbaf2641bdfcfa" category="list-text">기존 두 Cisco 스위치의 이름은 * CS1 * 및 * CS2 * 입니다</block>
+  <block id="0152c4d08b7616e344d95f6017c7732e" category="list-text">새로운 Nexus 9336C-FX2 클러스터 스위치는 * CS1-NEW * 및 * CS2-NEW * 입니다.</block>
+  <block id="fb8e914ec6dde0cf237e25c77cef2ef2" category="list-text">노드 이름은 * node1 * 및 * node2 * 입니다.</block>
+  <block id="280a3fe80d664dbb11b34f620eaef991" category="list-text">클러스터 LIF 이름은 노드 1의 경우 * node1_clus1 * 및 * node1_clus2 * 이고, 노드 2의 경우 * node2_clus1 * 및 * node2_clus2 * 입니다.</block>
+  <block id="c2bb2ae34a9db0e318c25b32c07dd6d5" category="list-text">cluster1:: * &gt; * 프롬프트는 클러스터의 이름을 나타냅니다.</block>
+  <block id="f8f21999828992a0d0f5a8789c02dece" category="admonition">이 절차를 수행하려면 ONTAP 명령과 를 모두 사용해야 합니다<block ref="fe4ad365e2858c06eb4fc7c343be69c7" category="inline-link-rx"></block> 달리 지시되지 않는 한, Commands; ONTAP 명령어가 사용된다.</block>
+  <block id="8b393c1cf533ebbb42a0655588c59f16" category="list-text">새 스위치에서 ISL이 케이블로 연결되고 스위치 CS1-NEW와 CS2-NEW:'포트-채널 요약 정보' 간에 양호한지 확인합니다</block>
+  <block id="79a4f6b2d175ee3474f28b12d058e767" category="list-text">기존 클러스터 스위치에 연결된 각 노드의 클러스터 포트 'network device-discovery show'를 표시합니다</block>
+  <block id="1a0894513362fda649e11ba9de926b82" category="list-text">각 클러스터 포트의 관리 또는 운영 상태를 확인합니다.</block>
+  <block id="84ccc24125cdd2f4d989498223bde79d" category="list-text">모든 클러스터 포트가 정상 상태인지 'network port show-ipSpace Cluster'인지 확인합니다</block>
+  <block id="639eee6825849ecae25422187ed117e1" category="list-text">모든 클러스터 인터페이스(LIF)가 홈 포트 'network interface show-vserver Cluster'에 있는지 확인합니다</block>
+  <block id="819ff57f464e039de1c480b406150b87" category="list-text">클러스터 스위치 CS2에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.</block>
+  <block id="78ecf74476ba071060eac27e2d411dbb" category="list-text">클러스터 LIF가 클러스터 스위치 CS1에 호스팅된 포트로 마이그레이션되었는지 확인합니다. 네트워크 인터페이스 show-vserver Cluster가 몇 초 정도 걸릴 수 있습니다</block>
+  <block id="c0aae69da186a464bb2e5ce0a8b32451" category="list-text">모든 클러스터 노드 연결을 이전 CS2 스위치에서 새 CS2-새 스위치로 이동합니다.</block>
+  <block id="4d317606ee3937aed888fec43374c887" category="list-text">CS2로 이동한 네트워크 연결 상태 확인 - NEW: 네트워크 포트 표시 - IPSpace 클러스터</block>
+  <block id="be6163ad0c362d632b28f98dea1fdaaa" category="paragraph">이동한 모든 클러스터 포트는 위로 이동해야 합니다.</block>
+  <block id="961e9e68bb33d8ff83286d506c60ca4e" category="list-text">클러스터 포트의 네이버 정보 'network device-discovery show-protocol CDP'를 확인한다</block>
+  <block id="d0141bcaf704f75f043a7384708a3131" category="paragraph">이동된 클러스터 포트에 CS2-새 스위치가 이웃으로 표시되는지 확인합니다.</block>
+  <block id="f53f913adacde30730136e7153afce35" category="list-text">스위치 CS2의 관점에서 스위치 포트 연결을 확인합니다. - 새로운 관점:</block>
+  <block id="c4fb5fab435d358d1b3a68ec74352416" category="list-text">클러스터 스위치 CS1에서 노드의 클러스터 포트에 연결된 포트를 종료합니다. 다음 예제에서는 7단계의 인터페이스 예제 출력을 사용합니다.</block>
+  <block id="8c61118abc6e9e30fd4469d362e96e00" category="paragraph">모든 클러스터 LIF가 CS2-신규 스위치로 이동합니다.</block>
+  <block id="bf44f0d62fa291c101c06f24a71b2def" category="list-text">클러스터 LIF가 스위치 CS2에서 호스팅되는 포트로 마이그레이션되었는지 확인합니다. 네트워크 인터페이스 show-vserver Cluster가 몇 초 정도 걸릴 수 있습니다</block>
+  <block id="494ad00c3b01ee37729fae8f4d4c52c0" category="list-text">CS1에서 새 CS1-새 스위치로 연결을 이동합니다.</block>
+  <block id="8883da283484d4130e3cbb72ad1ac23a" category="list-text">CS1로 이동한 네트워크 연결의 상태를 확인합니다. 새 네트워크 포트 표시 - IPSpace 클러스터</block>
+  <block id="77d74198b21a299e05d32144302f0f9a" category="list-text">클러스터 포트에 대한 네이버 정보 확인: 네트워크 디바이스 검색 쇼</block>
+  <block id="2a5fc0afbcb2299e24c73a909b297e93" category="paragraph">이동된 클러스터 포트에 CS1-새 스위치가 인접 스위치로 표시되는지 확인합니다.</block>
+  <block id="35d736ae56a7e094d4d2c2786669f8ca" category="list-text">스위치 CS1 - 새로운 관점에서 스위치 포트 연결을 확인합니다.</block>
+  <block id="d4180b23620c4c07998ad2c44ba6239d" category="list-text">CS1-NEW와 CS2-NEW 사이의 ISL이 여전히 작동 중인지 확인합니다. '포트-채널 요약 정보'</block>
+  <block id="0b602f3edded4e9ea468fe0dd0aed4e3" category="list-text">클러스터 LIF가 홈 포트로 되돌려졌는지 확인합니다(1분 정도 걸릴 수 있음). 'network interface show -vserver Cluster'</block>
+  <block id="a1ef9f2bd020f62a6d3b932a75ea6b79" category="paragraph">클러스터 LIF가 홈 포트로 되돌리지 않은 경우 수동으로 '네트워크 인터페이스 되돌리기 - vserver Cluster-lif *'를 되돌립니다</block>
+  <block id="6e17c5b16e74fa9487ffd1971cf1ffb9" category="list-text">원격 클러스터 인터페이스를 ping하여 'cluster ping-cluster-node &lt;name&gt;'의 연결을 확인합니다</block>
+  <block id="2a42351fd3a2f7fd74a9510816b9125f" category="list-text">스위치 관련 로그 파일을 수집하기 위해 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화합니다.</block>
+  <block id="9e25219bfef39dc2d94805b599244f8d" category="open-title">ONTAP 9.8 이상</block>
+  <block id="c341f6ea60d7e8508c7d6cd8d529fd71" category="paragraph">'system switch ethernet log setup-password'와 'system switch ethernet log enable-collection' 명령을 사용하여 스위치 관련 로그 파일을 수집하는 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화한다</block>
+  <block id="372aff3164b35ebb97a99a633d4262a4" category="paragraph">* 참고: * 스위치에 있는 * admin * 사용자의 암호가 필요합니다.</block>
+  <block id="29da462071497c41049a1b6586d7faad" category="paragraph">* 참고: * 이러한 명령에서 오류가 반환되면 NetApp 지원에 문의하십시오.</block>
+  <block id="265709bb11a2395ee04486f312f63d67" category="open-title">ONTAP는 9.5P16, 9.6P12 및 9.7P10 이상의 패치 릴리즈를 출시합니다</block>
+  <block id="97bf148f014d7e2cb04d1c101e0683ee" category="paragraph">'system cluster-switch log setup-password'와 'system cluster-switch log enable-collection' 명령을 사용하여 스위치 관련 로그 파일을 수집하는 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화합니다</block>
+  <block id="09c6def1f4b49f6f04b28d41fd5d1662" category="list-text">[[27단계] 자동 케이스 생성을 억제한 경우 AutoSupport 메시지 '시스템 노드 AutoSupport invoke -node * -type all-message MAINT=end'를 호출하여 다시 활성화합니다</block>
+  <block id="bc8a2cd252a5beb1dbf4f209baea67eb" category="sidebar">공유 스위치</block>
+  <block id="626a7cbe056796bcb1c158b143866230" category="sidebar">ONTAP 릴리즈 노트</block>
+  <block id="c09b5be4c2da04f4040eef1878f258aa" category="sidebar">ONTAP 9 설명서</block>
+  <block id="4ec6a95192d18718a540794417c8fa63" category="sidebar">NetApp Active IQ 디지털 자문업체</block>
 </blocks>
