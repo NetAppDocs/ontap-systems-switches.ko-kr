@@ -44,6 +44,10 @@ NOTE: 명령 출력은 ONTAP의 다른 릴리즈에 따라 달라질 수 있습�
 
 NOTE: 이 절차를 수행하려면 ONTAP 명령과 를 모두 사용해야 합니다 https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.htmlCisco["Nexus 9000 시리즈 스위치"^] 달리 지시되지 않는 한, Commands; ONTAP 명령어가 사용된다.
 
+* 초기 스위치 설정 *
+
+image::../media/Initial_setup.png[초기 스위치 설정]
+
 .단계
 . 이 클러스터에서 AutoSupport가 활성화되어 있으면 'system node AutoSupport invoke -node * -type all-message maINT=xh' AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다
 +
@@ -187,7 +191,7 @@ cs2(config-if-range)# *shutdown*
 +
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network interface show -vserver cluster*
+cluster1::*> *network interface show -vserver Cluster*
             Logical       Status     Network            Current    Current Is
 Vserver     Interface     Admin/Oper Address/Mask       Node       Port    Home
 ----------- ------------- ---------- ------------------ ---------- ------- ----
@@ -208,6 +212,12 @@ node1      true    true          false
 node2      true    true          false
 ----
 . 모든 클러스터 노드 연결을 이전 CS2 스위치에서 새 CS2-새 스위치로 이동합니다.
++
+* 클러스터 노드 연결이 CS2-새 스위치로 이동됨 *
+
++
+image::../media/new_switch_cs1.png[클러스터 노드 연결이 CS2-새 스위치로 이동했습니다]
+
 . CS2로 이동한 네트워크 연결 상태 확인 - NEW: 네트워크 포트 표시 - IPSpace 클러스터
 +
 [listing, subs="+quotes"]
@@ -274,7 +284,7 @@ cs1(config-if-range)# *shutdown*
 +
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network interface show -vserver cluster*
+cluster1::*> *network interface show -vserver Cluster*
             Logical      Status     Network            Current     Current Is
 Vserver     Interfac     Admin/Oper Address/Mask       Node        Port    Home
 ----------- ------------ ---------- ------------------ ----------- ------- ----
@@ -295,6 +305,12 @@ node1      true    true          false
 node2      true    true          false
 ----
 . CS1에서 새 CS1-새 스위치로 연결을 이동합니다.
++
+* 클러스터 노드 연결이 CS1-새 스위치 * 로 이동되었습니다
+
++
+image::../media/new_switch_cs2.png[클러스터 노드 연결이 CS1-새 스위치로 이동했습니다]
+
 . CS1로 이동한 네트워크 연결의 상태를 확인합니다. 새 네트워크 포트 표시 - IPSpace 클러스터
 +
 [listing, subs="+quotes"]
