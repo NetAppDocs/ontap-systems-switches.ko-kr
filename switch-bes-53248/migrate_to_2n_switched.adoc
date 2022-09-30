@@ -20,6 +20,4 @@ summary: 스위치가 없는 2노드 클러스터가 있는 경우 중단 없이
 
 NOTE: 마이그레이션이 완료된 후 BES-53248 클러스터 스위치용 CSHM(Cluster Switch Health Monitor)을 지원하기 위해 필요한 구성 파일을 설치해야 할 수 있습니다.
 
-을 참조하십시오 http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-sw-ix8-setup/GUID-211616A4-C962-464A-A70E-5E057D7B13E1.html["CSHM(Cluster Switch Health Monitor) 구성 파일 설치"^] Broadcom에서 지원하는 BES-53248 스위치_가이드의 _스위치 설정 및 구성 안내서 를 참조하십시오.
-
-또한 를 참조하십시오 link:configure-health-monitor.html["CSHM(Cluster Switch Health Monitor) 구성 파일을 설치합니다"] 및 link:configure-log-collection["클러스터 스위치 로그 수집 기능을 구성합니다"] 스위치 관련 로그 파일을 수집하는 데 사용되는 클러스터 상태 스위치 로그 수집을 활성화하는 데 필요한 단계를 확인합니다.
+을 참조하십시오 link:configure-health-monitor.html["CSHM(Cluster Switch Health Monitor) 구성 파일을 설치합니다"] 및 link:configure-log-collection.html["클러스터 스위치 로그 수집 기능을 구성합니다"] 스위치 관련 로그 파일을 수집하는 데 사용되는 클러스터 상태 스위치 로그 수집을 활성화하는 데 필요한 단계를 확인합니다.

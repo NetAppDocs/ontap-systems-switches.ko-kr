@@ -1208,7 +1208,6 @@
   <block id="3bb5f52e05a05dc888185ec616dd0442" category="paragraph">대부분의 시스템에는 각 컨트롤러에 전용 클러스터 네트워크 포트 2개가 필요합니다.</block>
   <block id="a5252be9d5dcb8f6fae5748b71db062c" category="admonition">마이그레이션이 완료된 후 BES-53248 클러스터 스위치용 CSHM(Cluster Switch Health Monitor)을 지원하기 위해 필요한 구성 파일을 설치해야 할 수 있습니다.</block>
   <block id="621f61cd944c5da82de611c42809c998" category="inline-link">CSHM(Cluster Switch Health Monitor) 구성 파일 설치</block>
-  <block id="da89029df4f4f3d5cb89934f58459d5d" category="paragraph">을 참조하십시오<block ref="452267e26d0f038af434d2b1530dbe66" category="inline-link-rx"></block> Broadcom에서 지원하는 BES-53248 스위치_가이드의 _스위치 설정 및 구성 안내서 를 참조하십시오.</block>
   <block id="2ed4e569f533abae362765ee94f3eae8" category="summary">새로 라이센스가 부여된 포트를 활성화하려면 최신 버전의 RCF를 편집하고 해당 포트 세부 정보의 주석을 해제해야 합니다. 기본 라이센스는 포트 0/1 - 0/16 및 0/55 - 0/56 을 활성화하며, 새로 라이센스가 부여된 포트는 사용 가능한 라이센스의 유형과 수에 따라 포트 0/17 - 0/54 사이에 있게 됩니다.</block>
   <block id="64ba4fb1ef6b43be93e3b7886f07d780" category="inline-link-macro">BES-53248 클러스터 스위치용 라이센스 설치</block>
   <block id="a0cf70ca38e1fd0262591cf56e31f46f" category="paragraph">BES-53248 클러스터 스위치에서 사용할 수 있는 라이센스 유형에 대한 자세한 내용은 을 참조하십시오 <block ref="fa313c84214758de3e89db1ed227f8b1" category="inline-link-macro-rx"></block>.</block>
@@ -3217,7 +3216,6 @@
   <block id="c538bd274909af8b508e01f0ef04034d" category="doc">CN1610 클러스터 스위치를 BES-53248 클러스터 스위치로 마이그레이션하는 방법</block>
   <block id="aca231809cb1cd80c1435dd9914b66dd" category="paragraph">그런 다음 모든 노드의 분리된 포트를 새 BES-53248 스위치 CS2에 다시 연결해야 합니다. 을 참조하십시오<block ref="141c10db18cf1753fa5fc05f553c33ff" category="inline-link-rx"></block> 승인된 케이블링 옵션에 관한 것입니다.</block>
   <block id="cbd2e2da439fbaf2fd95743ddedbb09e" category="paragraph">그런 다음 모든 노드의 분리된 포트를 새 BES-53248 스위치 CS1에 다시 연결해야 합니다. 을 참조하십시오<block ref="141c10db18cf1753fa5fc05f553c33ff" category="inline-link-rx"></block> 승인된 케이블링 옵션에 관한 것입니다.</block>
-  <block id="2fdf2d2e9946eb8adc48fbf536fd79b1" category="paragraph">을 참조하십시오 <block ref="22274518ab78de16bd162dd23a69479d" category="inline-link-macro-rx"></block> 및 <block ref="ad7a44206ec014fec7df9283bb056461" category="inline-link-macro-rx"></block> 스위치 관련 로그 파일을 수집하는 데 사용되는 클러스터 상태 스위치 로그 수집을 활성화하는 데 필요한 단계를 확인합니다.</block>
   <block id="1ba5b0ffd5b0d90e8b5fbf1938e87f52" category="section-title">BES-53248 클러스터 스위치 포트 할당</block>
   <block id="16c3e502f28be460a987ad28ccd36874" category="paragraph">Broadcom 지원 BES-53248 클러스터 스위치 포트 할당 표를 클러스터 구성 지침으로 사용할 수 있습니다.</block>
   <block id="fa4755458f8910a0033438b214e14730" category="paragraph">01-16번</block>
@@ -3238,7 +3236,6 @@
   <block id="762a244fe152a19f04047b412d16e8df" category="paragraph">ONTAP를 실행하는 시스템에 BES-53248 클러스터 스위치를 설치하는 것은 스위치가 관리 인터페이스를 통해 통신할 수 있도록 IP 주소 및 구성을 설정하는 것에서 시작됩니다. 그런 다음 필요에 따라 이더넷 패브릭 OS(EFOS) 소프트웨어, 참조 구성 파일(RCF) 및 기타 라이센스를 설치할 수 있습니다. 이 절차는 컨트롤러를 추가하기 전에 BES-53248 스위치를 준비하는 데 사용됩니다. 또한 BES-53248 클러스터 스위치용 CSHM(Cluster Switch Health Monitor)을 지원하기 위해 필요한 구성 파일을 설치해야 할 수도 있습니다. 을 참조하십시오 <block ref="22274518ab78de16bd162dd23a69479d" category="inline-link-macro-rx"></block> 를 참조하십시오.</block>
   <block id="23e7cf6793dbbe3c59640d6ebb6cf4fc" category="list-text">를 클릭합니다<block ref="141c10db18cf1753fa5fc05f553c33ff" category="inline-link-rx"></block> ONTAP 호환성, 지원되는 EFOS 펌웨어 및 BES-53248 클러스터 스위치 케이블 연결에 대한 정보를 제공합니다.</block>
   <block id="d1e4ca1900305cb93087d6668cebf0f9" category="paragraph">에 설명된 대로 BES-53248 클러스터 스위치가 설정되어 있는지 확인합니다 <block ref="29f190705d64b052fe2941415d5984d8" category="inline-link-macro-rx"></block> 마이그레이션 프로세스를 시작하기 전에</block>
-  <block id="d7d3a566381272c7d9d5ad6a790a9a99" category="paragraph">또한 를 참조하십시오 <block ref="22274518ab78de16bd162dd23a69479d" category="inline-link-macro-rx"></block> 및 <block ref="ad7a44206ec014fec7df9283bb056461" category="inline-link-macro-rx"></block> 스위치 관련 로그 파일을 수집하는 데 사용되는 클러스터 상태 스위치 로그 수집을 활성화하는 데 필요한 단계를 확인합니다.</block>
   <block id="98b6bf2585261f62aff01449faad7684" category="paragraph">사용할 디버그 명령은 'debug transfer'와 'debug license'입니다</block>
   <block id="c0be2d74ddb0ea6b8972b9da2fc2c223" category="paragraph">를 클릭합니다<block ref="141c10db18cf1753fa5fc05f553c33ff" category="inline-link-rx"></block> ONTAP 호환성, 지원되는 EFOS 펌웨어 및 BES-53248 스위치 케이블 연결에 대한 정보를 제공합니다.</block>
   <block id="91950abebf25a4752db5969582aa4bb7" category="paragraph">를 클릭합니다<block ref="141c10db18cf1753fa5fc05f553c33ff" category="inline-link-rx"></block> 에는 해당 플랫폼의 실제 클러스터 포트에 대한 최신 정보가 나와 있습니다.</block>
@@ -3420,4 +3417,5 @@
   <block id="1f5e0ea57e0f194957353e2db3df4e2d" category="image-alt">클러스터 노드 연결이 CS2-새 스위치로 이동했습니다</block>
   <block id="3fb38d5aab534a043c30d7f1a3b0a9dd" category="paragraph">* 클러스터 노드 연결이 CS1-새 스위치 * 로 이동되었습니다</block>
   <block id="84532259a7d4acf54c61408e0d42d0ce" category="image-alt">클러스터 노드 연결이 CS1-새 스위치로 이동했습니다</block>
+  <block id="51c9a924c6ea752a49b8df35531a26e7" category="paragraph">을 참조하십시오 <block ref="22274518ab78de16bd162dd23a69479d" category="inline-link-macro-rx"></block> 및 <block ref="a2f030b123da393c4875ac0d059237dd" category="inline-link-macro-rx"></block> 스위치 관련 로그 파일을 수집하는 데 사용되는 클러스터 상태 스위치 로그 수집을 활성화하는 데 필요한 단계를 확인합니다.</block>
 </blocks>

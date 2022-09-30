@@ -507,7 +507,7 @@ cluster1::*> system node autosupport invoke -node \* -type all -message MAINT=EN
 ----
 
 
-을 참조하십시오 link:configure-health-monitor.html["CSHM(Cluster Switch Health Monitor) 구성 파일을 설치합니다"] 및 link:configure-log-collection["클러스터 스위치 로그 수집 기능을 구성합니다"] 스위치 관련 로그 파일을 수집하는 데 사용되는 클러스터 상태 스위치 로그 수집을 활성화하는 데 필요한 단계를 확인합니다.
+을 참조하십시오 link:configure-health-monitor.html["CSHM(Cluster Switch Health Monitor) 구성 파일을 설치합니다"] 및 link:configure-log-collection.html["클러스터 스위치 로그 수집 기능을 구성합니다"] 스위치 관련 로그 파일을 수집하는 데 사용되는 클러스터 상태 스위치 로그 수집을 활성화하는 데 필요한 단계를 확인합니다.
 
 * 관련 정보 *
 
