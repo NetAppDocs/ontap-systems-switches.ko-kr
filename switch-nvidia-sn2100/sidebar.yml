@@ -16,6 +16,8 @@ entries:
     url: "/switch-nvidia-sn2100/install_cumulus_linux_onie_mode.html"
   - title: RCF 스크립트를 설치합니다
     url: "/switch-nvidia-sn2100/install_sn2100_rcf.html"
+  - title: 스위치 로그 수집을 위해 SNMPv3을 구성합니다
+    url: "/switch-nvidia-sn2100/install_snmpv3_support_for_log_collection.html"
   - title: NS224 쉘프를 스위치 연결 스토리지로 케이블로 연결합니다
     url: "/switch-nvidia-sn2100/install_cable_shelves_SAT_sn2100.html"
 - title: Cisco 클러스터 스위치에서 NVIDIA SN2100 클러스터 스위치로 마이그레이션합니다

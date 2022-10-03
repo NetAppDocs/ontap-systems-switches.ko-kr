@@ -1,0 +1,204 @@
+---
+permalink: switch-nvidia-sn2100/install_cumulus_linux_cumulus_mode.html 
+sidebar: sidebar 
+keywords: install cumulus mode, sn2100 SN2100 switches setup, cumulus linux, cumulus mode 
+summary: 'Cumulus Linux(CL) OS는 스위치에서 Cumulus Linux 또는 ONIE를 실행할 때 설치할 수 있습니다.' 
+---
+= Cumulus 모드에서 Cumulus Linux를 설치합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cumulus Linux(CL) OS는 스위치에서 Cumulus Linux 또는 ONIE를 실행할 때 설치할 수 있습니다.
+
+다음과 같은 가정이 이루어집니다.
+
+* 중급 수준의 Linux 지식을 보유하고 있습니다.
+* 기본적인 텍스트 편집, UNIX 파일 권한 및 프로세스 모니터링에 익숙합니다. vi와 nano 등 다양한 텍스트 편집기가 미리 설치되어 있습니다.
+* Linux 또는 UNIX 셸에 대한 액세스 권한이 있어야 합니다. Windows를 실행 중인 경우, Linux 환경을 Cumulus Linux와 상호 작용하기 위한 명령줄 도구로 사용합니다.
+
+
+
+NOTE: Cumulus Linux를 설치할 때마다 전체 파일 시스템 구조가 지워지고 다시 구축됩니다.
+
+
+CAUTION: 누적 사용자 계정의 기본 암호는 * cumulus * 입니다. Cumulus Linux에 처음으로 로그인할 때 이 기본 암호를 변경해야 합니다. 새 이미지를 설치하기 전에 자동화 스크립트를 업데이트해야 합니다. Cumulus Linux는 설치 프로세스 중 기본 암호를 자동으로 변경하는 명령줄 옵션을 제공합니다.
+
+NVIDIA SN2100 스위치 콘솔 액세스를 위해 직렬 콘솔 스위치에서 보드율 요구 사항은 다음과 같이 115200으로 설정되어야 합니다.
+
+* 115200 보드
+* 8 데이터 비트
+* 1 정지 비트
+* 패리티: 없음
+* 흐름 제어: 없음
+
+
+.단계
+. 스위치에 로그인합니다. 스위치에 처음 로그인할 때는 'SUDO' 권한이 있는 * cumulus * / * cumulus * 의 사용자 이름/암호가 필요합니다.
++
+[listing, subs="+quotes"]
+----
+cumulus login: *cumulus*
+Password: *cumulus*
+You are required to change your password immediately (administrator enforced)
+Changing password for cumulus.
+Current password: *cumulus*
+New password: *netapp1!*
+Retype new password: *netapp1!*
+----
+. Cumulus Linux 버전 확인:
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *net show system*
+Hostname......... cumulus
+Build............ *Cumulus Linux 4.4.2*
+Uptime........... 0:08:20.860000
+Model............ Mlnx X86
+CPU.............. x86_64 Intel Atom C2558 2.40GHz
+Memory........... 8GB
+Disk............. 14.7GB
+ASIC............. Mellanox Spectrum MT52132
+Ports............ 16 x 100G-QSFP28
+Part Number...... MSN2100-CB2FC
+Serial Number.... MT2105T05177
+Platform Name.... x86_64-mlnx_x86-r0
+Product Name..... MSN2100
+ONIE Version..... 2019.11-5.2.0020-115200
+Base MAC Address. 04:3F:72:43:92:80
+Manufacturer..... Mellanox
+----
+. 호스트 이름, IP 주소, 서브넷 마스크 및 기본 게이트웨이를 구성합니다. 새 호스트 이름은 콘솔/SSH 세션을 다시 시작한 후에만 유효합니다.
++
+
+NOTE: Cumulus Linux 스위치는 eth0이라는 전용 이더넷 관리 포트를 하나 이상 제공합니다. 이 인터페이스는 특히 대역외 관리를 위해 사용됩니다. 기본적으로 관리 인터페이스는 주소 지정을 위해 DHCPv4를 사용합니다.
+
++
+
+CAUTION: 호스트 이름에 밑줄(_), 아포스트로피(') 또는 비 ASCII 문자를 사용하지 마십시오.
+
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *net add hostname sw1*
+cumulus@cumulus:mgmt:~$ *net add interface eth0 ip address 10.233.204.71*
+cumulus@cumulus:mgmt:~$ *net add interface eth0 ip gateway 10.233.204.1*
+cumulus@cumulus:mgmt:~$ *net pending*
+cumulus@cumulus:mgmt:~$ *net commit*
+----
++
+이 명령어는 '/etc/hostname'과 '/etc/hosts' 파일을 모두 수정합니다.
+
+. 호스트 이름, IP 주소, 서브넷 마스크 및 기본 게이트웨이가 업데이트되었는지 확인합니다.
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:mgmt:~$ *hostname sw1*
+cumulus@sw1:mgmt:~$ *ifconfig eth0*
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+inet 10.233.204.71  netmask 255.255.254.0  broadcast 10.233.205.255
+inet6 fe80::bace:f6ff:fe19:1df6  prefixlen 64  scopeid 0x20<link>
+ether b8:ce:f6:19:1d:f6  txqueuelen 1000  (Ethernet)
+RX packets 75364  bytes 23013528 (21.9 MiB)
+RX errors 0  dropped 7  overruns 0  frame 0
+TX packets 4053  bytes 827280 (807.8 KiB)
+TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0 device memory 0xdfc00000-dfc1ffff
+
+cumulus@sw1::mgmt:~$ *ip route show vrf mgmt*
+default via 10.233.204.1 dev eth0
+unreachable default metric 4278198272
+10.233.204.0/23 dev eth0 proto kernel scope link src 10.233.204.71
+127.0.0.0/8 dev mgmt proto kernel scope link src 127.0.0.1
+----
+. NTP 대화식 모드를 사용하여 시간대를 구성합니다.
++
+.. 터미널에서 다음 명령을 실행합니다.
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *sudo dpkg-reconfigure tzdata*
+----
+.. 화면의 메뉴 옵션에 따라 지리적 영역과 영역을 선택합니다.
+.. 모든 서비스 및 데몬에 대한 시간대를 설정하려면 스위치를 재부팅합니다.
+.. 스위치의 날짜와 시간이 올바른지 확인하고 필요한 경우 업데이트합니다.
+
+
+. Cumulus Linux 4.4.2 설치:
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:mgmt:~$ *sudo onie-install -a -i http://_<web-server>/<path>_/cumulus-linux-4.4.2-mlx-amd64.bin*
+----
++
+설치 프로그램이 다운로드를 시작합니다. 메시지가 나타나면 * y * 를 입력합니다.
+
+. NVIDIA SN2100 스위치를 재부팅합니다.
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:mgmt:~$ *sudo reboot*
+----
+. 설치가 자동으로 시작되고 다음 GRUB 화면이 나타납니다. 선택 안 함 *:
++
+** Cumulus - Linux GNU/Linux
+** ONIE: OS를 설치합니다
+** Cumulus - 설치
+** Cumulus - Linux GNU/Linux
+
+
+. 1-4단계를 반복하여 로그인합니다.
+. Cumulus Linux 버전이 4.4.2인지 확인합니다.
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:mgmt:~$ *net show version*
+NCLU_VERSION=1.0-cl4.4.2u0
+DISTRIB_ID="Cumulus Linux"
+DISTRIB_RELEASE=*4.4.2*
+DISTRIB_DESCRIPTION=*"Cumulus Linux 4.4.2"*
+----
+. 새 사용자를 생성하고 이 사용자를 'SUDO' 그룹에 추가합니다. 이 사용자는 콘솔/SSH 세션을 다시 시작한 후에만 적용됩니다.
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:mgmt:~$ *sudo adduser --ingroup netedit admin*
+[sudo] password for cumulus:
+Adding user `admin’ ...
+Adding new user `admin’ (1001) with group `netedit' ...
+Creating home directory `/home/admin’ ...
+Copying files from `/etc/skel' ...
+New password:
+Retype new password:
+passwd: password updated successfully
+Changing the user information for admin
+Enter the new value, or press ENTER for the default
+Full Name []:
+Room Number []:
+Work Phone []:
+Home Phone []:
+Other []:
+Is the information correct? [Y/n] *y*
+
+cumulus@sw1:mgmt:~$ *sudo adduser admin sudo*
+[sudo] password for cumulus:
+Adding user `admin' to group `sudo' ...
+Adding user admin to group sudo
+Done.
+cumulus@sw1:mgmt:~$ exit
+logout
+Connection to 10.233.204.71 closed.
+
+[admin@cycrh6svl01 ~]$ ssh admin@10.233.204.71
+admin@10.233.204.71's password:
+Linux sw1 4.19.0-cl-1-amd64 #1 SMP Cumulus 4.19.206-1+cl4.4.1u1 (2021-09-09) x86_64
+Welcome to NVIDIA Cumulus (R) Linux (R)
+
+For support and online technical documentation, visit
+http://www.cumulusnetworks.com/support
+
+The registered trademark Linux (R) is used pursuant to a sublicense from LMI, the exclusive licensee of Linus Torvalds, owner of the mark on a world-wide basis.
+admin@sw1:mgmt:~$
+----
+

@@ -1,0 +1,69 @@
+---
+permalink: switch-nvidia-sn2100/install_cabling_config_considerations_sn2100.html 
+sidebar: sidebar 
+keywords: sn2100 SN2100 cabling setup, sn2100 switches configuration, cumulus linux os 
+summary: NVIDIA SN2100 스위치를 구성하기 전에 다음 정보를 검토하십시오. 
+---
+= 케이블 연결 및 구성 고려 사항
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NVIDIA SN2100 스위치를 구성하기 전에 다음 정보를 검토하십시오.
+
+. X1151A NIC, X1146A NIC 또는 온보드 100GbE 포트가 있는 SN2100 스위치에서는 광 연결만 지원됩니다. 예를 들면 다음과 같습니다.
++
+.. e0a 및 e0b 포트의 AFF A800
+.. e0g 및 e0h 포트의 AFF A320
+
+
+. QSA 어댑터를 사용하여 플랫폼의 온보드 인텔 클러스터 포트에 연결하면 모든 링크가 표시되지 않습니다.
++
+예 플랫폼은 FAS2750, AFF A300 및 FAS8200(모든 10G) 및 AFF A250(25G)입니다.
+
++
+이 문제를 해결하려면 다음을 수행하십시오.
+
++
+.. 인텔 10G의 경우 swp1s0-3 링크 속도를 10000으로 수동으로 설정하고 자동 협상을 꺼짐으로 설정하십시오
+.. Chelsio 25G의 경우 swp2s0-3 링크 속도를 25000으로 수동으로 설정하고 자동 협상을 꺼짐으로 설정하십시오
++
+
+NOTE: 10G/25G QSA를 사용하여 비 브레이크아웃 40/100G 포트를 사용합니다. 브레이크아웃용으로 구성된 포트에 QSA 어댑터를 삽입하지 마십시오.
+
+
+
+. 스위치 포트의 트랜시버에 따라 스위치 포트의 속도를 고정 속도로 설정해야 할 수 있습니다. 10G 및 25G 브레이크아웃 포트를 사용하는 경우 자동 협상이 꺼져 있고 스위치의 포트 속도를 하드 설정해야 합니다. 예를 들면 다음과 같습니다.
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ net add int swp1s3 link autoneg off && net com
+--- /etc/network/interfaces     2019-11-17 00:17:13.470687027 +0000
++++ /run/nclu/ifupdown2/interfaces.tmp  2019-11-24 00:09:19.435226258 +0000
+@@ -37,21 +37,21 @@
+     alias 10G Intra-Cluster Node
+     link-autoneg off
+     link-speed 10000  *<---- port speed set*
+     mstpctl-bpduguard yes
+     mstpctl-portadminedge yes
+     mtu 9216
+
+auto swp1s3
+iface swp1s3
+     alias 10G Intra-Cluster Node
+-    link-autoneg off
++    link-autoneg on
+     link-speed 10000 *<---- port speed set*
+     mstpctl-bpduguard yes
+     mstpctl-portadminedge yes
+     mtu 9216
+
+auto swp2s0
+iface swp2s0
+     alias 25G Intra-Cluster Node
+     link-autoneg off
+     link-speed 25000 *<---- port speed set*
+----
+
