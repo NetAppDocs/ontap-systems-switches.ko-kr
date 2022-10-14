@@ -4,7 +4,7 @@ title: NVIDIA SN2100 스위치
 entries:
 - title: 개요
   url: "/switch-nvidia-sn2100/sn2100-overview.html"
-- title: NVIDIA SN2100 스위치를 설정하고 구성합니다
+- title: NVIDIA SN2100 스위치 설정 및 구성
   entries:
   - title: 개요
     url: "/switch-nvidia-sn2100/install_setup_sn2100_switches_overview.html"
