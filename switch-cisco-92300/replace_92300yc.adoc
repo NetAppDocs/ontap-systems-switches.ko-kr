@@ -32,7 +32,7 @@ summary: '클러스터 네트워크에서 결함이 있는 Nexus 92300YC 스위�
 ** 원하는 RCF(Reference Configuration File) 및 NX-OS 운영 체제 이미지 스위치를 스위치에 로드해야 합니다.
 ** 스위치의 초기 사용자 지정은 에 자세히 설명된 대로 완료해야 합니다.
 +
-link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/configure-overview.html["새 Cisco Nexus 92300YC 스위치 구성"^]
+link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/configure-overview.html["새 Cisco Nexus 92300YC 스위치를 구성합니다"^]
 
 +
 STP, SNMP, SSH 등의 이전 사이트 사용자 지정은 새 스위치에 복사해야 합니다.

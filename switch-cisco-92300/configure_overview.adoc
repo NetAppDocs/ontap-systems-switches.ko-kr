@@ -24,7 +24,7 @@ ONTAP 9.6 이상을 실행하는 시스템에 Nexus 92300YC 스위치를 설치�
 * 'cluster1:: *>' 프롬프트는 클러스터의 이름을 나타냅니다.
 * 각 노드의 클러스터 포트 이름은 e0a, e0b 입니다.
 +
-를 참조하십시오 link:https://hwu.netapp.com/Home/Index["_Hardware Universe^_"] 플랫폼에 지원되는 실제 클러스터 포트의 경우
+를 참조하십시오 link:https://hwu.netapp.com/Home/Index["_Hardware Universe _"^] 플랫폼에 지원되는 실제 클러스터 포트의 경우
 
 * Nexus 92300YC 스위치에 지원되는 ISL(Inter-Switch Link)은 포트 1/65 및 1/66입니다.
 * Nexus 92300YC 스위치에서 지원되는 노드 연결은 포트 1/1 ~ 1/66입니다.

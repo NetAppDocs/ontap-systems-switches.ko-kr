@@ -18,7 +18,7 @@ Cisco NX-OS 소프트웨어 및 참조 구성 파일(RCFs)은 Cisco Nexus 92300Y
 * 클러스터가 완전하게 작동해야 합니다(로그에 오류가 없거나 이와 유사한 문제가 없어야 함).
 * NX-OS만 설치하고 현재 RCF 버전을 유지하는 경우 원하는 부팅 이미지를 반영하도록 RCF에서 원하는 부팅 구성을 확인하거나 설정해야 합니다.
 * 현재 부팅 이미지를 반영하도록 부팅 구성을 변경해야 하는 경우, 나중에 재부팅할 때 올바른 버전이 인스턴스화되도록 RCF를 다시 적용하기 전에 이 구성을 변경해야 합니다.
-* 의 스위치 호환성 표를 참조하십시오 https://support.netapp.com/NOW/download/software/cm_switches/["Cisco 이더넷 스위치"^] 지원되는 ONTAP, NX-OS 및 RCF 버전에 대한 페이지입니다.
+* 의 스위치 호환성 표를 참조하십시오 https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치"^] 지원되는 ONTAP, NX-OS 및 RCF 버전에 대한 페이지입니다.
 * RCF의 명령 구문과 NX-OS 버전에 있는 명령 구문 간에 명령 의존성이 있을 수 있습니다.
 * 의 Cisco 스위치 업그레이드 및 다운그레이드 절차에 대한 전체 문서를 보려면 Cisco 웹 사이트에서 제공되는 적절한 소프트웨어 및 업그레이드 가이드를 참조해야 합니다 https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#InstallandUpgrade["Cisco Nexus 9000 시리즈 스위치"^] 페이지.
 * 현재 RCF가 있어야 합니다.
@@ -52,7 +52,7 @@ NOTE: 이 절차를 수행하려면 ONTAP 명령과 Cisco Nexus 9000 시리즈 �
 
 . 이 클러스터에서 AutoSupport가 활성화되어 있는 경우 AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다.
 +
-'System node AutoSupport invoke-node * -type all-message maINT=x h'
+'System node AutoSupport invoke-node * -type all-message maINT=xh'
 
 +
 여기서 _x_는 유지보수 기간(시간)입니다.
@@ -67,7 +67,7 @@ NOTE: AutoSupport 메시지는 유지보수 기간 동안 자동 케이스 생�
 +
 [listing]
 ----
-cluster1:> system node autosupport invoke -node * -type all -message MAINT=2h
+cluster1:> **system node autosupport invoke -node * -type all -message MAINT=2h**
 ----
 . 각 클러스터 인터커넥트 스위치에 대해 구성된 클러스터 상호 연결 인터페이스의 수를 'network device-discovery show-protocol CDP'로 표시합니다
 +
@@ -89,7 +89,7 @@ node1      /cdp
 ----
 . 각 클러스터 인터페이스의 관리 또는 운영 상태를 확인합니다.
 +
-.. 네트워크 포트 속성 ''network port show – IPSpace Cluster'를 표시합니다
+.. 네트워크 포트 속성을 표시합니다.  `network port show –ipspace Cluster`
 +
 [listing, subs="+quotes"]
 ----
@@ -182,49 +182,4 @@ Cluster
 
 4 entries were displayed.
 ----
-. ONTAP 9.4 이상의 경우 명령을 사용하여 스위치 관련 로그 파일을 수집하기 위해 클러스터 스위치 상태 모니터 로그 수집 기능을 사용하도록 설정합니다.
-+
-System cluster-switch log setup-password와 system cluster-switch log enable-collection
-
-+
-[listing, subs="+quotes"]
-----
-cluster1::*> *system cluster-switch log setup-password*
-Enter the switch name: <return>
-The switch name entered is not recognized.
-Choose from the following list:
-cs1
-cs2
-
-cluster1::*> *system cluster-switch log setup-password*
-
-Enter the switch name: *cs1*
-RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
-Do you want to continue? {y|n}::[n] *y*
-
-Enter the password: <enter switch password>
-Enter the password again: <enter switch password>
-
-cluster1::*> *system cluster-switch log setup-password*
-
-Enter the switch name: *cs2*
-RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
-Do you want to continue? {y|n}:: [n] *y*
-
-Enter the password: <enter switch password>
-Enter the password again: <enter switch password>
-
-cluster1::*> *system cluster-switch log enable-collection*
-
-Do you want to enable cluster log collection for all nodes in the cluster?
-{y|n}: [n] *y*
-
-Enabling cluster switch log collection.
-
-cluster1::*>
-----
-+
-
-NOTE: 이러한 명령에서 오류가 반환되면 NetApp 지원에 문의하십시오.
-
 

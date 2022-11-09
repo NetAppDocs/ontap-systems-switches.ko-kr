@@ -37,10 +37,10 @@ summary: 일부 구형 Cisco Nexus 클러스터 스위치를 Cisco Nexus 92300YC
 ** 포트 e1/13-20 (10GbE): Nexus 5010
 
 
-* 를 클릭합니다 https://hwu.netapp.com/SWITCH/INDEX["_Hardware Universe - 스위치 _"^] 모든 클러스터 스위치에 대해 지원되는 케이블 연결에 대한 정보를 제공합니다.
+* 를 클릭합니다 https://hwu.netapp.com/SWITCH/INDEX["_Hardware Universe _"^] 모든 클러스터 스위치에 대해 지원되는 케이블 연결에 대한 정보를 제공합니다.
 * Nexus 92300YC 스위치의 일부 포트가 10GbE 또는 40GbE에서 실행되도록 구성했습니다.
 * 노드에서 Nexus 92300YC 클러스터 스위치로 10GbE 및 40GbE 연결을 계획, 마이그레이션 및 문서화했습니다.
-* 이 절차에서 지원되는 ONTAP 및 NX-OS 버전은 에 나와 있습니다 https://support.netapp.com/NOW/download/software/cm_switches/["Cisco 이더넷 스위치"^] 페이지.
+* 이 절차에서 지원되는 ONTAP 및 NX-OS 버전은 에 나와 있습니다 https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치"^] 페이지.
 +
 
 NOTE: 마이그레이션이 완료된 후 92300YC 클러스터 스위치용 CSHM(Cluster Switch Health Monitor)을 지원하기 위해 필요한 구성 파일을 설치해야 할 수 있습니다. 의 92300YC 스위치에 대한 _CSMM(Cluster Switch Health Monitor) 구성 파일 설치_를 참조하십시오 link:../com.netapp.doc.hw-sw-cisco-setup/home.html["설정 중입니다"] 가이드.

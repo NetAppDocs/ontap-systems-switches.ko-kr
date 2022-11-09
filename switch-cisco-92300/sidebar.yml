@@ -38,16 +38,16 @@ entries:
     url: "/switch-cisco-92300/configure-install-initial.html"
   - title: NX-OS 소프트웨어를 설치합니다
     url: "/switch-cisco-92300/configure-install-nxos.html"
-  - title: RCF(Reference Configuration File) 설치
-    url: "/switch-cisco-92300/configure-install-rcf.html"
+  - title: 참조 구성 파일을 설치합니다
+    url: "/switch-cisco-92300/install-the-rcf-file.html"
 - title: Cisco Nexus 92300YC 클러스터 스위치에 NX-OS 소프트웨어 및 RCF를 설치합니다
   entries:
   - title: 개요
     url: "/switch-cisco-92300/install-nxos-overview.html"
   - title: NX-OS 소프트웨어를 설치합니다
     url: "/switch-cisco-92300/install-nxos-software.html"
-  - title: RCF(Reference Configuration File) 설치
-    url: "/switch-cisco-92300/install-nxos-rcf.html"
+  - title: 참조 구성 파일을 설치합니다
+    url: "/switch-cisco-92300/install-the-rcf-file.html"
 - title: Cisco Nexus 92300YC 스위치를 사용하여 2노드 스위치 클러스터로 마이그레이션합니다
   entries:
   - title: 개요
@@ -60,5 +60,5 @@ entries:
     url: "/switch-cisco-92300/migrate-to-92300yc-overview.html"
   - title: Cisco 스위치에서 Cisco Nexus 92300YC 스위치로 마이그레이션하는 방법
     url: "/switch-cisco-92300/migrate-to-92300yc.html"
-  - title: Cisco Nexus 92300YC 스위치를 교체합니다
-    url: "/switch-cisco-92300/replace-92300yc.html"
+- title: Cisco Nexus 92300YC 스위치를 교체합니다
+  url: "/switch-cisco-92300/replace-92300yc.html"
