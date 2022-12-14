@@ -13,6 +13,7 @@ summary: 이 릴리스는 로그 모니터링을 위한 SNMPv3을 지원합니�
 [role="lead"]
 이 릴리스는 스위치 상태 모니터링(SHM)에 대한 스위치 로그 수집을 위한 SNMPv3을 지원합니다.
 
+.이 작업에 대해
 다음 명령은 NVIDIA SN2100 스위치에서 SNMPv3 사용자 이름을 구성합니다.
 
 * 인증 없음 *:'net add snmp-server username_snmpv3_user_auth-none'입니다

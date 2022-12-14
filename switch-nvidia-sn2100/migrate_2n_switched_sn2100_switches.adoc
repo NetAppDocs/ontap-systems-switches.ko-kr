@@ -41,6 +41,7 @@ IMPORTANT: 을 참조하십시오 link:install_cabling_config_considerations_sn2
 
 
 
+.이 작업에 대해
 이 절차의 예에서는 다음과 같은 클러스터 스위치 및 노드 명명법을 사용합니다.
 
 * SN2100 스위치의 이름은 _SW1_와 _SW2_입니다.

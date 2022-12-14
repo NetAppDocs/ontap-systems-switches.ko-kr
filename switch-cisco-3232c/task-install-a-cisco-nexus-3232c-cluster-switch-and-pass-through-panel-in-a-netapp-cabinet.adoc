@@ -13,6 +13,7 @@ summary: Cisco Nexus 3232C 스위치 및 통과 패널을 NetApp 캐비닛에 �
 [role="lead"]
 Cisco Nexus 3232C 스위치 및 통과 패널을 NetApp 캐비닛에 설치하고 스위치에 포함된 표준 브래킷을 사용할 수 있습니다.
 
+.시작하기 전에
 의 초기 준비 요구 사항, 키트 내용물 및 안전 예방 조치를 검토해야 합니다 link:http://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus3000/hw/installation/guide/b_n3000_hardware_install_guide.html["Cisco Nexus 3000 시리즈 하드웨어 설치 가이드 를 참조하십시오"^].
 
 .이 작업에 대해

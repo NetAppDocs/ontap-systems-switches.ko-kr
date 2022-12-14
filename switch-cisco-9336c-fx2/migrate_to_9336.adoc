@@ -13,6 +13,7 @@ summary: ONTAP 클러스터에 대한 운영 중단 없이 이전 Cisco 클러�
 [role="lead"]
 ONTAP 클러스터에 대한 운영 중단 없이 이전 Cisco 클러스터 스위치를 Cisco Nexus 9336C-FX2 클러스터 네트워크 스위치로 마이그레이션할 수 있습니다.
 
+.시작하기 전에
 이전 Cisco Nexus 클러스터 스위치를 Cisco Nexus 9336C-FX2 클러스터 스위치로 교체하기 전에 다음 조건이 충족되어야 합니다.
 
 * 클러스터가 완전하게 작동해야 합니다(로그에 오류가 없거나 이와 유사한 문제가 없어야 함).
@@ -27,6 +28,7 @@ ONTAP 클러스터에 대한 운영 중단 없이 이전 Cisco 클러스터 스�
 * 의 Cisco 스위치 업그레이드 및 다운그레이드 절차에 대한 전체 문서를 보려면 Cisco 웹 사이트에서 제공되는 적절한 소프트웨어 및 업그레이드 가이드를 참조해야 합니다 https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.htmlCisco["Nexus 9000 시리즈 스위치"^].
 
 
+.이 작업에 대해
 이 절차의 예에서는 두 개의 노드를 사용합니다. 이러한 노드에는 10GbE 클러스터 인터커넥트 포트 2개 e0a 및 e0b가 사용됩니다. 를 참조하십시오 https://hwu.netapp.com/["Hardware Universe"^] 사용 중인 플랫폼에서 올바른 클러스터 포트를 확인하려면 다음을 수행합니다.
 
 

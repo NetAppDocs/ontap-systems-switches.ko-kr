@@ -13,6 +13,7 @@ summary: ONTAP 클러스터를 설정하려면 특정 스위치 및 컨트롤러
 [role="lead"]
 ONTAP 클러스터를 설정하려면 특정 스위치 및 컨트롤러 설명서가 필요합니다.
 
+.클러스터 네트워크 스위치에 대한 필수 문서
 Cisco Nexus 9336C-FX2 및 92300YC 스위치를 설정하려면 에서 다음 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Cisco Nexus 9000 시리즈 스위치 지원"^] 페이지:
 
 [cols="1,2"]
@@ -192,6 +193,7 @@ _ Cisco Nexus 6000 시리즈, Cisco Nexus 5000 시리즈, Cisco Nexus 3000 시�
 Nexus 5000 시리즈 스위치에 대한 국제 기관의 규정 준수, 안전 및 법적 정보를 제공합니다.
 
 |===
+.지원되는 ONTAP 시스템에 대한 필수 문서
 ONTAP 시스템을 설정하려면 에서 사용 중인 운영 체제 버전에 대한 다음 문서가 필요합니다 https://docs.netapp.com/ontap-9/index.jsp["ONTAP 9 문서 센터"^].
 
 [cols="1,2"]
@@ -219,6 +221,7 @@ https://hwu.netapp.com["Hardware Universe"^]
 NetApp 하드웨어 구성 및 호환성 정보를 제공합니다.
 
 |===
+.레일 키트 및 캐비닛 설명서
 NetApp 캐비닛에 Cisco 스위치를 설치하려면 다음 하드웨어 설명서를 참조하십시오.
 
 [cols="1,2"]

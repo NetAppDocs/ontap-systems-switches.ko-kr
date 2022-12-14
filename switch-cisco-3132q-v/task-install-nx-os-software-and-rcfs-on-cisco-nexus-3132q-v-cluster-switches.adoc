@@ -13,6 +13,7 @@ summary: 'Cisco NX-OS 소프트웨어 및 참조 구성 파일(RCFs)은 Cisco Ne
 [role="lead"]
 Cisco NX-OS 소프트웨어 및 참조 구성 파일(RCFs)은 Cisco Nexus 3132Q-V 클러스터 스위치에 설치해야 합니다.
 
+.시작하기 전에
 클러스터 스위치에 NX-OS 소프트웨어 및 RCF(Reference Configurations Files)를 설치하기 전에 다음 조건이 충족되어야 합니다.
 
 * 클러스터가 완전하게 작동해야 합니다(로그에 오류가 없거나 이와 유사한 문제가 없어야 함).
@@ -25,6 +26,7 @@ Cisco NX-OS 소프트웨어 및 참조 구성 파일(RCFs)은 Cisco Nexus 3132Q-
 * 현재 RCF가 있어야 합니다.
 
 
+.초기 설정
 이 절차의 예에서는 두 개의 노드를 사용합니다. 이러한 노드에는 10GbE 클러스터 인터커넥트 포트 e0a 및 e0b 2개가 사용됩니다.
 
 를 참조하십시오 link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] 사용 중인 플랫폼에서 올바른 클러스터 포트를 확인하려면 다음을 수행합니다.

@@ -13,6 +13,7 @@ summary: Cluster-Mode 구성을 설정하려면 특정 스위치 및 컨트롤�
 [role="lead"]
 Cluster-Mode 구성을 설정하려면 특정 스위치 및 컨트롤러 설명서가 필요합니다.
 
+.BES-53248 클러스터 스위치에 대한 필수 문서
 BES-53248 클러스터 스위치를 설정하려면 Broadcom 지원 사이트에서 제공되는 다음 문서가 필요합니다. https://www.broadcom.com/support/bes-switch["Broadcom Ethernet 스위치 제품 라인"^]
 
 [cols="1,2"]
@@ -68,6 +69,7 @@ _EFOS 릴리스 정보 v3.4.3_
 BES-53248 소프트웨어에 대한 릴리스 관련 정보를 제공합니다.
 
 |===
+.지원되는 ONTAP 시스템에 대한 필수 문서
 ONTAP 시스템을 설정하려면 NetApp Support 사이트 에서 다음 문서가 필요합니다 http://mysupport.netapp.com/["mysupport.netapp.com"^]
 
 [cols="1,2"]

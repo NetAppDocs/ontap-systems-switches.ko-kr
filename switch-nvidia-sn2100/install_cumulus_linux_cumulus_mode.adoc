@@ -13,6 +13,7 @@ summary: 'Cumulus Linux(CL) OS는 스위치에서 Cumulus Linux 또는 ONIE를 �
 [role="lead"]
 Cumulus Linux(CL) OS는 스위치에서 Cumulus Linux 또는 ONIE를 실행할 때 설치할 수 있습니다.
 
+.시작하기 전에
 다음과 같은 가정이 이루어집니다.
 
 * 중급 수준의 Linux 지식을 보유하고 있습니다.

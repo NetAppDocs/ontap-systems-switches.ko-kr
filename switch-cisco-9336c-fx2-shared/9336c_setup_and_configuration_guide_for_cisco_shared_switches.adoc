@@ -63,7 +63,7 @@ Cisco Nexus 9336C-FX2 스위치(X190200/X190210)는 스위치에 포함된 표�
 * 해당 NX-OS 및 RCF(Reference Configuration File) 릴리즈를 다운로드하려면 설치 사이트에서 HTTP, FTP 또는 TFTP 서버에 액세스할 수 있어야 합니다.
 * 필요한 공유 스위치 문서가 있어야 합니다.
 +
-을 참조하십시오  documentation for shared switches 를 참조하십시오.
+을 참조하십시오 <<공유 스위치에 대한 필수 문서입니다>> 를 참조하십시오.
 
 * 필요한 컨트롤러 설명서와 ONTAP 설명서가 있어야 합니다.
 +
@@ -76,6 +76,7 @@ Cisco Nexus 9336C-FX2 스위치(X190200/X190210)는 스위치에 포함된 표�
 
 NOTE: 이 가이드에서는 케이블 연결 그래픽 외에도 네트워크 설정에 사용할 수 있는 권장 포트 할당 및 빈 워크시트가 포함된 예제 워크시트를 제공합니다. 자세한 내용은 를 참조하십시오 https://hwu.netapp.com["Hardware Universe"].
 
+.이 작업에 대해
 모든 Cisco 공유 스위치는 표준 Cisco 공장 출하시 기본 구성으로 제공됩니다. 이러한 스위치에는 최신 버전의 NX-OS 소프트웨어도 있지만 RCFs가 로드되지 않았습니다.
 
 
@@ -87,11 +88,11 @@ IMPORTANT: 에서 해당 NetApp RCF를 다운로드해야 합니다 https://mysu
 
 . 스위치, 컨트롤러 및 NS224 NVMe 스토리지 쉘프를 랙 마운트하십시오. 를 참조하십시오https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-sw-9336c-install-cabinet/GUID-92287262-E7A6-4A62-B159-7F148097B33B.html["NetApp 캐비닛에 Cisco Nexus 9336C-FX2 클러스터 스위치 및 패스스루 패널 설치"] NetApp 캐비닛에 스위치를 설치하는 지침 가이드
 . 스위치, 컨트롤러 및 NS224 NVMe 스토리지 쉘프의 전원을 켭니다.
-. [[step3]] 에 제공된 정보를 기반으로 스위치의 초기 구성을 수행합니다  configuration information.
+. [[step3]] 에 제공된 정보를 기반으로 스위치의 초기 구성을 수행합니다 <<필수 구성 정보입니다>>.
 . 설정 끝에 나타나는 디스플레이에서 선택한 구성을 확인하고 구성을 저장했는지 확인합니다.
 . 스위치에서 소프트웨어 버전을 확인하고 필요한 경우 NetApp 지원 소프트웨어 버전을 스위치에 다운로드합니다.
 +
-NetApp 지원 소프트웨어 버전을 다운로드할 경우 NetApp 네트워크 스위치 참조 구성 파일 을 다운로드하여 에 저장된 구성과 병합해야 합니다 ,3단계. 에서 파일과 지침을 다운로드할 수 있습니다 https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치"] 페이지. 자체 스위치가 있는 경우 을 참조하십시오 http://www.cisco.com["Cisco의"] 사이트.
+NetApp 지원 소프트웨어 버전을 다운로드할 경우 NetApp 네트워크 스위치 참조 구성 파일 을 다운로드하여 에 저장된 구성과 병합해야 합니다 <<step3,3단계>>. 에서 파일과 지침을 다운로드할 수 있습니다 https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치"] 페이지. 자체 스위치가 있는 경우 을 참조하십시오 http://www.cisco.com["Cisco의"] 사이트.
 
 
 
