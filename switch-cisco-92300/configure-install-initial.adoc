@@ -1,0 +1,165 @@
+---
+permalink: switch-cisco-92300/configure-install-initial.html 
+sidebar: sidebar 
+keywords: install cisco 92300YC cluster switch, cisco nx 92300yc 
+summary: 이 절차를 사용하여 Cisco Nexus 92300YC 스위치의 초기 설치를 수행할 수 있습니다. 
+---
+= Cisco Nexus 92300YC 스위치를 구성합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+다음 절차에 따라 Cisco Nexus 92300YC 스위치를 설정하고 구성합니다.
+
+.단계
+. 직렬 포트를 호스트 또는 직렬 포트에 연결합니다.
+. 관리 포트(스위치의 포트 측 아님)를 SFTP 서버가 있는 동일한 네트워크에 연결합니다.
+. 콘솔에서 호스트 측 직렬 설정을 설정합니다.
++
+** 9600보드
+** 8 데이터 비트
+** 1 정지 비트
+** 패리티: 없음
+** 흐름 제어: 없음
+
+
+. 실행 중인 구성을 지운 후 처음 부팅하거나 재부팅하는 경우 부팅 주기에서 Nexus 92300YC 스위치 루프가 발생합니다. Auto Provisioning의 전원을 중단하려면 * yes * 를 입력하여 이 주기를 중단합니다.
++
+시스템 관리자 계정 설정이 표시됩니다.
+
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+$ VDC-1 %$ %POAP-2-POAP_INFO:   - Abort Power On Auto Provisioning [yes - continue with normal setup, skip - bypass password and basic configuration, no - continue with Power On Auto Provisioning] (yes/skip/no)[no]: *y*
+Disabling POAP.......Disabling POAP
+2019 Apr 10 00:36:17 switch %$ VDC-1 %$ poap: Rolling back, please wait... (This may take 5-15 minutes)
+
+          ---- System Admin Account Setup ----
+
+Do you want to enforce secure password standard (yes/no) [y]:
+----
+====
+. 보안 암호 표준을 적용하려면 * y * 를 입력합니다.
++
+[listing, subs="+quotes"]
+----
+Do you want to enforce secure password standard (yes/no) [y]: *y*
+----
+. admin 사용자의 암호를 입력하고 확인합니다.
++
+[listing]
+----
+Enter the password for "admin":
+Confirm the password for "admin":
+----
+. 기본 시스템 구성 대화 상자에 들어가려면 * yes * 를 입력합니다.
++
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+This setup utility will guide you through the basic configuration of
+the system. Setup configures only enough connectivity for management
+of the system.
+
+Please register Cisco Nexus9000 Family devices promptly with your
+supplier. Failure to register may affect response times for initial
+service calls. Nexus9000 devices must be registered to receive
+entitled support services.
+
+Press Enter at anytime to skip a dialog. Use ctrl-c at anytime
+to skip the remaining dialogs.
+
+Would you like to enter the basic configuration dialog (yes/no):
+----
+====
+. 다른 로그인 계정 만들기:
++
+[listing]
+----
+Create another login account (yes/no) [n]:
+----
+. 읽기 전용 및 읽기-쓰기 SNMP 커뮤니티 문자열 구성:
++
+[listing]
+----
+Configure read-only SNMP community string (yes/no) [n]:
+
+Configure read-write SNMP community string (yes/no) [n]:
+----
+. 클러스터 스위치 이름 구성:
++
+[listing, subs="+quotes"]
+----
+Enter the switch name : *cs2*
+----
+. 대역외 관리 인터페이스 구성:
++
+[listing, subs="+quotes"]
+----
+Continue with Out-of-band (mgmt0) management configuration? (yes/no) [y]: *y*
+
+Mgmt0 IPv4 address : 172.22.133.216
+
+Mgmt0 IPv4 netmask : 255.255.224.0
+
+Configure the default gateway? (yes/no) [y]: *y*
+
+IPv4 address of the default gateway : 172.22.128.1
+----
+. 고급 IP 옵션 구성:
++
+[listing, subs="+quotes"]
+----
+Configure advanced IP options? (yes/no) [n]: *n*
+----
+. 텔넷 서비스 구성:
++
+[listing, subs="+quotes"]
+----
+Enable the telnet service? (yes/no) [n]: *n*
+----
+. SSH 서비스 및 SSH 키 구성:
++
+[listing, subs="+quotes"]
+----
+Enable the ssh service? (yes/no) [y]: *y*
+
+       Type of ssh key you would like to generate (dsa/rsa) [rsa]: *rsa*
+
+       Number of rsa key bits <1024-2048> [1024]: *2048*
+----
+. 기타 설정 구성:
++
+[listing, subs="+quotes"]
+----
+Configure the ntp server? (yes/no) [n]: *n*
+
+  Configure default interface layer (L3/L2) [L2]: *L2*
+
+  Configure default switchport interface state (shut/noshut) [noshut]: *noshut*
+
+  Configure CoPP system profile (strict/moderate/lenient/dense) [strict]: *strict*
+----
+. 스위치 정보를 확인하고 구성을 저장합니다.
++
+[listing, subs="+quotes"]
+----
+Would you like to edit the configuration? (yes/no) [n]: *n*
+
+Use this configuration and save it? (yes/no) [y]: *y*
+
+[########################################] 100%
+Copy complete, now saving to disk (please wait)...
+Copy complete.
+----
+
+
+.다음 단계
+link:install-nxos-overview.html["NX-OS 소프트웨어 및 RCF 설치 준비"].

@@ -4,7 +4,7 @@ permalink: switch-cisco-9336c-fx2-shared/index.html
 keywords: shared storage cluster switch 
 summary: ONTAP 9.9.1에서 Cisco Nexus 9336C-FX2 스위치를 사용하여 스토리지 및 클러스터 기능을 공유 스위치 시나리오에 결합할 수 있습니다. 
 ---
-= Cisco 9336C-FX2 공유 스위치 개요
+= 개요 및 요구 사항
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,4 +14,96 @@ summary: ONTAP 9.9.1에서 Cisco Nexus 9336C-FX2 스위치를 사용하여 스�
 
 
 [role="lead"]
-ONTAP 9.9.1에서 Cisco Nexus 9336C-FX2 스위치를 사용하여 스토리지 및 클러스터 기능을 공유 스위치 시나리오에 결합할 수 있습니다.
+ONTAP 9.9.1에서 Cisco Nexus 9336C-FX2 스위치를 사용하여 스토리지 및 클러스터 기능을 공유 스위치 구성으로 결합할 수 있습니다.
+
+2개 이상의 노드로 ONTAP 클러스터를 구축하려면 두 개의 지원되는 네트워크 스위치가 필요합니다.
+
+
+
+== Nexus 9336C-FX2 개요
+
+Cisco Nexus 9336C-FX2 스위치(X190200/X190210)는 스위치에 포함된 표준 브래킷을 사용하여 NetApp 시스템 캐비닛 또는 타사 캐비닛에 설치할 수 있습니다.
+
+다음 표에는 9336C-FX2 스위치, 팬 및 전원 공급 장치에 대한 부품 번호 및 설명이 나와 있습니다.
+
+|===
+| 부품 번호 | 설명 
+
+
+| X190200-CS-PE | N9K-9336C-FX2, CS, PTSX, 36PT10/25/40/100GQSFP28 
+
+
+| X190200-CS-PI | N9K-9336C-FX2, CS, PSIN, 36PT10/25/40/100GQSFP28 
+
+
+| X190002 | 액세서리 키트 X190001/X190003 
+
+
+| X-NXA-PAC-1100W-PE2 | N9K-9336C AC 1100W PSU - 포트 쪽 배기구 통기구 
+
+
+| X-NXA-PAC-1100W-PI2 | N9K-9336C AC 1100W PSU - 포트 쪽 흡입 공기 흐름 
+
+
+| X-NXA-FAN-65CFM-PE | N9K-9336C 65CFM, 포트 쪽 배기구 통기구 
+
+
+| X-NXA-FAN-65CFM-PI | N9K-9336C 65CFM, 포트 쪽 흡입 공기 흐름 
+|===
+
+
+== 구성 요구 사항
+
+구성을 위해서는 해당 스위치에 맞는 케이블 및 케이블 커넥터 수와 유형이 필요합니다.
+
+처음 구성하는 스위치의 유형에 따라 포함된 콘솔 케이블을 사용하여 스위치 콘솔 포트에 연결해야 합니다. 또한 특정 네트워크 정보를 제공해야 합니다.
+
+
+
+== 네트워크 요구 사항
+
+모든 스위치 구성에 대해 다음 네트워크 정보가 필요합니다.
+
+* 관리 네트워크 트래픽을 위한 IP 서브넷입니다
+* 각 스토리지 시스템 컨트롤러 및 해당하는 모든 스위치의 호스트 이름 및 IP 주소
+* 대부분의 스토리지 시스템 컨트롤러는 이더넷 서비스 포트(렌치 아이콘)에 연결하여 e0M 인터페이스를 통해 관리됩니다. AFF A800 및 AFF A700s 시스템에서 e0M 인터페이스는 전용 이더넷 포트를 사용합니다.
+* 을 참조하십시오 https://hwu.netapp.com["Hardware Universe"] 를 참조하십시오.
+
+
+스위치의 초기 구성에 대한 자세한 내용은 다음 설명서를 참조하십시오. https://www.cisco.com/c/en/us/td/docs/dcn/hw/nx-os/nexus9000/9336c-fx2-e/cisco-nexus-9336c-fx2-e-nx-os-mode-switch-hardware-installation-guide.html["Cisco Nexus 9336C-FX2 설치 및 업그레이드 가이드 를 참조하십시오"].
+
+
+
+== 문서화 요구 사항
+
+ONTAP 네트워크를 설정하려면 특정 스위치 및 컨트롤러 설명서가 필요합니다.
+
+Cisco Nexus 9336C-FX2 공유 스위치를 설정하려면 을 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Cisco Nexus 9000 시리즈 스위치 지원"] 페이지.
+
+|===
+| 문서 제목 | 설명 
+
+
+| link:https://www.cisco.com/c/en/us/td/docs/dcn/hw/nx-os/nexus9000/9336c-fx2-e/cisco-nexus-9336c-fx2-e-nx-os-mode-switch-hardware-installation-guide.html["Nexus 9000 시리즈 하드웨어 설치 가이드 를 참조하십시오"] | 사이트 요구 사항, 스위치 하드웨어 세부 정보 및 설치 옵션에 대한 자세한 내용은 에 나와 있습니다. 
+
+
+| link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-installation-and-configuration-guides-list.html["Cisco Nexus 9000 시리즈 스위치 소프트웨어 구성 가이드"] (스위치에 설치된 NX-OS 릴리즈 가이드 선택) | ONTAP 작동을 위해 스위치를 구성하기 전에 필요한 초기 스위치 구성 정보를 제공합니다. 
+
+
+| link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#InstallandUpgrade["Cisco Nexus 9000 Series NX-OS 소프트웨어 업그레이드 및 다운그레이드 가이드"] (스위치에 설치된 NX-OS 릴리즈 가이드 선택) | 필요한 경우 스위치를 ONTAP 지원 스위치 소프트웨어로 다운그레이드하는 방법에 대한 정보를 제공합니다. 
+
+
+| link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Cisco Nexus 9000 Series NX-OS 명령 참조 마스터 인덱스"] | Cisco에서 제공하는 다양한 명령 참조에 대한 링크를 제공합니다. 
+
+
+| link:https://www.cisco.com/c/en/us/td/docs/switches/datacenter/sw/mib/quickreference/b_Cisco_Nexus_7000_Series_and_9000_Series_NX-OS_MIB_Quick_Reference.html["Cisco Nexus 9000 MIB 참조"] | 에서는 Nexus 9000 스위치에 대한 MIB(Management Information Base) 파일에 대해 설명합니다. 
+
+
+| link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-system-message-guides-list.html["Nexus 9000 Series NX-OS 시스템 메시지 참조"] | Cisco Nexus 9000 시리즈 스위치의 시스템 메시지, 정보를 제공하는 스위치 및 링크, 내부 하드웨어 또는 시스템 소프트웨어의 문제를 진단하는 데 도움이 되는 기타 메시지를 설명합니다. 
+
+
+| link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#ReleaseandCompatibility["Cisco Nexus 9000 시리즈 NX-OS 릴리즈 노트"] (스위치에 설치된 NX-OS 릴리스에 대한 참고 사항 선택) | Cisco Nexus 9000 시리즈의 기능, 버그 및 제한에 대해 설명합니다. 
+
+
+| link:https://www.cisco.com/c/en/us/td/docs/switches/datacenter/mds9000/hw/regulatory/compliance/RCSI.html["Cisco Nexus 9000 시리즈에 대한 규정 준수 및 안전 정보"] | Nexus 9000 시리즈 스위치에 대한 국제 기관의 규정 준수, 안전 및 법적 정보를 제공합니다. 
+|===

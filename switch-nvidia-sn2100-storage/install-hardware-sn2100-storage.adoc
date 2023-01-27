@@ -1,0 +1,22 @@
+---
+permalink: switch-nvidia-sn2100/install-hardware-sn2100-storage.html 
+sidebar: sidebar 
+keywords: switches hardware installation 
+summary: BES-53248 하드웨어를 설치하려면 NVIDIA 설명서를 참조하십시오. 
+---
+= NVIDIA SN2100 스위치용 하드웨어를 설치합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SN2100 하드웨어를 설치하려면 NVIDIA 설명서를 참조하십시오.
+
+.단계
+. 를 검토합니다 link:configure-reqs-sn2100-storage.html["구성 요구 사항"].
+. 의 지침을 따릅니다 https://docs.nvidia.com/networking/display/sn2000pub/Installation["NVIDIA 스위치 설치 안내서"^].
+
+
+.다음 단계
+link:configure-sn2100-storage.html["스위치를 구성합니다"].

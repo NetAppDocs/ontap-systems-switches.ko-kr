@@ -1,0 +1,36 @@
+---
+permalink: switch-cisco-92300/install-overview-cisco-92300.html 
+sidebar: sidebar 
+keywords: install, cisco nexus 92300 switch, 
+summary: Cisco Nexus 92300 스위치를 구성하기 전에 프로세스 및 명명법을 검토하십시오. 
+---
+= Cisco Nexus 92300 스위치의 설치 및 구성 개요
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cisco Nexus 92300 스위치를 구성하기 전에 절차 개요를 검토하십시오.
+
+ONTAP를 실행하는 시스템에서 처음에 Cisco Nexus 92300 스위치를 구성하려면 다음 단계를 수행하십시오.
+
+. link:setup-worksheet-92300yc.html["Cisco Nexus 92300YC 케이블 연결 워크시트를 작성합니다"]. 샘플 케이블 연결 워크시트는 스위치에서 컨트롤러까지 권장되는 포트 할당의 예를 제공합니다. 빈 워크시트에는 클러스터 설정에 사용할 수 있는 템플릿이 제공됩니다.
+. link:configure-install-initial.html["Cisco Nexus 92300YC 스위치를 구성합니다"]. Cisco Nexus 92300YC 스위치 설정 및 구성
+. link:install-nxos-overview.html["NX-OS 소프트웨어 및 RCF(Reference Configuration File) 설치 준비"]. NX-OS 소프트웨어 및 RCF(Reference Configuration File) 설치를 준비합니다.
+. link:install-nxos-software.html["NX-OS 소프트웨어를 설치합니다"]. Nexus 92300YC 스위치에 NX-OS 소프트웨어를 설치합니다. NX-OS는 Cisco Systems에서 제공하는 Nexus 시리즈 이더넷 스위치 및 MDS 시리즈 FC(Fibre Channel) 스토리지 영역 네트워크 스위치용 네트워크 운영 체제입니다.
+. link:install-the-rcf-file.html["RCF(Reference Configuration File) 설치"]. Nexus 92300YC 스위치를 처음 설정한 후 RCF를 설치합니다. 이 절차를 사용하여 RCF 버전을 업그레이드할 수도 있습니다.
+. link:setup-install-cshm-file.html["CSHM(Cluster Switch Health Monitor) 구성 파일을 설치합니다"]. Nexus 92300YC 클러스터 스위치의 클러스터 스위치 상태 모니터링에 해당하는 구성 파일을 설치합니다.
+
+
+
+
+== 추가 정보
+
+설치 또는 유지 관리를 시작하기 전에 다음을 검토하십시오.
+
+* link:configure-reqs-92300.html["구성 요구 사항"]
+* link:components-92300.html["부품 및 부품 번호"]
+* link:required-documentation-92300.html["필수 문서"]
+* link:smart-call-home-92300.html["Smart Call Home 요구 사항"]
+

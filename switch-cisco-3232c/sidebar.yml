@@ -1,68 +1,50 @@
 ---
 section: switch-cisco-3232c
-title: Cisco Nexus 3232C 스위치
+title: Cisco Nexus 3232C
 entries:
 - title: 개요
-  url: "/switch-cisco-3232c/index.html"
-- title: NetApp 캐비닛에 Cisco Nexus 3232C 클러스터 스위치 및 통과 패널을 설치합니다
-  url: "/switch-cisco-3232c/task-install-a-cisco-nexus-3232c-cluster-switch-and-pass-through-panel-in-a-netapp-cabinet.html"
-- title: 설정
   entries:
-  - title: 스위치를 설정합니다
-    url: "/switch-cisco-9336c-fx2/setup-switches.html"
-  - title: 필수 클러스터 구성 정보
-    url: "/switch-cisco-9336c-fx2/setup-required-information.html"
-    entries:
-    - title: 92300YC 스위치용 CSHM(Cluster Switch Health Monitor) 구성 파일을 설치합니다
-      url: "/switch-cisco-9336c-fx2/setup-install-cshm-file.html"
+  - title: 구성 개요
+    url: "/switch-cisco-3232c/install-overview-cisco-3232c.html"
+  - title: 구성 요구 사항
+    url: "/switch-cisco-3232c/configure-reqs-3232c.html"
   - title: 필수 문서
-    url: "/switch-cisco-9336c-fx2/setup-required-documentation.html"
-  - title: Smart Call Home 사용에 대한 고려 사항
-    url: "/switch-cisco-9336c-fx2/setup-considerations-smart-call.html"
-  - title: 케이블 연결 워크시트 예제 및 빈
-    url: "/switch-cisco-9336c-fx2/setup-worksheets-sample-cabling.html"
-    entries:
-    - title: Cisco Nexus 9336C-FX2 케이블링 워크시트
-      url: "/switch-cisco-9336c-fx2/setup-worksheet-9336c.html"
-    - title: Cisco Nexus 92300YC 케이블 연결 워크시트
-      url: "/switch-cisco-9336c-fx2/setup-worksheet-92300yc.html"
-    - title: Cisco Nexus 3232C 케이블 연결 워크시트
-      url: "/switch-cisco-9336c-fx2/setup-worksheet-3232c.html"
-    - title: Cisco Nexus 3132Q-V 케이블링 워크시트
-      url: "/switch-cisco-9336c-fx2/setup-worksheet-3132q.html"
-    - title: Cisco Nexus 5596UP 및 5596T 케이블 연결 워크시트
-      url: "/switch-cisco-9336c-fx2/setup-worksheet-5596.html"
-- title: Cisco Nexus 3232C 클러스터 스위치에 NX-OS 소프트웨어 및 RCFs를 설치합니다
-  url: "/switch-cisco-3232c/task-install-nx-os-software-and-rcfs-on-cisco-nexus-3232-cluster-switches-running-ontap-9-4-and-later.html"
+    url: "/switch-cisco-3232c/required-documentation-3232c.html"
+  - title: Smart Call Home 요구 사항
+    url: "/switch-cisco-3232c/smart-call-home-3232c.html"
+- title: 하드웨어를 설치합니다
   entries:
+  - title: 케이블 연결 워크시트를 작성합니다
+    url: "/switch-cisco-3232c/setup_worksheet_3232c.html"
+  - title: 스위치를 구성합니다
+    url: "/switch-cisco-3232c/setup-switch.html"
+  - title: NetApp 캐비닛에 스위치 설치
+    url: "/switch-cisco-3232c/install-cisco-nexus-3232c.html"
+- title: 소프트웨어를 구성합니다
+  entries:
+  - title: NX-OS 및 RCF 설치 준비
+    url: "/switch-cisco-3232c/prepare-install-cisco-nexus-3232c.html"
   - title: NX-OS 소프트웨어를 설치합니다
-    url: "/switch-cisco-3232c/task-install-the-nx-os-software-3232c-cluster-switch.html"
-  - title: RCF(Reference Configuration File) 설치
-    url: "/switch-cisco-3232c/task-install-the-reference-configuration-file-rcf-3232c-cluster-switch.html"
-- title: CN1610 스위치를 Cisco Nexus 3232C 클러스터 스위치에 마이그레이션
-  url: "/switch-cisco-3232c/concept-migrate-a-cn1610-switch-to-a-cisco-nexus-3232c-cluster-switch.html"
+    url: "/switch-cisco-3232c/install-nx-os-software-3232c.html"
+  - title: RCF 구성 파일을 설치합니다
+    url: "/switch-cisco-3232c/install-rcf-3232c.html"
+- title: 스위치 마이그레이션
   entries:
-  - title: CN1610 클러스터 스위치를 Cisco Nexus 3232C 클러스터 스위치로 마이그레이션하는 방법
-    url: "/switch-cisco-3232c/task-how-to-replace-cn1610-cluster-switches-with-cisco-nexus-3232c-cluster-switches.html"
-- title: Cisco Nexus 5596 스위치에서 Cisco Nexus 3232C 스위치로 마이그레이션합니다
-  url: "/switch-cisco-3232c/concept-migrate-from-a-cisco-5596-switch-to-a-cisco-nexus-3232c.html"
+  - title: 마이그레이션 요구 사항
+    url: "/switch-cisco-3232c/migrate-requirements-3232c.html"
+  - title: CN1610 클러스터 스위치에서 마이그레이션
+    url: "/switch-cisco-3232c/migrate-cn1610-cluster-switches.html"
+  - title: Cisco Nexus 5596 클러스터 스위치에서 마이그레이션
+    url: "/switch-cisco-3232c/migrate-from-cisco-nexus-5596.html"
+  - title: 스위치가 없는 2노드 클러스터에서 마이그레이션
+    url: "/switch-cisco-3232c/migrate-from-two-node-switchless-cluster.html"
+  - title: 스위치가 없는 2노드 클러스터로 마이그레이션
+    url: "/switch-cisco-3232c/migrate-to-switchless-cluster-interconnect.html"
+- title: 스위치를 교체합니다
   entries:
-  - title: Cisco Nexus 5596 클러스터 스위치에서 Cisco Nexus 3232C 클러스터 스위치로 마이그레이션하는 방법
-    url: "/switch-cisco-3232c/task-how-to-migrate-from-a-cisco-nexus-5596-cluster-switch-to-a-cisco-nexus-3232c-cluster-switch.html"
-- title: 스위치가 없는 2노드 클러스터에서 Cisco Nexus 3232C 클러스터 스위치를 사용하는 클러스터로 마이그레이션할 수 있습니다
-  url: "/switch-cisco-3232c/concept-migrate-from-a-two-node-switchless-cluster-to-a-cluster-with-cisco-nexus-3232c-cluster-switches.html"
-  entries:
-  - title: 스위치가 없는 2노드 클러스터에서 Cisco Nexus 3232C 클러스터 스위치를 사용하는 클러스터로 마이그레이션하는 방법
-    url: "/switch-cisco-3232c/task-how-to-migrate-from-a-two-node-switchless-cluster-to-a-cluster-with-cisco-nexus-3132q-v-cluster-switches.html"
-- title: Cisco Nexus 3232C 클러스터 스위치를 교체합니다
-  url: "/switch-cisco-3232c/concept-replace-a-cisco-nexus-3232c-cluster-switch.html"
-  entries:
-  - title: Cisco Nexus 3232C 클러스터 스위치를 교체하는 방법
-    url: "/switch-cisco-3232c/task-how-to-replace-a-cisco-nexus-3232c-cluster-switch.html"
-- title: Cisco Nexus 3232C 스토리지 스위치를 교체합니다
-  url: "/switch-cisco-3232c/concept-replace-a-cisco-nexus-3232c-storage-switch.html"
-  entries:
-  - title: Cisco Nexus 3232C 스토리지 스위치를 교체하는 단계
-    url: "/switch-cisco-3232c/task-steps-to-replace-a-cisco-nexus-3232c-storage-switch.html"
-- title: Cisco Nexus 3232C 스토리지 스위치를 업그레이드하십시오
-  url: "/switch-cisco-3232c/task-upgrade-nx-os-software-and-rcfs-on-cisco-nexus-3232c-storage-switches.html"
+  - title: 클러스터 스위치를 교체합니다
+    url: "/switch-cisco-3232c/replace-cluster-switch.html"
+  - title: 스토리지 스위치를 교체합니다
+    url: "/switch-cisco-3232c/replace-storage-switch.html"
+- title: 스위치 업그레이드
+  url: "/switch-cisco-3232c/upgrade-3232c-storage-switches.html"

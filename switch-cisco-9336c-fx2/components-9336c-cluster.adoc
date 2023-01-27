@@ -1,0 +1,87 @@
+---
+sidebar: sidebar 
+permalink: switch-cisco-9336c-fx2/components-9336c-cluster.html 
+keywords: shared storage cluster switch 
+summary: ONTAP 9.9.1에서 Cisco Nexus 9336C-FX2 스위치를 사용하여 스토리지 및 클러스터 기능을 공유 스위치 시나리오에 결합할 수 있습니다. 
+---
+= Cisco Nexus 9336C-FX2 클러스터 스위치의 구성 요소 및 부품 번호
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cisco Nexus 9336C-FX2 스위치 설치 및 유지 보수의 경우 구성 요소 및 부품 번호 목록을 검토하십시오.
+
+다음 표에는 9336C-FX2 스위치, 팬 및 전원 공급 장치에 대한 부품 번호 및 설명이 나와 있습니다.
+
+[cols="1,2"]
+|===
+| 부품 번호 | 설명 
+
+
+ a| 
+X190200-CS-PE
+ a| 
+N9K-9336C-FX2, CS, PTSX, 36PT10/25/40/100GQSFP28
+
+
+
+ a| 
+X190200-CS-PI
+ a| 
+N9K-9336C-FX2, CS, PSIN, 36PT10/25/40/100GQSFP28
+
+
+
+ a| 
+X190210-FE-PE
+ a| 
+N9K-9336C, FTE, PTSX, 36PT10/25/40/100GQSFP28
+
+
+
+ a| 
+X190210-FE-PI
+ a| 
+N9K-9336C, FTE, PSIN, 36PT10/25/40/100GQSFP28
+
+
+
+ a| 
+X190002
+ a| 
+액세서리 키트 X190001/X190003
+
+
+
+ a| 
+X-NXA-PAC-1100W-PE2
+ a| 
+N9K-9336C AC 1100W PSU - 포트 쪽 배기구 통기구
+
+
+
+ a| 
+X-NXA-PAC-1100W-PI2
+ a| 
+N9K-9336C AC 1100W PSU - 포트 쪽 흡입 공기 흐름
+
+
+
+ a| 
+X-NXA-FAN-65CFM-PE
+ a| 
+N9K-9336C 65CFM, 포트 쪽 배기구 통기구
+
+
+
+ a| 
+X-NXA-FAN-65CFM-PI
+ a| 
+N9K-9336C 65CFM, 포트 쪽 흡입 공기 흐름
+
+|===

@@ -1,0 +1,474 @@
+---
+permalink: switch-netapp-cn1610/install-rcf-file.html 
+sidebar: sidebar 
+keywords: reference configuration, file ,install, cn1610, switch, install rcf 
+summary: 'RCF(Reference Configuration File)를 설치하는 경우 먼저 클러스터 LIF를 스위치 CS2에서 마이그레이션해야 합니다. RCF를 설치 및 검증한 후 LIF를 다시 마이그레이션할 수 있습니다.' 
+---
+= CN1610 스위치에 참조 구성 파일을 설치합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+RCF(Reference Configuration File)를 설치하려면 다음 절차를 따르십시오.
+
+RCF를 설치하기 전에 먼저 클러스터 LIF를 스위치 CS2에서 마이그레이션해야 합니다. RCF를 설치 및 검증한 후 LIF를 다시 마이그레이션할 수 있습니다.
+
+
+
+== 요구사항 검토
+
+.필요한 것
+* 스위치 구성의 현재 백업
+* 완전히 작동하는 클러스터(로그에 오류 없음, 결함이 있는 클러스터 네트워크 인터페이스 카드(NIC) 또는 이와 유사한 문제 없음)
+* 클러스터 스위치의 포트 연결이 완벽하게 작동합니다.
+* 모든 클러스터 포트가 설정되었습니다.
+* 모든 클러스터 논리 인터페이스(LIF) 설정
+* 성공적인 통신 경로: ONTAP(권한: 고급) `cluster ping-cluster -node node1` 명령에 이 사실을 표시해야 합니다 `larger than PMTU communication` 모든 경로에서 성공합니다.
+* 지원되는 RCF 및 ONTAP 버전
++
+의 스위치 호환성 표를 참조하십시오 http://mysupport.netapp.com/NOW/download/software/cm_switches_ntap/["NetApp CN1601 및 CN1610 스위치"^] 지원되는 RCF 및 ONTAP 버전을 위한 페이지입니다.
+
+
+
+
+
+== RCF를 설치합니다
+
+다음 절차에서는 clustered Data ONTAP 8.2 구문을 사용합니다. 따라서 클러스터 Vserver, LIF 이름 및 CLI 출력이 Data ONTAP 8.3의 결과와 다릅니다.
+
+RCF 및 FASTPATH 버전의 명령 구문 간에는 명령 의존성이 있을 수 있습니다.
+
+
+NOTE: RCF 버전 1.2에서는 보안 문제로 인해 텔넷에 대한 지원이 명시적으로 비활성화되었습니다. RCF 1.2를 설치하는 동안 연결 문제를 방지하려면 SSH(Secure Shell)가 활성화되어 있는지 확인하십시오. 를 클릭합니다 https://library.netapp.com/ecm/ecm_get_file/ECMP1117874["NetApp CN1610 스위치 관리자 가이드"^] 에 SSH에 대한 자세한 정보가 나와 있습니다.
+
+.예를 참조하십시오
+이 절차의 예에서는 다음 스위치 및 노드 명명법을 사용합니다.
+
+* 두 NetApp 스위치는 CS1 및 CS2입니다.
+* 두 개의 클러스터 LIF는 clus1 및 clus2 입니다.
+* vserver는 VS1 및 VS2 입니다.
+* 'cluster::: *>' 프롬프트는 클러스터의 이름을 나타냅니다.
+* 각 노드의 클러스터 포트 이름은 E1A와 e2a입니다.
++
+https://hwu.netapp.com/["Hardware Universe"^] 에서 플랫폼에서 지원되는 실제 클러스터 포트에 대한 자세한 정보를 얻을 수 있습니다.
+
+* 지원되는 ISL(Inter-Switch Link)은 포트 0/13 ~ 0/16입니다.
+* 지원되는 노드 연결은 포트 0/1 ~ 0/12입니다.
+* 지원되는 FASTPATH, RCF 및 ONTAP 버전
++
+의 스위치 호환성 표를 참조하십시오 http://mysupport.netapp.com/NOW/download/software/cm_switches_ntap/["NetApp CN1601 및 CN1610 스위치"^] 지원되는 FASTPATH, RCF 및 ONTAP 버전에 대한 페이지입니다.
+
+
+
+
+
+=== 1단계: 클러스터 마이그레이션
+
+. 현재 스위치 구성 정보를 저장합니다.
++
+쓰기 메모리
+
++
+.예제 보기
+[%collapsible]
+====
+다음 예에서는 스위치 CS2의 시작 구성('Startup-config') 파일에 현재 스위치 구성이 저장되어 있음을 보여 줍니다.
+
+[listing]
+----
+(cs2) # write memory
+This operation may take a few minutes.
+Management interfaces will not be available during this time.
+
+Are you sure you want to save? (y/n) y
+
+Config file 'startup-config' created successfully.
+
+Configuration Saved!
+----
+====
+. 각 노드의 콘솔에서 포트 E1A로 clus2를 마이그레이션합니다.
++
+네트워크 인터페이스 마이그레이션
+
++
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+cluster::*> network interface migrate -vserver vs1 -lif clus2 -source-node node1 -destnode node1 -dest-port e1a
+
+cluster::*> network interface migrate -vserver vs2 -lif clus2 -source-node node2 -destnode node2 -dest-port e1a
+----
+====
+. 각 노드의 콘솔에서 마이그레이션이 수행되었는지 확인합니다.
++
+네트워크 인터페이스 show-role cluster
+
++
+.예제 보기
+[%collapsible]
+====
+다음 예에서는 두 노드 모두에서 clus2가 포트 E1A로 마이그레이션되었음을 보여 줍니다.
+
+[listing]
+----
+cluster::*> network port show -role cluster
+         clus1      up/up      10.10.10.1/16   node2    e1a     true
+         clus2      up/up      10.10.10.2/16   node2    e1a     false
+----
+====
+. 두 노드에서 포트 e2a를 종료합니다.
++
+네트워크 포트 수정
+
++
+.예제 보기
+[%collapsible]
+====
+다음 예는 두 노드에서 종료되는 포트 e2a를 보여줍니다.
+
+[listing]
+----
+cluster::*> network port modify -node node1 -port e2a -up-admin false
+cluster::*> network port modify -node node2 -port e2a -up-admin false
+----
+====
+. 두 노드에서 포트 e2a가 종료되었는지 확인합니다.
++
+네트워크 포트 쇼
+
++
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+cluster::*> network port show -role cluster
+
+                                  Auto-Negot  Duplex      Speed (Mbps)
+Node   Port   Role     Link MTU   Admin/Oper  Admin/Oper  Admin/Oper
+------ ------ -------- ---- ----- ----------- ----------  -----------
+node1
+       e1a    cluster  up   9000  true/true   full/full   auto/10000
+       e2a    cluster  down 9000  true/true   full/full   auto/10000
+node2
+       e1a    cluster  up   9000  true/true   full/full   auto/10000
+       e2a    cluster  down 9000  true/true   full/full   auto/10000
+----
+====
+. CS1의 ISL 포트, 활성 NetApp 스위치를 종료합니다.
++
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+(cs1) # configure
+(cs1) (config) # interface 0/13-0/16
+(cs1) (interface 0/13-0/16) # shutdown
+(cs1) (interface 0/13-0/16) # exit
+(cs1) (config) # exit
+----
+====
+
+
+
+
+=== 2단계: RCF를 설치합니다
+
+. RCF를 스위치에 복사합니다.
++
+
+NOTE: 스크립트를 호출하기 전에 파일 이름의 일부로 '.scr' 확장자를 설정해야 합니다. 이 확장명은 FASTPATH 운영 체제의 확장입니다.
+
++
+스위치는 스크립트가 스위치에 다운로드될 때 자동으로 스크립트의 유효성을 검사하며 출력은 콘솔로 이동합니다.
+
++
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+(cs2) # copy tftp://10.10.0.1/CN1610_CS_RCF_v1.1.txt nvram:script CN1610_CS_RCF_v1.1.scr
+
+[the script is now displayed line by line]
+Configuration script validated.
+File transfer operation completed successfully.
+----
+====
+. 스크립트가 다운로드되어 지정한 파일 이름으로 저장되었는지 확인합니다.
++
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+(cs2) # script list
+Configuration Script Name        Size(Bytes)
+-------------------------------- -----------
+running-config.scr               6960
+CN1610_CS_RCF_v1.1.scr           2199
+
+2 configuration script(s) found.
+6038 Kbytes free.
+----
+====
+. 스크립트의 유효성을 검사합니다.
++
+
+NOTE: 스크립트는 다운로드 중에 유효성을 확인하여 각 줄이 유효한 스위치 명령줄인지 확인합니다.
+
++
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+(cs2) # script validate CN1610_CS_RCF_v1.1.scr
+[the script is now displayed line by line]
+Configuration script 'CN1610_CS_RCF_v1.1.scr' validated.
+----
+====
+. 스위치에 스크립트를 적용합니다.
++
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+(cs2) #script apply CN1610_CS_RCF_v1.1.scr
+
+Are you sure you want to apply the configuration script? (y/n) y
+[the script is now displayed line by line]...
+
+Configuration script 'CN1610_CS_RCF_v1.1.scr' applied.
+----
+====
+. 변경 사항이 스위치에 구현되었는지 확인합니다.
++
+[listing]
+----
+(cs2) # show running-config
+----
++
+이 예에서는 스위치에 'running-config' 파일이 표시됩니다. 사용자가 설정한 매개 변수가 예상대로 작동하는지 확인하려면 파일을 RCF와 비교해야 합니다.
+
+. 변경 사항을 저장합니다.
+. running-config 파일을 standard로 설정한다.
++
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+(cs2) # write memory
+This operation may take a few minutes.
+Management interfaces will not be available during this time.
+
+Are you sure you want to save? (y/n) y
+
+Config file 'startup-config' created successfully.
+----
+====
+. 스위치를 재부팅하고 'running-config' 파일이 올바른지 확인합니다.
++
+재부팅이 완료되면 로그인하고 "running-config" 파일을 확인한 다음 RCF의 버전 레이블인 인터페이스 3/64에서 설명을 찾아야 합니다.
+
++
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+(cs2) # reload
+
+The system has unsaved changes.
+Would you like to save them now? (y/n) y
+
+
+Config file 'startup-config' created successfully.
+Configuration Saved!
+System will now restart!
+----
+====
+. 활성 스위치인 CS1에서 ISL 포트를 불러옵니다.
++
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+(cs1) # configure
+(cs1) (config)# interface 0/13-0/16
+(cs1) (Interface 0/13-0/16)# no shutdown
+(cs1) (Interface 0/13-0/16)# exit
+(cs1) (config)# exit
+----
+====
+. ISL이 작동 중인지 확인:
++
+'How port-channel 3/1
+
++
+링크 상태 필드는 '위로'를 표시해야 합니다.
+
++
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+
+(cs2) # show port-channel 3/1
+
+Local Interface................................ 3/1
+Channel Name................................... ISL-LAG
+Link State..................................... Up
+Admin Mode..................................... Enabled
+Type........................................... Static
+Load Balance Option............................ 7
+(Enhanced hashing mode)
+
+Mbr    Device/       Port      Port
+Ports  Timeout       Speed     Active
+------ ------------- --------- -------
+0/13   actor/long    10G Full  True
+       partner/long
+0/14   actor/long    10G Full  True
+       partner/long
+0/15   actor/long    10G Full  True
+       partner/long
+0/16   actor/long    10G Full  True
+       partner/long
+----
+====
+. 두 노드에서 클러스터 포트 e2a를 실행합니다.
++
+네트워크 포트 수정
+
++
+.예제 보기
+[%collapsible]
+====
+다음 예에서는 node1과 node2에서 포트 e2a가 표시되는 것을 보여 줍니다.
+
+[listing]
+----
+cluster::*> network port modify -node node1 -port e2a -up-admin true
+cluster::*> network port modify -node node2 -port e2a -up-admin true
+----
+====
+
+
+
+
+=== 3단계: 설치 확인
+
+. 포트 e2a가 두 노드에서 작동하는지 확인합니다.
++
+`network port show -_role cluster_`
+
++
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+cluster::*> network port show -role cluster
+
+                                Auto-Negot  Duplex      Speed (Mbps)
+Node   Port Role     Link MTU   Admin/Oper  Admin/Oper  Admin/Oper
+------ ---- -------- ---- ----  ----------- ----------  ------------
+node1
+       e1a  cluster  up   9000  true/true   full/full   auto/10000
+       e2a  cluster  up   9000  true/true   full/full   auto/10000
+node2
+       e1a  cluster  up   9000  true/true   full/full   auto/10000
+       e2a  cluster  up   9000  true/true   full/full   auto/10000
+----
+====
+. 두 노드에서 포트 e2a와 연결된 clus2를 되돌립니다.
++
+네트워크 인터페이스 복원
+
++
+LIF는 ONTAP 버전에 따라 자동으로 되돌릴 수 있습니다.
+
++
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+cluster::*> network interface revert -vserver node1 -lif clus2
+cluster::*> network interface revert -vserver node2 -lif clus2
+----
+====
+. LIF가 두 노드에서 홈('true')인지 확인합니다.
++
+'network interface show -_role cluster _'
+
++
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+cluster::*> network interface show -role cluster
+
+        Logical    Status     Network        Current  Current Is
+Vserver Interface  Admin/Oper Address/Mask   Node     Port    Home
+------- ---------- ---------- -------------- -------- ------- ----
+vs1
+        clus1      up/up      10.10.10.1/24  node1    e1a     true
+        clus2      up/up      10.10.10.2/24  node1    e2a     true
+vs2
+        clus1      up/up      10.10.10.1/24  node2    e1a     true
+        clus2      up/up      10.10.10.2/24  node2    e2a     true
+----
+====
+. 노드 구성원의 상태를 봅니다.
++
+'클러스터 쇼'
+
++
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+cluster::> cluster show
+
+Node           Health  Eligibility
+-------------- ------- ------------
+node1
+               true    true
+node2
+               true    true
+----
+====
+. 소프트웨어 버전 및 스위치 설정에 만족하면 'running-config' 파일을 'startup-config' 파일로 복사합니다.
++
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+(cs2) # write memory
+This operation may take a few minutes.
+Management interfaces will not be available during this time.
+
+Are you sure you want to save? (y/n) y
+
+Config file 'startup-config' created successfully.
+
+Configuration Saved!
+----
+====
+. 이전 단계를 반복하여 다른 스위치 CS1에 RCF를 설치합니다.
+

@@ -1,0 +1,69 @@
+---
+sidebar: sidebar 
+permalink: switch-cisco-9336c-fx2-shared/cable-9336c-shared.html 
+keywords: shared storage cluster switch cable 
+summary: 케이블 연결 이미지를 사용하여 컨트롤러와 스위치 간의 케이블 연결을 완료합니다. 
+---
+= Cisco Nexus 9336C-FX2 케이블링 워크시트를 작성하십시오
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+다음 케이블 연결 이미지를 사용하여 컨트롤러와 스위치 간의 케이블 연결을 완료합니다.
+
+
+
+== NS224 스토리지를 스위치 연결 상태로 케이블로 연결합니다
+
+NS224 스토리지를 스위치 연결 상태로 케이블로 연결하려면 스위치 연결 다이어그램을 따르십시오.
+
+image:9336c_image1.jpg["스위치 연결"]
+
+를 참조하십시오 https://hwu.netapp.com/Switch/Index["Hardware Universe"] 스위치 포트에 대한 자세한 내용은 을 참조하십시오.
+
+
+
+== NS224 스토리지를 직접 연결 상태로 연결합니다
+
+공유 스위치 스토리지 포트를 사용하는 대신 NS224 스토리지를 직접 연결 스토리지 케이블로 연결하려면 직접 연결 다이어그램을 따르십시오.
+
+image:9336c_image2.jpg["직접 연결"]
+
+를 참조하십시오 https://hwu.netapp.com/Switch/Index["Hardware Universe"] 스위치 포트에 대한 자세한 내용은 을 참조하십시오.
+
+
+
+== Cisco Nexus 9336C-FX2 케이블링 워크시트
+
+지원되는 플랫폼을 문서화하려면 작성한 샘플 케이블 연결 워크시트를 참조하여 빈 케이블 연결 워크시트를 작성해야 합니다.
+
+각 스위치 쌍의 샘플 포트 정의는 다음과 같습니다.image:cabling_worksheet.jpg["케이블 연결 워크시트"]
+
+여기서,
+
+* 100g ISL을 통해 스위치 A 포트 35에 연결
+* 100g ISL을 통해 스위치 A 포트 36에 연결
+* 100g ISL을 통해 스위치 B 포트 35에 연결
+* 100g ISL을 통해 스위치 B 포트 36에 연결
+
+
+
+
+== 빈 케이블 연결 워크시트
+
+빈 케이블 연결 워크시트를 사용하여 클러스터에서 노드로 지원되는 플랫폼을 문서화할 수 있습니다. Hardware Universe의 지원되는 클러스터 연결 표에는 플랫폼에서 사용되는 클러스터 포트가 정의되어 있습니다.
+
+image:blank_cabling_worksheet.jpg["빈 케이블 연결 워크시트"]
+
+여기서,
+
+* 100g ISL을 통해 스위치 A 포트 35에 연결
+* 100g ISL을 통해 스위치 A 포트 36에 연결
+* 100g ISL을 통해 스위치 B 포트 35에 연결
+* 100g ISL을 통해 스위치 B 포트 36에 연결
+

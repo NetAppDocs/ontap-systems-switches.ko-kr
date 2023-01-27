@@ -1,0 +1,21 @@
+---
+permalink: switch-cisco-92300/migrate-to-2n-switched-overview.html 
+sidebar: sidebar 
+keywords: TNSC,migrate two-node,migrate 2-node 
+summary: 스위치가 없는 2노드 클러스터를 Cisco Nexus 92300YC 클러스터 스위치가 있는 클러스터로 중단 없이 마이그레이션할 경우 특정 구성 정보, 포트 연결 및 케이블 연결 요구사항을 알고 있어야 합니다. 
+---
+= Cisco Nexus 92300YC 스위치를 사용하여 2노드 스위치 클러스터로 마이그레이션합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+스위치가 없는 2노드 클러스터를 Cisco Nexus 92300YC 클러스터 스위치가 있는 클러스터로 중단 없이 마이그레이션할 경우 특정 구성 정보, 포트 연결 및 케이블 연결 요구사항을 알고 있어야 합니다.
+
+사용하는 절차는 각 컨트롤러에 전용 클러스터 네트워크 포트가 2개 있는지, 각 컨트롤러에 단일 클러스터 포트가 있는지 여부에 따라 다릅니다. 문서화된 프로세스는 광학 또는 Twinax 포트를 사용하는 모든 노드에 대해 작동하지만, 노드에서 클러스터 네트워크 포트에 온보드 10Gb BASE-T RJ45 포트를 사용하는 경우 이 스위치에서 지원되지 않습니다.
+
+대부분의 시스템에는 각 컨트롤러에 전용 클러스터 네트워크 포트 2개가 필요합니다.
+
+
+NOTE: 마이그레이션이 완료된 후 92300YC 클러스터 스위치용 CSHM(Cluster Switch Health Monitor)을 지원하기 위해 필요한 구성 파일을 설치해야 할 수 있습니다. 의 92300YC 스위치에 대한 _CSMM(Cluster Switch Health Monitor) 구성 파일 설치_를 참조하십시오 link:../com.netapp.doc.hw-sw-cisco-setup/home.html["설정 중입니다"] 가이드.

@@ -2,11 +2,243 @@
 permalink: switch-bes-53248/index.html 
 sidebar: sidebar 
 keywords: broadcom, support, bes, cluster, switch, broadcam-supported bes-53248 cluster switches 
-summary: Broadcom 지원 BES-53248 클러스터 스위치 
+summary: BES-53248 스위치 설치 및 유지 보수의 경우 OS 지원, 부품 번호, 구성 요구 사항 및 문서 요구 사항을 검토하십시오. 
 ---
-= Broadcom 지원 BES-53248 클러스터 스위치
+= 개요 및 요구 사항: BES-53248 스위치
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
+[role="lead"]
+BES-53248 스위치 설치 및 유지 보수의 경우 OS 지원, 부품 번호, 구성 요구 사항 및 문서 요구 사항을 검토하십시오.
+
+
+
+== 운영 체제(OS) 지원
+
+BES-53248 스위치는 다음을 지원합니다.
+
+* * EFOS 펌웨어 3.4.4.6 이상 *. BES-53248 스위치는 이더넷 패브릭 OS(EFOS)라고 하는 Broadcom 내장 OS에서 실행됩니다. 40/100 GbE 클러스터 포트 지원은 EFOS 펌웨어 버전 3.4.4.6 이상에서 시작됩니다.
+* * ONTAP 9.5P8 이상 *. Broadcom에서 지원하는 BES-53248 클러스터 스위치는 ONTAP 9.5P8 이상에서 2-24개 노드 범위의 클러스터에서 작동하도록 설계되었습니다.
+
+
+
+
+== 스위치 구성 요소 부품 번호
+
+다음 표에는 랙 마운트 레일 키트, 팬 및 전원 공급 장치를 포함하여 BES-53248 클러스터 스위치 구성 요소에 대한 부품 번호 및 설명이 나와 있습니다.
+
+[cols="1,2"]
+|===
+| 부품 번호 | 설명 
+
+
+ a| 
+X190005
+ a| 
+BES-53248, CLSW, 16Pt10/25GB, PTSX, BRDCM SUPP(PTSX = Port Side Exhaust)
+
+
+
+ a| 
+X190005R
+ a| 
+BES-53248, CLSW, 16Pt10/25GB, PSIN, BRDCM SUPP(PSIN = 포트 측 흡기)
+
+
+
+ a| 
+X-레일-4POST-190005
+ a| 
+랙 마운트 레일 키트 Ozeki 4 포스트 19"
+
+
+
+ a| 
+X-FAN-190005-R
+ a| 
+팬, 포트 측 흡기 X190005
+
+
+
+ a| 
+X-FAN-190005-F
+ a| 
+팬, 포트 측 배기 X190005
+
+
+
+ a| 
+X-PSU-190005-R
+ a| 
+전원 공급 장치, 포트 측 흡기 X190005
+
+포트측 흡입 공기 흐름(역풍): 차가운 공기는 차가운 통로의 포트 끝을 통해 섀시에 유입되고 뜨거운 통로의 팬 및 전원 공급 장치 모듈을 통해 배출됩니다.
+
+
+
+ a| 
+X-PSU-190005-F
+ a| 
+전원 공급 장치, 포트 측 배기 X190005
+
+포트 측 배기 공기 흐름(표준 공기): 차가운 공기는 차가운 통로에 있는 팬 및 전원 공급 장치 모듈을 통해 섀시에 유입되고 뜨거운 통로에 있는 섀시의 포트 끝을 통해 배출됩니다. 파란색은 포트 쪽 배기가스의 공기 흐름을 나타냅니다. 가장 일반적인 옵션입니다.
+
+|===
+
+
+== 구성 요구 사항
+
+클러스터를 구성하려면 클러스터 스위치에 맞는 케이블 및 케이블 커넥터 수와 유형이 필요합니다. 처음 구성하는 클러스터 스위치의 유형에 따라 포함된 콘솔 케이블을 사용하여 스위치 콘솔 포트에 연결해야 하며 특정 네트워크 정보가 필요합니다.
+
+.클러스터 스위치 포트 할당
+Broadcom 지원 BES-53248 클러스터 스위치 포트 할당 표를 클러스터 구성 지침으로 사용할 수 있습니다.
+
+[cols="1,2"]
+|===
+| 스위치 포트 | 포트 사용 
+
+
+ a| 
+01-16번
+ a| 
+10/25GbE 클러스터 포트 노드, 기본 구성
+
+
+
+ a| 
+17-48
+ a| 
+10/25GbE 클러스터 포트 노드, 라이센스 포함
+
+
+
+ a| 
+49-54로 이동합니다
+ a| 
+100GbE 클러스터 포트 노드 및 라이센스가 오른쪽에서 왼쪽으로 추가됨
+
+
+
+ a| 
+55-56
+ a| 
+100GbE 클러스터 ISL(Inter-Switch Link) 포트, 기본 구성
+
+|===
+.포트 그룹 속도 제한
+BES-53248 클러스터 스위치에서 48개의 10/25GbE(SFP28/SFP+) 포트를 다음과 같이 12개의 4 포트 그룹으로 통합합니다. 포트 1-4, 5-8, 9-12, 13-16, 17-20, 21-24, 25-28, 29-32, 33-36, 37-40, 41-44 및 45-48로 이동합니다.
+
+SFP28/SFP+ 포트 속도는 4포트 그룹의 모든 포트에서 동일한(10GbE 또는 25GbE)여야 합니다.
+
+
+
+== 문서화 요구 사항
+
+BES-53248 클러스터 스위치와 ONTAP 클러스터를 설정하려면 특정 스위치 및 컨트롤러 설명서가 필요합니다.
+
+
+
+=== Broadcom 설명서
+
+BES-53248 클러스터 스위치를 설정하려면 Broadcom 지원 사이트에서 제공되는 다음 문서가 필요합니다. https://www.broadcom.com/support/bes-switch["Broadcom Ethernet 스위치 제품 라인"^]
+
+[cols="1,2"]
+|===
+| 문서 제목 | 설명 
+
+
+ a| 
+_EFOS 관리자 가이드 v3.4.3_
+ a| 
+일반적인 네트워크에서 BES-53248 스위치를 사용하는 방법의 예를 제공합니다.
+
+
+
+ a| 
+_EFOS CLI 명령 참조 v3.4.3_
+ a| 
+에서는 BES-53248 소프트웨어를 보고 구성하는 데 사용하는 CLI(Command-Line Interface) 명령에 대해 설명합니다.
+
+
+
+ a| 
+_EFOS 시작 안내서 v3.4.3_
+ a| 
+BES-53248 스위치에 대한 자세한 내용은 에 나와 있습니다.
+
+
+
+ a| 
+_EFOS SNMP 참조 가이드 v3.4.3_
+ a| 
+일반적인 네트워크에서 BES-53248 스위치를 사용하는 방법의 예를 제공합니다.
+
+
+
+ a| 
+_EFOS 배율 매개 변수 및 값 v3.4.3_
+ a| 
+지원되는 플랫폼에서 EFOS 소프트웨어를 제공하고 유효성을 검사하는 기본 확장 매개 변수에 대해 설명합니다.
+
+
+
+ a| 
+_EFOS 기능 사양 v3.4.3_
+ a| 
+지원되는 플랫폼의 EFOS 소프트웨어 사양에 대해 설명합니다.
+
+
+
+ a| 
+_EFOS 릴리스 정보 v3.4.3_
+ a| 
+BES-53248 소프트웨어에 대한 릴리스 관련 정보를 제공합니다.
+
+
+
+ a| 
+_클러스터 네트워크 및 관리 네트워크 호환성 매트릭스 _
+ a| 
+네트워크 호환성에 대한 정보를 제공합니다. 이 매트릭스는 BES-53248 스위치 다운로드 사이트 에서 다운로드할 수 있습니다 https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["Broadcom 클러스터 스위치"^].
+
+|===
+
+
+=== ONTAP 시스템 설명서 및 KB 문서
+
+ONTAP 시스템을 설정하려면 NetApp Support 사이트 에서 다음 문서가 필요합니다 http://mysupport.netapp.com/["mysupport.netapp.com"^] 또는 의 Knowledgebase(KB) 사이트를 참조하십시오 https://kb.netapp.com/["kb.netapp.com"^].
+
+[cols="1,2"]
+|===
+| 이름 | 설명 
+
+
+ a| 
+https://hwu.netapp.com/Home/Index["NetApp Hardware Universe를 참조하십시오"^]
+ a| 
+시스템 캐비닛을 비롯한 모든 NetApp 하드웨어의 전원 및 사이트 요구사항을 설명하고 관련 커넥터 및 케이블 옵션에 대한 정보와 부품 번호를 제공합니다.
+
+
+
+ a| 
+컨트롤러별 설치 및 설정 지침 _
+ a| 
+에서는 NetApp 하드웨어를 설치하는 방법에 대해 설명합니다.
+
+
+
+ a| 
+ONTAP 9
+ a| 
+ONTAP 9 릴리즈의 모든 측면에 대해 자세히 설명합니다.
+
+
+
+ a| 
+_Broadcom 지원 BES-53248 스위치 _ 에 대한 포트 라이센스를 추가하는 방법
+ a| 
+포트 라이센스 추가에 대한 자세한 내용은 에 나와 있습니다. 로 이동합니다 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/How_to_add_Additional_Port_Licensing_for_the_Broadcom-Supported_BES-53248_Switch["KB 문서를 참조하십시오"^].
+
+|===

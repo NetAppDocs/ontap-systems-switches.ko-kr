@@ -1,0 +1,194 @@
+---
+permalink: switch-nvidia-sn2100/install-snmpv3-sn2100-cluster.html 
+sidebar: sidebar 
+keywords: sn2100 SN2100 cabling setup, sn2100 switches configuration, cumulus linux os 
+summary: 이 릴리스는 로그 모니터링을 위한 SNMPv3을 지원합니다. 
+---
+= 스위치 로그 수집을 위해 SNMPv3을 구성합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+스위치 로그 수집 및 스위치 상태 모니터링(SHM)을 지원하는 SNMPv3을 구성하려면 다음 절차를 따르십시오.
+
+.이 작업에 대해
+다음 명령은 NVIDIA SN2100 스위치에서 SNMPv3 사용자 이름을 구성합니다.
+
+* 인증 없음 *:'net add snmp-server username_snmpv3_user_auth-none'입니다
+* MD5/SHA 인증의 경우 *:'net add snmp-server username_SNMPv3_user_[auth-MD5|auth-sha]_AUTH-password_'
+* AES/DES 암호화를 사용한 * MD5/SHA 인증의 경우 *:'net add snmp-server username_SNMPv3_user_[auth-MD5|auth-sha]_AUTH-password_[encrypt-aes|encrypt-des]_PRIV-password_'
+
+
+다음 명령은 ONTAP 측에서 SNMPv3 사용자 이름을 구성합니다. ' cluster1: * > security login create -user -or -group -name_SNMPv3_user_ -application snmp-authentication-method USM -remote-switch-ipaddress_address _'
+
+다음 명령은 SHM을 사용하여 SNMPv3 사용자 이름을 설정합니다. 'cluster1:: * > 시스템 스위치 이더넷 수정 -device_device_-snmp-version SNMPv3-community-or-username_SNMPv3_user_'
+
+.단계
+. 인증 및 암호화를 사용하도록 스위치에서 SNMPv3 사용자를 설정합니다.
++
+`net show snmp status`
+
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *net show snmp status*
+Simple Network Management Protocol (SNMP) Daemon.
+---------------------------------  ----------------
+Current Status                     active (running)
+Reload Status                      enabled
+Listening IP Addresses             all vrf mgmt
+Main snmpd PID                     4318
+Version 1 and 2c Community String  Configured
+Version 3 Usernames                Not Configured
+---------------------------------  ----------------
+cumulus@sw1:~$
+cumulus@sw1:~$ *net add snmp-server username SNMPv3User auth-md5 netapp1! encrypt-aes netapp1!*
+cumulus@sw1:~$ *net commit*
+--- /etc/snmp/snmpd.conf        2020-08-02 21:09:34.686949282 +0000
++++ /run/nclu/snmp/snmpd.conf   2020-08-11 00:13:51.826126655 +0000
+@@ -1,26 +1,28 @@
+ #### Auto-generated config file: do not edit. ####
+ agentaddress udp:@mgmt:161
+ agentxperms 777 777 snmp snmp
+ agentxsocket /var/agentx/master
+ createuser _snmptrapusernameX
++createuser SNMPv3User MD5 netapp1! AES netapp1!
+ ifmib_max_num_ifaces 500
+ iquerysecname _snmptrapusernameX
+ master agentx
+ monitor -r 60 -o laNames -o laErrMessage "laTable" laErrorFlag != 0
+ pass -p 10 1.3.6.1.2.1.1.1 /usr/share/snmp/sysDescr_pass.py
+ pass_persist 1.2.840.10006.300.43 /usr/share/snmp/ieee8023_lag_pp.py
+ pass_persist 1.3.6.1.2.1.17 /usr/share/snmp/bridge_pp.py
+ pass_persist 1.3.6.1.2.1.31.1.1.1.18 /usr/share/snmp/snmpifAlias_pp.py
+ pass_persist 1.3.6.1.2.1.47 /usr/share/snmp/entity_pp.py
+ pass_persist 1.3.6.1.2.1.99 /usr/share/snmp/entity_sensor_pp.py
+ pass_persist 1.3.6.1.4.1.40310.1 /usr/share/snmp/resq_pp.py
+ pass_persist 1.3.6.1.4.1.40310.2 /usr/share/snmp/cl_drop_cntrs_pp.py
+ pass_persist 1.3.6.1.4.1.40310.3 /usr/share/snmp/cl_poe_pp.py
+ pass_persist 1.3.6.1.4.1.40310.4 /usr/share/snmp/bgpun_pp.py
+ pass_persist 1.3.6.1.4.1.40310.5 /usr/share/snmp/cumulus-status.py
+ pass_persist 1.3.6.1.4.1.40310.6 /usr/share/snmp/cumulus-sensor.py
+ pass_persist 1.3.6.1.4.1.40310.7 /usr/share/snmp/vrf_bgpun_pp.py
++rocommunity cshm1! default
+ rouser _snmptrapusernameX
++rouser SNMPv3User priv
+ sysobjectid 1.3.6.1.4.1.40310
+ sysservices 72
+-rocommunity cshm1! default
+
+
+net add/del commands since the last "net commit"
+================================================
+
+User        Timestamp                   Command
+----------  --------------------------  -----------------------------------------------------------------------------
+SNMPv3User  2020-08-11 00:13:51.826987  net add snmp-server username SNMPv3User auth-md5 netapp1! encrypt-aes netapp1!
+
+cumulus@sw1:~$
+cumulus@sw1:~$ *net show snmp status*
+Simple Network Management Protocol (SNMP) Daemon.
+---------------------------------  ----------------
+Current Status                     active (running)
+Reload Status                      enabled
+Listening IP Addresses             all vrf mgmt
+Main snmpd PID                     24253
+Version 1 and 2c Community String  Configured
+Version 3 Usernames                Configured     *<---- Configured here*
+---------------------------------  ----------------
+cumulus@sw1:~$
+----
+====
+. ONTAP 측에서 SNMPv3 사용자를 설정합니다.
++
+`security login create -user-or-group-name SNMPv3User -application snmp -authentication-method usm -remote-switch-ipaddress 10.231.80.212`
+
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *security login create -user-or-group-name SNMPv3User -application snmp -authentication-method usm -remote-switch-ipaddress 10.231.80.212*
+
+Enter the authoritative entity's EngineID [remote EngineID]:
+
+Which authentication protocol do you want to choose (none, md5, sha, sha2-256)
+[none]: *md5*
+
+Enter the authentication protocol password (minimum 8 characters long):
+
+Enter the authentication protocol password again:
+
+Which privacy protocol do you want to choose (none, des, aes128) [none]: *aes128*
+
+Enter privacy protocol password (minimum 8 characters long):
+Enter privacy protocol password again:
+----
+====
+. 새 SNMPv3 사용자를 모니터링하도록 SHM 구성:
++
+`system switch ethernet show-all -device "sw1 (b8:59:9f:09:7c:22)" -instance`
+
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *system switch ethernet show-all -device "sw1 (b8:59:9f:09:7c:22)" -instance*
+                                   Device Name: sw1 (b8:59:9f:09:7c:22)
+                                    IP Address: 10.231.80.212
+                                  SNMP Version: SNMPv2c
+                                 Is Discovered: true
+DEPRECATED-Community String or SNMPv3 Username: -
+           Community String or SNMPv3 Username: cshm1!
+                                  Model Number: MSN2100-CB2FC
+                                Switch Network: cluster-network
+                              Software Version: Cumulus Linux version 4.4.3 running on Mellanox Technologies Ltd. MSN2100
+                     Reason For Not Monitoring: None
+                      Source Of Switch Version: LLDP
+                                Is Monitored ?: true
+                   Serial Number of the Device: MT2110X06399  *<---- serial number to check*
+                                   RCF Version: MSN2100-RCF-v1.9X6-Cluster-LLDP Aug-18-2022
+
+cluster1::*>
+cluster1::*> *system switch ethernet modify -device "sw1 (b8:59:9f:09:7c:22)" -snmp-version SNMPv3 -community-or-username SNMPv3User*
+----
+====
+. 새로 생성된 SNMPv3 사용자에게 쿼리할 일련 번호가 SHM 폴링 기간이 완료된 후 이전 단계에서 자세히 설명한 번호와 동일한지 확인합니다.
++
+`system switch ethernet polling-interval show`
+
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *system switch ethernet polling-interval show*
+         Polling Interval (in minutes): 5
+
+cluster1::*> *system switch ethernet show-all -device "sw1 (b8:59:9f:09:7c:22)" -instance*
+                                   Device Name: sw1 (b8:59:9f:09:7c:22)
+                                    IP Address: 10.231.80.212
+                                  SNMP Version: SNMPv3
+                                 Is Discovered: true
+DEPRECATED-Community String or SNMPv3 Username: -
+           Community String or SNMPv3 Username: SNMPv3User
+                                  Model Number: MSN2100-CB2FC
+                                Switch Network: cluster-network
+                              Software Version: Cumulus Linux version 4.4.3 running on Mellanox Technologies Ltd. MSN2100
+                     Reason For Not Monitoring: None
+                      Source Of Switch Version: LLDP
+                                Is Monitored ?: true
+                   Serial Number of the Device: MT2110X06399  *<---- serial number to check*
+                                   RCF Version: MSN2100-RCF-v1.9X6-Cluster-LLDP Aug-18-2022
+----
+====
+

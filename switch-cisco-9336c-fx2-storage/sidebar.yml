@@ -1,0 +1,46 @@
+---
+section: switch-cisco-9336c-fx2-storage
+title: Cisco Nexus 9336C-FX2
+entries:
+- title: 개요
+  entries:
+  - title: 구성 개요
+    url: "/switch-cisco-9336c-fx2-storage/configure-switch-overview-9336c-storage.html"
+  - title: 구성 요구 사항
+    url: "/switch-cisco-9336c-fx2-storage/configure-reqs-9336c-storage.html"
+  - title: 부품 및 부품 번호
+    url: "/switch-cisco-9336c-fx2-storage/components-9336c-storage.html"
+  - title: 필수 문서
+    url: "/switch-cisco-9336c-fx2-storage/required-documentation-9336c-storage.html"
+  - title: Smart Call Home 요구 사항
+    url: "/switch-cisco-9336c-fx2-storage/smart-call-9336c-storage.html"
+- title: 하드웨어를 설치합니다
+  entries:
+  - title: 케이블 연결 워크시트를 작성합니다
+    url: "/switch-cisco-9336c-fx2-storage/setup-worksheet-9336c-storage.html"
+  - title: 스위치를 장착하십시오
+    url: "/switch-cisco-9336c-fx2-storage/install-9336c-storage.html"
+  - title: 스위치를 구성합니다
+    url: "/switch-cisco-9336c-fx2-storage/setup-switch-9336c-storage.html"
+  - title: NetApp 캐비닛에 스위치 설치
+    url: "/switch-cisco-9336c-fx2-storage/install-switch-and-passthrough-panel-9336c-storage.html"
+- title: 소프트웨어를 구성합니다
+  entries:
+  - title: 소프트웨어 설치 워크플로우
+    url: "/switch-cisco-9336c-fx2-storage/configure-software-overview-9336c-storage.html"
+  - title: NX-OS 및 RCF 설치 준비
+    url: "/switch-cisco-9336c-fx2-storage/install-nxos-overview-9336c-storage.html"
+  - title: NX-OS 소프트웨어를 설치합니다
+    url: "/switch-cisco-9336c-fx2-storage/install-nxos-software-9336c-storage.html"
+  - title: RCF 구성 파일을 설치합니다
+    url: "/switch-cisco-9336c-fx2-storage/install-nxos-rcf-9336c-storage.html"
+- title: 스위치 마이그레이션
+  entries:
+  - title: 이전 Cisco 스위치에서 마이그레이션합니다
+    url: "/switch-cisco-9336c-fx2-storage/migrate-to-9336-storage.html"
+  - title: 스위치가 있는 2노드 클러스터로 마이그레이션
+    url: "/switch-cisco-9336c-fx2-storage/migrate-to-2n-switched-9336-storage.html"
+  - title: 스위치가 없는 2노드 클러스터로 마이그레이션
+    url: "/switch-cisco-9336c-fx2-storage/migrate-to-switchless-interconnect-9336-storage.html"
+- title: 스토리지 스위치를 교체합니다
+  url: "/switch-cisco-9336c-fx2-storage/replace-storage-switch-9336c-storage.html"

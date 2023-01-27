@@ -1,0 +1,22 @@
+---
+permalink: switch-nvidia-sn2100/configure-software-overview-sn2100-cluster.html 
+sidebar: sidebar 
+keywords: sn2100 SN2100 switches setup, sn2100 SN2100 switches install, cumulus linux 
+summary: 소프트웨어 구성 또는 NVIDIA SN2100 스위치 개요 
+---
+= NVIDIA SN2100 스위치에 대한 소프트웨어 설치 워크플로우
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NVIDIA SN2100 스위치용 소프트웨어를 설치하고 구성하려면 다음 단계를 수행하십시오.
+
+. link:install-cumulus-mode-sn2100-cluster.html["Cumulus 모드에서 Cumulus Linux를 설치합니다"] 또는 link:install-onie-mode-sn2100-cluster.html["ONIE 모드에서 Cumulus Linux를 설치합니다"]. Cumulus Linux(CL) OS는 스위치에서 Cumulus Linux 또는 ONIE를 실행할 때 설치할 수 있습니다.
+. link:install-rcf-sn2100-cluster.html["RCF(Reference Configuration File) 스크립트를 설치합니다"]. 클러스터링과 스토리지 애플리케이션에 사용 가능한 RCF 스크립트는 두 가지가 있습니다. 각각의 절차는 동일합니다.
+. link:install-snmpv3-sn2100-cluster.html["스위치 로그 수집을 위해 SNMPv3을 구성합니다"]. 이 릴리스에는 스위치 로그 수집용 SNMPv3 및 스위치 상태 모니터링(SHM)에 대한 지원이 포함되어 있습니다.
+
+
+
+NOTE: 이 절차에서는 Cumulus Linux에 완벽하게 액세스할 수 있도록 하는 명령줄 인터페이스인 NCLU(Network Command Line Utility)를 사용합니다. NET 명령은 터미널에서 작업을 실행하는 데 사용하는 래퍼 유틸리티입니다.

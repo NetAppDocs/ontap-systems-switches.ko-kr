@@ -3,7 +3,7 @@ settings:
   name: Cluster and storage switches
   search: ontap-systems-switches
   internal:
-    pdf_enabled: true
+    pdf_enabled: false
   prod:
     pdf_enabled: true
     harmony_enabled: false
@@ -15,15 +15,34 @@ sidebar:
   entries:
   - title: AFF 및 FAS 스위치 문서
     url: "/index.html"
-  - section: switch-bes-53248
-  - section: switch-cisco-3132q-v
-  - section: switch-cisco-3232c
-  - section: switch-cisco-9336c-fx2
-  - section: switch-cisco-9336c-fx2-shared
-  - section: switch-cisco-92300
-  - section: switch-nvidia-sn2100
-  - section: other
-  - section: other-procedures
+  - title: 시작하십시오
+    entries:
+    - title: 새로운 소식
+      url: "/whats-new.html"
+    - title: ONTAP 시스템 스위치에 대해 자세히 알아보십시오
+      url: "/get-started/learn-switch-concept.html"
+    - title: 준비 및 실행
+      url: "/get-started/get-up-and-running.html"
+  - title: 클러스터 스위치
+    entries:
+    - section: switch-bes-53248
+    - section: switch-cisco-9336c-fx2
+    - section: switch-nvidia-sn2100
+  - title: 스토리지 스위치
+    entries:
+    - section: switch-cisco-9336c-fx2-storage
+    - section: switch-nvidia-sn2100-storage
+  - title: 공유 스위치
+    entries:
+    - section: switch-cisco-9336c-fx2-shared
+  - title: 사용 종료 스위치
+    entries:
+    - title: 개요
+      url: "/overview-eod.html"
+    - section: switch-cisco-3232c
+    - section: switch-cisco-3132q-v
+    - section: switch-cisco-92300
+    - section: switch-netapp-cn1610
   - title: 법적 고지
     url: "/legal-notices.html"
 product-family:

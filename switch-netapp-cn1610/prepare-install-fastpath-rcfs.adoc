@@ -1,0 +1,51 @@
+---
+permalink: switch-netapp-cn1610/prepare-install-fastpath-rcfs.html 
+sidebar: sidebar 
+keywords: install, fastpath, software, rcfs, netapp cluster switch 
+summary: 'NetApp CN1610 클러스터 스위치에 FASTPATH 소프트웨어 및 참조 구성 파일(RCF)을 설치해야 합니다.' 
+---
+= NetApp 클러스터 스위치에 FASTPATH 소프트웨어와 RCF를 설치할 준비를 합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NetApp CN1610 클러스터 스위치에 FASTPATH 소프트웨어 및 참조 구성 파일(RCF)을 설치해야 합니다.
+
+.시작하기 전에
+* 클러스터가 완전하게 작동하는 클러스터여야 합니다.
+* 결함이 있는 클러스터 NIC(네트워크 인터페이스 카드)가 없어야 하며, 클러스터 스위치의 모든 연결 포트가 작동해야 합니다.
+* 모든 클러스터 포트가 작동 중이어야 합니다.
+* 모든 클러스터 논리 인터페이스(LIF)가 가동되어야 하며 마이그레이션되지 않아야 합니다.
+* ONTAP(Privilege:advanced) cluster ping-cluster-node node1 명령은 모든 경로에서 "PMTU 통신보다 큼"이 성공했음을 나타내야 합니다.
+* 의 스위치 호환성 표를 참조해야 합니다 http://mysupport.netapp.com/NOW/download/software/cm_switches_ntap/["NetApp CN1601 및 CN1610 스위치"^] 지원되는 FASTPATH, RCF 및 ONTAP 버전에 대한 페이지입니다.
++
+RCF 및 FASTPATH 버전의 명령 구문 간에는 명령 의존성이 있을 수 있습니다.
+
+
+
+
+NOTE: RCF 버전 1.2에서는 보안 문제로 인해 텔넷에 대한 지원이 명시적으로 비활성화되었습니다. RCF 1.2를 설치하는 동안 연결 문제를 방지하려면 SSH(Secure Shell)가 활성화되어 있는지 확인해야 합니다. 를 클릭합니다 https://library.netapp.com/ecm/ecm_get_file/ECMP1117874["NetApp ® CN1610 스위치 관리자 가이드"^] 에 SSH에 대한 자세한 정보가 나와 있습니다.
+
+.이 작업에 대해
+이 절차의 예에서는 다음 스위치 및 노드 명명법을 사용합니다.
+
+* 이 문서의 절차에서는 clustered Data ONTAP 8.2 구문을 사용합니다. 따라서 클러스터 Vserver, LIF 이름 및 CLI 출력이 Data ONTAP 8.3의 결과와 다릅니다.
+* 두 NetApp 스위치는 CS1 및 CS2입니다.
+* 두 개의 클러스터 LIF는 clus1 및 clus2 입니다.
+* vserver는 VS1 및 VS2 입니다.
+* 'cluster::: *>' 프롬프트는 클러스터의 이름을 나타냅니다.
+* 각 노드의 클러스터 포트 이름은 E1A와 e2a입니다.
++
+를 클릭합니다 https://hwu.netapp.com/["Hardware Universe"^] 에서 플랫폼에서 지원되는 실제 클러스터 포트에 대한 자세한 정보를 얻을 수 있습니다.
+
+* NetApp 클러스터 스위치에 대해 지원되는 ISL(Inter-Switch Link)은 포트 0/13 ~ 0/16입니다.
+* NetApp 클러스터 스위치에 대해 지원되는 노드 연결은 0/1 ~ 0/12 포트입니다.
+
+
+이 절차에는 두 가지 부품이 있습니다.
+
+* link:task-install-fastpath-software.html["FASTPATH 소프트웨어를 설치합니다"] FASTPATH 소프트웨어를 설치하는 방법에 대해 설명합니다.
+* link:task-install-an-rcf-on-a-cn1610-switch.html["RCF를 CN1610 스위치에 설치합니다"] RCFs를 설치하는 방법에 대해 설명합니다.
+

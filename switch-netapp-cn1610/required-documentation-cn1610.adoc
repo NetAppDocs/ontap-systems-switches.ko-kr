@@ -1,0 +1,64 @@
+---
+permalink: switch-netapp-cn1610/required-documentation-cn1610.html 
+sidebar: sidebar 
+keywords: cn1610, switch, netapp 
+summary: NetApp CN1610 스위치 설치 및 유지 관리를 위해 모든 권장 문서를 검토해야 합니다. 
+---
+= NetApp CN1610 스위치에 대한 문서 요구사항
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NetApp CN1610 스위치 설치 및 유지 관리를 위해 모든 권장 문서를 검토해야 합니다.
+
+[cols="1,2"]
+|===
+| 문서 제목 | 설명 
+
+
+ a| 
+https://library.netapp.com/ecm/ecm_download_file/ECMP1117853["1G 설치 안내서"^]
+ a| 
+CN1601 스위치 하드웨어 및 소프트웨어 기능 및 설치 프로세스의 개요
+
+
+
+ a| 
+https://library.netapp.com/ecm/ecm_download_file/ECMP1117824["10G 설치 가이드"^]
+ a| 
+CN1610 스위치 하드웨어 및 소프트웨어 기능을 간략하게 설명하고 스위치를 설치하고 CLI에 액세스하는 기능을 설명합니다.
+
+
+
+ a| 
+https://library.netapp.com/ecm/ecm_download_file/ECMP1118645["CN1601 및 CN1610 스위치 설정 및 구성 가이드"^]
+ a| 
+에서는 클러스터 환경에 맞게 스위치 하드웨어 및 소프트웨어를 구성하는 방법에 대해 자세히 설명합니다.
+
+
+
+ a| 
+CN1601 스위치 관리자 가이드
+ a| 
+에서는 일반 네트워크에서 CN1601 스위치를 사용하는 방법의 예를 제공합니다.
+
+* https://library.netapp.com/ecm/ecm_download_file/ECMP1117844["관리자 가이드 를 참조하십시오"^]
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP2811865["관리자 안내서, 버전 1.1.x.x"^]
+* https://library.netapp.com/ecm/ecm_download_file/ECMP1117874["관리자 설명서, 버전 1.2.x.x"^]
+
+
+
+
+ a| 
+CN1610 네트워크 스위치 CLI 명령 참조
+ a| 
+CN1601 소프트웨어를 구성하는 데 사용되는 CLI(명령줄 인터페이스) 명령에 대한 자세한 정보를 제공합니다.
+
+* https://library.netapp.com/ecm/ecm_download_file/ECMP1117834["명령 참조"^]
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP2811863["명령 참조, 버전 1.1.x.x"^]
+* https://library.netapp.com/ecm/ecm_download_file/ECMP1117863["명령 참조, 버전 1.2.x.x"^]
+
+
+|===

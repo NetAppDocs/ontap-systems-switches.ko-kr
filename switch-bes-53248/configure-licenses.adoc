@@ -1,0 +1,497 @@
+---
+permalink: switch-bes-53248/configure-licenses.html 
+sidebar: sidebar 
+keywords: bes, cluster, switch, base, model, license, 10gbe, 25gbe, 100gbe, port, add, purchasing, purchase, install licenses for bes-53248 cluster switches - bes-53248 switches 
+summary: BES-53248 클러스터 스위치 기본 모델은 10GbE 또는 25GbE 포트 16개와 100GbE 포트 2개에 대해 라이센스가 부여됩니다. 라이센스를 더 구매하여 새 포트를 추가할 수 있습니다. 
+---
+= BES-53248 클러스터 스위치용 라이센스를 설치합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+BES-53248 클러스터 스위치 기본 모델은 10GbE 또는 25GbE 포트 16개와 100GbE 포트 2개에 대해 라이센스가 부여됩니다. 라이센스를 더 구매하여 새 포트를 추가할 수 있습니다.
+
+
+
+== 사용 가능한 라이센스를 검토합니다
+
+BES-53248 클러스터 스위치에서 다음 라이센스를 사용할 수 있습니다.
+
+[cols="1,2,3"]
+|===
+| 사용권 유형 | 라이센스 세부 정보 | 지원되는 펌웨어 버전입니다 
+
+
+ a| 
+SW-BES-53248A1-G1-8P-LIC
+ a| 
+Broadcom 8P 10-25,2P40-100 라이센스 키, X190005/R
+ a| 
+EFOS 3.4.3.3 이상
+
+
+
+ a| 
+SW-BES-53248A1-G1-16P-LIC
+ a| 
+Broadcom 16P 10-25,4P40-100 라이센스 키, X190005/R
+ a| 
+EFOS 3.4.3.3 이상
+
+
+
+ a| 
+SW-BES-53248A1-G1-24P-LIC
+ a| 
+Broadcom 24P 10-25,6P40-100 라이센스 키, X190005/R
+ a| 
+EFOS 3.4.3.3 이상
+
+
+
+ a| 
+SW-BES54248-40-100G-LIC
+ a| 
+Broadcom 6포트 40G100G 라이센스 키, X190005/R
+ a| 
+EFOS 3.4.4.6 이상
+
+
+
+ a| 
+SW-BES53248-8P-10G25G-LIC
+ a| 
+Broadcom 8PORT 10G25G 라이센스 키, X190005/R
+ a| 
+EFOS 3.4.4.6 이상
+
+
+
+ a| 
+SW-BES53248-16P-1025G-LIC
+ a| 
+Broadcom 16Port 10G25G 라이센스 키, X190005/R
+ a| 
+EFOS 3.4.4.6 이상
+
+
+
+ a| 
+SW-BES53248-24P-1025G-LIC
+ a| 
+Broadcom 24Port 10G25G 라이센스 키, X190005/R
+ a| 
+EFOS 3.4.4.6 이상
+
+|===
+
+NOTE: 기본 구성에는 라이센스가 필요하지 않습니다.
+
+
+
+== 라이센스 파일을 설치합니다
+
+다음 단계에 따라 BES-53248 클러스터 스위치에 대한 라이센스를 설치합니다.
+
+.단계
+. 클러스터 스위치를 관리 네트워크에 연결합니다.
+. "ping" 명령을 사용하여 EFOS, 라이센스 및 RCF 파일을 호스팅하는 서버에 대한 연결을 확인합니다.
++
+.예제 보기
+[%collapsible]
+====
+이 예에서는 스위치가 IP 주소 172.19.2.1로 서버에 연결되어 있는지 확인합니다.
+
+[listing, subs="+quotes"]
+----
+(cs2)# *ping 172.19.2.1*
+Pinging 172.19.2.1 with 0 bytes of data:
+
+Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
+----
+====
+. 스위치 CS2에서 현재 라이센스 사용을 확인합니다.
++
+'How license'입니다
+
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)# *show license*
+Reboot needed.................................. No
+Number of active licenses...................... 0
+
+License Index  License Type     Status
+-------------- ---------------- -----------
+
+No license file found.
+----
+====
+. 라이센스 파일을 설치합니다.
++
+이 단계를 반복하여 더 많은 라이선스를 로드하고 다른 키 인덱스 번호를 사용합니다.
+
++
+.예제 보기
+[%collapsible]
+====
+다음 예에서는 SFTP를 사용하여 라이센스 파일을 키 인덱스 1에 복사합니다.
+
+[listing, subs="+quotes"]
+----
+(cs2)# *copy sftp://root@172.19.2.1/var/lib/tftpboot/license.dat nvram:license-key 1*
+Remote Password:********
+
+Mode........................................... SFTP
+Set Server IP.................................. 172.19.2.1
+Path........................................... /var/lib/tftpboot/
+Filename....................................... license.dat
+Data Type...................................... license
+
+Management access will be blocked for the duration of the transfer
+Are you sure you want to start? (y/n) *y*
+
+File transfer in progress. Management access will be blocked for the duration of the transfer. Please wait...
+
+
+License Key transfer operation completed successfully. System reboot is required.
+----
+====
+. 현재 라이센스 정보를 모두 표시하고 스위치 CS2가 재부팅되기 전에 라이센스 상태를 확인합니다.
++
+'How license'입니다
+
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)# *show license*
+
+Reboot needed.................................. Yes
+Number of active licenses...................... 0
+
+
+License Index  License Type      Status
+-------------- ----------------- -------------------------------
+1              Port              License valid but not applied
+----
+====
+. 라이센스가 있는 모든 포트 표시:
++
+'모두 포트 보기|분리 제외'
+
++
+스위치가 재부팅될 때까지 추가 라이센스 파일의 포트는 표시되지 않습니다.
+
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)# *show port all \| exclude Detach*
+
+                 Admin     Physical   Physical   Link   Link    LACP   Actor
+Intf      Type   Mode      Mode       Status     Status Trap    Mode   Timeout
+--------- ------ --------- ---------- ---------- ------ ------- ------ --------
+0/1              Disable   Auto                  Down   Enable  Enable long
+0/2              Disable   Auto                  Down   Enable  Enable long
+0/3              Disable   Auto                  Down   Enable  Enable long
+0/4              Disable   Auto                  Down   Enable  Enable long
+0/5              Disable   Auto                  Down   Enable  Enable long
+0/6              Disable   Auto                  Down   Enable  Enable long
+0/7              Disable   Auto                  Down   Enable  Enable long
+0/8              Disable   Auto                  Down   Enable  Enable long
+0/9              Disable   Auto                  Down   Enable  Enable long
+0/10             Disable   Auto                  Down   Enable  Enable long
+0/11             Disable   Auto                  Down   Enable  Enable long
+0/12             Disable   Auto                  Down   Enable  Enable long
+0/13             Disable   Auto                  Down   Enable  Enable long
+0/14             Disable   Auto                  Down   Enable  Enable long
+0/15             Disable   Auto                  Down   Enable  Enable long
+0/16             Disable   Auto                  Down   Enable  Enable long
+0/55             Disable   Auto                  Down   Enable  Enable long
+0/56             Disable   Auto                  Down   Enable  Enable long
+----
+====
+. 스위치를 재부팅합니다.
++
+다시 로드
+
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)# *reload*
+
+The system has unsaved changes.
+Would you like to save them now? (y/n) *y*
+
+Config file 'startup-config' created successfully .
+
+Configuration Saved!
+Are you sure you would like to reset the system? (y/n) *y*
+----
+====
+. 새 라이센스가 활성화되어 있는지 확인하고 라이센스가 적용되었는지 확인합니다.
++
+'How license'입니다
+
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)# *show license*
+
+Reboot needed.................................. No
+Number of installed licenses................... 1
+Total Downlink Ports enabled................... 16
+Total Uplink Ports enabled..................... 8
+
+License Index  License Type              Status
+-------------- ------------------------- -----------------------------------
+1              Port                      License applied
+----
+====
+. 모든 새 포트를 사용할 수 있는지 확인합니다.
++
+'모두 포트 보기|분리 제외'
+
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)# *show port all \| exclude Detach*
+
+                 Admin     Physical   Physical   Link   Link    LACP   Actor
+Intf      Type   Mode      Mode       Status     Status Trap    Mode   Timeout
+--------- ------ --------- ---------- ---------- ------ ------- ------ --------
+0/1              Disable    Auto                 Down   Enable  Enable long
+0/2              Disable    Auto                 Down   Enable  Enable long
+0/3              Disable    Auto                 Down   Enable  Enable long
+0/4              Disable    Auto                 Down   Enable  Enable long
+0/5              Disable    Auto                 Down   Enable  Enable long
+0/6              Disable    Auto                 Down   Enable  Enable long
+0/7              Disable    Auto                 Down   Enable  Enable long
+0/8              Disable    Auto                 Down   Enable  Enable long
+0/9              Disable    Auto                 Down   Enable  Enable long
+0/10             Disable    Auto                 Down   Enable  Enable long
+0/11             Disable    Auto                 Down   Enable  Enable long
+0/12             Disable    Auto                 Down   Enable  Enable long
+0/13             Disable    Auto                 Down   Enable  Enable long
+0/14             Disable    Auto                 Down   Enable  Enable long
+0/15             Disable    Auto                 Down   Enable  Enable long
+0/16             Disable    Auto                 Down   Enable  Enable long
+0/49             Disable   100G Full             Down   Enable  Enable long
+0/50             Disable   100G Full             Down   Enable  Enable long
+0/51             Disable   100G Full             Down   Enable  Enable long
+0/52             Disable   100G Full             Down   Enable  Enable long
+0/53             Disable   100G Full             Down   Enable  Enable long
+0/54             Disable   100G Full             Down   Enable  Enable long
+0/55             Disable   100G Full             Down   Enable  Enable long
+0/56             Disable   100G Full             Down   Enable  Enable long
+----
+====
+
+
+
+CAUTION: 추가 라이센스를 설치할 때는 새 인터페이스를 수동으로 구성해야 합니다. RCF를 기존의 작동 중인 프로덕션 스위치에 다시 적용하지 마십시오.
+
+
+
+== 설치 문제를 해결합니다
+
+라이센스를 설치할 때 문제가 발생하면 를 실행하기 전에 다음 디버그 명령을 실행하십시오 `copy` 다시 명령을 내립니다.
+
+debug transfer와 debug license를 사용하기 위한 debug 명령어
+
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)# *debug transfer*
+Debug transfer output is enabled.
+(cs2)# *debug license*
+Enabled capability licensing debugging.
+----
+====
+를 실행할 때 `copy` 명령과 함께 `debug transfer` 및 `debug license` 옵션을 활성화하면 로그 출력이 반환됩니다.
+
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+transfer.c(3083):Transfer process  key or certificate file type = 43
+transfer.c(3229):Transfer process  key/certificate cmd = cp /mnt/download//license.dat.1 /mnt/fastpath/ >/dev/null 2>&1CAPABILITY LICENSING :
+Fri Sep 11 13:41:32 2020: License file with index 1 added.
+CAPABILITY LICENSING : Fri Sep 11 13:41:32 2020: Validating hash value 29de5e9a8af3e510f1f16764a13e8273922d3537d3f13c9c3d445c72a180a2e6.
+CAPABILITY LICENSING : Fri Sep 11 13:41:32 2020: Parsing JSON buffer {
+  "license": {
+    "header": {
+      "version": "1.0",
+      "license-key": "964B-2D37-4E52-BA14",
+      "serial-number": "QTFCU38290012",
+      "model": "BES-53248"
+  },
+  "description": "",
+  "ports": "0+6"
+  }
+}.
+CAPABILITY LICENSING : Fri Sep 11 13:41:32 2020: License data does not contain 'features' field.
+CAPABILITY LICENSING : Fri Sep 11 13:41:32 2020: Serial number QTFCU38290012 matched.
+CAPABILITY LICENSING : Fri Sep 11 13:41:32 2020: Model BES-53248 matched.
+CAPABILITY LICENSING : Fri Sep 11 13:41:32 2020: Feature not found in license file with index = 1.
+CAPABILITY LICENSING : Fri Sep 11 13:41:32 2020: Applying license file 1.
+----
+====
+디버그 출력에서 다음을 확인합니다.
+
+* 일련 번호가 '일련 번호 QTFCU38290012가 일치하는지 확인하십시오.
+* 스위치 모델이 일치하는지 확인합니다. model BES-53248 일치함
+* 지정된 라이센스 인덱스가 이전에 사용되지 않았는지 확인합니다. 사용권 인덱스가 이미 사용된 경우 'License file /mnt/download//license.dat.1이 이미 있습니다.'라는 오류가 반환됩니다
+* 포트 라이센스는 기능 라이센스가 아닙니다. 따라서 다음 문장이 예상됩니다. index=1을 가진 사용권 파일에서 기능을 찾을 수 없습니다
+
+
+를 사용합니다 `copy` 서버에 포트 라이센스를 백업하는 명령:
+
+[listing, subs="+quotes"]
+----
+(cs2)# *copy nvram:license-key 1 scp://<UserName>@<IP_address>/saved_license_1.dat*
+----
+
+CAUTION: 스위치 소프트웨어를 버전 3.4.4.6에서 다운그레이드해야 하는 경우 라이센스가 제거됩니다. 이는 예상된 동작입니다.
+
+이전 버전의 소프트웨어로 되돌리기 전에 적절한 이전 라이센스를 설치해야 합니다.
+
+
+
+== 새로 라이센스가 부여된 포트를 활성화합니다
+
+새로 라이센스가 부여된 포트를 활성화하려면 최신 버전의 RCF를 편집하고 해당 포트 세부 정보의 주석을 해제해야 합니다.
+
+기본 라이센스는 포트 0/1 - 0/16 및 0/55 - 0/56 을 활성화하며, 새로 라이센스가 부여된 포트는 사용 가능한 라이센스의 유형과 수에 따라 포트 0/17 - 0/54 사이에 있게 됩니다. 예를 들어, SW-BES54248-40-100G-LIC 라이센스를 활성화하려면 RCF에서 다음 섹션의 주석을 해제해야 합니다.
+
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+.
+.
+!
+! 2-port or 6-port 40/100GbE node port license block
+!
+interface 0/49
+no shutdown
+description "40/100GbE Node Port"
+!speed 100G full-duplex
+speed 40G full-duplex
+service-policy in WRED_100G
+spanning-tree edgeport
+mtu 9216
+switchport mode trunk
+datacenter-bridging
+priority-flow-control mode on
+priority-flow-control priority 5 no-drop
+exit
+exit
+!
+interface 0/50
+no shutdown
+description "40/100GbE Node Port"
+!speed 100G full-duplex
+speed 40G full-duplex
+service-policy in WRED_100G
+spanning-tree edgeport
+mtu 9216
+switchport mode trunk
+datacenter-bridging
+priority-flow-control mode on
+priority-flow-control priority 5 no-drop
+exit
+exit
+!
+interface 0/51
+no shutdown
+description "40/100GbE Node Port"
+speed 100G full-duplex
+!speed 40G full-duplex
+service-policy in WRED_100G
+spanning-tree edgeport
+mtu 9216
+switchport mode trunk
+datacenter-bridging
+priority-flow-control mode on
+priority-flow-control priority 5 no-drop
+exit
+exit
+!
+interface 0/52
+no shutdown
+description "40/100GbE Node Port"
+speed 100G full-duplex
+!speed 40G full-duplex
+service-policy in WRED_100G
+spanning-tree edgeport
+mtu 9216
+switchport mode trunk
+datacenter-bridging
+priority-flow-control mode on
+priority-flow-control priority 5 no-drop
+exit
+exit
+!
+interface 0/53
+no shutdown
+description "40/100GbE Node Port"
+speed 100G full-duplex
+!speed 40G full-duplex
+service-policy in WRED_100G
+spanning-tree edgeport
+mtu 9216
+switchport mode trunk
+datacenter-bridging
+priority-flow-control mode on
+priority-flow-control priority 5 no-drop
+exit
+exit
+!
+interface 0/54
+no shutdown
+description "40/100GbE Node Port"
+speed 100G full-duplex
+!speed 40G full-duplex
+service-policy in WRED_100G
+spanning-tree edgeport
+mtu 9216
+switchport mode trunk
+datacenter-bridging
+priority-flow-control mode on
+priority-flow-control priority 5 no-drop
+exit
+exit
+!
+.
+.
+----
+====
+
+NOTE: 0/49에서 0/54까지의 고속 포트의 경우 각 포트의 주석을 해제하고 각 포트의 RCF에 대해 하나의 * 속도 * 라인만 주석으로 표시합니다. 이 예에서 볼 수 있듯이 * 속도 100G 전이중 * 또는 * 속도 40G 전이중 * 입니다. 17/0/48 사이의 저속 포트의 경우, 적절한 라이센스가 활성화된 경우 전체 8포트 섹션의 설명을 해제하십시오.
+
+.다음 단계
+link:configure-install-rcf.html["RCF(Reference Configuration File) 설치"].

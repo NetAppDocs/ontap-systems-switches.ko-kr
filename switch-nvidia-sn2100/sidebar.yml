@@ -1,34 +1,44 @@
 ---
 section: switch-nvidia-sn2100
-title: NVIDIA SN2100 스위치
+title: nVidia SN2100
 entries:
 - title: 개요
-  url: "/switch-nvidia-sn2100/sn2100-overview.html"
-- title: NVIDIA SN2100 스위치 설정 및 구성
   entries:
-  - title: 개요
-    url: "/switch-nvidia-sn2100/install_setup_sn2100_switches_overview.html"
-  - title: 케이블 연결 및 구성 고려 사항
-    url: "/switch-nvidia-sn2100/install_cabling_config_considerations_sn2100.html"
+  - title: 구성 개요
+    url: "/switch-nvidia-sn2100/configure-overview-sn2100-cluster.html"
+  - title: 구성 요구 사항
+    url: "/switch-nvidia-sn2100/configure-reqs-sn2100-cluster.html"
+  - title: 부품 및 부품 번호
+    url: "/switch-nvidia-sn2100/components-sn2100-cluster.html"
+  - title: 필수 문서
+    url: "/switch-nvidia-sn2100/required-documentation-sn2100-cluster.html"
+- title: 하드웨어를 설치합니다
+  entries:
+  - title: 스위치를 장착하십시오
+    url: "/switch-nvidia-sn2100/install-hardware-sn2100-cluster.html"
+  - title: 스위치를 구성합니다
+    url: "/switch-nvidia-sn2100/configure-sn2100-cluster.html"
+  - title: 케이블 연결 및 구성을 검토합니다
+    url: "/switch-nvidia-sn2100/cabling-considerations-sn2100-cluster.html"
+  - title: NS224 선반에 케이블을 연결합니다
+    url: "/switch-nvidia-sn2100/install-cable-shelves-sn2100-cluster.html"
+- title: 소프트웨어를 구성합니다
+  entries:
+  - title: 소프트웨어 설치 워크플로우
+    url: "/switch-nvidia-sn2100/configure-software-overview-sn2100-cluster.html"
   - title: Cumulus 모드에서 Cumulus Linux를 설치합니다
-    url: "/switch-nvidia-sn2100/install_cumulus_linux_cumulus_mode.html"
+    url: "/switch-nvidia-sn2100/install-cumulus-mode-sn2100-cluster.html"
   - title: ONIE 모드에서 Cumulus Linux를 설치합니다
-    url: "/switch-nvidia-sn2100/install_cumulus_linux_onie_mode.html"
+    url: "/switch-nvidia-sn2100/install-onie-mode-sn2100-cluster.html"
   - title: RCF 스크립트를 설치합니다
-    url: "/switch-nvidia-sn2100/install_sn2100_rcf.html"
-  - title: 스위치 로그 수집을 위해 SNMPv3을 구성합니다
-    url: "/switch-nvidia-sn2100/install_snmpv3_support_for_log_collection.html"
-  - title: NS224 쉘프를 스위치 연결 스토리지로 케이블로 연결합니다
-    url: "/switch-nvidia-sn2100/install_cable_shelves_SAT_sn2100.html"
-- title: Cisco 클러스터 스위치에서 NVIDIA SN2100 클러스터 스위치로 마이그레이션합니다
-  url: "/switch-nvidia-sn2100/migrate_cisco_sn2100_cluster_switch.html"
-- title: Cisco 스토리지 스위치에서 NVIDIA SN2100 스토리지 스위치로 마이그레이션합니다
-  url: "/switch-nvidia-sn2100/migrate_cisco_sn2100_storage_switch.html"
-- title: NVIDIA SN2100 스위치를 사용하여 2노드 스위치 클러스터로 마이그레이션합니다
-  url: "/switch-nvidia-sn2100/migrate_2n_switched_sn2100_switches.html"
-- title: NVIDIA SN2100 스위치를 교체합니다
+    url: "/switch-nvidia-sn2100/install-rcf-sn2100-cluster.html"
+  - title: 스위치 로그 수집을 구성합니다
+    url: "/switch-nvidia-sn2100/install-snmpv3-sn2100-cluster.html"
+- title: 스위치 마이그레이션
   entries:
-  - title: NVIDIA SN2100 클러스터 스위치를 교체합니다
-    url: "/switch-nvidia-sn2100/replace_sn2100_switch_cluster.html"
-  - title: NVIDIA SN2100 스토리지 스위치를 교체합니다
-    url: "/switch-nvidia-sn2100/replace_sn2100_switch_storage.html"
+  - title: Cisco 클러스터 스위치에서 마이그레이션
+    url: "/switch-nvidia-sn2100/migrate-cisco-sn2100-cluster-switch.html"
+  - title: 스위치가 없는 2노드 클러스터로 마이그레이션
+    url: "/switch-nvidia-sn2100/migrate-to-switchless-interconnect-sn2100-cluster.html"
+- title: 클러스터 스위치를 교체합니다
+  url: "/switch-nvidia-sn2100/replace-sn2100-switch-cluster.html"

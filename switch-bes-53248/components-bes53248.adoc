@@ -1,0 +1,74 @@
+---
+permalink: switch-bes-53248/components-bes53248.html 
+sidebar: sidebar 
+keywords: cluster-mode,supported versions,switches supported,cluster network,efos 
+summary: BES-53248 스위치 설치 및 유지 보수의 경우 구성 요소 및 부품 번호 목록을 검토하십시오. 
+---
+= BES-53248 클러스터 스위치의 구성 요소 및 부품 번호
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+BES-53248 스위치 설치 및 유지 보수의 경우 구성 요소 및 부품 번호 목록을 검토하십시오.
+
+다음 표에는 랙 마운트 레일 키트, 팬 및 전원 공급 장치를 포함하여 BES-53248 클러스터 스위치 구성 요소에 대한 부품 번호 및 설명이 나와 있습니다.
+
+[cols="1,2"]
+|===
+| 부품 번호 | 설명 
+
+
+ a| 
+X190005
+ a| 
+BES-53248, CLSW, 16Pt10/25GB, PTSX, BRDCM SUPP(PTSX = Port Side Exhaust)
+
+
+
+ a| 
+X190005R
+ a| 
+BES-53248, CLSW, 16Pt10/25GB, PSIN, BRDCM SUPP(PSIN = 포트 측 흡기)
+
+
+
+ a| 
+X-레일-4POST-190005
+ a| 
+랙 마운트 레일 키트 Ozeki 4 포스트 19"
+
+
+
+ a| 
+X-FAN-190005-R
+ a| 
+팬, 포트 측 흡기 X190005
+
+
+
+ a| 
+X-FAN-190005-F
+ a| 
+팬, 포트 측 배기 X190005
+
+
+
+ a| 
+X-PSU-190005-R
+ a| 
+전원 공급 장치, 포트 측 흡기 X190005
+
+포트측 흡입 공기 흐름(역풍): 차가운 공기는 차가운 통로의 포트 끝을 통해 섀시에 유입되고 뜨거운 통로의 팬 및 전원 공급 장치 모듈을 통해 배출됩니다.
+
+
+
+ a| 
+X-PSU-190005-F
+ a| 
+전원 공급 장치, 포트 측 배기 X190005
+
+포트 측 배기 공기 흐름(표준 공기): 차가운 공기는 차가운 통로에 있는 팬 및 전원 공급 장치 모듈을 통해 섀시에 유입되고 뜨거운 통로에 있는 섀시의 포트 끝을 통해 배출됩니다. 파란색은 포트 쪽 배기가스의 공기 흐름을 나타냅니다. 가장 일반적인 옵션입니다.
+
+|===

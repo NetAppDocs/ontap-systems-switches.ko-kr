@@ -1,39 +1,30 @@
 ---
 section: switch-netapp-cn1610
-title: NetApp CN1610 스위치
+title: NetApp CN1610
 entries:
 - title: 개요
-  url: "/switch-netapp-cn1610/index.html"
-- title: NetApp 클러스터 스위치에 FASTPATH 소프트웨어 및 RCF를 설치합니다
-  url: "/switch-netapp-cn1610/task-install-fastpath-software-and-rcfs-on-netapp-cluster-switch.html"
+  url: "/switch-netapp-cn1610/switch-overview-cn1610.html"
+- title: 설치 및 구성 워크플로우
+  url: "/switch-netapp-cn1610/install-overview-cn1610.html"
+- title: 필수 문서
+  url: "/switch-netapp-cn1610/required-documentation-cn1610.html"
+- title: 설치 및 구성
   entries:
+  - title: 하드웨어를 설치합니다
+    url: "/switch-netapp-cn1610/install-hardware-cn1610.html"
   - title: FASTPATH 소프트웨어를 설치합니다
-    url: "/switch-netapp-cn1610/task-install-fastpath-software.html"
-  - title: CN1610 스위치에 참조 구성 파일을 설치합니다
-    url: "/switch-netapp-cn1610/task-install-an-rcf-on-a-cn1610-switch.html"
-- title: ONTAP 8.3.1 이상을 실행하는 NetApp 클러스터 스위치에 FASTPATH 소프트웨어 및 RCF를 설치합니다
-  url: "/switch-netapp-cn1610/task-install-fastpath-software-and-rcf-files-on-netapp-cluster-switches.html"
-- title: NetApp CN1610 클러스터 스위치를 사용하여 2노드 스위치 클러스터로 마이그레이션합니다
-  url: "/switch-netapp-cn1610/task-migrate-to-a-two-node-switched-cluster-with-netapp-cn1610-cluster-switches.html"
-- title: 스위치가 없는 클러스터 환경에서 스위치 있는 NetApp CN1610 클러스터 환경으로 마이그레이션하십시오
-  url: "/switch-netapp-cn1610/task-migrate-from-a-switchless-cluster-to-a-switched-netapp-cn1610-cluster-environment.html"
-- title: FAS22xx 시스템에서 단일 클러스터 네트워크 연결이 포함된 2노드 스위치 클러스터로 마이그레이션합니다
-  url: "/switch-netapp-cn1610/task-migrate-from-a-switchless-cluster-fas22xx-systems-with-a-single-cluster-network-connection.html"
-- title: CN1601 및 CN1610 스위치 설정 및 구성 가이드
-  url: "/switch-netapp-cn1610/switch-setup-configuration-guide-linkout.html"
-- title: CN1610 네트워크 스위치 CLI 명령 참조 - 버전 1.1.x.x
-  url: "/switch-netapp-cn1610/switch-cli-command-reference-version-11xx-linkout.html"
-- title: CN1610 네트워크 스위치 CLI 명령 참조 - 버전 1.2.x.x
-  url: "/switch-netapp-cn1610/switch-cli-command-reference-version-12xx-linkout.html"
-- title: NetApp 10G Cluster-Mode 스위치 설치 가이드
-  url: "/switch-netapp-cn1610/netapp-10g-cluster-mode-switch-installation-guide.html"
-- title: NetApp CN1610 스위치 관리자 가이드 - 버전 1.1.x.x
-  url: "/switch-netapp-cn1610/switch-administrator-guide-version-11xx-linkout.html"
-- title: NetApp CN1610 스위치 관리자 가이드 - 버전 1.2.x.x
-  url: "/switch-netapp-cn1610/switch-administrator-guide-version-12xx-linkout.html"
-- title: CN1601 네트워크 스위치 CLI 명령 참조
-  url: "/switch-netapp-cn1610/switch-cli-command-reference-linkout.html"
-- title: CN1601 스위치 관리자 가이드
-  url: "/switch-netapp-cn1610/switch-administrator-guide-linkout.html"
-- title: NetApp 1G 클러스터 모드 스위치 설치 가이드
-  url: "/switch-netapp-cn1610/netapp-1g-cluster-mode-switch-installation-guide-linkout.html"
+    url: "/switch-netapp-cn1610/install-fastpath-software.html"
+  - title: RCF를 설치합니다
+    url: "/switch-netapp-cn1610/install-rcf-file.html"
+  - title: ONTAP 8.3.1 이상에 FASTPATH 및 RCF를 설치합니다
+    url: "/switch-netapp-cn1610/install-fastpath-rcf-831.html"
+  - title: 스위치를 구성합니다
+    url: "/switch-netapp-cn1610/configure-hardware-cn1610.html"
+- title: 스위치 마이그레이션
+  entries:
+  - title: 마이그레이션 옵션
+    url: "/switch-netapp-cn1610/migrate-overview.html"
+  - title: 스위치가 없는 클러스터에서 마이그레이션
+    url: "/switch-netapp-cn1610/migrate-switched-netapp-cn1610.html"
+  - title: 스위치가 있는 2노드 클러스터로 마이그레이션
+    url: "/switch-netapp-cn1610/migrate-fas22xx-systems.html"

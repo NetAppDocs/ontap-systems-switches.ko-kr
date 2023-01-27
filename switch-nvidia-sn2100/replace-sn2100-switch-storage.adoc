@@ -1,0 +1,256 @@
+---
+permalink: switch-nvidia-sn2100/replace-sn2100-switch-storage.html 
+sidebar: sidebar 
+keywords: replacing, replace, defective, nvidia, switch, cluster, network, nondisruptive, procedure, ndu, replace a nvidia sn2100 cluster switch - nvidia SN2100 
+summary: 'NDU\(무중단 절차)에서 결함이 있는 NVIDIA SN2100 스토리지 스위치를 교체하십시오.' 
+---
+= NVIDIA SN2100 스토리지 스위치를 교체합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NVIDIA SN2100 스토리지 스위치를 교체할 때 특정 구성 정보, 포트 연결 및 케이블 연결 요구 사항을 알고 있어야 합니다.
+
+.시작하기 전에
+NVIDIA SN2100 스토리지 스위치에 Cumulus 소프트웨어 및 RCFs를 설치하기 전에 다음 조건이 존재하는지 확인해야 합니다.
+
+* 이 시스템은 NVIDIA SN2100 스토리지 스위치를 지원할 수 있습니다.
+* 해당 RCFs를 다운로드해야 합니다.
+* 를 클릭합니다 http://hwu.netapp.com["Hardware Universe"^] 지원되는 포트 및 해당 구성에 대한 자세한 내용은 에 나와 있습니다.
+
+
+.이 작업에 대해
+기존 네트워크 구성에는 다음과 같은 특성이 있어야 합니다.
+
+* 모든 문제 해결 단계가 완료되었는지 확인하여 스위치를 교체해야 하는지 확인합니다.
+* 두 스위치 모두에 관리 연결이 있어야 합니다.
++
+
+NOTE: 모든 문제 해결 단계가 완료되었는지 확인하여 스위치를 교체해야 하는지 확인합니다.
+
+
+
+교체 NVIDIA SN2100 스위치의 특징은 다음과 같습니다.
+
+* 관리 네트워크 연결이 작동해야 합니다.
+* 교체 스위치에 대한 콘솔 액세스가 있어야 합니다.
+* 적절한 RCF 및 Cumulus 운영 체제 이미지를 스위치에 로드해야 합니다.
+* 스위치의 초기 사용자 정의를 완료해야 합니다.
+
+
+.절차 요약
+이 절차는 두 번째 NVIDIA SN2100 스토리지 스위치 SW2를 새로운 NVIDIA SN2100 스위치 nsw2로 대체합니다. 두 노드는 노드 1과 노드 2입니다.
+
+완료 단계:
+
+* 교체할 스위치가 SW2인지 확인합니다.
+* 스위치 SW2에서 케이블을 분리합니다.
+* 스위치 nsw2에 케이블을 다시 연결합니다.
+* 스위치 nsw2의 모든 장치 구성을 확인합니다.
+
+
+.단계
+. 이 클러스터에서 AutoSupport가 활성화되어 있으면 'system node AutoSupport invoke -node * -type all-message maINT=xh' AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다
++
+_x_는 유지보수 기간(시간)입니다.
+
+. 권한 수준을 고급으로 변경하고 'Set-Privilege advanced'라는 메시지가 나타나면 * y * 를 입력합니다
+. 스토리지 노드 포트의 상태를 확인하여 스토리지 스위치 S1에 대한 접속이 있는지 확인합니다.
++
+'Storage port show-port-type ENET'입니다
+
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage port show -port-type ENET*
+                                  Speed                     VLAN
+Node           Port Type  Mode    (Gb/s) State    Status      ID
+-------------- ---- ----- ------- ------ -------- --------- ----
+node1
+               e3a  ENET  storage 100    enabled  online      30
+               e3b  ENET  storage   0    enabled  offline     30
+               e7a  ENET  storage   0    enabled  offline     30
+               e7b  ENET  storage 100    enabled  online      30
+node2
+               e3a  ENET  storage 100    enabled  online      30
+               e3b  ENET  storage   0    enabled  offline     30
+               e7a  ENET  storage   0    enabled  offline     30
+               e7b  ENET  storage 100    enabled  online      30
+cluster1::*>
+----
+. 스토리지 스위치 SW1을 사용할 수 있는지 확인합니다. 'network device-discovery show
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show protocol lldp*
+Node/      Local Discovered
+Protocol   Port	 Device (LLDP: ChassisID)  Interface   Platform
+--------   ----  -----------------------   ---------   ---------
+node1/lldp
+           e3a   sw1 (b8:ce:f6:19:1b:42)   swp3        -
+node2/lldp
+           e3a   sw1 (b8:ce:f6:19:1b:42)   swp4        -
+cluster1::*>
+----
+. 작동 스위치에서 net show interface 명령을 실행하여 노드와 모든 shelf를 모두 볼 수 있는지 확인합니다
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *net show interface*
+
+State  Name    Spd   MTU    Mode        LLDP                  Summary
+-----  ------  ----  -----  ----------  --------------------  --------------------
+...
+...
+UP     swp1    100G  9216   Trunk/L2   node1 (e3a)             Master: bridge(UP)
+UP     swp2    100G  9216   Trunk/L2   node2 (e3a)             Master: bridge(UP)
+UP     swp3    100G  9216   Trunk/L2   SHFFG1826000112 (e0b)   Master: bridge(UP)
+UP     swp4    100G  9216   Trunk/L2   SHFFG1826000112 (e0b)   Master: bridge(UP)
+UP     swp5    100G  9216   Trunk/L2   SHFFG1826000102 (e0b)   Master: bridge(UP)
+UP     swp6    100G  9216   Trunk/L2   SHFFG1826000102 (e0b)   Master: bridge(UP))
+...
+...
+----
+. 스토리지 시스템의 Shelf port show-fields remote-device, remote-port를 확인한다
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage shelf port show -fields remote-device, remote-port*
+shelf   id  remote-port   remote-device
+-----   --  -----------   -------------
+3.20    0   swp3          sw1
+3.20    1   -             -
+3.20    2   swp4          sw1
+3.20    3   -             -
+3.30    0   swp5          sw1
+3.20    1   -             -
+3.30    2   swp6          sw1
+3.20    3   -             -
+cluster1::*>
+----
+. 스토리지 스위치 SW2에 연결된 모든 케이블을 분리합니다.
+. 교체 스위치 nsw2에 모든 케이블을 다시 연결합니다.
+. 스토리지 노드 포트의 상태를 다시 확인합니다. 스토리지 포트 show-port-type ENET입니다
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage port show -port-type ENET*
+                                    Speed                     VLAN
+Node             Port Type  Mode    (Gb/s) State    Status      ID
+---------------- ---- ----- ------- ------ -------- --------- ----
+node1
+                 e3a  ENET  storage 100    enabled  online      30
+                 e3b  ENET  storage   0    enabled  offline     30
+                 e7a  ENET  storage   0    enabled  offline     30
+                 e7b  ENET  storage 100    enabled  online      30
+node2
+                 e3a  ENET  storage 100    enabled  online      30
+                 e3b  ENET  storage   0    enabled  offline     30
+                 e7a  ENET  storage   0    enabled  offline     30
+                 e7b  ENET  storage 100    enabled  online      30
+cluster1::*>
+----
+. 두 스위치를 모두 사용할 수 있는지 확인합니다. 'net device-discovery show'
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show protocol lldp*
+Node/     Local Discovered
+Protocol  Port  Device (LLDP: ChassisID)  Interface	  Platform
+--------  ----  -----------------------   ---------   ---------
+node1/lldp
+          e3a  sw1 (b8:ce:f6:19:1b:96)    swp1        -
+          e7b  nsw2 (b8:ce:f6:19:1a:7e)   swp1        -
+node2/lldp
+          e3a  sw1 (b8:ce:f6:19:1b:96)    swp2        -
+          e7b  nsw2 (b8:ce:f6:19:1a:7e)   swp2        -
+cluster1::*>
+----
+. 스토리지 시스템의 Shelf port show-fields remote-device, remote-port를 확인한다
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage shelf port show -fields remote-device, remote-port*
+shelf   id    remote-port     remote-device
+-----   --    -----------     -------------
+3.20    0     swp3            sw1
+3.20    1     swp3            nsw2
+3.20    2     swp4            sw1
+3.20    3     swp4            nsw2
+3.30    0     swp5            sw1
+3.20    1     swp5            nsw2
+3.30    2     swp6            sw1
+3.20    3     swp6            nsw2
+cluster1::*>
+----
+. 'system switch ethernet log setup-password'와 'system switch ethernet log enable-collection' 명령을 사용하여 스위치 관련 로그 파일을 수집하는 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화한다
++
+'시스템 스위치 이더넷 로그 설정 - 암호'를 입력합니다
+
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *system switch ethernet log setup-password*
+Enter the switch name: <return>
+The switch name entered is not recognized.
+Choose from the following list:
+*sw1*
+*nsw2*
+
+cluster1::*> *system switch ethernet log setup-password*
+
+Enter the switch name: *sw1*
+RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
+Do you want to continue? {y|n}::[n] *y*
+
+Enter the password: <enter switch password>
+Enter the password again: <enter switch password>
+
+cluster1::*> *system switch ethernet log setup-password*
+
+Enter the switch name: *nsw2*
+RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
+Do you want to continue? {y|n}:: [n] *y*
+
+Enter the password: <enter switch password>
+Enter the password again: <enter switch password>
+----
++
+'시스템 스위치 이더넷 로그 Enable-collection'이 그 뒤를 따랐습니다
+
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *system  switch ethernet log enable-collection*
+
+Do you want to enable cluster log collection for all nodes in the cluster?
+{y|n}: [n] *y*
+
+Enabling cluster switch log collection.
+
+cluster1::*>
+----
++
+
+NOTE: 이러한 명령에서 오류가 반환되면 NetApp 지원에 문의하십시오.
+
+. 스위치 로그 수집 기능 '시스템 스위치 이더넷 로그 수집 장치 *'를 시작합니다
++
+10분 정도 기다린 후 'system switch ethernet log show' 명령을 사용하여 로그 수집이 성공했는지 확인합니다
+
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *system switch ethernet log show*
+Log Collection Enabled: true
+
+Index  Switch                       Log Timestamp        Status
+------ ---------------------------- -------------------  ---------    
+1      sw1 (b8:ce:f6:19:1b:42)      4/29/2022 03:05:25   complete   
+2      nsw2 (b8:ce:f6:19:1b:96)     4/29/2022 03:07:42   complete
+----
+. 권한 수준을 다시 admin:'Set-Privilege admin'으로 변경합니다
+. 자동 케이스 생성을 억제한 경우 AutoSupport 메시지 '시스템 노드 AutoSupport invoke -node * -type all-message MAINT=end'를 호출하여 다시 활성화합니다
+

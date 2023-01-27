@@ -1,0 +1,50 @@
+---
+permalink: switch-cisco-9336c-fx2/install-switch-9336c-cluster.html 
+sidebar: sidebar 
+keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 9336c-fx2 
+summary: 다음 절차에 따라 Cisco Nexus 9336C-FX2 스위치를 설치합니다. 
+---
+= 9336C-FX2 클러스터 스위치를 설치합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+다음 절차에 따라 Cisco Nexus 9336C-FX2 스위치를 설정하고 구성합니다.
+
+.필요한 것
+* 설치 사이트에서 HTTP, FTP 또는 TFTP 서버에 액세스하여 해당 NX-OS 및 RCF(Reference Configuration File) 릴리즈를 다운로드합니다.
+* 관련 라이센스, 네트워크 및 구성 정보, 케이블.
+* 완료되었습니다 link:setup-worksheet-9336c-cluster.html["케이블 연결 워크시트"].
+* 해당 NetApp 클러스터 네트워크 및 관리 네트워크 RCFs는 NetApp Support 사이트 에서 다운로드할 수 있습니다 http://mysupport.netapp.com/["mysupport.netapp.com"^]. 모든 Cisco 클러스터 네트워크 및 관리 네트워크 스위치는 표준 Cisco 공장 출하시 기본 구성으로 제공됩니다. 이러한 스위치에는 최신 버전의 NX-OS 소프트웨어도 있지만 RCFs가 로드되지 않았습니다.
+* link:required-documentation-9336c-cluster.html["필수 스위치 및 ONTAP 문서"].
+
+
+.단계
+. 클러스터 네트워크 및 관리 네트워크 스위치와 컨트롤러를 랙에 연결합니다.
++
+[cols="1,2"]
+|===
+| 를 설치하는 경우... | 그러면... 
+
+
+ a| 
+NetApp 시스템 캐비닛 내 Cisco Nexus 9336C-FX2
+ a| 
+NetApp 캐비닛에 스위치를 설치하는 지침은 _Cisco Nexus 9336C-FX2 클러스터 스위치 및 패스스루 패널을 NetApp Cabinet_guide에 설치하십시오.
+
+
+
+ a| 
+Telco 랙에 있는 장비
+ a| 
+스위치 하드웨어 설치 가이드 및 NetApp 설치 및 설정 지침에 제공된 절차를 참조하십시오.
+
+|===
+. 완료된 케이블 연결 워크시트를 사용하여 클러스터 네트워크 및 관리 네트워크 스위치를 컨트롤러에 연결합니다.
+. 클러스터 네트워크 및 관리 네트워크 스위치와 컨트롤러의 전원을 켭니다.
+
+
+.다음 단계
+로 이동합니다 link:setup-switch-9336c-cluster.html["Cisco Nexus 9336C-FX2 스위치를 구성합니다"].
