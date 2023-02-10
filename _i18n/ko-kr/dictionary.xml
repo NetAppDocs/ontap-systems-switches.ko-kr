@@ -3444,8 +3444,6 @@
   <block id="ae93751a93d78c7a46cb2fb14c4ee8b7" category="paragraph"><block ref="37012567363af00fe31747157af69b42" prefix="" category="inline-code"></block></block>
   <block id="9678824a283295181839404bacab6aec" category="paragraph">의 배너 출력<block ref="6d53824b9996e36fd31937e922967215" prefix=" " category="inline-code"></block> 명령, 스위치의 올바른 구성 및 작동을 위해 * 중요 참고 사항 * 섹션의 지침을 읽고 따라야 합니다.</block>
   <block id="5691cd5298e545e7d1addfde1db9b5b8" category="list-text">소프트웨어 버전과 스위치 설정이 올바른지 확인한 후 을 복사합니다<block ref="092a495b03acdb0bf155d8ff2997a8d6" prefix=" " category="inline-code"></block> 파일을 에 저장합니다<block ref="35b7dd24bfd716b0553d5e558b8afe97" prefix=" " category="inline-code"></block> 스위치 S2의 파일</block>
-  <block id="e3adda4268a7e7bd78f47e8cc5f86c48" category="section-title">3단계: NX-OS 이미지를 Cisco 스위치 S2로 다운로드하고 재부팅합니다</block>
-  <block id="fb7ec7093f3964bd1d568e19bda96e76" category="list-text">NX-OS 이미지를 스위치 S2로 다운로드합니다.</block>
   <block id="4e829ce6afd35ae225b70f58b27f634a" category="paragraph">시스템을 재부팅하라는 메시지가 표시됩니다.</block>
   <block id="9f78f2ea8dc9f03e722eb98915e83eae" category="list-text">새 NX-OS 버전 번호가 스위치에 있는지 확인합니다.</block>
   <block id="8492932a4b3a469a1fb900aea61b22ff" category="section-title">4단계: 스위치 및 포트의 상태를 다시 확인합니다</block>
@@ -4310,4 +4308,6 @@
   <block id="a8bb0b5314965a8ac1d110202d7aae1f" category="sidebar">NX-OS를 설치합니다</block>
   <block id="72f2a813dae956304645ec60ccd278dd" category="sidebar">CSHM을 설치합니다</block>
   <block id="9c065304d8a82e97da8536d4c7484ee2" category="sidebar">이전 Cisco 스위치에서 마이그레이션합니다</block>
+  <block id="c95ced7468e70606897322014b89e5b3" category="section-title">3단계: NX-OS 이미지를 Cisco 스위치 S2에 복사하고 재부팅합니다</block>
+  <block id="04677d95852adc11088eca251913d172" category="list-text">NX-OS 이미지를 스위치 S2에 복사합니다.</block>
 </blocks>
