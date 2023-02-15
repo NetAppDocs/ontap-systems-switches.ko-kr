@@ -19,13 +19,22 @@ Cisco Nexus 9336C-FX2 공유 스위치는 Cisco Nexus 9000 플랫폼의 일부�
 
 ONTAP를 실행하는 시스템에서 Cisco Nexus 9336C-FX2 스위치를 처음 구성하려면 다음 단계를 수행하십시오.
 
-. link:cable-9336c-shared.html["케이블 연결 워크시트를 작성합니다"]. 케이블 연결 이미지를 사용하여 컨트롤러와 스위치 간의 케이블 연결을 완료합니다.
-. link:install-9336c-shared.html["스위치를 장착하십시오"]. 스위치 하드웨어를 설치합니다.
-. link:setup-and-configure-9336c-shared.html["스위치를 구성합니다"]. Cisco Nexus 9336C-FX2 공유 스위치를 설정합니다.
-. link:install-switch-and-passthrough-panel-9336c-shared.html["NetApp 캐비닛에 스위치 설치"]. 구성에 따라 Cisco Nexus 9336C-FX2 스위치 및 패스스루 패널을 스위치에 포함된 표준 브래킷과 함께 NetApp 캐비닛에 설치할 수 있습니다.
-. link:prepare-nxos-rcf-9336c-shared.html["NX-OS 및 RCF 설치 준비"]. Cisco NX-OS 소프트웨어 설치 및 RCFs(Reference Configuration File)에 대한 사전 절차를 따르십시오.
-. link:install-nxos-software-9336c-shared.html["NX-OS 소프트웨어를 설치합니다"]. Nexus 9336C-FX2 클러스터 스위치에 NX-OS 소프트웨어를 설치합니다.
-. link:install-nxos-rcf-9336c-shared.html["RCF 구성 파일을 설치합니다"]. Nexus 9336C-FX2 스위치를 처음 설정한 후 RCF를 설치합니다. 이 절차를 사용하여 RCF 버전을 업그레이드할 수도 있습니다.
+. link:cable-9336c-shared.html["케이블 연결 워크시트를 작성합니다"].
++
+케이블 연결 이미지를 사용하여 컨트롤러와 스위치 간의 케이블 연결을 완료합니다.
+
+. link:install-9336c-shared.html["스위치를 장착하십시오"].
+. link:setup-and-configure-9336c-shared.html["스위치를 구성합니다"].
+. link:install-switch-and-passthrough-panel-9336c-shared.html["NetApp 캐비닛에 스위치 설치"].
++
+구성에 따라 Cisco Nexus 9336C-FX2 스위치 및 패스스루 패널을 스위치에 포함된 표준 브래킷과 함께 NetApp 캐비닛에 설치할 수 있습니다.
+
+. link:prepare-nxos-rcf-9336c-shared.html["NX-OS 및 RCF 설치 준비"].
+. link:install-nxos-software-9336c-shared.html["NX-OS 소프트웨어를 설치합니다"].
+. link:install-nxos-rcf-9336c-shared.html["RCF 구성 파일을 설치합니다"].
++
+Nexus 9336C-FX2 스위치를 처음 설정한 후 RCF를 설치합니다. 이 절차를 사용하여 RCF 버전을 업그레이드할 수도 있습니다.
+
 
 
 

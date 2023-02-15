@@ -17,8 +17,7 @@ ONTAP를 실행하는 시스템에서 NetApp CN1610 스위치를 설치 및 구�
 . link:install-fastpath-software.html["FASTPATH 소프트웨어를 설치합니다"]
 . link:install-rcf-file.html["참조 구성 파일을 설치합니다"]
 +
-
-NOTE: 스위치에서 ONTAP 8.3.1 이상을 실행 중인 경우 의 지침을 따릅니다 link:install-fastpath-rcf-831.html["ONTAP 8.3.1 이상을 실행하는 스위치에 FASTPATH 및 RCF를 설치합니다."]
+스위치에서 ONTAP 8.3.1 이상을 실행 중인 경우 의 지침을 따릅니다 link:install-fastpath-rcf-831.html["ONTAP 8.3.1 이상을 실행하는 스위치에 FASTPATH 및 RCF를 설치합니다."]
 
 . link:configure-hardware-cn1610.html["스위치를 구성합니다"]
 
