@@ -101,9 +101,6 @@ FIPS 비호환
 
 |===
 
-IMPORTANT: BES-53248 클러스터 스위치를 EFOS 3.3.x.x 또는 3.4.x.x에서 EFOS 3.7.0.4 또는 3.8.0.2로 업그레이드한 후 ISL(Inter-Switch Link) 및 포트 채널이 * DOWN * 상태로 표시됩니다. KB 문서: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric%2C_Interconnect_and_Management_Switches/BES-53248_Cluster_Switch_NDU_failed_upgrade_to_EFOS_3.7.0.4_and_later["BES-53248 클러스터 스위치 NDU가 EFOS 3.7.0.4 이상으로 업그레이드되지 않았습니다"^] 를 참조하십시오.
-
-
 
 == 소프트웨어를 설치합니다
 
@@ -118,6 +115,9 @@ IMPORTANT: BES-53248 클러스터 스위치를 EFOS 3.3.x.x 또는 3.4.x.x에서
 === 방법 1: EFOS 설치
 
 EFOS 소프트웨어를 설치하거나 업그레이드하려면 다음 단계를 수행하십시오.
+
+
+IMPORTANT: BES-53248 클러스터 스위치를 EFOS 3.3.x.x 또는 3.4.x.x에서 EFOS 3.7.0.4 또는 3.8.0.2로 업그레이드한 후 ISL(Inter-Switch Link) 및 포트 채널이 * DOWN * 상태로 표시됩니다. KB 문서: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric%2C_Interconnect_and_Management_Switches/BES-53248_Cluster_Switch_NDU_failed_upgrade_to_EFOS_3.7.0.4_and_later["BES-53248 클러스터 스위치 NDU가 EFOS 3.7.0.4 이상으로 업그레이드되지 않았습니다"^] 를 참조하십시오.
 
 .단계
 . BES-53248 클러스터 스위치를 관리 네트워크에 연결합니다.
