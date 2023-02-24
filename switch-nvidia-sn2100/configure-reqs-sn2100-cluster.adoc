@@ -30,5 +30,6 @@ NVIDIA SN2100 스위치(X190006/X190106)는 스위치에 포함된 표준 브래
 NVIDIA SN2100 스위치는 Cumulus Linux를 실행하는 10Gb/25/40/100 Gb 이더넷 스위치입니다. 스위치는 다음을 지원합니다.
 
 * ONTAP 9.10.1P3 SN2100 스위치는 ONTAP 9.10.1P3에서 서로 다른 스위치 쌍을 통해 클러스터 및 스토리지 애플리케이션을 제공합니다. ONTAP 9.10.1P3에서 NVIDIA SN2100 스위치를 사용하여 스토리지 및 클러스터 기능을 공유 스위치 구성으로 결합할 수 있습니다.
-* Cumulus Linux(CL) OS 버전 4.4.2. Cumulus Linux는 스위치에서 Cumulus Linux 또는 ONIE를 실행할 때 설치될 수 있습니다.
+* Cumulus Linux(CL) OS 버전 4.4.3. 최신 호환성 정보는 를 참조하십시오 https://mysupport.netapp.com/site/info/nvidia-cluster-switch["NVIDIA 이더넷 스위치"^] 정보 페이지.
+* Cumulus Linux 또는 ONIE를 실행 중인 스위치에서 Cumulus Linux를 설치할 수 있습니다.
 

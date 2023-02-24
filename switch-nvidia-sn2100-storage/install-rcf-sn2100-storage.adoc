@@ -16,7 +16,7 @@ RCF 스크립트를 설치하려면 다음 절차를 따르십시오.
 .필요한 것
 RCF 스크립트를 설치하기 전에 스위치에서 다음 사항을 사용할 수 있는지 확인하십시오.
 
-* Cumulus Linux 4.4.2가 설치되었습니다.
+* Cumulus Linux 4.4.3이 설치되었습니다.
 * IP 주소, 서브넷 마스크 및 기본 게이트웨이는 DHCP를 통해 정의되거나 수동으로 구성됩니다.
 
 
@@ -274,7 +274,7 @@ sw1                         cluster-network    10.233.205.90    MSN2100-CB2RC
      Serial Number: MNXXXXXXGD
       Is Monitored: true
             Reason: None
-  Software Version: Cumulus Linux version 4.4.2 running on Mellanox
+  Software Version: Cumulus Linux version 4.4.3 running on Mellanox
                     Technologies Ltd. MSN2100
     Version Source: LLDP
 
@@ -282,7 +282,7 @@ sw2                         cluster-network    10.233.205.91    MSN2100-CB2RC
      Serial Number: MNCXXXXXXGS
       Is Monitored: true
             Reason: None
-  Software Version: Cumulus Linux version 4.4.2 running on Mellanox
+  Software Version: Cumulus Linux version 4.4.3 running on Mellanox
                     Technologies Ltd. MSN2100
     Version Source: LLDP
 ----

@@ -62,6 +62,9 @@ _x_는 유지보수 기간(시간)입니다.
 'Storage port show-port-type ENET'입니다
 
 +
+.예제 보기
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
 cluster1::*> *storage port show -port-type ENET*
@@ -80,8 +83,12 @@ node2
                e7b  ENET  storage 100    enabled  online      30
 cluster1::*>
 ----
+====
 . 스토리지 스위치 SW1을 사용할 수 있는지 확인합니다. 'network device-discovery show
 +
+.예제 보기
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network device-discovery show protocol lldp*
@@ -94,8 +101,12 @@ node2/lldp
            e3a   sw1 (b8:ce:f6:19:1b:42)   swp4        -
 cluster1::*>
 ----
+====
 . 작동 스위치에서 net show interface 명령을 실행하여 노드와 모든 shelf를 모두 볼 수 있는지 확인합니다
 +
+.예제 보기
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
 cumulus@sw1:~$ *net show interface*
@@ -113,8 +124,12 @@ UP     swp6    100G  9216   Trunk/L2   SHFFG1826000102 (e0b)   Master: bridge(UP
 ...
 ...
 ----
+====
 . 스토리지 시스템의 Shelf port show-fields remote-device, remote-port를 확인한다
 +
+.예제 보기
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
 cluster1::*> *storage shelf port show -fields remote-device, remote-port*
@@ -130,10 +145,14 @@ shelf   id  remote-port   remote-device
 3.20    3   -             -
 cluster1::*>
 ----
+====
 . 스토리지 스위치 SW2에 연결된 모든 케이블을 분리합니다.
 . 교체 스위치 nsw2에 모든 케이블을 다시 연결합니다.
 . 스토리지 노드 포트의 상태를 다시 확인합니다. 스토리지 포트 show-port-type ENET입니다
 +
+.예제 보기
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
 cluster1::*> *storage port show -port-type ENET*
@@ -152,8 +171,12 @@ node2
                  e7b  ENET  storage 100    enabled  online      30
 cluster1::*>
 ----
+====
 . 두 스위치를 모두 사용할 수 있는지 확인합니다. 'net device-discovery show'
 +
+.예제 보기
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network device-discovery show protocol lldp*
@@ -168,8 +191,12 @@ node2/lldp
           e7b  nsw2 (b8:ce:f6:19:1a:7e)   swp2        -
 cluster1::*>
 ----
+====
 . 스토리지 시스템의 Shelf port show-fields remote-device, remote-port를 확인한다
 +
+.예제 보기
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
 cluster1::*> *storage shelf port show -fields remote-device, remote-port*
@@ -185,11 +212,15 @@ shelf   id    remote-port     remote-device
 3.20    3     swp6            nsw2
 cluster1::*>
 ----
+====
 . 'system switch ethernet log setup-password'와 'system switch ethernet log enable-collection' 명령을 사용하여 스위치 관련 로그 파일을 수집하는 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화한다
 +
 '시스템 스위치 이더넷 로그 설정 - 암호'를 입력합니다
 
 +
+.예제 보기
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
 cluster1::*> *system switch ethernet log setup-password*
@@ -217,10 +248,14 @@ Do you want to continue? {y|n}:: [n] *y*
 Enter the password: <enter switch password>
 Enter the password again: <enter switch password>
 ----
+====
 +
 '시스템 스위치 이더넷 로그 Enable-collection'이 그 뒤를 따랐습니다
 
 +
+.예제 보기
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
 cluster1::*> *system  switch ethernet log enable-collection*
@@ -232,6 +267,7 @@ Enabling cluster switch log collection.
 
 cluster1::*>
 ----
+====
 +
 
 NOTE: 이러한 명령에서 오류가 반환되면 NetApp 지원에 문의하십시오.
@@ -241,6 +277,9 @@ NOTE: 이러한 명령에서 오류가 반환되면 NetApp 지원에 문의하�
 10분 정도 기다린 후 'system switch ethernet log show' 명령을 사용하여 로그 수집이 성공했는지 확인합니다
 
 +
+.예제 보기
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
 cluster1::*> *system switch ethernet log show*
@@ -251,6 +290,7 @@ Index  Switch                       Log Timestamp        Status
 1      sw1 (b8:ce:f6:19:1b:42)      4/29/2022 03:05:25   complete   
 2      nsw2 (b8:ce:f6:19:1b:96)     4/29/2022 03:07:42   complete
 ----
+====
 . 권한 수준을 다시 admin:'Set-Privilege admin'으로 변경합니다
 . 자동 케이스 생성을 억제한 경우 AutoSupport 메시지 '시스템 노드 AutoSupport invoke -node * -type all-message MAINT=end'를 호출하여 다시 활성화합니다
 

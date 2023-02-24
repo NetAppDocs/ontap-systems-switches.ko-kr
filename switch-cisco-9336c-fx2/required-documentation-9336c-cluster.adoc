@@ -132,7 +132,7 @@ https://library.netapp.com/ecm/ecm_download_file/ECMM1280394["42U 시스템 캐�
 
 
  a| 
-link:install-switch-and-passthrough-panel.html["NetApp 캐비닛에 Cisco 9336-FX2 스위치를 설치합니다"^]
+link:install-switch-and-passthrough-panel-9336c-cluster.html["NetApp 캐비닛에 Cisco 9336-FX2 스위치를 설치합니다"^]
  a| 
 Cisco Nexus 9336C-FX2 스위치를 4-포스트 NetApp 캐비닛에 설치하는 방법에 대해 설명합니다.
 
