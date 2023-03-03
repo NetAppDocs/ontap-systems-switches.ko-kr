@@ -26,13 +26,17 @@ Nexus 92300YC 스위치를 처음 설정한 후 RCF를 설치할 수 있습니�
 ====
 * 이 절차를 수행하려면 ONTAP 명령과 를 모두 사용해야 합니다 https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#InstallandUpgrade["Cisco Nexus 9000 시리즈 스위치"^]; ONTAP 명령은 별도의 표시가 없는 한 사용됩니다.
 * 이 절차를 수행하기 전에 스위치 구성의 현재 백업이 있는지 확인하십시오.
+* 이 절차 중에는 작동 중인 ISL(Inter-Switch Link)이 필요하지 않습니다. RCF 버전 변경이 ISL 연결에 일시적으로 영향을 미칠 수 있기 때문에 이는 설계상 가능합니다. 무중단 클러스터 운영을 보장하기 위해 다음 절차를 수행하면 타겟 스위치에 대한 단계를 수행하는 동안 모든 클러스터 LIF가 운영 파트너 스위치로 마이그레이션됩니다.
 
 
 ====
 .단계
 . 클러스터 스위치에 연결된 각 노드의 클러스터 포트 'network device-discovery show'를 표시합니다
 +
-[listing, subs="+quotes"]
+.예제 보기
+[%collapsible]
+====
+[listing]
 ----
 cluster1::*> *network device-discovery show*
 Node/       Local  Discovered
@@ -46,12 +50,16 @@ node2/cdp
             e0b    cs2                       Ethernet1/1/2     N9K-C92300YC
 cluster1::*>
 ----
+====
 . 각 클러스터 포트의 관리 및 운영 상태를 확인합니다.
 +
 .. 모든 클러스터 포트가 정상 상태인지 확인합니다.
 `network port show -ipspace Cluster`
 +
-[listing, subs="+quotes"]
+.예제 보기
+[%collapsible]
+====
+[listing]
 ----
 cluster1::*> *network port show -ipspace Cluster*
 
@@ -72,10 +80,14 @@ e0c       Cluster      Cluster          up   9000  auto/100000 healthy false
 e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
 cluster1::*>
 ----
+====
 .. 모든 클러스터 인터페이스(LIF)가 홈 포트에 있는지 확인합니다.
 `network interface show -vserver Cluster`
 +
-[listing, subs="+quotes"]
+.예제 보기
+[%collapsible]
+====
+[listing]
 ----
 cluster1::*> *network interface show -vserver Cluster*
             Logical            Status     Network           Current      Current Is
@@ -88,9 +100,13 @@ Cluster
             node2_clus2        up/up      169.254.3.9/23    node2        e0d     true
 cluster1::*>
 ----
+====
 .. 클러스터가 'system cluster-switch show-is-monitoring-enabled-operational true'라는 두 클러스터 스위치에 대한 정보를 표시하는지 확인합니다
 +
-[listing, subs="+quotes"]
+.예제 보기
+[%collapsible]
+====
+[listing]
 ----
 cluster1::*> *system cluster-switch show -is-monitoring-enabled-operational true*
 Switch                      Type               Address          Model
@@ -113,6 +129,7 @@ cs2                         cluster-network    10.233.205.93    N9K-C92300YC
 
 2 entries were displayed.
 ----
+====
 
 
 . 클러스터 LIF에서 자동 되돌리기 기능을 해제합니다.
@@ -131,7 +148,10 @@ cs2(config-if-range)# *shutdown*
 . 클러스터 포트가 클러스터 스위치 CS1에 호스팅된 포트로 마이그레이션되었는지 확인합니다. 이 작업은 몇 초 정도 걸릴 수 있습니다.
 `network interface show -vserver Cluster`
 +
-[listing, subs="+quotes"]
+.예제 보기
+[%collapsible]
+====
+[listing]
 ----
 cluster1::*> *network interface show -vserver Cluster*
             Logical           Status     Network            Current       Current Is
@@ -144,9 +164,13 @@ Cluster
             node2_clus2       up/up      169.254.3.9/23     node2         e0c     false
 cluster1::*>
 ----
+====
 . 클러스터 상태가 양호한지 확인합니다. 'cluster show'
 +
-[listing, subs="+quotes"]
+.예제 보기
+[%collapsible]
+====
+[listing]
 ----
 cluster1::*> *cluster show*
 Node           Health  Eligibility   Epsilon
@@ -155,6 +179,7 @@ node1          true    true          false
 node2          true    true          false
 cluster1::*>
 ----
+====
 . 스위치의 현재 백업이 없는 경우 다음 명령의 출력을 로그 파일에 복사하여 현재 스위치 구성을 저장할 수 있습니다.
 +
 'show running-config'를 선택합니다
@@ -311,7 +336,10 @@ This command will reboot the system. (y/n)?  [n] *y*
 .. e0d 포트가 클러스터의 모든 노드에서 정상 작동 중인지 확인합니다.
 `network port show -ipspace Cluster`
 +
-[listing, subs="+quotes"]
+.예제 보기
+[%collapsible]
+====
+[listing]
 ----
 cluster1::*> *network port show -ipspace Cluster*
 
@@ -331,9 +359,13 @@ Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
 e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
 e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 ----
+====
 .. 클러스터에서 스위치 상태를 확인합니다. LIF가 e0d에 홈링되지 않으므로 스위치 CS2가 표시되지 않을 수 있습니다.
 +
-[listing, subs="+quotes"]
+.예제 보기
+[%collapsible]
+====
+[listing]
 ----
 cluster1::*> *network device-discovery show -protocol cdp*
 Node/       Local  Discovered
@@ -367,6 +399,7 @@ cs2                         cluster-network    10.233.205.91    N9K-C92300YC
 
 2 entries were displayed.
 ----
+====
 
 
 +
@@ -392,7 +425,10 @@ cs1(config-if-range)# *shutdown*
 ----
 . 클러스터 LIF가 스위치 CS2에 호스팅된 포트로 마이그레이션되었는지 확인합니다. 이 작업은 몇 초 정도 걸릴 수 있습니다. `network interface show -vserver Cluster`
 +
-[listing, subs="+quotes"]
+.예제 보기
+[%collapsible]
+====
+[listing]
 ----
 cluster1::*> *network interface show -vserver Cluster*
             Logical          Status     Network            Current           Current Is
@@ -405,9 +441,13 @@ Cluster
             node2_clus2      up/up      169.254.3.9/23     node2             e0d     true
 cluster1::*>
 ----
+====
 . 클러스터 상태가 양호한지 확인합니다. 'cluster show'
 +
-[listing, subs="+quotes"]
+.예제 보기
+[%collapsible]
+====
+[listing]
 ----
 cluster1::*> *cluster show*
 Node           Health   Eligibility   Epsilon
@@ -416,6 +456,7 @@ node1          true     true          false
 node2          true     true          false
 cluster1::*>
 ----
+====
 . 스위치 CS1에서 7-14단계를 반복합니다.
 . 클러스터 LIF에서 자동 되돌리기 기능을 설정합니다.
 +
@@ -446,7 +487,10 @@ Ethernet1/4      1       eth  trunk  up      none                   100G(D) --
 ----
 . CS1과 CS2 사이의 ISL이 정상적으로 작동하는지 '포트-채널 요약 정보'를 확인합니다
 +
-[listing, subs="+quotes"]
+.예제 보기
+[%collapsible]
+====
+[listing]
 ----
 cs1# *show port-channel summary*
 Flags:  D - Down        P - Up in port-channel (members)
@@ -464,10 +508,14 @@ Group Port-       Type     Protocol  Member Ports
 1     Po1(SU)     Eth      LACP      Eth1/65(P)   Eth1/66(P)
 cs1#
 ----
+====
 . 클러스터 LIF가 홈 포트로 되돌려졌는지 확인합니다.
 `network interface show -vserver Cluster`
 +
-[listing, subs="+quotes"]
+.예제 보기
+[%collapsible]
+====
+[listing]
 ----
 cluster1::*> *network interface show -vserver Cluster*
             Logical       Status     Network            Current       Current Is
@@ -480,9 +528,13 @@ Cluster
             node2_clus2   up/up      169.254.3.9/23     node2         e0d     true
 cluster1::*>
 ----
+====
 . 클러스터 상태가 양호한지 확인합니다. 'cluster show'
 +
-[listing, subs="+quotes"]
+.예제 보기
+[%collapsible]
+====
+[listing]
 ----
 cluster1::*> *cluster show*
 Node           Health  Eligibility   Epsilon
@@ -490,9 +542,13 @@ Node           Health  Eligibility   Epsilon
 node1          true    true          false
 node2          true    true          false
 ----
+====
 . 원격 클러스터 인터페이스를 ping하여 'cluster ping-cluster-node local' 연결을 확인합니다
 +
-[listing, subs="+quotes"]
+.예제 보기
+[%collapsible]
+====
+[listing]
 ----
 cluster1::*> *cluster ping-cluster -node local*
 Host is node1
@@ -527,6 +583,7 @@ RPC status:
 6 paths up, 0 paths down (tcp check)
 6 paths up, 0 paths down (udp check)
 ----
+====
 
 
 [role="tabbed-block"]

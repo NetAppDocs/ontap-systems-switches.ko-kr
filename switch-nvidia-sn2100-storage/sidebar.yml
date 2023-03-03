@@ -38,7 +38,5 @@ entries:
   entries:
   - title: Cisco 스토리지 스위치에서 마이그레이션
     url: "/switch-nvidia-sn2100/migrate-cisco-storage-switch-sn2100-storage.html"
-  - title: 스위치가 있는 2노드 클러스터로 마이그레이션
-    url: "/switch-nvidia-sn2100/migrate-2n-switched-sn2100-storage.html"
 - title: 스위치를 교체합니다
   url: "/switch-nvidia-sn2100/replace-sn2100-switch-storage.html"

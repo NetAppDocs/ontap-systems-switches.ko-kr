@@ -44,6 +44,9 @@ IMPORTANT: 을 참조하십시오 link:cabling-considerations-sn2100-cluster.htm
 ** SN2100 스위치는 최신 버전의 Cumulus Linux를 실행하고 있습니다
 ** RCF(Reference Configuration Files)가 스위치에 적용됩니다
 ** SMTP, SNMP, SSH 등의 사이트 사용자 지정은 새 스위치에 구성됩니다.
++
+를 클릭합니다 https://hwu.netapp.com["Hardware Universe"^] 에는 해당 플랫폼의 실제 클러스터 포트에 대한 최신 정보가 나와 있습니다.
+
 
 
 
