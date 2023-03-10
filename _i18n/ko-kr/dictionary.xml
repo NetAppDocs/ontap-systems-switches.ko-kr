@@ -4285,4 +4285,5 @@
   <block id="03f4e394a093a045e6047871ed96a882" category="list-text">에서 다운로드한 해당 NX-OS 버전입니다<block ref="5a1c929e557009655aef79d819d791d1" category="inline-link-rx"></block> 페이지.</block>
   <block id="c5490cef816a5fdfd03bfbae460638f5" category="paragraph"><block ref="c5490cef816a5fdfd03bfbae460638f5" category="inline-link-macro-rx"></block></block>
   <block id="674dac01986b07db44266812735775f6" category="paragraph">필요에 따라 할 수 있습니다 <block ref="2243efeaee625d6b6076bcdcbd40e014" category="inline-link-macro-rx"></block>. 그렇지 않으면 로 이동합니다 <block ref="16a9a5fa8979bab3106e7aad0dfd20d9" category="inline-link-macro-rx"></block>.</block>
+  <block id="3eb0f8cafe973dd42647b7ade90f7100" category="admonition">다음 단계로 진행하기 전에 2분 이상 기다린 후 그룹 1에서 역간 연결이 제대로 작동하는지 확인해야 합니다.</block>
 </blocks>
