@@ -40,7 +40,9 @@ entries:
     url: "/switch-nvidia-sn2100/migrate-cisco-sn2100-cluster-switch.html"
   - title: 스위치가 있는 2노드 클러스터로 마이그레이션
     url: "/switch-nvidia-sn2100/migrate-2n-switched-sn2100-cluster.html"
-  - title: 스위치가 없는 2노드 클러스터로 마이그레이션
+- title: 스위치를 교체합니다
+  entries:
+  - title: 클러스터 스위치를 교체합니다
+    url: "/switch-nvidia-sn2100/replace-sn2100-switch-cluster.html"
+  - title: 클러스터 스위치를 스위치가 없는 연결로 대체
     url: "/switch-nvidia-sn2100/migrate-to-switchless-interconnect-sn2100-cluster.html"
-- title: 클러스터 스위치를 교체합니다
-  url: "/switch-nvidia-sn2100/replace-sn2100-switch-cluster.html"

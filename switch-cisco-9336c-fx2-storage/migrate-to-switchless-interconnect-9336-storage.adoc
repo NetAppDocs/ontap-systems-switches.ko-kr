@@ -253,6 +253,10 @@ Enable Switchless Cluster: true
 +
 '클러스터 ping-cluster-node local'
 
++
+
+IMPORTANT: 다음 단계로 진행하기 전에 2분 이상 기다린 후 그룹 1에서 역간 연결이 제대로 작동하는지 확인해야 합니다.
+
 . 그룹 2의 포트에 대해 스위치가 없는 구성을 설정합니다.
 +
 

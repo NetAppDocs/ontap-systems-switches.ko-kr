@@ -36,7 +36,9 @@ entries:
     url: "/switch-cisco-92300/migrate-to-2n-switched.html"
   - title: 이전 Cisco 스위치에서 마이그레이션합니다
     url: "/switch-cisco-92300/migrate-to-92300yc.html"
-  - title: 스위치가 없는 2노드 클러스터로 마이그레이션
-    url: "/switch-cisco-92300/migrate-to-switchless-cluster-interconnect.html"
 - title: 스위치를 교체합니다
-  url: "/switch-cisco-92300/replace-92300yc.html"
+  entries:
+  - title: 스위치를 교체합니다
+    url: "/switch-cisco-92300/replace-92300yc.html"
+  - title: 클러스터 스위치를 스위치가 없는 연결로 대체
+    url: "/switch-cisco-92300/migrate-to-switchless-cluster-interconnect.html"

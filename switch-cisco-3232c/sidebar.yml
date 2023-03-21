@@ -38,13 +38,13 @@ entries:
     url: "/switch-cisco-3232c/migrate-from-cisco-nexus-5596.html"
   - title: 스위치가 없는 2노드 클러스터에서 마이그레이션
     url: "/switch-cisco-3232c/migrate-from-two-node-switchless-cluster.html"
-  - title: 스위치가 없는 2노드 클러스터로 마이그레이션
-    url: "/switch-cisco-3232c/migrate-to-switchless-cluster-interconnect.html"
 - title: 스위치를 교체합니다
   entries:
   - title: 클러스터 스위치를 교체합니다
     url: "/switch-cisco-3232c/replace-cluster-switch.html"
   - title: 스토리지 스위치를 교체합니다
     url: "/switch-cisco-3232c/replace-storage-switch.html"
+  - title: 클러스터 스위치를 스위치가 없는 연결로 대체
+    url: "/switch-cisco-3232c/migrate-to-switchless-cluster-interconnect.html"
 - title: 스위치 업그레이드
   url: "/switch-cisco-3232c/upgrade-3232c-storage-switches.html"
