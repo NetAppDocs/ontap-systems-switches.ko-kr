@@ -129,7 +129,7 @@ https://library.netapp.com/ecm/ecm_download_file/ECMM1280394["42U 시스템 캐�
 
 
  a| 
-link:task-install-a-cisco-nexus-3232c-cluster-switch-and-pass-through-panel-in-a-netapp-cabinet.html["NetApp 캐비닛에 Cisco Nexus 3132Q-V 스위치를 설치합니다"^]
+link:install-cisco-nexus-3132qv.html["NetApp 캐비닛에 Cisco Nexus 3132Q-V 스위치를 설치합니다"^]
  a| 
 4포스트 NetApp 캐비닛에 Cisco Nexus 3132Q-V 스위치를 설치하는 방법에 대해 설명합니다.
 

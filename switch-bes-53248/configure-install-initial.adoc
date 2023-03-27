@@ -19,7 +19,7 @@ BES-53248 클러스터 스위치의 초기 설정을 수행하려면 다음 단�
 +
 ** link:configure-reqs-bes53248.html["구성 요구 사항"]
 ** link:components-bes53248.html["부품 및 부품 번호"]
-** link:required-documentation-53248.html["문서화 요구 사항"]
+** link:required-documentation-bes53248.html["문서화 요구 사항"]
 
 
 

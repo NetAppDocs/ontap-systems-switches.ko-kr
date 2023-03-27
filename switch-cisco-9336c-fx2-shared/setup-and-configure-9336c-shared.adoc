@@ -134,4 +134,4 @@ NOTE: 이 단계에서 구성을 저장하지 않으면 다음에 스위치를 �
 
 
 .다음 단계
-구성에 따라 를 수행할 수 있습니다 link:install-switch-and-passthrough-panel-9336c-shared.html["NetApp 캐비닛에 스위치 설치"]. 그렇지 않으면 로 이동합니다 link:install-nxos-overview-9336c-storage.html["NX-OS 및 RCF 설치 준비"].
+구성에 따라 를 수행할 수 있습니다 link:install-switch-and-passthrough-panel-9336c-shared.html["NetApp 캐비닛에 스위치 설치"]. 그렇지 않으면 로 이동합니다 link:prepare-nxos-rcf-9336c-shared.html["NX-OS 및 RCF 설치 준비"].

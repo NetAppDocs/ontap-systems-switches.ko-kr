@@ -21,42 +21,42 @@ NVIDIA SN2100 스위치 설치 및 유지 보수에 대해서는 모든 권장 �
 
 
  a| 
-link:install_setup_sn2100_switches_overview.html["_NVIDIA SN2100 스위치를 설정하고 구성하십시오 _"^]
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/install-hardware-sn2100-cluster.html["_NVIDIA SN2100 스위치를 설정하고 구성하십시오 _"^]
  a| 
 에서는 Cumulus Linux 및 해당 RCFs 설치를 포함하여 NVIDIA SN2100 스위치를 설정하고 구성하는 방법을 설명합니다.
 
 
 
  a| 
-link:migrate_cisco_sn2100_cluster_switch.html["_Cisco 클러스터 스위치에서 NVIDIA SN2100 클러스터 스위치로 마이그레이션 _"^]
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/migrate-cisco-sn2100-cluster-switch.html["_Cisco 클러스터 스위치에서 NVIDIA SN2100 클러스터 스위치로 마이그레이션 _"^]
  a| 
 Cisco 클러스터 스위치를 사용하는 환경에서 NVIDIA SN2100 클러스터 스위치를 사용하는 환경으로 마이그레이션하는 방법을 설명합니다.
 
 
 
  a| 
-link:migrate_cisco_sn2100_storage_switch.html["_Cisco 스토리지 스위치에서 NVIDIA 스토리지 스위치로 마이그레이션 _"^]
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/migrate-cisco-storage-switch-sn2100-storage.html["_Cisco 스토리지 스위치에서 NVIDIA 스토리지 스위치로 마이그레이션 _"^]
  a| 
 Cisco 스토리지 스위치를 사용하는 환경에서 NVIDIA SN2100 스토리지 스위치를 사용하는 환경으로 마이그레이션하는 방법을 설명합니다.
 
 
 
  a| 
-link:migrate_2n_switched_sn2100_switches.html["_NVIDIA SN2100 클러스터 스위치를 사용하여 2노드 스위치 클러스터로 마이그레이션 _"^]
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/migrate-2n-switched-sn2100-cluster.html["_NVIDIA SN2100 클러스터 스위치를 사용하여 2노드 스위치 클러스터로 마이그레이션 _"^]
  a| 
 에서는 NVIDIA SN2100 클러스터 스위치를 사용하여 2노드 스위치 환경으로 마이그레이션하는 방법을 설명합니다.
 
 
 
  a| 
-link:replace_sn2100_switch_cluster.html["_NVIDIA SN2100 클러스터 스위치 _ 을(를) 교체합니다"^]
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/replace-sn2100-switch-cluster.html["_NVIDIA SN2100 클러스터 스위치 _ 을(를) 교체합니다"^]
  a| 
 에서는 클러스터의 결함 있는 NVIDIA SN2100 스위치를 교체하고 Cumulus Linux 및 참조 구성 파일을 다운로드하는 절차를 설명합니다.
 
 
 
  a| 
-link:replace_sn2100_switch_storage.html["_NVIDIA SN2100 스토리지 스위치 _ 를 교체합니다"^]
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/replace-sn2100-switch-storage.html["_NVIDIA SN2100 스토리지 스위치 _ 를 교체합니다"^]
  a| 
 결함 있는 NVIDIA SN2100 스토리지 스위치를 교체하고 Cumulus Linux 및 참조 구성 파일을 다운로드하는 절차를 설명합니다.
 

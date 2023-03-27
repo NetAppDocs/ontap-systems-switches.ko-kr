@@ -43,6 +43,6 @@ summary: 일부 구형 Cisco Nexus 클러스터 스위치를 Cisco Nexus 92300YC
 * 이 절차에서 지원되는 ONTAP 및 NX-OS 버전은 에 나와 있습니다 https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치"^] 페이지.
 +
 
-NOTE: 마이그레이션이 완료된 후 92300YC 클러스터 스위치용 CSHM(Cluster Switch Health Monitor)을 지원하기 위해 필요한 구성 파일을 설치해야 할 수 있습니다. 의 92300YC 스위치에 대한 _CSMM(Cluster Switch Health Monitor) 구성 파일 설치_를 참조하십시오 link:../com.netapp.doc.hw-sw-cisco-setup/home.html["설정 중입니다"] 가이드.
+NOTE: 마이그레이션이 완료된 후 92300YC 클러스터 스위치용 CSHM(Cluster Switch Health Monitor)을 지원하기 위해 필요한 구성 파일을 설치해야 할 수 있습니다. 을 참조하십시오 link:setup-install-cshm-file.html["CSHM(Cluster Switch Health Monitor) 구성 파일을 설치합니다"] 를 참조하십시오.
 
 

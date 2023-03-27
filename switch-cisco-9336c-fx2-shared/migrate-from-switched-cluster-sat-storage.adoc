@@ -89,7 +89,7 @@ node2
 ====
 
 
-. [[step6]] 공유 스위치 A의 스토리지 RCF를 공유 RCF 파일로 교체합니다. 을 참조하십시오 link:9336c_install_nx-os_software_and_reference_configuration_files_rcfs.html#install-the-rcf-on-a-cisco-nexus-9336c-fx2-shared-switch["Cisco Nexus 9336C-FX2 공유 스위치에 RCF를 설치합니다"] 를 참조하십시오.
+. [[step6]] 공유 스위치 A의 스토리지 RCF를 공유 RCF 파일로 교체합니다. 을 참조하십시오 link:install-nxos-rcf-9336c-shared.html["Cisco Nexus 9336C-FX2 공유 스위치에 RCF를 설치합니다"] 를 참조하십시오.
 . HA 쌍 1에 연결된 스토리지, 스토리지 스위치 A가 정상인지 확인합니다.
 +
 `system health alert show -instance`
@@ -125,7 +125,7 @@ There are no entries matching your query.
 ====
 
 
-. [[12단계]] 공유 스위치 B의 스토리지 RCF 파일을 공유 RCF 파일로 교체합니다. 을 참조하십시오 link:9336c_install_nx-os_software_and_reference_configuration_files_rcfs.html#install-the-rcf-on-a-cisco-nexus-9336c-fx2-shared-switch["Cisco Nexus 9336C-FX2 공유 스위치에 RCF를 설치합니다"] 를 참조하십시오.
+. [[12단계]] 공유 스위치 B의 스토리지 RCF 파일을 공유 RCF 파일로 교체합니다. 을 참조하십시오 link:install-nxos-rcf-9336c-shared.html["Cisco Nexus 9336C-FX2 공유 스위치에 RCF를 설치합니다"] 를 참조하십시오.
 . HA 쌍 1에 연결된 스토리지, 스토리지 스위치 B가 정상인지 확인합니다.
 +
 `system health alert show -instance`
@@ -203,7 +203,7 @@ sh1 (config)# *exit*
 ====
 
 
-. [[step16]] 스위치 교체 절차 및 공유 RCF를 사용하여 클러스터 네트워킹을 기존 클러스터 스위치에서 공유 스위치로 마이그레이션합니다. 새 공유 스위치 A는 "CS1"입니다. 새 공유 스위치 B는 "CS2"입니다. 을 참조하십시오 link:9336c_replace_a_cisco_nexus_9336c-fx2_shared_switch.html["Cisco Nexus 9336C-FX2 공유 스위치를 교체합니다"] 및 link:9336c_install_nx-os_software_and_reference_configuration_files_rcfs.html#install-the-rcf-on-a-cisco-nexus-9336c-fx2-shared-switch["Cisco Nexus 9336C-FX2 공유 스위치에 RCF를 설치합니다"] 를 참조하십시오.
+. [[step16]] 스위치 교체 절차 및 공유 RCF를 사용하여 클러스터 네트워킹을 기존 클러스터 스위치에서 공유 스위치로 마이그레이션합니다. 새 공유 스위치 A는 "CS1"입니다. 새 공유 스위치 B는 "CS2"입니다. 을 참조하십시오 link:replace-9336c-fx2-shared.html["Cisco Nexus 9336C-FX2 공유 스위치를 교체합니다"] 및 link:install-nxos-rcf-9336c-shared.html["Cisco Nexus 9336C-FX2 공유 스위치에 RCF를 설치합니다"] 를 참조하십시오.
 . 전환된 네트워킹 구성이 올바른지 확인합니다.
 +
 네트워크 포트 쇼

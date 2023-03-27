@@ -26,7 +26,7 @@ indexpage:
     - title: AFF/FAS 하드웨어 시스템
       url: https://docs.netapp.com/us-en/ontap-systems/index.html
     - title: ONTAP 소프트웨어
-      url: https://docs.netapp.com/us-en/ontap/index.htmly/
+      url: https://docs.netapp.com/us-en/ontap/index.html
   - title: 도구 지원
     links:
     - title: NetApp 상호 운용성 매트릭스

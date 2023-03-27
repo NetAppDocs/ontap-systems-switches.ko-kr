@@ -18,7 +18,7 @@ summary: 필요한 구성 정보 및 설명서가 없는 경우 클러스터 및
 * 에서 다운로드한 해당 NX-OS 버전입니다 https://software.cisco.com/download/home["Cisco 소프트웨어 다운로드"^] 페이지.
 * 클러스터 네트워크 및 관리 네트워크 스위치 문서가 필요합니다.
 +
-을 참조하십시오 xref:setup-required-documentation.adoc[필수 문서] 를 참조하십시오.
+을 참조하십시오 link:required-documentation-3232c.html["필수 문서"] 를 참조하십시오.
 
 * 필요한 컨트롤러 설명서 및 ONTAP 설명서
 +

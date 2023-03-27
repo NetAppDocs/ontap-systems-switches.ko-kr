@@ -20,7 +20,7 @@ Cisco Nexus 3132Q-V 스위치는 AFF 또는 FAS 클러스터에서 클러스터 
 처음에 ONTAP를 실행하는 시스템에서 Cisco Nexus 3132Q-V 스위치를 구성하려면 다음 단계를 수행하십시오.
 
 . link:setup_worksheet_3132q.html["Cisco Nexus 3132Q-V 케이블 연결 워크시트를 작성합니다"]. 샘플 케이블 연결 워크시트는 스위치에서 컨트롤러까지 권장되는 포트 할당의 예를 제공합니다. 빈 워크시트에는 클러스터 설정에 사용할 수 있는 템플릿이 제공됩니다.
-. link:install-cisco-nexus-3232c.html["NetApp 캐비닛에 Cisco Nexus 3132Q-V 클러스터 스위치를 설치합니다"]. Cisco Nexus 3132Q-V 스위치 및 패스스루 패널을 스위치에 포함된 표준 브래킷과 함께 NetApp 캐비닛에 설치합니다.
+. link:install-cisco-nexus-3132qv.html["NetApp 캐비닛에 Cisco Nexus 3132Q-V 클러스터 스위치를 설치합니다"]. Cisco Nexus 3132Q-V 스위치 및 패스스루 패널을 스위치에 포함된 표준 브래킷과 함께 NetApp 캐비닛에 설치합니다.
 . link:setup-switch.html["Cisco Nexus 3132Q-V 스위치를 구성합니다"]. Cisco Nexus 3132Q-V 스위치를 설정하고 구성합니다.
 . link:prepare-install-cisco-nexus-3132q.html["NX-OS 소프트웨어 및 참조 구성 파일 설치를 준비합니다"]. NX-OS 소프트웨어 및 RCF(Reference Configuration File) 설치를 준비합니다.
 . link:install-nx-os-software-3132q-v.html["NX-OS 소프트웨어를 설치합니다"]. 다음 절차에 따라 Nexus 3132Q-V 클러스터 스위치에 NX-OS 소프트웨어를 설치합니다.

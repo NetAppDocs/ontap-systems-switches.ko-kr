@@ -31,4 +31,4 @@ summary:
 
 
 .다음 단계
-로 이동합니다 link:.setup-and-configure-9336c-shared.html["Cisco Nexus 9336C-FX2 공유 스위치를 구성합니다"].
+로 이동합니다 https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-9336c-fx2-shared/setup-and-configure-9336c-shared.html["Cisco Nexus 9336C-FX2 공유 스위치를 구성합니다"].

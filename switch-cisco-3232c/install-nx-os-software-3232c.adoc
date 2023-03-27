@@ -376,4 +376,4 @@ IO   FPGA                        0x12
 
 
 .다음 단계
-link:install-rcf-3132q-v.html["RCF 구성 파일을 설치합니다"].
+link:install-rcf-3232c.html["RCF 구성 파일을 설치합니다"]

@@ -13,7 +13,7 @@ summary: 이 절차를 사용하여 Nexus 9336C-FX2 클러스터 스위치에 NX
 [role="lead"]
 다음 절차에 따라 Nexus 9336C-FX2 공유 스위치에 NX-OS 소프트웨어를 설치합니다.
 
-시작하기 전에 의 절차를 완료하십시오 link:install-nxos-overview-9336c-shared.html["NX-OS 및 RCF 설치 준비"].
+시작하기 전에 의 절차를 완료하십시오 link:prepare-nxos-rcf-9336c-shared.html["NX-OS 및 RCF 설치 준비"].
 
 
 
@@ -369,4 +369,4 @@ GEM  FPGA                        0x2
 
 
 .다음 단계
-link:install-nxos-rcf-9336c-shared.html["RCF 구성 파일을 설치합니다"].
+link:install-nxos-rcf-9336c-shared.html["RCF 구성 파일을 설치합니다"]
