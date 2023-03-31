@@ -26,55 +26,89 @@ NVIDIA SN2100 스위치를 구성하기 전에 다음 사항을 검토하십시�
  a| 
 swp1s0-3
  a| 
-40개 클러스터 포트 노드 10개
+4x10GbE 브레이크아웃 클러스터 포트 노드
 
 
 
  a| 
 swp2s0-3
  a| 
-25/100개의 클러스터 포트 노드
+4x25GbE 브레이크아웃 클러스터 포트 노드
 
 
 
  a| 
-SWP3-14 40/100 클러스터 포트 노드
+SWP3-14
  a| 
-swp15-16 40/100 ISL(Inter-Switch Link) 포트
+40/100 클러스터 포트 노드
+
+
+
+ a| 
+swp15-16
+ a| 
+40/100 ISL(Inter-Switch Link) 포트
 
 |===
-를 참조하십시오 https://hwu.netapp.com/Switch/Index["Hardware Universe"] 스위치 포트에 대한 자세한 내용은 을 참조하십시오.
+를 참조하십시오 https://hwu.netapp.com/Switch/Index["Hardware Universe"^] 스위치 포트에 대한 자세한 내용은 을 참조하십시오.
 
 
 
 == 광 연결
 
-X1151A NIC, X1146A NIC 또는 온보드 100GbE 포트가 있는 SN2100 스위치에서는 광 연결만 지원됩니다. 예를 들면 다음과 같습니다.
+Cumulus Linux 4.4.2의 경우, X1151A NIC, X1146A NIC 또는 온보드 100GbE 포트가 있는 SN2100 스위치에서만 광 연결이 지원됩니다. 예를 들면 다음과 같습니다.
 
 * e0a 및 e0b 포트의 AFF A800
 * e0g 및 e0h 포트의 AFF A320
 
 
+Cumulus Linux 4.4.3 이상의 경우 이 문제를 해결하려면 다음과 같은 구성 변경이 필요합니다.
+
+. 에 다음 두 줄을 추가합니다 `/etc/cumulus/switchd.conf` 40/100GbE 구리 케이블을 사용하는 모든 포트(SWP <n>)에 대한 파일:
++
+** `interface.swp<n>.enable_media_depended_linkup_flow=TRUE`
+** `interface.swp<n>.enable_short_tuning=TRUE`
+
+
+. switchd 데몬을 다시 시작합니다. `systemctl restart switchd`
+
+
+다음을 참조하십시오 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric_Interconnect_and_Management_Switches/NVIDIA_SN2100_switch_fails_to_connect_using_40_100GbE_copper_cable["KB를 클릭합니다"^] 를 참조하십시오.
+
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *cat /etc/cumulus/switchd.conf | grep swp3*
+interface.swp3.enable_media_depended_linkup_flow=TRUE
+interface.swp3.enable_short_tuning=TRUE
+cumulus@cumulus:mgmt:~$ *cat /etc/cumulus/switchd.conf | grep swp6*
+interface.swp6.enable_media_depended_linkup_flow=TRUE
+interface.swp6.enable_short_tuning=TRUE
+cumulus@cumulus:mgmt:~$
+----
+====
 
 
 == QSA 어댑터
 
-QSA 어댑터를 사용하여 플랫폼의 온보드 인텔 클러스터 포트에 연결하면 모든 링크가 표시되지 않습니다. 예제 플랫폼은 FAS2750, AFF A300 및 FAS8200(모든 10G) 및 AFF A250(25G)입니다.
+QSA 어댑터를 사용하여 플랫폼의 온보드 클러스터 포트에 연결하면 링크가 작동하지 않을 수 있습니다.
 
 이 문제를 해결하려면 다음을 수행하십시오.
 
-. 인텔 10G의 경우 swp1s0-3 링크 속도를 10000으로 수동으로 설정하고 자동 협상을 꺼짐으로 설정하십시오.
-. Chelsio 25G의 경우 swp2s0-3 링크 속도를 25000으로 수동으로 설정하고 자동 협상을 꺼짐으로 설정하십시오.
+* 10G의 경우 swp1s0-3 링크 속도를 10000으로 수동으로 설정하고 자동 협상을 꺼짐으로 설정합니다.
+* 25G의 경우 swp2s0-3 링크 속도를 25000으로 수동으로 설정하고 자동 협상을 꺼짐으로 설정하십시오.
 
 
 
-NOTE: 10G/25G QSA를 사용하여 비 브레이크아웃 40/100G 포트를 사용합니다. 브레이크아웃용으로 구성된 포트에 QSA 어댑터를 삽입하지 마십시오.
+NOTE: 10G/25G QSA를 사용하는 경우 비 브레이크아웃 40/100G 포트에 삽입합니다. 브레이크아웃용으로 구성된 포트에 QSA 어댑터를 삽입하지 마십시오.
 
 
 
-== 스위치 포트 속도
+== 브레이크아웃 포트의 인터페이스 속도 설정
 
-스위치 포트의 트랜시버에 따라 스위치 포트의 속도를 고정 속도로 설정해야 할 수 있습니다. 10G 및 25G 브레이크아웃 포트를 사용하는 경우 자동 협상이 꺼져 있고 스위치의 포트 속도를 하드 설정해야 합니다. 예를 들면 다음과 같습니다.
+스위치 포트의 트랜시버에 따라 스위치 인터페이스의 속도를 고정 속도로 설정해야 할 수 있습니다. 10G 및 25G 브레이크아웃 포트를 사용하는 경우 자동 협상이 꺼져 있고 스위치의 인터페이스 속도를 하드 설정해야 합니다. 예를 들면 다음과 같습니다.
 
 [listing, subs="+quotes"]
 ----
