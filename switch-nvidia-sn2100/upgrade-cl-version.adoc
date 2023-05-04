@@ -1,0 +1,452 @@
+---
+permalink: switch-nvidia-sn2100/upgrade-cl-version.html 
+sidebar: sidebar 
+keywords: nvidia SN2100 switches 
+summary: Cumulus Linux 버전을 업그레이드하려면 다음 단계를 완료하십시오. 
+---
+= Cumulus Linux 버전을 업그레이드하십시오
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+필요에 따라 Cumulus Linux 버전을 업그레이드하려면 다음 절차를 완료하십시오.
+
+.필요한 것
+* 중급 수준의 Linux 지식.
+* 기본 텍스트 편집, UNIX 파일 권한 및 프로세스 모니터링에 대한 지식 를 포함하여 다양한 텍스트 편집기가 미리 설치되어 있습니다 `vi` 및 `nano`.
+* Linux 또는 UNIX 셸에 대한 액세스 Windows를 실행 중인 경우, Linux 환경을 Cumulus Linux와 상호 작용하기 위한 명령줄 도구로 사용합니다.
+* NVIDIA SN2100 스위치 콘솔 액세스를 위한 직렬 콘솔 스위치에서 보드율 요구 사항은 다음과 같이 115200으로 설정됩니다.
++
+** 115200 보드
+** 8 데이터 비트
+** 1 정지 비트
+** 패리티: 없음
+** 흐름 제어: 없음
+
+
+
+
+.이 작업에 대해
+다음 사항에 유의하십시오.
+
+
+NOTE: Cumulus Linux를 업그레이드할 때마다 전체 파일 시스템 구조가 지워지고 다시 구축됩니다. 기존 구성이 삭제됩니다. Cumulus Linux를 업데이트하기 전에 스위치 구성을 저장하고 기록해야 합니다.
+
+
+CAUTION: 누적 사용자 계정의 기본 암호는 * cumulus * 입니다. Cumulus Linux에 처음으로 로그인할 때 이 기본 암호를 변경해야 합니다. 새 이미지를 설치하기 전에 자동화 스크립트를 업데이트해야 합니다. Cumulus Linux는 설치 프로세스 중 기본 암호를 자동으로 변경하는 명령줄 옵션을 제공합니다.
+
+.단계
+[role="tabbed-block"]
+====
+.Cumulus Linux 4.4.x에서 Cumulus Linux 5.x로
+--
+. 현재 Cumulus Linux 버전 및 연결된 포트 확인:
++
+[listing, subs="+quotes"]
+----
+admin@sw1:mgmt:~$ *net show system*
+Hostname......... cumulus
+Build............ *Cumulus Linux 4.4.3*
+Uptime........... 0:08:20.860000
+Model............ Mlnx X86
+CPU.............. x86_64 Intel Atom C2558 2.40GHz
+Memory........... 8GB
+Disk............. 14.7GB
+ASIC............. Mellanox Spectrum MT52132
+Ports............ 16 x 100G-QSFP28
+Part Number...... MSN2100-CB2FC
+Serial Number.... MT2105T05177
+Platform Name.... x86_64-mlnx_x86-r0
+Product Name..... MSN2100
+ONIE Version..... 2019.11-5.2.0020-115200
+Base MAC Address. 04:3F:72:43:92:80
+Manufacturer..... Mellanox
+
+admin@sw1:mgmt:~$ *net show interface*
+
+State  Name    Spd   MTU    Mode        LLDP                    Summary
+-----  ------  ----  -----  ----------  ----------------------  --------------------
+.
+.
+UP     swp1    100G  9216   Trunk/L2    node1 (e5b)             Master: bridge(UP)
+UP     swp2    100G  9216   Trunk/L2    node2 (e5b)             Master: bridge(UP)
+UP     swp3    100G  9216   Trunk/L2    SHFFG1826000112 (e0b)   Master: bridge(UP)
+UP     swp4    100G  9216   Trunk/L2    SHFFG1826000112 (e0b)   Master: bridge(UP)
+UP     swp5    100G  9216   Trunk/L2    SHFFG1826000102 (e0b)   Master: bridge(UP)
+UP     swp6    100G  9216   Trunk/L2    SHFFG1826000102 (e0b)   Master: bridge(UP))
+.
+.
+----
+. Cumulux Linux 5.x 이미지 다운로드:
++
+[listing, subs="+quotes"]
+----
+admin@sw1:mgmt:~$ *sudo onie-install -a -i http://10.60.132.97/x/eng/testbedN,svl/nic/files/NVIDIA/cumulus-linux-5.4.0-mlx-amd64.bin/*
+[sudo] password for cumulus:
+Fetching installer: http://10.60.132.97/x/eng/testbedN,svl/nic/files/NVIDIA/cumulus-linux-5.4.0-mlx-amd64.bin
+Downloading URL: http://10.60.132.97/x/eng/testbedN,svl/nic/files/NVIDIA/cumulus-linux-5.4.0-mlx-amd64.bin
+######################################################################### 100.0%
+Success: HTTP download complete.
+EFI variables are not supported on this system
+Warning: SecureBoot is not available.
+Image is signed.
+.
+.
+.
+Staging installer image...done.
+WARNING:
+WARNING: Activating staged installer requested.
+WARNING: This action will wipe out all system data.
+WARNING: Make sure to back up your data.
+WARNING:
+Are you sure (y/N)? *y*
+Activating staged installer...done.
+Reboot required to take effect.
+----
+. 스위치를 재부팅합니다.
++
+[listing, subs="+quotes"]
+----
+admin@sw1:mgmt:~$ *sudo onie-install -a -i http://10.60.132.97/x/eng/testbedN,svl/nic/files/NVIDIA/cumulus-linux-5.4.0-mlx-amd64.bin/*
+ *sudo reboot*
+----
+. 암호 변경:
++
+[listing, subs="+quotes"]
+----
+cumulus login: *cumulus*
+Password:
+You are required to change your password immediately (administrator enforced)
+Changing password for cumulus.
+Current password: *cumulus*
+New password: *<new_password>*
+Retype new password: *<new_password>*
+Linux cumulus 5.10.0-cl-1-amd64 #1 SMP Debian 5.10.162-1+cl5.4.0u1 (2023-01-20) x86_64
+
+Welcome to NVIDIA Cumulus (R) Linux (R)
+
+ZTP in progress. To disable, do 'ztp -d'
+----
+. Cumulus Linux 버전 확인: `nv show system`
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *nv show system*
+           operational    applied
+---------- -------------- ----------
+hostname   cumulus        cumulus
+build      Cumulus Linux 5.4.0
+uptime     14:07:08
+timezone   Etc/UTC
+----
+. 호스트 이름 변경:
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *nv set system hostname sw1*
+cumulus@cumulus:mgmt:~$ *nv config apply*
+Warning: The following files have been changed since the last save, and they WILL be overwritten.
+- /etc/nsswitch.conf
+- /etc/synced/synced.conf
+.
+.
+----
+. 로그아웃한 후 스위치에 다시 로그인하여 프롬프트에 업데이트된 스위치 이름을 확인합니다.
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *exit*
+logout
+
+Debian GNU/Linux 10 cumulus ttyS0
+
+cumulus login: *cumulus*
+Password:
+Last login: Tue Dec 15 21:43:13 UTC 2020 on ttyS0
+Linux cumulus 5.10.0-cl-1-amd64 #1 SMP Debian 5.10.162-1+cl5.4.0u1 (2023-01-20) x86_64
+
+Welcome to NVIDIA Cumulus (R) Linux (R)
+
+
+ZTP in progress. To disable, do 'ztp -d'
+
+cumulus@sw1:mgmt:~$
+----
+. IP 주소 설정:
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:mgmt:~$ *nv set interface eth0 ip address 10.231.80.206*
+cumulus@sw1:mgmt:~$ *nv set interface eth0 ip gateway 10.231.80.1*
+cumulus@sw1:mgmt:~$ *nv config apply*
+applied [rev_id: 2]
+cumulus@sw1:mgmt:~$ *ip route show vrf mgmt*
+default via 10.231.80.1 dev eth0 proto kernel
+unreachable default metric 4278198272
+10.231.80.0/22 dev eth0 proto kernel scope link src 10.231.80.206
+127.0.0.0/8 dev mgmt proto kernel scope link src 127.0.0.1
+----
+. 새 사용자를 만들고 이 사용자를 에 추가합니다 `sudo` 그룹. 이 사용자는 콘솔/SSH 세션을 다시 시작한 후에만 유효합니다.
++
+`sudo adduser --ingroup netedit admin`
+
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:mgmt:~$ *sudo adduser --ingroup netedit admin*
+[sudo] password for cumulus:
+Adding user 'admin' ...
+Adding new user 'admin' (1001) with group `netedit' ...
+Creating home directory '/home/admin' ...
+Copying files from '/etc/skel' ...
+New password:
+Retype new password:
+passwd: password updated successfully
+Changing the user information for admin
+Enter the new value, or press ENTER for the default
+Full Name []:
+Room Number []:
+Work Phone []:
+Home Phone []:
+Other []:
+Is the information correct? [Y/n] *y*
+
+cumulus@sw1:mgmt:~$ *sudo adduser admin sudo*
+[sudo] password for cumulus:
+Adding user `admin' to group `sudo' ...
+Adding user admin to group sudo
+Done.
+cumulus@sw1:mgmt:~$ *exit*
+logout
+Connection to 10.233.204.71 closed.
+
+[admin@cycrh6svl01 ~]$ ssh admin@10.233.204.71
+admin@10.233.204.71's password:
+Linux sw1 4.19.0-cl-1-amd64 #1 SMP Cumulus 4.19.206-1+cl4.4.1u1 (2021-09-09) x86_64
+Welcome to NVIDIA Cumulus (R) Linux (R)
+
+For support and online technical documentation, visit
+http://www.cumulusnetworks.com/support
+
+The registered trademark Linux (R) is used pursuant to a sublicense from LMI, the exclusive licensee of Linus Torvalds, owner of the mark on a world-wide basis.
+admin@sw1:mgmt:~$
+----
+. 관리자 사용자가 액세스할 수 있도록 사용자 그룹을 추가합니다 `nv` 명령:
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:mgmt:~$ *sudo adduser admin nvshow*
+     [sudo] password for cumulus:
+     Adding user `admin' to group `nvshow' ...
+     Adding user admin to group nvshow
+     Done.
+----
++
+을 참조하십시오 https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-54/System-Configuration/Authentication-Authorization-and-Accounting/User-Accounts/["NVIDIA 사용자 계정"^] 를 참조하십시오.
+
+
+
+--
+.Cumulus Linux 5.x에서 Cumulus Linux 5.x로
+--
+. 현재 Cumulus Linux 버전 및 연결된 포트 확인:
++
+[listing, subs="+quotes"]
+----
+admin@sw1:mgmt:~$ *nv show system*
+                    operational          applied
+------------------- -------------------- -----------------
+hostname            cumulus              cumulus
+build               Cumulus Linux 5.3.0
+uptime              6 days, 8:37:36
+timezone            Etc/UTC
+
+admin@sw1:mgmt:~$ *nv show interface*
+Interface     MTU   Speed State Remote Host         Remote Port- Type      Summary
+------------- ----- ----- ----- ------------------- ------------ --------- -------------
++ cluster_isl 9216  200G  up                                      bond
++ eth0        1500  100M  up    mgmt-sw1            Eth105/1/14   eth       IP Address: 10.231.80 206/22
+  eth0                                                                      IP Address: fd20:8b1e:f6ff:fe31:4a0e/64
++ lo          65536       up                                      loopback  IP Address: 127.0.0.1/8
+  lo                                                                        IP Address: ::1/128
++ swp1s0      9216 10G    up cluster01                e0b         swp
+.
+.
+.
++ swp15      9216 100G    up sw2                      swp15       swp
++ swp16      9216 100G    up sw2                      swp16       swp
+----
+. Cumulux Linux 5.4.0 이미지 다운로드:
++
+[listing, subs="+quotes"]
+----
+admin@sw1:mgmt:~$ *sudo onie-install -a -i http://10.60.132.97/x/eng/testbedN,svl/nic/files/NVIDIA/cumulus-linux-5.4.0-mlx-amd64.bin/*
+[sudo] password for cumulus:
+Fetching installer: http://10.60.132.97/x/eng/testbedN,svl/nic/files/NVIDIA/cumulus-linux-5.4.0-mlx-amd64.bin
+Downloading URL: http://10.60.132.97/x/eng/testbedN,svl/nic/files/NVIDIA/cumulus-linux-5.4.0-mlx-amd64.bin
+######################################################################### 100.0%
+Success: HTTP download complete.
+EFI variables are not supported on this system
+Warning: SecureBoot is not available.
+Image is signed.
+.
+.
+.
+Staging installer image...done.
+WARNING:
+WARNING: Activating staged installer requested.
+WARNING: This action will wipe out all system data.
+WARNING: Make sure to back up your data.
+WARNING:
+Are you sure (y/N)? *y*
+Activating staged installer...done.
+Reboot required to take effect.
+----
+. 스위치를 재부팅합니다.
++
+[listing, subs="+quotes"]
+----
+admin@sw1:mgmt:~$ *sudo reboot*
+----
+. 암호 변경:
++
+[listing, subs="+quotes"]
+----
+cumulus login: *cumulus*
+Password:
+You are required to change your password immediately (administrator enforced)
+Changing password for cumulus.
+Current password: *cumulus*
+New password: *<new_password>*
+Retype new password: *<new_password>*
+Linux cumulus 5.10.0-cl-1-amd64 #1 SMP Debian 5.10.162-1+cl5.4.0u1 (2023-01-20) x86_64
+
+Welcome to NVIDIA Cumulus (R) Linux (R)
+
+ZTP in progress. To disable, do 'ztp -d'
+----
+. Cumulus Linux 버전 확인: `nv show system`
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *nv show system*
+operational    applied
+-------------- ----------------
+hostname       cumulus cumulus
+build          Cumulus Linux 5.4.0
+uptime         14:07:08
+timezone       Etc/UTC
+----
+. 호스트 이름 변경:
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *nv set system hostname sw1*
+cumulus@cumulus:mgmt:~$ *nv config apply*
+Warning: The following files have been changed since the last save, and they WILL be overwritten.
+- /etc/nsswitch.conf
+- /etc/synced/synced.conf
+.
+.
+----
+. 로그아웃한 후 스위치에 다시 로그인하여 프롬프트에 업데이트된 스위치 이름을 확인합니다.
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *exit*
+logout
+
+Debian GNU/Linux 10 cumulus ttyS0
+
+cumulus login: *cumulus*
+Password:
+Last login: Tue Dec 15 21:43:13 UTC 2020 on ttyS0
+Linux cumulus 5.10.0-cl-1-amd64 #1 SMP Debian 5.10.162-1+cl5.4.0u1 (2023-01-20) x86_64
+
+Welcome to NVIDIA Cumulus (R) Linux (R)
+
+
+ZTP in progress. To disable, do 'ztp -d'
+
+cumulus@sw1:mgmt:~$
+----
+. IP 주소 설정:
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:mgmt:~$ *nv set interface eth0 ip address 10.231.80.206*
+cumulus@sw1:mgmt:~$ *nv set interface eth0 ip gateway 10.231.80.1*
+cumulus@sw1:mgmt:~$ *nv config apply*
+applied [rev_id: 2]
+cumulus@sw1:mgmt:~$ *ip route show vrf mgmt*
+default via 10.231.80.1 dev eth0 proto kernel
+unreachable default metric 4278198272
+10.231.80.0/22 dev eth0 proto kernel scope link src 10.231.80.206
+127.0.0.0/8 dev mgmt proto kernel scope link src 127.0.0.1
+----
+. 새 사용자를 만들고 이 사용자를 에 추가합니다 `sudo` 그룹. 이 사용자는 콘솔/SSH 세션을 다시 시작한 후에만 유효합니다.
++
+`sudo adduser --ingroup netedit admin`
+
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:mgmt:~$ *sudo adduser --ingroup netedit admin*
+[sudo] password for cumulus:
+Adding user 'admin' ...
+Adding new user 'admin' (1001) with group `netedit' ...
+Creating home directory '/home/admin' ...
+Copying files from '/etc/skel' ...
+New password:
+Retype new password:
+passwd: password updated successfully
+Changing the user information for admin
+Enter the new value, or press ENTER for the default
+Full Name []:
+Room Number []:
+Work Phone []:
+Home Phone []:
+Other []:
+Is the information correct? [Y/n] *y*
+
+cumulus@sw1:mgmt:~$ *sudo adduser admin sudo*
+[sudo] password for cumulus:
+Adding user `admin' to group `sudo' ...
+Adding user admin to group sudo
+Done.
+cumulus@sw1:mgmt:~$ *exit*
+logout
+Connection to 10.233.204.71 closed.
+
+[admin@cycrh6svl01 ~]$ ssh admin@10.233.204.71
+admin@10.233.204.71's password:
+Linux sw1 4.19.0-cl-1-amd64 #1 SMP Cumulus 4.19.206-1+cl4.4.1u1 (2021-09-09) x86_64
+Welcome to NVIDIA Cumulus (R) Linux (R)
+
+For support and online technical documentation, visit
+http://www.cumulusnetworks.com/support
+
+The registered trademark Linux (R) is used pursuant to a sublicense from LMI, the exclusive licensee of Linus Torvalds, owner of the mark on a world-wide basis.
+admin@sw1:mgmt:~$
+----
+. 관리자 사용자가 액세스할 수 있도록 사용자 그룹을 추가합니다 `nv` 명령:
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:mgmt:~$ *sudo adduser admin nvshow*
+     [sudo] password for cumulus:
+     Adding user `admin' to group `nvshow' ...
+     Adding user admin to group nvshow
+     Done.
+----
++
+을 참조하십시오 https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-54/System-Configuration/Authentication-Authorization-and-Accounting/User-Accounts/["NVIDIA 사용자 계정"^] 를 참조하십시오.
+
+
+
+--
+====
+.다음 단계
+link:install-rcf-sn2100-cluster.html["RCF(Reference Configuration File) 스크립트를 설치합니다"].

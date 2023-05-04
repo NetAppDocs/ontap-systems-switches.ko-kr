@@ -25,6 +25,10 @@ NOTE: 호스트가 IPv6를 사용하는 경우 웹 서버가 실행되고 있는
 이 절차에서는 ONIE에서 관리자가 부팅된 후 Cumulus Linux를 업그레이드하는 방법을 보여 줍니다.
 
 .단계
+[role="tabbed-block"]
+====
+.Cumulus Linux 4.4.3
+--
 . 웹 서버의 루트 디렉터리에 Cumulus Linux 설치 파일을 다운로드합니다. 이 파일 이름 바꾸기: `onie-installer`.
 . 이더넷 케이블을 사용하여 호스트를 스위치의 관리 이더넷 포트에 연결합니다.
 . 스위치의 전원을 켭니다.
@@ -58,9 +62,6 @@ No such process done.
 `ifconfig eth0`
 
 +
-.예제 보기
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 ONIE:/ # *ifconfig eth0*
@@ -81,7 +82,6 @@ Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 default         10.233.204.1    0.0.0.0         UG    0      0      0   eth0
 10.233.204.0    *               255.255.254.0   U     0      0      0   eth0
 ----
-====
 . IP 주소 지정 체계가 수동으로 정의된 경우 다음을 수행합니다.
 +
 [listing, subs="+quotes"]
@@ -97,9 +97,6 @@ ONIE:/ # *route add default gw 10.233.204.1*
 # onie-nos-install http://<web-server>/<path>/cumulus-linux-4.4.3-mlx-amd64.bin
 ----
 +
-.예제 보기
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 ONIE:/ # *route*
@@ -115,12 +112,8 @@ ONIE:/ # *route*
   ...
   ...
 ----
-====
 . 설치가 완료되면 스위치에 로그인합니다.
 +
-.예제 보기
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 cumulus login: *cumulus*
@@ -131,15 +124,8 @@ Current password: *cumulus*
 New password: *<new_password>*
 Retype new password: *<new_password>*
 ----
-====
-. Cumulus Linux 버전 확인:
+. Cumulus Linux 버전 확인: `net show version`
 +
-`net show version`
-
-+
-.예제 보기
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 cumulus@cumulus:mgmt:~$ *net show version*
@@ -148,8 +134,221 @@ DISTRIB_ID="Cumulus Linux"
 DISTRIB_RELEASE=*4.4.3*
 DISTRIB_DESCRIPTION=*"Cumulus Linux 4.4.3”*
 ----
+
+
+--
+.Cumulus Linux 5.x를 의미합니다
+--
+. 웹 서버의 루트 디렉터리에 Cumulus Linux 설치 파일을 다운로드합니다. 이 파일 이름 바꾸기: `onie-installer`.
+. 이더넷 케이블을 사용하여 호스트를 스위치의 관리 이더넷 포트에 연결합니다.
+. 스위치의 전원을 켭니다.
++
+스위치가 ONIE 이미지 설치 프로그램을 다운로드하고 부팅합니다. 설치가 완료되면 터미널 창에 Cumulus Linux 로그인 프롬프트가 나타납니다.
+
++
+
+NOTE: Cumulus Linux를 설치할 때마다 전체 파일 시스템 구조가 지워지고 다시 구축됩니다.
+
+. SN2100 스위치를 재부팅합니다.
++
+[listing]
+----
+cumulus@cumulus:mgmt:~$ sudo reboot
+.
+.
+GNU GRUB version 2.06-3
++-------------------------------------------------------------------------+
+| Cumulus-Linux GNU/Linux                                                 |
+| Advanced options for Cumulus-Linux GNU/Linux                            |
+| ONIE                                                                    |
+|                                                                         |
+|                                                                         |
+|                                                                         |
+|                                                                         |
+|                                                                         |
+|                                                                         |
+|                                                                         |
+|                                                                         |
++-------------------------------------------------------------------------+
+----
+. GNU GRUB 화면에서 Esc 키를 눌러 일반 부팅 프로세스를 중단하고 ONIE를 선택한 다음 Enter 키를 누릅니다.
++
+[listing]
+----
+.
+.
+Loading ONIE ...
+
+GNU GRUB version 2.02
++-------------------------------------------------------------------------+
+| ONIE: Install OS                                                        |
+| ONIE: Rescue                                                            |
+| ONIE: Uninstall OS                                                      |
+| ONIE: Update ONIE                                                       |
+| ONIE: Embed ONIE                                                        |
+|                                                                         |
+|                                                                         |
+|                                                                         |
+|                                                                         |
+|                                                                         |
++-------------------------------------------------------------------------+
+----
++
+ONIE: * OS 설치 * 를 선택합니다
+
+. ONIE 설치 관리자 검색 프로세스가 자동 설치 검색을 실행합니다. Enter * 를 눌러 프로세스를 일시적으로 중지합니다.
+. 검색 프로세스가 중지된 경우:
++
+[listing, subs="+quotes"]
+----
+ONIE:/ # *onie-stop*
+discover: installer mode detected.
+Stopping: discover...start-stop-daemon: warning: killing process 427:
+No such process done.
+----
+. IP 주소, 서브넷 마스크 및 기본 게이트웨이를 구성합니다.
++
+`ifconfig eth0`
+
++
+[listing, subs="+quotes"]
+----
+ONIE:/ # *ifconfig eth0*
+eth0   Link encap:Ethernet  HWaddr B8:CE:F6:19:1D:F6
+       inet addr:10.233.204.71  Bcast:10.233.205.255  Mask:255.255.254.0
+       inet6 addr: fe80::bace:f6ff:fe19:1df6/64 Scope:Link
+       UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+       RX packets:21344 errors:0 dropped:2135 overruns:0 frame:0
+       TX packets:3500 errors:0 dropped:0 overruns:0 carrier:0
+       collisions:0 txqueuelen:1000
+       RX bytes:6119398 (5.8 MiB)  TX bytes:472975 (461.8 KiB)
+       Memory:dfc00000-dfc1ffff
+ONIE:/ #
+ONIE:/ # *ifconfig eth0 10.228.140.27 netmask 255.255.248.0*
+ONIE:/ # *ifconfig eth0*
+eth0   Link encap:Ethernet HWaddr B8:CE:F6:5E:05:E6
+       inet addr:10.228.140.27 Bcast:10.228.143.255 Mask:255.255.248.0
+       inet6 addr: fd20:8b1e:b255:822b:bace:f6ff:fe5e:5e6/64 Scope:Global
+       inet6 addr: fe80::bace:f6ff:fe5e:5e6/64 Scope:Link
+       UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+       RX packets:18813 errors:0 dropped:1418 overruns:0 frame:0
+       TX packets:491 errors:0 dropped:0 overruns:0 carrier:0
+       collisions:0 txqueuelen:1000
+       RX bytes:1339596 (1.2 MiB) TX bytes:49379 (48.2 KiB)
+       Memory:dfc00000-dfc1ffff
+ONIE:/ # *route add default gw 10.228.136.1*
+ONIE:/ # *route*
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+
+default         10.228.136.1    0.0.0.0         UG    0      0      0   eth0
+10.228.136.1    *               255.255.248.0   U     0      0      0   eth0
+----
+. Cumulus Linux 5.4 설치:
++
+`# onie-nos-install http://<web-server>/<path>/cumulus-linux-5.4-mlx-amd64.bin`
+
++
+[listing, subs="+quotes"]
+----
+ONIE:/ # *route*
+
+  Kernel IP routing table
+
+  ONIE:/ # *onie-nos-install http://_<web-server>/<path>_/cumulus-linux-5.4-mlx-amd64.bin*
+
+  Stopping: discover... done.
+  Info: Attempting http://10.60.132.97/x/eng/testbedN,svl/nic/files/cumulus-linux-5.4-mlx-amd64.bin ...
+  Connecting to 10.60.132.97 (10.60.132.97:80)
+  installer            100% |*******************************|   552M  0:00:00 ETA
+  ...
+  ...
+----
+. 설치가 완료되면 스위치에 로그인합니다.
++
+[listing, subs="+quotes"]
+----
+cumulus login: *cumulus*
+Password: *cumulus*
+You are required to change your password immediately (administrator enforced)
+Changing password for cumulus.
+Current password: *cumulus*
+New password: *<new_password>*
+Retype new password: *<new_password>*
+----
+. Cumulus Linux 버전 확인: `nv show system`
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *nv show system*
+operational         applied              description
+------------------- -------------------- ---------------------
+hostname            cumulus              cumulus
+build               Cumulus Linux 5.4.0  system build version
+uptime              6 days, 13:37:36     system uptime
+timezone            Etc/UTC              system time zone
+----
+. 새 사용자를 만들고 이 사용자를 에 추가합니다 `sudo` 그룹. 이 사용자는 콘솔/SSH 세션을 다시 시작한 후에만 유효합니다.
++
+`sudo adduser --ingroup netedit admin`
+
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:mgmt:~$ *sudo adduser --ingroup netedit admin*
+[sudo] password for cumulus:
+Adding user 'admin' ...
+Adding new user 'admin' (1001) with group `netedit' ...
+Creating home directory '/home/admin' ...
+Copying files from '/etc/skel' ...
+New password:
+Retype new password:
+passwd: password updated successfully
+Changing the user information for admin
+Enter the new value, or press ENTER for the default
+Full Name []:
+Room Number []:
+Work Phone []:
+Home Phone []:
+Other []:
+Is the information correct? [Y/n] *y*
+
+cumulus@sw1:mgmt:~$ *sudo adduser admin sudo*
+[sudo] password for cumulus:
+Adding user `admin' to group `sudo' ...
+Adding user admin to group sudo
+Done.
+cumulus@sw1:mgmt:~$ *exit*
+logout
+Connection to 10.233.204.71 closed.
+
+[admin@cycrh6svl01 ~]$ ssh admin@10.233.204.71
+admin@10.233.204.71's password:
+Linux sw1 4.19.0-cl-1-amd64 #1 SMP Cumulus 4.19.206-1+cl4.4.1u1 (2021-09-09) x86_64
+Welcome to NVIDIA Cumulus (R) Linux (R)
+
+For support and online technical documentation, visit
+http://www.cumulusnetworks.com/support
+
+The registered trademark Linux (R) is used pursuant to a sublicense from LMI, the exclusive licensee of Linus Torvalds, owner of the mark on a world-wide basis.
+admin@sw1:mgmt:~$
+----
+. 관리자 사용자가 액세스할 수 있도록 사용자 그룹을 추가합니다 `nv` 명령:
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *sudo adduser admin nvshow*
+     [sudo] password for cumulus:
+     Adding user `admin' to group `nvshow' ...
+     Adding user admin to group nvshow
+     Done.
+----
++
+을 참조하십시오 https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-54/System-Configuration/Authentication-Authorization-and-Accounting/User-Accounts/["NVIDIA 사용자 계정"^] 를 참조하십시오.
+
+
+
+--
 ====
-
-
 .다음 단계
 link:install-rcf-sn2100-cluster.html["RCF(Reference Configuration File) 스크립트를 설치합니다"].

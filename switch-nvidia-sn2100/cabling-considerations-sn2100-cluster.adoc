@@ -40,79 +40,194 @@ swp2s0-3
  a| 
 SWP3-14
  a| 
-40/100 클러스터 포트 노드
+40/100GbE 클러스터 포트 노드
 
 
 
  a| 
 swp15-16
  a| 
-40/100 ISL(Inter-Switch Link) 포트
+40/100GbE ISL(Inter-Switch Link) 포트
 
 |===
 를 참조하십시오 https://hwu.netapp.com/Switch/Index["Hardware Universe"^] 스위치 포트에 대한 자세한 내용은 을 참조하십시오.
 
 
 
-== 광 연결
+== 광 연결을 통한 연결 지연
 
-Cumulus Linux 4.4.2의 경우, X1151A NIC, X1146A NIC 또는 온보드 100GbE 포트가 있는 SN2100 스위치에서만 광 연결이 지원됩니다. 예를 들면 다음과 같습니다.
+연결 작업이 5초 이상 지연되는 경우에는 Cumulus Linux 5.4 이상에서 빠른 연결 작업을 지원합니다. 을 사용하여 링크를 구성할 수 있습니다 `nv set` 명령:
 
-* e0a 및 e0b 포트의 AFF A800
-* e0g 및 e0h 포트의 AFF A320
-
-
-Cumulus Linux 4.4.3 이상의 경우 이 문제를 해결하려면 다음과 같은 구성 변경이 필요합니다.
-
-. 에 다음 두 줄을 추가합니다 `/etc/cumulus/switchd.conf` 40/100GbE 구리 케이블을 사용하는 모든 포트(SWP <n>)에 대한 파일:
-+
-** `interface.swp<n>.enable_media_depended_linkup_flow=TRUE`
-** `interface.swp<n>.enable_short_tuning=TRUE`
-
-
-. switchd 데몬을 다시 시작합니다. `systemctl restart switchd`
-
-
-다음을 참조하십시오 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric_Interconnect_and_Management_Switches/NVIDIA_SN2100_switch_fails_to_connect_using_40_100GbE_copper_cable["KB를 클릭합니다"^] 를 참조하십시오.
-
+[listing, subs="+quotes"]
+----
+*nv set interface <interface-id> link fast-linkup on*
+*nv config apply*
+*reload the switchd*
+----
 .예제 보기
 [%collapsible]
 ====
 [listing, subs="+quotes"]
 ----
-cumulus@cumulus:mgmt:~$ *cat /etc/cumulus/switchd.conf | grep swp3*
-interface.swp3.enable_media_depended_linkup_flow=TRUE
-interface.swp3.enable_short_tuning=TRUE
-cumulus@cumulus:mgmt:~$ *cat /etc/cumulus/switchd.conf | grep swp6*
-interface.swp6.enable_media_depended_linkup_flow=TRUE
-interface.swp6.enable_short_tuning=TRUE
-cumulus@cumulus:mgmt:~$
+cumulus@cumulus-cs13:mgmt:~$ *nv set interface swp5 link fast-linkup on*
+cumulus@cumulus-cs13:mgmt:~$ *nv config apply*
+*switchd need to reload on this config change*
+
+Are you sure? [y/N] *y*
+applied [rev_id: 22]
+
+Only switchd reload required
 ----
 ====
 
 
+== 구리 연결을 지원합니다
+
+이 문제를 해결하려면 다음 구성 변경이 필요합니다.
+
+[role="tabbed-block"]
+====
+.Cumulus Linux 4.4.3
+--
+. 40GbE/100GbE 구리 케이블을 사용하여 각 인터페이스의 이름을 식별합니다.
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *net show interface pluggables*
+
+Interface  Identifier     Vendor Name     Vendor PN    Vendor SN      Vendor Rev
+---------  -------------  --------------  -----------  -------------  ----------
+swp3       0x11 (QSFP28)  Molex           112-00576    93A2229911111  B0
+swp4       0x11 (QSFP28)  Molex           112-00576    93A2229922222  B0
+----
+. 에 다음 두 줄을 추가합니다 `/etc/cumulus/switchd.conf` 40GbE/100GbE 구리 케이블을 사용하는 모든 포트(SWP <n>)용 파일:
++
+** `interface.swp<n>.enable_media_depended_linkup_flow=TRUE`
+** `interface.swp<n>.enable_short_tuning=TRUE`
++
+예를 들면 다음과 같습니다.
+
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *sudo nano /etc/cumulus/switchd.conf*
+.
+.
+interface.swp3.enable_media_depended_linkup_flow=TRUE
+interface.swp3.enable_short_tuning=TRUE
+interface.swp4.enable_media_depended_linkup_flow=TRUE
+interface.swp4.enable_short_tuning=TRUE
+----
+
+
+. 를 다시 시작합니다 `switchd` 서비스:
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *sudo systemctl restart switchd.service*
+----
+. 포트가 작동 중인지 확인합니다.
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *net show interface all*
+
+State  Name      Spd   MTU    Mode       LLDP              Summary
+-----  --------- ----  -----  ---------- ----------------- --------
+UP     swp3      100G  9216   Trunk/L2                     Master: bridge(UP)
+UP     swp4      100G  9216   Trunk/L2                     Master: bridge(UP)
+----
+
+
+--
+.Cumulus Linux 5.x를 의미합니다
+--
+. 40GbE/100GbE 구리 케이블을 사용하여 각 인터페이스의 이름을 식별합니다.
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *nv show interface pluggables*
+
+Interface  Identifier     Vendor Name     Vendor PN    Vendor SN      Vendor Rev
+---------  -------------  --------------  -----------  -------------  ----------
+swp3       0x11 (QSFP28)  Molex           112-00576    93A2229911111  B0
+swp4       0x11 (QSFP28)  Molex           112-00576    93A2229922222  B0
+----
+. 를 사용하여 링크를 구성합니다 `nv set` 명령:
++
+** `nv set interface <interface-id> link fast-linkup on`
+** `nv config apply`
+** 를 다시 로드합니다 `switchd` 서비스
++
+예를 들면 다음과 같습니다.
+
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *nv set interface swp5 link fast-linkup on*
+cumulus@cumulus:mgmt:~$ *nv config apply*
+switchd need to reload on this config change
+
+Are you sure? [y/N] *y*
+applied [rev_id: 22]
+
+Only switchd reload required
+----
+
+
+. 포트가 작동 중인지 확인합니다.
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *net show interface all*
+
+State  Name      Spd   MTU    Mode       LLDP              Summary
+-----  --------- ----  -----  ---------- ----------------- --------
+UP     swp3      100G  9216   Trunk/L2                     Master: bridge(UP)
+UP     swp4      100G  9216   Trunk/L2                     Master: bridge(UP)
+----
+
+
+--
+====
+을 참조하십시오 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric_Interconnect_and_Management_Switches/NVIDIA_SN2100_switch_fails_to_connect_using_40_100GbE_copper_cable["이 KB입니다"^] 를 참조하십시오.
+
+Cumulus Linux 4.4.2에서는 X1151A NIC, X1146A NIC 또는 온보드 100GbE 포트가 있는 SN2100 스위치에서 구리 연결이 지원되지 않습니다. 예를 들면 다음과 같습니다.
+
+* e0a 및 e0b 포트의 AFF A800
+* e0g 및 e0h 포트의 AFF A320
+
+
+
+
 == QSA 어댑터
 
-QSA 어댑터를 사용하여 플랫폼의 온보드 클러스터 포트에 연결하면 링크가 작동하지 않을 수 있습니다.
+QSA 어댑터를 사용하여 플랫폼의 10GbE/25GbE 클러스터 포트에 연결하면 링크가 작동하지 않을 수 있습니다.
 
 이 문제를 해결하려면 다음을 수행하십시오.
 
-* 10G의 경우 swp1s0-3 링크 속도를 10000으로 수동으로 설정하고 자동 협상을 꺼짐으로 설정합니다.
-* 25G의 경우 swp2s0-3 링크 속도를 25000으로 수동으로 설정하고 자동 협상을 꺼짐으로 설정하십시오.
+* 10GbE의 경우 swp1s0-3 링크 속도를 10000으로 수동으로 설정하고 자동 협상을 꺼짐으로 설정합니다.
+* 25GbE의 경우 swp2s0-3 링크 속도를 25000으로 수동으로 설정하고 자동 협상을 꺼짐으로 설정하십시오.
 
 
 
-NOTE: 10G/25G QSA를 사용하는 경우 비 브레이크아웃 40/100G 포트에 삽입합니다. 브레이크아웃용으로 구성된 포트에 QSA 어댑터를 삽입하지 마십시오.
+NOTE: 10GbE/25GbE QSA 어댑터를 사용하는 경우 비 브레이크아웃 40GbE/100GbE 포트(SWP3-swp14)에 삽입합니다. QSA 어댑터를 브레이크아웃용으로 구성된 포트에 삽입하지 마십시오.
 
 
 
 == 브레이크아웃 포트의 인터페이스 속도 설정
 
-스위치 포트의 트랜시버에 따라 스위치 인터페이스의 속도를 고정 속도로 설정해야 할 수 있습니다. 10G 및 25G 브레이크아웃 포트를 사용하는 경우 자동 협상이 꺼져 있고 스위치의 인터페이스 속도를 하드 설정해야 합니다. 예를 들면 다음과 같습니다.
+스위치 포트의 트랜시버에 따라 스위치 인터페이스의 속도를 고정 속도로 설정해야 할 수 있습니다. 10GbE 및 25GbE 브레이크아웃 포트를 사용하는 경우 자동 협상이 꺼져 있는지 확인하고 스위치의 인터페이스 속도를 설정합니다.
+
+[role="tabbed-block"]
+====
+.Cumulus Linux 4.4.3
+--
+예를 들면 다음과 같습니다.
 
 [listing, subs="+quotes"]
 ----
-cumulus@cumulus:mgmt:~$ net add int swp1s3 link autoneg off && net com
+cumulus@cumulus:mgmt:~$ *net add int swp1s3 link autoneg off && net com*
 --- /etc/network/interfaces     2019-11-17 00:17:13.470687027 +0000
 +++ /run/nclu/ifupdown2/interfaces.tmp  2019-11-24 00:09:19.435226258 +0000
 @@ -37,21 +37,21 @@
@@ -139,5 +254,83 @@ iface swp2s0
      link-autoneg off
      link-speed 25000 *<---- port speed set*
 ----
+인터페이스 및 포트 상태를 점검하여 설정이 적용되었는지 확인합니다.
+
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *net show interface*
+
+State  Name      Spd    MTU    Mode        LLDP             Summary
+-----  --------  -----  -----  ----------  ---------------  --------------------------------------
+.
+.
+UP     swp1s0     10G   9216   Trunk/L2    cs07 (e4c)       Master: br_default(UP)
+UP     swp1s1     10G   9216   Trunk/L2    cs07 (e4d)       Master: br_default(UP)
+UP     swp1s2     10G   9216   Trunk/L2    cs08 (e4c)       Master: br_default(UP)
+UP     swp1s3     10G   9216   Trunk/L2    cs08 (e4d)       Master: br_default(UP)
+.
+.
+UP     swp3       40G   9216   Trunk/L2    cs03 (e4e)       Master: br_default(UP)
+UP     swp4       40G   9216   Trunk/L2    cs04 (e4e)       Master: br_default(UP)
+DN     swp5       N/A   9216   Trunk/L2                     Master: br_default(UP)
+DN     swp6       N/A   9216   Trunk/L2                     Master: br_default(UP)
+DN     swp7       N/A   9216   Trunk/L2                     Master: br_default(UP)
+.
+.
+UP     swp15      100G  9216   BondMember  cs01 (swp15)     Master: cluster_isl(UP)
+UP     swp16      100G  9216   BondMember  cs01 (swp16)     Master: cluster_isl(UP)
+.
+.
+----
+--
+.Cumulus Linux 5.x를 의미합니다
+--
+예를 들면 다음과 같습니다.
+
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *nv set interface swp1s3 link auto-negotiate off*
+cumulus@cumulus:mgmt:~$ *nv set interface swp1s3 link speed 10G*
+cumulus@cumulus:mgmt:~$ *nv show interface swp1s3*
+
+link                                                                                            
+  auto-negotiate        off                     off                     off                   
+  duplex                full                    full                    full                  
+  speed                 10G                     10G                     10G                   
+  fec                   auto                    auto                    auto                  
+  mtu                   9216                    9216                    9216                  
+[breakout]                                                                                    
+  state                 up                      up                      up
+----
+인터페이스 및 포트 상태를 점검하여 설정이 적용되었는지 확인합니다.
+
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *nv show interface*
+
+State  Name      Spd    MTU    Mode        LLDP             Summary
+-----  --------  -----  -----  ----------  ---------------  --------------------------------------
+.
+.
+UP     swp1s0     10G   9216   Trunk/L2    cs07 (e4c)       Master: br_default(UP)
+UP     swp1s1     10G   9216   Trunk/L2    cs07 (e4d)       Master: br_default(UP)
+UP     swp1s2     10G   9216   Trunk/L2    cs08 (e4c)       Master: br_default(UP)
+UP     swp1s3     10G   9216   Trunk/L2    cs08 (e4d)       Master: br_default(UP)
+.
+.
+UP     swp3       40G   9216   Trunk/L2    cs03 (e4e)       Master: br_default(UP)
+UP     swp4       40G   9216   Trunk/L2    cs04 (e4e)       Master: br_default(UP)
+DN     swp5       N/A   9216   Trunk/L2                     Master: br_default(UP)
+DN     swp6       N/A   9216   Trunk/L2                     Master: br_default(UP)
+DN     swp7       N/A   9216   Trunk/L2                     Master: br_default(UP)
+.
+.
+UP     swp15      100G  9216   BondMember  cs01 (swp15)     Master: cluster_isl(UP)
+UP     swp16      100G  9216   BondMember  cs01 (swp16)     Master: cluster_isl(UP)
+.
+.
+----
+--
+====
 .다음 단계
 link:install-cable-shelves-sn2100-cluster.html["NS224 쉘프를 스위치 연결 스토리지로 케이블로 연결합니다"].

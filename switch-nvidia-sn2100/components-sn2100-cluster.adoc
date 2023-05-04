@@ -17,7 +17,7 @@ NVIDIA SN2100 스위치 설치 및 유지 관리의 경우 캐비닛 및 레일 
 
 == 캐비닛 세부 정보
 
-NVIDIA SN2100 스위치(X190006/X190106)는 스위치에 포함된 표준 브래킷을 사용하여 NVIDIA 이중/단일 스위치 캐비닛에 설치합니다.
+NVIDIA SN2100 스위치(X190006)는 스위치에 포함된 표준 브래킷과 함께 NVIDIA 이중/단일 스위치 캐비닛에 설치합니다.
 
 
 
@@ -33,28 +33,14 @@ NVIDIA SN2100 스위치(X190006/X190106)는 스위치에 포함된 표준 브래
  a| 
 X190006-PE
  a| 
-클러스터 스위치, NVIDIA SN2100, 16pt 100G, PTSX
+클러스터 스위치, NVIDIA SN2100, 16pt 100GbE, PTSX
 
 
 
  a| 
 X190006-PI
  a| 
-클러스터 스위치, NVIDIA SN2100, 16pt 100G, PSIN
-
-
-
- a| 
-X190106-FE-PE
- a| 
-스위치, NVIDIA SN2100, 16pt 100G, PTSX, 프론트 엔드
-
-
-
- a| 
-X190106-FE-PI
- a| 
-스위치, NVIDIA SN2100, 16pt 100G, PSIN, 프런트 엔드
+클러스터 스위치, NVIDIA SN2100, 16pt 100GbE, PSIN
 
 
 
