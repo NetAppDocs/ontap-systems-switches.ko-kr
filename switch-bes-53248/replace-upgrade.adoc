@@ -34,7 +34,7 @@ BES-53248 클러스터 스위치를 업그레이드하려면 다음 단계를 �
 NOTE: RCF 및 EFOS 버전의 명령 구문 간에는 명령 의존성이 있을 수 있습니다.
 
 
-NOTE: 스위치 호환성은 의 호환성 표를 참조하십시오 https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["Broadcom 클러스터 스위치"^] 지원되는 EFOS, RCF 및 ONTAP 버전에 대한 페이지입니다.
+NOTE: 스위치 호환성은 의 호환성 표를 참조하십시오 https://["Broadcom 클러스터 스위치"^] 지원되는 EFOS, RCF 및 ONTAP 버전에 대한 페이지입니다.
 
 
 

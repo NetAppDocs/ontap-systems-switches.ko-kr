@@ -12,11 +12,11 @@ summary: 이 링크를 다른 스위치 모델에 사용할 수 있습니다.
 
 이 링크를 사용하여 이전 클러스터 및 stprage 스위치 모델에 대한 설명서를 찾을 수 있습니다. 이 링크를 클릭하면 다른 문서 사이트로 이동합니다.
 
-* https://mysupport.netapp.com/documentation/docweb/index.html?productID=62376&language=en-US["Cisco Nexus 5596"]
-* https://mysupport.netapp.com/documentation/docweb/index.html?productID=62373&language=en-USNetApp["CN1601"]
+* https://["Cisco Nexus 5596"]
+* https://["CN1601"]
 
 
 
 NOTE: Nexus 5596UP/5596T 클러스터 스위치는 NetApp에서 더 이상 제공되지 않지만 제한된 Tim에서 Cisco에서 지원합니다.
 
-하드웨어 지원 끝에 도달한 AFF 및 FAS 스위치 모델에 대한 문서는 에서 고객이 사용할 수 있습니다 https://mysupport.netapp.com/documentation/productsatoz/index.html?archive=true["아카이브"].
+하드웨어 지원 끝에 도달한 AFF 및 FAS 스위치 모델에 대한 문서는 에서 고객이 사용할 수 있습니다 https://["아카이브"].

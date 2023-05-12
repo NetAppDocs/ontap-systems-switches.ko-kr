@@ -16,12 +16,12 @@ RCF 스크립트를 설치하려면 다음 절차를 따르십시오.
 .필요한 것
 RCF 스크립트를 설치하기 전에 스위치에서 다음 사항을 사용할 수 있는지 확인하십시오.
 
-* Cumulus Linux가 설치되었습니다. 를 참조하십시오 https://hwu.netapp.com/Switch/Index["Hardware Universe"^] 를 참조하십시오.
+* Cumulus Linux가 설치되었습니다. 를 참조하십시오 https://["Hardware Universe"^] 를 참조하십시오.
 * IP 주소, 서브넷 마스크 및 기본 게이트웨이는 DHCP를 통해 정의되거나 수동으로 구성됩니다.
 
 
 .최신 RCF 스크립트 버전
-클러스터 및 스토리지 애플리케이션에 사용 가능한 RCF 스크립트 2개가 있습니다. 에서 RCFs를 다운로드합니다 https://mysupport.netapp.com/site/info/nvidia-cluster-switch["여기"^]. 각각의 절차는 동일합니다.
+클러스터 및 스토리지 애플리케이션에 사용 가능한 RCF 스크립트 2개가 있습니다. 에서 RCFs를 다운로드합니다 https://["여기"^]. 각각의 절차는 동일합니다.
 
 * 클러스터: * MSN2100-RCF-v1._x_-Cluster-HA-Breakout-LLDP *
 * 스토리지: * MSN2100-RCF-v1._x_-스토리지 *
@@ -104,7 +104,7 @@ NOTE: 3단계 * 위의 MOTD 파일 업데이트 * 에서, 명령어 `cat /etc/mo
 
 +
 
-NOTE: 수정할 수 없는 RCF 비톤 스크립트 문제에 대해서는 에 문의하십시오 https://mysupport.netapp.com/["NetApp 지원"^] 을 참조하십시오.
+NOTE: 수정할 수 없는 RCF 비톤 스크립트 문제에 대해서는 에 문의하십시오 https://["NetApp 지원"^] 을 참조하십시오.
 
 . 재부팅 후 구성을 확인합니다.
 +
@@ -357,7 +357,7 @@ admin@sw1:mgmt:~$ cat /etc/issue
 ----
 +
 
-NOTE: 수정할 수 없는 RCF 비톤 스크립트 문제에 대해서는 에 문의하십시오 https://mysupport.netapp.com/["NetApp 지원"^] 을 참조하십시오.
+NOTE: 수정할 수 없는 RCF 비톤 스크립트 문제에 대해서는 에 문의하십시오 https://["NetApp 지원"^] 을 참조하십시오.
 
 . 재부팅 후 구성을 확인합니다.
 +

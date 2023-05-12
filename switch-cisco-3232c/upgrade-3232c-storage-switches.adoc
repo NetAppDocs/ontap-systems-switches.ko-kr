@@ -25,8 +25,8 @@ Cisco Nexus 3232C 스위치에서 Cisco NX-OS 소프트웨어 및 참조 구성 
 +
 현재 부팅 이미지를 반영하도록 부팅 변수를 변경해야 하는 경우, 나중에 재부팅할 때 올바른 버전이 인스턴스화되도록 RCF를 다시 적용하기 전에 이 작업을 수행해야 합니다.
 
-* 에서 사용할 수 있는 적절한 소프트웨어 및 업그레이드 가이드를 참조했습니다 http://www.cisco.com/en/US/products/ps9670/prod_installation_guides_list.html["Cisco Nexus 3000 시리즈 스위치"^] 페이지에서 Cisco 스토리지 업그레이드 및 다운그레이드 절차에 대한 전체 설명서를 참조하십시오.
-* 10GbE 및 40/100 GbE 포트 수는 에서 사용할 수 있는 RCFs(참조 구성 파일)에 정의되어 있습니다 https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco ® 이더넷 스위치"^] 페이지.
+* 에서 사용할 수 있는 적절한 소프트웨어 및 업그레이드 가이드를 참조했습니다 http://["Cisco Nexus 3000 시리즈 스위치"^] 페이지에서 Cisco 스토리지 업그레이드 및 다운그레이드 절차에 대한 전체 설명서를 참조하십시오.
+* 10GbE 및 40/100 GbE 포트 수는 에서 사용할 수 있는 RCFs(참조 구성 파일)에 정의되어 있습니다 https://["Cisco ® 이더넷 스위치"^] 페이지.
 
 
 
@@ -140,7 +140,7 @@ There are no entries matching your query.
 
 . FTP, HTTP, TFTP, SFTP 또는 SCP 전송 프로토콜 중 하나를 사용하여 스위치 S2의 RCF를 스위치 bootflash에 복사합니다.
 +
-Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^].
+Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^].
 
 +
 .예제 보기
@@ -244,7 +244,7 @@ NOTE: RCF를 처음 적용할 때 * ERROR: Failed to write VSH commands * 메시
 
 . 소프트웨어 버전과 스위치 설정이 올바른지 확인한 후 을 복사합니다 `running-config` 파일을 에 저장합니다 `startup-config` 스위치 S2의 파일
 +
-Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^].
+Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^].
 
 +
 .예제 보기
@@ -377,7 +377,7 @@ S2#
 ====
 . 구성을 저장합니다.
 +
-Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^].
+Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^].
 
 +
 시스템을 재부팅하라는 메시지가 표시됩니다.

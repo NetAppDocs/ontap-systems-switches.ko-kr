@@ -50,7 +50,7 @@ swp15-16
 40/100GbE ISL(Inter-Switch Link) 포트
 
 |===
-를 참조하십시오 https://hwu.netapp.com/Switch/Index["Hardware Universe"^] 스위치 포트에 대한 자세한 내용은 을 참조하십시오.
+를 참조하십시오 https://["Hardware Universe"^] 스위치 포트에 대한 자세한 내용은 을 참조하십시오.
 
 
 
@@ -190,7 +190,7 @@ UP     swp4      100G  9216   Trunk/L2                     Master: bridge(UP)
 
 --
 ====
-을 참조하십시오 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric_Interconnect_and_Management_Switches/NVIDIA_SN2100_switch_fails_to_connect_using_40_100GbE_copper_cable["이 KB입니다"^] 를 참조하십시오.
+을 참조하십시오 https://["이 KB입니다"^] 를 참조하십시오.
 
 Cumulus Linux 4.4.2에서는 X1151A NIC, X1146A NIC 또는 온보드 100GbE 포트가 있는 SN2100 스위치에서 구리 연결이 지원되지 않습니다. 예를 들면 다음과 같습니다.
 

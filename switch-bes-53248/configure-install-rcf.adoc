@@ -13,65 +13,419 @@ summary: 'BES-53248 클러스터 스위치를 구성하고 새 라이센스를 �
 [role="lead"]
 BES-53248 클러스터 스위치를 구성하고 새 라이센스를 적용한 후 RCF(Reference Configuration File)를 설치할 수 있습니다.
 
-이전 버전에서 RCF를 업그레이드하는 경우 Broadcom 스위치 설정을 재설정하고 기본 구성을 수행하여 RCF를 다시 적용해야 합니다. RCF를 업그레이드하거나 변경하려면 항상 이 작업을 수행해야 합니다. 를 참조하십시오 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric%2C_Interconnect_and_Management_Switches/Error!_in_configuration_script_file_at_line_number_XX_when_applying_a_new_RCF["KB 문서를 참조하십시오"^] 를 참조하십시오.
+이전 버전에서 RCF를 업그레이드하는 경우 Broadcom 스위치 설정을 재설정하고 기본 구성을 수행하여 RCF를 다시 적용해야 합니다. RCF를 업그레이드하거나 변경하려면 항상 이 작업을 수행해야 합니다. 를 참조하십시오 https://["KB 문서를 참조하십시오"^] 를 참조하십시오.
 
-.단계
-. 클러스터 스위치를 관리 네트워크에 연결합니다.
-. "ping" 명령을 사용하여 EFOS, 라이센스 및 RCF를 호스팅하는 서버에 대한 연결을 확인합니다.
+
+
+== 요구사항 검토
+
+.시작하기 전에
+* 스위치 구성의 현재 백업
+* 완전히 작동하는 클러스터(로그에 오류 또는 유사한 문제 없음)
+* 에서 사용 가능한 현재 RCF 파일입니다 https://["Broadcom 클러스터 스위치"^] 페이지.
+* EFOS만 설치하고 현재 RCF 버전을 유지하는 경우 필요한 부팅 이미지를 반영하는 RCF의 부팅 구성입니다. 현재 부팅 이미지를 반영하도록 부팅 구성을 변경해야 하는 경우, 나중에 재부팅할 때 올바른 버전이 인스턴스화되도록 RCF를 다시 적용하기 전에 이 구성을 변경해야 합니다.
+* RCF를 공장 출하 시 기본 상태에서 설치할 때 스위치에 콘솔 연결이 필요합니다. 기술 자료 문서를 사용한 경우 이 요구 사항은 선택 사항입니다  https://["원격 연결을 유지하면서 Broadcom 상호 연결 스위치의 구성을 지우는 방법"^] 구성을 지우려면 사전에 확인하십시오.
+
+
+.추천 문서
+* 지원되는 ONTAP 및 RCF 버전은 스위치 호환성 표를 참조하십시오. 를 참조하십시오 https://["EFOS 소프트웨어 다운로드"^] 페이지. RCF의 명령 구문과 EFOS 버전에 있는 명령 구문 사이에는 명령 종속성이 있을 수 있습니다.
+* 에서 사용 가능한 적절한 소프트웨어 및 업그레이드 가이드를 참조하십시오 https://["Broadcom의"^] BES-53248 스위치 업그레이드 및 다운그레이드 절차에 대한 전체 문서를 제공합니다.
+
+
+
+
+== 구성 파일을 설치합니다
+
+.예를 참조하십시오
+이 절차의 예에서는 다음 스위치 및 노드 명명법을 사용합니다.
+
+* 두 BES-53248 스위치의 이름은 CS1 및 CS2입니다.
+* 노드 이름은 cluster1-01, cluster1-02, cluster1-03 및 cluster1-04입니다.
+* 클러스터 LIF 이름은 cluster1-01_clus1, cluster1-01_clus2, cluster1-02_clus1, cluster1-02_clus2, cluster1-03_clus1, cluster1-03_clus2, cluster1-04_clus1 및 cluster1-04_clus2.
+* 'cluster1:: *>' 프롬프트는 클러스터의 이름을 나타냅니다.
+* 이 절차의 예에서는 4개의 노드를 사용합니다. 이들 노드는 2개의 10GbE 클러스터 인터커넥트 포트를 사용합니다 `e0a` 및 `e0b`. 를 참조하십시오 https://["Hardware Universe"^] 사용 중인 플랫폼에서 올바른 클러스터 포트를 확인하려면 다음을 수행합니다.
+
+
+
+NOTE: 명령 출력은 ONTAP의 릴리즈별로 다를 수 있습니다.
+
+.이 작업에 대해
+이 절차를 수행하려면 ONTAP 명령과 Broadcom 스위치 명령을 모두 사용해야 합니다. ONTAP 명령은 별도로 지정하지 않는 한 사용됩니다.
+
+이 절차 중에는 작동 중인 ISL(Inter-Switch Link)이 필요하지 않습니다. RCF 버전 변경이 ISL 연결에 일시적으로 영향을 미칠 수 있기 때문에 이는 설계상 가능합니다. 무중단 클러스터 운영을 보장하기 위해 다음 절차는 타겟 스위치에 대한 단계를 수행하는 동안 모든 클러스터 LIF를 운영 파트너 스위치로 마이그레이션합니다.
+
+
+CAUTION: 새 스위치 소프트웨어 버전과 RCFs를 설치하기 전에 를 사용합니다 https://["KB: 원격 연결을 유지하면서 Broadcom 상호 연결 스위치의 구성을 지우는 방법"^]. 스위치 설정을 완전히 지워야 하는 경우 기본 구성을 다시 수행해야 합니다. 전체 구성 삭제는 관리 네트워크의 구성을 재설정하므로 직렬 콘솔을 사용하여 스위치에 연결해야 합니다.
+
+
+
+== 1단계: 설치 준비
+
+. 이 클러스터에서 AutoSupport가 활성화되어 있는 경우 AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다.
 +
-연결에 문제가 있으면 라우팅되지 않은 네트워크를 사용하여 IP 주소 192.168.x 또는 172.19.x를 사용하여 서비스 포트를 구성합니다 나중에 서비스 포트를 운영 관리 IP 주소로 재구성할 수 있습니다.
+'System node AutoSupport invoke-node * -type all-message maINT=xh'
+
++
+여기서 _x_는 유지보수 기간(시간)입니다.
+
++
+
+NOTE: AutoSupport 메시지는 유지보수 기간 동안 자동 케이스 생성이 억제되도록 이 유지보수 작업의 기술 지원에 알립니다.
+
++
+다음 명령을 실행하면 2시간 동안 자동 케이스가 생성되지 않습니다.
+
++
+[listing]
+----
+cluster1::*> system node autosupport invoke -node \* -type all -message MAINT=2h
+----
+. 권한 수준을 고급으로 변경하고 계속할 것인지 묻는 메시지가 표시되면 * y * 를 입력합니다.
++
+세트 프리빌리지 고급
+
++
+고급 프롬프트(*>)가 나타납니다.
+
+. 클러스터 스위치에 연결된 각 노드의 클러스터 포트를 표시합니다. `network device-discovery show`
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show*
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------  --------
+cluster1-01/cdp
+            e0a    cs1                       0/2               BES-53248
+            e0b    cs2                       0/2               BES-53248
+cluster1-02/cdp
+            e0a    cs1                       0/1               BES-53248
+            e0b    cs2                       0/1               BES-53248
+cluster1-03/cdp
+            e0a    cs1                       0/4               BES-53248
+            e0b    cs2                       0/4               BES-53248
+cluster1-04/cdp
+            e0a    cs1                       0/3               BES-53248
+            e0b    cs2                       0/3               BES-53248
+cluster1::*>
+----
+====
+. 각 클러스터 포트의 관리 및 운영 상태를 확인합니다.
++
+.. 모든 클러스터 포트가 정상 상태인지 확인합니다. `network port show –role cluster`
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -role cluster*
+
+Node: cluster1-01
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/100000 healthy false
+e0b       Cluster      Cluster          up   9000  auto/100000 healthy false
+
+Node: cluster1-02
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/100000 healthy false
+e0b       Cluster      Cluster          up   9000  auto/100000 healthy false
+8 entries were displayed.
+
+Node: cluster1-03
+
+   Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+Node: cluster1-04
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+cluster1::*>
+----
+====
+.. 모든 클러스터 인터페이스(LIF)가 홈 포트에 있는지 확인합니다. `network interface show -role cluster`
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -role cluster*
+            Logical            Status     Network           Current      Current Is
+Vserver     Interface          Admin/Oper Address/Mask      Node         Port    Home
+----------- ------------------ ---------- ----------------- ------------ ------- ----
+Cluster
+            cluster1-01_clus1  up/up     169.254.3.4/23     cluster1-01  e0a     true
+            cluster1-01_clus2  up/up     169.254.3.5/23     cluster1-01  e0b     true
+            cluster1-02_clus1  up/up     169.254.3.8/23     cluster1-02  e0a     true
+            cluster1-02_clus2  up/up     169.254.3.9/23     cluster1-02  e0b     true
+            cluster1-03_clus1  up/up     169.254.1.3/23     cluster1-03  e0a     true
+            cluster1-03_clus2  up/up     169.254.1.1/23     cluster1-03  e0b     true
+            cluster1-04_clus1  up/up     169.254.1.6/23     cluster1-04  e0a     true
+            cluster1-04_clus2  up/up     169.254.1.7/23     cluster1-04  e0b     true
+----
+====
+
+
+. 클러스터에 두 클러스터 스위치에 대한 정보가 표시되는지 확인합니다.
+
+
+[role="tabbed-block"]
+====
+.ONTAP 9.8 이상
+--
+ONTAP 9.8부터 다음 명령을 사용합니다. `system switch ethernet show -is-monitoring-enabled-operational true`
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *system switch ethernet show -is-monitoring-enabled-operational true*
+Switch                      Type               Address          Model
+--------------------------- ------------------ ---------------- ---------------
+cs1                         cluster-network    10.228.143.200   BES-53248
+           Serial Number: QTWCU22510008
+            Is Monitored: true
+                  Reason: None
+        Software Version: 3.10.0.3
+          Version Source: CDP/ISDP
+
+cs2                         cluster-network    10.228.143.202   BES-53248
+           Serial Number: QTWCU22510009
+            Is Monitored: true
+                  Reason: None
+        Software Version: 3.10.0.3
+          Version Source: CDP/ISDP
+cluster1::*>
+----
+--
+.ONTAP 9.7 이하
+--
+ONTAP 9.7 이전 버전의 경우 다음 명령을 사용합니다. `system cluster-switch show -is-monitoring-enabled-operational true`
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *system cluster-switch show -is-monitoring-enabled-operational true*
+Switch                      Type               Address          Model
+--------------------------- ------------------ ---------------- ---------------
+cs1                         cluster-network    10.228.143.200   BES-53248
+           Serial Number: QTWCU22510008
+            Is Monitored: true
+                  Reason: None
+        Software Version: 3.10.0.3
+          Version Source: CDP/ISDP
+
+cs2                         cluster-network    10.228.143.202   BES-53248
+           Serial Number: QTWCU22510009
+            Is Monitored: true
+                  Reason: None
+        Software Version: 3.10.0.3
+          Version Source: CDP/ISDP
+cluster1::*>
+----
+--
+====
+. [[step6]] 클러스터 LIF에서 자동 복원을 사용하지 않도록 설정합니다.
++
+[listing]
+----
+cluster1::*> network interface modify -vserver Cluster -lif * -auto-revert false
+----
+
+
+
+
+== 2단계: 포트 구성
+
+. 클러스터 스위치 CS2에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.
++
+[listing, subs="+quotes"]
+----
+(cs2)(Config)# *interface 0/1-0/16*
+(cs2)(Interface 0/1-0/16)# *shutdown*
+----
+. 클러스터 LIF가 클러스터 스위치 CS1에 호스팅된 포트로 마이그레이션되었는지 확인합니다. 이 작업은 몇 초 정도 걸릴 수 있습니다.
++
+네트워크 인터페이스 show-role cluster
 
 +
 .예제 보기
 [%collapsible]
 ====
-이 예에서는 스위치가 IP 주소 172.19.2.1로 서버에 연결되어 있는지 확인합니다.
-
 [listing, subs="+quotes"]
 ----
-(cs2)# *ping 172.19.2.1*
-Pinging 172.19.2.1 with 0 bytes of data:
-
-Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
+cluster1::*> *network interface show -role cluster*
+            Logical           Status     Network            Current       Current Is
+Vserver     Interface         Admin/Oper Address/Mask       Node          Port    Home
+----------- ----------------- ---------- ------------------ ------------- ------- ----
+Cluster
+            cluster1-01_clus1 up/up      169.254.3.4/23     cluster1-01   e0a     true
+            cluster1-01_clus2 up/up      169.254.3.5/23     cluster1-01   e0a     false
+            cluster1-02_clus1 up/up      169.254.3.8/23     cluster1-02   e0a     true
+            cluster1-02_clus2 up/up      169.254.3.9/23     cluster1-02   e0a     false
+            cluster1-03_clus1 up/up      169.254.1.3/23     cluster1-03   e0a     true
+            cluster1-03_clus2 up/up      169.254.1.1/23     cluster1-03   e0a     false
+            cluster1-04_clus1 up/up      169.254.1.6/23     cluster1-04   e0a     true
+            cluster1-04_clus2 up/up      169.254.1.7/23     cluster1-04   e0a     false
+cluster1::*>
 ----
 ====
-. COPY 명령어를 이용하여 BES-53248 클러스터 스위치에 RCF를 설치한다.
+. 클러스터가 정상 상태인지 확인합니다. `cluster show`
 +
 .예제 보기
 [%collapsible]
 ====
 [listing, subs="+quotes"]
 ----
-(cs2)# *copy sftp://172.19.2.1/tmp/BES-53248_RCF_v1.6-Cluster-HA.txt nvram:script BES-53248_RCF_v1.6-Cluster-HA.scr*
+cluster1::*> *cluster show*
+Node                 Health  Eligibility   Epsilon
+-------------------- ------- ------------  -------
+cluster1-01          true    true          false
+cluster1-02          true    true          false
+cluster1-03          true    true          true
+cluster1-04          true    true          false
+----
+====
+. 아직 구성하지 않은 경우 다음 명령의 출력을 로그 파일에 복사하여 현재 스위치 구성을 저장합니다. `show running-config`
+. 스위치 CS2의 구성을 청소하고 기본 설정을 수행합니다.
++
 
-Remote Password:********
+CAUTION: 새로운 RCF를 업데이트하거나 적용할 때는 스위치 설정을 지우고 기본 구성을 수행해야 합니다. 스위치 설정을 지우려면 직렬 콘솔을 사용하여 스위치에 연결해야 합니다.
 
++
+.. 스위치에 SSH를 연결합니다.
++
+스위치의 포트에서 모든 클러스터 LIF가 제거되었고 스위치가 구성을 지울 준비가 된 경우에만 계속 진행하십시오.
+
+.. 권한 모드 시작:
++
+[listing]
+----
+(cs2)> enable
+
+(cs2)#
+----
+.. 다음 명령을 복사하여 붙여 넣어 이전 RCF 구성을 제거합니다(사용된 이전 RCF 버전에 따라 특정 설정이 없을 경우 일부 명령에서 오류 발생).
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+clear config interface 0/1-0/56
+y
+clear config interface lag 1
+y
+configure
+deleteport 1/1 all
+no policy-map CLUSTER
+no policy-map WRED_25G
+no policy-map WRED_100G
+no class-map CLUSTER
+no class-map HA
+no class-map RDMA
+no classofservice dot1p-mapping
+no random-detect queue-parms 0
+no random-detect queue-parms 1
+no random-detect queue-parms 2
+no random-detect queue-parms 3
+no random-detect queue-parms 4
+no random-detect queue-parms 5
+no random-detect queue-parms 6
+no random-detect queue-parms 7
+no cos-queue min-bandwidth
+no cos-queue random-detect 0
+no cos-queue random-detect 1
+no cos-queue random-detect 2
+no cos-queue random-detect 3
+no cos-queue random-detect 4
+no cos-queue random-detect 5
+no cos-queue random-detect 6
+no cos-queue random-detect 7
+exit
+vlan database
+no vlan 17
+no vlan 18
+exit
+----
+====
+.. 실행 중인 구성을 시작 구성에 저장합니다.
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)# *write memory*
+
+This operation may take a few minutes.
+Management interfaces will not be available during this time.
+
+Are you sure you want to save? (y/n) *y*
+
+Config file 'startup-config' created successfully .
+
+
+Configuration Saved!
+----
+====
+.. 스위치를 재부팅합니다.
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)# *reload*
+
+Are you sure you would like to reset the system? (y/n) *y*
+
+----
+====
+.. RCF 설치를 완료하려면 SSH를 사용하여 스위치에 다시 로그인하십시오.
+
+
+. 스위치에 추가 포트 라이센스가 설치된 경우 RCF를 수정하여 추가 라이센스 포트를 구성해야 합니다. 을 참조하십시오 link:configure-licenses.html#activate-newly-licensed-ports["새로 라이센스가 부여된 포트를 활성화합니다"^] 를 참조하십시오.
+. FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 CS2의 부트플래시 에 복사합니다.
++
+이 예에서는 스위치 CS2에서 RCF를 부트 플래시에 복사하는 데 사용되는 SFTP를 보여 줍니다.
+
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)# *copy sftp://172.19.2.1/tmp/BES-53248_RCF_v1.9-Cluster-HA.txt
+nvram:script BES-53248_RCF_v1.6-Cluster-HA.scr*
+Remote Password:**
 Mode........................................... SFTP
 Set Server IP.................................. 172.19.2.1
 Path........................................... //tmp/
-Filename....................................... BES-53248_RCF_v1.6-Cluster-HA.txt
+Filename....................................... BES-53248_RCF_v1.9-Cluster-HA.txt
 Data Type...................................... Config Script
-Destination Filename........................... BES-53248_RCF_v1.6-Cluster-HA.scr
-
+Destination Filename........................... BES-53248_RCF_v1.9-Cluster-HA.scr
 Management access will be blocked for the duration of the transfer
 Are you sure you want to start? (y/n) *y*
 SFTP Code transfer starting...
-
 File transfer operation completed successfully.
 ----
 ====
-+
-
-NOTE: 환경에 따라 'copy' 명령에서 '+copy sftp://172.19.2.1//tmp/BES-53248_RCF_v1.6-Cluster-HA.txt NVRAM: script BES-53248_RCF_v1.6-Cluster-HA.scr+'와 같은 이중 슬래시를 사용해야 할 수 있습니다.
-
-+
-
-NOTE: 스크립트를 호출하기 전에 '.scr' 확장자를 파일 이름의 일부로 설정해야 합니다. 이 확장은 EFOS 운영 체제의 확장입니다. 스위치는 스크립트가 스위치에 다운로드되면 자동으로 스크립트의 유효성을 검사하며 출력은 콘솔로 전달됩니다. 또한 콘솔 화면에 맞게 ".scr"의 이름을 변경하여 가독성을 높일 수도 있습니다. 예를 들어, "+COPY SFTP://172.19.2.1/tmp/BES-53248_RCF_v1.6-Cluster-HA.txt NVRAM: script RCF_v1.6-Cluster-HA.scr+"를 지정할 수 있습니다.
-
-+
-
-NOTE: 파일 이름에 기호가 포함되어서는 안 됩니다 `\/:*?"<>|` 허용되는 최대 길이는 32자입니다.
-
 . 스크립트가 다운로드되어 지정한 파일 이름에 저장되었는지 확인합니다.
 +
 '스크립트 목록'
@@ -86,7 +440,7 @@ NOTE: 파일 이름에 기호가 포함되어서는 안 됩니다 `\/:*?"<>|` �
 
 Configuration Script Name                  Size(Bytes)  Date of Modification
 -----------------------------------------  -----------  --------------------
-BES-53248_RCF_v1.6-Cluster-HA.scr        2241         2020 09 30 05:41:00
+BES-53248_RCF_v1.9-Cluster-HA.scr          2241         2020 09 30 05:41:00
 
 1 configuration script(s) found.
 ----
@@ -101,19 +455,55 @@ BES-53248_RCF_v1.6-Cluster-HA.scr        2241         2020 09 30 05:41:00
 ====
 [listing, subs="+quotes"]
 ----
-(cs2)# *script apply BES-53248_RCF_v1.6-Cluster-HA.scr*
+(cs2)# *script apply BES-53248_RCF_v1.9-Cluster-HA.scr*
 
 Are you sure you want to apply the configuration script? (y/n) *y*
 
 The system has unsaved changes.
 Would you like to save them now? (y/n) *y*
-Config file 'startup-config' created successfully .
+Config file 'startup-config' created successfully.
 Configuration Saved!
 
-Configuration script 'BES-53248_RCF_v1.6-Cluster-HA.scr' applied.
+Configuration script 'BES-53248_RCF_v1.9-Cluster-HA.scr' applied.
 ----
 ====
-. RCF를 적용한 후 추가 라이센스에 대한 포트를 확인합니다.
+. 의 배너 출력을 확인합니다 `show clibanner` 명령. 스위치의 올바른 구성과 작동을 위해 이 지침을 읽고 따라야 합니다.
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)# *show clibanner*
+
+Banner Message configured :
+=========================
+BES-53248 Reference Configuration File v1.9 for Cluster/HA/RDMA
+
+Switch   : BES-53248
+Filename : BES-53248-RCF-v1.9-Cluster.txt
+Date     : 10-26-2022
+Version  : v1.9
+Port Usage:
+Ports 01 - 16: 10/25GbE Cluster Node Ports, base config
+Ports 17 - 48: 10/25GbE Cluster Node Ports, with licenses
+Ports 49 - 54: 40/100GbE Cluster Node Ports, with licenses, added right to left
+Ports 55 - 56: 100GbE Cluster ISL Ports, base config
+NOTE:
+- The 48 SFP28/SFP+ ports are organized into 4-port groups in terms of port
+speed:
+Ports 1-4, 5-8, 9-12, 13-16, 17-20, 21-24, 25-28, 29-32, 33-36, 37-40, 41-44,
+45-48
+The port speed should be the same (10GbE or 25GbE) across all ports in a 4-port
+group
+- If additional licenses are purchased, follow the 'Additional Node Ports
+activated with Licenses' section for instructions
+- If SSH is active, it will have to be re-enabled manually after 'erase
+startup-config'
+command has been executed and the switch rebooted
+----
+====
+. 스위치에서 RCF가 적용된 후 라이센스가 부여된 추가 포트가 표시되는지 확인합니다.
 +
 '모두 포트 보기|분리 제외'
 
@@ -123,11 +513,11 @@ Configuration script 'BES-53248_RCF_v1.6-Cluster-HA.scr' applied.
 ====
 [listing, subs="+quotes"]
 ----
-(cs2)# *show port all \| exclude Detach*
+(cs2)# *show port all | exclude Detach*
 
                  Admin     Physical     Physical   Link   Link    LACP   Actor
 Intf      Type   Mode      Mode         Status     Status Trap    Mode   Timeout
---------- ------ --------- ---------- ---------- ------ ------- ------ --------
+--------- ------ --------- ------------ ---------- ------ ------- ------ --------
 0/1              Enable    Auto                    Down   Enable  Enable long
 0/2              Enable    Auto                    Down   Enable  Enable long
 0/3              Enable    Auto                    Down   Enable  Enable long
@@ -201,6 +591,385 @@ Are you sure you would like to reset the system? (y/n) *y*
 System will now restart!
 ----
 ====
+. 스위치 CS2의 포트를 확인합니다. `show interfaces status all | exclude Detach`
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs1)# show interfaces status all | exclude Detach
+
+                                Link    Physical    Physical    Media       Flow
+Port       Name                 State   Mode        Status      Type        Control     VLAN
+---------  -------------------  ------  ----------  ----------  ----------  ----------  ------
+.
+.
+.
+0/16       10/25GbE Node Port   Down    Auto                                Inactive    Trunk
+0/17       10/25GbE Node Port   Down    Auto                                Inactive    Trunk
+0/18       10/25GbE Node Port   Up      25G Full    25G Full    25GBase-SR  Inactive    Trunk
+0/19       10/25GbE Node Port   Up      25G Full    25G Full    25GBase-SR  Inactive    Trunk
+.
+.
+.
+0/50       40/100GbE Node Port  Down    Auto                                Inactive    Trunk
+0/51       40/100GbE Node Port  Down    Auto                                Inactive    Trunk
+0/52       40/100GbE Node Port  Down    Auto                                Inactive    Trunk
+0/53       40/100GbE Node Port  Down    Auto                                Inactive    Trunk
+0/54       40/100GbE Node Port  Down    Auto                                Inactive    Trunk
+0/55       Cluster   ISL Port   Up      Auto        100G Full   Copper      Inactive    Trunk
+0/56       Cluster   ISL Port   Up      Auto        100G Full   Copper      Inactive    Trunk
+----
+====
+. 클러스터에서 클러스터 포트의 상태를 확인합니다.
++
+.. e0b 포트가 클러스터의 모든 노드에 대해 정상 작동 중인지 확인합니다. `network port show -role cluster`
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -role cluster*
+
+Node: cluster1-01
+                                                                      Ignore
+                                                  Speed(Mbps) Health  Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status  Status
+--------- ------------ ---------------- ---- ---- ----------- -------- -----
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+Node: cluster1-02
+
+                                                                      Ignore
+                                                  Speed(Mbps) Health  Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status  Status
+--------- ------------ ---------------- ---- ---- ----------- -------- -----
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+Node: cluster1-03
+                                                                      Ignore
+                                                  Speed(Mbps) Health  Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status  Status
+--------- ------------ ---------------- ---- ---- ----------- -------- -----
+e0a       Cluster      Cluster          up   9000  auto/100000 healthy false
+e0b       Cluster      Cluster          up   9000  auto/100000 healthy false
+
+Node: cluster1-04
+                                                                      Ignore
+                                                  Speed(Mbps) Health  Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status  Status
+--------- ------------ ---------------- ---- ---- ----------- -------- -----
+e0a       Cluster      Cluster          up   9000  auto/100000 healthy false
+e0b       Cluster      Cluster          up   9000  auto/100000 healthy false
+----
+====
+.. 클러스터에서 스위치 상태를 확인합니다.
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show -protocol cdp*
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------- --------
+cluster1-01/cdp
+            e0a    cs1                       0/2               BES-53248
+            e0b    cs2                       0/2               BES-53248
+cluster01-2/cdp
+            e0a    cs1                       0/1               BES-53248
+            e0b    cs2                       0/1               BES-53248
+cluster01-3/cdp
+            e0a    cs1                       0/4               BES-53248
+            e0b    cs2                       0/4               BES-53248
+cluster1-04/cdp
+            e0a    cs1                       0/3               BES-53248
+            e0b    cs2                       0/2               BES-53248
+----
+====
+
+
+
+
+[role="tabbed-block"]
+====
+.ONTAP 9.8 이상
+--
+ONTAP 9.8부터 다음 명령을 사용합니다. `system switch ethernet show -is-monitoring-enabled-operational true`
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *system switch ethernet show -is-monitoring-enabled-operational true*
+Switch                      Type               Address          Model
+--------------------------- ------------------ ---------------- ---------------
+cs1                         cluster-network    10.228.143.200   BES-53248
+           Serial Number: QTWCU22510008
+            Is Monitored: true
+                  Reason: None
+        Software Version: 3.10.0.3
+          Version Source: CDP/ISDP
+
+cs2                         cluster-network    10.228.143.202   BES-53248
+           Serial Number: QTWCU22510009
+            Is Monitored: true
+                  Reason: None
+        Software Version: 3.10.0.3
+          Version Source: CDP/ISDP
+cluster1::*>
+----
+--
+.ONTAP 9.7 이하
+--
+ONTAP 9.7 이전 버전의 경우 다음 명령을 사용합니다. `system cluster-switch show -is-monitoring-enabled-operational true`
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *system cluster-switch show -is-monitoring-enabled-operational true*
+Switch                      Type               Address          Model
+--------------------------- ------------------ ---------------- ---------------
+cs1                         cluster-network    10.228.143.200   BES-53248
+           Serial Number: QTWCU22510008
+            Is Monitored: true
+                  Reason: None
+        Software Version: 3.10.0.3
+          Version Source: CDP/ISDP
+
+cs2                         cluster-network    10.228.143.202   BES-53248
+           Serial Number: QTWCU22510009
+            Is Monitored: true
+                  Reason: None
+        Software Version: 3.10.0.3
+          Version Source: CDP/ISDP
+cluster1::*>
+----
+--
+====
+. [[step17]] 클러스터 스위치 CS1에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.
++
+다음 예제에서는 인터페이스 예제 출력을 사용합니다.
+
++
+[listing, subs="+quotes"]
+----
+(cs1)# *configure*
+(cs1)(Config)# *interface 0/1-0/16*
+(cs1)(Interface 0/1-0/16)# *shutdown*
+----
+. 클러스터 LIF가 스위치 CS2에 호스팅된 포트로 마이그레이션되었는지 확인합니다. 이 작업은 몇 초 정도 걸릴 수 있습니다.
+`network interface show -role cluster`
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -role cluster*
+            Logical            Status     Network            Current            Current  Is
+Vserver     Interface          Admin/Oper Address/Mask       Node               Port     Home
+----------- ------------------ ---------- ------------------ ------------------ -------- ----
+Cluster
+            cluster1-01_clus1  up/up      169.254.3.4/23     cluster1-01        e0a      false
+            cluster1-01_clus2  up/up      169.254.3.5/23     cluster1-01        e0b      true
+            cluster1-02_clus1  up/up      169.254.3.8/23     cluster1-02        e0a      false
+            cluster1-02_clus2  up/up      169.254.3.9/23     cluster1-02        e0b      true
+            cluster1-03_clus1  up/up      169.254.1.3/23     cluster1-03        e0a      false
+            cluster1-03_clus2  up/up      169.254.1.1/23     cluster1-03        e0b      true
+            cluster1-04_clus1  up/up      169.254.1.6/23     cluster1-04        e0a      false
+            cluster1-04_clus2  up/up      169.254.1.7/23     cluster1-04        e0b      true
+cluster1::*>
+----
+====
+. 클러스터가 정상 상태인지 확인합니다. `cluster show`
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster show*
+Node                 Health   Eligibility   Epsilon
+-------------------- -------- ------------- -------
+cluster1-01          true     true          false
+cluster1-02          true     true          false
+cluster1-03          true     true          true
+cluster1-04          true     true          false
+----
+====
+. 스위치 CS1에서 4-14단계를 반복합니다.
+. 클러스터 LIF에서 자동 되돌리기 사용:
+`cluster1::*> network interface modify -vserver Cluster -lif * -auto-revert true`
+. 스위치 CS1을 재부팅합니다. 이렇게 하면 클러스터 LIF가 홈 포트로 되돌아갈 수 있습니다. 스위치가 재부팅되는 동안 노드에 보고된 "클러스터 포트 다운" 이벤트를 무시할 수 있습니다.
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs1)# *reload*
+The system has unsaved changes.
+Would you like to save them now? (y/n) *y*
+Config file 'startup-config' created successfully.
+Configuration Saved! System will now restart!
+----
+====
+
+
+
+
+== 3단계: 구성을 확인합니다
+
+. 스위치 CS1에서 클러스터 포트에 연결된 스위치 포트가 * UP * 인지 확인합니다.
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs1)# show interfaces status all | exclude Detach
+
+                                Link    Physical    Physical    Media       Flow
+Port       Name                 State   Mode        Status      Type        Control     VLAN
+---------  -------------------  ------  ----------  ----------  ----------  ----------  ------
+.
+.
+.
+0/16       10/25GbE Node Port   Down    Auto                                Inactive    Trunk
+0/17       10/25GbE Node Port   Down    Auto                                Inactive    Trunk
+0/18       10/25GbE Node Port   Up      25G Full    25G Full    25GBase-SR  Inactive    Trunk
+0/19       10/25GbE Node Port   Up      25G Full    25G Full    25GBase-SR  Inactive    Trunk
+.
+.
+.
+0/50       40/100GbE Node Port  Down    Auto                                Inactive    Trunk
+0/51       40/100GbE Node Port  Down    Auto                                Inactive    Trunk
+0/52       40/100GbE Node Port  Down    Auto                                Inactive    Trunk
+0/53       40/100GbE Node Port  Down    Auto                                Inactive    Trunk
+0/54       40/100GbE Node Port  Down    Auto                                Inactive    Trunk
+0/55       Cluster   ISL Port   Up      Auto        100G Full   Copper      Inactive    Trunk
+0/56       Cluster   ISL Port   Up      Auto        100G Full   Copper      Inactive    Trunk
+----
+====
+. 스위치 CS1과 CS2 사이의 ISL이 작동하는지 확인합니다. `show port-channel 1/1`
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs1)# *show port-channel 1/1*
+Local Interface................................ 1/1
+Channel Name................................... Cluster-ISL
+Link State..................................... Up
+Admin Mode..................................... Enabled
+Type........................................... Dynamic
+Port-channel Min-links......................... 1
+Load Balance Option............................ 7
+(Enhanced hashing mode)
+Mbr     Device/       Port      Port
+Ports   Timeout       Speed     Active
+------- ------------- --------- -------
+0/55    actor/long    Auto      True
+        partner/long
+0/56    actor/long    Auto      True
+        partner/long
+----
+====
+. 클러스터 LIF가 홈 포트로 되돌려졌는지 확인합니다. `network interface show -role cluster`
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> network interface show -role cluster
+            Logical            Status     Network            Current             Current Is
+Vserver     Interface          Admin/Oper Address/Mask       Node                Port    Home
+----------- ------------------ ---------- ------------------ ------------------- ------- ----
+Cluster
+            cluster1-01_clus1  up/up      169.254.3.4/23     cluster1-01         e0a     true
+            cluster1-01_clus2  up/up      169.254.3.5/23     cluster1-01         e0b     true
+            cluster1-02_clus1  up/up      169.254.3.8/23     cluster1-02         e0a     true
+            cluster1-02_clus2  up/up      169.254.3.9/23     cluster1-02         e0b     true
+            cluster1-03_clus1  up/up      169.254.1.3/23     cluster1-03         e0a     true
+            cluster1-03_clus2  up/up      169.254.1.1/23     cluster1-03         e0b     true
+            cluster1-04_clus1  up/up      169.254.1.6/23     cluster1-04         e0a     true
+            cluster1-04_clus2  up/up      169.254.1.7/23     cluster1-04         e0b     true
+----
+====
+. 클러스터가 정상 상태인지 확인합니다. `cluster show`
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster show*
+Node                 Health  Eligibility   Epsilon
+-------------------- ------- ------------- -------
+cluster1-01          true    true          false
+cluster1-02          true    true          false
+cluster1-03          true    true          true
+cluster1-04          true    true          false
+----
+====
+. 원격 클러스터 인터페이스에 ping을 수행하여 연결을 확인합니다. `cluster ping-cluster -node local`
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster ping-cluster -node local*
+Host is cluster1-03
+Getting addresses from network interface table...
+Cluster cluster1-03_clus1 169.254.1.3 cluster1-03 e0a
+Cluster cluster1-03_clus2 169.254.1.1 cluster1-03 e0b
+Cluster cluster1-04_clus1 169.254.1.6 cluster1-04 e0a
+Cluster cluster1-04_clus2 169.254.1.7 cluster1-04 e0b
+Cluster cluster1-01_clus1 169.254.3.4 cluster1-01 e0a
+Cluster cluster1-01_clus2 169.254.3.5 cluster1-01 e0b
+Cluster cluster1-02_clus1 169.254.3.8 cluster1-02 e0a
+Cluster cluster1-02_clus2 169.254.3.9 cluster1-02 e0b
+Local = 169.254.1.3 169.254.1.1
+Remote = 169.254.1.6 169.254.1.7 169.254.3.4 169.254.3.5 169.254.3.8 169.254.3.9
+Cluster Vserver Id = 4294967293
+Ping status:
+............
+Basic connectivity succeeds on 12 path(s)
+Basic connectivity fails on 0 path(s)
+................................................
+Detected 9000 byte MTU on 12 path(s):
+    Local 169.254.1.3 to Remote 169.254.1.6
+    Local 169.254.1.3 to Remote 169.254.1.7
+    Local 169.254.1.3 to Remote 169.254.3.4
+    Local 169.254.1.3 to Remote 169.254.3.5
+    Local 169.254.1.3 to Remote 169.254.3.8
+    Local 169.254.1.3 to Remote 169.254.3.9
+    Local 169.254.1.1 to Remote 169.254.1.6
+    Local 169.254.1.1 to Remote 169.254.1.7
+    Local 169.254.1.1 to Remote 169.254.3.4
+    Local 169.254.1.1 to Remote 169.254.3.5
+    Local 169.254.1.1 to Remote 169.254.3.8
+    Local 169.254.1.1 to Remote 169.254.3.9
+Larger than PMTU communication succeeds on 12 path(s)
+RPC status:
+6 paths up, 0 paths down (tcp check)
+6 paths up, 0 paths down (udp check)
+----
+====
+. 권한 수준을 admin으로 다시 변경합니다.
++
+'Set-Privilege admin'입니다
+
+. 자동 케이스 생성을 억제한 경우 AutoSupport 메시지를 호출하여 다시 활성화합니다.
++
+'System node AutoSupport invoke-node * -type all-message maINT=end'
+
 
 
 .다음 단계

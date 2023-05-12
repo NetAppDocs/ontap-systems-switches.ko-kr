@@ -25,6 +25,43 @@ BES-53248 클러스터 스위치에서 다음 라이센스를 사용할 수 있�
 
 
  a| 
+SW-BES-53248A2-8P-2P
+ a| 
+Broadcom 8PT-10G25G+2pt-40G100G 라이센스 키, X190005/R
+ a| 
+EFOS 3.4.4.6 이상
+
+
+
+ a| 
+SW-BES-53248A2-8P-1025G
+ a| 
+Broadcom 8 포트 10G25G 라이센스 키, X190005/R
+ a| 
+EFOS 3.4.4.6 이상
+
+
+
+ a| 
+SW-BES53248A2-6P-40-100G
+ a| 
+Broadcom 6 포트 40G100G 라이센스 키, X190005/R
+ a| 
+EFOS 3.4.4.6 이상
+
+|===
+
+
+== 기존 라이센스
+
+다음 표에는 BES-53248 클러스터 스위치에서 사용할 수 있는 레거시 라이센스가 나열되어 있습니다.
+
+[cols="1,2,3"]
+|===
+| 사용권 유형 | 라이센스 세부 정보 | 지원되는 펌웨어 버전입니다 
+
+
+ a| 
 SW-BES-53248A1-G1-8P-LIC
  a| 
 Broadcom 8P 10-25,2P40-100 라이센스 키, X190005/R
@@ -196,7 +233,7 @@ License Index  License Type      Status
 ====
 [listing, subs="+quotes"]
 ----
-(cs2)# *show port all \| exclude Detach*
+(cs2)# *show port all | exclude Detach*
 
                  Admin     Physical   Physical   Link   Link    LACP   Actor
 Intf      Type   Mode      Mode       Status     Status Trap    Mode   Timeout
@@ -274,7 +311,7 @@ License Index  License Type              Status
 ====
 [listing, subs="+quotes"]
 ----
-(cs2)# *show port all \| exclude Detach*
+(cs2)# *show port all | exclude Detach*
 
                  Admin     Physical   Physical   Link   Link    LACP   Actor
 Intf      Type   Mode      Mode       Status     Status Trap    Mode   Timeout

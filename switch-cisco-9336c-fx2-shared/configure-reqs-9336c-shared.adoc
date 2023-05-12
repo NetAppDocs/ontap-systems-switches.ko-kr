@@ -41,7 +41,7 @@ ONTAP 9.9.1에서 Cisco Nexus 9336C-FX2 스위치를 사용하여 스토리지 �
 * 관리 네트워크 트래픽을 위한 IP 서브넷입니다
 * 각 스토리지 시스템 컨트롤러 및 해당하는 모든 스위치의 호스트 이름 및 IP 주소
 * 대부분의 스토리지 시스템 컨트롤러는 이더넷 서비스 포트(렌치 아이콘)에 연결하여 e0M 인터페이스를 통해 관리됩니다. AFF A800 및 AFF A700s 시스템에서 e0M 인터페이스는 전용 이더넷 포트를 사용합니다.
-* 을 참조하십시오 https://hwu.netapp.com["Hardware Universe"] 를 참조하십시오.
+* 을 참조하십시오 https://["Hardware Universe"] 를 참조하십시오.
 
 
-스위치의 초기 구성에 대한 자세한 내용은 다음 설명서를 참조하십시오. https://www.cisco.com/c/en/us/td/docs/dcn/hw/nx-os/nexus9000/9336c-fx2-e/cisco-nexus-9336c-fx2-e-nx-os-mode-switch-hardware-installation-guide.html["Cisco Nexus 9336C-FX2 설치 및 업그레이드 가이드 를 참조하십시오"].
+스위치의 초기 구성에 대한 자세한 내용은 다음 설명서를 참조하십시오. https://["Cisco Nexus 9336C-FX2 설치 및 업그레이드 가이드 를 참조하십시오"].

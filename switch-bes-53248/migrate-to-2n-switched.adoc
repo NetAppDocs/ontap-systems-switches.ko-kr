@@ -38,7 +38,7 @@ summary: 스위치가 없는 2노드 클러스터가 있는 경우 중단 없이
 ** 클러스터 스위치에 대한 콘솔 액세스가 있습니다.
 ** BES-53248 노드 간 스위치 및 스위치 간 연결은 Twinax 또는 파이버 케이블을 사용합니다.
 +
-를 클릭합니다 https://hwu.netapp.com/Home/Index["_NetApp Hardware Universe _"^] ONTAP 호환성, 지원되는 EFOS 펌웨어 및 BES-53248 스위치 케이블 연결에 대한 정보를 제공합니다.
+를 클릭합니다 https://["_NetApp Hardware Universe _"^] ONTAP 호환성, 지원되는 EFOS 펌웨어 및 BES-53248 스위치 케이블 연결에 대한 정보를 제공합니다.
 
 
 
@@ -66,7 +66,7 @@ summary: 스위치가 없는 2노드 클러스터가 있는 경우 중단 없이
 * 'cluster1:: *>' 프롬프트는 클러스터의 이름을 나타냅니다.
 * 이 절차에 사용되는 클러스터 포트는 e0a 및 e0b입니다.
 +
-를 클릭합니다 https://hwu.netapp.com/Home/Index["_NetApp Hardware Universe _"^] 에는 해당 플랫폼의 실제 클러스터 포트에 대한 최신 정보가 나와 있습니다.
+를 클릭합니다 https://["_NetApp Hardware Universe _"^] 에는 해당 플랫폼의 실제 클러스터 포트에 대한 최신 정보가 나와 있습니다.
 
 
 
@@ -293,7 +293,7 @@ Cluster
 ====
 . 노드 1의 클러스터 포트 e0a에서 케이블을 분리한 다음, BES-53248 스위치가 지원하는 적절한 케이블을 사용하여 클러스터 스위치 CS1의 포트 1에 e0a를 연결합니다.
 +
-를 클릭합니다 https://hwu.netapp.com/Home/Index["_NetApp Hardware Universe _"^] 케이블 연결에 대한 자세한 내용은 에 나와 있습니다.
+를 클릭합니다 https://["_NetApp Hardware Universe _"^] 케이블 연결에 대한 자세한 내용은 에 나와 있습니다.
 
 . 노드 2의 클러스터 포트 e0a에서 케이블을 분리한 다음, BES-53248 스위치가 지원하는 적절한 케이블을 사용하여 클러스터 스위치 CS1의 포트 2에 e0a를 연결합니다.
 . 클러스터 스위치 CS1에서 모든 노드 대상 포트를 활성화합니다.
@@ -589,7 +589,7 @@ cluster1::*> system node autosupport invoke -node \* -type all -message MAINT=EN
 ----
 ====
 +
-자세한 내용은 다음을 참조하십시오. https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_suppress_automatic_case_creation_during_scheduled_maintenance_windows["NetApp KB 문서: 예약된 유지 관리 창에서 자동 케이스 생성을 억제하는 방법"^]
+자세한 내용은 다음을 참조하십시오. https://["NetApp KB 문서: 예약된 유지 관리 창에서 자동 케이스 생성을 억제하는 방법"^]
 
 
 

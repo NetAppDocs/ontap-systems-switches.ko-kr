@@ -11,20 +11,23 @@ summary: 클러스터 스위치 상태 모니터 로그 수집 기능은 ONTAP�
 
 
 [role="lead"]
-ONTAP에서 스위치 관련 로그 파일을 수집하는 데 사용되는 로그 수집 기능을 활성화할 수 있습니다.
-
-BES-53248 클러스터 스위치 CLI를 사용하여 환경을 설정했는지 확인합니다.
+로그 수집 기능을 사용하여 ONTAP에서 스위치 관련 로그 파일을 수집할 수 있습니다.
 
 
+IMPORTANT: 로그 수집 기능을 사용하려면 ONTAP 버전 9.12.1 이상 및 EFOS 3.8.0.2 이상을 실행해야 합니다.
 
-== ONTAP 9.8 이상
-
-다음 명령을 사용하여 로그 수집 기능을 사용하도록 설정합니다.
-
-System switch ethernet log setup-password와 system switch ethernet log enable-collection
+BES-53248 클러스터 스위치 * CLI * 를 사용하여 환경을 설정했는지 확인합니다.
 
 .단계
-. '시스템 스위치 이더넷 로그 설정 - 암호'를 입력합니다
+. 다음 명령을 사용하여 스위치 관련 로그 파일을 수집하기 위해 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화합니다.
++
+'System switch Ethernet log setup-password' 및
+
++
+System switch Ethernet log enable-collection
+
++
+.. '시스템 스위치 이더넷 로그 설정 - 암호'를 입력합니다
 +
 .예제 보기
 [%collapsible]
@@ -32,7 +35,7 @@ System switch ethernet log setup-password와 system switch ethernet log enable-c
 [listing, subs="+quotes"]
 ----
 cluster1::*> *system switch ethernet log setup-password*
-Enter the switch name: <return>
+Enter the switch name: *<return>*
 The switch name entered is not recognized.
 Choose from the following list:
 *cs1*
@@ -44,26 +47,27 @@ Enter the switch name: *cs1*
 RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
 Do you want to continue? {y|n}::[n] *y*
 
-Enter the password: <enter switch password>
-Enter the password again: <enter switch password>
+Enter the password: *<enter switch password>*
+Enter the password again: *<enter switch password>*
 
 cluster1::*> *system switch ethernet log setup-password*
+
 Enter the switch name: *cs2*
 RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
 Do you want to continue? {y|n}:: [n] *y*
 
-Enter the password: <enter switch password>
-Enter the password again: <enter switch password>
+Enter the password: *<enter switch password>*
+Enter the password again: *<enter switch password>*
 ----
 ====
-. 입력: `system switch ethernet log enable-collection`
+.. 입력: `system switch ethernet log enable-collection`
 +
 .예제 보기
 [%collapsible]
 ====
 [listing, subs="+quotes"]
 ----
-cluster1::*> *system switch ethernet log enable-collection*
+cluster1::*> *system  switch ethernet log enable-collection*
 
 Do you want to enable cluster log collection for all nodes in the cluster?
 {y|n}: [n] *y*
@@ -75,70 +79,35 @@ cluster1::*>
 ====
 
 
+. 스위치 로그 수집 기능을 시작합니다.
++
+`system switch ethernet log collect -device *`
 
++
+10분간 기다린 후 다음 명령을 사용하여 로그 수집이 성공했는지 확인합니다.
 
-== ONTAP 9.5P15, 9.6P11, 9.7P8 이상 패치 릴리스
++
+`system switch ethernet log show`
 
-다음 명령을 사용하여 로그 수집 기능을 사용하도록 설정합니다.
-
-System cluster-switch log setup-password와 system cluster-switch log enable-collection
-
-.단계
-. 'system cluster-switch log setup-password'를 입력합니다
 +
 .예제 보기
 [%collapsible]
 ====
 [listing, subs="+quotes"]
 ----
-cluster1::*> *system cluster-switch log setup-password*
-Enter the switch name: <return>
-The switch name entered is not recognized.
-Choose from the following list:
-*cs1*
-*cs2*
+cluster1::*> system switch ethernet log show
+Log Collection Enabled: true
 
-cluster1::*> *system cluster-switch log setup-password*
-
-Enter the switch name: *cs1*
-RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
-Do you want to continue? {y|n}::[n] *y*
-
-Enter the password: <enter switch password>
-Enter the password again: <enter switch password>
-
-cluster1::*> *system cluster-switch log setup-password*
-
-Enter the switch name: *cs2*
-RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
-Do you want to continue? {y|n}:: [n] *y*
-
-Enter the password: <enter switch password>
-Enter the password again: <enter switch password>
+Index  Switch                       Log Timestamp        Status
+------ ---------------------------- -------------------  ---------
+1      cs1 (b8:ce:f6:19:1b:42)      4/29/2022 03:05:25   complete
+2      cs2 (b8:ce:f6:19:1b:96)      4/29/2022 03:07:42   complete
 ----
-====
-. 입력: `system cluster-switch log enable-collection`
-+
-.예제 보기
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> *system cluster-switch log enable-collection*
-
-Do you want to enable cluster log collection for all nodes in the cluster?
-{y|n}: [n] *y*
-
-Enabling cluster switch log collection.
-----
-====
-
-
-
-NOTE: 현재 로그 수집 명령을 사용할 수 없습니다. 을 참조하십시오 link:https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/1225042["버그 1225042"^] 를 참조하십시오.
-
 
 CAUTION: 이러한 명령에서 오류가 반환되면 NetApp 지원에 문의하십시오.
 
 .다음 단계
 스위치를 업그레이드하는 경우 로 이동합니다 link:replace-verify.html["업그레이드 구성을 확인합니다"].
+
+====
+

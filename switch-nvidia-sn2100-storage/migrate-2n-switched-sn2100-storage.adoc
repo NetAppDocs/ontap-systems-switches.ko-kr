@@ -38,7 +38,7 @@ NVIDIA SN2100 클러스터 스위치 구성의 경우 다음 사항을 확인합
 NOTE: 을 참조하십시오 link:cabling-considerations-sn2100-storage.html["케이블 연결 및 구성 고려 사항"] 주의 사항 및 자세한 내용은
 
 +
-를 클릭합니다 https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - 스위치"^] 케이블 연결에 대한 자세한 내용은 에 나와 있습니다.
+를 클릭합니다 https://["Hardware Universe - 스위치"^] 케이블 연결에 대한 자세한 내용은 에 나와 있습니다.
 
 * ISL(Inter-Switch Link) 케이블은 두 NVIDIA SN2100 스위치 모두에서 포트 swp15 및 swp16에 연결됩니다.
 * 두 SN2100 스위치의 초기 사용자 지정이 완료되어 다음과 같은 작업이 가능합니다.
@@ -64,7 +64,7 @@ NOTE: 을 참조하십시오 link:cabling-considerations-sn2100-storage.html["�
 * 이 절차에 사용되는 클러스터 포트는 _e3a_와 _e3b_입니다.
 * 브레이크아웃 포트는 SWP [port]s [브레이크아웃 포트 0-3] 형식을 사용합니다. 예를 들어 swp1의 4개의 브레이크아웃 포트는 _swp1s0_, _swp1s1_, _swp1s2_ 및 _swp1s3_입니다.
 +
-를 클릭합니다 https://hwu.netapp.com["Hardware Universe"^] 에는 해당 플랫폼의 실제 클러스터 포트에 대한 최신 정보가 나와 있습니다.
+를 클릭합니다 https://["Hardware Universe"^] 에는 해당 플랫폼의 실제 클러스터 포트에 대한 최신 정보가 나와 있습니다.
 
 
 
@@ -235,7 +235,7 @@ Cluster
 ====
 . 노드 1의 클러스터 포트 e3a에서 케이블을 분리한 다음, SN2100 스위치가 지원하는 적절한 케이블을 사용하여 클러스터 스위치 SW1의 포트 3에 e3a를 연결합니다.
 +
-를 클릭합니다 https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - 스위치"^] 케이블 연결에 대한 자세한 내용은 에 나와 있습니다.
+를 클릭합니다 https://["Hardware Universe - 스위치"^] 케이블 연결에 대한 자세한 내용은 에 나와 있습니다.
 
 . 노드 2의 클러스터 포트 e3a에서 케이블을 분리한 다음, SN2100 스위치가 지원하는 적절한 케이블을 사용하여 클러스터 스위치 SW1의 포트 4에 e3a를 연결합니다.
 . 스위치 SW1에서 모든 노드 대상 포트를 활성화합니다.

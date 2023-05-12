@@ -15,11 +15,13 @@ CSMM(Cluster Switch Health Monitor) 구성 파일을 설치하면 BES-53248 클�
 
 ONTAP 릴리스 9.5P7 및 이전 버전, 9.6P2 및 이전 버전에서는 CSHM 파일을 별도로 다운로드해야 합니다. ONTAP 릴리스 9.5P8 이상, 9.6P3 이상 및 9.7 이상에서는 CSMM 파일이 ONTAP와 함께 번들로 제공됩니다.
 
-.필요한 것
+.시작하기 전에
 ONTAP 클러스터가 작동 중이고 실행 중인지 확인합니다.
 
+다음 단계에 따라 CSMM(Cluster Switch Health Monitor) 구성 파일을 설치합니다.
+
 .단계
-. 해당 ONTAP 릴리스 버전을 기반으로 CSHM zip 파일을 다운로드합니다. 이 파일은 다음 페이지에서 사용할 수 있습니다. https://mysupport.netapp.com/NOW/cgi-bin/software/["NetApp 소프트웨어 다운로드"^]
+. 해당 ONTAP 릴리스 버전을 기반으로 CSHM zip 파일을 다운로드합니다. 이 파일은 다음 페이지에서 사용할 수 있습니다. https://["NetApp 소프트웨어 다운로드"^]
 +
 .. 소프트웨어 다운로드 페이지에서 * 상태 모니터 구성 파일 전환 * 을 선택합니다.
 .. Platform= * ONTAP * 를 선택하고 * Go! * 를 클릭합니다.

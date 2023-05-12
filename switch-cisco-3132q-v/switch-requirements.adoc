@@ -58,7 +58,7 @@ summary: Cisco Nexus 3132Q-V 클러스터 스위치를 교체할 때 특정 구�
 ** Nexus 3132Q-V
 
 
-* 10GbE 및 40/100 GbE 포트 수는 에서 사용할 수 있는 RCFs(참조 구성 파일)에 정의되어 있습니다 https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Cisco ® 클러스터 네트워크 스위치 참조 구성 파일 다운로드"^] 페이지.
+* 10GbE 및 40/100 GbE 포트 수는 에서 사용할 수 있는 RCFs(참조 구성 파일)에 정의되어 있습니다 https://["Cisco ® 클러스터 네트워크 스위치 참조 구성 파일 다운로드"^] 페이지.
 * 클러스터 스위치는 노드 연결에 다음 포트를 사용합니다.
 +
 ** 포트 e1/1-40(10GbE): Nexus 5596

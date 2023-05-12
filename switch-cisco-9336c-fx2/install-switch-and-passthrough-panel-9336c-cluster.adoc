@@ -31,7 +31,7 @@ NetApp pass-through 패널 키트에는 다음 하드웨어가 포함되어 있�
 
 NOTE: 점퍼 코드는 pass-through 키트에 포함되어 있지 않으며 스위치에 포함되어 있어야 합니다. 스위치와 함께 제공되지 않은 경우 NetApp에서 주문할 수 있습니다(부품 번호 X1558A-R6).
 
-* 초기 준비 요구 사항, 키트 내용물 및 안전 예방 조치는 을 참조하십시오 https://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/hw/aci_9336cfx2_hig/guide/b_n9336cFX2_aci_hardware_installation_guide.html["Cisco Nexus 9000 시리즈 하드웨어 설치 가이드 를 참조하십시오"^].
+* 초기 준비 요구 사항, 키트 내용물 및 안전 예방 조치는 을 참조하십시오 https://["Cisco Nexus 9000 시리즈 하드웨어 설치 가이드 를 참조하십시오"^].
 
 
 .단계

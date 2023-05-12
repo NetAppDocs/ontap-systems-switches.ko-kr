@@ -33,7 +33,7 @@ CN1610 클러스터 스위치 구성의 경우:
 * 클러스터 스위치에 대한 콘솔 액세스가 있습니다.
 * CN1610 노드 간 스위치 및 스위치 간 연결에는 twinax 또는 파이버 케이블을 사용합니다.
 +
-를 클릭합니다 https://hwu.netapp.com/["Hardware Universe"^] 케이블 연결에 대한 자세한 내용은 에 나와 있습니다.
+를 클릭합니다 https://["Hardware Universe"^] 케이블 연결에 대한 자세한 내용은 에 나와 있습니다.
 
 * ISL(Inter-Switch Link) 케이블은 두 CN1610 스위치에서 포트 13~16에 연결됩니다.
 * 두 CN1610 스위치의 초기 사용자 지정이 완료되었습니다.
@@ -43,10 +43,10 @@ SMTP, SNMP, SSH 등의 이전 사이트 사용자 지정은 새 스위치에 복
 
 
 .관련 정보
-* http://hwu.netapp.com["Hardware Universe"^]
-* http://support.netapp.com/NOW/download/software/cm_switches_ntap/["NetApp CN1601 및 CN1610 설명 페이지"^]
-* https://library.netapp.com/ecm/ecm_download_file/ECMP1118645["CN1601 및 CN1610 스위치 설정 및 구성 가이드"^]
-* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_suppress_automatic_case_creation_during_scheduled_maintenance_windows["NetApp KB 문서 101010449: 예약된 유지 관리 창에서 자동 케이스 생성을 억제하는 방법"^]
+* http://["Hardware Universe"^]
+* http://["NetApp CN1601 및 CN1610 설명 페이지"^]
+* https://["CN1601 및 CN1610 스위치 설정 및 구성 가이드"^]
+* https://["NetApp KB 문서 101010449: 예약된 유지 관리 창에서 자동 케이스 생성을 억제하는 방법"^]
 
 
 
@@ -62,7 +62,7 @@ SMTP, SNMP, SSH 등의 이전 사이트 사용자 지정은 새 스위치에 복
 * 'cluster::: *>' 프롬프트는 클러스터의 이름을 나타냅니다.
 * 이 절차에 사용되는 클러스터 포트는 E1A와 e2a입니다.
 +
-를 클릭합니다 https://hwu.netapp.com/["Hardware Universe"^] 에는 해당 플랫폼의 실제 클러스터 포트에 대한 최신 정보가 나와 있습니다.
+를 클릭합니다 https://["Hardware Universe"^] 에는 해당 플랫폼의 실제 클러스터 포트에 대한 최신 정보가 나와 있습니다.
 
 
 

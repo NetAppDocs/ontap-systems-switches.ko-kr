@@ -40,7 +40,7 @@ summary: '클러스터 네트워크에서 결함이 있는 Cisco Nexus 3132Q-V �
 ** 스위치의 초기 사용자 정의가 완료되었습니다.
 
 
-* http://hwu.netapp.com["Hardware Universe"^]
+* http://["Hardware Universe"^]
 
 
 

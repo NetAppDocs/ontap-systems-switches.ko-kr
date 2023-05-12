@@ -26,21 +26,21 @@ summary: 클러스터, 스토리지 및 공유 스위치에 대해 알아보십�
  a| 
  a| 
 .AFF 시스템
-* https://docs.netapp.com/us-en/ontap-systems/c190/install-setup.html["AFF C190"]
-* https://docs.netapp.com/us-en/ontap-systems/fas2700/install-setup.html["AFF A220"]
-* https://docs.netapp.com/us-en/ontap-systems/a250/install-setup.html["AFF A250"]
-* https://docs.netapp.com/us-en/ontap-systems/a400/install-setup.html["AFF A400"]
-* https://docs.netapp.com/us-en/ontap-systems/fas9000/install-setup.html["AFF A700"]
-* https://docs.netapp.com/us-en/ontap-systems/a800/install-setup.html["AFF A800"]
-* https://docs.netapp.com/us-en/ontap-systems/a900/install_detailed_guide.html["AFF A900"]
+* https://["AFF C190"]
+* https://["AFF A220"]
+* https://["AFF A250"]
+* https://["AFF A400"]
+* https://["AFF A700"]
+* https://["AFF A800"]
+* https://["AFF A900"]
 
  a| 
 .FAS 시스템
-* https://docs.netapp.com/us-en/ontap-systems/fas500f/install-setup.html["500f로 설정합니다"]
-* https://docs.netapp.com/us-en/ontap-systems/fas8300/install-setup.html["FAS8300"]
-* https://docs.netapp.com/us-en/ontap-systems/fas8300/install-setup.html["FAS8700"]
-* https://docs.netapp.com/us-en/ontap-systems/fas9000/install-setup.html["FAS9000"]
-* https://docs.netapp.com/us-en/ontap-systems/fas9500/install_setup.html["FAS9500"]
+* https://["500f로 설정합니다"]
+* https://["FAS8300"]
+* https://["FAS8700"]
+* https://["FAS9000"]
+* https://["FAS9500"]
 
  a| 
 
@@ -160,21 +160,21 @@ AFF/FAS 설치 및 설정 지침에는 컨트롤러 포트를 스위치에 케�
  a| 
  a| 
 .AFF 시스템
-* https://docs.netapp.com/us-en/ontap-systems/c190/install-setup.html["AFF C190"]
-* https://docs.netapp.com/us-en/ontap-systems/fas2700/install-setup.html["AFF A220"]
-* https://docs.netapp.com/us-en/ontap-systems/a250/install-setup.html["AFF A250"]
-* https://docs.netapp.com/us-en/ontap-systems/a400/install-setup.html["AFF A400"]
-* https://docs.netapp.com/us-en/ontap-systems/fas9000/install-setup.html["AFF A700"]
-* https://docs.netapp.com/us-en/ontap-systems/a800/install-setup.html["AFF A800"]
-* https://docs.netapp.com/us-en/ontap-systems/a900/install_detailed_guide.html["AFF A900"]
+* https://["AFF C190"]
+* https://["AFF A220"]
+* https://["AFF A250"]
+* https://["AFF A400"]
+* https://["AFF A700"]
+* https://["AFF A800"]
+* https://["AFF A900"]
 
  a| 
 .FAS 시스템
-* https://docs.netapp.com/us-en/ontap-systems/fas500f/install-setup.html["500f로 설정합니다"]
-* https://docs.netapp.com/us-en/ontap-systems/fas8300/install-setup.html["FAS8300"]
-* https://docs.netapp.com/us-en/ontap-systems/fas8300/install-setup.html["FAS8700"]
-* https://docs.netapp.com/us-en/ontap-systems/fas9000/install-setup.html["FAS9000"]
-* https://docs.netapp.com/us-en/ontap-systems/fas9500/install_setup.html["FAS9500"]
+* https://["500f로 설정합니다"]
+* https://["FAS8300"]
+* https://["FAS8700"]
+* https://["FAS9000"]
+* https://["FAS9500"]
 
  a| 
 
@@ -184,6 +184,6 @@ AFF/FAS 설치 및 설정 지침에는 컨트롤러 포트를 스위치에 케�
 AFF/FAS 컨트롤러 및 스위치를 설치 및 설정한 후에는 ONTAP에서 스토리지 구성을 완료해야 합니다. 배포 구성에 따라 다음 지침에 액세스합니다.
 
 [role="quick-margin-list"]
-* ONTAP 배포의 경우 를 참조하십시오 https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["ONTAP를 구성합니다"].
-* MetroCluster 배포를 지원하는 ONTAP의 경우 를 참조하십시오 https://docs.netapp.com/us-en/ontap-metrocluster/["ONTAP를 사용하여 MetroCluster를 구성합니다"].
+* ONTAP 배포의 경우 를 참조하십시오 https://["ONTAP를 구성합니다"].
+* MetroCluster 배포를 지원하는 ONTAP의 경우 를 참조하십시오 https://["ONTAP를 사용하여 MetroCluster를 구성합니다"].
 

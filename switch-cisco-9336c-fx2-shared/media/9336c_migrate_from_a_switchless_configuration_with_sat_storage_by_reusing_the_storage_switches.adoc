@@ -80,7 +80,7 @@ node2
 storage::*> system health alert show -instance
 There are no entries matching your query.
 ----
-. [[step7]] 공유 스위치 A의 스토리지 RCF를 공유 RCF 파일로 교체합니다. 을 참조하십시오 http://9336c_install_nx-os_software_and_reference_configuration_files_@rcfs@.html#install-the-rcf-on-a-cisco-nexus-9336c-fx2-shared-switch["Cisco Nexus 9336C-FX2 공유 스위치에 RCF를 설치합니다"] 를 참조하십시오.
+. [[step7]] 공유 스위치 A의 스토리지 RCF를 공유 RCF 파일로 교체합니다. 을 참조하십시오 http://["Cisco Nexus 9336C-FX2 공유 스위치에 RCF를 설치합니다"] 를 참조하십시오.
 . HA Pair 1에 연결된 스토리지, 스토리지 스위치 B가 정상 상태인지 확인합니다. 'system health alert show-instance'
 
 

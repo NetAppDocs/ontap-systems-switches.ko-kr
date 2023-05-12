@@ -15,7 +15,7 @@ SN2100 하드웨어를 설치하려면 NVIDIA 설명서를 참조하십시오.
 
 .단계
 . 를 검토합니다 link:configure-reqs-sn2100-storage.html["구성 요구 사항"].
-. 의 지침을 따릅니다 https://docs.nvidia.com/networking/display/sn2000pub/Installation["NVIDIA 스위치 설치 안내서"^].
+. 의 지침을 따릅니다 https://["NVIDIA 스위치 설치 안내서"^].
 
 
 .다음 단계

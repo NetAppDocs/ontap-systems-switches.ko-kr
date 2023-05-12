@@ -36,7 +36,7 @@ summary: 스위치가 없는 기존 2노드 클러스터 환경이 구축된 경
 * NVIDIA SN2100 노드 간 스위치 및 스위치 간 연결은 Twinax 또는 파이버 케이블을 사용합니다.
 +
 
-IMPORTANT: 을 참조하십시오 link:cabling-considerations-sn2100-cluster.html["케이블 연결 및 구성 고려 사항을 검토합니다"] 주의 사항 및 자세한 내용은 를 클릭합니다 https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - 스위치"^] 또한 케이블 연결에 대한 자세한 정보도 포함되어 있습니다.
+IMPORTANT: 을 참조하십시오 link:cabling-considerations-sn2100-cluster.html["케이블 연결 및 구성 고려 사항을 검토합니다"] 주의 사항 및 자세한 내용은 를 클릭합니다 https://["Hardware Universe - 스위치"^] 또한 케이블 연결에 대한 자세한 정보도 포함되어 있습니다.
 
 * ISL(Inter-Switch Link) 케이블은 두 NVIDIA SN2100 스위치 모두에서 포트 swp15 및 swp16에 연결됩니다.
 * 두 SN2100 스위치의 초기 사용자 지정이 완료되어 다음과 같은 작업이 가능합니다.
@@ -45,7 +45,7 @@ IMPORTANT: 을 참조하십시오 link:cabling-considerations-sn2100-cluster.htm
 ** RCF(Reference Configuration Files)가 스위치에 적용됩니다
 ** SMTP, SNMP, SSH 등의 사이트 사용자 지정은 새 스위치에 구성됩니다.
 +
-를 클릭합니다 https://hwu.netapp.com["Hardware Universe"^] 에는 해당 플랫폼의 실제 클러스터 포트에 대한 최신 정보가 나와 있습니다.
+를 클릭합니다 https://["Hardware Universe"^] 에는 해당 플랫폼의 실제 클러스터 포트에 대한 최신 정보가 나와 있습니다.
 
 
 
@@ -227,7 +227,7 @@ Cluster
 ====
 . 노드 1의 클러스터 포트 e3a에서 케이블을 분리한 다음, SN2100 스위치가 지원하는 적절한 케이블을 사용하여 클러스터 스위치 SW1의 포트 3에 e3a를 연결합니다.
 +
-를 클릭합니다 https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - 스위치"^] 케이블 연결에 대한 자세한 내용은 에 나와 있습니다.
+를 클릭합니다 https://["Hardware Universe - 스위치"^] 케이블 연결에 대한 자세한 내용은 에 나와 있습니다.
 
 . 노드 2의 클러스터 포트 e3a에서 케이블을 분리한 다음, SN2100 스위치가 지원하는 적절한 케이블을 사용하여 클러스터 스위치 SW1의 포트 4에 e3a를 연결합니다.
 . 스위치 SW1에서 모든 노드 대상 포트를 활성화합니다.

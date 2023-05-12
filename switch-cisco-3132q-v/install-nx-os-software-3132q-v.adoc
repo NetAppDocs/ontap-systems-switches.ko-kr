@@ -24,7 +24,7 @@ summary: 이 절차를 사용하여 Nexus 3132Q-V 클러스터 스위치에 NX-O
 
 .추천 문서
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치"^]. 지원되는 ONTAP 및 NX-OS 버전은 스위치 호환성 표를 참조하십시오.
-* https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Cisco Nexus 3000 시리즈 스위치"^]. Cisco 스위치 업그레이드 및 다운그레이드 절차에 대한 전체 설명서는 Cisco 웹 사이트에서 제공하는 해당 소프트웨어 및 업그레이드 가이드를 참조하십시오.
+* https://["Cisco Nexus 3000 시리즈 스위치"^]. Cisco 스위치 업그레이드 및 다운그레이드 절차에 대한 전체 설명서는 Cisco 웹 사이트에서 제공하는 해당 소프트웨어 및 업그레이드 가이드를 참조하십시오.
 
 
 
@@ -51,7 +51,7 @@ Pinging 172.19.2.1 with 0 bytes of data:
 Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
 ----
 ====
-. FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 NX-OS 소프트웨어를 Nexus 3132Q-V 스위치에 복사합니다. Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Cisco Nexus 3000 Series NX-OS 명령 참조 가이드"^].
+. FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 NX-OS 소프트웨어를 Nexus 3132Q-V 스위치에 복사합니다. Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://["Cisco Nexus 3000 Series NX-OS 명령 참조 가이드"^].
 +
 .예제 보기
 [%collapsible]

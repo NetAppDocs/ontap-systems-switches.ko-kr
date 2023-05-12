@@ -22,7 +22,7 @@ summary: Cisco Nexus 9336C-FX2 스위치 및 패스스루 패널을 스위치에
 NOTE: 점퍼 코드는 pass-through 키트에 포함되어 있지 않으며 스위치에 포함되어 있어야 합니다. 스위치와 함께 제공되지 않은 경우 NetApp에서 주문할 수 있습니다(부품 번호 X1558A-R6).
 
 .필수 문서
-의 초기 준비 요구 사항, 키트 내용물 및 안전 예방 조치를 검토합니다 https://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/hw/aci_9336cfx2_hig/guide/b_n9336cFX2_aci_hardware_installation_guide.html["Cisco Nexus 9000 시리즈 하드웨어 설치 가이드 를 참조하십시오"^].
+의 초기 준비 요구 사항, 키트 내용물 및 안전 예방 조치를 검토합니다 https://["Cisco Nexus 9000 시리즈 하드웨어 설치 가이드 를 참조하십시오"^].
 
 .단계
 . NetApp 캐비닛에 Pass-through 블랭킹 패널을 장착하십시오.

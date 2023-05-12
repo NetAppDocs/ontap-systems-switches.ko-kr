@@ -58,4 +58,4 @@ X-MTEF-KIT-E
 
 |===
 
-NOTE: 에 대한 자세한 내용은 NVIDIA 설명서를 참조하십시오 https://docs.nvidia.com/networking/display/sn2000pub/Installation["SN2100 스위치 및 레일 키트 설치"^].
+NOTE: 에 대한 자세한 내용은 NVIDIA 설명서를 참조하십시오 https://["SN2100 스위치 및 레일 키트 설치"^].

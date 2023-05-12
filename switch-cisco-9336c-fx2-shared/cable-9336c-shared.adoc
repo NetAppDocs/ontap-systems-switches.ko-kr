@@ -24,7 +24,7 @@ NS224 스토리지를 스위치 연결 상태로 케이블로 연결하려면 �
 
 image:9336c_image1.jpg["스위치 연결"]
 
-를 참조하십시오 https://hwu.netapp.com/Switch/Index["Hardware Universe"] 스위치 포트에 대한 자세한 내용은 을 참조하십시오.
+를 참조하십시오 https://["Hardware Universe"] 스위치 포트에 대한 자세한 내용은 을 참조하십시오.
 
 
 
@@ -34,7 +34,7 @@ image:9336c_image1.jpg["스위치 연결"]
 
 image:9336c_image2.jpg["직접 연결"]
 
-를 참조하십시오 https://hwu.netapp.com/Switch/Index["Hardware Universe"] 스위치 포트에 대한 자세한 내용은 을 참조하십시오.
+를 참조하십시오 https://["Hardware Universe"] 스위치 포트에 대한 자세한 내용은 을 참조하십시오.
 
 
 

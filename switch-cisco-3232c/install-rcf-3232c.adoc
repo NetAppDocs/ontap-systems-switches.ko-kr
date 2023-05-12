@@ -281,7 +281,7 @@ cs2#
 .. 스위치의 기본 설정을 수행합니다.
 
 
-. FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 CS2의 부트플래시 에 복사합니다. Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Cisco Nexus 3000 Series NX-OS 명령 참조"^] 안내선.
+. FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 CS2의 부트플래시 에 복사합니다. Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://["Cisco Nexus 3000 Series NX-OS 명령 참조"^] 안내선.
 +
 .예제 보기
 [%collapsible]
@@ -300,7 +300,7 @@ Copy complete, now saving to disk (please wait)...
 ====
 . 이전에 다운로드한 RCF를 bootflash에 적용합니다.
 +
-Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Cisco Nexus 3000 Series NX-OS 명령 참조"^] 안내선.
+Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://["Cisco Nexus 3000 Series NX-OS 명령 참조"^] 안내선.
 
 +
 .예제 보기
@@ -384,7 +384,7 @@ NOTE: RCF를 처음 적용할 때 * ERROR: Failed to write VSH commands * 메시
 
 . RCF 버전 및 스위치 설정이 올바른지 확인한 후 running-config 파일을 startup-config 파일에 복사합니다.
 +
-Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Cisco Nexus 3000 Series NX-OS 명령 참조"^] 안내선.
+Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://["Cisco Nexus 3000 Series NX-OS 명령 참조"^] 안내선.
 
 +
 [listing]

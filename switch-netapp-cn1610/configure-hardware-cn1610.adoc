@@ -11,4 +11,4 @@ summary: NetApp CN1610 하드웨어를 설치하려면 NetApp 설명서를 참�
 
 
 [role="lead"]
-클러스터 환경에 맞게 스위치 하드웨어 및 소프트웨어를 구성하려면 을 참조하십시오  https://library.netapp.com/ecm/ecm_download_file/ECMP1118645["CN1601 및 CN1610 스위치 설정 및 구성 가이드"^].
+클러스터 환경에 맞게 스위치 하드웨어 및 소프트웨어를 구성하려면 을 참조하십시오  https://["CN1601 및 CN1610 스위치 설정 및 구성 가이드"^].

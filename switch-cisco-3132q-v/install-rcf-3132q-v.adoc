@@ -24,7 +24,7 @@ Nexus 3132Q-V 스위치를 처음 설정한 후 RCF를 설치하려면 다음 �
 * NX-OS만 설치하고 현재 RCF 버전을 유지하는 경우 필요한 부팅 이미지를 반영하는 RCF의 부팅 구성입니다. 현재 부팅 이미지를 반영하도록 부팅 구성을 변경해야 하는 경우, 나중에 재부팅할 때 올바른 버전이 인스턴스화되도록 RCF를 다시 적용하기 전에 이 구성을 변경해야 합니다.
 * RCF를 설치할 때 스위치에 콘솔 연결 필요
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치"^]. 지원되는 ONTAP 및 RCF 버전은 스위치 호환성 표를 참조하십시오. RCF의 명령 구문과 NX-OS 버전에 있는 명령 구문 사이에 명령 종속성이 있을 수 있습니다.
-* https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Cisco Nexus 3000 시리즈 스위치"^]. Cisco 스위치 업그레이드 및 다운그레이드 절차에 대한 전체 설명서는 Cisco 웹 사이트에서 제공하는 해당 소프트웨어 및 업그레이드 가이드를 참조하십시오.
+* https://["Cisco Nexus 3000 시리즈 스위치"^]. Cisco 스위치 업그레이드 및 다운그레이드 절차에 대한 전체 설명서는 Cisco 웹 사이트에서 제공하는 해당 소프트웨어 및 업그레이드 가이드를 참조하십시오.
 
 
 
@@ -293,7 +293,7 @@ cs2#
 .. 스위치의 기본 설정을 수행합니다.
 
 
-. FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 CS2의 부트플래시 에 복사합니다. Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Cisco Nexus 3000 Series NX-OS 명령 참조"^] 안내선.
+. FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 CS2의 부트플래시 에 복사합니다. Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://["Cisco Nexus 3000 Series NX-OS 명령 참조"^] 안내선.
 +
 .예제 보기
 [%collapsible]
@@ -310,7 +310,7 @@ Copy complete, now saving to disk (please wait)...
 ====
 . 이전에 다운로드한 RCF를 bootflash에 적용합니다.
 +
-Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Cisco Nexus 3000 Series NX-OS 명령 참조"^] 안내선.
+Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://["Cisco Nexus 3000 Series NX-OS 명령 참조"^] 안내선.
 
 +
 .예제 보기
@@ -377,7 +377,7 @@ cs2# show banner motd
 
 . RCF 버전 및 스위치 설정이 올바른지 확인한 후 running-config 파일을 startup-config 파일에 복사합니다.
 +
-Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Cisco Nexus 3000 Series NX-OS 명령 참조"] 안내선.
+Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://["Cisco Nexus 3000 Series NX-OS 명령 참조"] 안내선.
 
 +
 .예제 보기
