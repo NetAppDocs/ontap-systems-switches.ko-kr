@@ -304,7 +304,6 @@
   <block id="47c173b91782927bfc36acfeeaec5f9f" category="paragraph">출력을 점검하여 올바른 RCF가 있는지 확인할 때 다음 정보가 올바른지 확인하십시오.</block>
   <block id="2a4c49daad6f24fc930342baa230202a" category="list-text">RCF 배너</block>
   <block id="f867470f4d681a0d1ba65ec5afb71681" category="list-text">노드 및 포트 설정입니다</block>
-  <block id="52ffc473f824bd729618f53fb6d14415" category="list-text">사용자 지정 출력은 사이트 구성에 따라 달라집니다. 포트 설정을 확인하고 설치된 RCF에 대한 변경 사항은 릴리스 노트를 참조하십시오.</block>
   <block id="f84dbe517c4cab37d96220b08c6a7430" category="list-text">RCF 버전 및 스위치 설정이 올바른지 확인한 후 running-config 파일을 startup-config 파일에 복사합니다.</block>
   <block id="751ae8e5b1f665d84208a0d929c57d52" category="list-text">스위치 CS2를 재부팅합니다. 스위치가 재부팅되는 동안 노드에 보고된 ""클러스터 포트 다운"" 이벤트를 무시할 수 있습니다.</block>
   <block id="05287537d898f5a1b2d701a759380d28" category="list-text">동일한 RCF를 적용하고 실행 중인 구성을 다시 저장합니다.</block>
@@ -2206,8 +2205,6 @@
   <block id="fc248f74f5e36542f7f5627b8610e9a3" category="paragraph"><block ref="fc248f74f5e36542f7f5627b8610e9a3" category="inline-link-rx"></block></block>
   <block id="c0227cef6f07a8cd2ac72f2945b031aa" category="section-title">오픈 소스</block>
   <block id="9b73989307c1975dfa4d5e1581e4afe8" category="paragraph">통지 파일은 NetApp 소프트웨어에 사용된 타사의 저작권 및 라이센스에 대한 정보를 제공합니다.</block>
-  <block id="8a69d7327337bf7d6152482b16e42f84" category="list-text">구성을 청소합니다.</block>
-  <block id="88b2ab3c3baa9b0c5faeb2e8a0fec98a" category="admonition">이 단계에서는 스위치에 콘솔 연결이 필요합니다.</block>
   <block id="9a75d8eb81c880a703c72f7186f35288" category="doc">BES-53248 클러스터 스위치 업그레이드 후 구성을 확인합니다</block>
   <block id="148a1525f4c4b2d620941031bf03f670" category="inline-link">_NetApp Hardware Universe _</block>
   <block id="8761a71b0c01f0356000c0994d4fb203" category="paragraph">System switch ethernet log setup-password와 system switch ethernet log enable-collection</block>
@@ -2230,7 +2227,6 @@
   <block id="1d70d7c880f9a4b8e9ccbd4cbaeefcd8" category="list-text">이 절차를 수행하기 전에 스위치 구성의 현재 백업이 있는지 확인하십시오.</block>
   <block id="c291fea66565616d9e881666325c1ee2" category="list-text">스위치의 현재 백업이 없는 경우 다음 명령의 출력을 로그 파일에 복사하여 현재 스위치 구성을 저장할 수 있습니다.</block>
   <block id="3f8f6d237f18036be3a3fb24642d16ba" category="list-text">아직 구성하지 않은 경우 다음 명령의 출력을 로그 파일에 복사하여 현재 스위치 구성을 저장합니다.</block>
-  <block id="d4d708e45e34a1416e859c8024a9e7c1" category="admonition">ONTAP 9.8 이상에서는 시스템 이더넷 스위치 show-is-monitoring-enabled-operational true 명령을 사용합니다.</block>
   <block id="8fdae5a227344a83423005f83a057331" category="list-text">클러스터 포트가 클러스터의 모든 노드에서 정상 작동하는지 확인합니다.</block>
   <block id="5d1ccfeff69430937e33ed02e46dbd94" category="list-text">클러스터에서 스위치 상태를 확인합니다.</block>
   <block id="53a0bfa393247902d9ea8fedde7e8132" category="list-text">스위치 CS1을 재부팅합니다. 이렇게 하면 클러스터 LIF가 홈 포트로 되돌아갈 수 있습니다. 스위치가 재부팅되는 동안 노드에 보고된 "클러스터 포트 다운" 이벤트를 무시할 수 있습니다.</block>
@@ -3024,7 +3020,6 @@
   <block id="1238025070f42c2c91970d4a31d2a5c4" category="paragraph"><block ref="229e8d1240617e0b97c680c36bbc9564" prefix="" category="inline-code"></block></block>
   <block id="80ab93e3822e7ed7a0bd76c9ee9103bb" category="section-title">2단계: 포트 구성</block>
   <block id="ef1ee64e66c476fc0def572853f98a6d" category="paragraph">다음 예제에서는 인터페이스 예제 출력을 사용합니다.</block>
-  <block id="0d338ee833fbd097dbf87aa3c232f048" category="list-text">스위치 CS1에서 이전 단계를 반복합니다.</block>
   <block id="28f363620ef0b78f100aebcc28cca7da" category="list-text">클러스터 포트에 연결된 스위치 포트가 * 업 * 인지 확인합니다.</block>
   <block id="5a60cb8f615fe52bbea3a0ce20d7cbf3" category="paragraph">Smart Call Home 기능을 사용하려면 다음 지침을 검토하십시오.</block>
   <block id="196735c2e16dea95e9e52940e995e4d3" category="paragraph">Smart Call Home은 네트워크의 하드웨어 및 소프트웨어 구성 요소를 모니터링합니다. 중요한 시스템 구성이 발생하면 e-메일 기반 알림이 생성되고 대상 프로필에 구성된 모든 수신자에게 경고가 표시됩니다. 스마트 콜 홈을 사용하려면 스마트 콜 홈 시스템과 이메일을 사용하여 통신하도록 클러스터 네트워크 스위치를 구성해야 합니다. 또한 Cisco의 내장된 Smart Call Home 지원 기능을 활용할 수 있도록 선택적으로 클러스터 네트워크 스위치를 설정할 수 있습니다.</block>
@@ -3134,7 +3129,6 @@
   <block id="f85e9af89252fc6fd85cfbb4e0aa1add" category="section-title">1단계: 포트 상태 확인</block>
   <block id="c35204e874fcafc94c7c67e31162e966" category="paragraph">이 명령을 실행한 후 자동 복귀가 해제되었는지 확인하십시오.</block>
   <block id="d08074ca4afc3cad1b1b41c1134b3f1e" category="section-title">2단계: 설정을 구성하고 확인합니다</block>
-  <block id="0c0b4ff8f510dfc18a7d95bef227ea58" category="paragraph"><block ref="ed3fe2a45ef033acf306fc90fbafdd66" prefix="" category="inline-code"></block></block>
   <block id="b6ec5ccd50e4a92a636c1dc432c89581" category="admonition">클러스터 노드가 정상 상태로 보고되려면 최대 5분이 걸릴 수 있습니다.</block>
   <block id="442f3bc68fd4ab1c760b482d02f7ca71" category="list-text">스위치 CS1에서 1-10단계를 반복합니다.</block>
   <block id="06e9c44ff7df8ac56c0fec0f8ded0121" category="section-title">3단계: 재부팅하고 구성을 확인합니다</block>
@@ -4429,4 +4423,13 @@
   <block id="2e58f874fe5dd7ef46fee2c92b1e77eb" category="paragraph">* 클러스터 노드 연결 케이블이 CS1-새 스위치 * 로 이동했습니다</block>
   <block id="7d829570fe05df690649474b2bb97a3b" category="image-alt">클러스터 노드 연결 케이블이 CS1-새 스위치로 이동했습니다</block>
   <block id="ec5ea2f0318e4d906c296f5576b9c026" category="list-text">[[step6]] 자동 케이스 생성을 억제한 경우 AutoSupport 메시지를 호출하여 다시 활성화합니다.<block ref="9ac424c0d7b432975df36a19daf50c9c" prefix=" " category="inline-code"></block></block>
+  <block id="0429fa776d68090e46718ac7e32390ef" category="admonition">EFOS 버전 3.10.0.3 이상에서는 명령을 사용합니다<block ref="c09633a606c51a161b16f8bf38f5ebb1" prefix=" " category="inline-code"></block>.</block>
+  <block id="455129a1d85d80f79e8d763a25910c74" category="admonition">새로운 RCF를 업데이트하거나 적용할 때는 스위치 설정을 지우고 기본 구성을 수행해야 합니다. PowerOn 자동 프로비저닝(POAP)을 사용하지 않도록 설정할 수 있는 경우 SSH 스위치 액세스가 보존됩니다(NX-OS 9.2P1 이상 필요). 스위치를 재부팅한 후 SSH 액세스가 가능하지 않은 경우 추가 예방 조치로 직렬 콘솔을 사용하여 스위치에 연결합니다.</block>
+  <block id="2df26e386d021172b261bcb47e157019" category="list-text">구성 정리:</block>
+  <block id="a5247127c3e0a3fcdf9f80746c33cb54" category="list-text">POAP 비활성화:</block>
+  <block id="b64ae68f672b168b4456ea13b494a759" category="inline-link">PowerOn 자동 프로비저닝 사용</block>
+  <block id="01197fee3250d671fd8c51972b5f4745" category="paragraph">을 참조하십시오<block ref="ff53901c2c0b0d51a17df0925879b1a5" category="inline-link-rx"></block> 를 참조하십시오.</block>
+  <block id="b8363a3557b5e1732a20eb45a96853b7" category="list-text">다음 재로드 시 POAP가 비활성화되었는지 확인합니다.</block>
+  <block id="f306e2be0abd8aabfa0b014c372bbac8" category="list-text">스위치 CS1에서 4-11단계를 반복합니다.</block>
+  <block id="256be937ef390f7d6dd71ad092869119" category="admonition">ONTAP 9.8 이상에서는 명령을 사용합니다<block ref="c57378c3b3bb81c6b42a2b31a30ddda7" prefix=" " category="inline-code"></block>.</block>
 </blocks>

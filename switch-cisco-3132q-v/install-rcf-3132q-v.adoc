@@ -192,7 +192,7 @@ cs2                         cluster-network    10.0.0.2         NX3132QV
 
 +
 
-NOTE: ONTAP 9.8 이상에서는 시스템 이더넷 스위치 show-is-monitoring-enabled-operational true 명령을 사용합니다.
+NOTE: ONTAP 9.8 이상에서는 명령을 사용합니다 `system switch ethernet show -is-monitoring-enabled-operational true`.
 
 . 클러스터 LIF에서 자동 되돌리기 기능을 해제합니다.
 +
@@ -268,29 +268,81 @@ cluster1::*>
 
 . 스위치 CS2의 구성을 청소하고 기본 설정을 수행합니다.
 +
-.. 구성을 청소합니다.
-+
-`write erase`
+
+CAUTION: 새로운 RCF를 업데이트하거나 적용할 때는 스위치 설정을 지우고 기본 구성을 수행해야 합니다. PowerOn 자동 프로비저닝(POAP)을 사용하지 않도록 설정할 수 있는 경우 SSH 스위치 액세스가 보존됩니다(NX-OS 9.2P1 이상 필요). 스위치를 재부팅한 후 SSH 액세스가 가능하지 않은 경우 추가 예방 조치로 직렬 콘솔을 사용하여 스위치에 연결합니다.
 
 +
+.. 스위치에 SSH를 연결합니다.
++
+스위치의 포트에서 모든 클러스터 LIF가 제거되었고 스위치가 구성을 지울 준비가 된 경우에만 계속 진행하십시오.
 
-NOTE: 이 단계에서는 스위치에 콘솔 연결이 필요합니다.
-
+.. 권한 모드 시작:
 +
 .예제 보기
 [%collapsible]
 ====
 [listing, subs="+quotes"]
 ----
-cs2# *write erase*
-Warning: This command will erase the startup-configuration.
-Do you wish to proceed anyway? (y/n)  [n] *y*
-cs2# *reload*
-This command will reboot the system. (y/n)?  [n] *y*
-cs2#
+(cs2)> *enable*
 ----
 ====
-.. 스위치의 기본 설정을 수행합니다.
+.. 구성 정리:
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)# *write erase*
+
+Warning: This command will erase the startup-configuration.
+
+Do you wish to proceed anyway? (y/n)  [n]  *y*
+----
+====
+.. POAP 비활성화:
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)# *system no poap*
+----
+====
++
+을 참조하십시오 https://["PowerOn 자동 프로비저닝 사용"^] 를 참조하십시오.
+
+.. 다음 재로드 시 POAP가 비활성화되었는지 확인합니다.
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)#  *show boot*
+Current Boot Variables:
+ sup-1
+NXOS variable = bootflash:/nxos.9.2.1.125.bin
+Boot POAP Disabled
+
+POAP permanently disabled using 'system no poap'
+----
+====
+.. 스위치를 재부팅합니다.
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)# *reload*
+
+Are you sure you would like to reset the system? (y/n) *y*
+
+----
+====
+.. RCF 설치를 완료하려면 SSH를 사용하여 스위치에 다시 로그인하십시오.
 
 
 . FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 CS2의 부트플래시 에 복사합니다. Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://["Cisco Nexus 3000 Series NX-OS 명령 참조"^] 안내선.
@@ -372,7 +424,10 @@ cs2# show banner motd
 +
 ** RCF 배너
 ** 노드 및 포트 설정입니다
-** 사용자 지정 출력은 사이트 구성에 따라 달라집니다. 포트 설정을 확인하고 설치된 RCF에 대한 변경 사항은 릴리스 노트를 참조하십시오.
+** 사용자 지정
++
+출력은 사이트 구성에 따라 달라집니다. 포트 설정을 확인하고 설치된 RCF에 대한 변경 사항은 릴리스 노트를 참조하십시오.
+
 
 
 . RCF 버전 및 스위치 설정이 올바른지 확인한 후 running-config 파일을 startup-config 파일에 복사합니다.
@@ -508,7 +563,7 @@ cs2                         cluster-network    10.233.205.91    N3K-C3132Q-V
 ====
 +
 
-NOTE: ONTAP 9.8 이상에서는 시스템 이더넷 스위치 show-is-monitoring-enabled-operational true 명령을 사용합니다.
+NOTE: ONTAP 9.8 이상에서는 명령을 사용합니다 `system switch ethernet show -is-monitoring-enabled-operational true`.
 
 +
 [NOTE]
