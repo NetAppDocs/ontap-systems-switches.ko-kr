@@ -16,7 +16,7 @@ summary: Cisco Nexus 9336C-FX2 스위치 설치 및 유지 보수의 경우, 특
 [role="lead"]
 Cisco Nexus 9336C-FX2 스위치 설치 및 유지 보수의 경우, 특정 스위치 및 컨트롤러 설명서를 검토하여 Cisco 9336-FX2 스위치 및 ONTAP 클러스터를 설정하십시오.
 
-Cisco Nexus 9336C-FX2 공유 스위치를 설정하려면 을 참조하십시오 https://["Cisco Nexus 9000 시리즈 스위치 지원"] 페이지.
+Cisco Nexus 9336C-FX2 공유 스위치를 설정하려면 을 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Cisco Nexus 9000 시리즈 스위치 지원"] 페이지.
 
 |===
 | 문서 제목 | 설명 

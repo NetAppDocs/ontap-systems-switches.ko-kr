@@ -21,9 +21,9 @@ summary: 클러스터의 기존 CN1610 클러스터 스위치를 Cisco Nexus 313
 
 자세한 내용은 다음을 참조하십시오.
 
-* http://["NetApp CN1601 및 CN1610 설명 페이지"^]
-* http://["Cisco 이더넷 스위치 설명 페이지"^]
-* http://["Hardware Universe"^]
+* http://support.netapp.com/NOW/download/software/cm_switches_ntap/["NetApp CN1601 및 CN1610 설명 페이지"^]
+* http://support.netapp.com/NOW/download/software/cm_switches/["Cisco 이더넷 스위치 설명 페이지"^]
+* http://hwu.netapp.com["Hardware Universe"^]
 
 
 
@@ -40,7 +40,7 @@ summary: 클러스터의 기존 CN1610 클러스터 스위치를 Cisco Nexus 313
 * N1_clus2 는 노드 n1의 클러스터 스위치 2(CL2 또는 C2)에 연결되는 첫 번째 클러스터 LIF입니다.
 * N1_clus3 은 노드 n1의 클러스터 스위치 2(CL2 또는 C2)에 연결되는 두 번째 LIF입니다.
 * N1_clus4 는 노드 n1의 클러스터 스위치 1(CL1 또는 C1)에 연결되는 두 번째 LIF입니다. 노드는 n1, n2, n3 및 n4입니다.
-* 10GbE 및 40/100 GbE 포트 수는 에서 사용할 수 있는 RCFs(참조 구성 파일)에 정의되어 있습니다 https://["Cisco ® 클러스터 네트워크 스위치 참조 구성 파일 다운로드"^] 페이지.
+* 10GbE 및 40/100 GbE 포트 수는 에서 사용할 수 있는 RCFs(참조 구성 파일)에 정의되어 있습니다 https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Cisco ® 클러스터 네트워크 스위치 참조 구성 파일 다운로드"^] 페이지.
 
 
 .예를 참조하십시오
@@ -252,7 +252,7 @@ cluster::*> network interface modify -vserver node2 -lif clus4 -auto-revert fals
 .. Description * 페이지에서 * continue * 를 클릭하고 사용권 계약에 동의한 다음 * Download * 페이지의 지침에 따라 RCF를 다운로드합니다.
 .. 해당 버전의 이미지 소프트웨어를 다운로드합니다.
 +
-http://["Cisco ® 클러스터 및 관리 네트워크 스위치 참조 구성 파일 다운로드"^]
+http://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Cisco ® 클러스터 및 관리 네트워크 스위치 참조 구성 파일 다운로드"^]
 
 
 

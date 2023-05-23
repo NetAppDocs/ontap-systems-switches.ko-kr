@@ -43,7 +43,7 @@ Cisco Nexus 3132Q-V 클러스터 스위치를 사용하여 2노드 스위치 클
 +
 'interface breakout module 1 port 1-6 map 10g-4x' 명령어를 사용하여 처음 6개 포트를 4x10 GbE 모드로 분리할 수 있다. 마찬가지로 'no interface breakout module 1 port 1-6 map 10g-4x' 명령을 사용하여 브레이크아웃 구성에서 처음 6개의 QSFP+ 포트를 다시 그룹화할 수 있습니다.
 
-* 10GbE 및 40/100 GbE 포트 수는 에서 사용할 수 있는 RCFs(참조 구성 파일)에 정의되어 있습니다 https://["Cisco ® 클러스터 네트워크 스위치 참조 구성 파일 다운로드"^] 페이지.
+* 10GbE 및 40/100 GbE 포트 수는 에서 사용할 수 있는 RCFs(참조 구성 파일)에 정의되어 있습니다 https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Cisco ® 클러스터 네트워크 스위치 참조 구성 파일 다운로드"^] 페이지.
 
 
 .필요한 것
@@ -92,7 +92,7 @@ Cisco Nexus 3132Q-V 클러스터 스위치를 사용하여 2노드 스위치 클
 * N1_clus2 는 노드 n1의 클러스터 스위치 C2에 연결되는 첫 번째 클러스터 LIF입니다.
 * N2_clus1 은 노드 n2의 클러스터 스위치 C1에 연결되는 첫 번째 클러스터 LIF입니다.
 * N2_clus2 는 노드 n2의 클러스터 스위치 C2에 연결되는 두 번째 클러스터 LIF입니다.
-* 10GbE 및 40/100 GbE 포트 수는 에서 사용할 수 있는 RCFs(참조 구성 파일)에 정의되어 있습니다 https://["Cisco ® 클러스터 네트워크 스위치 참조 구성 파일 다운로드"^] 페이지.
+* 10GbE 및 40/100 GbE 포트 수는 에서 사용할 수 있는 RCFs(참조 구성 파일)에 정의되어 있습니다 https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Cisco ® 클러스터 네트워크 스위치 참조 구성 파일 다운로드"^] 페이지.
 
 
 [NOTE]

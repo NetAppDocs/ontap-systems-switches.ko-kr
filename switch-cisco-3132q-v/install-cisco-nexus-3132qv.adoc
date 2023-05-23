@@ -14,7 +14,7 @@ summary: Cisco Nexus 3132Q-V 스위치 및 패스스루 패널을 스위치에 �
 구성에 따라 Cisco Nexus 3132Q-V 스위치 및 패스스루 패널을 스위치에 포함된 표준 브래킷과 함께 NetApp 캐비닛에 설치해야 할 수도 있습니다.
 
 .필요한 것
-* 의 초기 준비 요구 사항, 키트 내용물 및 안전 주의 사항 http://["Cisco Nexus 3000 시리즈 하드웨어 설치 가이드 를 참조하십시오"^]. 절차를 시작하기 전에 이러한 문서를 검토하십시오.
+* 의 초기 준비 요구 사항, 키트 내용물 및 안전 주의 사항 http://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus3000/hw/installation/guide/b_n3000_hardware_install_guide.html["Cisco Nexus 3000 시리즈 하드웨어 설치 가이드 를 참조하십시오"^]. 절차를 시작하기 전에 이러한 문서를 검토하십시오.
 * pass-through 패널 키트, NetApp에서 제공(부품 번호 X8784-R6). NetApp pass-through 패널 키트에는 다음 하드웨어가 포함되어 있습니다.
 +
 ** Pass-through 블랭킹 패널 1개

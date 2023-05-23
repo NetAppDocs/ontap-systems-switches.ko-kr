@@ -43,7 +43,7 @@ SWP3-14 40/100 클러스터 포트 노드
 swp15-16 40/100 ISL(Inter-Switch Link) 포트
 
 |===
-를 참조하십시오 https://["Hardware Universe"] 스위치 포트에 대한 자세한 내용은 을 참조하십시오.
+를 참조하십시오 https://hwu.netapp.com/Switch/Index["Hardware Universe"] 스위치 포트에 대한 자세한 내용은 을 참조하십시오.
 
 
 

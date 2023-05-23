@@ -49,7 +49,7 @@ NOTE: 포트 라이센스를 구입하면 추가 포트를 활성화할 수 있�
 * BES-53248: 포트 0/55-0/56(100GbE)
 
 
-를 클릭합니다 https://["_NetApp Hardware Universe _"^] ONTAP 호환성, 지원되는 EFOS 펌웨어 및 BES-53248 클러스터 스위치 케이블 연결에 대한 정보를 제공합니다.
+를 클릭합니다 https://hwu.netapp.com/Home/Index["_NetApp Hardware Universe _"^] ONTAP 호환성, 지원되는 EFOS 펌웨어 및 BES-53248 클러스터 스위치 케이블 연결에 대한 정보를 제공합니다.
 
 
 
@@ -343,7 +343,7 @@ Ports   Timeout        Speed     Active
 ====
 . 모든 노드에서 CN1610 스위치 CL2에 연결된 케이블을 제거합니다.
 +
-그런 다음 모든 노드의 분리된 포트를 새 BES-53248 스위치 CS2에 다시 연결해야 합니다. 을 참조하십시오 https://["_NetApp Hardware Universe _"^] 승인된 케이블링 옵션에 관한 것입니다.
+그런 다음 모든 노드의 분리된 포트를 새 BES-53248 스위치 CS2에 다시 연결해야 합니다. 을 참조하십시오 https://hwu.netapp.com/Home/Index["_NetApp Hardware Universe _"^] 승인된 케이블링 옵션에 관한 것입니다.
 
 . CN1610 스위치 CL2의 포트 13 - 16에서 ISL 케이블 4개를 분리합니다.
 +
@@ -529,7 +529,7 @@ RPC status:
 ====
 . 모든 노드에서 CN1610 스위치 CL1에 연결된 케이블을 제거합니다.
 +
-그런 다음 모든 노드의 분리된 포트를 새 BES-53248 스위치 CS1에 다시 연결해야 합니다. 을 참조하십시오 https://["_NetApp Hardware Universe _"^] 승인된 케이블링 옵션에 관한 것입니다.
+그런 다음 모든 노드의 분리된 포트를 새 BES-53248 스위치 CS1에 다시 연결해야 합니다. 을 참조하십시오 https://hwu.netapp.com/Home/Index["_NetApp Hardware Universe _"^] 승인된 케이블링 옵션에 관한 것입니다.
 
 . BES-53248 스위치 CS2의 포트 13에서 16까지 ISL 케이블 4개를 분리합니다.
 . CS2에서 임시 포트-채널 2를 분리합니다.

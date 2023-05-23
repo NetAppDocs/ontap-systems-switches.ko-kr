@@ -10,7 +10,7 @@
 * 스위치 구성의 현재 백업
 * 완전히 작동하는 클러스터(로그에 오류 또는 유사한 문제 없음)
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치 페이지"^]. 지원되는 ONTAP 및 NX-OS 버전은 스위치 호환성 표를 참조하십시오.
-* Cisco 스위치 업그레이드 및 다운그레이드 절차에 대한 적절한 소프트웨어 및 업그레이드 가이드를 Cisco 웹 사이트에서 제공합니다. 을 참조하십시오 https://["Cisco Nexus 9000 시리즈 스위치"^].
+* Cisco 스위치 업그레이드 및 다운그레이드 절차에 대한 적절한 소프트웨어 및 업그레이드 가이드를 Cisco 웹 사이트에서 제공합니다. 을 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Cisco Nexus 9000 시리즈 스위치"^].
 
 
 .예를 참조하십시오

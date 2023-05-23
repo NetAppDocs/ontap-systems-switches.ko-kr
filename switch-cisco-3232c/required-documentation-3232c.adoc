@@ -17,7 +17,7 @@ Cisco Nexus 3232C 스위치 설치 및 유지 관리의 경우 권장 문서를 
 
 == 스위치 설명서
 
-Cisco Nexus 3232C 스위치를 설정하려면 의 다음 설명서가 필요합니다 https://["Cisco Nexus 3000 시리즈 스위치 지원"^] 페이지.
+Cisco Nexus 3232C 스위치를 설정하려면 의 다음 설명서가 필요합니다 https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/series.html["Cisco Nexus 3000 시리즈 스위치 지원"^] 페이지.
 
 [cols="1,2"]
 |===
@@ -83,7 +83,7 @@ Nexus 3000 시리즈 스위치에 대한 국제 기관의 규정 준수, 안전 
 
 == ONTAP 시스템 설명서
 
-ONTAP 시스템을 설정하려면 에서 사용 중인 운영 체제 버전에 대한 다음 문서가 필요합니다 https://["ONTAP 9 문서 센터"^].
+ONTAP 시스템을 설정하려면 에서 사용 중인 운영 체제 버전에 대한 다음 문서가 필요합니다 https://docs.netapp.com/ontap-9/index.jsp["ONTAP 9 문서 센터"^].
 
 [cols="1,2"]
 |===
@@ -105,7 +105,7 @@ ONTAP 릴리스의 모든 측면에 대한 자세한 내용은 에 나와 있습
 
 
  a| 
-https://["Hardware Universe"^]
+https://hwu.netapp.com["Hardware Universe"^]
  a| 
 NetApp 하드웨어 구성 및 호환성 정보를 제공합니다.
 
@@ -122,7 +122,7 @@ NetApp 캐비닛에 3232C Cisco 스위치를 설치하려면 다음 하드웨어
 
 
  a| 
-https://["42U 시스템 캐비닛, 상세 가이드"^]
+https://library.netapp.com/ecm/ecm_download_file/ECMM1280394["42U 시스템 캐비닛, 상세 가이드"^]
  a| 
 42U 시스템 캐비닛과 관련된 FRU에 대해 설명하고 유지보수 및 FRU 교체 지침을 제공합니다.
 

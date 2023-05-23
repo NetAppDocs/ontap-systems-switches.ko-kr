@@ -70,8 +70,8 @@ NOTE: 마이그레이션이 완료된 후 92300YC 클러스터 스위치용 CSHM
 ** 포트 e1/13-20 (10GbE): Nexus 5010
 
 
-* https://["Hardware Universe - 스위치"^] 모든 클러스터 스위치에 대해 지원되는 케이블 연결에 대한 정보를 제공합니다.
-* 이 절차에서 지원되는 ONTAP 및 NX-OS 버전은 에 나와 있습니다 https://["Cisco 이더넷 스위치"^] 페이지.
+* https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - 스위치"^] 모든 클러스터 스위치에 대해 지원되는 케이블 연결에 대한 정보를 제공합니다.
+* 이 절차에서 지원되는 ONTAP 및 NX-OS 버전은 에 나와 있습니다 https://support.netapp.com/NOW/download/software/cm_switches/["Cisco 이더넷 스위치"^] 페이지.
 
 
 

@@ -13,7 +13,7 @@ summary: 'BES-53248 클러스터 스위치를 구성하고 새 라이센스를 �
 [role="lead"]
 BES-53248 클러스터 스위치를 구성하고 새 라이센스를 적용한 후 RCF(Reference Configuration File)를 설치할 수 있습니다.
 
-이전 버전에서 RCF를 업그레이드하는 경우 Broadcom 스위치 설정을 재설정하고 기본 구성을 수행하여 RCF를 다시 적용해야 합니다. RCF를 업그레이드하거나 변경하려면 항상 이 작업을 수행해야 합니다. 를 참조하십시오 https://["KB 문서를 참조하십시오"^] 를 참조하십시오.
+이전 버전에서 RCF를 업그레이드하는 경우 Broadcom 스위치 설정을 재설정하고 기본 구성을 수행하여 RCF를 다시 적용해야 합니다. RCF를 업그레이드하거나 변경하려면 항상 이 작업을 수행해야 합니다. 를 참조하십시오 https://kb.netapp.com/onprem/Switches/Broadcom/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["KB 문서를 참조하십시오"^] 를 참조하십시오.
 
 
 
@@ -22,14 +22,14 @@ BES-53248 클러스터 스위치를 구성하고 새 라이센스를 적용한 �
 .시작하기 전에
 * 스위치 구성의 현재 백업
 * 완전히 작동하는 클러스터(로그에 오류 또는 유사한 문제 없음)
-* 에서 사용 가능한 현재 RCF 파일입니다 https://["Broadcom 클러스터 스위치"^] 페이지.
+* 에서 사용 가능한 현재 RCF 파일입니다 https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["Broadcom 클러스터 스위치"^] 페이지.
 * EFOS만 설치하고 현재 RCF 버전을 유지하는 경우 필요한 부팅 이미지를 반영하는 RCF의 부팅 구성입니다. 현재 부팅 이미지를 반영하도록 부팅 구성을 변경해야 하는 경우, 나중에 재부팅할 때 올바른 버전이 인스턴스화되도록 RCF를 다시 적용하기 전에 이 구성을 변경해야 합니다.
-* RCF를 공장 출하 시 기본 상태에서 설치할 때 스위치에 콘솔 연결이 필요합니다. 기술 자료 문서를 사용한 경우 이 요구 사항은 선택 사항입니다  https://["원격 연결을 유지하면서 Broadcom 상호 연결 스위치의 구성을 지우는 방법"^] 구성을 지우려면 사전에 확인하십시오.
+* RCF를 공장 출하 시 기본 상태에서 설치할 때 스위치에 콘솔 연결이 필요합니다. 기술 자료 문서를 사용한 경우 이 요구 사항은 선택 사항입니다  https://kb.netapp.com/onprem/Switches/Broadcom/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["원격 연결을 유지하면서 Broadcom 상호 연결 스위치의 구성을 지우는 방법"^] 구성을 지우려면 사전에 확인하십시오.
 
 
 .추천 문서
-* 지원되는 ONTAP 및 RCF 버전은 스위치 호환성 표를 참조하십시오. 를 참조하십시오 https://["EFOS 소프트웨어 다운로드"^] 페이지. RCF의 명령 구문과 EFOS 버전에 있는 명령 구문 사이에는 명령 종속성이 있을 수 있습니다.
-* 에서 사용 가능한 적절한 소프트웨어 및 업그레이드 가이드를 참조하십시오 https://["Broadcom의"^] BES-53248 스위치 업그레이드 및 다운그레이드 절차에 대한 전체 문서를 제공합니다.
+* 지원되는 ONTAP 및 RCF 버전은 스위치 호환성 표를 참조하십시오. 를 참조하십시오 https://mysupport.netapp.com/site/info/broadcom-cluster-switch["EFOS 소프트웨어 다운로드"^] 페이지. RCF의 명령 구문과 EFOS 버전에 있는 명령 구문 사이에는 명령 종속성이 있을 수 있습니다.
+* 에서 사용 가능한 적절한 소프트웨어 및 업그레이드 가이드를 참조하십시오 https://www.broadcom.com/support/bes-switch["Broadcom의"^] BES-53248 스위치 업그레이드 및 다운그레이드 절차에 대한 전체 문서를 제공합니다.
 
 
 
@@ -43,7 +43,7 @@ BES-53248 클러스터 스위치를 구성하고 새 라이센스를 적용한 �
 * 노드 이름은 cluster1-01, cluster1-02, cluster1-03 및 cluster1-04입니다.
 * 클러스터 LIF 이름은 cluster1-01_clus1, cluster1-01_clus2, cluster1-02_clus1, cluster1-02_clus2, cluster1-03_clus1, cluster1-03_clus2, cluster1-04_clus1 및 cluster1-04_clus2.
 * 'cluster1:: *>' 프롬프트는 클러스터의 이름을 나타냅니다.
-* 이 절차의 예에서는 4개의 노드를 사용합니다. 이들 노드는 2개의 10GbE 클러스터 인터커넥트 포트를 사용합니다 `e0a` 및 `e0b`. 를 참조하십시오 https://["Hardware Universe"^] 사용 중인 플랫폼에서 올바른 클러스터 포트를 확인하려면 다음을 수행합니다.
+* 이 절차의 예에서는 4개의 노드를 사용합니다. 이들 노드는 2개의 10GbE 클러스터 인터커넥트 포트를 사용합니다 `e0a` 및 `e0b`. 를 참조하십시오 https://hwu.netapp.com/Home/Index["Hardware Universe"^] 사용 중인 플랫폼에서 올바른 클러스터 포트를 확인하려면 다음을 수행합니다.
 
 
 
@@ -55,7 +55,7 @@ NOTE: 명령 출력은 ONTAP의 릴리즈별로 다를 수 있습니다.
 이 절차 중에는 작동 중인 ISL(Inter-Switch Link)이 필요하지 않습니다. RCF 버전 변경이 ISL 연결에 일시적으로 영향을 미칠 수 있기 때문에 이는 설계상 가능합니다. 무중단 클러스터 운영을 보장하기 위해 다음 절차는 타겟 스위치에 대한 단계를 수행하는 동안 모든 클러스터 LIF를 운영 파트너 스위치로 마이그레이션합니다.
 
 
-CAUTION: 새 스위치 소프트웨어 버전과 RCFs를 설치하기 전에 를 사용합니다 https://["KB: 원격 연결을 유지하면서 Broadcom 상호 연결 스위치의 구성을 지우는 방법"^]. 스위치 설정을 완전히 지워야 하는 경우 기본 구성을 다시 수행해야 합니다. 전체 구성 삭제는 관리 네트워크의 구성을 재설정하므로 직렬 콘솔을 사용하여 스위치에 연결해야 합니다.
+CAUTION: 새 스위치 소프트웨어 버전과 RCFs를 설치하기 전에 를 사용합니다 https://kb.netapp.com/onprem/Switches/Broadcom/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["KB: 원격 연결을 유지하면서 Broadcom 상호 연결 스위치의 구성을 지우는 방법"^]. 스위치 설정을 완전히 지워야 하는 경우 기본 구성을 다시 수행해야 합니다. 전체 구성 삭제는 관리 네트워크의 구성을 재설정하므로 직렬 콘솔을 사용하여 스위치에 연결해야 합니다.
 
 
 

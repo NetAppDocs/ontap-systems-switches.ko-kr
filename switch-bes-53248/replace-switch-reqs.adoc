@@ -45,6 +45,6 @@ STP, SNMP, SSH 등의 이전 사이트 사용자 지정이 새 스위치에 복�
 
 == 를 참조하십시오
 
-* https://["NetApp Support 사이트"^]
-* https://["NetApp Hardware Universe를 참조하십시오"^]
+* https://mysupport.netapp.com/["NetApp Support 사이트"^]
+* https://hwu.netapp.com/Home/Index["NetApp Hardware Universe를 참조하십시오"^]
 

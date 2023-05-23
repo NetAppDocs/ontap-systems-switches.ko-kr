@@ -17,7 +17,7 @@ BES-53248 스위치 설치 및 유지 보수의 경우 특정 스위치 및 컨�
 
 == Broadcom 설명서
 
-BES-53248 클러스터 스위치를 설정하려면 Broadcom 지원 사이트에서 제공되는 다음 문서가 필요합니다. https://["Broadcom Ethernet 스위치 제품 라인"^]
+BES-53248 클러스터 스위치를 설정하려면 Broadcom 지원 사이트에서 제공되는 다음 문서가 필요합니다. https://www.broadcom.com/support/bes-switch["Broadcom Ethernet 스위치 제품 라인"^]
 
 [cols="1,2"]
 |===
@@ -76,14 +76,14 @@ BES-53248 소프트웨어에 대한 릴리스 관련 정보를 제공합니다.
  a| 
 _클러스터 네트워크 및 관리 네트워크 호환성 매트릭스 _
  a| 
-네트워크 호환성에 대한 정보를 제공합니다. 이 매트릭스는 BES-53248 스위치 다운로드 사이트 에서 다운로드할 수 있습니다 https://["Broadcom 클러스터 스위치"^].
+네트워크 호환성에 대한 정보를 제공합니다. 이 매트릭스는 BES-53248 스위치 다운로드 사이트 에서 다운로드할 수 있습니다 https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["Broadcom 클러스터 스위치"^].
 
 |===
 
 
 == ONTAP 시스템 설명서 및 KB 문서
 
-ONTAP 시스템을 설정하려면 NetApp Support 사이트 에서 다음 문서가 필요합니다 http://["mysupport.netapp.com"^] 또는 의 Knowledgebase(KB) 사이트를 참조하십시오 https://["kb.netapp.com"^].
+ONTAP 시스템을 설정하려면 NetApp Support 사이트 에서 다음 문서가 필요합니다 http://mysupport.netapp.com/["mysupport.netapp.com"^] 또는 의 Knowledgebase(KB) 사이트를 참조하십시오 https://kb.netapp.com/["kb.netapp.com"^].
 
 [cols="1,2"]
 |===
@@ -91,7 +91,7 @@ ONTAP 시스템을 설정하려면 NetApp Support 사이트 에서 다음 문서
 
 
  a| 
-https://["NetApp Hardware Universe를 참조하십시오"^]
+https://hwu.netapp.com/Home/Index["NetApp Hardware Universe를 참조하십시오"^]
  a| 
 시스템 캐비닛을 비롯한 모든 NetApp 하드웨어의 전원 및 사이트 요구사항을 설명하고 관련 커넥터 및 케이블 옵션에 대한 정보와 부품 번호를 제공합니다.
 
@@ -114,6 +114,6 @@ ONTAP 9 릴리즈의 모든 측면에 대해 자세히 설명합니다.
  a| 
 _Broadcom 지원 BES-53248 스위치 _ 에 대한 포트 라이센스를 추가하는 방법
  a| 
-포트 라이센스 추가에 대한 자세한 내용은 에 나와 있습니다. 로 이동합니다 https://["KB 문서를 참조하십시오"^].
+포트 라이센스 추가에 대한 자세한 내용은 에 나와 있습니다. 로 이동합니다 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/How_to_add_Additional_Port_Licensing_for_the_Broadcom-Supported_BES-53248_Switch["KB 문서를 참조하십시오"^].
 
 |===

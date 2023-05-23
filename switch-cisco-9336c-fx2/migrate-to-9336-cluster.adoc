@@ -29,8 +29,8 @@ summary: ONTAP 클러스터에 대한 운영 중단 없이 이전 Cisco 클러�
 ** DNS, NTP, SMTP, SNMP 등의 사이트 사용자 지정 및 SSH는 새 스위치에 구성됩니다.
 
 
-* 의 스위치 호환성 표에 액세스할 수 있습니다 https://["Cisco 이더넷 스위치"^] 지원되는 ONTAP, NX-OS 및 RCF 버전에 대한 페이지입니다.
-* 에서 Cisco 스위치 업그레이드 및 다운그레이드 절차에 대한 적절한 소프트웨어 및 업그레이드 가이드를 검토했습니다 https://["Cisco Nexus 9000 시리즈 스위치 지원"^] 페이지.
+* 의 스위치 호환성 표에 액세스할 수 있습니다 https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치"^] 지원되는 ONTAP, NX-OS 및 RCF 버전에 대한 페이지입니다.
+* 에서 Cisco 스위치 업그레이드 및 다운그레이드 절차에 대한 적절한 소프트웨어 및 업그레이드 가이드를 검토했습니다 https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Cisco Nexus 9000 시리즈 스위치 지원"^] 페이지.
 
 
 
@@ -38,7 +38,7 @@ summary: ONTAP 클러스터에 대한 운영 중단 없이 이전 Cisco 클러�
 == 스위치를 마이그레이션합니다
 
 .예를 참조하십시오
-이 절차의 예에서는 두 개의 노드를 사용합니다. 이러한 노드에는 10GbE 클러스터 인터커넥트 포트 2개 e0a 및 e0b가 사용됩니다. 를 참조하십시오 https://["Hardware Universe"^] 사용 중인 플랫폼에서 올바른 클러스터 포트를 확인하려면 다음을 수행합니다.
+이 절차의 예에서는 두 개의 노드를 사용합니다. 이러한 노드에는 10GbE 클러스터 인터커넥트 포트 2개 e0a 및 e0b가 사용됩니다. 를 참조하십시오 https://hwu.netapp.com/["Hardware Universe"^] 사용 중인 플랫폼에서 올바른 클러스터 포트를 확인하려면 다음을 수행합니다.
 
 
 NOTE: 명령 출력은 ONTAP의 다른 릴리즈에 따라 달라질 수 있습니다.
@@ -57,7 +57,7 @@ NOTE: 명령 출력은 ONTAP의 다른 릴리즈에 따라 달라질 수 있습�
 image::../media/Initial_setup.png[초기 스위치 설정]
 
 .이 작업에 대해
-이 절차를 수행하려면 ONTAP 명령과 를 모두 사용해야 합니다 https://["Nexus 9000 시리즈 스위치"^] 달리 지시되지 않는 한, Commands; ONTAP 명령어가 사용된다.
+이 절차를 수행하려면 ONTAP 명령과 를 모두 사용해야 합니다 https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Nexus 9000 시리즈 스위치"^] 달리 지시되지 않는 한, Commands; ONTAP 명령어가 사용된다.
 
 이 절차 중에는 작동 중인 ISL(Inter-Switch Link)이 필요하지 않습니다. RCF 버전 변경이 ISL 연결에 일시적으로 영향을 미칠 수 있기 때문에 이는 설계상 가능합니다. 무중단 클러스터 운영을 보장하기 위해 다음 절차를 수행하면 타겟 스위치에 대한 단계를 수행하는 동안 모든 클러스터 LIF가 운영 파트너 스위치로 마이그레이션됩니다.
 

@@ -11,7 +11,7 @@ summary: 2개 이상의 노드로 ONTAP 클러스터를 구축하려면 두 개�
 
 
 [role="lead"]
-Cisco Nexus 92300YC 스위치 설치 및 유지 보수의 경우 모든 스위치 구성 요소와 부품 번호를 검토하십시오. 를 참조하십시오 https://["Hardware Universe"^] 를 참조하십시오.
+Cisco Nexus 92300YC 스위치 설치 및 유지 보수의 경우 모든 스위치 구성 요소와 부품 번호를 검토하십시오. 를 참조하십시오 https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] 를 참조하십시오.
 
 다음 표에는 92300YC 스위치, 팬 및 전원 공급 장치에 대한 부품 번호 및 설명이 나와 있습니다.
 

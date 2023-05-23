@@ -19,21 +19,21 @@ NVIDIA SN2100 스위치 설치 및 유지 보수에 대해서는 모든 권장 �
 
 
  a| 
-https://["NVIDIA 스위치 설치 안내서"^]
+https://docs.nvidia.com/networking/display/sn2000pub/Installation["NVIDIA 스위치 설치 안내서"^]
  a| 
 에서는 NVIDIA SN2100 스위치를 설치하는 방법에 대해 설명합니다.
 
 
 
  a| 
-https://["NS224 NVMe 드라이브 쉘프 케이블링 가이드"^]
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2876580["NS224 NVMe 드라이브 쉘프 케이블링 가이드"^]
  a| 
 드라이브 쉘프의 케이블링 구성 방법을 보여주는 개요 및 그림
 
 
 
  a| 
-https://["NetApp Hardware Universe를 참조하십시오"^]
+https://hwu.netapp.com/["NetApp Hardware Universe를 참조하십시오"^]
  a| 
 플랫폼 모델에 대해 스토리지 스위치 및 케이블과 같은 지원되는 하드웨어를 확인할 수 있습니다.
 

@@ -23,7 +23,7 @@ summary:
 * Nexus 3232C
 
 
-이 절차에서 지원되는 ONTAP 및 NX-OS 버전은 Cisco 이더넷 스위치 페이지에 있습니다. 을 참조하십시오 https://["Cisco 이더넷 스위치"].
+이 절차에서 지원되는 ONTAP 및 NX-OS 버전은 Cisco 이더넷 스위치 페이지에 있습니다. 을 참조하십시오 https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치"].
 
 .연결 포트
 스위치는 다음 포트를 사용하여 노드에 연결합니다.
@@ -48,7 +48,7 @@ summary:
 
 
 
-를 클릭합니다 https://["Hardware Universe"] 모든 클러스터 스위치에 대해 지원되는 케이블 연결에 대한 정보를 제공합니다.
+를 클릭합니다 https://hwu.netapp.com["Hardware Universe"] 모든 클러스터 스위치에 대해 지원되는 케이블 연결에 대한 정보를 제공합니다.
 
 .필요한 것
 * 다음 작업을 완료했는지 확인합니다.

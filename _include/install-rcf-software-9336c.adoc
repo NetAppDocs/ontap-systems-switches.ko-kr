@@ -32,7 +32,7 @@
 * 'cluster1:: *>' 프롬프트는 클러스터의 이름을 나타냅니다.
 
 
-이 절차의 예에서는 두 개의 노드를 사용합니다. 이러한 노드에는 10GbE 클러스터 인터커넥트 포트 2개 e0a 및 e0b가 사용됩니다. 를 참조하십시오 https://["Hardware Universe"] 사용 중인 플랫폼에서 올바른 클러스터 포트를 확인하려면 다음을 수행합니다.
+이 절차의 예에서는 두 개의 노드를 사용합니다. 이러한 노드에는 10GbE 클러스터 인터커넥트 포트 2개 e0a 및 e0b가 사용됩니다. 를 참조하십시오 https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"] 사용 중인 플랫폼에서 올바른 클러스터 포트를 확인하려면 다음을 수행합니다.
 
 
 NOTE: 명령 출력은 ONTAP의 릴리즈별로 다를 수 있습니다.
@@ -314,7 +314,7 @@ Do you wish to proceed anyway? (y/n)  [n]  *y*
 ----
 ====
 +
-을 참조하십시오 https://["PowerOn 자동 프로비저닝 사용"^] 를 참조하십시오.
+을 참조하십시오 https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/103x/configuration/fundamentals/cisco-nexus-9000-nx-os-fundamentals-configuration-guide-103x/m-using-poap.html?bookSearch=true#id_85315["PowerOn 자동 프로비저닝 사용"^] 를 참조하십시오.
 
 .. 다음 재로드 시 POAP가 비활성화되었는지 확인합니다.
 +
@@ -348,7 +348,7 @@ Are you sure you would like to reset the system? (y/n) *y*
 .. RCF 설치를 완료하려면 SSH를 사용하여 스위치에 다시 로그인하십시오.
 
 
-. FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 CS2의 부트플래시 에 복사합니다. Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://["Cisco Nexus 9000 Series NX-OS 명령 참조"^] 안내선.
+. FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 CS2의 부트플래시 에 복사합니다. Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Cisco Nexus 9000 Series NX-OS 명령 참조"^] 안내선.
 +
 .예제 보기
 [%collapsible]
@@ -367,7 +367,7 @@ Copy complete, now saving to disk (please wait)...
 ====
 . 이전에 다운로드한 RCF를 bootflash에 적용합니다.
 +
-Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://["Cisco Nexus 9000 Series NX-OS 명령 참조"^] 안내선.
+Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Cisco Nexus 9000 Series NX-OS 명령 참조"^] 안내선.
 
 +
 .예제 보기
@@ -440,7 +440,7 @@ g mode:
 
 . RCF 버전 및 스위치 설정이 올바른지 확인한 후 running-config 파일을 startup-config 파일에 복사합니다.
 +
-Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://["Cisco Nexus 9000 Series NX-OS 명령 참조"^] 안내선.
+Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Cisco Nexus 9000 Series NX-OS 명령 참조"^] 안내선.
 
 +
 .예제 보기

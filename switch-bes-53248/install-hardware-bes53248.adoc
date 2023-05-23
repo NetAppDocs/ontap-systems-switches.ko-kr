@@ -15,7 +15,7 @@ BES-53248 하드웨어를 설치하려면 Broadcom 설명서를 참조하십시�
 
 .단계
 . 를 검토합니다 link:configure-reqs-bes53248.html["구성 요구 사항"].
-. 의 지침을 따릅니다 https://["Broadcom 지원 BES-53248 클러스터 스위치 설치 안내서"^].
+. 의 지침을 따릅니다 https://library.netapp.com/ecm/ecm_download_file/ECMLP2864537["Broadcom 지원 BES-53248 클러스터 스위치 설치 안내서"^].
 
 
 .다음 단계

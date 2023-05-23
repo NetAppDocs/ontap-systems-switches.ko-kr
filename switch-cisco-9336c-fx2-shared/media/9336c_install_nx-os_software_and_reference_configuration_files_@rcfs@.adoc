@@ -26,9 +26,9 @@ Cisco NX-OS 소프트웨어 및 RCF(Reference Configuration File)는 Cisco Nexus
 * NX-OS만 설치하고 현재 RCF 버전을 유지하는 경우 원하는 부팅 이미지를 반영하도록 RCF에서 원하는 부팅 구성을 확인하거나 설정해야 합니다.
 * 현재 부팅 이미지를 반영하도록 부팅 구성을 변경해야 하는 경우, 나중에 재부팅할 때 올바른 버전이 인스턴스화되도록 RCF를 다시 적용하기 전에 이 구성을 변경해야 합니다.
 * RCF를 설치할 때 필요한 스위치에 콘솔 연결이 있어야 합니다.
-* 지원되는 ONTAP, NX-OS 및 RCF 버전은 Cisco 이더넷 스위치 페이지의 스위치 호환성 표를 참조하십시오. 을 참조하십시오 https://["Cisco 이더넷 스위치"] 를 참조하십시오.
+* 지원되는 ONTAP, NX-OS 및 RCF 버전은 Cisco 이더넷 스위치 페이지의 스위치 호환성 표를 참조하십시오. 을 참조하십시오 https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치"] 를 참조하십시오.
 * RCF의 명령 구문과 NX-OS 버전에 있는 명령 구문 간에 명령 의존성이 있을 수 있습니다.
-* Cisco Nexus 9000 시리즈 스위치의 Cisco 스위치 업그레이드 및 다운그레이드 절차에 대한 전체 문서를 보려면 Cisco 웹 사이트에서 제공되는 적절한 소프트웨어 및 업그레이드 가이드를 참조해야 합니다. 을 참조하십시오 https://["Cisco Nexus 9000 시리즈 스위치"] 를 참조하십시오.
+* Cisco Nexus 9000 시리즈 스위치의 Cisco 스위치 업그레이드 및 다운그레이드 절차에 대한 전체 문서를 보려면 Cisco 웹 사이트에서 제공되는 적절한 소프트웨어 및 업그레이드 가이드를 참조해야 합니다. 을 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html["Cisco Nexus 9000 시리즈 스위치"] 를 참조하십시오.
 * 현재 RCF가 있어야 합니다.
 
 
@@ -36,7 +36,7 @@ Cisco NX-OS 소프트웨어 및 RCF(Reference Configuration File)는 Cisco Nexus
 
 ===== 초기 설정
 
-이 절차의 예에서는 두 개의 노드를 사용합니다. 이들 노드는 A400 컨트롤러에 따라 2개의 100GbE 클러스터 인터커넥트 포트 e3a 및 e3b를 사용합니다. 를 참조하십시오 https://["Hardware Universe"] 사용 중인 플랫폼에서 올바른 클러스터 포트를 확인하려면 다음을 수행합니다.
+이 절차의 예에서는 두 개의 노드를 사용합니다. 이들 노드는 A400 컨트롤러에 따라 2개의 100GbE 클러스터 인터커넥트 포트 e3a 및 e3b를 사용합니다. 를 참조하십시오 https://hwu.netapp.com["Hardware Universe"] 사용 중인 플랫폼에서 올바른 클러스터 포트를 확인하려면 다음을 수행합니다.
 
 
 NOTE: 명령 출력은 ONTAP의 릴리즈별로 다를 수 있습니다.
@@ -651,7 +651,7 @@ cs2#
 . 스위치의 기본 설정을 수행합니다.
 
 
-. [[step11]] FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 CS2의 부트플래시에 복사합니다. Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://["Cisco Nexus 9000 Series NX-OS 명령 참조 가이드"].
+. [[step11]] FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 CS2의 부트플래시에 복사합니다. Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Cisco Nexus 9000 Series NX-OS 명령 참조 가이드"].
 +
 이 예에서는 스위치 CS2에서 RCF를 부트 플래시에 복사하는 데 사용되는 TFTP를 보여 줍니다.
 
@@ -666,7 +666,7 @@ Trying to connect to tftp server...Connection to Server Established.
 TFTP get operation was successful
 Copy complete, now saving to disk (please wait)...
 ----
-. [[step12]] 이전에 다운로드한 RCF를 bootflash에 적용합니다. Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://["Cisco Nexus 9000 Series NX-OS 명령 참조 가이드"].
+. [[step12]] 이전에 다운로드한 RCF를 bootflash에 적용합니다. Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Cisco Nexus 9000 Series NX-OS 명령 참조 가이드"].
 +
 이 예에서는 RCF 파일 "Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt"가 스위치 CS2에 설치되어 있음을 보여 줍니다.
 
@@ -729,7 +729,7 @@ cs2# show banner motd
 
 . RCF 버전 및 스위치 설정이 올바른지 확인한 후 running-config 파일을 startup-config 파일에 복사합니다.
 +
-Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://["Cisco Nexus 9000 Series NX-OS 명령 참조 가이드"].
+Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Cisco Nexus 9000 Series NX-OS 명령 참조 가이드"].
 
 
 
@@ -1030,8 +1030,8 @@ RPC status:
 * 스위치가 완전히 작동해야 합니다(로그에 오류가 없거나 이와 유사한 문제가 없어야 함).
 * NX-OS만 설치하고 현재 RCF 버전을 유지하는 경우 원하는 부팅 이미지를 반영하도록 RCF에서 원하는 부팅 변수를 확인하거나 설정해야 합니다.
 * 현재 부팅 이미지를 반영하도록 부팅 변수를 변경해야 하는 경우, 나중에 재부팅할 때 올바른 버전이 인스턴스화되도록 RCF를 다시 적용하기 전에 이 작업을 수행해야 합니다.
-* Cisco 스토리지 업그레이드 및 다운그레이드 절차에 대한 전체 문서를 보려면 Cisco 웹 사이트에서 제공하는 적절한 소프트웨어 및 업그레이드 가이드를 참조해야 합니다. 을 참조하십시오 https://["Cisco Nexus 9000 시리즈 스위치"] 를 참조하십시오.
-* 100GbE의 포트 수는 에서 사용할 수 있는 RCFs(Reference Configuration File)에 정의되어 있습니다 https://["Cisco 이더넷 스위치"] 페이지.
+* Cisco 스토리지 업그레이드 및 다운그레이드 절차에 대한 전체 문서를 보려면 Cisco 웹 사이트에서 제공하는 적절한 소프트웨어 및 업그레이드 가이드를 참조해야 합니다. 을 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html["Cisco Nexus 9000 시리즈 스위치"] 를 참조하십시오.
+* 100GbE의 포트 수는 에서 사용할 수 있는 RCFs(Reference Configuration File)에 정의되어 있습니다 https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치"] 페이지.
 
 
 
@@ -1227,7 +1227,7 @@ st2#
 ----
 . [[step9]] FTP, HTTP, TFTP, SFTP 또는 SCP 전송 프로토콜 중 하나를 사용하여 스위치 ST2의 RCF를 스위치 bootflash에 복사합니다.
 +
-Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://["Cisco Nexus 9000 Series NX-OS 명령 참조 가이드"].
+Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Cisco Nexus 9000 Series NX-OS 명령 참조 가이드"].
 
 +
 다음 예에서는 스위치 ST2에서 RCF를 부트 플래시 로 복사하는 데 사용되는 HTTP를 보여 줍니다.
@@ -1312,7 +1312,7 @@ st2#
 ----
 . [[step12]] 소프트웨어 버전과 스위치 설정이 올바른지 확인한 후 running-config 파일을 스위치 ST2의 startup-config 파일에 복사합니다.
 +
-Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://["Cisco Nexus 9000 Series NX-OS 명령 참조 가이드"].
+Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Cisco Nexus 9000 Series NX-OS 명령 참조 가이드"].
 
 +
 다음 예에서는 'running-config' 파일이 'startup-config' 파일에 성공적으로 복사되었음을 보여 줍니다.
@@ -1399,7 +1399,7 @@ ONTAP 9.9.1에서 Cisco Nexus 9336C-FX2 스위치를 사용하여 스토리지 �
 .단계
 . FTP, HTTP, TFTP, SFTP 또는 SCP 전송 프로토콜 중 하나를 사용하여 스위치 SH2의 RCF를 스위치 bootflash에 복사합니다.
 +
-Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://["Cisco Nexus 9000 Series NX-OS 명령 참조 가이드"].
+Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Cisco Nexus 9000 Series NX-OS 명령 참조 가이드"].
 
 +
 다음 예에서는 스위치 SH2에서 RCF를 부트 플래시 로 복사하는 데 사용되는 HTTP를 보여 줍니다.
@@ -1489,7 +1489,7 @@ sh2#
 ----
 . [[step4]] 소프트웨어 버전과 스위치 설정이 올바른지 확인한 후 스위치 SH2의 startup-config 파일에 'running-config' 파일을 복사합니다.
 +
-Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://["Cisco Nexus 9000 Series NX-OS 명령 참조 가이드"].
+Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Cisco Nexus 9000 Series NX-OS 명령 참조 가이드"].
 
 +
 다음 예에서는 'running-config' 파일이 'startup-config' 파일에 성공적으로 복사되었음을 보여 줍니다.

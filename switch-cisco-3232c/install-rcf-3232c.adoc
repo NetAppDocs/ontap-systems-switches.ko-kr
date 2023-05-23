@@ -306,7 +306,7 @@ Do you wish to proceed anyway? (y/n)  [n]  *y*
 ----
 ====
 +
-을 참조하십시오 https://["PowerOn 자동 프로비저닝 사용"^] 를 참조하십시오.
+을 참조하십시오 https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/103x/configuration/fundamentals/cisco-nexus-9000-nx-os-fundamentals-configuration-guide-103x/m-using-poap.html?bookSearch=true#id_85315["PowerOn 자동 프로비저닝 사용"^] 를 참조하십시오.
 
 .. 다음 재로드 시 POAP가 비활성화되었는지 확인합니다.
 +
@@ -340,7 +340,7 @@ Are you sure you would like to reset the system? (y/n) *y*
 .. RCF 설치를 완료하려면 SSH를 사용하여 스위치에 다시 로그인하십시오.
 
 
-. FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 CS2의 부트플래시 에 복사합니다. Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://["Cisco Nexus 3000 Series NX-OS 명령 참조"^] 안내선.
+. FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 CS2의 부트플래시 에 복사합니다. Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Cisco Nexus 3000 Series NX-OS 명령 참조"^] 안내선.
 +
 .예제 보기
 [%collapsible]
@@ -359,7 +359,7 @@ Copy complete, now saving to disk (please wait)...
 ====
 . 이전에 다운로드한 RCF를 bootflash에 적용합니다.
 +
-Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://["Cisco Nexus 3000 Series NX-OS 명령 참조"^] 안내선.
+Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Cisco Nexus 3000 Series NX-OS 명령 참조"^] 안내선.
 
 +
 .예제 보기
@@ -443,7 +443,7 @@ NOTE: RCF를 처음 적용할 때 * ERROR: Failed to write VSH commands * 메시
 
 . RCF 버전 및 스위치 설정이 올바른지 확인한 후 running-config 파일을 startup-config 파일에 복사합니다.
 +
-Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://["Cisco Nexus 3000 Series NX-OS 명령 참조"^] 안내선.
+Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Cisco Nexus 3000 Series NX-OS 명령 참조"^] 안내선.
 
 +
 [listing]

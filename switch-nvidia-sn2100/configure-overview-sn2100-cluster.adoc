@@ -60,5 +60,5 @@ NS224 드라이브 쉘프를 스위치 연결 스토리지(직접 연결 스토�
 * link:configure-reqs-sn2100-cluster.html["구성 요구 사항"]
 * link:components-sn2100-cluster.html["부품 및 부품 번호"]
 * link:required-documentation-sn2100-cluster.html["필수 문서"]
-* https://["Hardware Universe"^] 지원되는 모든 ONTAP 버전.
+* https://hwu.netapp.com["Hardware Universe"^] 지원되는 모든 ONTAP 버전.
 

@@ -25,7 +25,7 @@ NX-OS는 Cisco Systems에서 제공하는 Nexus 시리즈 이더넷 스위치 �
 
 
 .필요한 것
-* 해당 NetApp Cisco NX-OS 소프트웨어가 의 NetApp Support 사이트 스위치에 적용됩니다 http://["mysupport.netapp.com"]
+* 해당 NetApp Cisco NX-OS 소프트웨어가 의 NetApp Support 사이트 스위치에 적용됩니다 http://mysupport.netapp.com/["mysupport.netapp.com"]
 * 완전히 작동하는 클러스터(로그에 오류 또는 유사한 문제 없음)
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치 페이지"^]. 지원되는 ONTAP 및 NX-OS 버전은 스위치 호환성 표를 참조하십시오.
 
