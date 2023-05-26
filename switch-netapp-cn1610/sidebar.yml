@@ -30,5 +30,7 @@ entries:
     url: "/switch-netapp-cn1610/migrate-fas22xx-systems.html"
 - title: 스위치를 교체합니다
   entries:
+  - title: NetApp CN1610 클러스터 스위치를 교체합니다
+    url: "/switch-netapp-cn1610/replace-cn1610-switch.html"
   - title: 클러스터 스위치를 스위치가 없는 연결로 대체
     url: "/switch-netapp-cn1610/migrate-to-switchless-cluster-interconnect.html"

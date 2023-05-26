@@ -54,3 +54,5 @@ entries:
     url: "/switch-bes-53248/replace-switch-reqs.html"
   - title: BES-53248 스위치를 교체합니다
     url: "/switch-bes-53248/replace-switch.html"
+  - title: 클러스터 스위치를 스위치가 없는 연결로 대체
+    url: "/switch-bes-53248/migrate-to-switchless-interconnect-bes-53248.html"

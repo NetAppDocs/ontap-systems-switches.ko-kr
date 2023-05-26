@@ -2724,7 +2724,6 @@
   <block id="4752e78bc698f54fab2873241037c39c" category="paragraph"><block ref="fcc881d4787d31c185b073346f97b823" prefix="" category="inline-code"></block></block>
   <block id="70b9e8739fd0230a7cd09ad6e9a66421" category="list-text">스토리지 노드 포트의 상태를 다시 확인합니다.</block>
   <block id="1baf7c89328f1d71632e29ad4a2dd59d" category="list-text">두 스위치를 모두 사용할 수 있는지 확인합니다.</block>
-  <block id="b19d86e3bcfd68004760a31aa0fc60dc" category="paragraph"><block ref="fe962342e77ec6978df73d7fb900c057" prefix="" category="inline-code"></block></block>
   <block id="27803f93d64ef714eff37b87b316c9a1" category="paragraph">사용하는 절차는 각 컨트롤러에 전용 클러스터 네트워크 포트가 2개 있는지, 각 컨트롤러에 단일 클러스터 포트가 있는지 여부에 따라 다릅니다. 문서화된 프로세스는 광 또는 Twinax 포트를 사용하는 모든 노드에 대해 작동하지만, 노드에서 클러스터 네트워크 포트에 온보드 10GBASE-T RJ45 포트를 사용하는 경우 이 스위치에서 지원되지 않습니다.</block>
   <block id="4e0b0c304729caba210b437f828a40e7" category="paragraph">스위치가 없는 2노드 구성의 경우 다음을 확인하십시오.</block>
   <block id="7933d62e23b62e3165a85bc092d5b0d4" category="list-text">스위치가 없는 2노드 구성이 올바르게 설정 및 작동합니다.</block>
@@ -4432,4 +4431,64 @@
   <block id="b8363a3557b5e1732a20eb45a96853b7" category="list-text">다음 재로드 시 POAP가 비활성화되었는지 확인합니다.</block>
   <block id="f306e2be0abd8aabfa0b014c372bbac8" category="list-text">스위치 CS1에서 4-11단계를 반복합니다.</block>
   <block id="256be937ef390f7d6dd71ad092869119" category="admonition">ONTAP 9.8 이상에서는 명령을 사용합니다<block ref="c57378c3b3bb81c6b42a2b31a30ddda7" prefix=" " category="inline-code"></block>.</block>
+  <block id="393a5f0f5f1f070aac964741815cca76" category="doc">Broadcom BES-53248 클러스터 스위치를 스위치가 없는 연결로 교체합니다</block>
+  <block id="a2ba7bf1b1a10d50fd13725865eabc47" category="list-text">스위치 로그 수집 기능을 테스트합니다.</block>
+  <block id="10b9ce0440e39e291f451f5b535309cd" category="summary">특정 작업 시퀀스를 실행하여 결함이 있는 NetApp CN1610 클러스터 스위치를 중단 없이 교체할 수 있습니다.</block>
+  <block id="a1e78a31e3c2a02f46648b1bf5b89e82" category="doc">NetApp CN1610 클러스터 스위치를 교체합니다</block>
+  <block id="66683ae2f7c6fa1c2c22df9a8db5475e" category="paragraph">다음 단계에 따라 클러스터 네트워크에서 결함이 있는 NetApp CN1610 스위치를 교체하십시오. 이는 NDU(무중단 절차)입니다.</block>
+  <block id="1f5b80c6e2ed11c7bd8290ed613ae1a2" category="paragraph">스위치 교체를 수행하기 전에 기존 클러스터 및 네트워크 인프라에 대한 교체 스위치 및 현재 환경에서 스위치 교체를 수행하기 전에 다음 조건이 충족되어야 합니다.</block>
+  <block id="18277bdc1890285661ff31218ab7b9aa" category="list-text">모든 클러스터 포트는 * UP * 이어야 합니다.</block>
+  <block id="f98de8b264564fc8efac53d61616a3a6" category="list-text">모든 클러스터 논리 인터페이스(LIF)가 가동되어야 하며 마이그레이션되지 않아야 합니다.</block>
+  <block id="83ef6b033ea6f10bf71f6382d94020d8" category="list-text">ONTAP 클러스터<block ref="21228022de91fd069639d941562e2965" prefix=" " category="inline-code"></block> 명령은 모든 경로에서 기본 연결 및 PMTU 통신 이상의 통신이 성공했음을 나타내야 합니다.</block>
+  <block id="40432eff026ac452f4c464796c22cad2" category="list-text">두 CN1610 클러스터 스위치의 이름은 입니다<block ref="b12efe4e2b53de51a261421f77a3cbef" prefix=" " category="inline-code"></block> 및<block ref="43c8ce94d81492e62c60092a3664a65f" prefix=" " category="inline-code"></block>.</block>
+  <block id="a3f821e3cd7f17533bef9e520ea14552" category="list-text">교체할 CN1610 스위치 이름(결함이 있는 스위치)은 입니다<block ref="a86ae6152b2b202f86bf7a5980821925" prefix=" " category="inline-code"></block>.</block>
+  <block id="70a4fcd6859b5065af184b992f2a90b5" category="list-text">새 CN1610 스위치(교체 스위치)의 이름은 입니다<block ref="3e9b9ae819a46f5f7f886bfb01bfafc3" prefix=" " category="inline-code"></block>.</block>
+  <block id="42791710cd5232be1ed51712d657545b" category="list-text">교체되지 않는 파트너 스위치의 이름은 입니다<block ref="43c8ce94d81492e62c60092a3664a65f" prefix=" " category="inline-code"></block>.</block>
+  <block id="cd831af3a25c38b31f51ceb27d65111f" category="list-text">시작 구성 파일이 실행 중인 구성 파일과 일치하는지 확인합니다. 교체 중에 사용할 수 있도록 이러한 파일을 로컬에 저장해야 합니다.</block>
+  <block id="c4264c3f14ebe6d8561e3cf5acc1d741" category="paragraph">다음 예제의 구성 명령은 FASTPATH 1.2.0.7에 대한 것입니다.</block>
+  <block id="45826415166a6e211a2acb28e84357a9" category="list-text">실행 중인 구성 파일의 복사본을 만듭니다.</block>
+  <block id="c048a33c156955dc46f6908ab7d1b4d8" category="paragraph">다음 예제의 명령은 FASTPATH 1.2.0.7입니다.</block>
+  <block id="de99beb6ca92a5a94725134af11c8df3" category="admonition">를 제외한 모든 파일 이름을 사용할 수 있습니다<block ref="269125eef7a6ed8a576f381402d71c00" prefix=" " category="inline-code"></block>. 파일 이름은 *.scr * 확장자를 가져야 합니다.</block>
+  <block id="c3e4e0f5814f326b33a9db1d9a1860c0" category="list-text">[[step3]] 교체 준비를 위해 스위치의 실행 중인 구성 파일을 외부 호스트에 저장합니다.</block>
+  <block id="d8442364ffcbb22977e4d9c52e73b57a" category="list-text">스위치와 ONTAP 버전이 호환성 매트릭스에서 일치하는지 확인합니다. 를 참조하십시오<block ref="fbc4dc59d397fb80fe60d1631a99b30c" category="inline-link-rx"></block> 페이지를 참조하십시오.</block>
+  <block id="8b0dd634e752838755fd13d129cbf10e" category="inline-link">소프트웨어 다운로드 페이지</block>
+  <block id="b597e505404c69895e6ae5d6c947f299" category="list-text">에서<block ref="3785e6528c27a2098021814637bc462a" category="inline-link-rx"></block> NetApp Support 사이트에서 NetApp 클러스터 스위치를 선택하여 적절한 RCF 및 FASTPATH 버전을 다운로드합니다.</block>
+  <block id="543af457f6c3336d817218e084e17ad6" category="list-text">FASTPATH, RCF 및 저장된 구성을 사용하여 TFTP(Trivial File Transfer Protocol) 서버를 설정합니다<block ref="e9f6316b4b0161f7581dee64491a28dd" prefix=" " category="inline-code"></block> 새 스위치와 함께 사용할 파일입니다.</block>
+  <block id="0b370ae1e85c411b2432a8dd68539928" category="list-text">직렬 포트(스위치 오른쪽에 "IOI"라고 표시된 RJ-45 커넥터)를 터미널 에뮬레이션이 있는 사용 가능한 호스트에 연결합니다.</block>
+  <block id="fdc083ea424ff6a805eb16cc6278c425" category="list-text">호스트에서 직렬 터미널 연결 설정을 설정합니다.</block>
+  <block id="653e244c5d7d92e4099ddeea36e49c83" category="list-text">TFTP 서버를 사용하여 네트워크에 연결할 준비를 합니다.</block>
+  <block id="eced0a01e57d421422879b818ddbc655" category="paragraph">DHCP(Dynamic Host Configuration Protocol)를 사용하는 경우 현재 스위치의 IP 주소를 구성할 필요가 없습니다. 서비스 포트는 기본적으로 DHCP를 사용하도록 설정되어 있습니다. 네트워크 관리 포트는 IPv4 및 IPv6 프로토콜 설정에 대해 없음으로 설정됩니다. 렌치 포트가 DHCP 서버가 있는 네트워크에 연결되어 있으면 서버 설정이 자동으로 구성됩니다.</block>
+  <block id="044ec168f671f2601806847445bfa01f" category="paragraph">정적 IP 주소를 설정하려면 serviceport 프로토콜, 네트워크 프로토콜 및 serviceport IP 명령을 사용해야 합니다.</block>
+  <block id="dc293c5866c77ae15aca96b85fcb77e6" category="list-text">선택적으로 TFTP 서버가 랩톱에 있는 경우 표준 이더넷 케이블을 사용하여 CN1610 스위치를 랩톱에 연결한 다음 대체 IP 주소를 사용하여 동일한 네트워크에서 해당 네트워크 포트를 구성합니다.</block>
+  <block id="b89dbda9007c12ba6185e044bc81949f" category="paragraph">를 사용할 수 있습니다<block ref="df911f0151f9ef021d410b4be5060972" prefix=" " category="inline-code"></block> 명령을 사용하여 주소를 확인합니다. 연결을 설정할 수 없는 경우 라우팅되지 않은 네트워크를 사용하고 IP 192.168.x 또는 172.16.x를 사용하여 서비스 포트를 구성해야 합니다 나중에 서비스 포트를 운영 관리 IP 주소로 재구성할 수 있습니다.</block>
+  <block id="b6254715be58b48ae4db50dd9fc31130" category="list-text">필요에 따라 새 스위치에 적합한 버전의 RCF 및 FASTPATH 소프트웨어를 확인하고 설치합니다. 새 스위치가 올바르게 설정되어 있고 RCF 및 FASTPATH 소프트웨어에 대한 업데이트가 필요하지 않은 경우 13단계로 이동하십시오.</block>
+  <block id="7a1bfd4690df6818c8dc387281d627ed" category="list-text">새 스위치 설정을 확인합니다.</block>
+  <block id="3ead3b3c8f520426f6d28b91165e4d04" category="list-text">RCF를 새 스위치에 다운로드합니다.</block>
+  <block id="72825f9b72f9339979ca72becca7f71a" category="list-text">RCF가 스위치에 다운로드되었는지 확인합니다.</block>
+  <block id="999d6ca910b9a02c83e6b39776ceedec" category="list-text">RCF를 CN1610 스위치에 적용합니다.</block>
+  <block id="026fe9123f8f00bf5dbeb680d5c7798a" category="list-text">스위치를 재부팅할 때 시작 구성 파일이 되도록 실행 중인 구성 파일을 저장합니다.</block>
+  <block id="97e20e2f0ef3427615572f54f429eddf" category="list-text">이미지를 CN1610 스위치에 다운로드합니다.</block>
+  <block id="3624b5e5cc6ddec75e62434e2a31ad65" category="list-text">스위치를 재부팅하여 새 활성 부팅 이미지를 실행합니다.</block>
+  <block id="5e5e17a51764aae8ce901f8404dfc149" category="paragraph">새 이미지를 반영하려면 6단계의 명령을 위해 스위치를 재부팅해야 합니다. reload 명령을 입력하면 두 가지 가능한 응답 보기가 표시될 수 있습니다.</block>
+  <block id="62692b2ca653dbb46bb2be739ec25eca" category="list-text">이전 스위치에서 새 스위치로 저장된 구성 파일을 복사합니다.</block>
+  <block id="de9c3c21ee744efbe0e9dc92d2f3f8fa" category="list-text">이전에 저장한 구성을 새 스위치에 적용합니다.</block>
+  <block id="19f3f611402ea405c73eff978db54c04" category="list-text">실행 중인 구성 파일을 시작 구성 파일에 저장합니다.</block>
+  <block id="e34c68a3be46c36d4217182cacd9c5ed" category="list-text">새 스위치 new_CS1에서 admin 사용자로 로그인하고 노드 클러스터 인터페이스(포트 1~12)에 연결된 모든 포트를 종료합니다.</block>
+  <block id="c941b6ce2e4c24df909851b245a02a61" category="list-text">클러스터 LIF를 old_CS1 스위치에 연결된 포트에서 마이그레이션합니다.</block>
+  <block id="4b1a908211784f472e4bd00126eca670" category="paragraph">각 클러스터 LIF를 현재 노드의 관리 인터페이스에서 마이그레이션해야 합니다.</block>
+  <block id="86549eb17e74fde8019bc78ee455f2f9" category="list-text">모든 클러스터 LIF가 각 노드의 적절한 클러스터 포트로 이동되었는지 확인합니다.</block>
+  <block id="6699d1ca219ee05fb31767f9ee4390f7" category="list-text">교체한 스위치에 연결된 클러스터 포트를 종료합니다.</block>
+  <block id="3733adcf3b4da74ba9d591ecbad96807" category="list-text">클러스터의 상태를 확인합니다.</block>
+  <block id="37d0e47b916b9fc27dd90cc97fc17772" category="list-text">포트가 다운되었는지 확인합니다.</block>
+  <block id="bad00619b1d5dd1b493aa019cb159e27" category="list-text">스위치 CS2에서 ISL 포트 13 - 16을 종료합니다.</block>
+  <block id="15eb5a489e20c8cf8725dc5b810b0c97" category="list-text">스토리지 관리자가 스위치를 교체할 준비가 되었는지 확인합니다.</block>
+  <block id="e1d368bc1401944984beccd9e88393a4" category="list-text">이전_CS1 스위치에서 모든 케이블을 분리한 다음 케이블을 new_CS1 스위치의 같은 포트에 연결합니다.</block>
+  <block id="6e37f912363babbe2006b55d57ad6d78" category="list-text">CS2 스위치에서 ISL 포트 13 - 16을 불러옵니다.</block>
+  <block id="6ce486621cb8c46471908d6225196077" category="list-text">클러스터 노드에 연결된 새 스위치의 포트를 불러옵니다.</block>
+  <block id="68399f85a753831d967234dab3cd5b35" category="list-text">단일 노드에서 교체된 스위치에 연결된 클러스터 노드 포트를 불러와 링크가 작동하는지 확인합니다.</block>
+  <block id="b19024cd31c9de6e6498dddd23993117" category="list-text">25단계의 동일한 노드에서 포트에 연결된 클러스터 LIF를 되돌립니다.</block>
+  <block id="1a087f1b105982e5c8b2694ba1b674f3" category="paragraph">이 예제에서는 "홈" 열이 true 이면 node1의 LIF가 성공적으로 되돌려집니다.</block>
+  <block id="b047f062da383f17811a9e72a79d23f4" category="list-text">첫 번째 노드의 클러스터 LIF가 가동되어 홈 포트로 되돌아갈 경우 25단계와 26단계를 반복하여 클러스터 포트를 불러오고 클러스터의 다른 노드에 클러스터 LIF를 되돌립니다.</block>
+  <block id="31c3fc1c4fe98b31f2904808ddd9be0b" category="list-text">클러스터의 노드에 대한 정보를 표시합니다.</block>
+  <block id="bf1b3c61d401b2f6c4dbbf5853555319" category="list-text">교체된 스위치에서 시작 구성 파일과 실행 중인 구성 파일이 올바른지 확인합니다. 이 구성 파일은 1단계의 출력과 일치해야 합니다.</block>
 </blocks>
