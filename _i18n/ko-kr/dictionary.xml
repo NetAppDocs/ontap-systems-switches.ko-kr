@@ -2226,7 +2226,6 @@
   <block id="b2ca5d9b00c09954ba621c25b7a4bdbf" category="paragraph">를 클릭합니다<block ref="141c10db18cf1753fa5fc05f553c33ff" category="inline-link-rx"></block> 케이블 연결에 대한 자세한 내용은 에 나와 있습니다.</block>
   <block id="1d70d7c880f9a4b8e9ccbd4cbaeefcd8" category="list-text">이 절차를 수행하기 전에 스위치 구성의 현재 백업이 있는지 확인하십시오.</block>
   <block id="c291fea66565616d9e881666325c1ee2" category="list-text">스위치의 현재 백업이 없는 경우 다음 명령의 출력을 로그 파일에 복사하여 현재 스위치 구성을 저장할 수 있습니다.</block>
-  <block id="3f8f6d237f18036be3a3fb24642d16ba" category="list-text">아직 구성하지 않은 경우 다음 명령의 출력을 로그 파일에 복사하여 현재 스위치 구성을 저장합니다.</block>
   <block id="8fdae5a227344a83423005f83a057331" category="list-text">클러스터 포트가 클러스터의 모든 노드에서 정상 작동하는지 확인합니다.</block>
   <block id="5d1ccfeff69430937e33ed02e46dbd94" category="list-text">클러스터에서 스위치 상태를 확인합니다.</block>
   <block id="53a0bfa393247902d9ea8fedde7e8132" category="list-text">스위치 CS1을 재부팅합니다. 이렇게 하면 클러스터 LIF가 홈 포트로 되돌아갈 수 있습니다. 스위치가 재부팅되는 동안 노드에 보고된 "클러스터 포트 다운" 이벤트를 무시할 수 있습니다.</block>
@@ -4423,12 +4422,7 @@
   <block id="7d829570fe05df690649474b2bb97a3b" category="image-alt">클러스터 노드 연결 케이블이 CS1-새 스위치로 이동했습니다</block>
   <block id="ec5ea2f0318e4d906c296f5576b9c026" category="list-text">[[step6]] 자동 케이스 생성을 억제한 경우 AutoSupport 메시지를 호출하여 다시 활성화합니다.<block ref="9ac424c0d7b432975df36a19daf50c9c" prefix=" " category="inline-code"></block></block>
   <block id="0429fa776d68090e46718ac7e32390ef" category="admonition">EFOS 버전 3.10.0.3 이상에서는 명령을 사용합니다<block ref="c09633a606c51a161b16f8bf38f5ebb1" prefix=" " category="inline-code"></block>.</block>
-  <block id="455129a1d85d80f79e8d763a25910c74" category="admonition">새로운 RCF를 업데이트하거나 적용할 때는 스위치 설정을 지우고 기본 구성을 수행해야 합니다. PowerOn 자동 프로비저닝(POAP)을 사용하지 않도록 설정할 수 있는 경우 SSH 스위치 액세스가 보존됩니다(NX-OS 9.2P1 이상 필요). 스위치를 재부팅한 후 SSH 액세스가 가능하지 않은 경우 추가 예방 조치로 직렬 콘솔을 사용하여 스위치에 연결합니다.</block>
   <block id="2df26e386d021172b261bcb47e157019" category="list-text">구성 정리:</block>
-  <block id="a5247127c3e0a3fcdf9f80746c33cb54" category="list-text">POAP 비활성화:</block>
-  <block id="b64ae68f672b168b4456ea13b494a759" category="inline-link">PowerOn 자동 프로비저닝 사용</block>
-  <block id="01197fee3250d671fd8c51972b5f4745" category="paragraph">을 참조하십시오<block ref="ff53901c2c0b0d51a17df0925879b1a5" category="inline-link-rx"></block> 를 참조하십시오.</block>
-  <block id="b8363a3557b5e1732a20eb45a96853b7" category="list-text">다음 재로드 시 POAP가 비활성화되었는지 확인합니다.</block>
   <block id="f306e2be0abd8aabfa0b014c372bbac8" category="list-text">스위치 CS1에서 4-11단계를 반복합니다.</block>
   <block id="256be937ef390f7d6dd71ad092869119" category="admonition">ONTAP 9.8 이상에서는 명령을 사용합니다<block ref="c57378c3b3bb81c6b42a2b31a30ddda7" prefix=" " category="inline-code"></block>.</block>
   <block id="393a5f0f5f1f070aac964741815cca76" category="doc">Broadcom BES-53248 클러스터 스위치를 스위치가 없는 연결로 교체합니다</block>
@@ -4491,4 +4485,7 @@
   <block id="b047f062da383f17811a9e72a79d23f4" category="list-text">첫 번째 노드의 클러스터 LIF가 가동되어 홈 포트로 되돌아갈 경우 25단계와 26단계를 반복하여 클러스터 포트를 불러오고 클러스터의 다른 노드에 클러스터 LIF를 되돌립니다.</block>
   <block id="31c3fc1c4fe98b31f2904808ddd9be0b" category="list-text">클러스터의 노드에 대한 정보를 표시합니다.</block>
   <block id="bf1b3c61d401b2f6c4dbbf5853555319" category="list-text">교체된 스위치에서 시작 구성 파일과 실행 중인 구성 파일이 올바른지 확인합니다. 이 구성 파일은 1단계의 출력과 일치해야 합니다.</block>
+  <block id="d23e0ef648ea8ae58d49d4170d37c221" category="list-text">아직 저장하지 않은 경우 다음 명령의 출력을 텍스트 파일로 복사하여 현재 스위치 구성의 복사본을 저장합니다.</block>
+  <block id="0fb51802ddab454289d99db889475b22" category="admonition">새로운 RCF를 업데이트하거나 적용할 때는 스위치 설정을 지우고 기본 구성을 수행해야 합니다. 스위치를 다시 설정하려면 스위치 직렬 콘솔 포트에 연결해야 합니다.</block>
+  <block id="a91911d2b8a6bd2699aa77eb38d533f1" category="paragraph">BES-53248 하드웨어를 설치하려면 Broadcom 설명서를 참조하십시오.</block>
 </blocks>
