@@ -4490,4 +4490,47 @@
   <block id="85d166e992ca6f11afb6f8661ce70bf4" category="list-text"><block ref="85d166e992ca6f11afb6f8661ce70bf4" category="inline-link-rx"></block></block>
   <block id="b54483c149c4951b43214e0e419d0882" category="list-text">ONTAP 배포의 경우 를 참조하십시오<block ref="daad8f612ac7448a64fdb14518a581cb" category="inline-link-rx"></block>.</block>
   <block id="aeaeb10b6f9fde2ae4de6c336b6e2a09" category="list-text">MetroCluster 배포를 지원하는 ONTAP의 경우 를 참조하십시오<block ref="63d00fc18e84d6621c63394dbe0320b4" category="inline-link-rx"></block>.</block>
+  <block id="58233cc3bf4f9a457c5037d8366a019f" category="summary">ONTAP 클러스터에 대한 중단 없이 NetApp CN1610 클러스터 스위치를 NVIDIA SN2100 클러스터 네트워크 스위치로 마이그레이션할 수 있습니다.</block>
+  <block id="0a0432ddd8cc67e6faabbfc7f3b3830a" category="doc">CN1610 클러스터 스위치를 NVIDIA SN2100 클러스터 스위치로 마이그레이션합니다</block>
+  <block id="8ea2a6912c6f82674bf8bba7e59595cf" category="paragraph">ONTAP 클러스터용 NetApp CN1610 클러스터 스위치를 NVIDIA SN2100 클러스터 스위치로 마이그레이션할 수 있습니다. 이는 무중단으로 수행할 수 있는 절차입니다.</block>
+  <block id="395c77a333cd07968a4952d343ed8bc5" category="paragraph">NetApp CN1610 클러스터 스위치를 NVIDIA SN2100 클러스터 스위치로 교체할 때 특정 구성 정보, 포트 연결 및 케이블 연결 요구사항을 알고 있어야 합니다. 을 참조하십시오 <block ref="d007e33ffeb91af7b1ca0d25ce622b32" category="inline-link-macro-rx"></block>.</block>
+  <block id="688329e2d8991daa1267ab5847767b9e" category="paragraph">구성에 대한 다음 요구 사항을 충족하는지 확인합니다.</block>
+  <block id="815a47d30e15149fc110b6a00eefcfca" category="list-text">기존 클러스터가 올바르게 설정되고 작동합니다.</block>
+  <block id="0818cf807c37bde58d5f3b6c2c6cdaff" category="list-text">NVIDIA SN2100 클러스터 스위치는 RCF(Reference Configuration File)가 적용된 올바른 버전의 Cumulus Linux에서 구성 및 작동합니다.</block>
+  <block id="d80e9af81b3112047acb97f82a585ab4" category="list-text">CN1610 스위치를 사용하는 이중화 및 전체 기능을 갖춘 NetApp 클러스터</block>
+  <block id="62e335f2b7a1fec6337f4500ec85b4a0" category="list-text">CN1610 스위치 및 새 스위치에 대한 관리 연결 및 콘솔 액세스</block>
+  <block id="172f9b944970489ecdac26061399cf36" category="list-text">모든 클러스터 LIF는 홈 포트에서 클러스터 LIF를 사용하여 작동 상태입니다.</block>
+  <block id="8352596a2dc809409bca6c071df33f7d" category="list-text">CN1610 스위치와 새 스위치 간에 ISL 포트가 활성화되고 케이블이 연결됩니다.</block>
+  <block id="228c692878c55b6b708452532ab07090" category="list-text">일부 포트는 40GbE 또는 100GbE에서 실행되도록 NVIDIA SN2100 스위치에 구성되어 있습니다.</block>
+  <block id="8adef8d2aa43ec468f8916cb4d160300" category="list-text">노드에서 NVIDIA SN2100 클러스터 스위치로 40GbE 및 100GbE 연결을 계획, 마이그레이션 및 문서화했습니다.</block>
+  <block id="520a02b14079c6a46859df2a37c9febb" category="list-text">기존 CN1610 클러스터 스위치는 _C1_과 _C2_입니다.</block>
+  <block id="7b2c7aa281e097d0b9bbd57ac76fb359" category="paragraph">각 포트가 에 대해 표시되어야 합니다<block ref="97e7c9a7d06eac006a28bf05467fcc8b" prefix=" " category="inline-code"></block> 및<block ref="741839f346d6e8126ae38ee76a96fd12" prefix=" " category="inline-code"></block> 용<block ref="fbcf0d1f787c74663ca9dc925ebf5f0c" prefix=" " category="inline-code"></block>.</block>
+  <block id="284cd410e60c4e505551ad2599982d4c" category="list-text">LIF 및 지정된 홈 노드에 대한 정보를 표시합니다.</block>
+  <block id="d6969185bcc915329c1f2c87b692d720" category="paragraph">각 LIF가 표시되어야 합니다<block ref="fc7c1443e5c7b6439706b6132a4c0829" prefix=" " category="inline-code"></block> 용<block ref="4f21ee5a18672b60f4c01e94e6be9c79" prefix=" " category="inline-code"></block> 및<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block> 용<block ref="53db3ce0fe0e71f06b3beb0b676b806c" prefix=" " category="inline-code"></block>.</block>
+  <block id="13ee56de24afc64015b6d9b81206a3a8" category="paragraph"><block ref="dbda9fa81591dd4f13b3b1e98408c845" prefix="" category="inline-code"></block></block>
+  <block id="db038ea8b37b62294a9f3eebe698b28a" category="paragraph">각 포트가 표시되어야 합니다<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block> 용<block ref="97e7c9a7d06eac006a28bf05467fcc8b" prefix=" " category="inline-code"></block> 및<block ref="741839f346d6e8126ae38ee76a96fd12" prefix=" " category="inline-code"></block> 용<block ref="fbcf0d1f787c74663ca9dc925ebf5f0c" prefix=" " category="inline-code"></block>.</block>
+  <block id="0f2a4526602865cc9158a56028bf97de" category="summary">ONTAP 클러스터에 대한 중단 없이 NetApp CN1610 클러스터 스위치를 Cisco Nexus 9336C-FX2 클러스터 네트워크 스위치로 마이그레이션할 수 있습니다.</block>
+  <block id="4732368f30b7afd2065dc4cc0c57584f" category="doc">NetApp CN1610 클러스터 스위치에서 Cisco 9336C-FX2 클러스터 스위치로 마이그레이션합니다</block>
+  <block id="c8fc8239bd9ec37b7c36847589d5c8a0" category="paragraph">ONTAP 클러스터용 NetApp CN1610 클러스터 스위치를 Cisco 9336C-FX2 클러스터 스위치로 마이그레이션할 수 있습니다. 이는 무중단으로 수행할 수 있는 절차입니다.</block>
+  <block id="b6bd832f0692f49d1480e52df106a51f" category="paragraph">NetApp CN1610 클러스터 스위치를 Cisco 9336C-FX2 클러스터 스위치로 교체할 때 특정 구성 정보, 포트 연결 및 케이블 연결 요구사항을 알고 있어야 합니다.</block>
+  <block id="059d31543d448499bd1a9c454a8d1ebb" category="list-text">Cisco 9336C-FX2</block>
+  <block id="3cb2d5707cdf5f5290ac6608ce8b5278" category="paragraph">구성이 다음 요구 사항을 충족하는지 확인합니다.</block>
+  <block id="6195676dbe2277e0d3edb2d8c3a50b2e" category="list-text">Cisco 9336C-FX2 클러스터 스위치는 RCF(Reference Configuration File)가 적용된 올바른 버전의 NX-OS에서 구성 및 작동합니다.</block>
+  <block id="f782426a4cdf95a0b55da18e28ebf175" category="list-text">NetApp CN1610 스위치를 사용하는 이중화 및 전체 기능을 갖춘 NetApp 클러스터</block>
+  <block id="b5151f51cad20da0989e60f2f67b1b88" category="list-text">NetApp CN1610 스위치 및 새 스위치에 대한 관리 연결 및 콘솔 액세스</block>
+  <block id="b10363b52a35e01590fe1de363abbec3" category="list-text">NetApp CN1610 스위치와 새 스위치 간에 ISL 포트가 활성화되고 케이블이 연결됩니다.</block>
+  <block id="ef76bcea64dcb3d0ca7a96e4f9da6812" category="list-text">일부 포트는 40GbE 또는 100GbE에서 실행되도록 Cisco 9336C-FX2 스위치에 구성되어 있습니다.</block>
+  <block id="d3be97c754d4396e13d0406452fc2fb0" category="list-text">노드에서 Cisco 9336C-FX2 클러스터 스위치로 40GbE 및 100GbE 연결을 계획, 마이그레이션 및 문서화했습니다.</block>
+  <block id="9d9d3ff89e1f212fa1f66986336ed0c1" category="list-text">기존 CN1610 클러스터 스위치는 _C1_과 _C2_입니다.</block>
+  <block id="584cd7559b010eb68304bdb5ed2c60d2" category="list-text">새로운 9336C-FX2 클러스터 스위치는 _CS1_과 _CS2_입니다.</block>
+  <block id="bf50ad9c8205601ab87f52d53897d187" category="list-text">스위치 C2가 먼저 스위치 CS2로 대체된 다음 스위치 C1이 스위치 CS1로 대체됩니다.</block>
+  <block id="336662c525771f82353eb880f4507911" category="list-text">그런 다음 노드와 C2 사이의 케이블 연결을 C2에서 분리하고 CS2에 다시 연결합니다</block>
+  <block id="ba8f22a022d24c1e6a519a5e6a867762" category="list-text">그런 다음, 노드와 C1 사이의 케이블 연결을 C1에서 분리하고 CS1에 다시 연결합니다.</block>
+  <block id="413712aa4f400acdac067e9bcde8736d" category="list-text">스위치 C2에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.</block>
+  <block id="d14fe42ffba032ed843b9363b0fb3908" category="list-text">Cisco 9336C-FX2에서 지원하는 적절한 케이블을 사용하여 노드 클러스터 포트를 기존 스위치 C2에서 새 스위치 CS2로 이동합니다.</block>
+  <block id="56c5592f9041f8677e5bee9e1ae96f0a" category="list-text">스위치 CS2에서 모든 노드 클러스터 포트가 작동하는지 확인합니다.</block>
+  <block id="f2c6d0da02e9db5edf3d6c608d708936" category="list-text">스위치 C1에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.</block>
+  <block id="cc0c96fa4e2abab8a22a057701a64895" category="list-text">Cisco 9336C-FX2에서 지원되는 적절한 케이블을 사용하여 노드 클러스터 포트를 이전 스위치 C1에서 새 스위치 CS1로 이동합니다.</block>
+  <block id="ba04a36ca69927056bab3bba36362e9b" category="list-text">스위치 CS1 및 CS2에서 모든 노드 클러스터 포트가 작동하는지 확인합니다.</block>
+  <block id="d9dbaab2b13b33007de8325a401de04b" category="sidebar">CN1610 클러스터 스위치에서 마이그레이션</block>
 </blocks>
