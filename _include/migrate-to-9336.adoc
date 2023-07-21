@@ -9,7 +9,7 @@
 다음을 확인합니다.
 
 * Nexus 9336C-FX2 스위치의 일부 포트는 10GbE 또는 40GbE에서 실행되도록 구성되어 있습니다.
-* 노드에서 Nexus 9336C-FX2 클러스터 스위치로의 10GbE 및 40GbE 연결은 계획, 마이그레이션 및 문서화되었습니다.
+* 노드에서 Nexus 9336C-FX2 클러스터 스위치로의 10GbE 및 40GbE 연결이 계획, 마이그레이션 및 문서화되었습니다.
 * 클러스터가 완전히 작동 중입니다(로그에 오류가 없거나 이와 유사한 문제가 없어야 함).
 * Cisco Nexus 9336C-FX2 스위치의 초기 사용자 지정이 완료되었으므로 다음과 같은 작업이 완료됩니다.
 +
@@ -550,14 +550,44 @@ cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert true
 +
 '클러스터 쇼'
 
-. 원격 클러스터 인터페이스에 ping을 수행하여 연결을 확인합니다.
-+
+. 원격 클러스터 인터페이스의 연결을 확인합니다.
+
+
+[role="tabbed-block"]
+====
+.ONTAP 9.9.1 이상
+--
+를 사용할 수 있습니다 `network interface check cluster-connectivity` 클러스터 연결에 대한 접근성 검사를 시작한 다음 세부 정보를 표시하는 명령입니다.
+
+`network interface check cluster-connectivity start` 및 `network interface check cluster-connectivity show`
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity start*
+----
+* 참고: * show 명령을 실행하기 전에 몇 초 동안 기다린 후 세부 정보를 표시합니다.
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity show*
+                                  Source          Destination       Packet
+Node   Date                       LIF             LIF               Loss
+------ -------------------------- --------------- ----------------- -----------
+node1
+       3/5/2022 19:21:18 -06:00   node1_clus2      node2_clus1      none
+       3/5/2022 19:21:20 -06:00   node1_clus2      node2_clus2      none
+
+node2
+       3/5/2022 19:21:18 -06:00   node2_clus2      node1_clus1      none
+       3/5/2022 19:21:20 -06:00   node2_clus2      node1_clus2      none
+----
+--
+.모든 ONTAP 릴리스
+--
+모든 ONTAP 릴리스에 대해 을 사용할 수도 있습니다 `cluster ping-cluster -node <name>` 연결 상태를 확인하는 명령:
+
 `cluster ping-cluster -node <name>`
 
-+
-.예제 보기
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 cluster1::*> *cluster ping-cluster -node node2*
@@ -585,8 +615,9 @@ RPC status:
 2 paths up, 0 paths down (tcp check)
 2 paths up, 0 paths down (udp check)
 ----
+--
 ====
-. 스위치 관련 로그 파일을 수집하기 위해 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화합니다.
+. [[step5]] 스위치 관련 로그 파일 수집을 위한 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화합니다.
 
 
 [role="tabbed-block"]

@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords: sn2100 SN2100 cabling setup, sn2100 switches configuration, cumulus linux os 
 summary: 이 릴리스는 로그 모니터링을 위한 SNMPv3을 지원합니다. 
 ---
-= 스위치 로그 수집을 위해 SNMPv3을 구성합니다
+= SNMPv3을 구성합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-스위치 로그 수집 및 스위치 상태 모니터링(SHM)을 지원하는 SNMPv3을 구성하려면 다음 절차를 따르십시오.
+CSMM(Switch Health Monitoring)을 지원하는 SNMPv3을 구성하려면 다음 절차를 따르십시오.
 
 .이 작업에 대해
 다음 명령은 NVIDIA SN2100 스위치에서 SNMPv3 사용자 이름을 구성합니다.
@@ -23,7 +23,8 @@ summary: 이 릴리스는 로그 모니터링을 위한 SNMPv3을 지원합니�
 
 다음 명령은 ONTAP 측에서 SNMPv3 사용자 이름을 구성합니다. ' cluster1: * > security login create -user -or -group -name_SNMPv3_user_ -application snmp-authentication-method USM -remote-switch-ipaddress_address _'
 
-다음 명령은 SHM을 사용하여 SNMPv3 사용자 이름을 설정합니다. 'cluster1:: * > 시스템 스위치 이더넷 수정 -device_device_-snmp-version SNMPv3-community-or-username_SNMPv3_user_'
+다음 명령을 실행하면 CSHM에서 SNMPv3 사용자 이름이 설정됩니다.
+`cluster1::*> system switch ethernet modify -device _DEVICE_ -snmp-version SNMPv3 -community-or-username _SNMPv3_USER_`
 
 .단계
 . 인증 및 암호화를 사용하도록 스위치에서 SNMPv3 사용자를 설정합니다.
