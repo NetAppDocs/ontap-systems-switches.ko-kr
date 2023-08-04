@@ -3,6 +3,7 @@ section: switch-cisco-9336c-fx2-storage
 title: Cisco Nexus 9336C-FX2
 entries:
 - title: 개요
+  pdf-filename: Overview_9336c-FX2-STORAGE 를 참조하십시오
   entries:
   - title: 구성 개요
     url: "/switch-cisco-9336c-fx2-storage/configure-switch-overview-9336c-storage.html"
@@ -15,6 +16,7 @@ entries:
   - title: Smart Call Home 요구 사항
     url: "/switch-cisco-9336c-fx2-storage/smart-call-9336c-storage.html"
 - title: 하드웨어를 설치합니다
+  pdf-filename: install_hardware_9336c-FX2-storage 를 참조하십시오
   entries:
   - title: 케이블 연결 워크시트를 작성합니다
     url: "/switch-cisco-9336c-fx2-storage/setup-worksheet-9336c-storage.html"
@@ -25,6 +27,7 @@ entries:
   - title: NetApp 캐비닛에 스위치 설치
     url: "/switch-cisco-9336c-fx2-storage/install-switch-and-passthrough-panel-9336c-storage.html"
 - title: 소프트웨어를 구성합니다
+  pdf-filename: configure_software_9336c-fX2-storage 를 참조하십시오
   entries:
   - title: 소프트웨어 설치 워크플로우
     url: "/switch-cisco-9336c-fx2-storage/configure-software-overview-9336c-storage.html"
@@ -35,10 +38,12 @@ entries:
   - title: RCF 구성 파일을 설치합니다
     url: "/switch-cisco-9336c-fx2-storage/install-nxos-rcf-9336c-storage.html"
 - title: 스위치 마이그레이션
+  pdf-filename: Migrate_switches_9336c-FX2-storage를 참조하십시오
   entries:
   - title: 이전 Cisco 스위치에서 마이그레이션합니다
     url: "/switch-cisco-9336c-fx2-storage/migrate-to-9336-storage.html"
   - title: 스위치가 있는 2노드 클러스터로 마이그레이션
     url: "/switch-cisco-9336c-fx2-storage/migrate-to-2n-switched-9336-storage.html"
 - title: 스토리지 스위치를 교체합니다
+  pdf-filename: REPLACE_SWITCH_9336c-FX2-STORAGE
   url: "/switch-cisco-9336c-fx2-storage/replace-storage-switch-9336c-storage.html"

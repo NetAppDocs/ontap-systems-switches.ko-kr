@@ -2173,15 +2173,11 @@
   <block id="3dda7fcad085dc5c2976b2c7124be51b" category="paragraph">공유 스위치 스토리지 포트를 사용하는 대신 NS224 스토리지를 직접 연결 스토리지 케이블로 연결하려면 직접 연결 다이어그램을 따르십시오.</block>
   <block id="e9c44bbfd795a5d63d74c6a77afee70d" category="paragraph">법적 고지 사항은 저작권 선언, 상표, 특허 등에 대한 액세스를 제공합니다.</block>
   <block id="6016a2b341113bf496b719905398ecd2" category="section-title">저작권</block>
-  <block id="09e95b77ffe81fe465a83ba99efad5c8" category="paragraph"><block ref="09e95b77ffe81fe465a83ba99efad5c8" category="inline-link-rx"></block></block>
   <block id="126a02652da6de02962cf1b654fd6376" category="section-title">상표</block>
   <block id="c4ce4761e466527d26b3e3d5ed1006fd" category="paragraph">NetApp, NetApp 로고, NetApp 상표 페이지에 나열된 마크는 NetApp Inc.의 상표입니다. 기타 회사 및 제품 이름은 해당 소유자의 상표일 수 있습니다.</block>
-  <block id="7aa531e9acfe2b98e34d2c92fe9846ff" category="paragraph"><block ref="7aa531e9acfe2b98e34d2c92fe9846ff" category="inline-link-rx"></block></block>
   <block id="be89498d2f8a22ce47c02ba9795fe2af" category="section-title">특허</block>
   <block id="d0b19d36be2c5f16e9aef46c8a452d3d" category="paragraph">NetApp 소유 특허 목록은 다음 사이트에서 확인할 수 있습니다.</block>
-  <block id="d7f1fbcf9ce4e42f705add574d262b2c" category="paragraph"><block ref="d7f1fbcf9ce4e42f705add574d262b2c" category="inline-link-rx"></block></block>
   <block id="56c34c6410dd45c5cec44149ad0ce037" category="section-title">개인 정보 보호 정책</block>
-  <block id="fc248f74f5e36542f7f5627b8610e9a3" category="paragraph"><block ref="fc248f74f5e36542f7f5627b8610e9a3" category="inline-link-rx"></block></block>
   <block id="c0227cef6f07a8cd2ac72f2945b031aa" category="section-title">오픈 소스</block>
   <block id="9b73989307c1975dfa4d5e1581e4afe8" category="paragraph">통지 파일은 NetApp 소프트웨어에 사용된 타사의 저작권 및 라이센스에 대한 정보를 제공합니다.</block>
   <block id="9a75d8eb81c880a703c72f7186f35288" category="doc">BES-53248 클러스터 스위치 업그레이드 후 구성을 확인합니다</block>
@@ -4550,4 +4546,64 @@
   <block id="079555d3c02274a2f31c4ed0065d657e" category="doc">SNMPv3을 구성합니다</block>
   <block id="75e0b0aa735bcccb4bf1267f69cc872e" category="paragraph">CSMM(Switch Health Monitoring)을 지원하는 SNMPv3을 구성하려면 다음 절차를 따르십시오.</block>
   <block id="1bd553f48f18f76a761092d0bebbe5a4" category="paragraph">다음 명령을 실행하면 CSHM에서 SNMPv3 사용자 이름이 설정됩니다.<block ref="bc0f2549b8e026bfa298fbc575ba6020" prefix=" " category="inline-code"></block></block>
+  <block id="44dd2902e6a8940e811d66f001eb74b8" category="list-text">1-8단계를 반복하여 스위치 CS1에 NX-OS 소프트웨어를 설치합니다.</block>
+  <block id="52009bb7ee17227f566cd26a02caee56" category="inline-link-macro"><block ref="52009bb7ee17227f566cd26a02caee56" category="inline-link-rx"></block></block>
+  <block id="a1a9afcf552a769c282769271829889a" category="paragraph"><block ref="a1a9afcf552a769c282769271829889a" category="inline-link-macro-rx"></block></block>
+  <block id="f99aa604031e5049799e73b5c3748a98" category="inline-link-macro"><block ref="f99aa604031e5049799e73b5c3748a98" category="inline-link-rx"></block></block>
+  <block id="5d545fe5152641e2ebe654e336e520e5" category="paragraph"><block ref="5d545fe5152641e2ebe654e336e520e5" category="inline-link-macro-rx"></block></block>
+  <block id="88e5eabd3917048b6927c42496b98f86" category="inline-link-macro"><block ref="88e5eabd3917048b6927c42496b98f86" category="inline-link-rx"></block></block>
+  <block id="dd38f906b37d412de7d1c1dcf4cbf31c" category="paragraph"><block ref="dd38f906b37d412de7d1c1dcf4cbf31c" category="inline-link-macro-rx"></block></block>
+  <block id="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-macro"><block ref="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-rx"></block></block>
+  <block id="2352c4e1f4d0024ade0869e00e6243f4" category="paragraph"><block ref="2352c4e1f4d0024ade0869e00e6243f4" category="inline-link-macro-rx"></block></block>
+  <block id="10c9aa81a5dbe91a1787e02576ead6f5" category="sidebar">개요_32c</block>
+  <block id="cb542104d3579a8e9b050b314ef192b3" category="sidebar">하드웨어_32c를 설치합니다</block>
+  <block id="c1a0cb55b7aba9aebfe65ce6308180de" category="sidebar">configure_software_32c 를 선택합니다</block>
+  <block id="02ac833874ff3ce10a84162663d35636" category="sidebar">Migrate_switches_3232c</block>
+  <block id="eff9ecf2154de89152b3ca2137d22407" category="sidebar">스위치_32c를 교체하십시오</block>
+  <block id="638fd229a1060ddf305851b38552031a" category="sidebar">업그레이드_스위치_3232c</block>
+  <block id="066e194669cf03dd5301aeb9f1e6bb60" category="sidebar">Overview_9336c-FX2-shared</block>
+  <block id="6921871c4f93f63a6d9508ac0a84f0b1" category="sidebar">install_hardware_9336c-FX2-shared</block>
+  <block id="caad5d4f4828bb4387baba34832444d3" category="sidebar">configure_software_9336c-FX2-shared</block>
+  <block id="3f1dde13cc83eeb1736746f92f6c66dc" category="sidebar">Migrate_switches_9336c-FX2-shared</block>
+  <block id="114d2c51950817a7527428c8d60fc70a" category="sidebar">REPLACE_SWITCs_9336c-FX2-shared</block>
+  <block id="2a3abbe67aa7696824671cce5ca281e1" category="sidebar">개요_3132q-v</block>
+  <block id="a39b498c0ad0949d5002ad341502359d" category="sidebar">install_hardware_3132q-v</block>
+  <block id="82d8c229c8cbc923347549cf234c45f3" category="sidebar">configure_software_3132q-v</block>
+  <block id="5cb6e4827abbdff34c1577139d21756f" category="sidebar">Migrate_switches_3132q-v</block>
+  <block id="f6f9cd29c4bb13f6a16119d82ca6fb1f" category="sidebar">스위치_3132q-v를 교체합니다</block>
+  <block id="2e46757c7b729d4910e07654cf41f7b0" category="sidebar">개요_92300yc</block>
+  <block id="ed84fc6478ac0d00e1e78977470c5fd5" category="sidebar">설치_하드웨어_92300yc</block>
+  <block id="b6c306e6e3042fa0d66df82b85cdd615" category="sidebar">configure_software_92300yc 를 선택합니다</block>
+  <block id="db006b145b3fbbf5410a350f5edd5d2a" category="sidebar">Migrate_switches_92300yc</block>
+  <block id="1b26a33c8f2840aaa88a3c83445b7162" category="sidebar">스위치_92300yc를 교체하십시오</block>
+  <block id="c2fd26becbc7322e73bbbb4a48e0e98a" category="sidebar">Overview_sn2100-스토리지</block>
+  <block id="00ea6483b7e72739b6651ff7dd7713b9" category="sidebar">install_hardware_sn2100-storage 를 참조하십시오</block>
+  <block id="3dcf9cdc76a857a12a6d6fede0e6f0a2" category="sidebar">configure_software_sn2100-storage 를 참조하십시오</block>
+  <block id="d9aada147c373c06e0d976b129c8f3a7" category="sidebar">Migrate_switches_sn2100-스토리지</block>
+  <block id="5b5eb8c4bef0274e4e1b9402cbc61b6c" category="sidebar">switch_sn2100-storage를 교체합니다</block>
+  <block id="e756cb6d7a30c16aaf4b162066c5faaf" category="sidebar">Overview_9336c-FX2</block>
+  <block id="ea9347503aa166036bc31e64c9a62221" category="sidebar">install_hardware_9336c-FX2를 참조하십시오</block>
+  <block id="0817f50dda9839238b42b67326847169" category="sidebar">configure_software_9336c-FX2</block>
+  <block id="09db58fd2d9414146f4e7f1ac19ab09e" category="sidebar">Migrate_switches_9336c-FX2</block>
+  <block id="7bf274d6a8a427ffe81263e20f1f4ec0" category="sidebar">REPLACE_SWITCs_9336c-FX2를 참조하십시오</block>
+  <block id="5fa4d790df53a4c6278c546dd028ec83" category="sidebar">Overview_9336c-FX2-STORAGE 를 참조하십시오</block>
+  <block id="0275375be59b49b4671d6f7352eb43f8" category="sidebar">install_hardware_9336c-FX2-storage 를 참조하십시오</block>
+  <block id="2ef21067889d74c595764cb0c5f14087" category="sidebar">configure_software_9336c-fX2-storage 를 참조하십시오</block>
+  <block id="b1c691c0067b2d09bed76ad1a1477b3b" category="sidebar">Migrate_switches_9336c-FX2-storage를 참조하십시오</block>
+  <block id="a40501f53136e1fad14756d37734123e" category="sidebar">REPLACE_SWITCH_9336c-FX2-STORAGE</block>
+  <block id="35a987323fcb5fdbbb175c9114601182" category="sidebar">개요_cn1610</block>
+  <block id="d736a39071e873d48143d93c0bf1e23d" category="sidebar">install_configure_cn1610을 참조하십시오</block>
+  <block id="4c4ff6838d067836f2198ca8700d59a8" category="sidebar">migrate_switches_cn1610 을 참조하십시오</block>
+  <block id="e189ed5bfe48ac8124098ae4639d5ecb" category="sidebar">스위치_cn1610을 교체하십시오</block>
+  <block id="1235e1b032feb174df4e33d9850608fa" category="sidebar">Overview_sn2100 을 참조하십시오</block>
+  <block id="bb9b59de9af3e8302ea125bfa0271db5" category="sidebar">하드웨어_sn2100을 설치합니다</block>
+  <block id="45fb160a69acdbfa882abe108b4f7248" category="sidebar">configure_software_sn2100 을 참조하십시오</block>
+  <block id="73abc22ae9f100c9e4d9d28bc56685aa" category="sidebar">Migrate_switches_sn2100 을 참조하십시오</block>
+  <block id="8cc181df76ed146075a7c0b38525656a" category="sidebar">스위치_sn2100을 교체합니다</block>
+  <block id="68ca17cd44d275d22b0f2d0dda57897a" category="sidebar">개요_bes53248</block>
+  <block id="380eb1e05db1f71a5022bd03843c5aba" category="sidebar">install_hardware_bes53248 을 참조하십시오</block>
+  <block id="8a3982b437db5ff2a2a68b47d8633581" category="sidebar">configure_software_bes53248 을 참조하십시오</block>
+  <block id="ae6de81182adfafa064980e2532e7279" category="sidebar">upgrade_switches_bes53248 을 참조하십시오</block>
+  <block id="267f0a6ee7bf547701400bdefcf3e255" category="sidebar">Migrate_switches_bes53248 을 참조하십시오</block>
+  <block id="368764dd3898433d38cff5ab40e268b0" category="sidebar">Replace_switches_bes53248을 참조하십시오</block>
 </blocks>

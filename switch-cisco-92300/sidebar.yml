@@ -3,6 +3,7 @@ section: switch-cisco-92300
 title: Cisco Nexus 92300YC
 entries:
 - title: 개요
+  pdf-filename: 개요_92300yc
   entries:
   - title: 구성 개요
     url: "/switch-cisco-92300/install-overview-cisco-92300.html"
@@ -15,12 +16,14 @@ entries:
   - title: Smart Call Home 요구 사항
     url: "/switch-cisco-92300/smart-call-home-92300.html"
 - title: 하드웨어를 설치합니다
+  pdf-filename: 설치_하드웨어_92300yc
   entries:
   - title: 케이블 연결 워크시트를 작성합니다
     url: "/switch-cisco-92300/setup-worksheet-92300yc.html"
   - title: 스위치를 구성합니다
     url: "/switch-cisco-92300/configure-install-initial.html"
 - title: 소프트웨어를 구성합니다
+  pdf-filename: configure_software_92300yc 를 선택합니다
   entries:
   - title: NX-OS 및 RCF 설치 준비
     url: "/switch-cisco-92300/install-nxos-overview.html"
@@ -31,12 +34,14 @@ entries:
   - title: CSHM을 설치합니다
     url: "/switch-cisco-92300/setup-install-cshm-file.html"
 - title: 스위치 마이그레이션
+  pdf-filename: Migrate_switches_92300yc
   entries:
   - title: 스위치가 있는 2노드 클러스터로 마이그레이션
     url: "/switch-cisco-92300/migrate-to-2n-switched.html"
   - title: 이전 Cisco 스위치에서 마이그레이션합니다
     url: "/switch-cisco-92300/migrate-to-92300yc.html"
 - title: 스위치를 교체합니다
+  pdf-filename: 스위치_92300yc를 교체하십시오
   entries:
   - title: 스위치를 교체합니다
     url: "/switch-cisco-92300/replace-92300yc.html"

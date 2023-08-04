@@ -3,6 +3,7 @@ section: switch-cisco-3232c
 title: Cisco Nexus 3232C
 entries:
 - title: 개요
+  pdf-filename: 개요_32c
   entries:
   - title: 구성 개요
     url: "/switch-cisco-3232c/install-overview-cisco-3232c.html"
@@ -13,6 +14,7 @@ entries:
   - title: Smart Call Home 요구 사항
     url: "/switch-cisco-3232c/smart-call-home-3232c.html"
 - title: 하드웨어를 설치합니다
+  pdf-filename: 하드웨어_32c를 설치합니다
   entries:
   - title: 케이블 연결 워크시트를 작성합니다
     url: "/switch-cisco-3232c/setup_worksheet_3232c.html"
@@ -21,6 +23,7 @@ entries:
   - title: NetApp 캐비닛에 스위치 설치
     url: "/switch-cisco-3232c/install-cisco-nexus-3232c.html"
 - title: 소프트웨어를 구성합니다
+  pdf-filename: configure_software_32c 를 선택합니다
   entries:
   - title: NX-OS 및 RCF 설치 준비
     url: "/switch-cisco-3232c/prepare-install-cisco-nexus-3232c.html"
@@ -29,6 +32,7 @@ entries:
   - title: RCF 구성 파일을 설치합니다
     url: "/switch-cisco-3232c/install-rcf-3232c.html"
 - title: 스위치 마이그레이션
+  pdf-filename: Migrate_switches_3232c
   entries:
   - title: 마이그레이션 요구 사항
     url: "/switch-cisco-3232c/migrate-requirements-3232c.html"
@@ -39,6 +43,7 @@ entries:
   - title: 스위치가 없는 2노드 클러스터에서 마이그레이션
     url: "/switch-cisco-3232c/migrate-from-two-node-switchless-cluster.html"
 - title: 스위치를 교체합니다
+  pdf-filename: 스위치_32c를 교체하십시오
   entries:
   - title: 클러스터 스위치를 교체합니다
     url: "/switch-cisco-3232c/replace-cluster-switch.html"
@@ -47,4 +52,5 @@ entries:
   - title: 클러스터 스위치를 스위치가 없는 연결로 대체
     url: "/switch-cisco-3232c/migrate-to-switchless-cluster-interconnect.html"
 - title: 스위치 업그레이드
+  pdf-filename: 업그레이드_스위치_3232c
   url: "/switch-cisco-3232c/upgrade-3232c-storage-switches.html"

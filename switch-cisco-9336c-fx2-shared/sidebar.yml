@@ -3,6 +3,7 @@ section: switch-cisco-9336c-fx2-shared
 title: Cisco Nexus 9336C-FX2
 entries:
 - title: 개요
+  pdf-filename: Overview_9336c-FX2-shared
   entries:
   - title: 구성 개요
     url: "/switch-cisco-9336c-fx2-shared/configure-switch-overview-9336c-shared.html"
@@ -13,6 +14,7 @@ entries:
   - title: 필수 문서
     url: "/switch-cisco-9336c-fx2-shared/required-documentation-9336c-shared.html"
 - title: 하드웨어를 설치합니다
+  pdf-filename: install_hardware_9336c-FX2-shared
   entries:
   - title: 케이블 연결 워크시트를 작성합니다
     url: "/switch-cisco-9336c-fx2-shared/cable-9336c-shared.html"
@@ -23,6 +25,7 @@ entries:
   - title: NetApp 캐비닛에 스위치 설치
     url: "/switch-cisco-9336c-fx2-shared/install-switch-and-passthrough-panel-9336c-shared.html"
 - title: 소프트웨어를 구성합니다
+  pdf-filename: configure_software_9336c-FX2-shared
   entries:
   - title: 소프트웨어 설치 워크플로우
     url: "/switch-cisco-9336c-fx2-shared/configure-software-overview-9336c-shared.html"
@@ -33,6 +36,7 @@ entries:
   - title: RCF 구성 파일을 설치합니다
     url: "/switch-cisco-9336c-fx2-shared/install-nxos-rcf-9336c-shared.html"
 - title: 스위치 마이그레이션
+  pdf-filename: Migrate_switches_9336c-FX2-shared
   entries:
   - title: 스위치가 없는 DAS 클러스터에서 마이그레이션
     url: "/switch-cisco-9336c-fx2-shared/migrate-from-switchless-cluster-dat-storage.html"
@@ -43,4 +47,5 @@ entries:
   - title: Switched SAT 클러스터에서 마이그레이션합니다
     url: "/switch-cisco-9336c-fx2-shared/migrate-from-switched-cluster-sat-storage.html"
 - title: 스위치를 교체합니다
+  pdf-filename: REPLACE_SWITCs_9336c-FX2-shared
   url: "/switch-cisco-9336c-fx2-shared/replace-9336c-fx2-shared.html"

@@ -3,6 +3,7 @@ section: switch-nvidia-sn2100
 title: nVidia SN2100
 entries:
 - title: 개요
+  pdf-filename: Overview_sn2100 을 참조하십시오
   entries:
   - title: 구성 개요
     url: "/switch-nvidia-sn2100/configure-overview-sn2100-cluster.html"
@@ -13,6 +14,7 @@ entries:
   - title: 필수 문서
     url: "/switch-nvidia-sn2100/required-documentation-sn2100-cluster.html"
 - title: 하드웨어를 설치합니다
+  pdf-filename: 하드웨어_sn2100을 설치합니다
   entries:
   - title: 스위치를 장착하십시오
     url: "/switch-nvidia-sn2100/install-hardware-sn2100-cluster.html"
@@ -23,6 +25,7 @@ entries:
   - title: NS224 선반에 케이블을 연결합니다
     url: "/switch-nvidia-sn2100/install-cable-shelves-sn2100-cluster.html"
 - title: 소프트웨어를 구성합니다
+  pdf-filename: configure_software_sn2100 을 참조하십시오
   entries:
   - title: 소프트웨어 설치 워크플로우
     url: "/switch-nvidia-sn2100/configure-software-overview-sn2100-cluster.html"
@@ -37,6 +40,7 @@ entries:
   - title: Cumulus Linux 버전을 업그레이드하십시오
     url: "/switch-nvidia-sn2100/upgrade-cl-version.html"
 - title: 스위치 마이그레이션
+  pdf-filename: Migrate_switches_sn2100 을 참조하십시오
   entries:
   - title: CN1610 클러스터 스위치에서 마이그레이션
     url: "/switch-nvidia-sn2100/migrate-cn1610-sn2100-cluster-switch.html"
@@ -45,6 +49,7 @@ entries:
   - title: 스위치가 있는 2노드 클러스터로 마이그레이션
     url: "/switch-nvidia-sn2100/migrate-2n-switched-sn2100-cluster.html"
 - title: 스위치를 교체합니다
+  pdf-filename: 스위치_sn2100을 교체합니다
   entries:
   - title: 클러스터 스위치를 교체합니다
     url: "/switch-nvidia-sn2100/replace-sn2100-switch-cluster.html"
