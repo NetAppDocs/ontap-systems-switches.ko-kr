@@ -4501,8 +4501,6 @@
   <block id="55c09ca9257750665c75e5b587165519" category="paragraph"><block ref="e802bd77f148cffa22d9aa9e7d79d65d" prefix="" category="inline-code"></block></block>
   <block id="e1d0dd82b8f2058c2b4c4d59c2f80125" category="paragraph">10분간 기다린 후 다음 명령을 사용하여 로그 수집이 완료되었는지 확인합니다.</block>
   <block id="0eedc6e86bf0684694a5f74d12cd17d7" category="admonition">이러한 명령 중 하나라도 오류를 반환하거나 로그 수집이 완료되지 않으면 NetApp 지원에 문의하십시오.</block>
-  <block id="cada8434ff5f9181d7ae07ce2a2c1336" category="list-text">BES-53248 스위치의 일부 포트는 10GbE 또는 40GbE에서 실행되도록 구성되어 있습니다.</block>
-  <block id="9b8afb051b3fda2a9f3dcd0edcc95d79" category="list-text">노드에서 BES-53248 클러스터 스위치로의 10GbE 및 40GbE 연결이 계획, 마이그레이션 및 문서화되었습니다.</block>
   <block id="df3b6dd54dfaeb972568b29147c67103" category="list-text">BES-53248 스위치의 초기 사용자 지정이 완료되어 다음과 같은 작업이 완료됩니다.</block>
   <block id="8f7a04d5740dbba56b463f7bc775e27a" category="list-text">BES-53248 스위치는 최신 권장 버전의 EFOS 소프트웨어를 실행하고 있습니다.</block>
   <block id="2f16d56c4dbd9373c09b2be5c94c8c4a" category="list-text">NetApp CN1610: 포트 0/1 ~ 0/12(10GbE)</block>
@@ -4513,24 +4511,16 @@
   <block id="10eb67b70ef8150836466766bdd3f2f8" category="list-text">기존 클러스터 스위치에 연결된 각 노드의 클러스터 포트를 표시합니다.</block>
   <block id="fc7a60af0bed9304a4ca478877f91450" category="list-text">모든 클러스터 포트가 작동하는지 확인합니다<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block> 를 사용하여<block ref="741839f346d6e8126ae38ee76a96fd12" prefix=" " category="inline-code"></block> 상태:</block>
   <block id="0be9e89f86499b3770f2ce9bad1ba0eb" category="list-text">[[5단계]] 클러스터 LIF에서 자동 복원을 사용하지 않도록 설정합니다.</block>
-  <block id="04b62972586827d401a3dea129d172c9" category="list-text">클러스터 스위치 CL1에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.</block>
   <block id="d9f832c61b11e8d4b59ef0ae25ac9dd6" category="list-text">클러스터 LIF가 클러스터 스위치 CL1에서 호스팅되는 포트로 마이그레이션되었는지 확인합니다. 이 작업은 몇 초 정도 걸릴 수 있습니다.</block>
-  <block id="eba3ff5e6602b380a875b5adacf6e6fd" category="list-text">모든 클러스터 노드 연결 케이블을 이전 CS2 스위치에서 새 CS2 스위치로 이동합니다.</block>
   <block id="8884e29d4b490f2084dae5227ca847a4" category="list-text">CS2로 이동한 네트워크 연결의 상태를 확인합니다.</block>
   <block id="308cecb0e156959b9d08b434ef110588" category="paragraph">이동된 모든 클러스터 포트는 이어야 합니다<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block>.</block>
-  <block id="e2a6925a1c6094f573b02dac570783d1" category="list-text">다음 명령을 사용하여 스위치 CS2의 관점에서 스위치 포트 연결을 확인합니다.</block>
-  <block id="ad38a12ff64b2cba000c16daea86aee6" category="list-text">클러스터 스위치 CL2에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.</block>
   <block id="48281ee704bfb0f055c15fe754705f5a" category="paragraph">모든 클러스터 LIF가 CS2 스위치로 이동합니다.</block>
   <block id="18a308037b50cae9759f1f49af5aed58" category="list-text">클러스터 LIF가 스위치 CS2에 호스팅된 포트로 마이그레이션되었는지 확인합니다. 몇 초 정도 걸릴 수 있습니다.</block>
   <block id="f20b906cc8acf5d97550e7a24fd7c69b" category="list-text">클러스터 노드 연결 케이블을 CL1에서 새 CS1 스위치로 이동합니다.</block>
   <block id="b7557e0e7f48313d82756b7481c1b1f6" category="list-text">CS1로 이동한 네트워크 연결의 상태를 확인합니다.</block>
-  <block id="a19beb91ec2195c2db049b5e003334f4" category="list-text">다음 명령을 사용하여 스위치 CS1의 관점에서 스위치 포트 연결을 확인합니다.</block>
   <block id="ce16551695d7120d532abead22bee8c2" category="list-text">CS1과 CS2 사이의 ISL이 여전히 작동하는지 확인합니다.</block>
   <block id="b48ac462b57bcb2860eecd434bd2c80f" category="paragraph">ONTAP 9.8부터 다음 명령을 사용합니다.<block ref="b4720f8aa09f4e4b3a04e78c558b6c90" prefix=" " category="inline-code"></block></block>
-  <block id="4ae8d24c72dd765a4920ac53c2dafe90" category="open-title">ONTAP 9.4 이하</block>
-  <block id="7c0f7899f6a5609732991b637b6b77d8" category="paragraph">ONTAP 9.4 이전 버전의 경우 다음 명령을 사용합니다.<block ref="f055904a9fc3a4f0bc33aca13ecd2b2d" prefix=" " category="inline-code"></block></block>
   <block id="3e1fd1b016d89d236712e513bee2a170" category="list-text">이더넷 스위치 상태 모니터 로그 수집 기능에 대한 암호를 생성합니다.</block>
-  <block id="300c1f24adf38203b39051c2816bed96" category="admonition">로그 수집 기능을 사용하려면 ONTAP 9.12.1 이상 및 EFOS 3.8.0.2 이상을 실행해야 합니다.</block>
   <block id="079e7a1f80c26ff7b477dcbf014e4e70" category="list-text">이더넷 스위치 상태 모니터 로그 수집 기능을 활성화합니다.</block>
   <block id="aae263170b5a7f23d3045f8a2b09091f" category="paragraph">10분간 기다린 후 로그 수집이 완료되었는지 확인합니다.</block>
   <block id="c9a1a82d3af3d53e5132a5ce6181fc18" category="list-text">Nexus 9336C-FX2 스위치의 일부 포트는 10GbE 또는 40GbE에서 실행되도록 구성되어 있습니다.</block>
@@ -4606,4 +4596,20 @@
   <block id="ae6de81182adfafa064980e2532e7279" category="sidebar">upgrade_switches_bes53248 을 참조하십시오</block>
   <block id="267f0a6ee7bf547701400bdefcf3e255" category="sidebar">Migrate_switches_bes53248 을 참조하십시오</block>
   <block id="368764dd3898433d38cff5ab40e268b0" category="sidebar">Replace_switches_bes53248을 참조하십시오</block>
+  <block id="b839c7212b07af22047708d290e9fc06" category="list-text">BES-53248 스위치의 일부 포트는 10GbE에서 실행되도록 구성되어 있습니다.</block>
+  <block id="c4a4e384df3331fa768c173d158b0aa5" category="list-text">노드에서 BES-53248 클러스터 스위치로의 10GbE 연결은 계획, 마이그레이션 및 문서화되었습니다.</block>
+  <block id="67b660e2046176252fca76261bc42667" category="list-text">클러스터 스위치 CL2에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.</block>
+  <block id="e6530d0201fae7d6787fd28d58724819" category="list-text">모든 클러스터 노드 연결 케이블을 이전 CL2 스위치에서 새 CS2 스위치로 이동합니다.</block>
+  <block id="74473ad9515a4da22aa5f01542722c5b" category="list-text">다음 명령을 사용하여 스위치 CS2의 관점에서 스위치 포트 연결이 정상인지 확인합니다.</block>
+  <block id="ca6f53e4266e008816889d83576a5877" category="list-text">클러스터 스위치 CL1에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.</block>
+  <block id="1dd6b9d779d28215b5d204a1be9c8b6a" category="list-text">다음 명령을 사용하여 스위치 CS1의 관점에서 스위치 포트 연결이 정상인지 확인합니다.</block>
+  <block id="dae02701a0a247e1012b9b2832c32464" category="list-text">교체된 CN1610 스위치가 자동으로 제거되지 않은 경우 클러스터의 스위치 테이블에서 삭제합니다.</block>
+  <block id="c8b9229aed88be3704b6c26029b7ae94" category="paragraph">ONTAP 9.7 이전 버전의 경우 다음 명령을 사용합니다.<block ref="f055904a9fc3a4f0bc33aca13ecd2b2d" prefix=" " category="inline-code"></block></block>
+  <block id="b8590eb7d6b7365e1a0bee47b03d5b4f" category="admonition">로그 수집 기능을 사용하려면 ONTAP 9.10.1P15, 9.11.1P12 또는 9.12.1 이상 및 EFOS 3.8.0.2 이상을 실행해야 합니다.</block>
+  <block id="e88b6a67743cc664a0a237ba8d94eefc" category="sidebar">스위치 - Cisco-9336c-FX2-클러스터</block>
+  <block id="517242a1c337699950aef05a38af45a0" category="sidebar">스위치 - nVidia-sn2100-클러스터</block>
+  <block id="3ed3b1cc0917edd8fddcdd478bb581fb" category="sidebar">스위치 - Cisco-9336c-FX2-스토리지</block>
+  <block id="701d9aab459b808d17f39aa5c50f97df" category="sidebar">스위치 - nVidia-sn2100-스토리지</block>
+  <block id="a5f4f9ed92853ea6128046eb985ff5a7" category="sidebar">Cisco-9336c-FX2 - 공유</block>
+  <block id="759d203c3eb13a684379c7413a7ea760" category="sidebar">Cisco-9336c-FX2-클러스터</block>
 </blocks>
