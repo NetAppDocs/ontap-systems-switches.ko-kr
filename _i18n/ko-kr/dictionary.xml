@@ -4612,4 +4612,5 @@
   <block id="701d9aab459b808d17f39aa5c50f97df" category="sidebar">스위치 - nVidia-sn2100-스토리지</block>
   <block id="a5f4f9ed92853ea6128046eb985ff5a7" category="sidebar">Cisco-9336c-FX2 - 공유</block>
   <block id="759d203c3eb13a684379c7413a7ea760" category="sidebar">Cisco-9336c-FX2-클러스터</block>
+  <block id="111cada5d22121a7e11aef39f4aca355" category="list-text">클러스터 스위치 CS2에서 노드의 클러스터 포트에 연결된 포트를 표시합니다.</block>
 </blocks>
