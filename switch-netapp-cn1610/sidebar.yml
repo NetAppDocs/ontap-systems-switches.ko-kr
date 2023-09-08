@@ -25,12 +25,8 @@ entries:
 - title: 스위치 마이그레이션
   pdf-filename: migrate_switches_cn1610 을 참조하십시오
   entries:
-  - title: 마이그레이션 옵션
-    url: "/switch-netapp-cn1610/migrate-overview.html"
-  - title: 스위치가 없는 클러스터에서 마이그레이션
+  - title: 스위치가 없는 클러스터에서 스위치 없는 클러스터로 마이그레이션
     url: "/switch-netapp-cn1610/migrate-switched-netapp-cn1610.html"
-  - title: 스위치가 있는 2노드 클러스터로 마이그레이션
-    url: "/switch-netapp-cn1610/migrate-fas22xx-systems.html"
 - title: 스위치를 교체합니다
   pdf-filename: 스위치_cn1610을 교체하십시오
   entries:

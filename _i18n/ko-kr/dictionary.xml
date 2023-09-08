@@ -975,7 +975,6 @@
   <block id="a65f9ba8402630e3a7bb85bd68d24320" category="list-text">인접 장치 목록을 표시합니다.</block>
   <block id="afc02c38a9faa99b4d489687c077faa7" category="paragraph">'ISDP 네이버 표시</block>
   <block id="341290705782dd24b9948684702337d7" category="list-text">모든 클러스터 포트가 'UP' 상태인지 확인합니다.</block>
-  <block id="09b4c6d12807ef628dddcedb95f59fba" category="list-text">모든 클러스터 LIF에서 'auto-revert'가 활성화되어 있는지 확인합니다. 'network interface show-vserver Cluster-fields auto-revert'</block>
   <block id="49de00b8e8c6586fcca9fad09c76b9ed" category="list-text">노드 1의 클러스터 포트 e0a에서 케이블을 분리한 다음, BES-53248 스위치가 지원하는 적절한 케이블을 사용하여 클러스터 스위치 CS1의 포트 1에 e0a를 연결합니다.</block>
   <block id="4117e035e1d5632e3f6a3311cd104041" category="list-text">노드 2의 클러스터 포트 e0a에서 케이블을 분리한 다음, BES-53248 스위치가 지원하는 적절한 케이블을 사용하여 클러스터 스위치 CS1의 포트 2에 e0a를 연결합니다.</block>
   <block id="a2c09169aae3d453a5de75708a6aea92" category="paragraph">다음 예에서는 스위치 CS1에서 포트 1 ~ 16이 활성화되어 있음을 보여 줍니다.</block>
@@ -4050,8 +4049,6 @@
   <block id="9f1444ca3aac0720c37a8103593b319f" category="sidebar">설치 및 구성</block>
   <block id="354a428ae5bd694cfeccb15e5faecafb" category="sidebar">RCF를 설치합니다</block>
   <block id="c13171629fe31c1238a32f1e3650b982" category="sidebar">ONTAP 8.3.1 이상에 FASTPATH 및 RCF를 설치합니다</block>
-  <block id="c728d9401bdb127c12220b6c83da42da" category="sidebar">마이그레이션 옵션</block>
-  <block id="dddf7ccc3477ae39c351d20ccb2691ab" category="sidebar">스위치가 없는 클러스터에서 마이그레이션</block>
   <block id="a8bb0b5314965a8ac1d110202d7aae1f" category="sidebar">NX-OS를 설치합니다</block>
   <block id="72f2a813dae956304645ec60ccd278dd" category="sidebar">CSHM을 설치합니다</block>
   <block id="9c065304d8a82e97da8536d4c7484ee2" category="sidebar">이전 Cisco 스위치에서 마이그레이션합니다</block>
@@ -4355,7 +4352,6 @@
   <block id="420b545896cb1c9b03dbccd44bf33f86" category="list-text">스위치에서 RCF가 적용된 후 라이센스가 부여된 추가 포트가 표시되는지 확인합니다.</block>
   <block id="2a886bfc4f98f8b2263d47853859d640" category="list-text">스위치 CS2의 포트를 확인합니다.<block ref="3ecfeafb159bbded4fdecd6f5a860f4a" prefix=" " category="inline-code"></block></block>
   <block id="818dbe7dc43a870c6906959f7d426ba7" category="list-text">e0b 포트가 클러스터의 모든 노드에 대해 정상 작동 중인지 확인합니다.<block ref="856f897c52a15ad9c779d1f7b82c2593" prefix=" " category="inline-code"></block></block>
-  <block id="7780adb3deb169c3e834888c0fec0145" category="list-text">[[step17]] 클러스터 스위치 CS1에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.</block>
   <block id="7fc0653470d537d0d0fc3997f25d581b" category="list-text">클러스터 LIF가 스위치 CS2에 호스팅된 포트로 마이그레이션되었는지 확인합니다. 이 작업은 몇 초 정도 걸릴 수 있습니다.<block ref="fb5130635551fff679ab6d902eaff8d9" prefix=" " category="inline-code"></block></block>
   <block id="b0553791d0540be1d52514a1a47621f6" category="list-text">스위치 CS1에서 4-14단계를 반복합니다.</block>
   <block id="9cb99e0cdd58aac4297608fa8d8ef89b" category="list-text">클러스터 LIF에서 자동 되돌리기 사용:<block ref="478474aa0db28144d5db02c478cd5215" prefix=" " category="inline-code"></block></block>
@@ -4613,4 +4609,5 @@
   <block id="a5f4f9ed92853ea6128046eb985ff5a7" category="sidebar">Cisco-9336c-FX2 - 공유</block>
   <block id="759d203c3eb13a684379c7413a7ea760" category="sidebar">Cisco-9336c-FX2-클러스터</block>
   <block id="111cada5d22121a7e11aef39f4aca355" category="list-text">클러스터 스위치 CS2에서 노드의 클러스터 포트에 연결된 포트를 표시합니다.</block>
+  <block id="325c324b922ed6e1b216f99766068e43" category="list-text">[[step18]] 클러스터 스위치 CS1에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.</block>
 </blocks>

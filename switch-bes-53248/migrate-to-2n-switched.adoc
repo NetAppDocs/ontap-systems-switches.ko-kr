@@ -272,25 +272,12 @@ Cluster
             node2_clus2  up/up    169.254.19.183/16  node2         e0b     true
 ----
 ====
-. 모든 클러스터 LIF에서 'auto-revert'가 활성화되어 있는지 확인합니다. 'network interface show-vserver Cluster-fields auto-revert'
+. 클러스터 LIF에서 자동 되돌리기 기능을 해제합니다.
 +
-.예제 보기
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network interface show -vserver Cluster -fields auto-revert*
-
-          Logical
-Vserver   Interface     Auto-revert
---------- ------------- ------------
-Cluster
-          node1_clus1   true
-          node1_clus2   true
-          node2_clus1   true
-          node2_clus2   true
+cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert false*
 ----
-====
 . 노드 1의 클러스터 포트 e0a에서 케이블을 분리한 다음, BES-53248 스위치가 지원하는 적절한 케이블을 사용하여 클러스터 스위치 CS1의 포트 1에 e0a를 연결합니다.
 +
 를 클릭합니다 https://hwu.netapp.com/Home/Index["_NetApp Hardware Universe _"^] 케이블 연결에 대한 자세한 내용은 에 나와 있습니다.
@@ -410,6 +397,22 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 
 
 === 3단계: 구성을 확인합니다
+
+. 클러스터 LIF에서 자동 되돌리기 기능을 설정합니다.
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert true*
+----
+. 클러스터 LIF가 홈 포트로 되돌아가는지 확인합니다(1분 정도 걸릴 수 있음).
++
+'network interface show-vserver cluster'
+
++
+클러스터 LIF가 홈 포트로 되돌리지 않은 경우 수동으로 되돌리십시오.
+
++
+'네트워크 인터페이스 되돌리기 - vserver Cluster-lif *'
 
 . 모든 인터페이스가 '홈'에 대해 '참'으로 표시되는지 확인합니다.
 +
