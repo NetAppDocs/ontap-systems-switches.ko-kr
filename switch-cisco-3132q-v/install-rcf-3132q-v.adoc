@@ -21,7 +21,6 @@ Nexus 3132Q-V 스위치를 처음 설정한 후 RCF를 설치하려면 다음 �
 * 스위치 구성의 현재 백업
 * 완전히 작동하는 클러스터(로그에 오류 또는 유사한 문제 없음)
 * 현재 RCF(Reference Configuration File)
-* NX-OS만 설치하고 현재 RCF 버전을 유지하는 경우 필요한 부팅 이미지를 반영하는 RCF의 부팅 구성입니다. 현재 부팅 이미지를 반영하도록 부팅 구성을 변경해야 하는 경우, 나중에 재부팅할 때 올바른 버전이 인스턴스화되도록 RCF를 다시 적용하기 전에 이 구성을 변경해야 합니다.
 * RCF를 설치할 때 스위치에 콘솔 연결 필요
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치"^]. 지원되는 ONTAP 및 RCF 버전은 스위치 호환성 표를 참조하십시오. RCF의 명령 구문과 NX-OS 버전에 있는 명령 구문 사이에 명령 종속성이 있을 수 있습니다.
 * https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Cisco Nexus 3000 시리즈 스위치"^]. Cisco 스위치 업그레이드 및 다운그레이드 절차에 대한 전체 설명서는 Cisco 웹 사이트에서 제공하는 해당 소프트웨어 및 업그레이드 가이드를 참조하십시오.
@@ -383,6 +382,10 @@ cs2# show banner motd
 ** 사용자 지정
 +
 출력은 사이트 구성에 따라 달라집니다. 포트 설정을 확인하고 설치된 RCF에 대한 변경 사항은 릴리스 노트를 참조하십시오.
+
++
+
+NOTE: RCF 업그레이드 후 10GbE 포트를 온라인으로 전환하는 방법에 대한 단계는 기술 자료 문서 를 참조하십시오 https://kb.netapp.com/onprem%2FSwitches%2FCisco%2F10GbE_ports_on_Cisco_3132Q_cluster_switch_do_not_come_online["Cisco 3132Q 클러스터 스위치의 10GbE 포트는 온라인 상태로 제공되지 않습니다"^].
 
 
 
