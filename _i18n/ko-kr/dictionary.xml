@@ -1443,7 +1443,6 @@
   <block id="f1e487b54b162363f351d5d209fc59ac" category="paragraph">Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오<block ref="a793a8dbe6bab2f66743aaacba3b8ce6" category="inline-link-rx"></block> 안내선.</block>
   <block id="b1d94c7c371efbe2b9e14f1fcde6d912" category="list-text">스위치 CS2를 재부팅합니다. 스위치가 재부팅되는 동안 노드에 보고된 "클러스터 포트 다운" 이벤트를 무시할 수 있습니다.</block>
   <block id="50f3bfc2fb822fc9657969a594a33322" category="list-text">클러스터 LIF가 스위치 CS2에 호스팅된 포트로 마이그레이션되었는지 확인합니다. 이 작업은 몇 초 정도 걸릴 수 있습니다.</block>
-  <block id="01d6ab89c082cff9a22a80f6236ceceb" category="list-text">스위치 CS1을 재부팅합니다. 이렇게 하면 클러스터 LIF가 홈 포트로 복구되도록 트리거됩니다. 스위치가 재부팅되는 동안 노드에 보고된 "클러스터 포트 다운" 이벤트를 무시할 수 있습니다.</block>
   <block id="ed34b4f07dbb9044c4aec48959bb5c98" category="list-text">CS1과 CS2 사이의 ISL이 작동하는지 확인합니다.</block>
   <block id="3b531e8aedc797f24eddd25bc7833fc7" category="list-text">클러스터 LIF가 홈 포트로 되돌려졌는지 확인합니다.</block>
   <block id="267f1ed8b151f71d65617eef7427084e" category="list-text">원격 클러스터 인터페이스에 ping을 수행하여 연결을 확인합니다.</block>
@@ -1828,7 +1827,6 @@
   <block id="666408bd4fda7729282db455e2ef1d9c" category="list-text">스위치에 있는 인접 장치 목록을 표시합니다.</block>
   <block id="23e1b64b8c8851cef7b50ef569617b78" category="paragraph">다음 예에서는 스위치에 인접 장치를 표시하는 데 사용되는 Cisco 명령 'show CDP neighbors'를 보여 줍니다.</block>
   <block id="07045e09dc5220012b124c8d76ed9e95" category="paragraph">다음 예는 스위치가 없는 2노드 클러스터 구성에 대해 표시된 클러스터 포트 접속을 보여줍니다.</block>
-  <block id="addd737ab6a0a43417b329262c42d3d2" category="paragraph">'network interface migrate-vserver cluster-lif_lif-name_source-node_source-node-name_-destination-port_destination-port-name_'</block>
   <block id="d72fef4ab8d9db529856e27c2fa2cd10" category="paragraph">다음 예제와 같이 각 로컬 노드에 대해 명령을 실행해야 합니다.</block>
   <block id="caa91255e9217c5daf23b979a945b884" category="paragraph">다음 예에서는 마이그레이션이 완료된 후 n1_clus1 및 n2_clus1 LIF의 "홈" 상태가 "거짓"으로 되었음을 보여 줍니다.</block>
   <block id="0f717d9f0cdccd54283a68290db5a062" category="list-text">9단계에서 마이그레이션한 n1_clus1 및 n2_clus1 LIF의 클러스터 포트 종료:</block>
@@ -1858,7 +1856,6 @@
   <block id="51b92e50103faa05aefa082268abbfd6" category="paragraph">다음 예는 클러스터에 알려진 클러스터 스위치와 해당 관리 IP 주소를 표시합니다.</block>
   <block id="6864fdd0f6ad89e3fc724deeacd7576c" category="list-text">필요에 따라 새 3232C 스위치에 적절한 RCF 및 이미지가 설치되었는지 확인하고 필수 사이트 사용자 지정을 수행합니다.</block>
   <block id="bd8bc538541d81e289ef66a8873145af" category="paragraph">이때 두 스위치를 모두 준비해야 합니다. RCF 및 이미지를 업그레이드해야 하는 경우 다음 절차를 완료해야 합니다.</block>
-  <block id="593eea095fb5f0ea1367821afa7c0fe4" category="list-text">교체할 두 번째 CN1610 스위치에 연결된 LIF를 마이그레이션합니다. 'network interface migrate-verser cluster -lif_lif-name_-source-node_source-node_destination-node_destination-node_name_-destination-port_destination-port_name_'</block>
   <block id="98eb99fcc0ed94997a2ab2be00fd87f8" category="paragraph">다음 예에 표시된 대로 각 LIF를 개별적으로 마이그레이션해야 합니다.</block>
   <block id="58e4c812934a7909bf27428e713ee5c1" category="paragraph">다음 예는 노드 n1 및 노드 n2에 대해 종료되는 클러스터 인터커넥트 포트 4개를 보여줍니다.</block>
   <block id="1951e47d1525c6b1dfbe9f52df91cc7f" category="list-text">원격 클러스터 인터페이스에 대해 ping을 수행한 다음 원격 프로시저 호출 서버 검사를 수행합니다.</block>
@@ -1927,7 +1924,6 @@
   <block id="ea16f59475ba6ef1a59120a74b6ab323" category="list-text">필요에 따라 새 3232C 스위치에 적절한 RCF 및 이미지가 설치되었는지 확인하고, 사용자 및 암호, 네트워크 주소, 기타 사용자 지정과 같은 필수 사이트 사용자 지정을 수행합니다.</block>
   <block id="db39960670bd5a0afd6aa3f81f3ba73d" category="paragraph">이때 두 스위치를 모두 준비해야 합니다.</block>
   <block id="1e59f27afab544486b3444c5591d4f53" category="paragraph">RCF 및 이미지를 업그레이드해야 하는 경우 다음 단계를 완료해야 합니다.</block>
-  <block id="94969cbe0be7342cddbd9e412401c429" category="paragraph">'network interface migrate-vserver cluster-lif_lif-name_-source-node_source-node-name_ –destination-node_node-name_-destination-port_destination-port-name_'</block>
   <block id="23cd51d657266665ae8f8c9d2a2ae14f" category="paragraph">다음 예에서는 노드 n1 및 n2에 대해 마이그레이션 중인 LIF를 보여 줍니다. LIF 마이그레이션은 모든 노드에서 수행해야 합니다.</block>
   <block id="fb0f753ded9498a080196f8272f79423" category="paragraph">다음 예는 각 클러스터의 현재 상태를 보여줍니다.</block>
   <block id="72611877ce7fbffb44381c1c62a69cd8" category="list-text">CL1에서 ISL 41 ~ 48을 종료합니다. Cisco의 'shutdown' 명령을 사용하여 활성 Nexus 5596 스위치를 종료합니다.</block>
@@ -1942,7 +1938,6 @@
   <block id="fa5346f0c58f4b1b5012fffb9f4934d6" category="list-text">모든 노드에서 3232C 스위치 C2에 연결된 모든 클러스터 인터커넥트 포트를 불러옵니다.</block>
   <block id="817ba5eed7e8835e787f89e547717b05" category="paragraph">'network interface revert-vserver cluster-lif_lif-name_'</block>
   <block id="71629f00b9c8bfbcf145893027b00d78" category="paragraph">다음 예에서는 마이그레이션된 클러스터 LIF가 홈 포트로 되돌아가는 것을 보여 줍니다.</block>
-  <block id="4bb0a806c923415aa07fe9a1803d503f" category="paragraph">'network interface migrate-vserver cluster-lif_lif-name_-source-node_source-node-name_-destination-node_destination-node_name_-destination-port_destination-port_name_'</block>
   <block id="2f7e0ef82095fa5dae5874a5e402a389" category="list-text">클러스터의 상태 확인:</block>
   <block id="73610b963ec877545620c671a3e11854" category="paragraph">다음 예에서는 필요한 클러스터 LIF가 클러스터 스위치 C2에 호스팅된 적절한 클러스터 포트로 마이그레이션되었음을 보여 줍니다.</block>
   <block id="aabe8c05986e330ed02f20a2c7d0c4f3" category="list-text">활성 3232C 스위치 C2에서 ISL 24, 31 및 32를 종료합니다.</block>
@@ -2020,7 +2015,6 @@
   <block id="4617b3d3dcf4f5abced4e558fa0b277d" category="list-text">설명 * 페이지에서 * 계속 * 을 클릭하고 사용권 계약에 동의한 다음 * 다운로드 * 페이지로 이동합니다.</block>
   <block id="61bcf7a5eda4d122b02fd04b33e7755b" category="list-text">Cisco ® 클러스터 및 관리 네트워크 스위치 참조 구성 파일 다운로드 * 페이지에서 올바른 버전의 이미지 소프트웨어를 다운로드하십시오.</block>
   <block id="3f193f35123de159859633b1b5db0152" category="list-text">클러스터 LIF를 교체 스위치 C2에 연결된 물리적 노드 포트로 마이그레이션합니다.</block>
-  <block id="2735b3724e74edb6ccb4db8e28ba50da" category="paragraph">'network interface migrate-vserver cluster-lif_lif-name_-source-node_node-name_-destination-node_node-name_-destination-port_port-name_'</block>
   <block id="f81bd0da785b861ef3aa6aff482966d7" category="paragraph">다음 예에 표시된 대로 모든 클러스터 LIF를 개별적으로 마이그레이션해야 합니다.</block>
   <block id="ec6c6d07f8637f08eb764567ffc9140b" category="list-text">클러스터 포트의 상태와 해당 홈 지정을 확인합니다.</block>
   <block id="fc73abe1b93232499d5b58811b19d5bd" category="paragraph">다음 예는 모든 노드에서 클러스터 인터커넥트 포트가 종료되었음을 보여 줍니다.</block>
@@ -4612,4 +4606,15 @@
   <block id="325c324b922ed6e1b216f99766068e43" category="list-text">[[step18]] 클러스터 스위치 CS1에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.</block>
   <block id="427c15bca394e9d3b5f203c35b96c743" category="inline-link">Cisco 3132Q 클러스터 스위치의 10GbE 포트는 온라인 상태로 제공되지 않습니다</block>
   <block id="20f0f9c709341c54050214259fc6c790" category="admonition">RCF 업그레이드 후 10GbE 포트를 온라인으로 전환하는 방법에 대한 단계는 기술 자료 문서 를 참조하십시오<block ref="917fe6fdad3ed920883f4190398d0805" category="inline-link-rx"></block>.</block>
+  <block id="bc2be245d88ec44ff572954ca52f5e47" category="list-text">스위치 CS1에서 7-15단계를 반복합니다.</block>
+  <block id="756f5b45c94a8929404edacf08b1bf8c" category="paragraph">클러스터 LIF가 홈 포트로 돌아오지 않은 경우 수동으로 되돌리십시오.<block ref="af44897f72b682aae5fc0db1bf98e52d" prefix=" " category="inline-code"></block></block>
+  <block id="e459e50e2d5bebb928139aa0e4ce09ac" category="list-text">스토리지 노드 포트의 상태를 확인합니다.</block>
+  <block id="266daf0ca11ec57d9d3cb7598fd930b3" category="paragraph"><block ref="d14f00174ffa33ec8f559ffde7a52484" prefix="" category="inline-code"></block></block>
+  <block id="cc689ef0feeba424bc4f0e37875d33b3" category="paragraph"><block ref="364a6d106eff03491354bfdab6856a69" prefix="" category="inline-code"></block></block>
+  <block id="a2d242366fa878251941b37993d9c788" category="list-text">교체하려는 두 번째 CN1610 스위치에 연결된 LIF를 마이그레이션하십시오.</block>
+  <block id="bac3eff3de1438929f64e35c9c1d753e" category="paragraph"><block ref="44d01163c6b63fd73868a8216bae200c" prefix="" category="inline-code"></block></block>
+  <block id="bc83504dbf5dda25d37f158b52b6802c" category="paragraph"><block ref="1ae08a2455b8010c97a491c02e58e474" prefix="" category="inline-code"></block></block>
+  <block id="d71c484dda1d9ad3392c9e1a47d3f9d8" category="paragraph">포트 Eth1/31 및 Eth1/32는 (P)를 나타내야 합니다. 즉, 두 ISL 포트가 모두 포트 채널에서 작동함을 의미합니다.</block>
+  <block id="e2163aa514dd6f969019af7f51eb5403" category="paragraph"><block ref="ba8401ca8d9063944fa4c23801539873" prefix="" category="inline-code"></block></block>
+  <block id="2744015fafc5955101dabee4165aca61" category="admonition">NetApp 검증 스위치(NetApp에서 주문)만 지원됩니다.</block>
 </blocks>

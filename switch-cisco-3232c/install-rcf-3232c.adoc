@@ -55,9 +55,9 @@ Nexus 3232C 스위치를 처음 설정한 후 RCF를 설치하려면 다음 절�
 .예제 보기
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> network device-discovery show
+cluster1::*> *network device-discovery show*
 Node/       Local  Discovered
 Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
 ----------- ------ ------------------------- ----------------  --------
@@ -86,9 +86,9 @@ cluster1::*>
 .예제 보기
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> network port show -role cluster
+cluster1::*> *network port show -role cluster*
 
 Node: cluster1-01
                                                                        Ignore
@@ -134,9 +134,9 @@ cluster1::*>
 .예제 보기
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> network interface show -role cluster
+cluster1::*> *network interface show -role cluster*
             Logical            Status     Network           Current      Current Is
 Vserver     Interface          Admin/Oper Address/Mask      Node         Port    Home
 ----------- ------------------ ---------- ----------------- ------------ ------- ----
@@ -161,9 +161,9 @@ cluster1::*>
 .예제 보기
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> system cluster-switch show -is-monitoring-enabled-operational true
+cluster1::*> *system cluster-switch show -is-monitoring-enabled-operational true*
 Switch                      Type               Address          Model
 --------------------------- ------------------ ---------------- ---------------
 cs1                         cluster-network    10.233.205.92    NX3232C
@@ -192,9 +192,9 @@ cs2                         cluster-network    10.233.205.93    NX3232C
 .예제 보기
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> network interface modify -vserver Cluster -lif \* -auto-revert false
+cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert false*
 ----
 ====
 . 클러스터 스위치 CS2에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.
@@ -202,10 +202,10 @@ cluster1::*> network interface modify -vserver Cluster -lif \* -auto-revert fals
 .예제 보기
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cs2(config)# interface eth1/1/1-2,eth1/7-8
-cs2(config-if-range)# shutdown
+cs2(config)# *interface eth1/1/1-2,eth1/7-8*
+cs2(config-if-range)# *shutdown*
 ----
 ====
 . 클러스터 포트가 클러스터 스위치 CS1에 호스팅된 포트로 마이그레이션되었는지 확인합니다. 이 작업은 몇 초 정도 걸릴 수 있습니다.
@@ -216,9 +216,9 @@ cs2(config-if-range)# shutdown
 .예제 보기
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> network interface show -role cluster
+cluster1::*> *network interface show -role cluster*
             Logical           Status     Network            Current       Current Is
 Vserver     Interface         Admin/Oper Address/Mask       Node          Port    Home
 ----------- ----------------- ---------- ------------------ ------------- ------- ----
@@ -243,9 +243,9 @@ cluster1::*>
 .예제 보기
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> cluster show
+cluster1::*> *cluster show*
 Node                 Health  Eligibility   Epsilon
 -------------------- ------- ------------  -------
 cluster1-01          true    true          false
@@ -302,11 +302,11 @@ Are you sure you would like to reset the system? (y/n) *y*
 ====
 이 예에서는 스위치 CS2에서 RCF를 부트 플래시에 복사하는 데 사용되는 TFTP를 보여 줍니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cs2# copy tftp: bootflash: vrf management
-Enter source filename: Nexus_3232C_RCF_v1.6-Cluster-HA-Breakout.txt
-Enter hostname for the tftp server: 172.22.201.50
+cs2# *copy tftp: bootflash: vrf management*
+Enter source filename: *Nexus_3232C_RCF_v1.6-Cluster-HA-Breakout.txt*
+Enter hostname for the tftp server: *172.22.201.50*
 Trying to connect to tftp server......Connection to Server Established.
 TFTP get operation was successful
 Copy complete, now saving to disk (please wait)...
@@ -322,9 +322,9 @@ Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하�
 ====
 이 예에서는 RCF 파일 "Nexus_3232C_RCF_v1.6-Cluster-HA-Breakout.txt"가 스위치 CS2에 설치되어 있음을 보여 줍니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cs2# copy Nexus_3232C_RCF_v1.6-Cluster-HA-Breakout.txt running-config echo-commands
+cs2# *copy Nexus_3232C_RCF_v1.6-Cluster-HA-Breakout.txt running-config echo-commands*
 ----
 ====
 . 의 배너 출력을 확인합니다 `show banner motd` 명령. 스위치의 올바른 구성과 작동을 위해 * 중요 참고 * 의 지침을 읽고 따라야 합니다.
@@ -407,10 +407,10 @@ cs2# copy running-config startup-config [#######################################
 ----
 . 스위치 CS2를 재부팅합니다. 스위치가 재부팅되는 동안 노드에 보고된 "클러스터 포트 다운" 이벤트를 무시할 수 있습니다.
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cs2# reload
-This command will reboot the system. (y/n)?  [n] y
+cs2# *reload*
+This command will reboot the system. (y/n)?  [n] *y*
 ----
 . 동일한 RCF를 적용하고 실행 중인 구성을 다시 저장합니다.
 +
@@ -433,9 +433,9 @@ cs2# copy running-config startup-config [#######################################
 .예제 보기
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> network port show -role cluster
+cluster1::*> *network port show -role cluster*
 
 Node: cluster1-01
                                                                        Ignore
@@ -476,9 +476,9 @@ e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
 .예제 보기
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> network device-discovery show -protocol cdp
+cluster1::*> *network device-discovery show -protocol cdp*
 Node/       Local  Discovered
 Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
 ----------- ------ ------------------------- ----------------- --------
@@ -541,10 +541,10 @@ NOTE: 클러스터 노드가 정상 상태로 보고되려면 최대 5분이 걸
 ====
 다음 예제에서는 1단계의 인터페이스 예제 출력을 사용합니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cs1(config)# interface eth1/1/1-2,eth1/7-8
-cs1(config-if-range)# shutdown
+cs1(config)# *interface eth1/1/1-2,eth1/7-8*
+cs1(config-if-range)# *shutdown*
 ----
 ====
 . 클러스터 LIF가 스위치 CS2에 호스팅된 포트로 마이그레이션되었는지 확인합니다. 이 작업은 몇 초 정도 걸릴 수 있습니다.
@@ -555,9 +555,9 @@ cs1(config-if-range)# shutdown
 .예제 보기
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> network interface show -role cluster
+cluster1::*> *network interface show -role cluster*
             Logical            Status     Network            Current             Current Is
 Vserver     Interface          Admin/Oper Address/Mask       Node                Port    Home
 ----------- ------------------ ---------- ------------------ ------------------- ------- ----
@@ -582,9 +582,9 @@ cluster1::*>
 .예제 보기
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> cluster show
+cluster1::*> *cluster show*
 Node                 Health   Eligibility   Epsilon
 -------------------- -------- ------------- -------
 cluster1-01          true     true          false
@@ -595,32 +595,23 @@ cluster1-04          true     true          false
 cluster1::*>
 ----
 ====
-. 스위치 CS1에서 7-14단계를 반복합니다.
+. 스위치 CS1에서 7-15단계를 반복합니다.
 . 클러스터 LIF에서 자동 되돌리기 기능을 설정합니다.
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> network interface modify -vserver Cluster -lif \* -auto-revert True
+cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert true*
 ----
-. 스위치 CS1을 재부팅합니다. 이렇게 하면 클러스터 LIF가 홈 포트로 복구되도록 트리거됩니다. 스위치가 재부팅되는 동안 노드에 보고된 "클러스터 포트 다운" 이벤트를 무시할 수 있습니다.
-+
-.예제 보기
-[%collapsible]
-====
-[listing]
-----
-cs1# reload
-This command will reboot the system. (y/n)?  [n] y
-----
-====
+
+
 . 클러스터 포트에 연결된 스위치 포트가 작동하는지 확인합니다.
 +
 .예제 보기
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cs1# show interface brief \| grep up
+cs1# *show interface brief | grep up*
 .
 .
 Eth1/1/1      1       eth  access up      none                    10G(D) --
@@ -639,9 +630,9 @@ Eth1/8        1       eth  trunk  up      none                   100G(D) --
 .예제 보기
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cs1# show port-channel summary
+cs1# *show port-channel summary*
 Flags:  D - Down        P - Up in port-channel (members)
         I - Individual  H - Hot-standby (LACP only)
         s - Suspended   r - Module-removed
@@ -666,9 +657,9 @@ cs1#
 .예제 보기
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> **network interface show -role cluster**
+cluster1::*> *network interface show -role cluster*
             Logical            Status     Network            Current             Current Is
 Vserver     Interface          Admin/Oper Address/Mask       Node                Port    Home
 ----------- ------------------ ---------- ------------------ ------------------- ------- ----
@@ -685,6 +676,10 @@ Cluster
 cluster1::*>
 ----
 ====
++
+클러스터 LIF가 홈 포트로 돌아오지 않은 경우 수동으로 되돌리십시오.
+`network interface revert -vserver _vserver_name_ -lif _lif_name_`
+
 . 클러스터가 정상 상태인지 확인합니다.
 +
 '클러스터 쇼'
@@ -693,9 +688,9 @@ cluster1::*>
 .예제 보기
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> cluster show
+cluster1::*> *cluster show*
 Node                 Health  Eligibility   Epsilon
 -------------------- ------- ------------- -------
 cluster1-01          true    true          false
@@ -714,9 +709,9 @@ cluster1::*>
 .예제 보기
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> cluster ping-cluster -node local
+cluster1::*> *cluster ping-cluster -node local*
 Host is cluster1-03
 Getting addresses from network interface table...
 Cluster cluster1-03_clus1 169.254.1.3 cluster1-03 e0a

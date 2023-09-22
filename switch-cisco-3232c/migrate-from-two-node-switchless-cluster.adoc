@@ -102,9 +102,9 @@ AutoSupport 메시지는 유지보수 기간 동안 자동 케이스 생성이 �
 .예제 보기
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network port show –role cluster
+cluster::*> *network port show -role cluster*
   (network port show)
 Node: n1
                                                                        Ignore
@@ -131,9 +131,9 @@ e4e       Cluster      Cluster          up   9000 auto/40000  -
 .예제 보기
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network interface show -role cluster
+cluster::*> *network interface show -role cluster*
  (network interface show)
             Logical    Status     Network            Current       Current Is
 Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
@@ -157,9 +157,9 @@ Cluster
 ====
 다음 예제의 출력은 스위치가 없는 클러스터 검색이 설정되었음을 보여 줍니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network options detect-switchless-cluster show
+cluster::*> *network options detect-switchless-cluster show*
 Enable Switchless Cluster Detection: true
 ----
 ====
@@ -194,7 +194,7 @@ Cisco 명령에 대한 자세한 내용은 에 나와 있는 가이드를 참조
 ====
 다음 예에서는 RCF 'NX3232_RCF_v1.0_24p10g_24p100g.txt'에서 지원되는 구성을 사용하여 Nexus 3232C 클러스터 스위치 C1 및 C2에서 포트 1부터 30까지 비활성화되는 것을 보여 줍니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
 C1# copy running-config startup-config
 [########################################] 100% Copy complete.
@@ -226,9 +226,9 @@ Cisco 명령에 대한 자세한 내용은 에 나와 있는 가이드를 참조
 ====
 다음 예에서는 ISL 포트가 C1 및 C2에서 작동하는지 확인하는 데 사용되는 Cisco의 show port-channel summary" 명령을 보여 줍니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-C1# show port-channel summary
+C1# *show port-channel summary*
 Flags: D - Down         P - Up in port-channel (members)
        I - Individual   H - Hot-standby (LACP only)        s - Suspended    r - Module-removed
        S - Switched     R - Routed
@@ -264,9 +264,9 @@ Cisco 명령에 대한 자세한 내용은 에 나와 있는 가이드를 참조
 ====
 다음 예에서는 스위치에 인접 장치를 표시하는 데 사용되는 Cisco 명령 'show CDP neighbors'를 보여 줍니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-C1# show cdp neighbors
+C1# *show cdp neighbors*
 Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
                   S - Switch, H - Host, I - IGMP, r - Repeater,
                   V - VoIP-Phone, D - Remotely-Managed-Device,                   s - Supports-STP-Dispute
@@ -294,9 +294,9 @@ Total entries displayed: 2
 ====
 다음 예는 스위치가 없는 2노드 클러스터 구성에 대해 표시된 클러스터 포트 접속을 보여줍니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network device-discovery show
+cluster::*> *network device-discovery show*
             Local  Discovered
 Node        Port   Device              Interface        Platform
 ----------- ------ ------------------- ---------------- ----------------
@@ -310,7 +310,7 @@ n2         /cdp
 ====
 . n1_clus1 및 n2_clus1 LIF를 대상 노드의 물리적 포트로 마이그레이션합니다.
 +
-'network interface migrate-vserver cluster-lif_lif-name_source-node_source-node-name_-destination-port_destination-port-name_'
+`network interface migrate -vserver _vserver-name_ -lif _lif-name_ source-node _source-node-name_ -destination-port _destination-port-name_`
 
 +
 .예제 보기
@@ -318,12 +318,12 @@ n2         /cdp
 ====
 다음 예제와 같이 각 로컬 노드에 대해 명령을 실행해야 합니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network interface migrate -vserver cluster -lif n1_clus1 -source-node n1
-–destination-node n1 -destination-port e4e
-cluster::*> network interface migrate -vserver cluster -lif n2_clus1 -source-node n2
-–destination-node n2 -destination-port e4e
+cluster::*> *network interface migrate -vserver cluster -lif n1_clus1 -source-node n1
+-destination-node n1 -destination-port e4e*
+cluster::*> *network interface migrate -vserver cluster -lif n2_clus1 -source-node n2
+-destination-node n2 -destination-port e4e*
 ----
 ====
 
@@ -342,9 +342,9 @@ cluster::*> network interface migrate -vserver cluster -lif n2_clus1 -source-nod
 ====
 다음 예에서는 마이그레이션이 완료된 후 n1_clus1 및 n2_clus1 LIF의 "홈" 상태가 "거짓"으로 되었음을 보여 줍니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network interface show -role cluster
+cluster::*> *network interface show -role cluster*
  (network interface show)
             Logical    Status     Network            Current       Current Is
 Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
@@ -367,10 +367,10 @@ Cluster
 ====
 다음 예에 표시된 대로 각 포트에 대해 명령을 실행해야 합니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network port modify -node n1 -port e4a -up-admin false
-cluster::*> network port modify -node n2 -port e4a -up-admin false
+cluster::*> *network port modify -node n1 -port e4a -up-admin false*
+cluster::*> *network port modify -node n2 -port e4a -up-admin false*
 ----
 ====
 . 원격 클러스터 인터페이스에 대해 ping을 수행하고 RPC 서버 검사를 수행합니다.
@@ -383,9 +383,9 @@ cluster::*> network port modify -node n2 -port e4a -up-admin false
 ====
 다음 예제에서는 ping이 진행되고 있는 노드 n1과 이후에 나타난 RPC 상태를 보여 줍니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> cluster ping-cluster -node n1
+cluster::*> *cluster ping-cluster -node n1*
 
 Host is n1 Getting addresses from network interface table...
 Cluster n1_clus1 n1        e4a    10.10.0.1
@@ -432,13 +432,13 @@ Cisco 명령에 대한 자세한 내용은 에 나와 있는 가이드를 참조
 ====
 다음 예에서는 RCF 'NX3232_RCF_v1.0_24p10g_26p100g.txt'에서 지원되는 구성을 사용하여 Nexus 3232C 클러스터 스위치 C1 및 C2에서 포트 1부터 30까지 사용 중인 것을 보여 줍니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-C1# configure
-C1(config)# int e1/1/1-4,e1/2/1-4,e1/3/1-4,e1/4/1-4,e1/5/1-4,e1/6/1-4,e1/7-30
-C1(config-if-range)# no shutdown
-C1(config-if-range)# exit
-C1(config)# exit
+C1# *configure*
+C1(config)# *int e1/1/1-4,e1/2/1-4,e1/3/1-4,e1/4/1-4,e1/5/1-4,e1/6/1-4,e1/7-30*
+C1(config-if-range)# *no shutdown*
+C1(config-if-range)# *exit*
+C1(config)# *exit*
 ----
 ====
 . 각 노드에서 첫 번째 클러스터 포트 e4a를 활성화합니다.
@@ -449,10 +449,10 @@ C1(config)# exit
 .예제 보기
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network port modify -node n1 -port e4a -up-admin true
-cluster::*> network port modify -node n2 -port e4a -up-admin true
+cluster::*> *network port modify -node n1 -port e4a -up-admin true*
+cluster::*> *network port modify -node n2 -port e4a -up-admin true*
 ----
 ====
 . 클러스터가 두 노드에 모두 있는지 확인합니다.
@@ -463,9 +463,9 @@ cluster::*> network port modify -node n2 -port e4a -up-admin true
 .예제 보기
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network port show –role cluster
+cluster::*> *network port show -role cluster*
   (network port show)
 Node: n1
                                                                        Ignore
@@ -496,10 +496,10 @@ e4e       Cluster      Cluster          up   9000 auto/40000  -
 ====
 다음 예제와 같이 각 LIF를 홈 포트로 개별적으로 되돌려야 합니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network interface revert -vserver cluster -lif n1_clus1
-cluster::*> network interface revert -vserver cluster -lif n2_clus1
+cluster::*> *network interface revert -vserver cluster -lif n1_clus1*
+cluster::*> *network interface revert -vserver cluster -lif n2_clus1*
 ----
 ====
 . 모든 LIF가 이제 홈 포트로 되돌려졌는지 확인합니다.
@@ -513,9 +513,9 @@ cluster::*> network interface revert -vserver cluster -lif n2_clus1
 .예제 보기
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network interface show -role cluster
+cluster::*> *network interface show -role cluster*
  (network interface show)
             Logical    Status     Network            Current       Current Is
 Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
@@ -542,9 +542,9 @@ Cluster
 .예제 보기
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network device-discovery show
+cluster::*> *network device-discovery show*
             Local  Discovered
 Node        Port   Device              Interface        Platform
 ----------- ------ ------------------- ---------------- ----------------
@@ -566,11 +566,12 @@ n2         /cdp
 ====
 다음 예에 표시된 대로 각 LIF를 홈 포트로 개별적으로 마이그레이션해야 합니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network interface migrate -vserver cluster -lif n1_clus2 -source-node n1
-–destination-node n1 -destination-port e4a
-cluster::*> network interface migrate -vserver cluster -lif n2_clus2 -source-node n2 –destination-node n2 -destination-port e4a
+cluster::*> *network interface migrate -vserver cluster -lif n1_clus2 -source-node n1
+-destination-node n1 -destination-port e4a*
+cluster::*> *network interface migrate -vserver cluster -lif n2_clus2 -source-node n2
+-destination-node n2 -destination-port e4a*
 ----
 ====
 . 두 노드 모두에서 클러스터 포트 clus2 LIF를 종료합니다.
@@ -583,10 +584,10 @@ cluster::*> network interface migrate -vserver cluster -lif n2_clus2 -source-nod
 ====
 다음 예는 두 노드에서 포트를 종료하면서 "false"로 설정된 지정된 포트를 보여줍니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network port modify -node n1 -port e4e -up-admin false
-cluster::*> network port modify -node n2 -port e4e -up-admin false
+cluster::*> *network port modify -node n1 -port e4e -up-admin false*
+cluster::*> *network port modify -node n2 -port e4e -up-admin false*
 ----
 ====
 . 클러스터 LIF 상태를 확인합니다.
@@ -597,9 +598,9 @@ cluster::*> network port modify -node n2 -port e4e -up-admin false
 .예제 보기
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network interface show -role cluster
+cluster::*> *network interface show -role cluster*
  (network interface show)
             Logical    Status     Network            Current       Current Is
 Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
@@ -627,13 +628,13 @@ Cluster
 ====
 다음 예에서는 RCF 'NX3232C_RCF_v1.0_24p10g_26p100g.txt'에서 지원되는 구성을 사용하여 Nexus 3132Q-V 클러스터 스위치 C1 및 C2에서 포트 1부터 30까지 사용 중인 것을 보여 줍니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-C2# configure
-C2(config)# int e1/1/1-4,e1/2/1-4,e1/3/1-4,e1/4/1-4,e1/5/1-4,e1/6/1-4,e1/7-30
-C2(config-if-range)# no shutdown
-C2(config-if-range)# exit
-C2(config)# exit
+C2# *configure*
+C2(config)# *int e1/1/1-4,e1/2/1-4,e1/3/1-4,e1/4/1-4,e1/5/1-4,e1/6/1-4,e1/7-30*
+C2(config-if-range)# *no shutdown*
+C2(config-if-range)# *exit*
+C2(config)# *exit*
 ----
 ====
 . 각 노드에서 두 번째 클러스터 포트 e4e를 활성화합니다.
@@ -646,10 +647,10 @@ C2(config)# exit
 ====
 다음 예에서는 각 노드에서 두 번째 클러스터 포트 e4e가 발생하는 것을 보여 줍니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network port modify -node n1 -port e4e -up-admin true
-cluster::*> network port modify -node n2 -port e4e -up-admin true
+cluster::*> *network port modify -node n1 -port e4e -up-admin true*
+cluster::*> *network port modify -node n2 -port e4e -up-admin true*s
 ----
 ====
 . 각 노드에 대해 마이그레이션된 모든 클러스터 인터커넥트 LIF를 '네트워크 인터페이스 복원'으로 되돌립니다
@@ -659,10 +660,10 @@ cluster::*> network port modify -node n2 -port e4e -up-admin true
 ====
 다음 예에서는 마이그레이션된 LIF가 홈 포트로 되돌아가는 것을 보여 줍니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network interface revert -vserver Cluster -lif n1_clus2
-cluster::*> network interface revert -vserver Cluster -lif n2_clus2
+cluster::*> *network interface revert -vserver Cluster -lif n1_clus2*
+cluster::*> *network interface revert -vserver Cluster -lif n2_clus2*
 ----
 ====
 . 모든 클러스터 인터커넥트 포트가 이제 홈 포트로 되돌려졌는지 확인합니다.
@@ -676,9 +677,9 @@ cluster::*> network interface revert -vserver Cluster -lif n2_clus2
 .예제 보기
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network interface show -role cluster
+cluster::*> *network interface show -role cluster*
  (network interface show)
             Logical    Status     Network            Current       Current Is
 Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
@@ -700,9 +701,9 @@ Cluster
 .예제 보기
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network device-discovery show
+cluster::*> *network device-discovery show*
             Local  Discovered
 Node        Port   Device              Interface        Platform
 ----------- ------ ------------------- ---------------- ----------------
@@ -722,9 +723,9 @@ n2          /cdp
 .예제 보기
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> system cluster-switch show
+cluster::*> *system cluster-switch show*
 
 Switch                      Type               Address          Model
 --------------------------- ------------------ ---------------- ---------------
@@ -755,9 +756,9 @@ Version Source: CDP 2 entries were displayed.
 .예제 보기
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> cluster ping-cluster -node n1
+cluster::*> *cluster ping-cluster -node n1*
 Host is n1 Getting addresses from network interface table...
 Cluster n1_clus1 n1        e4a    10.10.0.1
 Cluster n1_clus2 n1        e4e    10.10.0.2
@@ -791,37 +792,37 @@ Larger than PMTU communication succeeds on 4 path(s) RPC status:
 .예제 보기
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> system cluster-switch log setup-password
+cluster::*> *system cluster-switch log setup-password*
 Enter the switch name: <return>
 The switch name entered is not recognized.
 Choose from the following list:
 C1
 C2
 
-cluster::*> system cluster-switch log setup-password
+cluster::*> *system cluster-switch log setup-password*
 
-Enter the switch name: C1
+Enter the switch name: *C1*
 RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
-Do you want to continue? {y|n}::[n] y
+Do you want to continue? {y|n}::[n] *y*
 
 Enter the password: <enter switch password>
 Enter the password again: <enter switch password>
 
-cluster::*> system cluster-switch log setup-password
+cluster::*> *system cluster-switch log setup-password*
 
-Enter the switch name: C2
+Enter the switch name: *C2*
 RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
-Do you want to continue? {y|n}:: [n] y
+Do you want to continue? {y|n}:: [n] *y*
 
 Enter the password: <enter switch password>
 Enter the password again: <enter switch password>
 
-cluster::*> system cluster-switch log enable-collection
+cluster::*> *system cluster-switch log enable-collection*
 
 Do you want to enable cluster log collection for all nodes in the cluster?
-{y|n}: [n] y
+{y|n}: [n] *y*
 
 Enabling cluster switch log collection.
 

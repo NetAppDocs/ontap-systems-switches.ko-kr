@@ -76,9 +76,9 @@ _x_는 유지보수 기간(시간)입니다.
 ====
 다음 예는 각 클러스터 인터커넥트 스위치에 대해 각 노드에 구성된 클러스터 인터커넥트 인터페이스 수를 표시합니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::> network device-discovery show
+cluster::> *network device-discovery show*
 
        Local  Discovered
 Node   Port   Device       Interface   Platform
@@ -107,9 +107,9 @@ n2     /cdp
 .예제 보기
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network port show -role cluster
+cluster::*> *network port show -role cluster*
        (network port show)
 
 Node: n1
@@ -140,9 +140,9 @@ e0d   cluster   cluster    up    9000  auto/10000     -
 .예제 보기
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network interface show -role cluster
+cluster::*> *network interface show -role cluster*
 (network interface show)
          Logical    Status      Network        Current  Current  Is
 Vserver  Interface  Admin/Oper  Address/Mask   Node     Port     Home
@@ -170,9 +170,9 @@ Cluster
 ====
 다음 예는 클러스터에 알려진 클러스터 스위치와 해당 관리 IP 주소를 표시합니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::> system cluster-switch show
+cluster::> *system cluster-switch show*
 Switch                        Type             Address       Model
 ----------------------------- ---------------- ------------- --------
 CL1                           cluster-network  10.10.1.101   CN1610
@@ -205,23 +205,26 @@ CL2                           cluster-network  10.10.1.102   CN1610
 .. 에서 해당 버전의 이미지 소프트웨어를 다운로드합니다 link:http://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.html["Cisco ® 클러스터 및 관리 네트워크 스위치 참조 구성 파일 다운로드"^].
 
 
-. 교체할 두 번째 CN1610 스위치에 연결된 LIF를 마이그레이션합니다. 'network interface migrate-verser cluster -lif_lif-name_-source-node_source-node_destination-node_destination-node_name_-destination-port_destination-port_name_'
+. 교체하려는 두 번째 CN1610 스위치에 연결된 LIF를 마이그레이션하십시오.
++
+`network interface migrate -vserver _vserver-name_ -lif _lif-name_ -source-node _source-node-name_ destination-node _destination-node-name_ -destination-port _destination-port-name_`
+
 +
 .예제 보기
 [%collapsible]
 ====
 다음 예에 표시된 대로 각 LIF를 개별적으로 마이그레이션해야 합니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network interface migrate -vserver cluster -lif n1_clus2 -source-node n1
--destination-node  n1  -destination-port  e0a
-cluster::*> network interface migrate -vserver cluster -lif n1_clus3 -source-node n1
--destination-node  n1  -destination-port  e0d
-cluster::*> network interface migrate -vserver cluster -lif n2_clus2 -source-node n2
--destination-node  n2  -destination-port  e0a
-cluster::*> network interface migrate -vserver cluster -lif n2_clus3 -source-node n2
--destination-node  n2  -destination-port  e0d
+cluster::*> *network interface migrate -vserver cluster -lif n1_clus2 -source-node n1
+-destination-node  n1  -destination-port  e0a*
+cluster::*> *network interface migrate -vserver cluster -lif n1_clus3 -source-node n1
+-destination-node  n1  -destination-port  e0d*
+cluster::*> *network interface migrate -vserver cluster -lif n2_clus2 -source-node n2
+-destination-node  n2  -destination-port  e0a*
+cluster::*> *network interface migrate -vserver cluster -lif n2_clus3 -source-node n2
+-destination-node  n2  -destination-port  e0d*
 ----
 ====
 . 클러스터의 상태 확인:
@@ -232,9 +235,9 @@ cluster::*> network interface migrate -vserver cluster -lif n2_clus3 -source-nod
 .예제 보기
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network interface show -role cluster
+cluster::*> *network interface show -role cluster*
 (network interface show)
          Logical    Status      Network         Current  Current  Is
 Vserver  Interface  Admin/Oper  Address/Mask    Node     Port     Home
@@ -268,12 +271,12 @@ Cluster
 ====
 다음 예는 노드 n1 및 노드 n2에 대해 종료되는 클러스터 인터커넥트 포트 4개를 보여줍니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network port modify -node n1 -port e0b -up-admin false
-cluster::*> network port modify -node n1 -port e0c -up-admin false
-cluster::*> network port modify -node n2 -port e0b -up-admin false
-cluster::*> network port modify -node n2 -port e0c -up-admin false
+cluster::*> *network port modify -node n1 -port e0b -up-admin false*
+cluster::*> *network port modify -node n1 -port e0c -up-admin false*
+cluster::*> *network port modify -node n2 -port e0b -up-admin false*
+cluster::*> *network port modify -node n2 -port e0c -up-admin false*
 ----
 ====
 . 원격 클러스터 인터페이스에 대해 ping을 수행한 다음 원격 프로시저 호출 서버 검사를 수행합니다.
@@ -286,9 +289,9 @@ cluster::*> network port modify -node n2 -port e0c -up-admin false
 ====
 다음 예제에서는 ping이 진행되고 있는 노드 n1과 이후에 나타난 RPC 상태를 보여 줍니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> cluster ping-cluster -node n1
+cluster::*> *cluster ping-cluster -node n1*
 Host is n1
 Getting addresses from network interface table...
 Cluster n1_clus1 n1       e0a    10.10.0.1
@@ -340,12 +343,13 @@ Cisco 명령에 대한 자세한 내용은 에 나와 있는 가이드를 참조
 ====
 다음 예에서는 CN1610 스위치 CL1에서 ISL 포트 13~16이 종료되는 것을 보여 줍니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-(CL1)# configure
-(CL1)(Config)# interface 0/13-0/16
-(CL1)(Interface 0/13-0/16)# shutdown (CL1)(Interface 0/13-0/16)# exit
-(CL1)(Config)# exit
+(CL1)# *configure*
+(CL1)(Config)# *interface 0/13-0/16*
+(CL1)(Interface 0/13-0/16)# *shutdown*
+(CL1)(Interface 0/13-0/16)# *exit*
+(CL1)(Config)# *exit*
 (CL1)#
 ----
 ====
@@ -359,20 +363,20 @@ Cisco 명령에 대한 자세한 내용은 에 나와 있는 가이드를 참조
 ====
 다음 예에서는 Cisco의 'witchport 모드 트렁크' 명령을 사용하여 CL1(포트 13-16)과 C2(포트 e1/24/1-4) 사이에 임시 ISL을 구축한 것을 보여 줍니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
 C2# configure
-C2(config)# interface port-channel 2
-C2(config-if)# switchport mode trunk
-C2(config-if)# spanning-tree port type network
-C2(config-if)# mtu 9216
-C2(config-if)# interface breakout module 1 port 24 map 10g-4x
-C2(config)# interface e1/24/1-4
-C2(config-if-range)# switchport mode trunk
-C2(config-if-range)# mtu 9216
-C2(config-if-range)# channel-group 2 mode active
-C2(config-if-range)# exit
-C2(config-if)# exit
+C2(config)# *interface port-channel 2*
+C2(config-if)# *switchport mode trunk*
+C2(config-if)# *spanning-tree port type network*
+C2(config-if)# *mtu 9216*
+C2(config-if)# *interface breakout module 1 port 24 map 10g-4x*
+C2(config)# *interface e1/24/1-4*
+C2(config-if-range)# *switchport mode trunk*
+C2(config-if-range)# *mtu 9216*
+C2(config-if-range)# *channel-group 2 mode active*
+C2(config-if-range)# *exit*
+C2(config-if)# *exit*
 ----
 ====
 . 모든 노드에서 CN1610 스위치 CL2에 연결된 케이블을 제거합니다.
@@ -402,13 +406,13 @@ Cisco 명령에 대한 자세한 내용은 에 나와 있는 가이드를 참조
 ====
 다음 예에서는 ISL의 동적 구성을 위해 ISL 인터페이스 3/1을 구성하는 방법을 보여 줍니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-(CL1)# configure
-(CL1)(Config)# interface 3/1
-(CL1)(Interface 3/1)# no port-channel static
-(CL1)(Interface 3/1)# exit
-(CL1)(Config)# exit
+(CL1)# *configure*
+(CL1)(Config)# *interface 3/1*
+(CL1)(Interface 3/1)# *no port-channel static*
+(CL1)(Interface 3/1)# *exit*
+(CL1)(Config)# *exit*
 (CL1)#
 ----
 ====
@@ -422,13 +426,13 @@ Cisco 명령에 대한 자세한 내용은 에 나와 있는 가이드를 참조
 ====
 다음 예에서는 포트 채널 인터페이스 3/1에서 ISL 포트 13~16이 가동되는 것을 보여 줍니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-(CL1)# configure
-(CL1)(Config)# interface 0/13-0/16,3/1
-(CL1)(Interface 0/13-0/16,3/1)# no shutdown
-(CL1)(Interface 0/13-0/16,3/1)# exit
-(CL1)(Config)# exit
+(CL1)# *configure*
+(CL1)(Config)# *interface 0/13-0/16,3/1*
+(CL1)(Interface 0/13-0/16,3/1)# *no shutdown*
+(CL1)(Interface 0/13-0/16,3/1)# *exit*
+(CL1)(Config)# *exit*
 (CL1)#
 ----
 ====
@@ -442,9 +446,9 @@ Link State는 Up, Type은 Dynamic, Port Active 칼럼은 True여야 하며, Port
 ====
 다음 예에서는 CN1610 스위치 CL1에서 "UP"으로 확인되는 ISL을 보여 줍니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-(CL1)# show port-channel 3/1
+(CL1)# *show port-channel 3/1*
 Local Interface................................ 3/1
 Channel Name................................... ISL-LAG
 Link State..................................... Up
@@ -462,7 +466,8 @@ Ports  Timeout       Speed       Active
        partner/long
 0/15   actor/long    10 Gb Full  True
        partner/long
-0/16   actor/long    10 Gb Full  True        partner/long
+0/16   actor/long    10 Gb Full  True
+       partner/long
 ----
 ====
 . ISL이 있는지 확인합니다 `up` 3232C 스위치 C2:
@@ -481,9 +486,9 @@ Eth1/24/1부터 Eth1/24/4까지의 포트는 '(P)'를 나타내야 합니다. �
 ====
 다음 예에서는 3232C 스위치 C2에서 "UP"로 확인되는 ISL을 보여 줍니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-C2# show port-channel summary
+C2# *show port-channel summary*
 
 Flags:  D - Down        P - Up in port-channel (members)
         I - Individual  H - Hot-standby (LACP only)
@@ -510,12 +515,12 @@ Group Port-       Type     Protocol  Member Ports
 ====
 다음 예에서는 3232C 스위치 C2에 연결된 클러스터 인터커넥트 포트를 가져오는 방법을 보여 줍니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network port modify -node n1 -port e0b -up-admin true
-cluster::*> network port modify -node n1 -port e0c -up-admin true
-cluster::*> network port modify -node n2 -port e0b -up-admin true
-cluster::*> network port modify -node n2 -port e0c -up-admin true
+cluster::*> *network port modify -node n1 -port e0b -up-admin true*
+cluster::*> *network port modify -node n1 -port e0c -up-admin true*
+cluster::*> *network port modify -node n2 -port e0b -up-admin true*
+cluster::*> *network port modify -node n2 -port e0c -up-admin true*
 ----
 ====
 . 모든 노드에서 C2에 연결된 마이그레이션된 모든 클러스터 인터커넥트 LIF를 되돌립니다.
@@ -526,12 +531,12 @@ cluster::*> network port modify -node n2 -port e0c -up-admin true
 .예제 보기
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network interface revert -vserver cluster -lif n1_clus2
-cluster::*> network interface revert -vserver cluster -lif n1_clus3
-cluster::*> network interface revert -vserver cluster -lif n2_clus2
-cluster::*> network interface revert -vserver cluster -lif n2_clus3
+cluster::*> *network interface revert -vserver cluster -lif n1_clus2*
+cluster::*> *network interface revert -vserver cluster -lif n1_clus3*
+cluster::*> *network interface revert -vserver cluster -lif n2_clus2*
+cluster::*> *network interface revert -vserver cluster -lif n2_clus3*
 ----
 ====
 . 모든 클러스터 인터커넥트 포트가 홈 포트로 되돌려졌는지 확인합니다.
@@ -544,9 +549,9 @@ cluster::*> network interface revert -vserver cluster -lif n2_clus3
 ====
 다음 예에서는 clus2의 LIF가 홈 포트로 되돌려지고 "현재 포트" 열의 포트가 "홈" 열에 "참" 상태가 되면 LIF가 성공적으로 되돌려집니다. "홈" 값이 "거짓"이면 LIF가 되돌려지지 않습니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network interface show -role cluster
+cluster::*> *network interface show -role cluster*
 (network interface show)
          Logical    Status      Network        Current  Current  Is
 Vserver  Interface  Admin/Oper  Address/Mask   Node     Port     Home
@@ -574,9 +579,9 @@ Cluster
 ====
 다음 예는 모든 클러스터 인터커넥트가 '작동'되었는지 확인하는 출력을 보여줍니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network port show -role cluster
+cluster::*> *network port show -role cluster*
        (network port show)
 
 Node: n1
@@ -610,9 +615,9 @@ e0d   cluster   cluster     up    9000  auto/10000     -
 ====
 다음 예제에서는 ping이 진행되고 있는 노드 n1과 이후에 나타난 RPC 상태를 보여 줍니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> cluster ping-cluster -node n1
+cluster::*> *cluster ping-cluster -node n1*
 Host is n1
 Getting addresses from network interface table...
 Cluster n1_clus1 n1       e0a    10.10.0.1
@@ -665,16 +670,16 @@ RPC status:
 ====
 다음 예에 표시된 대로 각 클러스터 LIF를 클러스터 스위치 C2에 호스팅된 적절한 클러스터 포트로 개별적으로 마이그레이션해야 합니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network interface migrate -vserver cluster -lif n1_clus1 -source-node n1
--destination-node n1 -destination-port e0b
-cluster::*> network interface migrate -vserver cluster -lif n1_clus4 -source-node n1
--destination-node n1 -destination-port e0c
-cluster::*> network interface migrate -vserver cluster -lif n2_clus1 -source-node n2
--destination-node n2 -destination-port e0b
-cluster::*> network interface migrate -vserver cluster -lif n2_clus4 -source-node n2
--destination-node n2 -destination-port e0c
+cluster::*> *network interface migrate -vserver cluster -lif n1_clus1 -source-node n1
+-destination-node n1 -destination-port e0b*
+cluster::*> *network interface migrate -vserver cluster -lif n1_clus4 -source-node n1
+-destination-node n1 -destination-port e0c*
+cluster::*> *network interface migrate -vserver cluster -lif n2_clus1 -source-node n2
+-destination-node n2 -destination-port e0b*
+cluster::*> *network interface migrate -vserver cluster -lif n2_clus4 -source-node n2
+-destination-node n2 -destination-port e0c*
 ----
 ====
 
@@ -693,9 +698,9 @@ cluster::*> network interface migrate -vserver cluster -lif n2_clus4 -source-nod
 ====
 다음 예에서는 필요한 클러스터 LIF가 클러스터 스위치 C2에 호스팅된 적절한 클러스터 포트로 마이그레이션되었음을 보여 줍니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network interface show -role cluster
+cluster::*> *network interface show -role cluster*
 (network interface show)
          Logical    Status      Network        Current  Current  Is
 Vserver  Interface  Admin/Oper  Address/Mask   Node     Port     Home
@@ -723,12 +728,12 @@ Cluster
 ====
 다음 예는 노드 n1 및 n2에서 종료되는 특정 포트를 보여줍니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network port modify -node n1 -port e0a -up-admin false
-cluster::*> network port modify -node n1 -port e0d -up-admin false
-cluster::*> network port modify -node n2 -port e0a -up-admin false
-cluster::*> network port modify -node n2 -port e0d -up-admin false
+cluster::*> *network port modify -node n1 -port e0a -up-admin false*
+cluster::*> *network port modify -node n1 -port e0d -up-admin false*
+cluster::*> *network port modify -node n2 -port e0a -up-admin false*
+cluster::*> *network port modify -node n2 -port e0d -up-admin false*
 ----
 ====
 . 활성 3232C 스위치 C2에서 ISL 포트 24, 31 및 32를 종료합니다.
@@ -741,16 +746,16 @@ Cisco 명령에 대한 자세한 내용은 에 나와 있는 가이드를 참조
 ====
 다음 예에서는 활성 3232C 스위치 C2에서 종료되는 ISL 24, 31 및 32를 보여 줍니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-C2# configure
-C2(config)# interface ethernet 1/24/1-4
-C2(config-if-range)# shutdown
-C2(config-if-range)# exit
-C2(config)# interface ethernet 1/31-32
-C2(config-if-range)# shutdown
-C2(config-if-range)# exit
-C2(config)# exit
+C2# *configure*
+C2(config)# *interface ethernet 1/24/1-4*
+C2(config-if-range)# *shutdown*
+C2(config-if-range)# *exit*
+C2(config)# *interface ethernet 1/31-32*
+C2(config-if-range)# *shutdown*
+C2(config-if-range)# *exit*
+C2(config)# *exit*
 C2#
 ----
 ====
@@ -772,14 +777,14 @@ Cisco 명령에 대한 자세한 내용은 에 나와 있는 가이드를 참조
 ====
 다음 예에서는 'startup-configuration' 파일에 복사되는 'running-configuration' 파일을 보여줍니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
 C2# configure
-C2(config)# no interface breakout module 1 port 24 map 10g-4x
-C2(config)# no interface port-channel 2
-C2(config-if)# interface e1/24
-C2(config-if)# description 100GbE/40GbE Node Port
-C2(config-if)# spanning-tree port type edge
+C2(config)# *no interface breakout module 1 port 24 map 10g-4x*
+C2(config)# *no interface port-channel 2*
+C2(config-if)# *interface e1/24*
+C2(config-if)# *description 100GbE/40GbE Node Port*
+C2(config-if)# *spanning-tree port type edge*
 Edge port type (portfast) should only be enabled on ports connected to a single
 host. Connecting hubs, concentrators, switches, bridges, etc...  to this
 interface when edge port type (portfast) is enabled, can cause temporary bridging loops.
@@ -788,10 +793,10 @@ Use with CAUTION
 Edge Port Type (Portfast) has been configured on Ethernet 1/24 but will only
 have effect when the interface is in a non-trunking mode.
 
-C2(config-if)# spanning-tree bpduguard enable
-C2(config-if)# mtu 9216
-C2(config-if-range)# exit
-C2(config)# exit
+C2(config-if)# *spanning-tree bpduguard enable*
+C2(config-if)# *mtu 9216*
+C2(config-if-range)# *exit*
+C2(config)# *exit*
 C2# copy running-config startup-config
 [########################################] 100%
 Copy Complete.
@@ -807,13 +812,13 @@ Cisco 명령에 대한 자세한 내용은 에 나와 있는 가이드를 참조
 ====
 다음 예에서는 3232C 스위치 C2에 도입되는 ISL 31 및 32를 보여 줍니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-C2# configure
-C2(config)# interface ethernet 1/31-32
-C2(config-if-range)# no shutdown
-C2(config-if-range)# exit
-C2(config)# exit
+C2# *configure*
+C2(config)# *interface ethernet 1/31-32*
+C2(config-if-range)# *no shutdown*
+C2(config-if-range)# *exit*
+C2(config)# *exit*
 C2# copy running-config startup-config
 [########################################] 100%
 Copy Complete.
@@ -829,9 +834,9 @@ Cisco 명령에 대한 자세한 내용은 에 나와 있는 가이드를 참조
 ====
 다음 예에서는 확인 중인 ISL 연결을 보여 줍니다. 포트 Eth1/31과 Eth1/32는 포트 채널에서 ISL 포트가 모두 "위쪽"으로 표시됨을 의미합니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-C1# show port-channel summary
+C1# *show port-channel summary*
 Flags:  D - Down        P - Up in port-channel (members)
         I - Individual  H - Hot-standby (LACP only)
         s - Suspended   r - Module-removed
@@ -844,7 +849,7 @@ Group Port-       Type     Protocol  Member Ports
 -----------------------------------------------------------------------------
 1     Po1(SU)     Eth      LACP      Eth1/31(P)   Eth1/32(P)
 
-C2# show port-channel summary
+C2# *show port-channel summary*
 Flags:  D - Down        P - Up in port-channel (members)
         I - Individual  H - Hot-standby (LACP only)
         s - Suspended   r - Module-removed
@@ -868,12 +873,12 @@ Group Port-       Type     Protocol  Member Ports
 ====
 다음 예에서는 새로운 3232C 스위치 C1에 연결된 모든 클러스터 인터커넥트 포트를 가져와서 표시합니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network port modify -node n1 -port e0a -up-admin true
-cluster::*> network port modify -node n1 -port e0d -up-admin true
-cluster::*> network port modify -node n2 -port e0a -up-admin true
-cluster::*> network port modify -node n2 -port e0d -up-admin true
+cluster::*> *network port modify -node n1 -port e0a -up-admin true*
+cluster::*> *network port modify -node n1 -port e0d -up-admin true*
+cluster::*> *network port modify -node n2 -port e0a -up-admin true*
+cluster::*> *network port modify -node n2 -port e0d -up-admin true*
 ----
 ====
 . 클러스터 노드 포트의 상태를 확인합니다.
@@ -886,9 +891,9 @@ cluster::*> network port modify -node n2 -port e0d -up-admin true
 ====
 다음 예에서는 새 3232C 스위치 C1의 노드 n1과 n2의 클러스터 인터커넥트 포트가 '가동'인지 확인하는 출력을 보여 줍니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network port show -role cluster
+cluster::*> *network port show -role cluster*
        (network port show)
 
 Node: n1
@@ -928,12 +933,12 @@ e0d   cluster   cluster    up    9000  auto/10000     -
 ====
 다음 예에 표시된 대로 각 LIF를 개별적으로 마이그레이션해야 합니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network interface revert -vserver cluster -lif n1_clus1
-cluster::*> network interface revert -vserver cluster -lif n1_clus4
-cluster::*> network interface revert -vserver cluster -lif n2_clus1
-cluster::*> network interface revert -vserver cluster -lif n2_clus4
+cluster::*> *network interface revert -vserver cluster -lif n1_clus1*
+cluster::*> *network interface revert -vserver cluster -lif n1_clus4*
+cluster::*> *network interface revert -vserver cluster -lif n2_clus1*
+cluster::*> *network interface revert -vserver cluster -lif n2_clus4*
 ----
 ====
 . 인터페이스가 현재 홈 인터페이스인지 확인합니다.
@@ -946,9 +951,9 @@ cluster::*> network interface revert -vserver cluster -lif n2_clus4
 ====
 다음 예는 n1 및 n2 노드의 클러스터 인터커넥트 인터페이스 상태가 'UP' 및 'is Home'인 상태를 보여줍니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network interface show -role cluster
+cluster::*> *network interface show -role cluster*
 (network interface show)
          Logical    Status      Network        Current  Current  Is
 Vserver  Interface  Admin/Oper  Address/Mask   Node     Port     Home
@@ -976,9 +981,9 @@ Cluster
 ====
 다음 예제에서는 ping이 진행되고 있는 노드 n1과 이후에 나타난 RPC 상태를 보여 줍니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> cluster ping-cluster -node n1
+cluster::*> *cluster ping-cluster -node n1*
 Host is n1
 Getting addresses from network interface table...
 Cluster n1_clus1 n1       e0a    10.10.0.1
@@ -1034,9 +1039,9 @@ RPC status:
 ====
 다음 예에서는 Nexus 3232C 클러스터 스위치 모두에서 포트 e1/7 및 e1/8에 각각 연결된 40GbE 클러스터 포트가 있는 노드 n3 및 n4를 보여 줍니다. 두 노드가 모두 클러스터에 연결됩니다. 사용되는 40GbE 클러스터 인터커넥트 포트는 e4a 및 e4e입니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> network device-discovery show
+cluster::*> *network device-discovery show*
 
        Local  Discovered
 Node   Port   Device       Interface       Platform
@@ -1061,7 +1066,7 @@ n4     /cdp
         e4e   C2           Ethernet1/8     N3K-C3232C
 
 12 entries were displayed.
-cluster::*> network port show -role cluster
+cluster::*> *network port show -role cluster*
 (network port show)
 
 Node: n1
@@ -1098,7 +1103,7 @@ e4e   cluster   cluster    up    9000  auto/40000     -
 
 12 entries were displayed.
 
-cluster::*> network interface show -role cluster
+cluster::*> *network interface show -role cluster*
 (network interface show)
          Logical    Status      Network        Current  Current  Is
 Vserver  Interface  Admin/Oper  Address/Mask   Node     Port     Home
@@ -1119,7 +1124,7 @@ Cluster
 
 12 entries were displayed.
 
-cluster::> system cluster-switch show
+cluster::> *system cluster-switch show*
 
 Switch                      Type             Address       Model
 --------------------------- ---------------- ------------- ---------
@@ -1168,10 +1173,10 @@ CL2                         cluster-network  10.10.1.102    CN1610
 ====
 다음 예와 같이 두 디바이스를 개별적으로 삭제해야 합니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::> system cluster-switch delete –device CL1
-cluster::> system cluster-switch delete –device CL2
+cluster::> *system cluster-switch delete –device CL1*
+cluster::> *system cluster-switch delete –device CL2*
 ----
 ====
 . 적절한 클러스터 스위치가 모니터링되는지 확인합니다.
@@ -1184,9 +1189,9 @@ cluster::> system cluster-switch delete –device CL2
 ====
 다음 예에서는 클러스터 스위치 C1 및 C2가 모니터링되고 있음을 보여 줍니다.
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::> system cluster-switch show
+cluster::> *system cluster-switch show*
 
 Switch                      Type               Address          Model
 --------------------------- ------------------ ---------------- ---------------
@@ -1221,37 +1226,37 @@ C2                          cluster-network    10.10.1.104      NX3232C
 .예제 보기
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster::*> system cluster-switch log setup-password
+cluster::*> *system cluster-switch log setup-password*
 Enter the switch name: <return>
 The switch name entered is not recognized.
 Choose from the following list:
 C1
 C2
 
-cluster::*> system cluster-switch log setup-password
+cluster::*> *system cluster-switch log setup-password*
 
-Enter the switch name: C1
+Enter the switch name: *C1*
 RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
-Do you want to continue? {y|n}::[n] y
+Do you want to continue? {y|n}::[n] *y*
 
 Enter the password: <enter switch password>
 Enter the password again: <enter switch password>
 
-cluster::*> system cluster-switch log setup-password
+cluster::*> *system cluster-switch log setup-password*
 
-Enter the switch name: C2
+Enter the switch name: *C2*
 RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
-Do you want to continue? {y|n}:: [n] y
+Do you want to continue? {y|n}:: [n] *y*
 
 Enter the password: <enter switch password>
 Enter the password again: <enter switch password>
 
-cluster::*> system cluster-switch log enable-collection
+cluster::*> *system cluster-switch log enable-collection*
 
 Do you want to enable cluster log collection for all nodes in the cluster?
-{y|n}: [n] y
+{y|n}: [n] *y*
 
 Enabling cluster switch log collection.
 
