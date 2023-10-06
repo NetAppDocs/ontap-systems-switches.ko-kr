@@ -1163,8 +1163,6 @@
   <block id="afe95fe1267fcb98a96c300f333cefef" category="paragraph">링크 값은 '업'이어야 하고 건강상태는 '건강'이어야 합니다.</block>
   <block id="7668c4617f543fa5b89a9bee8a3a7a61" category="paragraph">다음 예제는 명령의 출력을 보여 줍니다.</block>
   <block id="30d965eef5ba25c6b9998ae38270b43e" category="doc">법적 고지</block>
-  <block id="27e4f654e31a54c18c3f94846eb8fcc2" category="inline-link">디스크 쉘프에 대한 고지 사항</block>
-  <block id="0c8d7a4e0e5ab5d34b549a9af84add17" category="paragraph"><block ref="0c8d7a4e0e5ab5d34b549a9af84add17" category="inline-link-rx"></block></block>
   <block id="661270741d4b9ee98072782fd9c54b20" category="summary">스위치가 없는 기존 2노드 클러스터 환경이 구축된 경우 Cisco Nexus 92300YC 스위치를 사용하여 2노드 스위치 클러스터 환경으로 마이그레이션하여 클러스터 내 2노드 이상으로 확장할 수 있습니다.</block>
   <block id="25e1e993407f3b32af2ad46a2ccc0e02" category="list-text">92300YC 스위치는 최신 버전의 소프트웨어를 실행하고 있습니다</block>
   <block id="36b83d59050af1af8d8af087edfb9ce2" category="list-text">92300YC 스위치의 이름은 CS1 및 CS2입니다.</block>
@@ -2171,8 +2169,6 @@
   <block id="be89498d2f8a22ce47c02ba9795fe2af" category="section-title">특허</block>
   <block id="d0b19d36be2c5f16e9aef46c8a452d3d" category="paragraph">NetApp 소유 특허 목록은 다음 사이트에서 확인할 수 있습니다.</block>
   <block id="56c34c6410dd45c5cec44149ad0ce037" category="section-title">개인 정보 보호 정책</block>
-  <block id="c0227cef6f07a8cd2ac72f2945b031aa" category="section-title">오픈 소스</block>
-  <block id="9b73989307c1975dfa4d5e1581e4afe8" category="paragraph">통지 파일은 NetApp 소프트웨어에 사용된 타사의 저작권 및 라이센스에 대한 정보를 제공합니다.</block>
   <block id="9a75d8eb81c880a703c72f7186f35288" category="doc">BES-53248 클러스터 스위치 업그레이드 후 구성을 확인합니다</block>
   <block id="148a1525f4c4b2d620941031bf03f670" category="inline-link">_NetApp Hardware Universe _</block>
   <block id="8761a71b0c01f0356000c0994d4fb203" category="paragraph">System switch ethernet log setup-password와 system switch ethernet log enable-collection</block>
@@ -4569,7 +4565,6 @@
   <block id="5fa4d790df53a4c6278c546dd028ec83" category="sidebar">Overview_9336c-FX2-STORAGE 를 참조하십시오</block>
   <block id="0275375be59b49b4671d6f7352eb43f8" category="sidebar">install_hardware_9336c-FX2-storage 를 참조하십시오</block>
   <block id="2ef21067889d74c595764cb0c5f14087" category="sidebar">configure_software_9336c-fX2-storage 를 참조하십시오</block>
-  <block id="b1c691c0067b2d09bed76ad1a1477b3b" category="sidebar">Migrate_switches_9336c-FX2-storage를 참조하십시오</block>
   <block id="a40501f53136e1fad14756d37734123e" category="sidebar">REPLACE_SWITCH_9336c-FX2-STORAGE</block>
   <block id="35a987323fcb5fdbbb175c9114601182" category="sidebar">개요_cn1610</block>
   <block id="d736a39071e873d48143d93c0bf1e23d" category="sidebar">install_configure_cn1610을 참조하십시오</block>
@@ -4616,5 +4611,5 @@
   <block id="bc83504dbf5dda25d37f158b52b6802c" category="paragraph"><block ref="1ae08a2455b8010c97a491c02e58e474" prefix="" category="inline-code"></block></block>
   <block id="d71c484dda1d9ad3392c9e1a47d3f9d8" category="paragraph">포트 Eth1/31 및 Eth1/32는 (P)를 나타내야 합니다. 즉, 두 ISL 포트가 모두 포트 채널에서 작동함을 의미합니다.</block>
   <block id="e2163aa514dd6f969019af7f51eb5403" category="paragraph"><block ref="ba8401ca8d9063944fa4c23801539873" prefix="" category="inline-code"></block></block>
-  <block id="2744015fafc5955101dabee4165aca61" category="admonition">NetApp 검증 스위치(NetApp에서 주문)만 지원됩니다.</block>
+  <block id="2bc32577d8d84ba98d84472c4916dd0f" category="admonition">NetApp에서 검증된 백 엔드 스위치(NetApp에서 주문)만 지원됩니다.</block>
 </blocks>
