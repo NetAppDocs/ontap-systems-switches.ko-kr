@@ -4612,4 +4612,7 @@
   <block id="d71c484dda1d9ad3392c9e1a47d3f9d8" category="paragraph">포트 Eth1/31 및 Eth1/32는 (P)를 나타내야 합니다. 즉, 두 ISL 포트가 모두 포트 채널에서 작동함을 의미합니다.</block>
   <block id="e2163aa514dd6f969019af7f51eb5403" category="paragraph"><block ref="ba8401ca8d9063944fa4c23801539873" prefix="" category="inline-code"></block></block>
   <block id="2bc32577d8d84ba98d84472c4916dd0f" category="admonition">NetApp에서 검증된 백 엔드 스위치(NetApp에서 주문)만 지원됩니다.</block>
+  <block id="d69d8c23518c3e983c5799321eb27404" category="list-text">스위치 CS2의 구성을 지우고 스위치를 재부팅합니다.</block>
+  <block id="a3d5cbedb318ff78ae8c3f9bced7661b" category="list-text">스위치의 기본 설정을 수행합니다. 을 참조하십시오 <block ref="ab35665c267fa570f19ad0ebf8386ab4" category="inline-link-macro-rx"></block> 를 참조하십시오.</block>
+  <block id="0c6a7aa3a0bb7908809929a56822600c" category="paragraph"><block ref="c09633a606c51a161b16f8bf38f5ebb1" prefix="" category="inline-code"></block></block>
 </blocks>

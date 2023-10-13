@@ -260,7 +260,7 @@ cluster1::*>
 +
 'show running-config'를 선택합니다
 
-. 스위치 CS2의 구성을 청소하고 기본 설정을 수행합니다.
+. 스위치 CS2의 구성을 지우고 스위치를 재부팅합니다.
 +
 
 CAUTION: 새로운 RCF를 업데이트하거나 적용할 때는 스위치 설정을 지우고 기본 구성을 수행해야 합니다. 스위치를 다시 설정하려면 스위치 직렬 콘솔 포트에 연결해야 합니다.
@@ -295,6 +295,7 @@ Are you sure you would like to reset the system? (y/n) *y*
 ====
 
 
+. 스위치의 기본 설정을 수행합니다. 을 참조하십시오 link:setup-switch.html["3232C 클러스터 스위치를 구성합니다"] 를 참조하십시오.
 . FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 CS2의 부트플래시 에 복사합니다. Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Cisco Nexus 3000 Series NX-OS 명령 참조"^] 안내선.
 +
 .예제 보기
@@ -602,8 +603,6 @@ cluster1::*>
 ----
 cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert true*
 ----
-
-
 . 클러스터 포트에 연결된 스위치 포트가 작동하는지 확인합니다.
 +
 .예제 보기
