@@ -441,8 +441,8 @@ node1      /cdp
 +
 [listing, subs="+quotes"]
 ----
-cs2# *show interface brief*
-cs2# *show cdp neighbors*
+cs2# *show port all*
+cs2# *show isdp neighbors*
 ----
 . 클러스터 스위치 CL1에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.
 +
@@ -555,8 +555,8 @@ node2      /cdp
 +
 [listing, subs="+quotes"]
 ----
-cs1# *show interface brief*
-cs1# *show cdp neighbors*
+cs1# *show port all*
+cs1# *show isdp neighbors*
 ----
 . CS1과 CS2 사이의 ISL이 여전히 작동하는지 확인합니다.
 +
