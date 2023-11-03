@@ -4636,4 +4636,8 @@
   <block id="669c1a3fa77bc8a049e5cd4a16e5cff8" category="paragraph">9336C-FX2 클러스터 스위치 * CLI * 를 사용하여 환경을 설정했는지 확인합니다.</block>
   <block id="680284a2e0d6a86aafc85099ca58d7af" category="list-text">이더넷 스위치 상태 모니터 로그 수집 기능에 대한 암호를 생성합니다.</block>
   <block id="1f40996ca4617ab17127143171aa4ea4" category="sidebar">SHM 구성 파일을 설치합니다</block>
+  <block id="3fc74bed2ec666d227e966120d5c4160" category="inline-link">버그 1570339</block>
+  <block id="a9881d2bc89c135aee3c1490acc55259" category="inline-link">40GbE에서 100GbE로 변환한 후 T6 포트에서 CRC 오류가 발생했습니다</block>
+  <block id="835174c5c468acf2b423cff0eb23994f" category="admonition">AFF A800 또는 AFF C800 시스템에서 e0a 및 E1A 클러스터 포트의 포트 속도를 변경하는 경우, 속도를 변환한 후 조작된 패킷이 수신될 수 있습니다. 을 참조하십시오 <block ref="f867b947e44d8d6bccd25f3219f3d6d9" category="inline-link-rx"></block> 및 기술 자료 문서를 참조하십시오<block ref="2a93cc61bbc3892324bc1b6369d71212" category="inline-link-rx"></block> 참조하십시오.</block>
+  <block id="5958c0f6bda471fafb31ea3acb4b20da" category="admonition">AFF A800 또는 AFF C800 시스템에서 e0a 및 E1A 클러스터 포트의 포트 속도를 변경하는 경우, 속도를 변환한 후 조작된 패킷이 수신될 수 있습니다. 을 참조하십시오<block ref="f867b947e44d8d6bccd25f3219f3d6d9" category="inline-link-rx"></block> 및 기술 자료 문서를 참조하십시오<block ref="2a93cc61bbc3892324bc1b6369d71212" category="inline-link-rx"></block> 참조하십시오.</block>
 </blocks>
