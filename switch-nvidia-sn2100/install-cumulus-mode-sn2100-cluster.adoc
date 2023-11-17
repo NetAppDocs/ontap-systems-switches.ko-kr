@@ -263,8 +263,8 @@ CAUTION: 호스트 이름에 밑줄(_), 아포스트로피(') 또는 비 ASCII �
 cumulus@cumulus:mgmt:~$ *nv set system hostname sw1*
 cumulus@cumulus:mgmt:~$ *nv set interface eth0 ip address 10.233.204.71/24*
 cumulus@cumulus:mgmt:~$ *nv set interface eth0 ip gateway 10.233.204.1*
-cumulus@cumulus:mgmt:~$ *nv pending*
-cumulus@cumulus:mgmt:~$ *nv commit*
+cumulus@cumulus:mgmt:~$ *nv config apply*
+cumulus@cumulus:mgmt:~$ *nv config save*
 ----
 +
 이 명령어는 '/etc/hostname'과 '/etc/hosts' 파일을 모두 수정합니다.

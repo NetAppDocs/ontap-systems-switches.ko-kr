@@ -74,6 +74,10 @@ cumulus@cumulus:mgmt: */tmp$ scp _<user>@<host:/<path>_/MSN2100-RCF-v1.x-Cluster
 ssologin@10.233.204.71's password:
 MSN2100-RCF-v1.x-Cluster-HA-Breakout-LLDP         100% 8607   111.2KB/s         00:00
 ----
++
+
+NOTE: 있습니다 `scp` 이 예제에 사용된 경우, 선호하는 파일 전송 방법을 사용할 수 있습니다.
+
 . RCF python 스크립트 * MSN2100-RCF-v1.x-Cluster-HA-Breakout-LLDP * 를 적용합니다.
 +
 [listing, subs="+quotes"]
@@ -291,6 +295,10 @@ cumulus@cumulus:mgmt: */tmp$ scp _<user>@<host:/<path>_/MSN2100-RCF-v1.x-Cluster
 ssologin@10.233.204.71's password:
 MSN2100-RCF-v1.x-Cluster-HA-Breakout-LLDP          100% 8607   111.2KB/s         00:00
 ----
++
+
+NOTE: 있습니다 `scp` 이 예제에 사용된 경우, 선호하는 파일 전송 방법을 사용할 수 있습니다.
+
 . RCF python 스크립트 * MSN2100-RCF-v1.x-Cluster-HA-Breakout-LLDP * 를 적용합니다.
 +
 [listing, subs="+quotes"]
