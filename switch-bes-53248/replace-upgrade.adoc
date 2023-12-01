@@ -13,7 +13,7 @@ summary: 'BES-53248 클러스터 스위치 업그레이드는 컨트롤러를 �
 [role="lead"]
 BES-53248 클러스터 스위치를 업그레이드하려면 다음 단계를 수행하십시오.
 
-이 절차는 작동 중인 클러스터에 적용되며 NDU(무중단 업그레이드) 및 NDO(무중단 운영) 환경을 지원합니다.
+이 절차는 작동 중인 클러스터에 적용되며 NDU(무중단 업그레이드) 및 NDO(무중단 운영) 환경을 지원합니다. 기술 자료 문서를 참조하십시오 https://kb.netapp.com/onprem/ontap/hardware/How_to_prepare_ONTAP_for_a_cluster_switch_upgrade["클러스터 스위치 업그레이드를 위해 ONTAP를 준비하는 방법"^].
 
 
 

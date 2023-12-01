@@ -11,7 +11,9 @@ summary: Nexus 3232C 스위치를 처음 설정한 후 RCF를 설치할 수 있�
 
 
 [role="lead"]
-Nexus 3232C 스위치를 처음 설정한 후 RCF를 설치하려면 다음 절차를 따르십시오. 이 절차를 사용하여 RCF 버전을 업그레이드할 수도 있습니다.
+Nexus 3232C 스위치를 처음 설정한 후 RCF를 설치하려면 다음 절차를 따르십시오.
+
+이 절차를 사용하여 RCF 버전을 업그레이드할 수도 있습니다. 기술 자료 문서를 참조하십시오 https://kb.netapp.com/onprem/Switches/Cisco/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["원격 연결을 유지하면서 Cisco 상호 연결 스위치의 구성을 지우는 방법"^] RCF를 업그레이드할 때 자세한 내용을 확인하십시오.
 
 
 

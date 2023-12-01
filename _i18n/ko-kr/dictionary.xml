@@ -2054,7 +2054,6 @@
   <block id="dbdb6843e5b760ab5949d0e9950c5750" category="admonition">RCF 버전 1.2에서는 보안 문제로 인해 텔넷에 대한 지원이 명시적으로 비활성화되었습니다. RCF 1.2를 설치하는 동안 연결 문제를 방지하려면 SSH(Secure Shell)가 활성화되어 있는지 확인해야 합니다. 를 클릭합니다<block ref="7b6e686f3f2fcbc80901a914fb158c31" category="inline-link-rx"></block> 에 SSH에 대한 자세한 정보가 나와 있습니다.</block>
   <block id="df7d4ea20d01aeb64702dc4294dc6436" category="paragraph">를 클릭합니다<block ref="a9613e1dbacf145285c45df4264fe797" category="inline-link-rx"></block> 에서 플랫폼에서 지원되는 실제 클러스터 포트에 대한 자세한 정보를 얻을 수 있습니다.</block>
   <block id="bc01d49ccd216cbb296208344af71590" category="list-text">CN1610 스위치를 대체하는 Nexus 3132Q-V 스위치는 C1 및 C2입니다.</block>
-  <block id="eb29e2026f68e263827bc6648e470d91" category="list-text">N1_clus4 는 노드 n1의 클러스터 스위치 1(CL1 또는 C1)에 연결되는 두 번째 LIF입니다. 노드는 n1, n2, n3 및 n4입니다.</block>
   <block id="5f6af1e958a3701a7602a4d2261afe6d" category="list-text">를 참조하십시오 <block ref="bea6a113c7846200412c9ca0694f7009" category="inline-link-macro-rx"></block> 페이지를 참조하십시오.</block>
   <block id="d472e6c72465c08732a77102922a611d" category="paragraph">를 참조하십시오 <block ref="34774b6dc875898cd8aa59f7081c068c" category="inline-link-macro-rx"></block> 사용 중인 플랫폼에서 올바른 클러스터 포트를 확인하려면 다음을 수행합니다.</block>
   <block id="5fe6445fb6ef9ed5befc4ee396bb9ea8" category="list-text">ONTAP 9.8 이상의 경우 다음 명령을 사용하여 스위치 관련 로그 파일을 수집하기 위한 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화합니다.</block>
@@ -3249,7 +3248,6 @@
   <block id="779fc6b934d55dc10ca87329087b2008" category="list-text">[[5]] 스토리지 시스템의 쉘프 포트를 확인합니다.</block>
   <block id="d97a5e4575ee30a387104386bf3f240b" category="section-title">3단계: 스위치 NS2의 모든 장치 구성을 확인합니다</block>
   <block id="cb90078e1ca3fab95e047ce21d18bdc0" category="paragraph">각 스위치는 단일 100GbE, 40GbE 포트 또는 4개의 10GbE 포트로 구성할 수 있습니다.</block>
-  <block id="5a5a12d4dbaeac060e4d6b7c5760ca7c" category="paragraph">Nexus 3232C 스위치를 처음 설정한 후 RCF를 설치하려면 다음 절차를 따르십시오. 이 절차를 사용하여 RCF 버전을 업그레이드할 수도 있습니다.</block>
   <block id="319869b1ac41d35b8bb0654bf94a816d" category="list-text">의 배너 출력을 확인합니다<block ref="6d53824b9996e36fd31937e922967215" prefix=" " category="inline-code"></block> 명령. 스위치의 올바른 구성과 작동을 위해 * 중요 참고 * 의 지침을 읽고 따라야 합니다.</block>
   <block id="aaee942f01ab7b858b2f2b63c62fe972" category="paragraph">Cisco Nexus 3232C 스위치에서 Cisco NX-OS 소프트웨어 및 참조 구성 파일(RCF)을 업그레이드하려면 다음 단계를 수행하십시오.</block>
   <block id="ee01b78d6cadb3e6f6a563b8d4eb8dee" category="paragraph">스토리지 스위치에서 NX-OS 소프트웨어 및 RCFs를 업그레이드하기 전에 다음 조건이 존재하는지 확인합니다.</block>
@@ -3446,7 +3444,6 @@
   <block id="6dd4b5e58bd32b079e19b1dda5c2f1bc" category="paragraph">BES-53248 클러스터 스위치용 소프트웨어를 처음 설치 및 구성하려면 다음 단계를 수행하십시오.</block>
   <block id="9302ce88c481ebfe72d64373c7b0d0e5" category="doc">BES-53248 클러스터 스위치를 업그레이드합니다</block>
   <block id="db3a43c92e9a5ccc39b5fabb1bd97719" category="paragraph">BES-53248 클러스터 스위치를 업그레이드하려면 다음 단계를 수행하십시오.</block>
-  <block id="ca46577f8687df3ceb14eb4b66cfa89e" category="paragraph">이 절차는 작동 중인 클러스터에 적용되며 NDU(무중단 업그레이드) 및 NDO(무중단 운영) 환경을 지원합니다.</block>
   <block id="8ac36f1d8b0fc917225a100d2cd4a4c3" category="paragraph">기존 NetApp BES-53248 클러스터 스위치에 EFOS 소프트웨어, 라이센스 및 RCF 파일을 설치하기 전에 다음 사항을 확인하십시오.</block>
   <block id="8e95d65cfa987ac59e9edd2e01c3a5f8" category="list-text">클러스터가 완전하게 작동하는 클러스터입니다(오류 로그 메시지 또는 기타 문제 없음).</block>
   <block id="39268a4fe5b4dbf6e58a5a1147276955" category="list-text">클러스터에는 결함이 있는 클러스터 NIC(네트워크 인터페이스 카드)가 포함되어 있지 않습니다.</block>
@@ -4668,4 +4665,9 @@
   <block id="2672a0c9ba5986c403c26e013c160859" category="list-text">다음 명령을 사용하여 클러스터 노드가 올바른 클러스터 VLAN에 있는지 확인합니다.</block>
   <block id="89706bbdab62cd83048f38305d846f95" category="paragraph"><block ref="7d4adecb4116bbfb7ed1130103f872a7" prefix="" category="inline-code"></block></block>
   <block id="12bc122b0d9a4c902fdf52bfcc13ddc2" category="paragraph"><block ref="c01eca2c804c6a35b8aa8d87eceefe5d" prefix="" category="inline-code"></block></block>
+  <block id="5cb232b7121572a8cd994eb78f5bf42e" category="inline-link">클러스터 스위치 업그레이드를 위해 ONTAP를 준비하는 방법</block>
+  <block id="2c6ae2b5ab15a868c020423af475ce29" category="paragraph">이 절차는 작동 중인 클러스터에 적용되며 NDU(무중단 업그레이드) 및 NDO(무중단 운영) 환경을 지원합니다. 기술 자료 문서를 참조하십시오<block ref="af19c072276b7cd7ef0c29b032a9fe34" category="inline-link-rx"></block>.</block>
+  <block id="3bf967e4da79afd8ac10997dbbfb40be" category="paragraph">Nexus 3232C 스위치를 처음 설정한 후 RCF를 설치하려면 다음 절차를 따르십시오.</block>
+  <block id="ce8d24a452c1c94c4680d7ce098325a9" category="inline-link">원격 연결을 유지하면서 Cisco 상호 연결 스위치의 구성을 지우는 방법</block>
+  <block id="e5f3c3d2c754cc48938d50b1782093ac" category="paragraph">이 절차를 사용하여 RCF 버전을 업그레이드할 수도 있습니다. 기술 자료 문서를 참조하십시오<block ref="c3cf8dee5fd4e009c0e2b38bfb97fe4d" category="inline-link-rx"></block> RCF를 업그레이드할 때 자세한 내용을 확인하십시오.</block>
 </blocks>
