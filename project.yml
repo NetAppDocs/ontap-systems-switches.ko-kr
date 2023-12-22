@@ -27,15 +27,11 @@ sidebar:
     entries:
     - section: switch-bes-53248
     - section: switch-cisco-9336c-fx2
-      pdf-filename: 스위치 - Cisco-9336c-FX2-클러스터
     - section: switch-nvidia-sn2100
-      pdf-filename: 스위치 - nVidia-sn2100-클러스터
   - title: 스토리지 스위치
     entries:
     - section: switch-cisco-9336c-fx2-storage
-      pdf-filename: 스위치 - Cisco-9336c-FX2-스토리지
     - section: switch-nvidia-sn2100-storage
-      pdf-filename: 스위치 - nVidia-sn2100-스토리지
   - title: 공유 스위치
     entries:
     - section: switch-cisco-9336c-fx2-shared
@@ -51,5 +47,5 @@ sidebar:
   - title: 법적 고지
     url: "/legal-notices.html"
 product-family:
-  name: AFF and FAS Systems
+  name: ONTAP hardware systems
   repo: ontap-systems-family

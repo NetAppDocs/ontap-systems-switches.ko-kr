@@ -38,8 +38,6 @@ entries:
     url: "/switch-cisco-9336c-fx2/install-nxos-software-9336c-cluster.html"
   - title: RCF 구성 파일을 설치합니다
     url: "/switch-cisco-9336c-fx2/install-nxos-rcf-9336c-cluster.html"
-  - title: SHM 구성 파일을 설치합니다
-    url: "/switch-cisco-9336c-fx2/setup-install-cshm-file.html"
   - title: 로그 수집을 활성화합니다
     url: "/switch-cisco-9336c-fx2/configure-log-collection.html"
 - title: 스위치 마이그레이션
