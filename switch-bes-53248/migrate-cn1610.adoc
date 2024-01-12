@@ -149,43 +149,56 @@ cluster1::*> system node autosupport invoke -node * -type all -message MAINT=2h
 
 . 새 스위치에서 ISL이 케이블로 연결되고 스위치 CS1과 CS2 간에 정상 상태인지 확인합니다.
 +
-'포트-채널 요약
+항로를 선택합니다
 
 +
 .예제 보기
 [%collapsible]
 ====
+다음 예에서는 스위치 CS1에서 ISL 포트가 * UP * 임을 보여 줍니다.
+
 [listing, subs="+quotes"]
 ----
-cs1# *show port-channel summary*
-Flags:  D - Down        P - Up in port-channel (members)
-        I - Individual  H - Hot-standby (LACP only)
-        s - Suspended   r - Module-removed
-        b - BFD Session Wait
-        S - Switched    R - Routed
-        U - Up (port-channel)
-        p - Up in delay-lacp mode (member)
-        M - Not in use. Min-links not met
---------------------------------------------------------------------------------
-Group Port-       Type     Protocol  Member Ports
-      Channel
---------------------------------------------------------------------------------
-1     Po1(SU)     Eth      LACP      Eth1/55(P)   Eth1/56(P)
+(cs1)# *show port-channel 1/1*
+Local Interface................................ 1/1
+Channel Name................................... Cluster-ISL
+Link State..................................... Up
+Admin Mode..................................... Enabled
+Type........................................... Dynamic
+Port channel Min-links......................... 1
+Load Balance Option............................ 7
+(Enhanced hashing mode)
 
-cs2# *show port-channel summary*
-Flags:  D - Down        P - Up in port-channel (members)
-        I - Individual  H - Hot-standby (LACP only)
-        s - Suspended   r - Module-removed
-        b - BFD Session Wait
-        S - Switched    R - Routed
-        U - Up (port-channel)
-        p - Up in delay-lacp mode (member)
-        M - Not in use. Min-links not met
---------------------------------------------------------------------------------
-Group Port-       Type     Protocol  Member Ports
-      Channel
---------------------------------------------------------------------------------
-1     Po1(SU)     Eth      LACP      Eth1/55(P)   Eth1/56(P)
+Mbr    Device/       Port       Port
+Ports  Timeout       Speed      Active
+------ ------------- ---------  -------
+0/55   actor/long    100G Full  True
+       partner/long
+0/56   actor/long    100G Full  True
+       partner/long
+(cs1) #
+----
+다음 예에서는 스위치 CS2에서 ISL 포트가 * UP * 임을 보여 줍니다.
+
+[listing, subs="+quotes"]
+----
+(cs2)# *show port-channel 1/1*
+Local Interface................................ 1/1
+Channel Name................................... Cluster-ISL
+Link State..................................... Up
+Admin Mode..................................... Enabled
+Type........................................... Dynamic
+Port channel Min-links......................... 1
+Load Balance Option............................ 7
+(Enhanced hashing mode)
+
+Mbr    Device/       Port       Port
+Ports  Timeout       Speed      Active
+------ ------------- ---------  -------
+0/55   actor/long    100G Full  True
+       partner/long
+0/56   actor/long    100G Full  True
+       partner/long
 ----
 ====
 . 기존 클러스터 스위치에 연결된 각 노드의 클러스터 포트를 표시합니다.
@@ -560,43 +573,56 @@ cs1# *show isdp neighbors*
 ----
 . CS1과 CS2 사이의 ISL이 여전히 작동하는지 확인합니다.
 +
-'포트-채널 요약
+항로를 선택합니다
 
 +
 .예제 보기
 [%collapsible]
 ====
+다음 예에서는 스위치 CS1에서 ISL 포트가 * UP * 임을 보여 줍니다.
+
 [listing, subs="+quotes"]
 ----
-cs1# *show port-channel summary*
-Flags:  D - Down        P - Up in port-channel (members)
-        I - Individual  H - Hot-standby (LACP only)
-        s - Suspended   r - Module-removed
-        b - BFD Session Wait
-        S - Switched    R - Routed
-        U - Up (port-channel)
-        p - Up in delay-lacp mode (member)
-        M - Not in use. Min-links not met
---------------------------------------------------------------------------------
-Group Port-       Type     Protocol  Member Ports
-      Channel
---------------------------------------------------------------------------------
-1     Po1(SU)     Eth      LACP      Eth1/55(P)   Eth1/56(P)
+(cs1)# *show port-channel 1/1*
+Local Interface................................ 1/1
+Channel Name................................... Cluster-ISL
+Link State..................................... Up
+Admin Mode..................................... Enabled
+Type........................................... Dynamic
+Port channel Min-links......................... 1
+Load Balance Option............................ 7
+(Enhanced hashing mode)
 
-cs2# *show port-channel summary*
-Flags:  D - Down        P - Up in port-channel (members)
-        I - Individual  H - Hot-standby (LACP only)
-        s - Suspended   r - Module-removed
-        b - BFD Session Wait
-        S - Switched    R - Routed
-        U - Up (port-channel)
-        p - Up in delay-lacp mode (member)
-        M - Not in use. Min-links not met
---------------------------------------------------------------------------------
-Group Port-       Type     Protocol  Member Ports
-      Channel
---------------------------------------------------------------------------------
-1     Po1(SU)     Eth      LACP      Eth1/55(P)   Eth1/56(P)
+Mbr    Device/       Port       Port
+Ports  Timeout       Speed      Active
+------ ------------- ---------  -------
+0/55   actor/long    100G Full  True
+       partner/long
+0/56   actor/long    100G Full  True
+       partner/long
+(cs1) #
+----
+다음 예에서는 스위치 CS2에서 ISL 포트가 * UP * 임을 보여 줍니다.
+
+[listing, subs="+quotes"]
+----
+(cs2)# *show port-channel 1/1*
+Local Interface................................ 1/1
+Channel Name................................... Cluster-ISL
+Link State..................................... Up
+Admin Mode..................................... Enabled
+Type........................................... Dynamic
+Port channel Min-links......................... 1
+Load Balance Option............................ 7
+(Enhanced hashing mode)
+
+Mbr    Device/       Port       Port
+Ports  Timeout       Speed      Active
+------ ------------- ---------  -------
+0/55   actor/long    100G Full  True
+       partner/long
+0/56   actor/long    100G Full  True
+       partner/long
 ----
 ====
 . 교체된 CN1610 스위치가 자동으로 제거되지 않은 경우 클러스터의 스위치 테이블에서 삭제합니다.

@@ -441,18 +441,6 @@
   <block id="c0f9b028477a4c90905b2a666cab2349" category="list-text">포트 e1/13-20 (10GbE): Nexus 5010</block>
   <block id="70399670eb37f7ebf7bbd91e15766e17" category="inline-link">Cisco 이더넷 스위치</block>
   <block id="645b50612eedcb03bdeff0f4c9f4de12" category="summary">지원되는 플랫폼을 문서화하려면 작성한 샘플 케이블 연결 워크시트를 참조하여 빈 케이블 연결 워크시트를 작성해야 합니다. 각 스위치는 단일 100GbE, 40GbE 포트 또는 4개의 10GbE 포트로 구성할 수 있습니다.</block>
-  <block id="ed549d19dafed0e7ab290c80a631336d" category="paragraph">4x10G/40G/100G 노드</block>
-  <block id="333383cad18ed1288df7f6e7b55bb269" category="paragraph">4x10G/40G/100Gnode</block>
-  <block id="1286cbe7601f965189bedc2e531693fe" category="paragraph">40G/100G 노드 19</block>
-  <block id="3cdb72203b05b99dff9c7e8fe12d3297" category="paragraph">40G/100G 노드 20</block>
-  <block id="7f63ff950e3e5909f605081e8a040c35" category="paragraph">40G/100G 노드 21</block>
-  <block id="b031f52ea292595722079873eb50ac47" category="paragraph">40G/100G 노드 22</block>
-  <block id="fb81c88eb2bc7e3c494e5e649e59bcb0" category="paragraph">40G/100G 노드 23</block>
-  <block id="a3f6a2babb0d59c8269007c11baa9f0e" category="paragraph">40G/100G 노드 24</block>
-  <block id="55eca0e94ad3924173aada9f3d092018" category="paragraph">100g ISL을 통해 스위치 B 포트 31에 연결</block>
-  <block id="d01adcc41847caac4aa8fdfe85b60992" category="paragraph">100g ISL을 통해 스위치 A 포트 31에 연결합니다</block>
-  <block id="66b48416af1e682679b1391bc16602fd" category="paragraph">100g ISL을 통해 스위치 B 포트 32에 연결</block>
-  <block id="1ffe31824d782f0a845f2d0960162e5c" category="paragraph">100g ISL을 통해 스위치 A 포트 32에 연결</block>
   <block id="556e297f9def6449d3bf99acff84b641" category="doc">Cisco Nexus 9336C-FX2 클러스터 스위치를 교체합니다</block>
   <block id="456a5c90687a021221cc54821a27d7f4" category="paragraph">클러스터 네트워크에서 결함이 있는 Nexus 9336C-FX2 스위치를 교체하는 것은 무중단 절차(NDU)입니다.</block>
   <block id="c4ceb27b488ee8c76dddf465a267e6fb" category="paragraph">현재 환경 및 교체 스위치에서 스위치 교체를 수행하기 전에 다음 조건이 충족되어야 합니다.</block>
@@ -4585,7 +4573,6 @@
   <block id="dae02701a0a247e1012b9b2832c32464" category="list-text">교체된 CN1610 스위치가 자동으로 제거되지 않은 경우 클러스터의 스위치 테이블에서 삭제합니다.</block>
   <block id="c8b9229aed88be3704b6c26029b7ae94" category="paragraph">ONTAP 9.7 이전 버전의 경우 다음 명령을 사용합니다.<block ref="f055904a9fc3a4f0bc33aca13ecd2b2d" prefix=" " category="inline-code"></block></block>
   <block id="b8590eb7d6b7365e1a0bee47b03d5b4f" category="admonition">로그 수집 기능을 사용하려면 ONTAP 9.10.1P15, 9.11.1P12 또는 9.12.1 이상 및 EFOS 3.8.0.2 이상을 실행해야 합니다.</block>
-  <block id="e88b6a67743cc664a0a237ba8d94eefc" category="sidebar">스위치 - Cisco-9336c-FX2-클러스터</block>
   <block id="517242a1c337699950aef05a38af45a0" category="sidebar">스위치 - nVidia-sn2100-클러스터</block>
   <block id="3ed3b1cc0917edd8fddcdd478bb581fb" category="sidebar">스위치 - Cisco-9336c-FX2-스토리지</block>
   <block id="701d9aab459b808d17f39aa5c50f97df" category="sidebar">스위치 - nVidia-sn2100-스토리지</block>
@@ -4629,7 +4616,6 @@
   <block id="c94eee10204c293e476c9b772d10ddfe" category="admonition">언제든지 이전 버전의 ONTAP로 되돌릴 경우 SHM 구성 파일을 다시 설치하여 9336C-FX2 클러스터 스위치의 SHM을 활성화해야 합니다.</block>
   <block id="669c1a3fa77bc8a049e5cd4a16e5cff8" category="paragraph">9336C-FX2 클러스터 스위치 * CLI * 를 사용하여 환경을 설정했는지 확인합니다.</block>
   <block id="680284a2e0d6a86aafc85099ca58d7af" category="list-text">이더넷 스위치 상태 모니터 로그 수집 기능에 대한 암호를 생성합니다.</block>
-  <block id="1f40996ca4617ab17127143171aa4ea4" category="sidebar">SHM 구성 파일을 설치합니다</block>
   <block id="3fc74bed2ec666d227e966120d5c4160" category="inline-link">버그 1570339</block>
   <block id="a9881d2bc89c135aee3c1490acc55259" category="inline-link">40GbE에서 100GbE로 변환한 후 T6 포트에서 CRC 오류가 발생했습니다</block>
   <block id="835174c5c468acf2b423cff0eb23994f" category="admonition">AFF A800 또는 AFF C800 시스템에서 e0a 및 E1A 클러스터 포트의 포트 속도를 변경하는 경우, 속도를 변환한 후 조작된 패킷이 수신될 수 있습니다. 을 참조하십시오 <block ref="f867b947e44d8d6bccd25f3219f3d6d9" category="inline-link-rx"></block> 및 기술 자료 문서를 참조하십시오<block ref="2a93cc61bbc3892324bc1b6369d71212" category="inline-link-rx"></block> 참조하십시오.</block>
@@ -4670,4 +4656,37 @@
   <block id="3bf967e4da79afd8ac10997dbbfb40be" category="paragraph">Nexus 3232C 스위치를 처음 설정한 후 RCF를 설치하려면 다음 절차를 따르십시오.</block>
   <block id="ce8d24a452c1c94c4680d7ce098325a9" category="inline-link">원격 연결을 유지하면서 Cisco 상호 연결 스위치의 구성을 지우는 방법</block>
   <block id="e5f3c3d2c754cc48938d50b1782093ac" category="paragraph">이 절차를 사용하여 RCF 버전을 업그레이드할 수도 있습니다. 기술 자료 문서를 참조하십시오<block ref="c3cf8dee5fd4e009c0e2b38bfb97fe4d" category="inline-link-rx"></block> RCF를 업그레이드할 때 자세한 내용을 확인하십시오.</block>
+  <block id="42f74bee479f7bfeefb9fd7d2c20b356" category="paragraph">4x10GbE/4x25GbE 또는 40/100GbE 노드</block>
+  <block id="ee064ffc6832da9230d1d423e3a1c01a" category="paragraph">40G/100GbE 노드 19</block>
+  <block id="30fed60c2f664b1e620b396ee7590025" category="paragraph">40G/100GbE 노드 20</block>
+  <block id="e868dd91c84b5ff315dc3636c26ec593" category="paragraph">40G/100GbE 노드 21</block>
+  <block id="14735a659a0e84d3aeb4a50b5d38fdd8" category="paragraph">40G/100GbE 노드 22</block>
+  <block id="f46e9d50d3e035a2a9cfc49b0d4ff926" category="paragraph">40G/100GbE 노드 23</block>
+  <block id="7d3c40714541505308e8aeda185028a5" category="paragraph">40G/100GbE 노드 24</block>
+  <block id="d92e2d02199d759e2cbe8d9b461557fc" category="paragraph">100GbE ISL을 통해 스위치 B 포트 31에 연결</block>
+  <block id="202f974033cf1161982db034d23ab80c" category="paragraph">100GbE ISL을 통해 스위치 A 포트 31에 연결</block>
+  <block id="0e799942e6eaaf5fb0e0990b9cff01d0" category="paragraph">100GbE ISL을 통해 스위치 B 포트 32에 연결</block>
+  <block id="ef3ddd21da594e200a83e463425ee831" category="paragraph">100GbE ISL을 통해 스위치 A 포트 32에 연결</block>
+  <block id="7da7e93935b02de70a378c0e3bc0915f" category="paragraph">100GbE 노드 7</block>
+  <block id="b06ad32bc262994927467145fa685077" category="paragraph">100GbE 노드 8</block>
+  <block id="bfd0f53dcd1c0732244c879c71816d76" category="paragraph">100GbE 노드 9</block>
+  <block id="bc335a1aa76d7bee7d077931c80ff362" category="paragraph">100GbE 노드 10</block>
+  <block id="8e98a1d2b82cc51b09a6f6f6150e6ea9" category="paragraph">100GbE 노드 11</block>
+  <block id="ca1e7465e63d54d410d96ad74bc6ad9c" category="paragraph">100GbE 노드 12</block>
+  <block id="dc3e73458f3b06d9f45967a4ee2eb062" category="paragraph">100GbE 노드 13</block>
+  <block id="58a544d323832dc62d0f7dbf25fce76c" category="paragraph">100GbE 노드 14</block>
+  <block id="f91030d6cc1c0d743dd19bdf834808b4" category="paragraph">100GbE 노드 15</block>
+  <block id="429c661f8ba4e683c488a3a16eb65450" category="paragraph">100GbE 노드 16</block>
+  <block id="5ac313785ff16b543307f7a2f0562c65" category="paragraph">100GbE 노드 17</block>
+  <block id="2badabc63a001442bc883dd04d8cd5bd" category="paragraph">100GbE 노드 18</block>
+  <block id="a6812bb55d441274f894ae9d2fc8c853" category="paragraph">100GbE 노드 19</block>
+  <block id="f81493fb0626cf611fb3d0da0abfd2fc" category="paragraph">100GbE 노드 20</block>
+  <block id="8ec0b4b065f720abd158003e297fd666" category="paragraph">100GbE 노드 21</block>
+  <block id="17267202d9429f033060c241eb243b66" category="paragraph">100GbE 노드 22</block>
+  <block id="6566d42cadb266b4dda1e35c1d8431b8" category="paragraph">100GbE 노드 23</block>
+  <block id="b0f08b7da859e9b27be7eba076cbd7c7" category="paragraph">100GbE 노드 24</block>
+  <block id="cfdc5fc6e4f0420a87977f2a10a74eb5" category="paragraph">100GbE ISL을 통해 스위치 B 포트 35에 연결</block>
+  <block id="88948f2b657a3c9e5eec3736dcca6cdf" category="paragraph">100GbE ISL을 통해 스위치 A 포트 35에 연결</block>
+  <block id="56299051abd1af0cbe5dbee773fed3d5" category="paragraph">100GbE ISL을 통해 스위치 B 포트 36에 연결</block>
+  <block id="5e596a6e5f0ffe0604d651cde90e34f0" category="paragraph">100GbE ISL을 통해 스위치 A 포트 36에 연결</block>
 </blocks>
