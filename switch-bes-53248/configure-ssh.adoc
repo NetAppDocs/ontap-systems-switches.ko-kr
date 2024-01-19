@@ -82,6 +82,10 @@ Config file 'startup-config' created successfully.
 Configuration Saved!
 ----
 ====
++
+
+WARNING: 키를 수정하기 전에 SSH가 비활성화되어 있는지 확인하십시오. 그렇지 않으면 스위치에 경고가 표시됩니다.
+
 . 스위치를 재부팅합니다.
 +
 다시 로드
