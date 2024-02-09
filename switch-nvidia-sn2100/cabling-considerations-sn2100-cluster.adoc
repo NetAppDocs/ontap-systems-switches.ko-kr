@@ -1,7 +1,7 @@
 ---
 permalink: switch-nvidia-sn2100/cabling-considerations-sn2100-cluster.html 
 sidebar: sidebar 
-keywords: sn2100 SN2100 cabling setup, sn2100 switches configuration, cumulus linux os 
+keywords: SN2100 cabling setup, sn2100 switches configuration, cumulus linux os 
 summary: NVIDIA SN2100 스위치를 구성하기 전에 다음 정보를 검토하십시오. 
 ---
 = 케이블 연결 및 구성 고려 사항을 검토합니다
