@@ -31,12 +31,12 @@ entries:
     url: "/switch-bes-53248/configure-licenses.html"
   - title: RCF 구성 파일을 설치합니다
     url: "/switch-bes-53248/configure-install-rcf.html"
-  - title: CSMM 구성 파일을 설치합니다
-    url: "/switch-bes-53248/configure-health-monitor.html"
   - title: SSH를 활성화합니다
     url: "/switch-bes-53248/configure-ssh.html"
   - title: 로그 수집을 활성화합니다
-    url: "/switch-bes-53248/configure-log-collection.html"
+    url: "/switch-bes-53248/CSHM_log_collection.html"
+  - title: 모니터링을 위한 SNMPv3을 구성합니다
+    url: "/switch-bes-53248/CSHM_snmpv3.html"
 - title: 스위치 업그레이드
   pdf-filename: upgrade_switches_bes53248 을 참조하십시오
   entries:

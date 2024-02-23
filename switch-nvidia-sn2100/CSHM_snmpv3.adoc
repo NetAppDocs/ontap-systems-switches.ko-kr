@@ -1,8 +1,8 @@
 ---
-permalink: switch-nvidia-sn2100/install-snmpv3-sn2100-cluster.html 
+permalink: switch-nvidia-sn2100/CSHM_snmpv3.html 
 sidebar: sidebar 
-keywords: sn2100 SN2100 cabling setup, sn2100 switches configuration, cumulus linux os 
-summary: 이 릴리스는 로그 모니터링을 위한 SNMPv3을 지원합니다. 
+keywords: SNMP,SNMPv3,SNMPv3 setup,SN2100 cabling setup,sn2100 switches configuration,cumulus linux os 
+summary: 'SNMPv3은 이더넷 스위치 상태 모니터(CSHM)와 함께 사용할 수 있습니다.' 
 ---
 = SNMPv3을 구성합니다
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 이 릴리스는 로그 모니터링을 위한 SNMPv3을 지원합니�
 
 
 [role="lead"]
-CSMM(Switch Health Monitoring)을 지원하는 SNMPv3을 구성하려면 다음 절차를 따르십시오.
+이더넷 스위치 상태 모니터링(CSHM)을 지원하는 SNMPv3를 구성하려면 다음 절차를 따르십시오.
 
 .이 작업에 대해
 다음 명령은 NVIDIA SN2100 스위치에서 SNMPv3 사용자 이름을 구성합니다.
@@ -88,7 +88,7 @@ net add/del commands since the last "net commit"
 ================================================
 
 User        Timestamp                   Command
-----------  --------------------------  -----------------------------------------------------------------------------
+----------  --------------------------  -------------------------------------------------------------------------
 SNMPv3User  2020-08-11 00:13:51.826987  net add snmp-server username SNMPv3User auth-md5 <password> encrypt-aes <password>
 
 cumulus@sw1:~$
@@ -132,7 +132,7 @@ Enter privacy protocol password (minimum 8 characters long):
 Enter privacy protocol password again:
 ----
 ====
-. 새 SNMPv3 사용자를 모니터링하도록 SHM 구성:
+. 새로운 SNMPv3 사용자와 함께 모니터링하도록 CSHM을 구성합니다.
 +
 `system switch ethernet show-all -device "sw1 (b8:59:9f:09:7c:22)" -instance`
 
@@ -162,7 +162,7 @@ cluster1::*>
 cluster1::*> *system switch ethernet modify -device "sw1 (b8:59:9f:09:7c:22)" -snmp-version SNMPv3 -community-or-username SNMPv3User*
 ----
 ====
-. 새로 생성된 SNMPv3 사용자에게 쿼리할 일련 번호가 SHM 폴링 기간이 완료된 후 이전 단계에서 자세히 설명한 번호와 동일한지 확인합니다.
+. 새로 생성된 SNMPv3 사용자로 쿼리할 일련 번호가 CSHM 폴링 기간이 완료된 후 이전 단계에서 자세히 설명한 일련 번호와 동일한지 확인합니다.
 +
 `system switch ethernet polling-interval show`
 
