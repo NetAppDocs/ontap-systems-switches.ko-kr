@@ -2391,7 +2391,6 @@
   <block id="91fff5a6134f2be64c56d1695113e1f9" category="list-text">SN2100 스위치는 최신 버전의 Cumulus Linux를 실행하고 있습니다</block>
   <block id="8e674e3cc0c8b6ecbd4956d1e90317e0" category="list-text">SN2100 스위치의 이름은 _SW1_와 _SW2_입니다.</block>
   <block id="c844edac5ec41b6dac1cc863f127ff48" category="list-text">새 클러스터 스위치 SW1과 SW2에서 모든 노드 대상 포트(ISL 포트 아님)를 비활성화합니다.</block>
-  <block id="00bb8074e6bd1737f80dabe96f73b517" category="paragraph">다음 명령을 실행하면 스위치 SW1 및 SW2의 노드 대상 포트가 비활성화됩니다.</block>
   <block id="79db2f8f30aa3d04c6b263659d467402" category="paragraph">다음 예에서는 스위치 SW1에서 ISL 포트가 작동 중인 것을 보여 줍니다.</block>
   <block id="881b0c6ec04a04c3fcbc1ba781dc7646" category="list-text">노드 1의 클러스터 포트 e3a에서 케이블을 분리한 다음, SN2100 스위치가 지원하는 적절한 케이블을 사용하여 클러스터 스위치 SW1의 포트 3에 e3a를 연결합니다.</block>
   <block id="89815af81c37a8f9a7a98396057d0bcd" category="list-text">노드 2의 클러스터 포트 e3a에서 케이블을 분리한 다음, SN2100 스위치가 지원하는 적절한 케이블을 사용하여 클러스터 스위치 SW1의 포트 4에 e3a를 연결합니다.</block>
@@ -4699,4 +4698,21 @@
   <block id="b9c519617ddb8983725afb0a6830a2f9" category="paragraph">에 있는 이전 로그 수집 디렉터리와 '.tar' 파일을 제거합니다<block ref="0793027f48f71fa4fc10baf29d75e685" prefix=" " category="inline-code"></block> 스위치를 켭니다.</block>
   <block id="c2d06740bdd189b6a9e5c66037c2fca6" category="list-text">새로 생성된 SNMPv3 사용자로 쿼리할 일련 번호가 CSHM 폴링 기간이 완료된 후 이전 단계에서 자세히 설명한 일련 번호와 동일한지 확인합니다.</block>
   <block id="d185f7c4f8a7ee7fcc5143d7f639a45b" category="sidebar">모니터링을 위한 SNMPv3을 구성합니다</block>
+  <block id="c7afd9396f393d27ad260ca9f7d80ada" category="open-title">Cumulus Linux 4.4.x입니다</block>
+  <block id="bac0749492396eefc62e79ed342a7d3e" category="paragraph">다음 명령을 실행하면 스위치 SW1 및 SW2에서 ISL 포트가 작동함을 알 수 있습니다.</block>
+  <block id="66d5df919df19776cddfe95690c8746e" category="list-text">새 클러스터 스위치 SW1과 SW2 모두에서 모든 노드용 포트(ISL 포트 아님)를 비활성화합니다.</block>
+  <block id="c9a508dfd4f34896db766a11271dc586" category="paragraph"><block ref="1b1eb164bd3711517ce965d9f4b868f3" prefix="" category="inline-code"></block></block>
+  <block id="d1642411fbcc528de43c89473d1874f0" category="paragraph">다음 예에서는 스위치 SW1 및 SW2에서 ISL 포트가 작동함을 보여 줍니다.</block>
+  <block id="60d52c8e3908ebe64553a928f2fdda93" category="list-text">[[step3]] 모든 클러스터 포트가 작동 중인지 확인:</block>
+  <block id="b13b891b5f6c1e4e43eb705e0d6bf621" category="list-text">[[step8]]] 스위치 SW1에서 모든 노드 페이싱 포트를 활성화합니다.</block>
+  <block id="b2ce337c562b364c2196d79d035a80be" category="paragraph">다음 명령을 실행하면 스위치 SW1의 모든 노드 페이싱 포트가 활성화됩니다.</block>
+  <block id="99c6ee6ba3b6a27c26e8de9f62b5d314" category="list-text">[[step]]] 스위치 SW1에서 모든 포트가 작동 중인지 확인합니다.</block>
+  <block id="8eb64f1011cfe4148b4473d10a71897c" category="list-text">[[step9]] 스위치 SW1에서 모든 포트가 작동 중인지 확인합니다.</block>
+  <block id="e946daf9cc878bba9a13ef46326d57c1" category="list-text">[[step10]] 모든 클러스터 포트가 작동 중인지 확인:</block>
+  <block id="3242eb8d02460a3fc00c17f0baedbafe" category="list-text">[[step14]]] 스위치 SW2에서 모든 노드 페이싱 포트를 활성화합니다.</block>
+  <block id="a914c91810b28287a708a0c3ee0dfa60" category="list-text">[[step15]]] 스위치 SW2에서 모든 포트가 작동 중인지 확인합니다.</block>
+  <block id="eccb174f59c7d1789337c7c4b0eb3c26" category="list-text">[[step16]] 두 스위치 SW1과 SW2에서 두 노드가 각 스위치에 대해 하나씩 연결되어 있는지 확인합니다.</block>
+  <block id="3d49c6a8040af00423280443bbe5d05f" category="paragraph"><block ref="913a5e09220539ba22f04cc8f2d2fe80" prefix="" category="inline-code"></block></block>
+  <block id="9d6600c74c6f65eef63f8fe8e301ffef" category="paragraph">다음 예는 SW1과 SW2의 두 스위치에 대한 적절한 결과를 보여줍니다.</block>
+  <block id="3510e8dd2306d7a2623d6253e5ee079b" category="list-text">[[step17]] 클러스터에서 검색된 네트워크 장치에 대한 정보를 표시합니다.</block>
 </blocks>

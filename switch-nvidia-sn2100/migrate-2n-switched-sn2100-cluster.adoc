@@ -84,16 +84,18 @@ IMPORTANT: 을 참조하십시오 link:cabling-considerations-sn2100-cluster.htm
 
 === 2단계: 포트 및 케이블 연결 구성
 
+[role="tabbed-block"]
+====
+.Cumulus Linux 4.4.x입니다
+--
 . 새 클러스터 스위치 SW1과 SW2에서 모든 노드 대상 포트(ISL 포트 아님)를 비활성화합니다.
 +
 ISL 포트를 비활성화해서는 안 됩니다.
 
 +
-.예제 보기
-[%collapsible]
-====
 다음 명령을 실행하면 스위치 SW1 및 SW2의 노드 대상 포트가 비활성화됩니다.
 
++
 [listing, subs="+quotes"]
 ----
 cumulus@sw1:~$ *net add interface swp1s0-3, swp2s0-3, swp3-14 link down*
@@ -104,17 +106,14 @@ cumulus@sw2:~$ *net add interface swp1s0-3, swp2s0-3, swp3-14 link down*
 cumulus@sw2:~$ *net pending*
 cumulus@sw2:~$ *net commit*
 ----
-====
 . 두 SN2100 스위치 SW1과 SW2 사이의 ISL과 ISL의 물리적 포트가 포트 swp15와 swp16에서 작동하는지 확인합니다.
 +
 `net show interface`
 
 +
-.예제 보기
-[%collapsible]
-====
-다음 예에서는 스위치 SW1에서 ISL 포트가 작동 중인 것을 보여 줍니다.
+다음 명령을 실행하면 스위치 SW1 및 SW2에서 ISL 포트가 작동함을 알 수 있습니다.
 
++
 [listing, subs="+quotes"]
 ----
 cumulus@sw1:~$ *net show interface*
@@ -125,13 +124,7 @@ State  Name       Spd   MTU    Mode        LLDP         Summary
 ...
 UP     swp15      100G  9216   BondMember  sw2 (swp15)  Master: cluster_isl(UP)
 UP     swp16      100G  9216   BondMember  sw2 (swp16)  Master: cluster_isl(UP)
-----
-+ 다음 예에서는 스위치 SW2에서 ISL 포트가 작동 중인 것을 보여 줍니다.
 
-를 누릅니다
-
-[listing, subs="+quotes"]
-----
 cumulus@sw2:~$ *net show interface*
 
 State  Name       Spd   MTU    Mode        LLDP         Summary
@@ -141,8 +134,65 @@ State  Name       Spd   MTU    Mode        LLDP         Summary
 UP     swp15      100G  9216   BondMember  sw1 (swp15)  Master: cluster_isl(UP)
 UP     swp16      100G  9216   BondMember  sw1 (swp16)  Master: cluster_isl(UP)
 ----
+
+
+--
+.Cumulus Linux 5.x를 의미합니다
+--
+. 새 클러스터 스위치 SW1과 SW2 모두에서 모든 노드용 포트(ISL 포트 아님)를 비활성화합니다.
++
+ISL 포트를 비활성화해서는 안 됩니다.
+
++
+다음 명령을 실행하면 스위치 SW1 및 SW2의 노드 대상 포트가 비활성화됩니다.
+
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *nv set interface swp1s0-3,swp2s0-3,swp3-14 link state down*
+cumulus@sw1:~$ *nv config apply*
+cumulus@sw1:~$ *nv save*
+
+cumulus@sw2:~$ *nv set interface swp1s0-3,swp2s0-3,swp3-14 link state down*
+cumulus@sw2:~$ *nv config apply*
+cumulus@sw2:~$ *nv save*
+----
+. 두 SN2100 스위치 SW1과 SW2 사이의 ISL과 ISL의 물리적 포트가 포트 swp15와 swp16에서 작동하는지 확인합니다.
++
+`nv show interface`
+
++
+다음 예에서는 스위치 SW1 및 SW2에서 ISL 포트가 작동함을 보여 줍니다.
+
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *nv show interface*
+
+Interface     MTU    Speed  State  Remote Host  Remote Port                          Type    Summary
+------------- ------ -----  ------ ------------ ------------------------------------ ------- -------
+...
+...
++ swp14       9216          down                                                     swp
++ swp15       9216   100G   up     ossg-rcf1    Intra-Cluster Switch ISL Port swp15  swp
++ swp16       9216   100G   up     ossg-rcf2    Intra-Cluster Switch ISL Port swp16  swp
+
+
+cumulus@sw2:~$ *nv show interface*
+
+Interface     MTU    Speed  State  Remote Host  Remote Port                          Type    Summary
+------------- ------ -----  ------ ------------ ------------------------------------ ------- -------
+...
+...
++ swp14       9216          down                                                     swp
++ swp15       9216   100G   up     ossg-rcf1    Intra-Cluster Switch ISL Port swp15  swp
++ swp16       9216   100G   up     ossg-rcf2    Intra-Cluster Switch ISL Port swp16  swp
+----
+
+
+--
 ====
-. 모든 클러스터 포트가 작동하는지 확인합니다.
+. [[step3]] 모든 클러스터 포트가 작동 중인지 확인:
 +
 네트워크 포트 쇼
 
@@ -230,28 +280,30 @@ Cluster
 를 클릭합니다 https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - 스위치"^] 케이블 연결에 대한 자세한 내용은 에 나와 있습니다.
 
 . 노드 2의 클러스터 포트 e3a에서 케이블을 분리한 다음, SN2100 스위치가 지원하는 적절한 케이블을 사용하여 클러스터 스위치 SW1의 포트 4에 e3a를 연결합니다.
-. 스위치 SW1에서 모든 노드 대상 포트를 활성화합니다.
-+
-.예제 보기
-[%collapsible]
-====
-다음 명령을 실행하면 스위치 SW1의 모든 노드 대상 포트가 설정됩니다.
 
+
+[role="tabbed-block"]
+====
+.Cumulus Linux 4.4.x입니다
+--
+. [[step8]]] 스위치 SW1에서 모든 노드 페이싱 포트를 활성화합니다.
++
+다음 명령을 실행하면 스위치 SW1의 모든 노드 페이싱 포트가 활성화됩니다.
+
++
 [listing, subs="+quotes"]
 ----
 cumulus@sw1:~$ *net del interface swp1s0-3, swp2s0-3, swp3-14 link down*
 cumulus@sw1:~$ *net pending*
 cumulus@sw1:~$ *net commit*
 ----
-====
-. 스위치 SW1에서 모든 포트가 작동하는지 확인합니다.
+
+
+. [[step]]] 스위치 SW1에서 모든 포트가 작동 중인지 확인합니다.
 +
 `net show interface all`
 
 +
-.예제 보기
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 cumulus@sw1:~$ *net show interface all*
@@ -275,8 +327,58 @@ UP     swp15     100G  9216   BondMember  swp15          Master: cluster_isl(UP)
 UP     swp16     100G  9216   BondMember  swp16          Master: cluster_isl(UP)
 ...
 ----
+
+
+--
+.Cumulus Linux 5.x를 의미합니다
+--
+. [[step8]]] 스위치 SW1에서 모든 노드 페이싱 포트를 활성화합니다.
++
+다음 명령을 실행하면 스위치 SW1의 모든 노드 페이싱 포트가 활성화됩니다.
+
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *nv unset interface swp1s0-3,swp2s0-3,swp3-14 link state down*
+cumulus@sw1:~$ *nv config apply*
+cumulus@sw1:~$ *nv config save*
+----
+
+
+. [[step9]] 스위치 SW1에서 모든 포트가 작동 중인지 확인합니다.
++
+`nv show interface`
+
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *nv show interface*
+
+Interface    State  Speed  MTU    Type      Remote Host                 Remote Port  Summary
+-----------  -----  -----  -----  --------  --------------------------  -----------  ----------
+...
+...
+swp1s0       up     10G    9216   swp       odq-a300-1a                         e0a
+swp1s1       up     10G    9216   swp       odq-a300-1b                         e0a
+swp1s2       down   10G    9216   swp
+swp1s3       down   10G    9216   swp
+swp2s0       down   25G    9216   swp
+swp2s1       down   25G    9216   swp
+swp2s2       down   25G    9216   swp
+swp2s3       down   25G    9216   swp
+swp3         down          9216   swp
+swp4         down          9216   swp
+...
+...
+swp14        down          9216   swp
+swp15        up     100G   9216   swp       ossg-int-rcf10                    swp15
+swp16        up     100G   9216   swp       ossg-int-rcf10                    swp16
+----
+
+
+--
 ====
-. 모든 클러스터 포트가 작동하는지 확인합니다.
+. [[step10]] 모든 클러스터 포트가 작동 중인지 확인:
 +
 네트워크 포트 표시 - IPSpace 클러스터
 
@@ -331,28 +433,28 @@ node2                true    true          false
 ====
 . 노드 1의 클러스터 포트 e3b에서 케이블을 분리한 다음, SN2100 스위치가 지원하는 적절한 케이블을 사용하여 클러스터 스위치 SW2의 포트 3에 e3b를 연결합니다.
 . 노드 2의 클러스터 포트 e3b에서 케이블을 분리한 다음, SN2100 스위치가 지원하는 적절한 케이블을 사용하여 클러스터 스위치 SW2의 포트 4에 e3b를 연결합니다.
-. 스위치 SW2에서 모든 노드 대상 포트를 활성화합니다.
-+
-.예제 보기
-[%collapsible]
+
+
+[role="tabbed-block"]
 ====
+.Cumulus Linux 4.4.x입니다
+--
+. [[step14]]] 스위치 SW2에서 모든 노드 페이싱 포트를 활성화합니다.
++
 다음 명령을 사용하면 스위치 SW2에서 노드 연결 포트를 사용할 수 있습니다.
 
++
 [listing, subs="+quotes"]
 ----
 cumulus@sw2:~$ *net del interface swp1s0-3, swp2s0-3, swp3-14 link down*
 cumulus@sw2:~$ *net pending*
 cumulus@sw2:~$ *net commit*
 ----
-====
-. 스위치 SW2에서 모든 포트가 작동하는지 확인합니다.
+. [[step15]]] 스위치 SW2에서 모든 포트가 작동 중인지 확인합니다.
 +
 `net show interface all`
 
 +
-.예제 보기
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 cumulus@sw2:~$ *net show interface all*
@@ -376,16 +478,16 @@ UP     swp15     100G  9216   BondMember  swp15          Master: cluster_isl(UP)
 UP     swp16     100G  9216   BondMember  swp16          Master: cluster_isl(UP)
 ...
 ----
-====
-. 두 스위치 SW1과 SW2에서 두 노드 모두 각 스위치에 하나씩 연결되어 있는지 확인합니다.
+
+
+. [[step16]] 두 스위치 SW1과 SW2에서 두 노드가 각 스위치에 대해 하나씩 연결되어 있는지 확인합니다.
 +
 `net show lldp`
 
 +
-.예제 보기
-[%collapsible]
-====
 다음 예에서는 스위치 SW1과 SW2에 대해 적절한 결과를 보여 줍니다.
+
+
 
 [listing, subs="+quotes"]
 ----
@@ -407,10 +509,112 @@ swp4       100G   Trunk/L2    node2              e3b
 swp15      100G   BondMember  sw1                swp15
 swp16      100G   BondMember  sw1                swp16
 ----
-====
-. 클러스터에서 검색된 네트워크 장치에 대한 정보를 표시합니다.
+--
+.Cumulus Linux 5.x를 의미합니다
+--
+. [[step14]]] 스위치 SW2에서 모든 노드 페이싱 포트를 활성화합니다.
 +
-`net device-discovery show -protocol lldp`
+다음 명령을 사용하면 스위치 SW2에서 노드 연결 포트를 사용할 수 있습니다.
+
++
+[listing, subs="+quotes"]
+----
+cumulus@sw2:~$ *nv unset interface swp1s0-3,swp2s0-3,swp3-14 link state down*
+cumulus@sw2:~$ *nv config apply*
+cumulus@sw2:~$ *nv config save*
+----
+. [[step15]]] 스위치 SW2에서 모든 포트가 작동 중인지 확인합니다.
++
+`nv show interface`
+
++
+[listing, subs="+quotes"]
+----
+cumulus@sw2:~$ *nv show interface*
+
+Interface    State  Speed  MTU    Type      Remote Host                 Remote Port  Summary
+-----------  -----  -----  -----  --------  --------------------------  -----------  ----------
+...
+...
+swp1s0       up     10G    9216   swp       odq-a300-1a                         e0a
+swp1s1       up     10G    9216   swp       odq-a300-1b                         e0a
+swp1s2       down   10G    9216   swp
+swp1s3       down   10G    9216   swp
+swp2s0       down   25G    9216   swp
+swp2s1       down   25G    9216   swp
+swp2s2       down   25G    9216   swp
+swp2s3       down   25G    9216   swp
+swp3         down          9216   swp
+swp4         down          9216   swp
+...
+...
+swp14        down          9216   swp
+swp15        up     100G   9216   swp       ossg-int-rcf10                    swp15
+swp16        up     100G   9216   swp       ossg-int-rcf10                    swp16
+----
+
+
+. [[step16]] 두 스위치 SW1과 SW2에서 두 노드가 각 스위치에 대해 하나씩 연결되어 있는지 확인합니다.
++
+`nv show interface --view=lldp`
+
++
+다음 예는 SW1과 SW2의 두 스위치에 대한 적절한 결과를 보여줍니다.
+
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *nv show interface --view=lldp*
+
+Interface    Speed  Type      Remote Host                         Remote Port
+-----------  -----  --------  ----------------------------------  -----------
+...
+...
+swp1s0       10G    swp       odq-a300-1a                         e0a
+swp1s1       10G    swp       odq-a300-1b                         e0a
+swp1s2       10G    swp
+swp1s3       10G    swp
+swp2s0       25G    swp
+swp2s1       25G    swp
+swp2s2       25G    swp
+swp2s3       25G    swp
+swp3                swp
+swp4                swp
+...
+...
+swp14               swp
+swp15        100G   swp       ossg-int-rcf10                      swp15
+swp16        100G   swp       ossg-int-rcf10                      swp16
+
+cumulus@sw2:~$ *nv show interface --view=lldp*
+
+Interface    Speed  Type      Remote Host                         Remote Port
+-----------  -----  --------  ----------------------------------  -----------
+...
+...
+swp1s0       10G    swp       odq-a300-1a                         e0a
+swp1s1       10G    swp       odq-a300-1b                         e0a
+swp1s2       10G    swp
+swp1s3       10G    swp
+swp2s0       25G    swp
+swp2s1       25G    swp
+swp2s2       25G    swp
+swp2s3       25G    swp
+swp3                swp
+swp4                swp
+...
+...
+swp14               swp
+swp15        100G   swp       ossg-int-rcf10                      swp15
+swp16        100G   swp       ossg-int-rcf10                      swp16
+----
+
+
+--
+====
+. [[step17]] 클러스터에서 검색된 네트워크 장치에 대한 정보를 표시합니다.
++
+`network device-discovery show -protocol lldp`
 
 +
 .예제 보기
@@ -591,7 +795,7 @@ RPC status:
 2 paths up, 0 paths down (udp check)
 ----
 ====
-. 이더넷 스위치 상태 모니터 로그 수집 기능에 대한 암호를 생성합니다.
+. 로그 수집을 설정하려면 각 스위치에 대해 다음 명령을 실행합니다. 로그 수집을 위해 스위치 이름, 사용자 이름 및 암호를 입력하라는 메시지가 표시됩니다.
 +
 'System switch Ethernet log setup - password'(시스템 스위치 이더넷 로그 설정 - 암호)
 
@@ -625,7 +829,7 @@ Enter the password: *<enter switch password>*
 Enter the password again: *<enter switch password>*
 ----
 ====
-. 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화합니다.
+. 로그 수집을 시작하려면 다음 명령을 실행하여 디바이스를 이전 명령에서 사용한 스위치로 바꿉니다. 이렇게 하면 자세한 * 지원 * 로그 및 시간별 * 주기적 * 데이터 수집과 같은 두 가지 유형의 로그 수집이 시작됩니다.
 +
 `system switch ethernet log modify -device _<switch-name>_ -log-request true`
 
@@ -635,13 +839,13 @@ Enter the password again: *<enter switch password>*
 ====
 [listing, subs="+quotes"]
 ----
-cluster1::*> *system switch ethernet log modify -device cs1 -log-request true*
+cluster1::*> *system switch ethernet log modify -device sw1 -log-request true*
 
 Do you want to modify the cluster switch log collection configuration? {y|n}: [n] *y*
 
 Enabling cluster switch log collection.
 
-cluster1::*> *system switch ethernet log modify -device cs2 -log-request true*
+cluster1::*> *system switch ethernet log modify -device sw2 -log-request true*
 
 Do you want to modify the cluster switch log collection configuration? {y|n}: [n] *y*
 
@@ -663,15 +867,15 @@ Enabling cluster switch log collection.
 cluster1::*> system switch ethernet log show
 Log Collection Enabled: true
 
-Index  Switch                       Log Timestamp        Status
------- ---------------------------- -------------------  ---------    
-1      cs1 (b8:ce:f6:19:1b:42)      4/29/2022 03:05:25   complete   
-2      cs2 (b8:ce:f6:19:1b:96)      4/29/2022 03:07:42   complete
+Index  Switch                       Log Timestamp        Status
+------ ---------------------------- -------------------- ---------
+1      sw1 (b8:ce:f6:19:1b:42)      4/29/2022 03:05:25   complete
+2      sw2 (b8:ce:f6:19:1b:96)      4/29/2022 03:07:42   complete
 ----
 ====
 +
 
-CAUTION: 이러한 명령 중 하나라도 오류를 반환하거나 로그 수집이 완료되지 않으면 NetApp 지원에 문의하십시오.
+CAUTION: 이러한 명령에서 오류가 반환되면 NetApp 지원에 문의하십시오.
 
 . 권한 수준을 admin으로 다시 변경합니다.
 +
