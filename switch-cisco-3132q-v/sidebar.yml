@@ -31,6 +31,10 @@ entries:
     url: "/switch-cisco-3132q-v/install-nx-os-software-3132q-v.html"
   - title: RCF 구성 파일을 설치합니다
     url: "/switch-cisco-3132q-v/install-rcf-3132q-v.html"
+  - title: 로그 수집을 활성화합니다
+    url: "/switch-cisco-3132q-v/CSHM_log_collection.html"
+  - title: 모니터링을 위한 SNMPv3을 구성합니다
+    url: "/switch-cisco-3132q-v/CSHM_snmpv3.html"
 - title: 스위치 마이그레이션
   pdf-filename: Migrate_switches_3132q-v
   entries:

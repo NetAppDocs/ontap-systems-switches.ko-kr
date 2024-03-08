@@ -1,0 +1,134 @@
+---
+permalink: switch-cisco-9336c-fx2/CSHM_log_collection.html 
+sidebar: sidebar 
+keywords: log collection feature,collect switch-related log files,SSh key,crypto key generation 
+summary: 클러스터 스위치 상태 모니터 로그 수집 기능은 ONTAP에서 스위치 관련 로그 파일을 수집하는 데 사용됩니다. 여기에 설명된 대로 9336c-FX2 클러스터 스위치 CLI를 사용하여 환경을 설정해야 합니다. 
+---
+= 이더넷 스위치 상태 모니터링 로그 수집
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+로그 수집 기능을 사용하여 ONTAP에서 스위치 관련 로그 파일을 수집할 수 있습니다.
+이더넷 스위치 상태 모니터(CSHM)는 클러스터 및 스토리지 네트워크 스위치의 작동 상태를 확인하고 디버깅을 위한 스위치 로그를 수집하는 역할을 담당합니다. 이 절차는 스위치에서 자세한 * 지원 * 로그 수집을 설정 및 시작하는 프로세스를 안내하고 AutoSupport에서 수집하는 * 주기적 * 데이터의 시간별 수집을 시작합니다.
+
+.시작하기 전에
+* 9336C-FX2 클러스터 스위치 * CLI * 를 사용하여 환경을 설정했는지 확인합니다.
+* 스위치에 대해 스위치 상태 모니터링을 활성화해야 합니다. 를 확인하여 확인합니다 `Is Monitored:` 의 출력에서 필드는 * true * 로 설정됩니다 `system switch ethernet show` 명령.
+
+
+.단계
+. 이더넷 스위치 상태 모니터 로그 수집 기능에 대한 암호를 생성합니다.
++
+'System switch Ethernet log setup - password'(시스템 스위치 이더넷 로그 설정 - 암호)
+
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *system switch ethernet log setup-password*
+Enter the switch name: *<return>*
+The switch name entered is not recognized.
+Choose from the following list:
+*cs1*
+*cs2*
+
+cluster1::*> *system switch ethernet log setup-password*
+
+Enter the switch name: *cs1*
+Would you like to specify a user other than admin for log collection? {y|n}: *n*
+
+Enter the password: *<enter switch password>*
+Enter the password again: *<enter switch password>*
+
+cluster1::*> *system switch ethernet log setup-password*
+
+Enter the switch name: *cs2*
+Would you like to specify a user other than admin for log collection? {y|n}: *n*
+
+Enter the password: *<enter switch password>*
+Enter the password again: *<enter switch password>*
+----
+====
+. 로그 수집을 시작하려면 다음 명령을 실행하여 디바이스를 이전 명령에서 사용한 스위치로 바꿉니다. 이렇게 하면 자세한 * 지원 * 로그 및 시간별 * 주기적 * 데이터 수집과 같은 두 가지 유형의 로그 수집이 시작됩니다.
++
+`system switch ethernet log modify -device _<switch-name>_ -log-request true`
+
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *system switch ethernet log modify -device cs1 -log-request true*
+
+Do you want to modify the cluster switch log collection configuration? {y|n}: [n] *y*
+
+Enabling cluster switch log collection.
+
+cluster1::*> *system switch ethernet log modify -device cs2 -log-request true*
+
+Do you want to modify the cluster switch log collection configuration? {y|n}: [n] *y*
+
+Enabling cluster switch log collection.
+----
+====
++
+10분간 기다린 후 로그 수집이 완료되었는지 확인합니다.
+
++
+`system switch ethernet log show`
+
++
+
+CAUTION: 이러한 명령 중 하나라도 오류를 반환하거나 로그 수집이 완료되지 않으면 NetApp 지원에 문의하십시오.
+
+
+
+.문제 해결
+로그 수집 기능에 의해 보고되는 다음 오류 상태 중 하나가 발생하는 경우( 의 출력에 표시됨 `system switch ethernet log show`), 해당 디버그 단계를 시도해 봅니다.
+
+|===
+
+
+| * 로그 수집 오류 상태 * | * 해상도 * 
+
+
+ a| 
+*RSA 키가 없습니다
+ a| 
+ONTAP SSH 키를 재생성합니다. NetApp 지원 부서에 문의하십시오.
+
+
+
+ a| 
+* 스위치 암호 오류 *
+ a| 
+자격 증명을 확인하고, SSH 연결을 테스트하고, ONTAP SSH 키를 다시 생성합니다. 스위치 설명서를 검토하거나 NetApp 지원에 문의하여 지침을 받으십시오.
+
+
+
+ a| 
+*FIPS*에 대한 ECDSA 키가 없습니다
+ a| 
+FIPS 모드가 활성화된 경우 재시도하기 전에 스위치에서 ECDSA 키를 생성해야 합니다.
+
+
+
+ a| 
+* 기존 로그를 찾았습니다 *
+ a| 
+스위치에서 이전 로그 수집 파일을 제거합니다.
+
+
+
+ a| 
+* 스위치 덤프 로그 오류 *
+ a| 
+스위치 사용자에게 로그 수집 권한이 있는지 확인합니다. 위의 필수 구성 요소를 참조하십시오.
+
+|===

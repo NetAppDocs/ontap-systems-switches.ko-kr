@@ -51,7 +51,24 @@ image::../media/Initial_setup.png[초기 스위치 설정]
 .이 작업에 대해
 이 절차를 수행하려면 ONTAP 명령과 를 모두 사용해야 합니다 https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Nexus 9000 시리즈 스위치"^] 달리 지시되지 않는 한, Commands; ONTAP 명령어가 사용된다.
 
-이 절차 중에는 작동 중인 ISL(Inter-Switch Link)이 필요하지 않습니다. RCF 버전 변경이 ISL 연결에 일시적으로 영향을 미칠 수 있기 때문에 이는 설계상 가능합니다. 무중단 클러스터 운영을 보장하기 위해 다음 절차를 수행하면 타겟 스위치에 대한 단계를 수행하는 동안 모든 클러스터 LIF가 운영 파트너 스위치로 마이그레이션됩니다.
+이 절차에서는 다음 시나리오에 대해 설명합니다.
+
+* 스위치 CS2가 스위치 CS2로 교체됩니다. 먼저 새 스위치가 필요합니다.
++
+** 클러스터 노드의 포트를 종료합니다. 클러스터 불안정을 방지하려면 모든 포트를 동시에 종료해야 합니다.
+** 그런 다음 노드와 CS2 사이의 케이블 연결이 CS2에서 분리되어 CS2-NEW에 다시 연결됩니다.
+
+
+* 스위치 CS1이 스위치 CS1-NEW로 대체되었습니다.
++
+** 클러스터 노드의 포트를 종료합니다. 클러스터 불안정을 방지하려면 모든 포트를 동시에 종료해야 합니다.
+** 그런 다음 노드와 CS1 간의 케이블 연결이 CS1에서 분리되어 CS1-NEW에 다시 연결됩니다.
+
+
+
+
+
+NOTE: 이 절차 중에는 작동 중인 ISL(Inter-Switch Link)이 필요하지 않습니다. RCF 버전 변경이 ISL 연결에 일시적으로 영향을 미칠 수 있기 때문에 이는 설계상 가능합니다. 무중단 클러스터 운영을 보장하기 위해 다음 절차를 수행하면 타겟 스위치에 대한 단계를 수행하는 동안 모든 클러스터 LIF가 운영 파트너 스위치로 마이그레이션됩니다.
 
 
 
@@ -228,26 +245,16 @@ cs2                         cluster-network     10.233.205.93   N5K-C5596UP
 
 . 클러스터 LIF에서 자동 되돌리기 기능을 해제합니다.
 +
-.예제 보기
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert false*
-----
-====
-. 클러스터 스위치 CS2에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.
+'network interface modify -vserver Cluster-lif * -auto-revert false'
+
+. 클러스터 LIF로 페일오버하려면 클러스터 스위치 CS2에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.
 +
-.예제 보기
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 cs2(config)# *interface eth1/1-1/2*
 cs2(config-if-range)# *shutdown*
 ----
-====
-. 클러스터 LIF가 클러스터 스위치 CS1에 호스팅된 포트로 마이그레이션되었는지 확인합니다. 이 작업은 몇 초 정도 걸릴 수 있습니다.
+. 클러스터 LIF가 클러스터 스위치 CS1에 호스팅된 포트로 페일오버되었는지 확인합니다. 이 작업은 몇 초 정도 걸릴 수 있습니다.
 +
 'network interface show-vserver cluster'
 
@@ -351,14 +358,14 @@ node2      /cdp
 +
 이동된 클러스터 포트에 CS2-새 스위치가 이웃으로 표시되는지 확인합니다.
 
-. 스위치 CS2의 관점에서 스위치 포트 연결을 확인합니다. - 새로운 관점:
+. 스위치 CS2-NEW의 관점에서 스위치 포트 연결을 확인합니다.
 +
 [listing, subs="+quotes"]
 ----
 cs2-new# *show interface brief*
 cs2-new# *show cdp neighbors*
 ----
-. 클러스터 스위치 CS1에서 노드의 클러스터 포트에 연결된 포트를 종료합니다. 다음 예제에서는 7단계의 인터페이스 예제 출력을 사용합니다.
+. 클러스터 LIF로 페일오버하려면 클러스터 스위치 CS1에서 노드의 클러스터 포트에 연결된 포트를 종료합니다. 다음 예제에서는 7단계의 인터페이스 예제 출력을 사용합니다.
 +
 [listing, subs="+quotes"]
 ----
@@ -368,7 +375,7 @@ cs1(config-if-range)# *shutdown*
 +
 모든 클러스터 LIF가 CS2-신규 스위치로 이동합니다.
 
-. 클러스터 LIF가 스위치 CS2에서 호스팅되는 포트로 마이그레이션되었는지 확인합니다. 몇 초 정도 걸릴 수 있습니다.
+. 클러스터 LIF가 스위치 CS2에 호스팅된 포트로 페일오버되었는지 확인합니다. 몇 초 정도 걸릴 수 있습니다.
 +
 'network interface show-vserver cluster'
 
@@ -471,17 +478,13 @@ node2      /cdp
 +
 이동된 클러스터 포트에 CS1-새 스위치가 인접 스위치로 표시되는지 확인합니다.
 
-. 스위치 CS1 - 새로운 관점에서 스위치 포트 연결을 확인합니다.
+. 스위치 CS1-NEW의 관점에서 스위치 포트 연결을 확인합니다.
 +
-.예제 보기
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 cs1-new# *show interface brief*
 cs1-new# *show cdp neighbors*
 ----
-====
 . CS1-NEW와 CS2-NEW 사이의 ISL이 여전히 작동하는지 확인합니다.
 +
 '포트-채널 요약
@@ -531,14 +534,8 @@ Group Port-       Type     Protocol  Member Ports
 
 . 클러스터 LIF에서 자동 되돌리기 기능을 설정합니다.
 +
-.예제 보기
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert true*
-----
-====
+'network interface modify -vserver Cluster-lif * -auto-revert true'
+
 . 클러스터 LIF가 홈 포트로 되돌아가는지 확인합니다(1분 정도 걸릴 수 있음).
 +
 'network interface show-vserver cluster'

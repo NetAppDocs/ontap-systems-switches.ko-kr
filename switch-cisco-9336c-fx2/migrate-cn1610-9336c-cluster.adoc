@@ -58,9 +58,20 @@ NetApp CN1610 클러스터 스위치를 Cisco 9336C-FX2 클러스터 스위치�
 * 클러스터 LIF는 각각 노드 1의 _node1_clus1_과 _node1_clus2_이고, 노드 2의 _node2_clus1_과 _node2_clus2_입니다.
 * 'cluster1:: *>' 프롬프트는 클러스터의 이름을 나타냅니다.
 * 이 절차에 사용되는 클러스터 포트는 _e3a_와 _e3b_입니다.
-* 스위치 C2가 먼저 스위치 CS2로 대체된 다음 스위치 C1이 스위치 CS1로 대체됩니다.
+
+
+.이 작업에 대해
+이 절차에서는 다음 시나리오에 대해 설명합니다.
+
+* 스위치 C2는 먼저 스위치 CS2로 대체됩니다.
 +
-** 그런 다음 노드와 C2 사이의 케이블 연결을 C2에서 분리하고 CS2에 다시 연결합니다
+** 클러스터 노드의 포트를 종료합니다. 클러스터 불안정을 방지하려면 모든 포트를 동시에 종료해야 합니다.
+** 그런 다음 노드와 C2 사이의 케이블 연결이 C2에서 분리되어 CS2에 다시 연결됩니다.
+
+
+* 스위치 C1이 스위치 CS1로 대체되었습니다.
++
+** 클러스터 노드의 포트를 종료합니다. 클러스터 불안정을 방지하려면 모든 포트를 동시에 종료해야 합니다.
 ** 그런 다음, 노드와 C1 사이의 케이블 연결을 C1에서 분리하고 CS1에 다시 연결합니다.
 
 
@@ -91,17 +102,6 @@ NOTE: 이 절차 중에는 작동 중인 ISL(Inter-Switch Link)이 필요하지 
 +
 'network interface modify -vserver Cluster-lif * -auto-revert false'
 
-+
-.예제 보기
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert false*
-
-Warning: Disabling the auto-revert feature of the cluster logical interface may effect the availability of your cluster network. Are you sure you want to continue? {y|n}: *y*
-----
-====
 
 
 
@@ -271,11 +271,8 @@ RPC status:
 2 paths up, 0 paths down (udp check)
 ----
 ====
-. 스위치 C2에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.
+. 클러스터 LIF로 페일오버하려면 스위치 C2에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.
 +
-.예제 보기
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 (C2)# *configure*
@@ -284,7 +281,6 @@ RPC status:
 (C2)(Interface 0/1-0/12)# *exit*
 (C2)(Config)# *exit*
 ----
-====
 . Cisco 9336C-FX2에서 지원하는 적절한 케이블을 사용하여 노드 클러스터 포트를 기존 스위치 C2에서 새 스위치 CS2로 이동합니다.
 . 네트워크 포트 속성을 표시합니다.
 +
@@ -359,11 +355,8 @@ Cluster
             node2_clus2  up/up      169.254.3.9/16     node2       e0b     true
 ----
 ====
-. 스위치 C1에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.
+. 클러스터 LIF로 페일오버하려면 스위치 C1에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.
 +
-.예제 보기
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 (C1)# *configure*
@@ -372,7 +365,6 @@ Cluster
 (C1)(Interface 0/1-0/12)# *exit*
 (C1)(Config)# *exit*
 ----
-====
 . Cisco 9336C-FX2에서 지원되는 적절한 케이블을 사용하여 노드 클러스터 포트를 이전 스위치 C1에서 새 스위치 CS1로 이동합니다.
 . 클러스터의 최종 구성을 확인합니다.
 +
@@ -515,12 +507,10 @@ Cluster
             node2_clus2  up/up    169.254.19.183/16  node2         e3b     true
 ----
 ====
-. 다음 두 명령을 사용하여 스위치 관련 로그 파일을 수집하기 위해 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화합니다.
+. 로그 수집을 설정하려면 각 스위치에 대해 다음 명령을 실행합니다. 로그 수집을 위해 스위치 이름, 사용자 이름 및 암호를 입력하라는 메시지가 표시됩니다.
 +
-System switch ethernet log setup-password와 system switch ethernet log enable-collection
+'System switch Ethernet log setup - password'(시스템 스위치 이더넷 로그 설정 - 암호)
 
-+
-.. '시스템 스위치 이더넷 로그 설정 - 암호'를 입력합니다
 +
 .예제 보기
 [%collapsible]
@@ -553,33 +543,30 @@ Enter the password: <enter switch password>
 Enter the password again: <enter switch password>
 ----
 ====
-.. '시스템 스위치 이더넷 로그 Enable-collection'이 그 뒤를 따랐습니다
+. 로그 수집을 시작하려면 다음 명령을 실행하여 디바이스를 이전 명령에서 사용한 스위치로 바꿉니다. 이렇게 하면 자세한 * 지원 * 로그 및 시간별 * 주기적 * 데이터 수집과 같은 두 가지 유형의 로그 수집이 시작됩니다.
++
+`system switch ethernet log modify -device _<switch-name>_ -log-request true`
+
 +
 .예제 보기
 [%collapsible]
 ====
 [listing, subs="+quotes"]
 ----
-cluster1::*> *system  switch ethernet log enable-collection*
+cluster1::*> *system switch ethernet log modify -device cs1 -log-request true*
 
-Do you want to enable cluster log collection for all nodes in the cluster?
-{y|n}: [n] *y*
+Do you want to modify the cluster switch log collection configuration? {y|n}: [n] *y*
 
 Enabling cluster switch log collection.
 
+cluster1::*> *system switch ethernet log modify -device cs2 -log-request true*
+
+Do you want to modify the cluster switch log collection configuration? {y|n}: [n] *y*
+
+Enabling cluster switch log collection.
 cluster1::*>
 ----
 ====
-+
-
-NOTE: 이러한 명령에서 오류가 반환되면 NetApp 지원에 문의하십시오.
-
-
-
-. 스위치 로그 수집 기능을 시작합니다.
-+
-`system switch ethernet log collect -device *`
-
 +
 10분간 기다린 후 다음 명령을 사용하여 로그 수집이 성공했는지 확인합니다.
 
@@ -587,20 +574,9 @@ NOTE: 이러한 명령에서 오류가 반환되면 NetApp 지원에 문의하�
 `system switch ethernet log show`
 
 +
-.예제 보기
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> system switch ethernet log show
-Log Collection Enabled: true
 
-Index  Switch                       Log Timestamp        Status
------- ---------------------------- -------------------  ---------    
-1      cs1 (b8:ce:f6:19:1b:42)      4/29/2022 03:05:25   complete   
-2      cs2 (b8:ce:f6:19:1b:96)      4/29/2022 03:07:42   complete
-----
-====
+NOTE: 이러한 명령에서 오류가 반환되면 NetApp 지원에 문의하십시오.
+
 . 권한 수준을 admin으로 다시 변경합니다.
 +
 'Set-Privilege admin'입니다

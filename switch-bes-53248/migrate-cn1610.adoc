@@ -98,11 +98,13 @@ NOTE: 포트 라이센스를 구입하면 추가 포트를 활성화할 수 있�
 * 클러스터가 두 CN1610 클러스터 스위치에 연결된 두 노드로 시작됩니다.
 * CN1610 스위치 CL2가 BES-53248 스위치 CS2로 교체됩니다.
 +
+** 클러스터 노드의 포트를 종료합니다. 클러스터 불안정을 방지하려면 모든 포트를 동시에 종료해야 합니다.
 ** CL2에 연결된 모든 노드의 모든 클러스터 포트에서 케이블을 분리한 다음 지원되는 케이블을 사용하여 포트를 새 클러스터 스위치 CS2에 다시 연결합니다.
 
 
 * CN1610 스위치 CL1이 BES-53248 스위치 CS1로 교체됩니다.
 +
+** 클러스터 노드의 포트를 종료합니다. 클러스터 불안정을 방지하려면 모든 포트를 동시에 종료해야 합니다.
 ** CL1에 연결된 모든 노드의 모든 클러스터 포트에서 케이블을 분리한 다음 지원되는 케이블을 사용하여 포트를 새 클러스터 스위치 CS1에 다시 연결합니다.
 
 
@@ -342,11 +344,8 @@ cluster1::*>
 ----
 cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert false*
 ----
-. 클러스터 스위치 CL2에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.
+. 클러스터 LIF로 페일오버하려면 클러스터 스위치 CL2에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.
 +
-.예제 보기
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 (CL2)# *configure*
@@ -356,8 +355,7 @@ cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert fals
 (CL2)(Config)# *exit*
 (CL2)#
 ----
-====
-. 클러스터 LIF가 클러스터 스위치 CL1에서 호스팅되는 포트로 마이그레이션되었는지 확인합니다. 이 작업은 몇 초 정도 걸릴 수 있습니다.
+. 클러스터 LIF가 클러스터 스위치 CL1에 호스팅된 포트로 페일오버되었는지 확인합니다. 이 작업은 몇 초 정도 걸릴 수 있습니다.
 +
 'network interface show-vserver cluster'
 
@@ -450,14 +448,14 @@ node1      /cdp
             e0b    cs2                       0/1               BES-53248
 ----
 ====
-. 다음 명령을 사용하여 스위치 CS2의 관점에서 스위치 포트 연결이 정상인지 확인합니다.
+. 스위치 CS2의 관점에서 스위치 포트 연결이 정상인지 확인합니다.
 +
 [listing, subs="+quotes"]
 ----
 cs2# *show port all*
 cs2# *show isdp neighbors*
 ----
-. 클러스터 스위치 CL1에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.
+. 클러스터 LIF로 페일오버하려면 클러스터 스위치 CL1에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.
 +
 [listing, subs="+quotes"]
 ----
@@ -469,9 +467,9 @@ cs2# *show isdp neighbors*
 (CL1)#
 ----
 +
-모든 클러스터 LIF가 CS2 스위치로 이동합니다.
+모든 클러스터 LIF는 CS2 스위치로 페일오버합니다.
 
-. 클러스터 LIF가 스위치 CS2에 호스팅된 포트로 마이그레이션되었는지 확인합니다. 몇 초 정도 걸릴 수 있습니다.
+. 클러스터 LIF가 스위치 CS2에 호스팅된 포트로 페일오버되었는지 확인합니다. 몇 초 정도 걸릴 수 있습니다.
 +
 'network interface show-vserver cluster'
 
@@ -564,7 +562,7 @@ node2      /cdp
             e0b    cs2                       0/2               BES-53248
 ----
 ====
-. 다음 명령을 사용하여 스위치 CS1의 관점에서 스위치 포트 연결이 정상인지 확인합니다.
+. 스위치 CS1의 관점에서 스위치 포트 연결이 정상인지 확인합니다.
 +
 [listing, subs="+quotes"]
 ----
@@ -711,11 +709,7 @@ RPC status:
 2 paths up, 0 paths down (udp check)
 ----
 ====
-. 이더넷 스위치 상태 모니터 로그 수집 기능에 대한 암호를 생성합니다.
-+
-
-IMPORTANT: 로그 수집 기능을 사용하려면 ONTAP 9.10.1P15, 9.11.1P12 또는 9.12.1 이상 및 EFOS 3.8.0.2 이상을 실행해야 합니다.
-
+. 로그 수집을 설정하려면 각 스위치에 대해 다음 명령을 실행합니다. 로그 수집을 위해 스위치 이름, 사용자 이름 및 암호를 입력하라는 메시지가 표시됩니다.
 +
 'System switch Ethernet log setup - password'(시스템 스위치 이더넷 로그 설정 - 암호)
 
@@ -749,7 +743,7 @@ Enter the password: *<enter switch password>*
 Enter the password again: *<enter switch password>*
 ----
 ====
-. 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화합니다.
+. 로그 수집을 시작하려면 다음 명령을 실행하여 디바이스를 이전 명령에서 사용한 스위치로 바꿉니다. 이렇게 하면 자세한 * 지원 * 로그 및 시간별 * 주기적 * 데이터 수집과 같은 두 가지 유형의 로그 수집이 시작됩니다.
 +
 `system switch ethernet log modify -device _<switch-name>_ -log-request true`
 
