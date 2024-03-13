@@ -10,7 +10,7 @@ summary: 케이블 연결 이미지를 사용하여 컨트롤러와 스위치 �
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -42,7 +42,9 @@ image:9336c_image2.jpg["직접 연결"]
 
 지원되는 플랫폼을 문서화하려면 작성한 샘플 케이블 연결 워크시트를 참조하여 빈 케이블 연결 워크시트를 작성해야 합니다.
 
-각 스위치 쌍의 샘플 포트 정의는 다음과 같습니다.image:cabling_worksheet.jpg["케이블 연결 워크시트"]
+각 스위치 쌍의 샘플 포트 정의는 다음과 같습니다.
+
+image:cabling_worksheet.jpg["케이블 연결 워크시트"]
 
 여기서,
 
