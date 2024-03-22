@@ -1,7 +1,7 @@
 ---
 permalink: switch-cisco-3232c/CSHM_snmpv3.html 
 sidebar: sidebar 
-keywords: SNMP,SNMPv3,SNMPv3 setup,BES-53248 Broadcom setup,BES-3248 switches configuration,EFOS 
+keywords: SNMP,SNMPv3,SNMPv3 setup,Cisco setup,Cisco switches configuration,NX-OS 
 summary: 'SNMPv3은 이더넷 스위치 상태 모니터(CSHM)와 함께 사용할 수 있습니다.' 
 ---
 = SNMPv3을 구성합니다

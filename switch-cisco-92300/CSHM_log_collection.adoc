@@ -1,8 +1,8 @@
 ---
-permalink: switch-cisco-3132q-v/CSHM_log_collection.html 
+permalink: switch-cisco-92300/CSHM_log_collection.html 
 sidebar: sidebar 
-keywords: log collection feature,collect switch-related log files,SSh key,crypto key generation 
-summary: 클러스터 스위치 상태 모니터 로그 수집 기능은 ONTAP에서 스위치 관련 로그 파일을 수집하는 데 사용됩니다. 여기에 설명된 대로 92300YC 클러스터 스위치 CLI를 사용하여 환경을 설정해야 합니다. 
+keywords: log collection feature,collect switch-related log files,SSh key,crypto key generation,92300YC Cisco setup,92300YC switches configuration,NX-OS 
+summary: '이더넷 스위치 상태 모니터(CSHM) 로그 수집 기능은 ONTAP의 클러스터 또는 스토리지 네트워크 스위치에서 로그를 수집하는 데 사용됩니다.' 
 ---
 = 이더넷 스위치 상태 모니터링 로그 수집
 :allow-uri-read: 
@@ -11,17 +11,10 @@ summary: 클러스터 스위치 상태 모니터 로그 수집 기능은 ONTAP�
 
 
 [role="lead"]
-로그 수집 기능을 사용하여 ONTAP에서 스위치 관련 로그 파일을 수집할 수 있습니다.
-
 이더넷 스위치 상태 모니터(CSHM)는 클러스터 및 스토리지 네트워크 스위치의 작동 상태를 확인하고 디버깅을 위한 스위치 로그를 수집하는 역할을 담당합니다. 이 절차는 스위치에서 자세한 * 지원 * 로그 수집을 설정 및 시작하는 프로세스를 안내하고 AutoSupport에서 수집하는 * 주기적 * 데이터의 시간별 수집을 시작합니다.
 
-.시작하기 전에
-* Cisco 3132Q-V 클러스터 스위치 * CLI * 를 사용하여 환경을 설정했는지 확인합니다.
-* 스위치에 대해 스위치 상태 모니터링을 활성화해야 합니다. 를 확인하여 확인합니다 `Is Monitored:` 의 출력에서 필드는 * true * 로 설정됩니다 `system switch ethernet show` 명령.
-
-
 .단계
-. 이더넷 스위치 상태 모니터 로그 수집 기능에 대한 암호를 생성합니다.
+. 로그 수집을 설정하려면 각 스위치에 대해 다음 명령을 실행합니다. 로그 수집을 위해 스위치 이름, 사용자 이름 및 암호를 입력하라는 메시지가 표시됩니다.
 +
 'System switch Ethernet log setup - password'(시스템 스위치 이더넷 로그 설정 - 암호)
 
@@ -79,7 +72,7 @@ Enabling cluster switch log collection.
 ----
 ====
 +
-10분 동안 기다린 다음 로그 수집이 완료되는지 확인합니다.
+10분간 기다린 후 로그 수집이 완료되었는지 확인합니다.
 
 +
 `system switch ethernet log show`

@@ -1,7 +1,7 @@
 ---
 permalink: switch-cisco-9336c-fx2/configure-ssh.html 
 sidebar: sidebar 
-keywords: ssh, requirement, cluster, switch, health, monitor, chsm, log, collection, feature, bes, enable ssh on 9336c-fx2 cluster switches - 9336c-fx2 switches 
+keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, bes, enable ssh on 9336c-fx2 cluster switches - 9336c-fx2 switches 
 summary: '클러스터 스위치 상태 모니터\(CSMM\) 및 로그 수집 기능을 사용하려면 SSH가 필요합니다. Cisco 9336C-FX2 클러스터 스위치에서 SSH를 사용하도록 설정하려면 먼저 SSH 키를 생성한 다음 SSH를 사용하도록 설정합니다.' 
 ---
 = Cisco 9336C-FX2 클러스터 스위치에서 SSH를 사용하도록 설정합니다
@@ -115,4 +115,4 @@ SCP server Administrative Mode: ............... Enabled
 
 
 .다음 단계
-link:configure-log-collection.html["로그 수집 기능을 활성화합니다"].
+link:CSHM_log_collection.html["로그 수집을 활성화합니다"].

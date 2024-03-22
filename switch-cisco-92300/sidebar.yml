@@ -31,8 +31,10 @@ entries:
     url: "/switch-cisco-92300/install-nxos-software.html"
   - title: RCF 구성 파일을 설치합니다
     url: "/switch-cisco-92300/install-the-rcf-file.html"
-  - title: CSHM을 설치합니다
-    url: "/switch-cisco-92300/setup-install-cshm-file.html"
+  - title: 로그 수집을 활성화합니다
+    url: "/switch-cisco-92300/CSHM_log_collection.html"
+  - title: 모니터링을 위한 SNMPv3을 구성합니다
+    url: "/switch-cisco-92300/CSHM_snmpv3.html"
 - title: 스위치 마이그레이션
   pdf-filename: Migrate_switches_92300yc
   entries:
