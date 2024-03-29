@@ -1,0 +1,108 @@
+---
+permalink: switch-bes-53248/cabling-considerations-bes-53248.html 
+sidebar: sidebar 
+keywords: BES-53248 cabling setup, BES-53248 switches configuration, efos 
+summary: Broadcom BES-53248 스위치를 구성하기 전에 다음 정보를 검토하십시오. 
+---
+= 케이블 연결 및 구성 고려 사항을 검토합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Broadcom BES-53248 스위치를 구성하기 전에 다음 고려 사항을 검토하십시오.
+
+
+
+== 클러스터 포트 스위치 할당
+
+Broadcom 지원 BES-53248 클러스터 스위치 포트 할당 표를 사용하여 클러스터를 구성할 수 있습니다.
+
+|===
+
+
+| * 스위치 포트 * | * 포트 사용 * 
+
+
+ a| 
+0-16 을 참조하십시오
+ a| 
+10/25GbE 클러스터 포트 노드, 기본 구성
+
+
+
+ a| 
+17-48
+ a| 
+10/25GbE 클러스터 포트 노드, 라이센스 포함
+
+
+
+ a| 
+49-54로 이동합니다
+ a| 
+40/100GbE 클러스터 포트 노드 및 라이센스 포함, 오른쪽에서 왼쪽 추가
+
+
+
+ a| 
+55-56
+ a| 
+100GbE 클러스터 ISL(Inter-Switch Link) 포트, 기본 구성
+
+|===
+를 참조하십시오 https://hwu.netapp.com/Switch/Index["Hardware Universe"^] 스위치 포트에 대한 자세한 내용은 을 참조하십시오.
+
+
+
+== 포트 그룹 속도 제한
+
+* BES-53248 클러스터 스위치에서 48개의 10/25GbE(SFP28/SFP+) 포트를 다음과 같이 12개의 4 포트 그룹으로 통합합니다. 포트 1-4, 5-8, 9-12, 13-16, 17-20, 21-24, 25-28, 29-32, 33-36, 37-40, 41-44 및 45-48로 이동합니다.
+* SFP28/SFP+ 포트 속도는 4포트 그룹의 모든 포트에서 동일한(10GbE 또는 25GbE)여야 합니다.
+* 4포트 그룹의 속도가 다르면 스위치 포트가 제대로 작동하지 않습니다.
+
+
+
+
+== FEC 요구 사항
+
+* 구리 케이블이 있는 25G 포트의 경우, 자세한 내용은 다음 표를 참조하십시오.
+
+
+컨트롤러 쪽이 인 경우 `auto`, 스위치 측이 FEC 25G로 설정되어 있습니다.
+
+를 누릅니다
+이미지:../media/FEC_copper_table.jpg[25G 포트(구리 케이블 포함)]
+
+* 파이버/광 케이블이 있는 25G 포트의 경우, 자세한 내용은 다음 표를 참조하십시오.
++
+image::../media/FEC_fiber_table.jpg[파이버/광 케이블을 포함한 25g 포트]
+
+
+
+
+
+=== Bootarg 구현
+
+다음 명령을 사용하여 25G 포트 FEC를 둘 중 하나로 설정합니다 `auto` 또는 `fc`필요에 따라:
+
+[listing]
+----
+systemshell -node <node> -command sudo sysctl dev.ice.<X>.requested_fec=<auto/fc>
+----
+* 를 로 설정한 경우 *`auto`*:
++
+** 를 클릭합니다 `auto` 설정을 설정하면 설정이 즉시 하드웨어로 전파되며 재부팅이 필요하지 않습니다.
+** If(경우 `bootarg.cpk_fec_fc_eXx already exists`부트마크 스토리지에서 삭제됩니다.
+** 재부팅 후 은 을(를) 확인합니다 `auto` 이후 설정은 그대로 유지됩니다 `auto` 기본 FEC 설정입니다.
+
+
+* 를 로 설정한 경우 *`fc`*:
++
+** 를 클릭합니다 `FC-FEC` 설정을 지정하면 설정이 즉시 하드웨어에 전파되며 재부팅이 필요하지 않습니다.
+** 새로운 소식 `bootarg.cpk_fec_fc_eXx` 값이 "true"로 설정된 상태로 생성됩니다.
+** 재부팅 후 `FC-FEC` 드라이버 코드가 사용할 수 있도록 설정이 그대로 유지됩니다.
+
+
+

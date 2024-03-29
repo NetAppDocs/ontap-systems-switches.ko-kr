@@ -1,0 +1,56 @@
+---
+permalink: switch-cisco-9336c-fx2/cabling-considerations-9336c-fx2.html 
+sidebar: sidebar 
+keywords: 9336c-fx2 cabling setup, 9336c-fx2 switches configuration, nx-os 
+summary: Cisco 9336C-FX2 스위치를 구성하기 전에 다음 정보를 검토하십시오. 
+---
+= 케이블 연결 및 구성 고려 사항을 검토합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cisco 9336C-FX2 스위치를 구성하기 전에 다음 사항을 검토하십시오.
+
+
+
+== NVIDIA CX6, CX6-DX 및 CX7 이더넷 포트 지원
+
+NVIDIA ConnectX-6(CX6), ConnectX-6 DX(CX6-DX) 또는 ConnectX-7(CX7) NIC 포트를 사용하여 스위치 포트를 ONTAP 컨트롤러에 연결하는 경우 스위치 포트 속도를 하드 코딩해야 합니다.
+
+[listing, subs="+quotes"]
+----
+(cs1)(config)# interface Ethernet1/19
+*For 100GbE speed:*
+(cs1)(config-if)# *speed 100000*
+*For 40GbE speed:*
+(cs1)(config-if)# *speed 40000*
+(cs1)(config-if)# no negotiate auto
+(cs1)(config-if)# exit
+(cs1)(config)# exit
+*Save the changes:*
+(cs1)# *copy running-config startup-config*
+----
+를 참조하십시오 https://hwu.netapp.com/Switch/Index["Hardware Universe"^] 스위치 포트에 대한 자세한 내용은 을 참조하십시오.
+
+
+
+== 25GbE FEC 요구 사항
+
+
+
+=== FAS2820 e0a/e0b 포트
+
+FAS2820 e0a 및 e0b 포트 9336C-FX2 스위치 포트를 연결하려면 FEC 구성 변경 사항이 필요합니다.
+스위치 포트 e0a 및 e0b의 경우 FEC 설정은 로 설정됩니다 `rs-cons16`.
+
+[listing, subs="+quotes"]
+----
+(cs1)(config)# interface Ethernet1/8-9
+(cs1)(config-if-range)# *fec rs-cons16*
+(cs1)(config-if-range)# exit
+(cs1)(config)# exit
+*Save the changes:*
+(cs1)# *copy running-config startup-config*
+----

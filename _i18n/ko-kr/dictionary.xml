@@ -960,14 +960,12 @@
   <block id="4117e035e1d5632e3f6a3311cd104041" category="list-text">노드 2의 클러스터 포트 e0a에서 케이블을 분리한 다음, BES-53248 스위치가 지원하는 적절한 케이블을 사용하여 클러스터 스위치 CS1의 포트 2에 e0a를 연결합니다.</block>
   <block id="a2c09169aae3d453a5de75708a6aea92" category="paragraph">다음 예에서는 스위치 CS1에서 포트 1 ~ 16이 활성화되어 있음을 보여 줍니다.</block>
   <block id="1cd3efec31f045ffb5449349f414844d" category="list-text">모든 클러스터 LIF가 작동 중이고 "홈"에 대해 "참"으로 표시되는지 확인합니다.</block>
-  <block id="fcad649cb098b84dccd4a01a3b2eaa7f" category="paragraph">다음 예에서는 모든 LIF가 node1과 node2에 있고 "홈" 결과가 "참"임을 보여 줍니다.</block>
   <block id="37389337e6e35d88b5139f8a3c830f35" category="list-text">클러스터의 노드 상태에 대한 정보를 표시합니다.</block>
   <block id="494cb4f7976c64f111b74e9089d5bbd5" category="paragraph">'클러스터 쇼'</block>
   <block id="c5642fd4b778b82aea74ab00968dce4b" category="list-text">BES-53248 스위치가 지원하는 적절한 케이블을 사용하여 노드 1의 클러스터 포트 e0b에서 케이블을 분리한 다음 클러스터 스위치 CS2의 포트 1에 e0b를 연결합니다.</block>
   <block id="44e579a0b4e1ad763dcbac7dd27eb57a" category="list-text">BES-53248 스위치가 지원하는 적절한 케이블을 사용하여 노드 2의 클러스터 포트 e0b에서 케이블을 분리한 다음 클러스터 스위치 CS2의 포트 2에 e0b를 연결합니다.</block>
   <block id="3d7d92fe9fa50ff07a52fda11ae8d646" category="paragraph">다음 예에서는 스위치 CS2에서 포트 1부터 16까지 활성화되었음을 보여 줍니다.</block>
   <block id="30530896511238b69b0e6acc7e04d6ce" category="list-text">모든 인터페이스가 '홈'에 대해 '참'으로 표시되는지 확인합니다.</block>
-  <block id="920dd0f6e71089afe68eba9aa2f22c90" category="paragraph">다음 예에서는 모든 LIF가 node1과 node2에 있고 "홈" 결과가 "참"임을 보여 줍니다.</block>
   <block id="90c03200b8f85b5e421787d5bb39a45c" category="list-text">두 노드 모두 각 스위치에 하나씩 연결되어 있는지 확인합니다.</block>
   <block id="34898bfa473a2408e3c8f536845f48e5" category="list-text">클러스터에서 검색된 네트워크 장치에 대한 정보를 표시합니다.</block>
   <block id="48e27bd4f05b8928a4da9e94eb1821b7" category="paragraph">네트워크 디바이스 검색 표시 프로토콜 CDP</block>
@@ -2021,7 +2019,6 @@
   <block id="8cd379638fc4ccb9fe87c298fc5389eb" category="paragraph">스위치는 네트워크 연결을 통해 Telnet 또는 SSH를 사용하여 콘솔 포트 또는 원격 관리를 통한 로컬 관리를 지원합니다. CN1610에는 대역 외 스위치 관리를 위한 전용 1기가비트 이더넷 RJ45 관리 포트가 포함되어 있습니다. CLI(Command-Line Interface)에 명령을 입력하거나 NMS(SNMP 기반 네트워크 관리 시스템)를 사용하여 스위치를 관리할 수 있습니다.</block>
   <block id="863521236411601eb091fc20202c6aaf" category="list-text">N1_clus4 는 노드 n1의 클러스터 스위치 1(CL1 또는 C1)에 연결된 두 번째 LIF입니다.</block>
   <block id="33813b05f223e9025627eaf85a7f8eaa" category="list-text">N1_clus3 은 노드 n1의 클러스터 스위치 C2에 연결된 두 번째 LIF입니다.</block>
-  <block id="831835779ddae8b680a8580d383f130b" category="sidebar">AFF 및 FAS 스위치 문서</block>
   <block id="37fed156054fea8c26c972e349998cf7" category="paragraph">에서는 클러스터 환경에 맞게 스위치 하드웨어 및 소프트웨어를 구성하는 방법에 대해 자세히 설명합니다.</block>
   <block id="07681dab39c1e1030eba7eb43c51f01f" category="paragraph">CN1601 스위치 하드웨어 및 소프트웨어 기능 및 설치 프로세스의 개요</block>
   <block id="d53f278b262fe510c209b77f0fbcca0e" category="paragraph">를 클릭합니다<block ref="a9613e1dbacf145285c45df4264fe797" category="inline-link-rx"></block> 케이블 연결에 대한 자세한 내용은 에 나와 있습니다.</block>
@@ -3383,18 +3380,10 @@
   <block id="d1f4afd8356da4e0148299e8020db15b" category="list-text">RCF(Reference Configuration Files)가 스위치에 적용됩니다.</block>
   <block id="3162ac93186b03e54de9e68256dbb924" category="list-text">모든 사이트 사용자 지정(SMTP, SNMP 및 SSH)이 새 스위치에 구성됩니다.</block>
   <block id="f0b02a6a42b62e57a146137078a39635" category="section-title">클러스터 환경으로 마이그레이션</block>
-  <block id="af0f02b80aaae2d29a88a56209cd3dd0" category="list-text">두 BES-53248 스위치 CS1과 CS2 사이의 ISL과 ISL의 물리적 포트가 * UP * 인지 확인합니다.</block>
   <block id="09a5fb271719ecae04d6c0f573fa3099" category="paragraph">다음 예에서는 스위치 CS1에서 ISL 포트가 * UP * 임을 보여 줍니다.</block>
   <block id="f9431300de8d1a48bf2e554ad1605071" category="paragraph">다음 예에서는 스위치 CS2에서 ISL 포트가 * UP * 임을 보여 줍니다.</block>
-  <block id="96725f7c30dba4b02784c4f6b22b76f2" category="list-text">모든 클러스터 포트가 "작동" 상태인지 확인합니다.</block>
-  <block id="711d7f6899df1dfa47e13a5fbedae706" category="paragraph">각 포트는 에 대해 "위쪽"으로 표시되어야 합니다<block ref="97e7c9a7d06eac006a28bf05467fcc8b" prefix=" " category="inline-code"></block> 및 "정상"을 참조하십시오<block ref="fbcf0d1f787c74663ca9dc925ebf5f0c" prefix=" " category="inline-code"></block>.</block>
-  <block id="b9342006c263bb81a72635a40bccef85" category="list-text">모든 클러스터 LIF가 "작동" 및 작동 중인지 확인:<block ref="7af866342cc7e87972580d7b709d8820" prefix=" " category="inline-code"></block></block>
-  <block id="a5d7c0c5e08447fc2eab20dfb2acee00" category="paragraph">각 클러스터 LIF는 에 대해 "참"으로 표시되어야 합니다<block ref="53db3ce0fe0e71f06b3beb0b676b806c" prefix=" " category="inline-code"></block> 그리고 가 있습니다<block ref="4f21ee5a18672b60f4c01e94e6be9c79" prefix=" " category="inline-code"></block> / "위/위"</block>
-  <block id="cd6df0359bdf1ee77a48901029c8c000" category="list-text">모든 클러스터 포트가 * UP * 인지 확인합니다.</block>
-  <block id="9f7da2912010ab11954f77bf548cc0d8" category="paragraph">다음 예에서는 노드 1과 노드 2에서 모든 클러스터 포트가 * UP * 임을 보여 줍니다.</block>
   <block id="99905a9acf063a85c4bbaa70f4455984" category="list-text">다음 명령을 사용하여 클러스터 네트워크가 완벽하게 연결되어 있는지 확인합니다.</block>
   <block id="1e44ccea9f1ae385026deb840bc9b5f4" category="paragraph">자세한 내용은 다음을 참조하십시오.<block ref="780f810d0519883e7efdd6ef45cf51ed" category="inline-link-rx"></block></block>
-  <block id="291315307e480f559eb88bb2d33ce0be" category="paragraph">마이그레이션이 완료된 후 BES-53248 클러스터 스위치용 CSHM(Cluster Switch Health Monitor)을 지원하기 위해 필요한 구성 파일을 설치해야 할 수 있습니다. 을 참조하십시오 <block ref="22274518ab78de16bd162dd23a69479d" category="inline-link-macro-rx"></block> 및 <block ref="42a9a40a2570039f7bbb890cc28e41e6" category="inline-link-macro-rx"></block>.</block>
   <block id="77d285017f370185656b54b03d5b5a16" category="paragraph">BES-53248 클러스터 스위치 기본 모델은 10GbE 또는 25GbE 포트 16개와 100GbE 포트 2개에 대해 라이센스가 부여됩니다. 라이센스를 더 구매하여 새 포트를 추가할 수 있습니다.</block>
   <block id="f95b7ecd3b114623b8699a07a36fd860" category="section-title">사용 가능한 라이센스를 검토합니다</block>
   <block id="d0b4658a7d84a9eac4898488fcaa5c83" category="admonition">기본 구성에는 라이센스가 필요하지 않습니다.</block>
@@ -3942,12 +3931,10 @@
   <block id="b41c4700bab043f1f20ef00a3ca30550" category="admonition">Nexus 5596UP/5596T 클러스터 스위치는 NetApp에서 더 이상 제공되지 않지만 제한된 Tim에서 Cisco에서 지원합니다.</block>
   <block id="e727b00944f81e1d0a95c12886ac4641" category="inline-link">아카이브</block>
   <block id="43700a28b6a0a6d22cee566cf110c1ac" category="paragraph">하드웨어 지원 끝에 도달한 AFF 및 FAS 스위치 모델에 대한 문서는 에서 고객이 사용할 수 있습니다<block ref="e7b678559b63d2ae51b0bdc075b51522" category="inline-link-rx"></block>.</block>
-  <block id="3190ff33d621d64996efea42085e5a0e" category="sidebar">NetApp은 클러스터, 스토리지 및 공유 스위치를 제공하여 호스트 스토리지와 2개 이상의 AFF/FAS 컨트롤러 간에 연결을 제공하므로 스토리지 인프라 전반에서 데이터 및 네트워크 인터페이스를 중단 없이 이동할 수 있습니다.</block>
   <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">시작하십시오</block>
   <block id="33871b6190a8d5adbe8b15282054766c" category="sidebar">새로운 소식</block>
   <block id="06ad314b340900d226b1196e1fe289e9" category="sidebar">빠른 시작</block>
   <block id="732eab758bc032e5cc4992b97650c69b" category="sidebar">관련 ONTAP 문서</block>
-  <block id="495d87219d733f7402b03ba10a7576fc" category="sidebar">AFF/FAS 하드웨어 시스템</block>
   <block id="efd44736fee0b29831bc101f834f9425" category="sidebar">ONTAP 소프트웨어</block>
   <block id="974ad78dc53c253ebfe5b2b8b376f353" category="sidebar">도구 지원</block>
   <block id="668e2078ef1b1722c77cdb5c523a4463" category="sidebar">NetApp 기술 자료</block>
@@ -3983,7 +3970,6 @@
   <block id="037fd3285f5414c76c57c401fbc5603c" category="sidebar">로그 수집을 활성화합니다</block>
   <block id="71f5771dab663d80ba4dad1627e3386a" category="sidebar">업그레이드 개요</block>
   <block id="1f23e03e99812c23b47ad60d475647df" category="sidebar">스위치를 업그레이드합니다</block>
-  <block id="2707e98202897bbf6d508b6f4c5232cc" category="sidebar">2노드 스위치로 마이그레이션합니다</block>
   <block id="90f9408edf534ae6691bfa241e3cef32" category="sidebar">BES-53248 스위치를 교체합니다</block>
   <block id="c4767bb3bd142c908fcfd8a9e5fab38c" category="sidebar">스위치가 없는 DAS 클러스터에서 마이그레이션</block>
   <block id="3c0c4451f5d8950dc9b9a962b87ff4ae" category="sidebar">스위치 DAS 구성에서 마이그레이션</block>
@@ -4747,4 +4733,44 @@
   <block id="7733a6a16b4fa24d09c107d2b3eefb78" category="summary">클러스터 스위치 상태 모니터 로그 수집 기능은 ONTAP에서 스위치 관련 로그 파일을 수집하는 데 사용됩니다. 여기에 설명된 대로 92300YC 클러스터 스위치 CLI를 사용하여 환경을 설정해야 합니다.</block>
   <block id="e7c823ebcf9c688c2043749093639ce5" category="paragraph">다음 명령은 Cisco 92300YC 스위치에서 SNMPv3 사용자 이름을 구성합니다.</block>
   <block id="d60c463bb4096f3ed4bd1618626dfe10" category="paragraph-title">문제 해결</block>
+  <block id="3e7c0049318f1d54d121bd59293ae3f8" category="summary">Cisco 9336C-FX2 스위치를 구성하기 전에 다음 정보를 검토하십시오.</block>
+  <block id="6f46a467644090d99e7affb0172248d7" category="paragraph">Cisco 9336C-FX2 스위치를 구성하기 전에 다음 사항을 검토하십시오.</block>
+  <block id="4c53e24e451af6129456f6303c30d40c" category="section-title">NVIDIA CX6, CX6-DX 및 CX7 이더넷 포트 지원</block>
+  <block id="9631cf0fb6580db66010faf0ddf48e5a" category="paragraph">NVIDIA ConnectX-6(CX6), ConnectX-6 DX(CX6-DX) 또는 ConnectX-7(CX7) NIC 포트를 사용하여 스위치 포트를 ONTAP 컨트롤러에 연결하는 경우 스위치 포트 속도를 하드 코딩해야 합니다.</block>
+  <block id="814d720814ffd5b1d8710ed1cff64233" category="section-title">25GbE FEC 요구 사항</block>
+  <block id="5179acf3e9761e0b0a93230fb2e3563e" category="section-title">FAS2820 e0a/e0b 포트</block>
+  <block id="16492a28b092a6c397b2ace11004d3ae" category="paragraph">FAS2820 e0a 및 e0b 포트 9336C-FX2 스위치 포트를 연결하려면 FEC 구성 변경 사항이 필요합니다.
+스위치 포트 e0a 및 e0b의 경우 FEC 설정은 로 설정됩니다<block ref="49bb002a2d60e4cc69c3dc5b31861c1e" prefix=" " category="inline-code"></block>.</block>
+  <block id="4f87522819ea00e934b0a0922889948b" category="list-title">포트 그룹 속도 제약</block>
+  <block id="ffb3876ecec1241eb99eed3e2c199c30" category="list-text">48개의 10/25GbE(SFP28/SFP+) 포트는 포트 1-4, 5-8, 9-12, 13-16, 17-20, 21-24, 25-28, 29-32, 33-36, 37-40, 41-44 및 45-48을 참조하십시오.</block>
+  <block id="3262b02fba07b6c88ff94cf729a2d880" category="list-text">4포트 그룹의 속도가 다르면 스위치 포트가 제대로 작동하지 않습니다.</block>
+  <block id="44419445a2db4f385ef269ec6901c6f0" category="list-text">두 BES-53248 스위치 CS1과 CS2 사이의 ISL과 ISL의 물리적 포트가 작동 중인지 확인합니다.</block>
+  <block id="d3ca9236c4922d1ced4f46317b142939" category="paragraph">마이그레이션이 완료된 후 BES-53248 클러스터 스위치용 이더넷 스위치 상태 모니터(CSHM)를 지원하는 데 필요한 구성 파일을 설치해야 할 수 있습니다. 을 참조하십시오 <block ref="69a3b5b5b3e87ce1bcae2811d815d9de" category="inline-link-macro-rx"></block>.</block>
+  <block id="884341494cf0683252982193822b1820" category="summary">Broadcom BES-53248 스위치를 구성하기 전에 다음 정보를 검토하십시오.</block>
+  <block id="07da2741be958e9f66a97df92910bd8a" category="paragraph">Broadcom BES-53248 스위치를 구성하기 전에 다음 고려 사항을 검토하십시오.</block>
+  <block id="5ff0ed2baf5dbbaa7302070081cdcb21" category="section-title">클러스터 포트 스위치 할당</block>
+  <block id="6d2daece992ad0842c43707d5f1dd7e0" category="paragraph">Broadcom 지원 BES-53248 클러스터 스위치 포트 할당 표를 사용하여 클러스터를 구성할 수 있습니다.</block>
+  <block id="8a97863dc2bb67b8312833e0e1177b9a" category="paragraph">0-16 을 참조하십시오</block>
+  <block id="8f165dca42f321f16043254a0b0519b2" category="section-title">FEC 요구 사항</block>
+  <block id="c54cb1d1758401e3642d17bb93a69d93" category="list-text">구리 케이블이 있는 25G 포트의 경우, 자세한 내용은 다음 표를 참조하십시오.</block>
+  <block id="195cd18c7f8998650d35b4c351942586" category="paragraph">컨트롤러 쪽이 인 경우<block ref="9df22f196a33acd0b372fe502de51211" prefix=" " category="inline-code"></block>, 스위치 측이 FEC 25G로 설정되어 있습니다.</block>
+  <block id="a00291ce16531c65ee398b6881feea1f" category="paragraph">를 누릅니다
+이미지:../media/FEC_copper_table.jpg[25G 포트(구리 케이블 포함)]</block>
+  <block id="4acde917814132a561bfa4351ff46435" category="list-text">파이버/광 케이블이 있는 25G 포트의 경우, 자세한 내용은 다음 표를 참조하십시오.</block>
+  <block id="c6539246443696c8a670f430b739b72e" category="image-alt">파이버/광 케이블을 포함한 25g 포트</block>
+  <block id="6e780ba970adeac360d7606298c46e9e" category="section-title">Bootarg 구현</block>
+  <block id="128b15f7c069993f4d8608bed503593c" category="paragraph">다음 명령을 사용하여 25G 포트 FEC를 둘 중 하나로 설정합니다<block ref="9df22f196a33acd0b372fe502de51211" prefix=" " category="inline-code"></block> 또는<block ref="e05fe30750d3ea262a610d17ebc07019" prefix=" " category="inline-code"></block>필요에 따라:</block>
+  <block id="82f8a8d293c0abf4e508fba4f90f77de" category="list-text">를 로 설정한 경우 <block ref="9df22f196a33acd0b372fe502de51211" prefix="*" category="inline-code"></block>*:</block>
+  <block id="a2db881e6e788aef3d98248893ac183d" category="list-text">를 클릭합니다<block ref="9df22f196a33acd0b372fe502de51211" prefix=" " category="inline-code"></block> 설정을 설정하면 설정이 즉시 하드웨어로 전파되며 재부팅이 필요하지 않습니다.</block>
+  <block id="69c272de4bab8db62256f54da8bcde70" category="list-text">If(경우<block ref="ec0f1fb6d4ad0a1c5956dbfae578b508" prefix=" " category="inline-code"></block>부트마크 스토리지에서 삭제됩니다.</block>
+  <block id="e36b105e2f0954e014a0653c4237275f" category="list-text">재부팅 후 은 을(를) 확인합니다<block ref="9df22f196a33acd0b372fe502de51211" prefix=" " category="inline-code"></block> 이후 설정은 그대로 유지됩니다<block ref="9df22f196a33acd0b372fe502de51211" prefix=" " category="inline-code"></block> 기본 FEC 설정입니다.</block>
+  <block id="4cf5b76257838a13f7eaf6e128780b63" category="list-text">를 로 설정한 경우 <block ref="e05fe30750d3ea262a610d17ebc07019" prefix="*" category="inline-code"></block>*:</block>
+  <block id="33374324ada2340989bc045d67e0bc1e" category="list-text">를 클릭합니다<block ref="e0a64c365feb7b2f913e6a4048472af6" prefix=" " category="inline-code"></block> 설정을 지정하면 설정이 즉시 하드웨어에 전파되며 재부팅이 필요하지 않습니다.</block>
+  <block id="c5a74ce2f4585cd46c311a5822607b9f" category="list-text">새로운 소식<block ref="4b077bb4cc781686a7abd72c8354ba70" prefix=" " category="inline-code"></block> 값이 "true"로 설정된 상태로 생성됩니다.</block>
+  <block id="72477c9fa5c7321db80c98ce8db97acf" category="list-text">재부팅 후<block ref="e0a64c365feb7b2f913e6a4048472af6" prefix=" " category="inline-code"></block> 드라이버 코드가 사용할 수 있도록 설정이 그대로 유지됩니다.</block>
+  <block id="6015ba5fcef1f3caa77869608d6c2789" category="doc">ONTAP 하드웨어 시스템에 대한 스위치 설명서</block>
+  <block id="25cb4346e07d274b036816fdb6e793af" category="sidebar">NetApp에서는 클러스터, 스토리지, 공유 스위치를 제공하여 호스트 스토리지와 2개 이상의 NetApp 컨트롤러 간에 연결을 제공함으로써 스토리지 인프라 전체에서 데이터와 네트워크 인터페이스를 중단 없이 이동할 수 있도록 지원합니다.</block>
+  <block id="e039aa1be61543fd84f1c4eb5d3e9f6b" category="sidebar">ONTAP 하드웨어 시스템</block>
+  <block id="9d07d8327ebc12554e974699f677fdb7" category="sidebar">ONTAP 하드웨어용 문서를 전환합니다</block>
+  <block id="1be807f8d70b208f4d04b385b1c81765" category="sidebar">2노드 스위치로 마이그레이션합니다</block>
 </blocks>
