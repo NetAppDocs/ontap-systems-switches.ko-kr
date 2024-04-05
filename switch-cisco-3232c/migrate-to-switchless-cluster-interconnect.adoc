@@ -344,7 +344,7 @@ Cluster  node2_clus2   e0b       true
 ----
 ====
 +
-클러스터 LIF가 홈 포트로 돌아오지 않은 경우 수동으로 되돌리십시오.
+클러스터 LIFS가 홈 포트로 반환되지 않은 경우 로컬 노드에서 수동으로 되돌립니다.
 
 +
 'network interface revert-vserver cluster-lif_lif_name_'

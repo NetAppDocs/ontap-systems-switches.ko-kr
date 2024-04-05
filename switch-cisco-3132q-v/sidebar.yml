@@ -22,6 +22,8 @@ entries:
     url: "/switch-cisco-3132q-v/setup-switch.html"
   - title: NetApp 캐비닛에 스위치 설치
     url: "/switch-cisco-3132q-v/install-cisco-nexus-3132qv.html"
+  - title: 케이블 연결 및 구성을 검토합니다
+    url: "/switch-cisco-3132q-v/cabling-considerations-3132q-v.html"
 - title: 소프트웨어를 구성합니다
   pdf-filename: configure_software_3132q-v
   entries:

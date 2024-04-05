@@ -2221,7 +2221,6 @@
   <block id="2c70d9b6ebd85a5ee2fff0f363a115ac" category="paragraph">'network interface modify -vserver Cluster-lif * -auto-revert true'</block>
   <block id="e602723d0e5f9bdd1222eae8ea457289" category="paragraph">'network interface show -vserver cluster -lif_lif_name_'</block>
   <block id="038dfaef435585ad7a241ece49eb90ca" category="paragraph">다음 예제에서 노드1_clus2 및 노드2_clus2에 대해 표시된 것처럼 "홈" 열이 "참"이면 LIF가 되돌려집니다.</block>
-  <block id="ca781b2f6ba431222707604fe0989dc1" category="paragraph">클러스터 LIF가 홈 포트로 돌아오지 않은 경우 수동으로 되돌리십시오.</block>
   <block id="31d2e20cefb76721dace23dfd9a35896" category="paragraph">'network interface revert-vserver cluster-lif_lif_name_'</block>
   <block id="aeb90980ffc18e4c949766c382d409d4" category="list-text">두 노드 중 하나의 시스템 콘솔에서 노드의 클러스터 상태를 확인합니다.</block>
   <block id="90d334e25f499d80506823cb341c39d7" category="paragraph">다음 예는 두 노드의 epsilon을 "거짓"으로 보여 줍니다.</block>
@@ -4773,4 +4772,11 @@
   <block id="e039aa1be61543fd84f1c4eb5d3e9f6b" category="sidebar">ONTAP 하드웨어 시스템</block>
   <block id="9d07d8327ebc12554e974699f677fdb7" category="sidebar">ONTAP 하드웨어용 문서를 전환합니다</block>
   <block id="1be807f8d70b208f4d04b385b1c81765" category="sidebar">2노드 스위치로 마이그레이션합니다</block>
+  <block id="baeb2b9edd2060971ec4838ea0641d18" category="paragraph">클러스터 LIFS가 홈 포트로 반환되지 않은 경우 로컬 노드에서 수동으로 되돌립니다.</block>
+  <block id="b6dd8221599de3110a6be11272b8d643" category="summary">Cisco 3232C 스위치를 구성하기 전에 다음 정보를 검토하십시오.</block>
+  <block id="855541c4370cb556c283600de9f0d1df" category="paragraph">Cisco 3232C 스위치를 구성하기 전에 다음 사항을 검토하십시오.</block>
+  <block id="249c296c1de730eddbe0ead3fe930200" category="summary">Cisco 92300YC 스위치를 구성하기 전에 다음 정보를 검토하십시오.</block>
+  <block id="709ea8965bb4964023cd6e82df0d3c62" category="paragraph">Cisco 92300YC 스위치를 구성하기 전에 다음 사항을 검토하십시오.</block>
+  <block id="ae721238017915904e94acd87eddf78c" category="summary">Cisco 3132Q-V 스위치를 구성하기 전에 다음 정보를 검토하십시오.</block>
+  <block id="eae32a8cbb7853bbc6b25138f2911afa" category="paragraph">Cisco 3132Q-V 스위치를 구성하기 전에 다음 사항을 검토하십시오.</block>
 </blocks>

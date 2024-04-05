@@ -22,6 +22,8 @@ entries:
     url: "/switch-cisco-92300/setup-worksheet-92300yc.html"
   - title: 스위치를 구성합니다
     url: "/switch-cisco-92300/configure-install-initial.html"
+  - title: 케이블 연결 및 구성을 검토합니다
+    url: "/switch-cisco-92300/cabling-considerations-92300.html"
 - title: 소프트웨어를 구성합니다
   pdf-filename: configure_software_92300yc 를 선택합니다
   entries:
