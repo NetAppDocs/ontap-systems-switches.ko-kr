@@ -621,12 +621,6 @@ cluster1::*>
 ----
 ====
 . 스위치 CS1에서 1-10단계를 반복합니다.
-
-
-
-
-=== 3단계: 재부팅하고 구성을 확인합니다
-
 . 클러스터 LIF에서 자동 되돌리기 기능을 설정합니다.
 +
 .예제 보기
@@ -639,15 +633,17 @@ cluster1::*> network interface modify -vserver Cluster -lif * -auto-revert True
 ====
 . 스위치 CS1을 재부팅합니다. 이렇게 하면 클러스터 LIF가 홈 포트로 되돌아갈 수 있습니다. 스위치가 재부팅되는 동안 노드에 보고된 "클러스터 포트 다운" 이벤트를 무시할 수 있습니다.
 +
-.예제 보기
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 cs1# *reload*
 This command will reboot the system. (y/n)?  [n] *y*
 ----
-====
+
+
+
+
+=== 3단계: 구성을 확인합니다
+
 . 클러스터 포트에 연결된 스위치 포트가 작동하는지 확인합니다.
 +
 `show interface brief | grep up`

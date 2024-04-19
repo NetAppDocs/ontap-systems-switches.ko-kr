@@ -605,6 +605,13 @@ cluster1::*>
 ----
 cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert true*
 ----
+. 스위치 CS1을 재부팅합니다. 이렇게 하면 클러스터 LIF가 홈 포트로 되돌아갈 수 있습니다. 스위치가 재부팅되는 동안 노드에 보고된 "클러스터 포트 다운" 이벤트를 무시할 수 있습니다.
++
+[listing, subs="+quotes"]
+----
+cs1# *reload*
+This command will reboot the system. (y/n)?  [n] *y*
+----
 . 클러스터 포트에 연결된 스위치 포트가 작동하는지 확인합니다.
 +
 .예제 보기
