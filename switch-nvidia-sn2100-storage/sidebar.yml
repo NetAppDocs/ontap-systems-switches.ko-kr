@@ -36,8 +36,10 @@ entries:
     url: "/switch-nvidia-sn2100/install-onie-mode-sn2100-storage.html"
   - title: RCF 스크립트를 설치합니다
     url: "/switch-nvidia-sn2100/install-rcf-sn2100-storage.html"
-  - title: 스위치 로그 수집을 구성합니다
-    url: "/switch-nvidia-sn2100/install-snmpv3-sn2100-storage.html"
+  - title: 로그 수집을 활성화합니다
+    url: "/switch-nvidia-sn2100/CSHM_log_collection.html"
+  - title: 모니터링을 위한 SNMPv3을 구성합니다
+    url: "/switch-nvidia-sn2100/CSHM_snmpv3.html"
 - title: 스위치 마이그레이션
   pdf-filename: Migrate_switches_sn2100-스토리지
   entries:

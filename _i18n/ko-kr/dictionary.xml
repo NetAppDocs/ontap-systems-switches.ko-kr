@@ -2239,7 +2239,6 @@
   <block id="1a0894513362fda649e11ba9de926b82" category="list-text">각 클러스터 포트의 관리 또는 운영 상태를 확인합니다.</block>
   <block id="be6163ad0c362d632b28f98dea1fdaaa" category="paragraph">이동한 모든 클러스터 포트는 위로 이동해야 합니다.</block>
   <block id="d0141bcaf704f75f043a7384708a3131" category="paragraph">이동된 클러스터 포트에 CS2-새 스위치가 이웃으로 표시되는지 확인합니다.</block>
-  <block id="8c61118abc6e9e30fd4469d362e96e00" category="paragraph">모든 클러스터 LIF가 CS2-신규 스위치로 이동합니다.</block>
   <block id="2a5fc0afbcb2299e24c73a909b297e93" category="paragraph">이동된 클러스터 포트에 CS1-새 스위치가 인접 스위치로 표시되는지 확인합니다.</block>
   <block id="9e25219bfef39dc2d94805b599244f8d" category="open-title">ONTAP 9.8 이상</block>
   <block id="c341f6ea60d7e8508c7d6cd8d529fd71" category="paragraph">'system switch ethernet log setup-password'와 'system switch ethernet log enable-collection' 명령을 사용하여 스위치 관련 로그 파일을 수집하는 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화한다</block>
@@ -4695,10 +4694,8 @@
   <block id="415f7d338cb2daf9bc58ecb9861e7a38" category="list-text">그런 다음 노드와 CS2 사이의 케이블 연결이 CS2에서 분리되어 CS2-NEW에 다시 연결됩니다.</block>
   <block id="4c583a66e2c7985bcc194e39f55ceea5" category="list-text">스위치 CS1이 스위치 CS1-NEW로 대체되었습니다.</block>
   <block id="e36cd913095fb9e4f8b81c803f89930b" category="list-text">그런 다음 노드와 CS1 간의 케이블 연결이 CS1에서 분리되어 CS1-NEW에 다시 연결됩니다.</block>
-  <block id="c541a676ea1012971e3e092cd0c456bb" category="list-text">클러스터 LIF로 페일오버하려면 클러스터 스위치 CS2에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.</block>
   <block id="3e504b88532082c592970766665ca3a1" category="list-text">클러스터 LIF가 클러스터 스위치 CS1에 호스팅된 포트로 페일오버되었는지 확인합니다. 이 작업은 몇 초 정도 걸릴 수 있습니다.</block>
   <block id="501db48c47898b7316de60a2bcbe9a16" category="list-text">스위치 CS2-NEW의 관점에서 스위치 포트 연결을 확인합니다.</block>
-  <block id="4b9f132828deb041b404e712b378ac77" category="list-text">클러스터 LIF로 페일오버하려면 클러스터 스위치 CS1에서 노드의 클러스터 포트에 연결된 포트를 종료합니다. 다음 예제에서는 7단계의 인터페이스 예제 출력을 사용합니다.</block>
   <block id="32172ed3b8d9ced5da325e5230b7981b" category="list-text">클러스터 LIF가 스위치 CS2에 호스팅된 포트로 페일오버되었는지 확인합니다. 몇 초 정도 걸릴 수 있습니다.</block>
   <block id="85e04ff5dd770cff5dbbe435ea94a7dd" category="list-text">스위치 CS1-NEW의 관점에서 스위치 포트 연결을 확인합니다.</block>
   <block id="784542320767d69b7e7fc2bfeb64a5b4" category="list-text">클러스터 LIF로 페일오버하려면 클러스터 스위치 CL2에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.</block>
@@ -4780,4 +4777,11 @@
   <block id="eae32a8cbb7853bbc6b25138f2911afa" category="paragraph">Cisco 3132Q-V 스위치를 구성하기 전에 다음 사항을 검토하십시오.</block>
   <block id="e3e32349be8562dbe95d6af1fcba4bbe" category="list-text">AutoSupport가 활성화된 경우 AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다.<block ref="80cae18d0d871afff6b1bcabf727d6da" prefix=" " category="inline-code"></block></block>
   <block id="abd1e059b59ee3b3be9267c9c1319923" category="list-text">스토리지 스위치 또는 케이블 연결에 문제가 없는지 확인합니다.</block>
+  <block id="54be17cb6ddfe931b6d4ca0454c7bcc8" category="admonition">자동 되돌리기 기능을 비활성화하면 스위치 포트가 나중에 종료될 때만 ONTAP가 클러스터 LIF를 페일오버합니다.</block>
+  <block id="3947ff32e82f86e7176dc28b3ee33db0" category="list-text">클러스터 LIF로 페일오버하려면 클러스터 스위치 CS2에서 * 모든 * 노드의 클러스터 포트에 연결된 포트를 종료합니다.</block>
+  <block id="022c00ee7f7e6672d82cc079623d6e22" category="list-text">클러스터 LIF로 페일오버하려면 클러스터 스위치 CS1에서 * 모든 * 노드의 클러스터 포트에 연결된 포트를 종료합니다.</block>
+  <block id="e6eb1709bc8131372d63990293ab75f8" category="paragraph">모든 클러스터 LIF가 CS2-새 스위치로 페일오버합니다.</block>
+  <block id="af7a19b4dbadf7641102bf88598cfd8b" category="paragraph">를 누릅니다
+이더넷 스위치 상태 모니터(CSHM)는 클러스터 및 스토리지 네트워크 스위치의 작동 상태를 확인하고 디버깅을 위한 스위치 로그를 수집하는 역할을 담당합니다. 이 절차는 스위치에서 자세한 * 지원 * 로그 수집을 설정 및 시작하는 프로세스를 안내하고 AutoSupport에서 수집하는 * 주기적 * 데이터의 시간별 수집을 시작합니다.</block>
+  <block id="a13c9d4c750715a8b993a3fec916189f" category="list-text">RCF(Reference Configuration File)가 적용될 때 로그 수집용 사용자를 지정해야 합니다. 기본적으로 이 사용자는 _admin_으로 설정됩니다. 다른 사용자를 사용하려면 RCF의 *#SHM 사용자*s 섹션에서 이를 지정해야 합니다.</block>
 </blocks>

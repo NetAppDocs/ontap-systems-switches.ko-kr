@@ -36,6 +36,10 @@ entries:
     url: "/switch-cisco-9336c-fx2-storage/install-nxos-software-9336c-storage.html"
   - title: RCF 구성 파일을 설치합니다
     url: "/switch-cisco-9336c-fx2-storage/install-nxos-rcf-9336c-storage.html"
+  - title: 로그 수집을 활성화합니다
+    url: "/switch-cisco-9336c-fx2-storage/CSHM_log_collection.html"
+  - title: 모니터링을 위한 SNMPv3을 구성합니다
+    url: "/switch-cisco-9336c-fx2-storage/CSHM_snmpv3.html"
 - title: 스토리지 스위치를 교체합니다
   pdf-filename: REPLACE_SWITCH_9336c-FX2-STORAGE
   url: "/switch-cisco-9336c-fx2-storage/replace-storage-switch-9336c-storage.html"
