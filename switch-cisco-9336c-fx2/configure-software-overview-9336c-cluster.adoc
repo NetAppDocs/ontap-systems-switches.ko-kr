@@ -11,11 +11,11 @@ summary: Cisco Nexus 9336C-FX2 클러스터 스위치의 소프트웨어 구성 
 
 
 [role="lead"]
-Cisco Nexus 9336C-FX2 스위치용 소프트웨어를 설치하고 구성하려면 다음 단계를 수행하십시오.
+Cisco Nexus 9336C-FX2 스위치용 소프트웨어를 설치 및 구성하고 RCF(Reference Configuration File)를 설치 또는 업그레이드하려면 다음 단계를 수행하십시오.
 
 . link:install-nxos-overview-9336c-cluster.html["NX-OS 소프트웨어 및 RCF 설치 준비"].
 . link:install-nxos-software-9336c-cluster.html["NX-OS 소프트웨어를 설치합니다"].
-. link:install-nxos-rcf-9336c-cluster.html["RCF(Reference Configuration File) 설치"].
+. link:install-nxos-rcf-9336c-cluster.html["RCF(Reference Configuration File) 설치 또는 업그레이드"].
 +
 Nexus 9336C-FX2 스위치를 처음 설정한 후 RCF를 설치합니다. 이 절차를 사용하여 RCF 버전을 업그레이드할 수도 있습니다.
 

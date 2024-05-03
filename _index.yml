@@ -13,14 +13,28 @@ indexpage:
       url: https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508
   - title: 지원되는 스위치
     links:
-    - title: BES-53248
+    - title: 클러스터 스위치 - Broadcom BES-53248
       url: "/switch-bes-53248/configure-new-switch-overview.html"
-    - title: Cisco Nexus 9336C-FX2
+    - title: 클러스터 스위치 - Cisco Nexus 9336C-FX2
       url: "/switch-cisco-9336c-fx2/configure-switch-overview-9336c-cluster.html"
-    - title: nVidia SN2100
+    - title: 클러스터 스위치 - NVIDIA SN2100 클러스터 스위치
       url: "/switch-nvidia-sn2100/configure-overview-sn2100-cluster.html"
-    - title: 이용 종료
-      url: "/overview-eod.html"
+    - title: 스토리지 스위치 - Cisco Nexus 9336C-FX2
+      url: "/switch-cisco-9336c-fx2-storage/configure-switch-overview-9336c-storage.html"
+    - title: 스토리지 스위치 - NVIDIA SN2100
+      url: "/switch-nvidia-sn2100/configure-overview-sn2100-storage.html"
+    - title: 공유 스위치 - Cisco Nexus 9336C-FX2
+      url: "/switch-cisco-9336c-fx2-shared/configure-switch-overview-9336c-shared.html"
+  - title: 사용 종료 스위치
+    links:
+    - title: 클러스터 스위치 - Cisco Nexus 32c
+      url: "/switch-cisco-3232c/install-overview-cisco-3232c.html"
+    - title: 클러스터 스위치 - Cisco Nexus 3132Q-V
+      url: "/switch-cisco-3132q-v/install-overview-cisco-3132qv.html"
+    - title: 클러스터 스위치 - Cisco Nexus 92300YC
+      url: "/switch-cisco-92300/install-overview-cisco-92300.html"
+    - title: 클러스터 스위치 - NetApp CN1610
+      url: "/switch-netapp-cn1610/switch-overview-cn1610.html"
   - title: 관련 ONTAP 문서
     links:
     - title: ONTAP 하드웨어 시스템

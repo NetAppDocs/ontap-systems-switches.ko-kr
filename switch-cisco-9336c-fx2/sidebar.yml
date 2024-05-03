@@ -38,7 +38,7 @@ entries:
     url: "/switch-cisco-9336c-fx2/install-nxos-overview-9336c-cluster.html"
   - title: NX-OS 소프트웨어를 설치합니다
     url: "/switch-cisco-9336c-fx2/install-nxos-software-9336c-cluster.html"
-  - title: RCF 구성 파일을 설치합니다
+  - title: RCF 구성 파일을 설치하거나 업그레이드합니다
     url: "/switch-cisco-9336c-fx2/install-nxos-rcf-9336c-cluster.html"
   - title: SSH를 활성화합니다
     url: "/switch-cisco-9336c-fx2/configure-ssh.html"
