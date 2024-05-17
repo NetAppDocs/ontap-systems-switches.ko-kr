@@ -51,9 +51,6 @@ BES-53248 클러스터 스위치의 초기 설정을 수행하려면 다음 단�
 
 . 스위치에 로 로그인합니다 `admin` 암호를 묻는 메시지가 나타나면 * Enter * 를 누릅니다. 기본 스위치 이름은 * routing * 입니다. 프롬프트에서 를 입력합니다 `enable`. 이렇게 하면 스위치 구성을 위한 관리자 EXEC 모드에 액세스할 수 있습니다.
 +
-.예제 보기
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 User: *admin*
@@ -62,33 +59,24 @@ Password:
 Password:
 (Routing)#
 ----
-====
 . 스위치 이름을 * CS2 * 로 변경합니다.
 +
-.예제 보기
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 (Routing)# *hostname cs2*
 (cs2)#
 ----
-====
 . 고정 IP 주소를 설정하려면 예에서와 같이 'erviceport protocol', 'network protocol', 'erviceport IP' 명령어를 사용한다.
 +
 serviceport는 기본적으로 DHCP를 사용하도록 설정됩니다. IP 주소, 서브넷 마스크 및 기본 게이트웨이 주소는 자동으로 할당됩니다.
 
 +
-.예제 보기
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 (cs2)# *serviceport protocol none*
 (cs2)# *network protocol none*
 (cs2)# *serviceport ip ipaddr netmask gateway*
 ----
-====
 . 다음 명령을 사용하여 결과를 확인합니다.
 +
 서비스서비스
@@ -115,96 +103,124 @@ Burned In MAC Address.......................... D8:C4:97:71:12:3C
 ====
 . 도메인 및 이름 서버 구성:
 +
-'설정'을 클릭합니다
-
+[source, cli]
+----
+ip domain name <domain_name>
+ip name server <server_name>
+----
 +
-.예제 보기
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 (cs2)# *configure*
-(cs2) (Config)# *ip domain name company.com*
-(cs2) (Config)# *ip name server 10.10.99.1 10.10.99.2*
-(cs2) (Config)# *exit*
-(cs2) (Config)#
-----
-====
-. NTP 서버를 구성합니다.
-+
-.. 시간대 및 시간 동기화(SNTP) 구성:
-+
-'NTP'입니다
-
-+
-.예제 보기
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
+(cs2)(Config)# *ip domain name company.com*
+(cs2)(Config)# *ip name server 10.10.99.1 10.10.99.2*
+(cs2)(Config)# *exit*
 (cs2)#
-(cs2) (Config)# *sntp client mode unicast*
-(cs2) (Config)# *sntp server 10.99.99.5*
-(cs2) (Config)# *clock timezone -7*
-(cs2) (Config)# *exit*
-(cs2) (Config)#
 ----
-====
-+
-EFOS 버전 3.10.0.3 이상에서는 명령을 사용합니다 `ntp`.
+. NTP 서버를 구성합니다.
 
-+
-`ntp`
 
-+
-.예제 보기
-[%collapsible]
+[role="tabbed-block"]
 ====
+.EFOS 3.10.0.3 이상
+--
+시간대 및 시간 동기화(NTP)를 구성합니다.
+
+[source, cli]
+----
+sntp server <server_name>
+clock
+----
 [listing, subs="+quotes"]
 ----
-(cs2)configure
-(cs2)(Config)# *ntp ?*
-
-authenticate             Enables NTP authentication.
-authentication-key       Configure NTP authentication key.
-broadcast                Enables NTP broadcast mode.
-broadcastdelay           Configure NTP broadcast delay in microseconds.
-server                   Configure NTP server.
-source-interface         Configure the NTP source-interface.
-trusted-key              Configure NTP authentication key number for trusted time source.
-vrf                      Configure the NTP VRF.
-
-(cs2)(Config)# *ntp server ?*
-
-ip-address|ipv6-address|hostname  Enter a valid IPv4/IPv6 address or hostname.
-
+(cs2)# *configure*
 (cs2)(Config)# *ntp server 10.99.99.5*
+(cs2)(Config)# *clock timezone -7*
+(cs2)(Config)# *exit*
+(cs2)#
 ----
+--
+.EFOS 3.9.0.2 이하
+--
+시간대 및 시간 동기화(SNTP) 구성:
+
+[source, cli]
+----
+sntp client mode <client_mode>
+sntp server <server_name>
+clock
+----
+[listing, subs="+quotes"]
+----
+(cs2)# *configure*
+(cs2)(Config)# *sntp client mode unicast*
+(cs2)(Config)# *sntp server 10.99.99.5*
+(cs2)(Config)# *clock timezone -7*
+(cs2)(Config)# *exit*
+(cs2)#
+----
+--
 ====
-.. 시간을 수동으로 구성합니다.
-+
+. [[step10]] 이전 단계에서 NTP 서버를 구성하지 않은 경우 시간을 수동으로 구성합니다.
+
+
+[role="tabbed-block"]
+====
+.EFOS 3.10.0.3 이상
+--
+시간을 수동으로 구성합니다.
+
 시계
 
-+
-.예제 보기
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
-(cs2)# *config*
-(cs2) (Config)# *no sntp client mode*
-(cs2) (Config)# *clock summer-time recurring 1 sun mar 02:00 1 sun nov 02:00 offset 60 zone EST*
-(cs2) (Config)# *clock timezone -5 zone EST*
-(cs2) (Config)# *clock set 07:00:00
-(cs2) (Config)# *clock set 10/20/2020*
 
-(cs2) (Config)# *show clock*
+(cs2)# *configure*
+(cs2)(Config)# *clock summer-time recurring 1 sun mar 02:00 1 sun nov 02:00 offset 60 zone EST*
+(cs2)(Config)# *clock timezone -5 zone EST*
+(cs2)(Config)# *clock set 07:00:00*
+(cs2)(Config)# *clock set 10/20/2023*
+(cs2)(Config)# *show clock*
 
-07:00:11 EST(UTC-5:00) Oct 20 2020
+07:00:11 EST(UTC-5:00) Oct 20 2023
 No time source
 
-(cs2) (Config)# *exit*
+(cs2)(Config)# *exit*
+(cs2)#
+----
+--
+.EFOS 3.9.0.2 이하
+--
+시간을 수동으로 구성합니다.
 
+시계
+
+[listing, subs="+quotes"]
+----
+
+(cs2)# *configure*
+(cs2)(Config)# *no sntp client mode*
+(cs2)(Config)# *clock summer-time recurring 1 sun mar 02:00 1 sun nov 02:00 offset 60 zone EST*
+(cs2)(Config)# *clock timezone -5 zone EST*
+(cs2)(Config)# *clock set 07:00:00*
+(cs2)(Config)# *clock set 10/20/2023*
+(cs2)(Config)# *show clock*
+
+07:00:11 EST(UTC-5:00) Oct 20 2023
+No time source
+
+(cs2)(Config)# *exit*
+(cs2)#
+----
+--
+====
+. [[step11]] 실행 중인 구성을 시작 구성에 저장합니다.
++
+쓰기 메모리
+
++
+[listing, subs="+quotes"]
+----
 (cs2)# *write memory*
 
 This operation may take a few minutes.
@@ -216,10 +232,7 @@ Config file 'startup-config' created successfully.
 
 Configuration Saved!
 ----
-====
-
-
 
 
 .다음 단계
-link:configure-efos-software.html["EFOS 소프트웨어를 설치합니다"].
+link:configure-efos-software.html["EFOS 소프트웨어를 설치합니다"]

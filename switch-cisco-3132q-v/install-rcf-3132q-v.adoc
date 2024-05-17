@@ -21,7 +21,7 @@ Nexus 3132Q-V 스위치를 처음 설정한 후 RCF를 설치하려면 다음 �
 * 스위치 구성의 현재 백업
 * 완전히 작동하는 클러스터(로그에 오류 또는 유사한 문제 없음)
 * 현재 RCF(Reference Configuration File)
-* RCF를 설치할 때 스위치에 콘솔 연결 필요
+* RCF를 설치할 때 스위치에 콘솔 연결 필요 기술 자료 문서를 사용한 경우 이 요구 사항은 선택 사항입니다 https://kb.netapp.com/on-prem/Switches/Broadcom-KBs/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["원격 연결을 유지하면서 Broadcom 상호 연결 스위치에서 구성을 지우는 방법"] 구성을 지우려면 사전에 확인하십시오.
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치"^]. 지원되는 ONTAP 및 RCF 버전은 스위치 호환성 표를 참조하십시오. RCF의 명령 구문과 NX-OS 버전에 있는 명령 구문 사이에 명령 종속성이 있을 수 있습니다.
 * https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Cisco Nexus 3000 시리즈 스위치"^]. Cisco 스위치 업그레이드 및 다운그레이드 절차에 대한 전체 설명서는 Cisco 웹 사이트에서 제공하는 해당 소프트웨어 및 업그레이드 가이드를 참조하십시오.
 
@@ -268,7 +268,7 @@ cluster1::*>
 . 스위치 CS2의 구성을 청소하고 기본 설정을 수행합니다.
 +
 
-CAUTION: 새로운 RCF를 업데이트하거나 적용할 때는 스위치 설정을 지우고 기본 구성을 수행해야 합니다. 스위치를 다시 설정하려면 스위치 직렬 콘솔 포트에 연결해야 합니다.
+CAUTION: 새로운 RCF를 업데이트하거나 적용할 때는 스위치 설정을 지우고 기본 구성을 수행해야 합니다. 스위치를 다시 설정하려면 스위치 직렬 콘솔 포트에 연결해야 합니다. 기술 자료 문서를 사용한 경우 이 요구 사항은 선택 사항입니다 https://kb.netapp.com/on-prem/Switches/Broadcom-KBs/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["원격 연결을 유지하면서 Broadcom 상호 연결 스위치에서 구성을 지우는 방법"] 구성을 지우려면 사전에 확인하십시오.
 
 +
 .. 구성 정리:
