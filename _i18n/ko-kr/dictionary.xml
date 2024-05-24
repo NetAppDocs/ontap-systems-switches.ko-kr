@@ -2847,7 +2847,6 @@
   <block id="7b93b1b58c897d187f4ffbd20253248f" category="list-text">스위치 구성의 현재 백업</block>
   <block id="3f13e146c0acc26cac7163c687a6dcb7" category="list-text">완전히 작동하는 클러스터(로그에 오류 또는 유사한 문제 없음)</block>
   <block id="0a444d29f1db9e9c818ae5dc2b30ac82" category="list-text"><block ref="f29158c7335be7b7fe0a46dd82de6ed4" category="inline-link-macro-rx"></block>. 지원되는 ONTAP 및 NX-OS 버전은 스위치 호환성 표를 참조하십시오.</block>
-  <block id="7314883bd7a56822f06716c652fae68d" category="list-text">Cisco 스위치 업그레이드 및 다운그레이드 절차에 대한 적절한 소프트웨어 및 업그레이드 가이드를 Cisco 웹 사이트에서 제공합니다. 을 참조하십시오<block ref="5845557b3f8314af89ad3b7e98ed4cae" category="inline-link-rx"></block>.</block>
   <block id="feb8e402dbfa149a080f8f87ee22069f" category="list-text">노드 이름은 cluster1-01, cluster1-02, cluster1-03 및 cluster1-04입니다.</block>
   <block id="1a4c52cc090c463e0a3949fd93af9ca2" category="section-title">소프트웨어를 설치합니다</block>
   <block id="ec8855627efbb26afaa912164ff82dbd" category="inline-link-macro">RCF 구성 파일을 설치합니다</block>
@@ -3235,7 +3234,6 @@
   <block id="236c7e852889b030e9ecc664d388df22" category="paragraph">을 참조하십시오<block ref="16a6d09025d51cb8dd3516798b3fee8a" category="inline-link-rx"></block> 케이블 연결에 대한 자세한 내용은 를 참조하십시오.</block>
   <block id="ebcf71eb39f7510f62abf6ea769fb245" category="paragraph">각 클러스터 LIF가 표시되어야 합니다<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block> 용<block ref="53db3ce0fe0e71f06b3beb0b676b806c" prefix=" " category="inline-code"></block> 그리고 가 있습니다<block ref="4f21ee5a18672b60f4c01e94e6be9c79" prefix=" " category="inline-code"></block> 위/위.</block>
   <block id="242de61cd0710bcf5f8d68190d392f95" category="paragraph">시작하기 전에 의 절차를 완료하십시오 <block ref="7be1885a02922674638042ed6280ba6b" category="inline-link-macro-rx"></block>.</block>
-  <block id="10e3581692b8c6e1da3364026ad637f0" category="paragraph"><block ref="1112ea12139746af7574c945e24cdc23" category="inline-link-macro-rx"></block>.</block>
   <block id="1dcfb07dc80ddc7f9df74317a5f57319" category="doc">Cisco Nexus 9336C-FX2 스위치에 대한 문서 요구 사항</block>
   <block id="b456d34c399e9d9889e4c0ac830ecb7a" category="summary">Cisco Nexus 9336C-FX2 클러스터 스위치의 설치 및 구성 개요</block>
   <block id="a48d2f73b54f1c12d4039724748b5d7a" category="paragraph">Cisco Nexus 9336C-FX2 클러스터 스위치는 Cisco Nexus 9000 플랫폼의 일부이며 NetApp 시스템 캐비닛에 설치할 수 있습니다. 클러스터 스위치를 사용하면 2개 이상의 노드로 ONTAP 클러스터를 구축할 수 있습니다.</block>
@@ -4214,7 +4212,6 @@
   <block id="3dcdf9c7761ce642c5fe2fe73d425b75" category="list-text">실행 중인 구성을 시작 구성에 저장합니다.</block>
   <block id="b48ffac2fb8952951818ab2ce539c1d3" category="list-text">스위치를 재부팅합니다.</block>
   <block id="d03fee12ab01ee4f556908abcba26347" category="list-text">RCF 설치를 완료하려면 SSH를 사용하여 스위치에 다시 로그인하십시오.</block>
-  <block id="a8935c8fdc41e9990bb4a300a40c1700" category="list-text">스위치에 추가 포트 라이센스가 설치된 경우 RCF를 수정하여 추가 라이센스 포트를 구성해야 합니다. 을 참조하십시오 <block ref="4d3fc05ce7b1ba9afd520aecf6c7f3bb" category="inline-link-macro-rx"></block> 를 참조하십시오.</block>
   <block id="63f7338fc9ee539e34242e8d03110038" category="list-text">FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 CS2의 부트플래시 에 복사합니다.</block>
   <block id="b211f67e6e9195c32683368a53542802" category="paragraph">이 예에서는 스위치 CS2에서 RCF를 부트 플래시에 복사하는 데 사용되는 SFTP를 보여 줍니다.</block>
   <block id="c77174e35b7f7fc235a87561809ad614" category="list-text">의 배너 출력을 확인합니다<block ref="db837131dc56fab41bddc52d5aff8865" prefix=" " category="inline-code"></block> 명령. 스위치의 올바른 구성과 작동을 위해 이 지침을 읽고 따라야 합니다.</block>
@@ -4786,7 +4783,6 @@
   <block id="7e857aa8a0b068cc27d4b48a1e11e878" category="list-text"><block ref="7e857aa8a0b068cc27d4b48a1e11e878" category="inline-link-macro-rx"></block></block>
   <block id="32559ee483b61b36141f9b9e0f4bbfff" category="paragraph">NetApp Support 사이트에서 지원되는 ONTAP 및 RCF 버전은 스위치 호환성 표를 참조하십시오. RCF의 명령 구문과 특정 버전의 NX-OS에 있는 구문 사이에 명령 종속성이 있을 수 있습니다.</block>
   <block id="ad0d19783ccfa19f931108b838e4b7e4" category="list-text"><block ref="ad0d19783ccfa19f931108b838e4b7e4" category="inline-link-macro-rx"></block></block>
-  <block id="6b76d59cad5464650213d5b0a1dd84d7" category="paragraph">Cisco 스위치 업그레이드 및 다운그레이드 절차에 대한 자세한 내용은 Cisco 웹 사이트에 있는 해당 소프트웨어 및 업그레이드 가이드를 참조하십시오.</block>
   <block id="8fa9b99093c5cdfb4cebad0008ba3e8d" category="paragraph">이 절차의 예에서는 4개의 노드를 사용합니다. 이러한 노드에는 10GbE 클러스터 인터커넥트 포트 2개 e0a 및 e0b가 사용됩니다. 를 참조하십시오<block ref="e98f5e4074ae8b028a5791870586403d" category="inline-link-rx"></block> 사용 중인 플랫폼에서 올바른 클러스터 포트를 확인하려면 다음을 수행합니다.</block>
   <block id="79509ba15c2970f327dd8610e3b4628c" category="paragraph-title">사용된 명령</block>
   <block id="1ad593dd61af4356ce9ba12d276c4336" category="section-title">옵션 1: 새 스위치에 RCF 파일을 설치합니다</block>
@@ -4941,4 +4937,22 @@
   <block id="6bdce5afe823363897535ce22aa832a0" category="sidebar">EFOS 버전을 업그레이드합니다</block>
   <block id="4dc6f468164162b89152d6960a79b9d0" category="sidebar">RCF 버전을 업그레이드합니다</block>
   <block id="24778145f75ec14966b06f3682e616c4" category="sidebar">업그레이드 후 클러스터를 확인합니다</block>
+  <block id="77486b34dc8c8bacbe90fd1ff1bd8f61" category="inline-link-macro">NX-OS 소프트웨어를 설치 또는 업그레이드합니다</block>
+  <block id="0a41823d2a109b5dbd6f2fa1f8fe6689" category="paragraph"><block ref="0a41823d2a109b5dbd6f2fa1f8fe6689" category="inline-link-macro-rx"></block></block>
+  <block id="6b10db39cfed2551fdc8db011f0b1110" category="paragraph">Cisco 스위치 업그레이드 및 다운그레이드 절차에 대한 자세한 내용은 Cisco 웹 사이트에 있는 해당 소프트웨어 및 업그레이드 가이드를 참조하십시오.</block>
+  <block id="893355f35b6d198e6a02f43764951a73" category="paragraph">다음 절차에 따라 Nexus 9336C-FX2 클러스터 스위치에 NX-OS 소프트웨어를 설치 또는 업그레이드합니다.</block>
+  <block id="f29158c7335be7b7fe0a46dd82de6ed4" category="list-text"><block ref="f29158c7335be7b7fe0a46dd82de6ed4" category="inline-link-macro-rx"></block></block>
+  <block id="72372752f11bdb84bf66a4ce05081de7" category="paragraph">지원되는 ONTAP 및 NX-OS 버전은 스위치 호환성 표를 참조하십시오.</block>
+  <block id="948f862fde95b79124df1918e756eb9e" category="inline-link-macro">소프트웨어 업그레이드 및 다운그레이드 설명서</block>
+  <block id="fb7a0f4817a9ebc7c1050442a67a2dc1" category="list-text"><block ref="fb7a0f4817a9ebc7c1050442a67a2dc1" category="inline-link-macro-rx"></block></block>
+  <block id="cfaaf5dbf06a0559b7026ab59fba9fd1" category="inline-link-macro">Cisco Nexus 9000 및 3000 업그레이드 및 ISSU 매트릭스</block>
+  <block id="a3380d044e745afdb22a3e808fb74586" category="list-text"><block ref="a3380d044e745afdb22a3e808fb74586" category="inline-link-macro-rx"></block></block>
+  <block id="7d48e882dc8cfcd3a44f3f59ba949595" category="paragraph">Nexus 9000 시리즈 스위치의 Cisco NX-OS 소프트웨어의 중단 업그레이드/다운그레이드에 대한 정보를 제공합니다
+현재 릴리스 및 대상 릴리스 기준.</block>
+  <block id="d6221baaf45cc1f4ed9ce13f32541fa8" category="paragraph">페이지에서 * Disruptive Upgrade * 를 선택하고 드롭다운 목록에서 현재 릴리스 및 대상 릴리스를 선택합니다.</block>
+  <block id="103347887335950e25df4c7b93bdd950" category="paragraph"><block ref="103347887335950e25df4c7b93bdd950" category="inline-link-macro-rx"></block></block>
+  <block id="cf3a2d2c139bf5c9cc87fe714bfff3b1" category="list-text">다음 사항에 유의하십시오.</block>
+  <block id="3ee80345befd8ba67ee5e3200beb2fd8" category="list-text">스위치에 추가 포트 라이센스가 설치된 경우 RCF를 수정하여 추가 라이센스 포트를 구성해야 합니다. 을 참조하십시오 <block ref="029ce138066352981401c2da3f4be7ea" category="inline-link-macro-rx"></block> 를 참조하십시오.</block>
+  <block id="febb316f33bb4f57154038c792c90fc0" category="list-text">이전 RCF에서 만든 사용자 지정을 기록하고 새 RCF에 적용합니다. 예를 들어, 포트 속도 또는 하드 코딩 FEC 모드를 설정할 수 있습니다.</block>
+  <block id="888174b5389281588448ee75f7ac8835" category="sidebar">NX-OS 소프트웨어를 설치 또는 업그레이드합니다</block>
 </blocks>
