@@ -1407,7 +1407,6 @@
   <block id="f22797e59a4f9df1be6a7bd93495674d" category="paragraph">Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오<block ref="f93981dab484b88c422e924c27565997" category="inline-link-rx"></block> 안내선.</block>
   <block id="3e671871acf365e09e492c2fd833d14f" category="list-text">'show banner mott' 명령어의 배너 출력을 조사한다. 스위치의 올바른 구성 및 작동을 위해 * 중요 참고 * 의 지침을 읽고 준수해야 합니다.</block>
   <block id="0bdc52e912f1ecc312522eb07e5f2cbb" category="list-text">RCF 파일이 올바른 최신 버전인지 확인합니다.</block>
-  <block id="f1e487b54b162363f351d5d209fc59ac" category="paragraph">Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오<block ref="a793a8dbe6bab2f66743aaacba3b8ce6" category="inline-link-rx"></block> 안내선.</block>
   <block id="b1d94c7c371efbe2b9e14f1fcde6d912" category="list-text">스위치 CS2를 재부팅합니다. 스위치가 재부팅되는 동안 노드에 보고된 "클러스터 포트 다운" 이벤트를 무시할 수 있습니다.</block>
   <block id="50f3bfc2fb822fc9657969a594a33322" category="list-text">클러스터 LIF가 스위치 CS2에 호스팅된 포트로 마이그레이션되었는지 확인합니다. 이 작업은 몇 초 정도 걸릴 수 있습니다.</block>
   <block id="ed34b4f07dbb9044c4aec48959bb5c98" category="list-text">CS1과 CS2 사이의 ISL이 작동하는지 확인합니다.</block>
@@ -4325,7 +4324,6 @@
   <block id="0f2a4526602865cc9158a56028bf97de" category="summary">ONTAP 클러스터에 대한 중단 없이 NetApp CN1610 클러스터 스위치를 Cisco Nexus 9336C-FX2 클러스터 네트워크 스위치로 마이그레이션할 수 있습니다.</block>
   <block id="4732368f30b7afd2065dc4cc0c57584f" category="doc">NetApp CN1610 클러스터 스위치에서 Cisco 9336C-FX2 클러스터 스위치로 마이그레이션합니다</block>
   <block id="c8fc8239bd9ec37b7c36847589d5c8a0" category="paragraph">ONTAP 클러스터용 NetApp CN1610 클러스터 스위치를 Cisco 9336C-FX2 클러스터 스위치로 마이그레이션할 수 있습니다. 이는 무중단으로 수행할 수 있는 절차입니다.</block>
-  <block id="b6bd832f0692f49d1480e52df106a51f" category="paragraph">NetApp CN1610 클러스터 스위치를 Cisco 9336C-FX2 클러스터 스위치로 교체할 때 특정 구성 정보, 포트 연결 및 케이블 연결 요구사항을 알고 있어야 합니다.</block>
   <block id="059d31543d448499bd1a9c454a8d1ebb" category="list-text">Cisco 9336C-FX2</block>
   <block id="3cb2d5707cdf5f5290ac6608ce8b5278" category="paragraph">구성이 다음 요구 사항을 충족하는지 확인합니다.</block>
   <block id="6195676dbe2277e0d3edb2d8c3a50b2e" category="list-text">Cisco 9336C-FX2 클러스터 스위치는 RCF(Reference Configuration File)가 적용된 올바른 버전의 NX-OS에서 구성 및 작동합니다.</block>
@@ -4931,8 +4929,6 @@
   <block id="f35806549fff4250f43cb0acde28b920" category="list-text">스위치를 재부팅하고 실행 중인 구성이 올바른지 확인합니다.</block>
   <block id="7271f66e0cb527adb71302d7377910b7" category="list-text">[[21단계]] 스위치 CS1에서 1-20단계를 반복합니다.</block>
   <block id="9b241cba96d2cafd3c0f5c9f7bf12560" category="list-text">. 클러스터 LIF가 홈 포트로 되돌려졌는지 확인합니다.</block>
-  <block id="de4042aa676f131e04bcf7d15edc5af9" category="list-text">RCF를 설치할 때 스위치에 콘솔 연결 필요 기술 자료 문서를 사용한 경우 이 요구 사항은 선택 사항입니다<block ref="f179a3654c26841201eb04f568431742" category="inline-link-rx"></block> 구성을 지우려면 사전에 확인하십시오.</block>
-  <block id="ced0e2e58f0a61a7676c9c092295acb0" category="admonition">새로운 RCF를 업데이트하거나 적용할 때는 스위치 설정을 지우고 기본 구성을 수행해야 합니다. 스위치를 다시 설정하려면 스위치 직렬 콘솔 포트에 연결해야 합니다. 기술 자료 문서를 사용한 경우 이 요구 사항은 선택 사항입니다<block ref="f179a3654c26841201eb04f568431742" category="inline-link-rx"></block> 구성을 지우려면 사전에 확인하십시오.</block>
   <block id="ae0a7918183889538c2a432f5a54afa6" category="sidebar">스위치를 업그레이드합니다</block>
   <block id="6bdce5afe823363897535ce22aa832a0" category="sidebar">EFOS 버전을 업그레이드합니다</block>
   <block id="4dc6f468164162b89152d6960a79b9d0" category="sidebar">RCF 버전을 업그레이드합니다</block>
@@ -4955,4 +4951,10 @@
   <block id="3ee80345befd8ba67ee5e3200beb2fd8" category="list-text">스위치에 추가 포트 라이센스가 설치된 경우 RCF를 수정하여 추가 라이센스 포트를 구성해야 합니다. 을 참조하십시오 <block ref="029ce138066352981401c2da3f4be7ea" category="inline-link-macro-rx"></block> 를 참조하십시오.</block>
   <block id="febb316f33bb4f57154038c792c90fc0" category="list-text">이전 RCF에서 만든 사용자 지정을 기록하고 새 RCF에 적용합니다. 예를 들어, 포트 속도 또는 하드 코딩 FEC 모드를 설정할 수 있습니다.</block>
   <block id="888174b5389281588448ee75f7ac8835" category="sidebar">NX-OS 소프트웨어를 설치 또는 업그레이드합니다</block>
+  <block id="a8294f2ff72d57253432505426ab555f" category="list-text">올바른 스위치가 마이그레이션되었는지 확인하기 위해 스위치 일련 번호를 확인했습니다.</block>
+  <block id="f4212fffa5e0c42b93f12013fbeaaa93" category="paragraph">NetApp CN1610 클러스터 스위치를 Cisco 9336C-FX2 클러스터 스위치로 교체할 때 특정 구성 정보, 포트 연결 및 케이블 연결 요구사항을 알고 있어야 합니다. 또한 스위치 일련 번호를 확인하여 올바른 스위치가 마이그레이션되었는지 확인합니다.</block>
+  <block id="87a5e94476d6bdcbe9c972165d34090a" category="list-text">올바른 스위치가 교체되었는지 확인하기 위해 스위치 일련 번호를 확인했습니다.</block>
+  <block id="2d6eb81058fa2415eb5247e2c14c5452" category="inline-link">원격 연결을 유지하면서 Cisco 상호 연결 스위치의 구성을 지우는 방법</block>
+  <block id="9fa76c217cee95f26808d0c64f43dcda" category="list-text">RCF를 설치할 때 스위치에 콘솔 연결이 필요합니다. 기술 자료 문서를 사용한 경우 이 요구 사항은 선택 사항입니다<block ref="3e8c2406d6e0211f305d1081c755846f" category="inline-link-rx"></block> 구성을 지우려면 사전에 확인하십시오.</block>
+  <block id="83ad3b6efa173a2560e396a36d6ac2f0" category="admonition">새로운 RCF를 업데이트하거나 적용할 때는 스위치 설정을 지우고 기본 구성을 수행해야 합니다. 스위치를 다시 설정하려면 반드시 * 스위치 직렬 콘솔 포트에 연결해야 합니다. 그러나 이 요구 사항은 기술 자료 문서를 사용한 경우 선택 사항입니다<block ref="3e8c2406d6e0211f305d1081c755846f" category="inline-link-rx"></block> 구성을 지우려면 사전에 확인하십시오.</block>
 </blocks>
