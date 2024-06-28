@@ -3921,7 +3921,6 @@
   <block id="ce140d6d1921435e3df40a72b6d032f4" category="sidebar">CN1610 스위치에서 마이그레이션</block>
   <block id="ac0586dfb2126d95d9be6378c5f70512" category="sidebar">스위치가 없는 클러스터에서 스위치 없는 클러스터로 마이그레이션</block>
   <block id="703c0fedc12db69e340d7c2f3de0d764" category="sidebar">스위치를 교체합니다</block>
-  <block id="4e8b0737e5a683e7ada812ad2005b768" category="sidebar">CN3132Q-V 스위치를 교체합니다</block>
   <block id="88af8e6a19edbffd16db05ce4d139e3f" category="sidebar">CN1610 클러스터 스위치에서 마이그레이션</block>
   <block id="c40e2faa3e9cd894cbecfcf038ffe999" category="sidebar">Cisco Nexus 5596 클러스터 스위치에서 마이그레이션</block>
   <block id="ae5073b7cedbbc7111f9e806343efc7e" category="sidebar">스위치가 없는 2노드 클러스터에서 마이그레이션</block>
@@ -4957,4 +4956,16 @@
   <block id="2d6eb81058fa2415eb5247e2c14c5452" category="inline-link">원격 연결을 유지하면서 Cisco 상호 연결 스위치의 구성을 지우는 방법</block>
   <block id="9fa76c217cee95f26808d0c64f43dcda" category="list-text">RCF를 설치할 때 스위치에 콘솔 연결이 필요합니다. 기술 자료 문서를 사용한 경우 이 요구 사항은 선택 사항입니다<block ref="3e8c2406d6e0211f305d1081c755846f" category="inline-link-rx"></block> 구성을 지우려면 사전에 확인하십시오.</block>
   <block id="83ad3b6efa173a2560e396a36d6ac2f0" category="admonition">새로운 RCF를 업데이트하거나 적용할 때는 스위치 설정을 지우고 기본 구성을 수행해야 합니다. 스위치를 다시 설정하려면 반드시 * 스위치 직렬 콘솔 포트에 연결해야 합니다. 그러나 이 요구 사항은 기술 자료 문서를 사용한 경우 선택 사항입니다<block ref="3e8c2406d6e0211f305d1081c755846f" category="inline-link-rx"></block> 구성을 지우려면 사전에 확인하십시오.</block>
+  <block id="bf2e41df1fe93346157f93aa59a48dd6" category="section-title">콘솔 로깅을 활성화합니다</block>
+  <block id="a1f2e4cbaec8fa16860e427a059b89aa" category="paragraph">NetApp은 사용 중인 장치에서 콘솔 로깅을 사용하도록 설정하고 스위치를 교체할 때 다음 작업을 수행할 것을 적극 권장합니다.</block>
+  <block id="7a15fb36e18a42514f358533c9af4dae" category="list-text">유지 관리 중에는 AutoSupport를 활성화된 상태로 둡니다.</block>
+  <block id="c0aa3599fdcfc9e5e35fab592ea612f0" category="inline-link">SU92: 예약된 유지 관리 기간 동안 자동 케이스 생성을 억제하는 방법</block>
+  <block id="5c0d62310efa13f4e4c4ae41a7330f95" category="list-text">유지 관리 전후에 유지 관리 AutoSupport를 트리거하여 유지 보수 기간 동안 케이스 생성을 비활성화합니다. 이 기술 자료 문서를 참조하십시오<block ref="9889375293ffeecac54c58b8cad125b2" category="inline-link-rx"></block> 를 참조하십시오.</block>
+  <block id="fb42fce84a1f5a648367e2e027a6c941" category="inline-link">ONTAP 시스템에 대한 최적의 연결을 위해 PuTTY를 구성하는 방법</block>
+  <block id="1d01c6e5d28fb955441f4f9d1b4678b7" category="list-text">모든 CLI 세션에 대해 세션 로깅을 설정합니다. 세션 로깅을 활성화하는 방법에 대한 지침은 이 기술 자료 문서의 "로깅 세션 출력" 섹션을 참조하십시오<block ref="969f6e4e41456399a13556dea44fc607" category="inline-link-rx"></block>.</block>
+  <block id="05e512c6037fe1bb54e099238cc8ce62" category="section-title">TCAM 리소스로 인해 포트가 연결되지 않습니다</block>
+  <block id="f45e0e2e020e174164fe5413760ef4e4" category="paragraph">9336C-FX2 스위치에서 스위치가 사용하는 구성에서 구성된 TAM(Ternary Content Addressable Memory) 리소스가 소진됩니다.</block>
+  <block id="50c3c6ae36d53e402b88d9a6222029a0" category="inline-link">TCAM 리소스로 인해 Cisco Nexus 9336C-FX2에서 포트가 연결되지 않습니다</block>
+  <block id="293da448e2520766812e980a00821699" category="paragraph">기술 자료 문서를 참조하십시오<block ref="882efca0483fcef9d53236590b1d74e9" category="inline-link-rx"></block> 이 문제를 해결하는 방법에 대한 자세한 내용은 을 참조하십시오.</block>
+  <block id="73f7e96895a0ddf72a3e199ac5ae2247" category="sidebar">3132Q-V 스위치를 교체합니다</block>
 </blocks>

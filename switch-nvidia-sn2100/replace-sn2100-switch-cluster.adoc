@@ -44,6 +44,17 @@ NOTE: 클러스터 LIF가 호스팅된 노드에서 클러스터 LIF를 마이�
 
 
 
+== 콘솔 로깅을 활성화합니다
+
+NetApp은 사용 중인 장치에서 콘솔 로깅을 사용하도록 설정하고 스위치를 교체할 때 다음 작업을 수행할 것을 적극 권장합니다.
+
+* 유지 관리 중에는 AutoSupport를 활성화된 상태로 둡니다.
+* 유지 관리 전후에 유지 관리 AutoSupport를 트리거하여 유지 보수 기간 동안 케이스 생성을 비활성화합니다. 이 기술 자료 문서를 참조하십시오 https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: 예약된 유지 관리 기간 동안 자동 케이스 생성을 억제하는 방법"^] 를 참조하십시오.
+* 모든 CLI 세션에 대해 세션 로깅을 설정합니다. 세션 로깅을 활성화하는 방법에 대한 지침은 이 기술 자료 문서의 "로깅 세션 출력" 섹션을 참조하십시오 https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["ONTAP 시스템에 대한 최적의 연결을 위해 PuTTY를 구성하는 방법"^].
+
+
+
+
 == 스위치를 교체합니다
 
 .예를 참조하십시오

@@ -54,3 +54,10 @@ FAS2820 e0a 및 e0b 포트 9336C-FX2 스위치 포트를 연결하려면 FEC 구
 *Save the changes:*
 (cs1)# *copy running-config startup-config*
 ----
+
+
+== TCAM 리소스로 인해 포트가 연결되지 않습니다
+
+9336C-FX2 스위치에서 스위치가 사용하는 구성에서 구성된 TAM(Ternary Content Addressable Memory) 리소스가 소진됩니다.
+
+기술 자료 문서를 참조하십시오 https://kb.netapp.com/on-prem/Switches/Cisco-KBs/Ports_do_not_link_up_on_Cisco_Nexus_9336C-FX2_due_to_TCAM_resources["TCAM 리소스로 인해 Cisco Nexus 9336C-FX2에서 포트가 연결되지 않습니다"^] 이 문제를 해결하는 방법에 대한 자세한 내용은 을 참조하십시오.

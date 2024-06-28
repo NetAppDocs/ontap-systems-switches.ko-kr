@@ -51,7 +51,7 @@ entries:
   entries:
   - title: 요구 사항을 교체합니다
     url: "/switch-cisco-3132q-v/switch-requirements.html"
-  - title: CN3132Q-V 스위치를 교체합니다
+  - title: 3132Q-V 스위치를 교체합니다
     url: "/switch-cisco-3132q-v/replace-cisco-nexus-3132q-v.html"
   - title: 클러스터 스위치를 스위치가 없는 연결로 대체
     url: "/switch-cisco-3132q-v/migrate-to-switchless-cluster-interconnect.html"
