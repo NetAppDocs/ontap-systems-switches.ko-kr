@@ -4124,7 +4124,6 @@
   <block id="bd399ae0cf713e575ca26baedc0a896c" category="paragraph">NVIDIA SN2100 스위치(X190006)는 스위치에 포함된 표준 브래킷과 함께 NVIDIA 이중/단일 스위치 캐비닛에 설치합니다.</block>
   <block id="1e247ada2e98c5879849d746a52a4241" category="paragraph">NVIDIA SN2100 스위치는 Cumulus Linux를 실행하는 10/25/40/100GbE 스위치입니다. 스위치는 다음을 지원합니다.</block>
   <block id="c19b9518d51b517376f0fe9109f66e90" category="paragraph">40/100GbE 클러스터 포트 노드</block>
-  <block id="45a21206fd2396fdd6a59132a2a6d3a7" category="paragraph">40/100GbE ISL(Inter-Switch Link) 포트</block>
   <block id="509e4d6df8b93cb5deb86271a6326df2" category="section-title">광 연결을 통한 연결 지연</block>
   <block id="50137c9f3120823f7ba1d1983c48e011" category="paragraph">연결 작업이 5초 이상 지연되는 경우에는 Cumulus Linux 5.4 이상에서 빠른 연결 작업을 지원합니다. 을 사용하여 링크를 구성할 수 있습니다<block ref="0c14f6e7a82b0926c666f7fac383436a" prefix=" " category="inline-code"></block> 명령:</block>
   <block id="68a8de419a9558e300d05a15cc5b2aec" category="section-title">구리 연결을 지원합니다</block>
@@ -4968,4 +4967,37 @@
   <block id="50c3c6ae36d53e402b88d9a6222029a0" category="inline-link">TCAM 리소스로 인해 Cisco Nexus 9336C-FX2에서 포트가 연결되지 않습니다</block>
   <block id="293da448e2520766812e980a00821699" category="paragraph">기술 자료 문서를 참조하십시오<block ref="882efca0483fcef9d53236590b1d74e9" category="inline-link-rx"></block> 이 문제를 해결하는 방법에 대한 자세한 내용은 을 참조하십시오.</block>
   <block id="73f7e96895a0ddf72a3e199ac5ae2247" category="sidebar">3132Q-V 스위치를 교체합니다</block>
+  <block id="dd821578b18dec3b3c49fbc2a36950e0" category="paragraph">100GbE ISL(Inter-Switch Link) 포트</block>
+  <block id="c2f363b557f11042735dbadbfbd534d3" category="summary">이 절차를 사용하여 NVIDIA SN2100 클러스터 스위치의 클러스터 스위치 상태 모니터링을 위한 해당 구성 파일을 설치할 수 있습니다.</block>
+  <block id="1972298f5ec1d5e6b5fe96dd4ba6f4d3" category="doc">이더넷 스위치 상태 모니터 구성 파일을 설치합니다</block>
+  <block id="65c65b976cfab8bcc3a5fa282181ca5b" category="paragraph">다음 절차에 따라 NVIDIA 클러스터 스위치의 이더넷 스위치 상태 모니터링을 위한 해당 구성 파일을 설치하십시오. 지원되는 모델:</block>
+  <block id="164a0cea1831b06a7fa67aab2e9a5d98" category="admonition">이 설치 절차는 ONTAP 9.10.1 이상에 적용됩니다.</block>
+  <block id="dd7fa1380804217cf2f3af00bb585752" category="list-text">를 실행하고 모델에 * 기타 * 가 표시되는지 확인하여 구성 파일을 다운로드해야 하는지<block ref="db3929a8e897b02a87f7f4bc42f38fc1" prefix=" " category="inline-code"></block> 확인합니다.</block>
+  <block id="3953f2c946249817a198b9dd2d604aa4" category="paragraph">구성 파일을 적용한 후에도 모델에 * 기타 * 가 계속 표시되면 NetApp 지원에 문의하십시오.</block>
+  <block id="294206f940bbd4f3ec7f79996b76c616" category="list-text">ONTAP 클러스터가 작동 중이고 실행 중인지 확인합니다.</block>
+  <block id="c2c0a6bc429d35a2d508307c899f4398" category="list-text">CSHM에서 사용할 수 있는 모든 기능을 사용하려면 SSH를 활성화합니다.</block>
+  <block id="0cfea6e2910f570cd17c24fb74c90378" category="inline-link">NVIDIA 이더넷 스위치</block>
+  <block id="363c0c7cf08dfd2752b66f1fc2506a0a" category="list-text">해당 ONTAP 릴리스 버전을 기반으로 이더넷 스위치 상태 모니터 구성 zip 파일을 다운로드합니다. 이 파일은 페이지에서 사용할 수<block ref="308b26f7678235b6ac179b42eaa22162" category="inline-link-rx"></block> 있습니다.</block>
+  <block id="68de66680b1bf357acb893d8dfe0f0bc" category="list-text">NVIDIA SN2100 소프트웨어 다운로드 페이지에서 * Nvidia CSHM File * 을 선택합니다.</block>
+  <block id="6b98b47c20b7ca9e9919fa3a77bf7814" category="list-text">주의/읽어야 함 페이지에서 동의할 확인란을 선택합니다.</block>
+  <block id="c36caaf00f9a67804cb39871b93b4fb1" category="list-text">최종 사용자 사용권 계약 페이지에서 동의할 확인란을 선택하고 * Accept &amp; Continue * 를 클릭합니다.</block>
+  <block id="e5e0b87b73538c14eb1223ba2685b479" category="list-text">Nvidia CSHM 파일 - 다운로드 페이지에서 해당 구성 파일을 선택합니다. 다음 파일을 사용할 수 있습니다.</block>
+  <block id="4b96de8aec25594d2021f91d86aa38cb" category="open-title">ONTAP 9.15.1 이상</block>
+  <block id="b834fb250d0f1e06556ff2af9ce370ff" category="list-text">X190006-PE.zip</block>
+  <block id="33ab7322815a985fdb6cbba64b9ffda9" category="list-text">X190006-PI.zip</block>
+  <block id="9fc9e8ea7a5cdfe68b4528fb16936bf1" category="open-title">ONTAP 9.11.1 ~ 9.14.1</block>
+  <block id="00032ac6acd20eb8310604aa0ac6a200" category="list-text">X190006-PE_PRIOR_9.15.1.zip</block>
+  <block id="6a9e7f50780a2f2b4e2b5999c1b1ae2b" category="list-text">X190006-PI_PRIOR_9.15.1.zip</block>
+  <block id="3e5315d19591c6790a6c062127cf9a8e" category="list-text">[[step2]] 해당 zip 파일을 내부 웹 서버에 업로드합니다.</block>
+  <block id="e319ecf1cb942a0710da7d0d525af1db" category="list-text">클러스터의 ONTAP 시스템 중 하나에서 고급 모드 설정에 액세스합니다.</block>
+  <block id="4072831dc74599297a173c0e1d86b538" category="list-text">switch 상태 monitor configure 명령을 실행합니다.</block>
+  <block id="bdfd509ce621aa984c1f0a9cdf92ae88" category="list-text">명령 출력이 ONTAP 버전에 대한 다음 텍스트로 끝나는지 확인합니다.</block>
+  <block id="ff62e28086747c31b6e4bbd897aaaf54" category="paragraph">이더넷 스위치 상태 모니터링이 구성 파일을 설치했습니다.</block>
+  <block id="3f54ec95c3fc7563a38988f9c2a7a823" category="paragraph">shm이 구성 파일을 설치했습니다.</block>
+  <block id="ab8296c5ef7a7b056b384680f89a9379" category="open-title">ONTAP 9.10.1</block>
+  <block id="74d14036e96594d67869316b84c6d566" category="paragraph">CSHM 다운로드 패키지가 성공적으로 처리되었습니다.</block>
+  <block id="89c6b3e5f896b8d329ae4e4fe91cc812" category="paragraph">오류가 발생하면 NetApp 지원 팀에 문의하십시오.</block>
+  <block id="a6fd16052b19595c024aa4e5bcb0b366" category="list-text">[[step6]] 다음 단계를 완료하기 전에 를 실행하여 찾은 이더넷 스위치 상태 모니터 폴링 간격을 최대 2배까지 기다립니다<block ref="c9e6cd6140c9d8677df821c7cce2aac1" prefix=" " category="inline-code"></block>.</block>
+  <block id="c947c5faccdddd0a9a87be7895f50511" category="list-text">ONTAP 시스템에서 명령을<block ref="db3929a8e897b02a87f7f4bc42f38fc1" prefix=" " category="inline-code"></block> 실행하고 모니터링되는 필드가 * True * 로 설정되어 있고 일련 번호 필드가 * Unknown * 으로 표시되지 않는 상태에서 클러스터 스위치가 검색되는지 확인합니다.</block>
+  <block id="b954609be582bc6760c67ae6e58cd7a9" category="sidebar">CSMM 구성 파일을 설치합니다</block>
 </blocks>
