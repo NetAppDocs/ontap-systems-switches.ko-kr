@@ -5000,4 +5000,6 @@
   <block id="a6fd16052b19595c024aa4e5bcb0b366" category="list-text">[[step6]] 다음 단계를 완료하기 전에 를 실행하여 찾은 이더넷 스위치 상태 모니터 폴링 간격을 최대 2배까지 기다립니다<block ref="c9e6cd6140c9d8677df821c7cce2aac1" prefix=" " category="inline-code"></block>.</block>
   <block id="c947c5faccdddd0a9a87be7895f50511" category="list-text">ONTAP 시스템에서 명령을<block ref="db3929a8e897b02a87f7f4bc42f38fc1" prefix=" " category="inline-code"></block> 실행하고 모니터링되는 필드가 * True * 로 설정되어 있고 일련 번호 필드가 * Unknown * 으로 표시되지 않는 상태에서 클러스터 스위치가 검색되는지 확인합니다.</block>
   <block id="b954609be582bc6760c67ae6e58cd7a9" category="sidebar">CSMM 구성 파일을 설치합니다</block>
+  <block id="31c020d11cc321faf9c0793a662d1e53" category="list-text">스위치 CS2를 재부팅합니다. 스위치가 재부팅되고 오류 출력이 발생하는 동안 노드에 보고된 "클러스터 포트 다운" 이벤트를 모두 무시할 수<block ref="a9e34a08c2be7359540cbf7337dc5ce9" prefix=" " category="inline-code"></block> 있습니다.</block>
+  <block id="db82c22b5434946b4bc226a3b9b7888a" category="list-text">동일한 RCF를 적용하고 실행 중인 구성을 다시 저장합니다. RCF는 QoS를 사용하며 스위치 사이에 재부팅된 상태에서 RCF를 두 번 로드하는 TCAM을 다시 구성해야 하기 때문에 이 작업이 필요합니다.</block>
 </blocks>
