@@ -1068,4 +1068,4 @@ system node autosupport invoke -node * -type all -message MAINT=END
 
 
 .다음 단계
-link:configure-ssh.html["로그 수집을 위해 SSH를 설정합니다"].
+link:configure-ssh.html["SSH를 활성화합니다"]..

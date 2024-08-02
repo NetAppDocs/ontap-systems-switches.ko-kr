@@ -1,5 +1,5 @@
 ---
-permalink: switch-nvidia-sn2100/components-sn2100-storage.html 
+permalink: switch-nvidia-sn2100-storage/components-sn2100-storage.html 
 sidebar: sidebar 
 keywords: nvidia SN2100 switches 
 summary: NVIDIA SN2100 스위치 설치 및 유지 관리의 경우 캐비닛 및 레일 키트의 구성 요소 및 부품 번호 목록을 검토하십시오. 

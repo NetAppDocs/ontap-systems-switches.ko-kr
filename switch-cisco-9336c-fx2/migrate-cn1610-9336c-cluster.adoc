@@ -479,7 +479,7 @@ node2      /cdp
 
 
 
-=== 3단계: 절차를 완료합니다
+=== 3단계: 구성을 확인합니다
 
 . 클러스터 LIF에서 자동 되돌리기 사용:
 +
@@ -507,76 +507,6 @@ Cluster
             node2_clus2  up/up    169.254.19.183/16  node2         e3b     true
 ----
 ====
-. 로그 수집을 설정하려면 각 스위치에 대해 다음 명령을 실행합니다. 로그 수집을 위해 스위치 이름, 사용자 이름 및 암호를 입력하라는 메시지가 표시됩니다.
-+
-'System switch Ethernet log setup - password'(시스템 스위치 이더넷 로그 설정 - 암호)
-
-+
-.예제 보기
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> *system switch ethernet log setup-password*
-Enter the switch name: <return>
-The switch name entered is not recognized.
-Choose from the following list:
-*cs1*
-*cs2*
-
-cluster1::*> *system switch ethernet log setup-password*
-
-Enter the switch name: *cs1*
-RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
-Do you want to continue? {y|n}::[n] *y*
-
-Enter the password: <enter switch password>
-Enter the password again: <enter switch password>
-
-cluster1::*> *system switch ethernet log setup-password*
-
-Enter the switch name: *cs2*
-RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
-Do you want to continue? {y|n}:: [n] *y*
-
-Enter the password: <enter switch password>
-Enter the password again: <enter switch password>
-----
-====
-. 로그 수집을 시작하려면 다음 명령을 실행하여 디바이스를 이전 명령에서 사용한 스위치로 바꿉니다. 이렇게 하면 자세한 * 지원 * 로그 및 시간별 * 주기적 * 데이터 수집과 같은 두 가지 유형의 로그 수집이 시작됩니다.
-+
-`system switch ethernet log modify -device _<switch-name>_ -log-request true`
-
-+
-.예제 보기
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> *system switch ethernet log modify -device cs1 -log-request true*
-
-Do you want to modify the cluster switch log collection configuration? {y|n}: [n] *y*
-
-Enabling cluster switch log collection.
-
-cluster1::*> *system switch ethernet log modify -device cs2 -log-request true*
-
-Do you want to modify the cluster switch log collection configuration? {y|n}: [n] *y*
-
-Enabling cluster switch log collection.
-cluster1::*>
-----
-====
-+
-10분간 기다린 후 다음 명령을 사용하여 로그 수집이 성공했는지 확인합니다.
-
-+
-`system switch ethernet log show`
-
-+
-
-NOTE: 이러한 명령에서 오류가 반환되면 NetApp 지원에 문의하십시오.
-
 . 권한 수준을 admin으로 다시 변경합니다.
 +
 'Set-Privilege admin'입니다
@@ -586,3 +516,6 @@ NOTE: 이러한 명령에서 오류가 반환되면 NetApp 지원에 문의하�
 'System node AutoSupport invoke-node * -type all-message maINT=end'
 
 
+
+.다음 단계
+link:../switch-cshm/config-overview.html["스위치 상태 모니터링을 구성합니다"]..

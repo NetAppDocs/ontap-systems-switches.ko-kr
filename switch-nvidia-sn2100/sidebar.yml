@@ -34,16 +34,10 @@ entries:
     url: "/switch-nvidia-sn2100/install-cumulus-mode-sn2100-cluster.html"
   - title: ONIE 모드에서 Cumulus Linux를 설치합니다
     url: "/switch-nvidia-sn2100/install-onie-mode-sn2100-cluster.html"
-  - title: RCF 스크립트를 설치합니다
-    url: "/switch-nvidia-sn2100/install-rcf-sn2100-cluster.html"
-  - title: CSMM 구성 파일을 설치합니다
-    url: "/switch-nvidia-sn2100/setup-install-cshm-file.html"
-  - title: 로그 수집을 활성화합니다
-    url: "/switch-nvidia-sn2100/CSHM_log_collection.html"
-  - title: 모니터링을 위한 SNMPv3을 구성합니다
-    url: "/switch-nvidia-sn2100/CSHM_snmpv3.html"
   - title: Cumulus Linux 버전을 업그레이드하십시오
     url: "/switch-nvidia-sn2100/upgrade-cl-version.html"
+  - title: RCF 스크립트를 설치합니다
+    url: "/switch-nvidia-sn2100/install-rcf-sn2100-cluster.html"
 - title: 스위치 마이그레이션
   pdf-filename: Migrate_switches_sn2100 을 참조하십시오
   entries:

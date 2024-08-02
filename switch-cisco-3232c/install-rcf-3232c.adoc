@@ -758,3 +758,6 @@ RPC status:
 ----
 ====
 
+
+.다음 단계
+link:../switch-cshm/config-overview.html["스위치 상태 모니터링을 구성합니다"]

@@ -11,7 +11,7 @@ summary: '클러스터 스위치 상태 모니터\(CSMM\) 및 로그 수집 기�
 
 
 [role="lead"]
-CSHM(Cluster Switch Health Monitor) 및 로그 수집 기능을 사용하는 경우 SSH 키를 생성한 다음 클러스터 스위치에서 SSH를 활성화해야 합니다.
+이더넷 스위치 상태 모니터(CSHM) 및 로그 수집 기능을 사용하는 경우, SSH 키를 생성한 다음 클러스터 스위치에서 SSH를 사용하도록 설정해야 합니다.
 
 .단계
 . SSH가 해제되어 있는지 확인합니다.
@@ -119,4 +119,4 @@ SCP server Administrative Mode: ............... Enabled
 
 
 .다음 단계
-link:CSHM_log_collection.html["로그 수집을 활성화합니다"].
+link:../switch-cshm/config-overview.html["스위치 상태 모니터링을 구성합니다"]..

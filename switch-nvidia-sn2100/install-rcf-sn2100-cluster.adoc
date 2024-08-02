@@ -605,4 +605,4 @@ sw2                         cluster-network    10.233.205.91    MSN2100-CB2RC
 --
 ====
 .다음 단계
-link:CSHM_log_collection.html["로그 수집을 활성화합니다"]
+link:../switch-cshm/config-overview.html["스위치 상태 모니터링을 구성합니다"]..

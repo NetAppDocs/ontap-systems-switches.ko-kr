@@ -23,18 +23,10 @@ BES-53248 클러스터 스위치에서 이더넷 패브릭 OS(EFOS) 소프트웨
 
 . link:configure-install-rcf.html["RCF(Reference Configuration File) 설치"].
 +
-BES-53248 클러스터 스위치에 RCF를 설치한 다음 RCF가 적용된 후 추가 라이센스에 대한 포트를 확인합니다.
+BES-53248 클러스터 스위치에 RCF를 설치 또는 업그레이드한 다음 RCF를 적용한 후 포트를 추가 라이센스에 대해 확인합니다.
 
 . link:configure-ssh.html["BES-53248 클러스터 스위치에서 SSH를 활성화합니다"].
 +
-CSHM(Cluster Switch Health Monitor) 및 로그 수집 기능을 사용하는 경우 스위치에서 SSH를 사용하도록 설정합니다.
-
-. link:CSHM_log_collection.html["로그 수집 기능을 활성화합니다"].
-+
-로그 수집 기능을 사용하여 ONTAP에서 스위치 관련 로그 파일을 수집합니다.
-
-. link:CSHM_snmpv3.html["모니터링을 위한 SNMPv3을 구성합니다"].
-+
-CSHM(Cluster Switch Health Monitor) 기능을 사용하는 경우 이더넷 스위치 상태 모니터링(CSHM)을 지원하는 SNMPv3를 구성합니다.
+이더넷 스위치 상태 모니터(CSHM) 및 로그 수집 기능을 사용하는 경우 스위치에서 SSH를 사용하도록 설정합니다.
 
 

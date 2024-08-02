@@ -1,0 +1,57 @@
+---
+permalink: switch-cshm/log-collection-troubleshoot.html 
+sidebar: sidebar 
+keywords: cshm, cluster, storage, switch logs, debugging, collection 
+summary: 여기 제공된 명령을 사용할 수 있습니다..... 
+---
+= 로그 수집 문제를 해결합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+로그 수집 기능에 의해 보고되는 다음 오류 상태 중 하나가 발생하면(명령의 출력에 표시됨 `system switch ethernet log show` ) 해당 디버그 단계를 시도하십시오.
+
+|===
+
+
+| * 로그 수집 오류 상태 * | * 해상도 * 
+
+
+ a| 
+*RSA 키가 없습니다
+ a| 
+ONTAP SSH 키를 재생성합니다.
+
+
+
+ a| 
+* 비밀번호 전환 오류 *
+ a| 
+자격 증명을 확인하고, SSH 연결을 테스트하고, ONTAP SSH 키를 다시 생성합니다. 스위치 설명서를 검토하거나 NetApp 지원에 문의하여 지침을 받으십시오.
+
+
+
+ a| 
+*FIPS*에 대한 ECDSA 키가 없습니다
+ a| 
+FIPS 모드가 활성화된 경우 재시도하기 전에 스위치에서 ECDSA 키를 생성해야 합니다.
+
+
+
+ a| 
+* 기존 로그를 찾았습니다 *
+ a| 
+스위치에서 이전 로그 수집 파일을 제거합니다.
+
+
+
+ a| 
+* 스위치 덤프 로그 오류 *
+ a| 
+스위치 사용자에게 로그 수집 권한이 있는지 확인합니다. 위의 필수 구성 요소를 참조하십시오.
+
+|===
+
+NOTE: 해결 세부 정보가 작동하지 않는 경우 NetApp 지원 팀에 문의하십시오.

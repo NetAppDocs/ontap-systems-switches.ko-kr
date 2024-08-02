@@ -356,3 +356,6 @@ NetApp은 System Manager를 사용하여 새 클러스터를 설정할 것을 �
 System Manager에서는 노드 관리 IP 주소 할당, 클러스터 초기화, 로컬 계층 생성, 프로토콜 구성, 초기 스토리지 프로비저닝 등 클러스터 설정 및 구성을 위한 간단하고 쉬운 워크플로를 제공합니다.
 
 로 이동합니다 https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["System Manager를 사용하여 새 클러스터에서 ONTAP를 구성합니다"] 를 참조하십시오.
+
+.다음 단계
+link:../switch-cisco-9336c-fx2-storage/configure-ssh.html["SSH를 활성화합니다"]..

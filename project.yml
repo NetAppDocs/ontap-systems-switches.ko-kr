@@ -35,6 +35,7 @@ sidebar:
     entries:
     - section: switch-cisco-9336c-fx2-shared
       pdf-filename: 스위치 - Cisco-9336c-FX2-스토리지
+  - section: switch-cshm
   - title: 사용 종료 스위치
     entries:
     - title: 개요

@@ -1,5 +1,5 @@
 ---
-permalink: switch-nvidia-sn2100/sn2100-overview.html 
+permalink: switch-nvidia-sn2100-storage/sn2100-overview.html 
 sidebar: sidebar 
 keywords: nvidia SN2100 switches 
 summary: NVIDIA SN2100 스위치 설치 및 유지 보수의 경우 모든 요구 사항 및 권장 설명서를 검토하십시오. 

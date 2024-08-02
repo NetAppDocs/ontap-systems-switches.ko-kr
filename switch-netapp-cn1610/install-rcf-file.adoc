@@ -472,3 +472,6 @@ Configuration Saved!
 ====
 . 이전 단계를 반복하여 다른 스위치 CS1에 RCF를 설치합니다.
 
+
+.다음 단계
+link:../switch-cshm/config-overview.html["스위치 상태 모니터링을 구성합니다"]

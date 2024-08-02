@@ -20,7 +20,6 @@ Cisco Nexus 92300YC 스위치를 구성하기 전에 절차 개요를 검토하�
 . link:install-nxos-overview.html["NX-OS 소프트웨어 및 RCF(Reference Configuration File) 설치 준비"]. NX-OS 소프트웨어 및 RCF(Reference Configuration File) 설치를 준비합니다.
 . link:install-nxos-software.html["NX-OS 소프트웨어를 설치합니다"]. Nexus 92300YC 스위치에 NX-OS 소프트웨어를 설치합니다. NX-OS는 Cisco Systems에서 제공하는 Nexus 시리즈 이더넷 스위치 및 MDS 시리즈 FC(Fibre Channel) 스토리지 영역 네트워크 스위치용 네트워크 운영 체제입니다.
 . link:install-the-rcf-file.html["RCF(Reference Configuration File) 설치"]. Nexus 92300YC 스위치를 처음 설정한 후 RCF를 설치합니다. 이 절차를 사용하여 RCF 버전을 업그레이드할 수도 있습니다.
-. link:setup-install-cshm-file.html["CSHM(Cluster Switch Health Monitor) 구성 파일을 설치합니다"]. Nexus 92300YC 클러스터 스위치의 클러스터 스위치 상태 모니터링에 해당하는 구성 파일을 설치합니다.
 
 
 

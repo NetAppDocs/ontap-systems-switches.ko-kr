@@ -17,7 +17,7 @@ indexpage:
       url: "/switch-bes-53248/configure-new-switch-overview.html"
     - title: 클러스터 스위치 - Cisco Nexus 9336C-FX2
       url: "/switch-cisco-9336c-fx2/configure-switch-overview-9336c-cluster.html"
-    - title: 클러스터 스위치 - NVIDIA SN2100 클러스터 스위치
+    - title: 클러스터 스위치 - NVIDIA SN2100
       url: "/switch-nvidia-sn2100/configure-overview-sn2100-cluster.html"
     - title: 스토리지 스위치 - Cisco Nexus 9336C-FX2
       url: "/switch-cisco-9336c-fx2-storage/configure-switch-overview-9336c-storage.html"
@@ -35,6 +35,14 @@ indexpage:
       url: "/switch-cisco-92300/install-overview-cisco-92300.html"
     - title: 클러스터 스위치 - NetApp CN1610
       url: "/switch-netapp-cn1610/switch-overview-cn1610.html"
+  - title: 이더넷 스위치 상태 모니터링
+    links:
+    - title: 스위치 상태 모니터링을 구성합니다
+      url: "/switch-cshm/config-overview.html"
+    - title: 스위치 상태 모니터링을 확인합니다
+      url: "/switch-cshm/monitor-overview.html"
+    - title: 스위치 상태 모니터링을 위한 로그를 수집합니다
+      url: "/switch-cshm/log-collection-overview.html"
   - title: 관련 ONTAP 문서
     links:
     - title: ONTAP 하드웨어 시스템

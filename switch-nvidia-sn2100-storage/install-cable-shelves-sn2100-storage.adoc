@@ -1,5 +1,5 @@
 ---
-permalink: switch-nvidia-sn2100/install-cable-shelves-sn2100-storage.html 
+permalink: switch-nvidia-sn2100-storage/install-cable-shelves-sn2100-storage.html 
 sidebar: sidebar 
 keywords: sn2100 cabling setup, msn2100 sn2100 switches configuration, cumulus linux 
 summary: NS224 드라이브 쉘프를 직접 연결 스토리지가 아닌 스위치 연결 스토리지로 케이블로 연결해야 하는 시스템이 있는 경우 여기에 제공된 정보를 사용합니다. 

@@ -400,4 +400,4 @@ cs1          0/56    179         R             BES-53248   0/56
 
 
 .다음 단계
-을 참조하십시오 link:configure-log-collection.html["로그 수집 기능을 활성화합니다"] 스위치 관련 로그 파일을 수집하는 데 사용되는 클러스터 상태 스위치 로그 수집을 활성화하는 데 필요한 단계를 확인합니다.
+link:../switch-cshm/config-overview.html["스위치 상태 모니터링을 구성합니다"]..

@@ -33,10 +33,6 @@ entries:
     url: "/switch-bes-53248/configure-install-rcf.html"
   - title: 로그 수집을 위해 SSH를 설정합니다
     url: "/switch-bes-53248/configure-ssh.html"
-  - title: 로그 수집을 활성화합니다
-    url: "/switch-bes-53248/CSHM_log_collection.html"
-  - title: 모니터링을 위한 SNMPv3을 구성합니다
-    url: "/switch-bes-53248/CSHM_snmpv3.html"
 - title: 스위치를 업그레이드합니다
   pdf-filename: upgrade_switches_bes53248 을 참조하십시오
   entries:

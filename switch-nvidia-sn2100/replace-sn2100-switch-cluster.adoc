@@ -438,7 +438,7 @@ e3b       Cluster      Cluster          up    9000  auto/10000  healthy  false
 
 
 
-=== 3단계: 절차를 완료합니다
+=== 3단계: 구성을 확인합니다
 
 . 클러스터 네트워크가 정상인지 확인합니다.
 +
@@ -457,88 +457,6 @@ swp15      100G   BondMember  nsw2            swp15
 swp16      100G   BondMember  nsw2            swp16
 ----
 ====
-. 이더넷 스위치 상태 모니터 로그 수집 기능에 대한 암호를 생성합니다.
-+
-'System switch Ethernet log setup - password'(시스템 스위치 이더넷 로그 설정 - 암호)
-
-+
-.예제 보기
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> *system switch ethernet log setup-password*
-Enter the switch name: *<return>*
-The switch name entered is not recognized.
-Choose from the following list:
-*cs1*
-*cs2*
-
-cluster1::*> *system switch ethernet log setup-password*
-
-Enter the switch name: *cs1*
-Would you like to specify a user other than admin for log collection? {y|n}: *n*
-
-Enter the password: *<enter switch password>*
-Enter the password again: *<enter switch password>*
-
-cluster1::*> *system switch ethernet log setup-password*
-
-Enter the switch name: *cs2*
-Would you like to specify a user other than admin for log collection? {y|n}: *n*
-
-Enter the password: *<enter switch password>*
-Enter the password again: *<enter switch password>*
-----
-====
-. 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화합니다.
-+
-`system switch ethernet log modify -device _<switch-name>_ -log-request true`
-
-+
-.예제 보기
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> *system switch ethernet log modify -device cs1 -log-request true*
-
-Do you want to modify the cluster switch log collection configuration? {y|n}: [n] *y*
-
-Enabling cluster switch log collection.
-
-cluster1::*> *system switch ethernet log modify -device cs2 -log-request true*
-
-Do you want to modify the cluster switch log collection configuration? {y|n}: [n] *y*
-
-Enabling cluster switch log collection.
-----
-====
-+
-10분간 기다린 후 로그 수집이 완료되었는지 확인합니다.
-
-+
-`system switch ethernet log show`
-
-+
-.예제 보기
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> system switch ethernet log show
-Log Collection Enabled: true
-
-Index  Switch                       Log Timestamp        Status
------- ---------------------------- -------------------  ---------    
-1      cs1 (b8:ce:f6:19:1b:42)      4/29/2022 03:05:25   complete   
-2      cs2 (b8:ce:f6:19:1b:96)      4/29/2022 03:07:42   complete
-----
-====
-+
-
-CAUTION: 이러한 명령 중 하나라도 오류를 반환하거나 로그 수집이 완료되지 않으면 NetApp 지원에 문의하십시오.
-
 . 권한 수준을 admin으로 다시 변경합니다.
 +
 'Set-Privilege admin'입니다
@@ -548,3 +466,6 @@ CAUTION: 이러한 명령 중 하나라도 오류를 반환하거나 로그 수�
 'System node AutoSupport invoke-node * -type all-message maINT=end'
 
 
+
+.다음 단계
+link:../switch-cshm/config-overview.html["스위치 상태 모니터링을 구성합니다"]..

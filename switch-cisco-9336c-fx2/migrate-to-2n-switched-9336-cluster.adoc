@@ -592,106 +592,11 @@ RPC status:
 +
 'Set-Privilege admin'입니다
 
-. ONTAP 9.8 이상의 경우 다음 명령을 사용하여 스위치 관련 로그 파일을 수집하기 위한 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화합니다.
-+
-System switch ethernet log setup-password와 system switch ethernet log enable-collection
-
-+
-.예제 보기
-[%collapsible]
-====
-[listing]
-----
-cluster1::*> system switch ethernet log setup-password
-Enter the switch name: <return>
-The switch name entered is not recognized.
-Choose from the following list:
-cs1
-cs2
-
-cluster1::*> system switch ethernet log setup-password
-
-Enter the switch name: cs1
-RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
-Do you want to continue? {y|n}::[n] y
-
-Enter the password: <enter switch password>
-Enter the password again: <enter switch password>
-
-cluster1::*> system switch ethernet log setup-password
-
-Enter the switch name: cs2
-RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
-Do you want to continue? {y|n}:: [n] y
-
-Enter the password: <enter switch password>
-Enter the password again: <enter switch password>
-
-cluster1::*> system switch ethernet log enable-collection
-
-Do you want to enable cluster log collection for all nodes in the cluster?
-{y|n}: [n] y
-
-Enabling cluster switch log collection.
-
-cluster1::*>
-----
-====
-+
-
-NOTE: 이러한 명령에서 오류가 반환되면 NetApp 지원에 문의하십시오.
-
-. ONTAP 릴리스 9.5P16, 9.6P12 및 9.7P10 이상의 패치 릴리스의 경우 다음 명령을 사용하여 스위치 관련 로그 파일을 수집하기 위한 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화합니다.
-+
-System cluster-switch log setup-password와 system cluster-switch log enable-collection
-
-+
-.예제 보기
-[%collapsible]
-====
-[listing]
-----
-cluster1::*> system cluster-switch log setup-password
-Enter the switch name: <return>
-The switch name entered is not recognized.
-Choose from the following list:
-cs1
-cs2
-
-cluster1::*> system cluster-switch log setup-password
-
-Enter the switch name: cs1
-RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
-Do you want to continue? {y|n}::[n] y
-
-Enter the password: <enter switch password>
-Enter the password again: <enter switch password>
-
-cluster1::*> system cluster-switch log setup-password
-
-Enter the switch name: cs2
-RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
-Do you want to continue? {y|n}:: [n] y
-
-Enter the password: <enter switch password>
-Enter the password again: <enter switch password>
-
-cluster1::*> system cluster-switch log enable-collection
-
-Do you want to enable cluster log collection for all nodes in the cluster?
-{y|n}: [n] y
-
-Enabling cluster switch log collection.
-
-cluster1::*>
-----
-====
-+
-
-NOTE: 이러한 명령에서 오류가 반환되면 NetApp 지원에 문의하십시오.
-
 . 자동 케이스 생성을 억제한 경우 AutoSupport 메시지를 호출하여 다시 활성화합니다.
 +
 'System node AutoSupport invoke-node * -type all-message maINT=end'
 
 
+
+.다음 단계
+link:../switch-cshm/config-overview.html["스위치 상태 모니터링을 구성합니다"]..
