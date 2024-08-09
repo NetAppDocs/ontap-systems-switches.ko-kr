@@ -38,6 +38,8 @@ entries:
     url: "/switch-nvidia-sn2100/upgrade-cl-version.html"
   - title: RCF 스크립트를 설치합니다
     url: "/switch-nvidia-sn2100/install-rcf-sn2100-cluster.html"
+  - title: CSHM 파일을 설치합니다
+    url: "/switch-nvidia-sn2100/setup-install-cshm-file.html"
 - title: 스위치 마이그레이션
   pdf-filename: Migrate_switches_sn2100 을 참조하십시오
   entries:
