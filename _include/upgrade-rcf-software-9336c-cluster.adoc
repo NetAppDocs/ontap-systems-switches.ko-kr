@@ -350,7 +350,7 @@ g mode:
 
 
 
-. 이전에 식별된 사용자 지정 추가 사항을 스위치 구성에 다시 적용합니다.
+. 이전에 사용자 지정한 내용을 스위치 구성에 다시 적용합니다. link:cabling-considerations-9336c-fx2.html["케이블 연결 및 구성 고려 사항을 검토합니다"]필요한 추가 변경에 대한 자세한 내용은 을 참조하십시오.
 . RCF 버전, 사용자 지정 추가 및 스위치 설정이 올바른지 확인한 후 running-config 파일을 startup-config 파일에 복사합니다.
 +
 Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Cisco Nexus 9000 Series NX-OS 명령 참조"^] 안내선.

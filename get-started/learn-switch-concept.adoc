@@ -33,7 +33,7 @@ NOTE: NetApp에서 검증된 백 엔드 스위치(NetApp에서 주문)만 지원
 
 == 스토리지 스위치
 
-스토리지 스위치를 사용하면 SAN(Storage Area Network)에서 서버와 스토리지 어레이 간에 데이터를 라우팅할 수 있습니다. NetApp 지원 클러스터 스위치에는 다음이 포함됩니다.
+스토리지 스위치를 사용하면 SAN(Storage Area Network)에서 서버와 스토리지 어레이 간에 데이터를 라우팅할 수 있습니다. NetApp 지원 스토리지 스위치는 다음과 같습니다.
 
 * Cisco Nexus 9336C-FX2
 * nVidia SN2100

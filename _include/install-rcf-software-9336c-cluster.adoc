@@ -110,6 +110,7 @@ g mode:
 
 
 
+. 이전에 사용자 지정한 내용을 스위치 구성에 다시 적용합니다. link:cabling-considerations-9336c-fx2.html["케이블 연결 및 구성 고려 사항을 검토합니다"]필요한 추가 변경에 대한 자세한 내용은 을 참조하십시오.
 . RCF 버전 및 스위치 설정이 올바른지 확인한 후 running-config 파일을 startup-config 파일에 복사합니다.
 +
 `copy running-config startup-config`
@@ -358,4 +359,4 @@ System Manager에서는 노드 관리 IP 주소 할당, 클러스터 초기화, 
 로 이동합니다 https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["System Manager를 사용하여 새 클러스터에서 ONTAP를 구성합니다"] 를 참조하십시오.
 
 .다음 단계
-link:../switch-cisco-9336c-fx2-storage/configure-ssh.html["SSH를 활성화합니다"]..
+link:configure-ssh.html["SSH를 활성화합니다"]..
