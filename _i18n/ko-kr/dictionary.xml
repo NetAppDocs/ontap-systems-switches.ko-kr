@@ -4381,8 +4381,6 @@
   <block id="2bc32577d8d84ba98d84472c4916dd0f" category="admonition">NetApp에서 검증된 백 엔드 스위치(NetApp에서 주문)만 지원됩니다.</block>
   <block id="d69d8c23518c3e983c5799321eb27404" category="list-text">스위치 CS2의 구성을 지우고 스위치를 재부팅합니다.</block>
   <block id="a3d5cbedb318ff78ae8c3f9bced7661b" category="list-text">스위치의 기본 설정을 수행합니다. 을 참조하십시오 <block ref="ab35665c267fa570f19ad0ebf8386ab4" category="inline-link-macro-rx"></block> 를 참조하십시오.</block>
-  <block id="6ab23d04af2dab64aaf06d089d134151" category="summary">클러스터 스위치 상태 모니터\(CSMM\) 및 로그 수집 기능을 사용하려면 SSH가 필요합니다. Cisco 9336C-FX2 클러스터 스위치에서 SSH를 사용하도록 설정하려면 먼저 SSH 키를 생성한 다음 SSH를 사용하도록 설정합니다.</block>
-  <block id="f213e7d15465742733b22d11eff1d4ac" category="doc">Cisco 9336C-FX2 클러스터 스위치에서 SSH를 사용하도록 설정합니다</block>
   <block id="a8d8d025a84c64f53b535b4e606fd65a" category="summary">이 절차를 사용하여 Nexus 92300YC 클러스터 스위치의 클러스터 스위치 상태 모니터링에 해당하는 구성 파일을 설치할 수 있습니다.</block>
   <block id="0bf9f283c6d4cf639f7438f8d69e8f4f" category="doc">클러스터 SHM(Switch Health Monitor) 구성 파일을 설치합니다</block>
   <block id="5a70ef3971f7a5956d9f9f829efc730c" category="paragraph">이 절차에 따라 Nexus 9336C-FX2 클러스터 스위치의 SHM(클러스터 스위치 상태 모니터링)에 해당하는 구성 파일을 설치하십시오.</block>
@@ -4675,7 +4673,6 @@
   <block id="7e857aa8a0b068cc27d4b48a1e11e878" category="list-text"><block ref="7e857aa8a0b068cc27d4b48a1e11e878" category="inline-link-macro-rx"></block></block>
   <block id="32559ee483b61b36141f9b9e0f4bbfff" category="paragraph">NetApp Support 사이트에서 지원되는 ONTAP 및 RCF 버전은 스위치 호환성 표를 참조하십시오. RCF의 명령 구문과 특정 버전의 NX-OS에 있는 구문 사이에 명령 종속성이 있을 수 있습니다.</block>
   <block id="ad0d19783ccfa19f931108b838e4b7e4" category="list-text"><block ref="ad0d19783ccfa19f931108b838e4b7e4" category="inline-link-macro-rx"></block></block>
-  <block id="8fa9b99093c5cdfb4cebad0008ba3e8d" category="paragraph">이 절차의 예에서는 4개의 노드를 사용합니다. 이러한 노드에는 10GbE 클러스터 인터커넥트 포트 2개 e0a 및 e0b가 사용됩니다. 를 참조하십시오<block ref="e98f5e4074ae8b028a5791870586403d" category="inline-link-rx"></block> 사용 중인 플랫폼에서 올바른 클러스터 포트를 확인하려면 다음을 수행합니다.</block>
   <block id="79509ba15c2970f327dd8610e3b4628c" category="paragraph-title">사용된 명령</block>
   <block id="1ad593dd61af4356ce9ba12d276c4336" category="section-title">옵션 1: 새 스위치에 RCF 파일을 설치합니다</block>
   <block id="d061b4842fee7f503446ba29253d182f" category="paragraph">Nexus 9336C-FX2 스위치를 처음 설정한 후 RCF(Reference Configuration File)를 설치합니다.</block>
@@ -4890,7 +4887,6 @@
   <block id="c947c5faccdddd0a9a87be7895f50511" category="list-text">ONTAP 시스템에서 명령을<block ref="db3929a8e897b02a87f7f4bc42f38fc1" prefix=" " category="inline-code"></block> 실행하고 모니터링되는 필드가 * True * 로 설정되어 있고 일련 번호 필드가 * Unknown * 으로 표시되지 않는 상태에서 클러스터 스위치가 검색되는지 확인합니다.</block>
   <block id="31c020d11cc321faf9c0793a662d1e53" category="list-text">스위치 CS2를 재부팅합니다. 스위치가 재부팅되고 오류 출력이 발생하는 동안 노드에 보고된 "클러스터 포트 다운" 이벤트를 모두 무시할 수<block ref="a9e34a08c2be7359540cbf7337dc5ce9" prefix=" " category="inline-code"></block> 있습니다.</block>
   <block id="db82c22b5434946b4bc226a3b9b7888a" category="list-text">동일한 RCF를 적용하고 실행 중인 구성을 다시 저장합니다. RCF는 QoS를 사용하며 스위치 사이에 재부팅된 상태에서 RCF를 두 번 로드하는 TCAM을 다시 구성해야 하기 때문에 이 작업이 필요합니다.</block>
-  <block id="5fdb34220ba0015ed7039c3f92044588" category="paragraph"><block ref="e28073c74a510a495bd318aad6ec05d2" category="inline-link-macro-rx"></block>..</block>
   <block id="c7ca49e9f550dc9b18f2402f13ad9430" category="list-text">[[step5]] 자동 케이스 생성을 억제한 경우 AutoSupport 메시지를 호출하여 다시 활성화합니다.<block ref="9ac424c0d7b432975df36a19daf50c9c" prefix=" " category="inline-code"></block></block>
   <block id="58a19c530e54f6364edd838f35b1830e" category="inline-link-macro">스위치 상태 모니터링을 구성합니다</block>
   <block id="d21243682bbd31fa9c0d32d291135394" category="paragraph"><block ref="5b8b393a675dcaaee97c02828356657c" category="inline-link-macro-rx"></block>..</block>
@@ -4923,7 +4919,6 @@
   <block id="ec348def7634a5754cf9d62e8bca7f24" category="list-text"><block ref="853bcb6b647712eac9646e8ede049d7b" category="inline-link-macro-rx"></block>..</block>
   <block id="5f7b61b5cf8ee335e4fdf4eb2e2191b2" category="paragraph">포트는 클러스터 + HA의 경우 40/100GbE용으로, 클러스터에 4x10GbE 브레이크아웃, 클러스터 + HA의 경우 4x25GbE 브레이크아웃, 각 스토리지 HA 쌍에 대해 100GbE용으로 구성됩니다.</block>
   <block id="d30ea82d7096609f0aea87ef848f7ebd" category="paragraph">Cisco Nexus 9336C-FX2 공유 스위치용 소프트웨어를 설치하고 구성하려면 다음 단계를 수행하십시오.</block>
-  <block id="332339bcd9f462ab40cbf756a81eb021" category="doc">Cisco 9336C-FX2 공유 스위치에서 SSH를 활성화합니다</block>
   <block id="e495f3ec8dabfce7925d7c5053f55cbb" category="inline-link-macro">NetApp 캐비닛에 스위치를 설치합니다</block>
   <block id="343d8858c5eef7adcd6fc983a90c4848" category="list-text"><block ref="cad0a32a1376b86b466dd6cf29c7e620" category="inline-link-macro-rx"></block>..</block>
   <block id="d136348fb812c17c0d3c68bd85d3987f" category="inline-link-macro">NX-OS 및 RCF 설치를 준비합니다</block>
@@ -4932,7 +4927,6 @@
   <block id="bc2fac09fdd528e5067568b7be4074db" category="list-text">[[18단계]] 쉘프가 올바르게 연결되었는지 확인합니다.</block>
   <block id="783733d2f76fb1513a44bb7144679e76" category="list-text">[[step19]] 이전 스위치 SH2를 제거합니다.</block>
   <block id="3e6dc141a56ffa03ce5afc78a5bbbef1" category="paragraph">Cisco Nexus 9336C-FX2 스토리지 스위치용 소프트웨어를 설치하고 구성하려면 다음 단계를 수행하십시오.</block>
-  <block id="d60d1714728d79a415d0da5a4975ae8f" category="doc">Cisco 9336C-FX2 스토리지 스위치에서 SSH를 활성화합니다</block>
   <block id="e9c6db9ee4edb08184a082916cf1f56f" category="list-text"><block ref="c49772a60328b39d671da109a076acd4" category="inline-link-macro-rx"></block>..</block>
   <block id="5537a63af1d3d4f5a6ffcc2a8619a2f8" category="list-text"><block ref="d43bf43861b014b2f70de1c12cff1c76" category="inline-link-macro-rx"></block>..</block>
   <block id="cb037476ec4486d51b86d5dbeede8008" category="doc">로그 수집을 구성합니다</block>
@@ -5028,4 +5022,7 @@
   <block id="4af7c647d1c04eb805c9ecbc772595d1" category="list-text">이전에 사용자 지정한 내용을 스위치 구성에 다시 적용합니다. <block ref="81e27480a79c2bb77194c038c9737157" category="inline-link-macro-rx"></block>필요한 추가 변경에 대한 자세한 내용은 을 참조하십시오.</block>
   <block id="e51054318a8dcf9b707bc011338e9665" category="section-title">브레이크아웃 포트의 인터페이스 속도를 설정합니다</block>
   <block id="e4da4813fef5b96a216a043d594bf245" category="list-text">이전에 사용자 지정한 내용을 스위치 구성에 다시 적용합니다. <block ref="75ce5666fba6992a0719935651dd5b1b" category="inline-link-macro-rx"></block>필요한 추가 변경에 대한 자세한 내용은 을 참조하십시오.</block>
+  <block id="bdbcf1c0d7f9cba19eb12819b953fbf1" category="inline-link">스위치 OS 업그레이드 중에 클러스터 LIF를 마이그레이션할 때 노드가 쿼럼 밖입니다</block>
+  <block id="e6ab3c0f7886a69b4cd4dc70d1d4afa9" category="admonition">네트워크 연결 문제를 방지하려면 * 연결된 클러스터 포트 * 를 모두 종료해야 합니다. <block ref="c9b140831402716d03d51afcd09ff177" category="inline-link-rx"></block>자세한 내용은 기술 자료 문서를 참조하십시오.</block>
+  <block id="263b9f10fe7e073e656b08a5b6da7e5a" category="paragraph">이 절차의 예에서는 4개의 노드를 사용합니다. 이러한 노드에는 10GbE 클러스터 인터커넥트 포트 2개 e0a 및 e0b가 사용됩니다. <block ref="cd25cbe53f0a314145c84729c6ce2c78" category="inline-link-rx"></block>플랫폼에서 올바른 클러스터 포트를 확인하려면 를 참조하십시오.</block>
 </blocks>

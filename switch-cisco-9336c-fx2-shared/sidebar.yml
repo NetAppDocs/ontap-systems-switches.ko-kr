@@ -36,8 +36,6 @@ entries:
     url: "/switch-cisco-9336c-fx2-shared/install-nxos-software-9336c-shared.html"
   - title: RCF 구성 파일을 설치합니다
     url: "/switch-cisco-9336c-fx2-shared/install-nxos-rcf-9336c-shared.html"
-  - title: SSH를 활성화합니다
-    url: "/switch-cisco-9336c-fx2-shared/configure-ssh.html"
 - title: 스위치 마이그레이션
   pdf-filename: Migrate_switches_9336c-FX2-shared
   entries:
