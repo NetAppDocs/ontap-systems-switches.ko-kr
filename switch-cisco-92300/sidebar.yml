@@ -33,6 +33,8 @@ entries:
     url: "/switch-cisco-92300/install-nxos-software.html"
   - title: RCF 구성 파일을 설치합니다
     url: "/switch-cisco-92300/install-the-rcf-file.html"
+  - title: SSH 구성을 확인합니다
+    url: "/switch-cisco-92300/configure-ssh-keys.html"
 - title: 스위치 마이그레이션
   pdf-filename: Migrate_switches_92300yc
   entries:

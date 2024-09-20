@@ -464,7 +464,7 @@ System Manager에서는 노드 관리 IP 주소 할당, 클러스터 초기화, 
 로 이동합니다 https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["System Manager를 사용하여 새 클러스터에서 ONTAP를 구성합니다"] 를 참조하십시오.
 
 .다음 단계
-link:../switch-cshm/config-overview.html["스위치 상태 모니터링을 구성합니다"]..
+link:configure-ssh-keys.html["SSH 구성을 확인합니다"]..
 
 
 
@@ -1334,4 +1334,4 @@ RPC status:
 
 
 .다음 단계
-link:../switch-cshm/config-overview.html["스위치 상태 모니터링을 구성합니다"]..
+link:configure-ssh-keys.html["SSH 구성을 확인합니다"]..

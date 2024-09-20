@@ -11,7 +11,7 @@ summary: NVIDIA SN2100 스위치를 구성하기 전에 절차 개요를 검토�
 
 
 [role="lead"]
-NVIDIA SN2100은 SAN(Storage Area Network)의 서버와 스토리지 어레이 간에 데이터를 라우팅할 수 있는 스토리지 스위치입니다.
+NVIDIA SN2100은 컨트롤러와 디스크 쉘프 간에 데이터를 전환할 수 있는 이더넷 스위치입니다.
 
 
 

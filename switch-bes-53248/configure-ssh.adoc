@@ -86,6 +86,54 @@ Configuration Saved!
 
 WARNING: 키를 수정하기 전에 SSH가 비활성화되어 있는지 확인하십시오. 그렇지 않으면 스위치에 경고가 표시됩니다.
 
+. SSH 키 암호화(* FIPS-mode 전용 *):
++
+
+CAUTION: FIPS 모드에서는 보안을 위해 암호를 사용하여 키를 암호화해야 합니다. 암호화된 키가 없으면 응용 프로그램이 시작되지 않습니다. 키는 다음 명령을 사용하여 생성되고 암호화됩니다.
+
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(switch) *configure*
+(switch) (Config)# *crypto key encrypt write rsa passphrase _<passphase>_*
+
+The key will be encrypted and saved on NVRAM.
+This will result in saving all existing configuration also.
+Do you want to continue? (y/n): *y*
+
+Config file 'startup-config' created successfully.
+
+(switch) (Config)# *crypto key encrypt write dsa passphrase _<passphase>_*
+
+The key will be encrypted and saved on NVRAM.
+This will result in saving all existing configuration also.
+Do you want to continue? (y/n): *y*
+
+Config file 'startup-config' created successfully.
+
+(switch)(Config)# *crypto key encrypt write ecdsa passphrase _<passphase>_*
+
+The key will be encrypted and saved on NVRAM.
+This will result in saving all existing configuration also.
+Do you want to continue? (y/n): *y*
+
+Config file 'startup-config' created successfully.
+
+(switch) (Config)# end
+(switch)# write memory
+
+This operation may take a few minutes.
+Management interfaces will not be available during this time.
+Are you sure you want to save? (y/n) *y*
+
+Config file 'startup-config' created successfully.
+
+Configuration Saved!
+----
+====
 . 스위치를 재부팅합니다.
 +
 다시 로드

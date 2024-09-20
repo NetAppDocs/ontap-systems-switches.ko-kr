@@ -33,6 +33,8 @@ entries:
     url: "/switch-cisco-3132q-v/install-nx-os-software-3132q-v.html"
   - title: RCF 구성 파일을 설치합니다
     url: "/switch-cisco-3132q-v/install-rcf-3132q-v.html"
+  - title: SSH 구성을 확인합니다
+    url: "/switch-cisco-3132q-v/configure-ssh-keys.html"
 - title: 스위치 마이그레이션
   pdf-filename: Migrate_switches_3132q-v
   entries:

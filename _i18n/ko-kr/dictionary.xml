@@ -2489,7 +2489,6 @@
   <block id="26579e78de73f5546f69f3f79a7b8f48" category="paragraph"><block ref="d639995fde516a3ba2e60963b02aecc1" category="inline-link-macro-rx"></block>.</block>
   <block id="005ec29dde0262dd01b006d4e9c03abf" category="summary">NVIDIA SN2100 스위치를 구성하기 전에 절차 개요를 검토하십시오.</block>
   <block id="9aec7a1df32bc7a3da0beba803646322" category="doc">NVIDIA SN2100 스토리지 스위치의 구성 프로세스 개요</block>
-  <block id="12e75289f74531c2e9239c05b88eb32e" category="paragraph">NVIDIA SN2100은 SAN(Storage Area Network)의 서버와 스토리지 어레이 간에 데이터를 라우팅할 수 있는 스토리지 스위치입니다.</block>
   <block id="aac9f267bacea6f425f8665241d6901e" category="section-title">초기 구성 개요</block>
   <block id="2ef7b00479266befed2783905ed9725e" category="paragraph">ONTAP를 실행하는 시스템에서 NVIDIA SN2100 스위치를 구성하려면 다음 단계를 수행하십시오.</block>
   <block id="a194a4ea8dc4dc236627221cad9344d4" category="inline-link-macro">케이블 연결 및 구성 고려 사항을 검토합니다</block>
@@ -2751,7 +2750,6 @@
   <block id="d334b073010dc4ca86957c663631fa0b" category="paragraph">각 클러스터 LIF는 에 대해 true로 표시되어야 합니다<block ref="53db3ce0fe0e71f06b3beb0b676b806c" prefix=" " category="inline-code"></block> 그리고 가 있습니다<block ref="4f21ee5a18672b60f4c01e94e6be9c79" prefix=" " category="inline-code"></block> 의<block ref="fc7c1443e5c7b6439706b6132a4c0829" prefix=" " category="inline-code"></block>.</block>
   <block id="9a82d0edb58bbaaf806da2f174490820" category="list-text">클러스터 네트워크가 완전히 연결되어 있는지 확인합니다.</block>
   <block id="e64b06ebdf8146ea2bc17ff7d5457eef" category="summary">Cisco Nexus 9336C-FX2 스토리지 스위치의 설치 및 구성 개요</block>
-  <block id="9907ba6708c9ebadda3cca4eb234f091" category="paragraph">Cisco Nexus 9336C-FX2 스토리지 스위치는 Cisco Nexus 9000 플랫폼의 일부이며 NetApp 시스템 캐비닛에 설치할 수 있습니다. 스토리지 스위치를 사용하면 SAN(Storage Area Network)에서 서버와 스토리지 어레이 간에 데이터를 라우팅할 수 있습니다.</block>
   <block id="be4cd7f1969695f8e6e1f2c8040abcd4" category="paragraph">ONTAP를 실행하는 시스템에서 Cisco Nexus 9336C-FX2 스위치를 처음 구성하려면 다음 단계를 수행하십시오.</block>
   <block id="5ac09e984471f320b2e8920ece32b03d" category="inline-link-macro">케이블 연결 워크시트를 작성합니다</block>
   <block id="ef44963f41cab6cd9db7a1c9e6197076" category="inline-link-macro">스위치를 장착하십시오</block>
@@ -4932,11 +4930,7 @@
   <block id="cb037476ec4486d51b86d5dbeede8008" category="doc">로그 수집을 구성합니다</block>
   <block id="8ac20e3719b6b58e94e5a4385e87b52e" category="paragraph">이더넷 스위치 상태 모니터(CSHM)는 클러스터 및 스토리지 네트워크 스위치의 작동 상태를 확인하고 디버깅을 위한 스위치 로그를 수집하는 역할을 담당합니다. 이 절차는 수집을 설정하고, 자세한 * 지원 * 로그를 요청하며, AutoSupport에서 수집하는 * 주기적 * 데이터의 시간별 수집을 활성화하는 과정을 안내합니다.</block>
   <block id="2ded3ff3862adfc6f54d2a2f3ebf1147" category="paragraph">* 참고: * FIPS 모드를 활성화한 경우 다음을 완료해야 합니다.</block>
-  <block id="4d3c86b44351ffae1eca9baf52af2d5a" category="list-text">공급업체의 지침에 따라 스위치에서 ssh 키를 다시 생성합니다.</block>
-  <block id="64e9182ec64ec70301b0218941a9ebd8" category="list-text">를 사용하여 ONTAP 측에서 ssh 키를 다시 생성합니다<block ref="c079360670e0f4f9441a54ac1d262788" prefix=" " category="inline-code"></block></block>
-  <block id="6cf5d6e9f6afd78a09fd1d4215def7c4" category="list-text">을 사용하여 로그 수집 설정 루틴을 다시 실행하십시오<block ref="36ac3c1f3bae8142b5d110fb906ba03e" prefix=" " category="inline-code"></block></block>
   <block id="ca243f374acfb56a77236e0d30935f7f" category="list-text">사용자가 스위치 명령에 액세스할 수 있어야<block ref="a7dd12b1dab17d25467b0b0a4c8d4a92" prefix=" " category="inline-code"></block> 합니다. 이러한 사용자를 사용할 수 없는 경우 새 사용자를 만들고 사용자에게 필요한 권한을 부여합니다.</block>
-  <block id="428fd3f400671ac494fc78009abe0ff1" category="list-text">NVIDIA 스위치의 경우 로그 수집 사용자는 암호 프롬프트를 표시하지 않고 로그 수집 명령을 실행하도록 허용되어야 합니다. 이 사용을 허용하려면 다음 명령을 실행합니다.<block ref="35faf9d034bd3280f6d0a63cbb93f5e1" prefix=" " category="inline-code"></block></block>
   <block id="098a6be90d7d0f41999537981c29585d" category="open-title">ONTAP 9.14.1 이하</block>
   <block id="bec82052a92013a93a38547be5743fc2" category="list-text">지원 로그 수집을 요청하고 주기적 수집을 설정하려면 다음 명령을 실행합니다. 이렇게 하면 상세 로그와 시간별 데이터 수집이라는 두 가지 유형의 로그 수집이 시작됩니다.<block ref="db5eb84117d06047c97c9a0191b5fffe" prefix=" " category="inline-code"></block><block ref="cdcc32a064503184053bd2018d1c0e7e" prefix=" " category="inline-code"></block></block>
   <block id="d35634a11eab667045ca1f93a9aae3e4" category="list-text">주기적 로그 수집 설정:</block>
@@ -5025,4 +5019,26 @@
   <block id="bdbcf1c0d7f9cba19eb12819b953fbf1" category="inline-link">스위치 OS 업그레이드 중에 클러스터 LIF를 마이그레이션할 때 노드가 쿼럼 밖입니다</block>
   <block id="e6ab3c0f7886a69b4cd4dc70d1d4afa9" category="admonition">네트워크 연결 문제를 방지하려면 * 연결된 클러스터 포트 * 를 모두 종료해야 합니다. <block ref="c9b140831402716d03d51afcd09ff177" category="inline-link-rx"></block>자세한 내용은 기술 자료 문서를 참조하십시오.</block>
   <block id="263b9f10fe7e073e656b08a5b6da7e5a" category="paragraph">이 절차의 예에서는 4개의 노드를 사용합니다. 이러한 노드에는 10GbE 클러스터 인터커넥트 포트 2개 e0a 및 e0b가 사용됩니다. <block ref="cd25cbe53f0a314145c84729c6ce2c78" category="inline-link-rx"></block>플랫폼에서 올바른 클러스터 포트를 확인하려면 를 참조하십시오.</block>
+  <block id="fc9b57bfb616bf5697d55f4dc656cead" category="inline-link-macro">SSH 구성을 확인합니다</block>
+  <block id="1046b0a81eea5dae9091290036b99362" category="paragraph"><block ref="4767a0bcf3ab94aeda87c79dd4096ef4" category="inline-link-macro-rx"></block>..</block>
+  <block id="95baf91c437105360687405b916b57fa" category="list-text">SSH 키 암호화(* FIPS-mode 전용 *):</block>
+  <block id="50a89ea25c124abad381209f29dd1817" category="admonition">FIPS 모드에서는 보안을 위해 암호를 사용하여 키를 암호화해야 합니다. 암호화된 키가 없으면 응용 프로그램이 시작되지 않습니다. 키는 다음 명령을 사용하여 생성되고 암호화됩니다.</block>
+  <block id="f68db63213e90f13582fcc01c68930b3" category="summary">클러스터 스위치 상태 모니터\(CSMM\) 및 로그 수집 기능을 사용하려면 SSH가 필요합니다. Cisco 3132Q-V 클러스터 스위치에서 SSH를 사용하도록 설정하려면 먼저 SSH 키를 생성한 다음 SSH를 사용하도록 설정합니다.</block>
+  <block id="48c63e1d1783b7749854be6c0e2a3b98" category="doc">SSH 구성을 확인합니다</block>
+  <block id="a75620832d0a69ff51b8f472fb723fc0" category="paragraph">이더넷 스위치 상태 모니터(CSHM) 및 로그 수집 기능을 사용하는 경우 클러스터 스위치에 SSH 및 SSH 키가 활성화되어 있는지 확인합니다.</block>
+  <block id="8b5fc97efb2c8cf5fdcb75b300be917a" category="list-text">SSH 키가 활성화되어 있는지 확인합니다.</block>
+  <block id="720c3ddeb84772ef2bbfeba7b1d17a28" category="paragraph"><block ref="df8bbc4b7a2a07f02d567d56129471ab" prefix="" category="inline-code"></block></block>
+  <block id="3a88a5741f799dc33a61b15c6f06ef77" category="summary">클러스터 스위치 상태 모니터\(CSMM\) 및 로그 수집 기능을 사용하려면 SSH가 필요합니다. Cisco 3232C 클러스터 스위치에서 SSH를 사용하도록 설정하려면 먼저 SSH 키를 생성한 다음 SSH를 사용하도록 설정합니다.</block>
+  <block id="1ea468ba4330d1b99a20149c0e78b4ed" category="summary">클러스터 스위치 상태 모니터\(CSMM\) 및 로그 수집 기능을 사용하려면 SSH가 필요합니다. Cisco 92300YC 클러스터 스위치에서 SSH를 사용하도록 설정하려면 먼저 SSH 키를 생성한 다음 SSH를 사용하도록 설정합니다.</block>
+  <block id="6740010e0f06e1b4faea70ce1b3a4a76" category="inline-link-macro">SSH 키를 생성합니다</block>
+  <block id="c49d0af5a081eb64111a489cb2120d97" category="list-text"><block ref="52338aab140ac2dbc56c2c83d6349939" category="inline-link-macro-rx"></block>..</block>
+  <block id="f12f5027a3dbb2bbb22c5b1ca34d79d7" category="paragraph">이더넷 스위치 상태 모니터(CSHM) 및 로그 수집 기능을 사용하는 경우 스위치에 SSH 키를 생성합니다.</block>
+  <block id="2e3301a364286013b9b29237fa347bb1" category="summary">클러스터 스위치 상태 모니터\(CSMM\) 및 로그 수집 기능을 사용하려면 SSH가 필요합니다. Cisco 9336c-FX2 클러스터 스위치에서 SSH를 사용하도록 설정하려면 먼저 SSH 키를 생성한 다음 SSH를 사용하도록 설정합니다.</block>
+  <block id="243847a87ff7e0cb67ee578c74d8ad1c" category="paragraph">Cisco Nexus 9336C-FX2 스위치는 Cisco Nexus 9000 플랫폼의 일부이며 NetApp 시스템 캐비닛에 설치할 수 있습니다. Nexus 9336C-FX2는 컨트롤러와 디스크 쉘프 간에 데이터를 전환할 수 있는 이더넷 스위치입니다.</block>
+  <block id="81f0d5b127adfd87f50ce10bc85e1e65" category="list-text">공급업체의 지침에 따라 스위치에서 SSH 키를 다시 생성합니다.</block>
+  <block id="a60a00967db7342947b326a8f7618f52" category="list-text">를 사용하여 ONTAP에서 SSH 키를 재생성합니다<block ref="c079360670e0f4f9441a54ac1d262788" prefix=" " category="inline-code"></block></block>
+  <block id="fe85427bc017f31f0f2b913e65e8d888" category="list-text"><block ref="36ac3c1f3bae8142b5d110fb906ba03e" prefix=" " category="inline-code"></block>명령을 사용하여 로그 수집 설정 루틴을 다시 실행하십시오</block>
+  <block id="c1433b541d8d99faed86a93460cb0bad" category="list-text">NVIDIA 스위치를 사용한 지원 로그 수집의 경우<block ref="c85737d6a0d20328583b59ea7320a5ef" prefix=" " category="inline-code"></block> 암호를 제공하지 않고 명령을 실행할 수 있는 _user_ 로그 수집이 허용되어야 합니다. 이 사용을 허용하려면 다음 명령을 실행합니다.</block>
+  <block id="a0379ee208b1ca86b0ce11e60c0e73eb" category="paragraph"><block ref="83e3f80a08612b0113ac48e3b9a3432e" prefix="" category="inline-code"></block></block>
+  <block id="d97cf4e1b3c59ab22fc281643864890d" category="paragraph">NVIDIA SN2100은 컨트롤러와 디스크 쉘프 간에 데이터를 전환할 수 있는 이더넷 스위치입니다.</block>
 </blocks>

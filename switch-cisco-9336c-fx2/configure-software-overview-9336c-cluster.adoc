@@ -25,8 +25,8 @@ Cisco Nexus 9336C-FX2 클러스터 스위치에서 NX-OS 소프트웨어를 다�
 +
 Cisco Nexus 9336C-FX2 스위치를 처음 설정한 후 RCF를 설치하거나 업그레이드합니다. 이 절차를 사용하여 RCF 버전을 업그레이드할 수도 있습니다.
 
-. link:configure-ssh.html["SSH를 활성화합니다"]..
+. link:configure-ssh-keys.html["SSH 키를 생성합니다"]..
 +
-이더넷 스위치 상태 모니터(CSHM) 및 로그 수집 기능을 사용하는 경우 스위치에서 SSH를 사용하도록 설정합니다.
+이더넷 스위치 상태 모니터(CSHM) 및 로그 수집 기능을 사용하는 경우 스위치에 SSH 키를 생성합니다.
 
 
