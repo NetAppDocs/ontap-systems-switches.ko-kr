@@ -5043,4 +5043,10 @@
   <block id="d97cf4e1b3c59ab22fc281643864890d" category="paragraph">NVIDIA SN2100은 컨트롤러와 디스크 쉘프 간에 데이터를 전환할 수 있는 이더넷 스위치입니다.</block>
   <block id="68cbc1ccd652f8f281a11d07040f5054" category="inline-link">FIPS를 사용하여 네트워크 보안을 구성합니다</block>
   <block id="ee73a5b7bde1ac3826492824ed56415e" category="admonition">FIPS를 활성화할 때는 명령을 사용하여 스위치에서 비트 카운트를 256으로 변경해야<block ref="e945b32dfeddd45c02f47f82f234232f" prefix=" " category="inline-code"></block> 합니다. 자세한 내용은 을<block ref="4ed77aafc2157fac88ce3125b253884f" category="inline-link-rx"></block> 참조하십시오.</block>
+  <block id="7a43f267b45d16f3e9b7113b1665a8ef" category="list-text">모든 클러스터 LIF는 새 스위치 CS2-NEW로 페일오버됩니다.</block>
+  <block id="a200958f285bc9634331308217aef6e8" category="list-text">모든 클러스터 LIF는 새 스위치 CS1-New로 페일오버됩니다.</block>
+  <block id="866e23be3750652ebc7235f85b035f6b" category="admonition">이 절차 중에는 작동 중인 ISL(Inter-Switch Link)이 필요하지 않습니다. RCF 버전 변경이 ISL 연결에 일시적으로 영향을 미칠 수 있기 때문에 이는 설계상 가능합니다. 무중단 클러스터 운영을 보장하기 위해 다음 절차는 타겟 스위치에서 단계를 수행하는 동안 모든 클러스터 LIF를 운영 파트너 스위치로 페일오버합니다.</block>
+  <block id="936b3180f1af844d99a2935c0f8f1407" category="paragraph">이 절차에 대해 자동 되돌리기 기능을 사용하지 않도록 설정함으로써 클러스터 LIF가 홈 포트로 자동으로 다시 이동하지 않습니다. 이 포트는 계속 가동되고 작동하는 동안 현재 포트에 남아 있습니다.</block>
+  <block id="8cfe0e3d8ad280ac0655595fef97d183" category="list-text">모든 클러스터 LIF는 새 스위치 CS2로 페일오버됩니다.</block>
+  <block id="7f59c84a99e8340f8584b604b173e044" category="list-text">모든 클러스터 LIF가 새 스위치 CS1로 페일오버됩니다.</block>
 </blocks>
