@@ -468,8 +468,6 @@
   <block id="f523377f3be90c9c99ffba49f8f2ce16" category="list-text">새 스위치에서 admin으로 로그인하고 노드 클러스터 인터페이스(포트 1/1 ~ 1/34)에 연결할 모든 포트를 종료합니다.</block>
   <block id="65b12adbef5ea1ca868cfd0f85c4ee86" category="paragraph">교체 중인 스위치가 작동하지 않고 전원이 꺼진 경우 4단계로 이동합니다. 클러스터 노드의 LIF는 각 노드의 다른 클러스터 포트로 페일오버했어야 합니다.</block>
   <block id="7b5239f3a5575bedd1afcb0d613f5b2d" category="list-text">모든 클러스터 LIF에서 자동 되돌리기 기능이 설정되어 있는지 확인합니다. 'network interface show -vserver Cluster-fields auto-revert'</block>
-  <block id="b20219b8e5862f90d99ed9d31b9cbaf4" category="list-text">모든 클러스터 LIF가 'cluster ping-cluster'와 통신할 수 있는지 확인합니다</block>
-  <block id="2956a3c58e1e9e09d89c37630ad846c1" category="list-text">Nexus 9336C-FX2 스위치 CS1에서 ISL 포트 1/35 및 1/36을 종료합니다.</block>
   <block id="2afc75d42480841e27d9b05235e39cde" category="list-text">Nexus 9336C-FX2 CS2 스위치에서 모든 케이블을 분리한 다음 Nexus C9336C-FX2 newcs2 스위치의 같은 포트에 연결합니다.</block>
   <block id="78a32e32770c5475ef123676ee445f74" category="list-text">CS1과 newcs2 스위치 사이에 ISL 포트 1/35 및 1/36 을 표시한 다음 포트 채널 작동 상태를 확인합니다.</block>
   <block id="9976ce3dd89716631075e314d8369a88" category="paragraph">포트-채널은 PO1(SU)을 나타내고 구성원 포트는 Eth1/35(P) 및 Eth1/36(P)을 나타내야 합니다.</block>
@@ -482,7 +480,6 @@
   <block id="3792b481733d7e936425cecb3a424c34" category="list-text">클러스터의 노드에 대한 정보를 'cluster show'로 표시합니다</block>
   <block id="08ceb55af9899d85ad284fdb01eb8069" category="paragraph">이 예제에서는 이 클러스터의 노드 1과 노드 2에 대한 노드 상태가 true인 것을 보여 줍니다.</block>
   <block id="99a5618d4e7c61c63f6a59744fda19b6" category="list-text">모든 물리적 클러스터 포트가 작동 중인지 확인합니다. 'network port show IPSpace Cluster'</block>
-  <block id="b8fcfd0b86837de6abae197ea7ce1e77" category="list-text">다음 클러스터 네트워크 구성을 확인합니다. 'network port show'</block>
   <block id="d921e67200afe4871cf4670f84d9ecd6" category="list-text">자동 케이스 생성을 억제한 경우 AutoSupport 메시지 '시스템 노드 AutoSupport invoke -node * -type all-message MAINT=end'를 호출하여 다시 활성화합니다</block>
   <block id="bbb9faab95e3e9af13430c6529221602" category="summary">이 절차를 사용하여 Nexus 9336C-FX2 클러스터 스위치에 NX-OS 소프트웨어를 설치할 수 있습니다.</block>
   <block id="e85d82d5e43386edb063cee5493cc6f4" category="doc">NX-OS 소프트웨어를 설치합니다</block>
@@ -962,7 +959,6 @@
   <block id="7c1d0d7ab06895c113f21e219b92b052" category="list-text">설정이 비활성화되었는지 확인합니다.</block>
   <block id="0bd1c8991d4969dac07a0c2f2dde50b5" category="paragraph">'network options switchless-cluster show'</block>
   <block id="e8978c1a15c252dab8545f7df961d887" category="list-text">클러스터에서 노드 구성원의 상태를 확인합니다.</block>
-  <block id="c08886eaed359b5e123b95c056c6e19b" category="paragraph">'cluster ping-cluster-node_node-name_'</block>
   <block id="2dd6989b6d01431e1f188fef987e0925" category="list-text">권한 수준을 admin으로 다시 변경합니다.</block>
   <block id="d260c71f1d73fe6dce24fae82cd28aca" category="paragraph">'Set-Privilege admin'입니다</block>
   <block id="05a9e5b7c0c83c8a1b0da673e6e07f22" category="list-text">자동 케이스 생성을 억제한 경우 AutoSupport 메시지를 호출하여 다시 활성화합니다.</block>
@@ -1097,9 +1093,6 @@
   <block id="5c68722501def32a551a736611dc6d8d" category="list-text">각 클러스터 인터페이스의 관리 또는 운영 상태를 확인합니다.</block>
   <block id="2e729d790188b76f9ff137fba89a9db0" category="list-text">클러스터 네트워크 포트 속성을 표시합니다.</block>
   <block id="52e7ec4aaac1e1a0a07e63f3d7eb9c16" category="list-text">논리 인터페이스에 대한 정보를 표시합니다.</block>
-  <block id="35f01ed40b6310feec062211ce126c2d" category="paragraph">'cluster ping-cluster-node-name'입니다</block>
-  <block id="85c96d16aebcae293f2d70dbbf9cb1d0" category="paragraph">다음 예는 원격 클러스터 인터페이스를 ping하는 방법을 보여줍니다.</block>
-  <block id="82214ffaae0abeffe761517344159444" category="list-text">활성 CN1610 스위치 CL1에서 ISL 포트 13~16을 종료합니다.</block>
   <block id="1136531f8e26fab6ed3aa68ddd63c6cf" category="paragraph">'허틀다운'</block>
   <block id="20fca188f9df647063b0798615526c99" category="paragraph">다음 예에서는 CN1610 스위치 CL1에서 ISL 포트 13~16을 종료하는 방법을 보여 줍니다.</block>
   <block id="3fe7956fd750714f32d9b6e932832821" category="list-text">모든 노드에서 CN1610 스위치 CL2에 연결된 케이블을 제거합니다.</block>
@@ -1108,7 +1101,6 @@
   <block id="f9d6a6a75483c0ffe08b0dea9565ef0c" category="list-text">모든 클러스터 포트가 연결되어 있는지 확인합니다.</block>
   <block id="02e93bb0f25246e056d6a7dc767926d0" category="list-text">클러스터 노드 포트의 상태를 확인합니다.</block>
   <block id="48080b25b0f8ce17d4598aea7dbbc6cb" category="list-text">인터페이스가 현재 홈 인터페이스인지 확인합니다.</block>
-  <block id="c88bbeb32e8a86a6536b0c77fe7f1ec8" category="list-text">원격 클러스터 인터페이스에 대해 ping을 수행한 다음 원격 프로시저 호출 서버 검사를 수행합니다.</block>
   <block id="25ea268f832f9b1eec50e6576dee1fa5" category="list-text">구성에 있는 장치에 대한 정보를 표시합니다.</block>
   <block id="7600489ac65e7f2d69df5731f63b9999" category="list-text">교체된 CN1610 스위치가 자동으로 제거되지 않은 경우 제거합니다.</block>
   <block id="7e742ccdfe23c1184022b4bc3a971881" category="paragraph">다음 예에서는 CN1610 스위치를 제거하는 방법을 보여 줍니다.</block>
@@ -1147,7 +1139,6 @@
   <block id="a5ba084a16f4288f9dbb11676c16a481" category="list-text">92300YC 스위치에서 지원하는 적절한 케이블을 사용하여 노드 2의 클러스터 포트 e0b에서 케이블을 분리한 다음 클러스터 스위치 CS2의 포트 2에 e0b를 연결합니다.</block>
   <block id="5092d42ca2315a935e2e3c56036b8a27" category="paragraph">다음 예에서는 스위치 CS2에서 포트 1/1 ~ 1/64 가 활성화되어 있음을 보여 줍니다.</block>
   <block id="9b9b4790983afce9ab4bf2e1e67e9766" category="list-text">모든 인터페이스가 '홈'에 대해 true로 표시되는지 확인합니다.</block>
-  <block id="cd21dfc849bb9ea2aa764a739849b964" category="list-text">클러스터 네트워크가 완전히 연결되어 있는지 확인합니다.</block>
   <block id="c3fefe6517671336a8a9051770e62e39" category="summary">이 절차를 사용하여 Nexus 92300YC 스위치에 NX-OS 소프트웨어를 설치할 수 있습니다.</block>
   <block id="8c26396db8d0080e37691f8d80525fd2" category="list-text">"ping" 명령을 사용하여 NX-OS 소프트웨어 및 RCF를 호스팅하는 서버에 대한 연결을 확인합니다.</block>
   <block id="dfd32790423f16dd03c31199222c75e8" category="list-text">NX-OS 소프트웨어 및 EPLD 이미지를 Nexus 92300YC 스위치에 복사합니다.</block>
@@ -1183,8 +1174,6 @@
   <block id="843e8bce6b1f5f343fc75f65042e3608" category="list-text">브라우저의 뒤로 화살표를 클릭하여 * 설명 * 페이지로 돌아가 * 계속 * 을 클릭하고 사용권 계약에 동의한 다음 * 다운로드 * 페이지로 이동합니다.</block>
   <block id="110c695d96cf5ad96f14ba25bfd860f2" category="list-text">새 스위치에서 admin으로 로그인하고 노드 클러스터 인터페이스(포트 1/1 - 1/64)에 연결할 모든 포트를 종료합니다.</block>
   <block id="09f3237a21e153d832b3546f85186cbc" category="list-text">모든 클러스터 LIF에서 자동 되돌리기 기능이 설정되어 있는지 확인합니다.</block>
-  <block id="eb7580a8ac3bae2040e96931950a989f" category="list-text">모든 클러스터 LIF가 통신할 수 있는지 확인:</block>
-  <block id="0c93dd1c3bc740b534dc19a4612c4120" category="paragraph">'클러스터 ping 클러스터'</block>
   <block id="566992671ef338b9a51fdc8643a29803" category="list-text">Nexus 92300YC 스위치 CS1에서 ISL 포트 1/65 및 1/66을 종료합니다.</block>
   <block id="bcdc1c149628bee1646511fc29cd7407" category="list-text">Nexus 92300YC CS2 스위치에서 모든 케이블을 분리한 다음 Nexus 92300YC newcs2 스위치의 같은 포트에 연결합니다.</block>
   <block id="2975370bf83bdfdcc1f7c7bc49f1e4a2" category="list-text">CS1과 newcs2 스위치 사이에 ISL 포트 1/65 및 1/66을 표시한 다음 포트 채널 작동 상태를 확인합니다.</block>
@@ -1229,8 +1218,6 @@
   <block id="29b5c9f7c3e370b92a6acd04f777cd76" category="paragraph">이 절차의 예에서는 두 개의 노드를 사용합니다. 이러한 노드에는 10GbE 클러스터 인터커넥트 포트 e0a 및 e0b 2개가 사용됩니다.</block>
   <block id="ae51aab75debd2e4f744aa3423ddf6cf" category="list-text">클러스터 LIF 이름은 node1의 node1_clus1, node2_clus1, node2의 node2_clus2 입니다.</block>
   <block id="4910851fa218a8942f3c3f40e877fda8" category="paragraph">여기서 _x_는 유지보수 기간(시간)입니다.</block>
-  <block id="e73ca78de91a85725d7897c5caaeeb3e" category="list-text">원격 클러스터 LIF에 대한 ping 실시</block>
-  <block id="f640804165fe8b3014b443db071bd7c2" category="list-text">모든 클러스터 LIF에서 자동 되돌리기 명령이 설정되었는지 확인합니다.</block>
   <block id="a393cd4f170aafc6db54b17ca62ffb74" category="sidebar">Broadcom 지원 BES-53248</block>
   <block id="2b2815ca4a9fd5973ee66317adb580e4" category="sidebar">기타 스위치 모델</block>
   <block id="bc8be72fdc9d6054f356bb2b7f80fd12" category="sidebar">NetApp 상호 운용성 매트릭스</block>
@@ -1288,8 +1275,6 @@
   <block id="3bf33ab1d6946b3f24d2516e6072bbfb" category="list-text">클러스터 인터페이스 마이그레이션 확인:</block>
   <block id="e43adf663d10e04de01cdb70dba1ea3f" category="list-text">두 노드 모두에서 클러스터 포트 clus1 LIF를 종료합니다.</block>
   <block id="b1dfc19976d0fe683db7ddf19294007c" category="paragraph">네트워크 포트 수정</block>
-  <block id="6a7c10099f41c6e223cef671ebb76146" category="list-text">원격 클러스터 인터페이스에 대해 ping을 수행하고 RPC 서버 검사를 수행합니다.</block>
-  <block id="df920baf118cae8ed08bc0e67c930632" category="list-text">노드 n1의 e4a에서 케이블을 분리합니다.</block>
   <block id="656098cc9fb2598274636e89bfda9deb" category="paragraph">실행 중인 구성을 참조하여 Nexus 3132Q-V에서 지원되는 케이블을 사용하여 스위치 C1(이 예에서는 포트 1/7)의 첫 번째 40GbE 포트를 n1의 e4a에 연결할 수 있습니다</block>
   <block id="916b11220f3f30d08ed357610e9a0f88" category="paragraph">새 Cisco 클러스터 스위치에 케이블을 다시 연결할 때 사용되는 케이블은 Cisco에서 지원하는 광섬유 또는 케이블이어야 합니다.</block>
   <block id="1cd2a4b2269a32389e020110b6c528c4" category="list-text">노드 n2의 e4a에서 케이블을 분리합니다.</block>
@@ -1376,7 +1361,6 @@
   <block id="8fd12ba18f621197ae2f1f7203080e73" category="paragraph">다음 예에서는 새 3132Q-V 스위치 C1의 n1과 n2에 있는 모든 클러스터 인터커넥트 포트가 "UP"인지 확인합니다.</block>
   <block id="42f427229de718255616b52d13a2ec50" category="paragraph">다음 예에서는 마이그레이션된 클러스터 LIF를 홈 포트로 되돌리는 방법을 보여 줍니다.</block>
   <block id="9fff40b9c7a12070faa3809a040494f9" category="paragraph">다음 예에서는 n1과 n2에 대해 클러스터 인터커넥트 인터페이스의 상태가 'UP'이고 'is home'으로 표시되어 있습니다.</block>
-  <block id="9337d28b60d4b0252c3592ab024c6fc9" category="list-text">Nexus 3132Q-V 클러스터 스위치에 노드를 추가하여 클러스터를 확장합니다.</block>
   <block id="1998c6d3154f5a2c373da0aeca0fd3ff" category="list-text">네트워크 포트 show-role cluster</block>
   <block id="a2d27af8ce0592e36b8a208c0cb93d3e" category="list-text">네트워크 인터페이스 show-role cluster</block>
   <block id="d06b10417bc355c0e14c53d8eae6e76e" category="paragraph">다음 예에서는 Nexus 3132Q-V 클러스터 스위치 양쪽 모두에서 포트 e1/7 및 e1/8에 연결된 40GbE 클러스터 포트가 있는 노드 n3 및 n4를 보여 주고 두 노드가 클러스터에 결합되었습니다. 사용되는 40GbE 클러스터 인터커넥트 포트는 e4a 및 e4e입니다.</block>
@@ -1412,7 +1396,6 @@
   <block id="071e695f268cd49293774c00613abb17" category="list-text">각 클러스터 인터커넥트 스위치에 대해 각 노드에 구성된 클러스터 인터커넥트 인터페이스 수를 표시합니다.</block>
   <block id="a06f69669c864cc0902a5e544ee247bc" category="paragraph">'network port show – IPSpace Cluster'</block>
   <block id="8eaf3d59876911ccca6dc5bdc347ee06" category="list-text">LIF 정보 표시:</block>
-  <block id="b28871024a61db436088d8a57f04935d" category="list-text">모든 클러스터 LIF에서 'auto-revert' 명령이 설정되었는지 확인합니다.</block>
   <block id="280107a5f53cc09efecfd6d30a3b7ebc" category="list-text">NetApp CN1610</block>
   <block id="1d8bdbbecd2a7992d9b2c5314cbc8da8" category="list-text">Cisco Nexus 3132Q-V</block>
   <block id="246b4f4943a9ef7d81b1ecb7d14db012" category="list-text">Cisco Nexus 3132Q-V: 포트 e1/1-30 (40/100 GbE)</block>
@@ -1464,7 +1447,6 @@
   <block id="f5532c44fa87b73888e57560b15f09ab" category="paragraph">다음 예에서는 n1과 n2 를 보여 주지만 LIF 마이그레이션은 모든 노드에서 수행되어야 합니다.</block>
   <block id="4dcbeb6667fd808ff27ae4150e7a8909" category="list-text">클러스터의 상태 확인:</block>
   <block id="acd1d1d2ce5a2970e1b46fb53b75ad44" category="list-text">스위치 CL2에 물리적으로 연결된 클러스터 인터커넥트 포트를 종료합니다.</block>
-  <block id="3deecfe62c85f26f915232658c689130" category="list-text">활성 Nexus 5596 스위치 CL1에서 ISL 포트 41 ~ 48을 종료합니다.</block>
   <block id="609bda8dbabe0a84f343b546e3d7a65a" category="paragraph">다음 예에서는 Nexus 5596 스위치 CL1에서 ISL 포트 41 ~ 48을 종료하는 방법을 보여 줍니다.</block>
   <block id="74bb8188e949e71bcfef0fd8d38fa91b" category="list-text">CL1과 C2 사이에 임시 ISL을 구축합니다.</block>
   <block id="621728c29c88ed3282a78eafc103c550" category="paragraph">다음 예에서는 CL1과 C2 간에 임시 ISL을 설정하는 방법을 보여 줍니다.</block>
@@ -1487,7 +1469,6 @@
   <block id="9e34505e95067067c4258419479733a1" category="paragraph">다음 예제는 clus2의 LIF가 홈 포트로 되돌려진 것을 보여 주고 현재 포트 열의 포트가 "홈" 열에서 "참" 상태인 경우 LIF가 성공적으로 되돌려지는 것을 보여 줍니다. '홈'이 '거짓'이면 LIF는 되돌릴 수 없습니다.</block>
   <block id="b0522263b2b188ed6c32b8d81c7f9286" category="list-text">클러스터된 포트가 연결되었는지 확인합니다.</block>
   <block id="14860c40af5b70801e3ca603e17cb1ae" category="paragraph">다음 예에서는 이전의 'network port modify' 명령의 결과를 보여 주며, 모든 클러스터 상호 연결이 'up'인지 확인합니다.</block>
-  <block id="f4df801f902ead90a2bade04e26cac42" category="list-text">클러스터의 각 노드에서 교체할 첫 번째 Nexus 5596 스위치 CL1과 연결된 인터페이스를 마이그레이션합니다.</block>
   <block id="0559fa6d8467bdb0870358a693b8fb6a" category="list-text">클러스터 상태 확인:</block>
   <block id="29d3d66101e62951d378ea2e5a755eef" category="paragraph">다음 예에서는 필요한 클러스터 LIF가 클러스터 스위치 C2에서 호스팅되는 적절한 클러스터 포트로 마이그레이션되었음을 보여 줍니다.</block>
   <block id="b7504e51bec148bae865f23a95894f3d" category="list-text">모든 노드에서 CL1에 연결된 노드 포트를 종료합니다.</block>
@@ -1568,7 +1549,6 @@
   <block id="7fd77ba3dd5e636631a1eb65009f8b8d" category="paragraph">이 예제에서는 LIF 마이그레이션이 모든 노드에서 수행된다는 것을 보여 줍니다.</block>
   <block id="43708903ed29a6b8f36b2d2012c5cd07" category="list-text">클러스터 상태 확인:</block>
   <block id="74d7543cdff44d4d4d6b9c31a44929fd" category="paragraph">이 예는 모든 노드에서 종료되는 지정된 포트를 보여 줍니다.</block>
-  <block id="4547e743de7a4493e60ec5a14011f213" category="list-text">CL1에서 포트 1/31 및 1/32 를 종료하고 활성 Nexus 3132Q-V 스위치를 종료합니다.</block>
   <block id="7ed6ad166541eaeed2eb44050a4369b4" category="paragraph">이 예에서는 스위치 CL1에서 ISL 포트 1/31 및 1/32 가 종료되는 것을 보여 줍니다.</block>
   <block id="4ce7327540877b4c9bb108e79d7ec741" category="list-text">Nexus 3132Q-V 스위치 CL2에 연결된 모든 케이블을 분리하고 모든 노드의 교체 스위치 C2에 다시 연결합니다.</block>
   <block id="e3005fa5d118a1b001d70e796207020b" category="list-text">CL2의 포트 e1/31 및 e1/32에서 ISL 케이블을 제거하고 교체 스위치 C2의 동일한 포트에 다시 연결합니다.</block>
@@ -1623,7 +1603,6 @@
   <block id="20fb8dfa050d34e66fdcb88cde52cd39" category="paragraph">각 클러스터 LIF는 "홈" 열에 "참"으로 표시되어야 합니다.</block>
   <block id="a04a550528162e05ce99957d8bcaedf1" category="paragraph">10단계에서 13단계까지 다음과 같은 수정 및 마이그레이션 명령을 로컬 노드에서 수행해야 합니다.</block>
   <block id="e46a14518d3f20a82a8ea86aa3e1a91b" category="paragraph">릴리즈 8.3 이상에서는 'network interface modify -vserver Cluster-lif * -auto-revert false' 명령을 사용합니다</block>
-  <block id="1506e8a32c89125ba0188cab7beb0fb3" category="paragraph">명령 출력에는 모든 클러스터 포트 간의 연결이 표시됩니다.</block>
   <block id="159ba467749aba2dcf746508bf149877" category="paragraph">다음 예제에서는 node1과 node2의 포트 e2a로 clus1을 마이그레이션하는 프로세스를 보여 줍니다.</block>
   <block id="a06d76059f0a519a64519b90a1dc32fa" category="paragraph">릴리즈 8.3 이상에서는 'network interface migrate-vserver Cluster-lif clus1-destination-node node1-destination-port e2a' 명령을 사용합니다</block>
   <block id="90df6f76d556f5c6f67ea48d18403467" category="paragraph">다음 예제에서는 clus1이 node1과 node2의 포트 e2a로 마이그레이션되었는지 확인합니다.</block>
@@ -1678,7 +1657,6 @@
   <block id="03785619d55d01a3d9de759db10a42c2" category="list-text">스위치에 연결된 10GbE 클러스터 포트가 동일한 VLAN의 일부로 구성되어 있는지 확인합니다.</block>
   <block id="1935a529661750cc36f5da03c0214edf" category="paragraph">각 컨트롤러 모듈의 클러스터 포트를 다른 스위치에 연결하려는 경우 각 스위치에서 클러스터 포트가 연결되는 포트가 동일한 VLAN에 맞게 구성되고 두 스위치에서 트렁킹이 올바르게 구성되었는지 확인해야 합니다.</block>
   <block id="ad2c2b5612ae219cdefade565a2878a4" category="paragraph">다음 예제에서는 node1과 node2에서 LIF가 "up"이고 "is Home" 열 결과가 "true"임을 보여 줍니다.</block>
-  <block id="a1f783c83c4d98e6eb5a7c79625862d7" category="paragraph">명령 출력에는 모든 클러스터 포트 간의 접속이 표시되어야 합니다.</block>
   <block id="2f22a515e333c7902fee7e2dd01783af" category="summary">NetApp CN1610 클러스터 스위치에 FASTPATH 소프트웨어 및 참조 구성 파일(RCF)을 설치해야 합니다.</block>
   <block id="031c2af541d8a8eb91a65a87dbae782f" category="list-text">클러스터가 완전하게 작동하는 클러스터여야 합니다.</block>
   <block id="a968ac7024ff03437db257f2510e1999" category="list-text">결함이 있는 클러스터 NIC(네트워크 인터페이스 카드)가 없어야 하며, 클러스터 스위치의 모든 연결 포트가 작동해야 합니다.</block>
@@ -1790,7 +1768,6 @@
   <block id="0f717d9f0cdccd54283a68290db5a062" category="list-text">9단계에서 마이그레이션한 n1_clus1 및 n2_clus1 LIF의 클러스터 포트 종료:</block>
   <block id="e95612c7ef671203cc282ce38a48bdb4" category="paragraph">'network port modify -node_node -name_-port_port -name_-up-admin false'</block>
   <block id="c2c05b7104e31c97ee9d11ccf7ac3b14" category="paragraph">다음 예에 표시된 대로 각 포트에 대해 명령을 실행해야 합니다.</block>
-  <block id="9868b1da05b1c2bf12a9e340575945d0" category="paragraph">다음 예제에서는 ping이 진행되고 있는 노드 n1과 이후에 나타난 RPC 상태를 보여 줍니다.</block>
   <block id="cfc28d2866c14653d52dc05e54775304" category="paragraph">실행 중인 구성을 참조하여 Nexus 3232C 스위치에 지원되는 케이블 연결을 사용하여 스위치 C1(이 예에서는 포트 1/7)의 첫 번째 40GbE 포트를 n1의 e4a에 연결할 수 있습니다.</block>
   <block id="4eb5af7feefb21a309fba1c5f8786fbb" category="paragraph">다음 예에서는 RCF 'NX3232_RCF_v1.0_24p10g_26p100g.txt'에서 지원되는 구성을 사용하여 Nexus 3232C 클러스터 스위치 C1 및 C2에서 포트 1부터 30까지 사용 중인 것을 보여 줍니다.</block>
   <block id="be56b8565c3ff7246400103b874f9821" category="paragraph">'network port modify -node_node -name_-port_port -name_-up-admin TRUE'</block>
@@ -1816,8 +1793,6 @@
   <block id="bd8bc538541d81e289ef66a8873145af" category="paragraph">이때 두 스위치를 모두 준비해야 합니다. RCF 및 이미지를 업그레이드해야 하는 경우 다음 절차를 완료해야 합니다.</block>
   <block id="98eb99fcc0ed94997a2ab2be00fd87f8" category="paragraph">다음 예에 표시된 대로 각 LIF를 개별적으로 마이그레이션해야 합니다.</block>
   <block id="58e4c812934a7909bf27428e713ee5c1" category="paragraph">다음 예는 노드 n1 및 노드 n2에 대해 종료되는 클러스터 인터커넥트 포트 4개를 보여줍니다.</block>
-  <block id="1951e47d1525c6b1dfbe9f52df91cc7f" category="list-text">원격 클러스터 인터페이스에 대해 ping을 수행한 다음 원격 프로시저 호출 서버 검사를 수행합니다.</block>
-  <block id="105dcee6d5ae30eca10110db38214b1e" category="list-text">적절한 명령을 사용하여 활성 CN1610 스위치 CL1에서 ISL 포트 13~16을 종료합니다.</block>
   <block id="06b942f634ce75ef69a38ebe9aa1d02c" category="paragraph">다음 예에서는 CN1610 스위치 CL1에서 ISL 포트 13~16이 종료되는 것을 보여 줍니다.</block>
   <block id="8b3c83619e5433d40fb01f0c00687515" category="paragraph">다음 예에서는 Cisco의 'witchport 모드 트렁크' 명령을 사용하여 CL1(포트 13-16)과 C2(포트 e1/24/1-4) 사이에 임시 ISL을 구축한 것을 보여 줍니다.</block>
   <block id="1c0cc14668f0cbe36098daedda716952" category="list-text">모든 노드에서 CN1610 스위치 CL2에 연결된 케이블을 제거합니다.</block>
@@ -1850,7 +1825,6 @@
   <block id="38eb81980361ccffbcf933498afb8e35" category="paragraph">다음 예에서는 새로운 3232C 스위치 C1에 연결된 모든 클러스터 인터커넥트 포트를 가져와서 표시합니다.</block>
   <block id="647a3a17ca458bfb396ec8a44651ddec" category="paragraph">다음 예에서는 새 3232C 스위치 C1의 노드 n1과 n2의 클러스터 인터커넥트 포트가 '가동'인지 확인하는 출력을 보여 줍니다.</block>
   <block id="7bfca154df7416f9baa3531ebe91c06a" category="paragraph">다음 예는 n1 및 n2 노드의 클러스터 인터커넥트 인터페이스 상태가 'UP' 및 'is Home'인 상태를 보여줍니다.</block>
-  <block id="684b2e790316879de4577bb080c72bf3" category="list-text">Nexus 3232C 클러스터 스위치에 노드를 추가하여 클러스터를 확장합니다.</block>
   <block id="00145d7363dbe1c988b2f36e4a46e418" category="paragraph">다음 예와 같이 두 디바이스를 개별적으로 삭제해야 합니다.</block>
   <block id="f3a80053e3cfef55fa0b842eef2e42b2" category="paragraph">다음 예에서는 클러스터 스위치 C1 및 C2가 모니터링되고 있음을 보여 줍니다.</block>
   <block id="63990467755c5a4c3727faca4f024adb" category="summary">CN1610 클러스터 스위치를 Cisco Nexus 3232C 클러스터 스위치로 교체할 때 특정 구성 정보, 포트 연결, 케이블 연결 요구사항을 알고 있어야 합니다.</block>
@@ -1884,7 +1858,6 @@
   <block id="1e59f27afab544486b3444c5591d4f53" category="paragraph">RCF 및 이미지를 업그레이드해야 하는 경우 다음 단계를 완료해야 합니다.</block>
   <block id="23cd51d657266665ae8f8c9d2a2ae14f" category="paragraph">다음 예에서는 노드 n1 및 n2에 대해 마이그레이션 중인 LIF를 보여 줍니다. LIF 마이그레이션은 모든 노드에서 수행해야 합니다.</block>
   <block id="fb0f753ded9498a080196f8272f79423" category="paragraph">다음 예는 각 클러스터의 현재 상태를 보여줍니다.</block>
-  <block id="72611877ce7fbffb44381c1c62a69cd8" category="list-text">CL1에서 ISL 41 ~ 48을 종료합니다. Cisco의 'shutdown' 명령을 사용하여 활성 Nexus 5596 스위치를 종료합니다.</block>
   <block id="df3b3a025572a660a134a45b54c2ec44" category="paragraph">Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오<block ref="ea38293a052c78dce084d149b79f50b3" category="inline-link-rx"></block>.</block>
   <block id="c66e3aa8ea0ac093e4c0a3cf3a2362e7" category="paragraph">다음 예에서는 Nexus 5596 스위치 CL1에서 종료되는 ISL 41 ~ 48을 보여 줍니다.</block>
   <block id="e611d5576e653114c65a96a266ece602" category="list-text">적절한 Cisco 명령을 사용하여 CL1과 C2 사이에 임시 ISL을 구축합니다.</block>
@@ -1954,7 +1927,6 @@
   <block id="bec2d779818d6e0e0e9ff7a66a88bdcf" category="paragraph">이 예에서는 RCF 파일 "Nexus_3232C_RCF_v1.6-Cluster-HA-Breakout.txt"가 스위치 CS2에 설치되어 있음을 보여 줍니다.</block>
   <block id="4b45f9c3c89c6b4fd380706244fef39d" category="paragraph">이전에 스위치에 로드된 RCF 버전에 따라 CS1 스위치 콘솔에서 다음 출력을 관찰할 수 있습니다</block>
   <block id="de5961cc4ba4008f669b392dba74a8da" category="list-text">CS1과 CS2 사이의 ISL이 정상적으로 작동하는지 '포트-채널 요약 정보'를 확인합니다</block>
-  <block id="0ecc223c2f66f6abde60759dd3185d04" category="list-text">원격 클러스터 인터페이스를 ping하여 'cluster ping-cluster-node local' 연결을 확인합니다</block>
   <block id="dd70194aaae821572e701e183663363b" category="summary">특정 작업 시퀀스를 실행하여 클러스터에서 결함 있는 Cisco Nexus 3232C 스위치를 중단 없이 교체할 수 있습니다.</block>
   <block id="0e3368a8363270e1b5da6c7ff6b307df" category="list-text">4개의 노드는 n1, n2, n3 및 n4입니다.</block>
   <block id="7e38d5b2f5b87fc1a22bd8f75f99a2f1" category="list-text">N1_clus2 는 노드 n1의 클러스터 스위치 CL2 또는 C2에 연결된 첫 번째 클러스터 LIF입니다.</block>
@@ -1990,8 +1962,6 @@
   <block id="f163f843faddde93ed2caa19f8e0f9fe" category="paragraph">다음 예에서는 "모니터링 상태"가 "참"이기 때문에 클러스터 스위치가 모니터링되는 경우를 보여 줍니다.</block>
   <block id="f435abab4c17d94cf8603815dbd871f9" category="summary">Cisco NX-OS 소프트웨어 및 참조 구성 파일(RCFs)은 Cisco Nexus 3232C 클러스터 스위치에 설치해야 합니다.</block>
   <block id="4abcd2a6fe57e9f246dd326cae0ddb1b" category="list-text">LIF에 대한 정보를 표시합니다. 'network interface show-vserver Cluster'</block>
-  <block id="8e7dcc2f49cf13de0316cb76b4708706" category="list-text">원격 클러스터 LIF에 대해 'cluster ping -cluster -node_node -name_'을 ping합니다</block>
-  <block id="916ba5b1774eaf295926db30f3bad132" category="list-text">모든 클러스터 LIF에서 'auto-revert' 명령이 활성화되어 있는지 확인합니다. 'network interface show -vserver Cluster-fields auto-revert'</block>
   <block id="9aa8a0ae2c0c1e8fae620818f15e5745" category="sidebar">CN1601 스위치 관리자 가이드</block>
   <block id="0dbd44ca48760058c465f203895f8233" category="summary">Cisco 9336-FX2' 스위치</block>
   <block id="cc02bee3f16f9cf028c930e3ae85fb8f" category="list-text"><block ref="3ddccd8b1e06c6aa2ada1397d17562ec" category="inline-link-macro-rx"></block> FASTPATH 소프트웨어를 설치하는 방법에 대해 설명합니다.</block>
@@ -2165,7 +2135,6 @@
   <block id="b1046cdb57cd97fe9c20f711ba08bed8" category="paragraph">'network interface modify -vserver Cluster-lif * -auto-revert false'</block>
   <block id="5509fa38d3415bf6dfbd28918cf766f3" category="list-text">이전 단계에 나열된 모든 포트가 네트워크 스위치에 연결되어 있는지 확인합니다.</block>
   <block id="101ead84905a0da72281347a2d3e5846" category="paragraph">'network device-discovery show -port_cluster_port_'</block>
-  <block id="fad8bc8bd6f8c2ecbc098cd96431ebde" category="list-text">클러스터 접속을 확인합니다.</block>
   <block id="e477c0774c6014b5173ffa6810d512ab" category="paragraph">'클러스터 링 쇼'</block>
   <block id="c992f99b79e71a5eb5127e5f190fab4e" category="paragraph">모든 단위는 마스터 또는 보조 단위여야 합니다.</block>
   <block id="048592cc00af171e1fa6348b090a6c78" category="list-text">그룹 1의 포트에 대해 스위치가 없는 구성을 설정합니다.</block>
@@ -2178,8 +2147,6 @@
   <block id="cad47f7ffe7579e68a294494fa25af17" category="image-alt">포트 "e0a" 간 직접 연결</block>
   <block id="e9ec4835d23694aed9844bcf9e7e87ea" category="list-text">스위치가 없는 클러스터 네트워크 옵션은 false에서 true로 전환됩니다. 이 작업은 최대 45초가 걸릴 수 있습니다. 스위치가 없는 옵션이 "참"으로 설정되어 있는지 확인합니다.</block>
   <block id="c412aebcb1566f8e5e0323f2afe60d0e" category="paragraph">다음 예는 스위치가 없는 클러스터가 활성화된 것을 보여줍니다.</block>
-  <block id="6d1b5eebdb14196ce07c51c623533431" category="list-text">클러스터 네트워크가 중단되어 있지 않은지 확인합니다.</block>
-  <block id="f643d26da1df28bcffc5c5067726246b" category="list-text">그룹 2의 포트에 대해 스위치가 없는 구성을 설정합니다.</block>
   <block id="863e48e1ab590a3004febd635c0c772c" category="admonition">잠재적인 네트워킹 문제를 방지하려면, 그룹 2에서 포트를 분리한 후 최대한 빨리 다시 연결해야 합니다(예: 20초 이내 *).</block>
   <block id="29f9df63556e07a416ddabb7ae9e6ad1" category="list-text">그룹 2의 포트에서 모든 케이블을 동시에 분리합니다.</block>
   <block id="f7107cbf076f0517cc09ef7864ab4721" category="paragraph">다음 예제에서 각 노드의 포트 "e0b"에서 케이블이 분리되고 클러스터 트래픽은 "e0a" 포트 간 직접 연결을 통해 계속됩니다.</block>
@@ -2194,8 +2161,6 @@
   <block id="31d2e20cefb76721dace23dfd9a35896" category="paragraph">'network interface revert-vserver cluster-lif_lif_name_'</block>
   <block id="aeb90980ffc18e4c949766c382d409d4" category="list-text">두 노드 중 하나의 시스템 콘솔에서 노드의 클러스터 상태를 확인합니다.</block>
   <block id="90d334e25f499d80506823cb341c39d7" category="paragraph">다음 예는 두 노드의 epsilon을 "거짓"으로 보여 줍니다.</block>
-  <block id="26ba805ccb9566fb36369f48374b79c8" category="list-text">클러스터 포트 간의 연결을 확인합니다.</block>
-  <block id="a76aa36cc43767185eb24bf3e6381bdb" category="paragraph">클러스터 ping-cluster local이 있습니다</block>
   <block id="749e4fff30fa6550a6b7216922e76856" category="paragraph">다음 예제에서 노드 1의 "e0a"는 노드 2의 "e0a"에 연결되고 노드 1의 "e0b"는 노드 2의 "e0b"에 연결됩니다.</block>
   <block id="f9c5b146fb6da165b4c98f09374af2ac" category="doc">이전 Cisco 스위치에서 Cisco Nexus 9336C-FX2 클러스터 스위치로 마이그레이션합니다</block>
   <block id="82aa1ff47d80bf012e412296f6a53469" category="inline-link">Nexus 9000 시리즈 스위치</block>
@@ -2323,7 +2288,6 @@
   <block id="3c23423d82deff2c49b1f5a675affe46" category="list-text">논리 인터페이스 및 지정된 홈 노드에 대한 정보를 표시합니다. 네트워크 인터페이스 show-vserver 클러스터</block>
   <block id="3dc587636ea58bb39b951053c233b58b" category="list-text">각 노드의 클러스터 포트는 'network device-discovery show -protocol lldp' 명령을 사용하여 노드 관점에서 기존 클러스터 스위치에 연결됩니다</block>
   <block id="866e9195c3f1e53c818cc1513b132bbc" category="list-text">클러스터 포트와 스위치는 'show CDP neighbors' 명령을 사용하여 스위치의 관점에서 다음과 같이 연결됩니다</block>
-  <block id="9e23ccbda503c8dd0fa60d4057a41702" category="list-text">스위치 C2에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.</block>
   <block id="aba8d89ac417a82d843ceaf3c6ac2faa" category="list-text">NVIDIA SN2100에서 지원하는 적절한 케이블을 사용하여 노드 클러스터 포트를 이전 스위치 C2에서 새 스위치 SW2로 이동합니다.</block>
   <block id="203a7f618c9b080eaa78a5e38ccd907d" category="list-text">스위치 SW2에서 모든 노드 클러스터 포트가 작동 중인지 확인합니다. 'net show interface'</block>
   <block id="fb04bba6a926fcde1b4b8e9928fc6c8c" category="list-text">스위치 C1에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.</block>
@@ -2648,7 +2612,6 @@
   <block id="4d76f023f4fff5f776ba26426c03d7a6" category="doc">NVIDIA SN2100 스위치의 구성 요소 및 부품 번호</block>
   <block id="3f9c12e1d0acbeca7bc410db81110a76" category="section-title">캐비닛 세부 정보</block>
   <block id="2fca9b848223ad314bfc0417bb307186" category="section-title">레일 키트 세부 정보</block>
-  <block id="d897cc0b3682ab01fb074cad614e3d87" category="list-text">다음 명령을 사용하여 클러스터 네트워크가 완벽하게 연결되어 있는지 확인합니다.<block ref="67b370e4ed014395d701d60f8f886608" prefix=" " category="inline-code"></block></block>
   <block id="0fa2182996c829479a17f20108650375" category="admonition">스위치가 ONIE 또는 Cumulus Linux를 실행 중일 때 Cumulus Linux(CL) OS를 설치할 수 있습니다(참조) <block ref="31c7752379437c6abd98c0b1cf8b984b" category="inline-link-macro-rx"></block>)를 클릭합니다.</block>
   <block id="2a7caab78aad5f1306f0e841c8cc7233" category="paragraph">네트워크 설치 프로그램 이미지를 자동으로 검색할 수 있도록 ONIE(Open Network Install Environment)를 사용하여 Cumulus Linux를 설치할 수 있습니다. 이를 통해 Cumulus Linux와 같은 운영 체제 선택을 하는 스위치 보안 모델의 시스템 모델을 용이하게 할 수 있습니다. ONIE를 사용하여 Cumulus Linux를 설치하는 가장 쉬운 방법은 로컬 HTTP 검색을 사용하는 것입니다.</block>
   <block id="86f9e7e4dc0c337b97f8769ea5f62452" category="list-text">웹 서버의 루트 디렉터리에 Cumulus Linux 설치 파일을 다운로드합니다. 이 파일 이름 바꾸기:<block ref="ad3b7e04b0013d13df088435d2fc4760" prefix=" " category="inline-code"></block>.</block>
@@ -2748,7 +2711,6 @@
   <block id="9284b77324fc2073740e195aa4d8c7bc" category="admonition">을 참조하십시오 <block ref="81e27480a79c2bb77194c038c9737157" category="inline-link-macro-rx"></block> 주의 사항 및 자세한 내용은 를 클릭합니다<block ref="fc1c96ca1130118b28ccd7598f63fe21" category="inline-link-rx"></block> 또한 케이블 연결에 대한 자세한 정보도 포함되어 있습니다.</block>
   <block id="73150a01363aed5257939f818ac56b3b" category="list-text">RCF(Reference Configuration Files)가 스위치에 적용됩니다</block>
   <block id="d334b073010dc4ca86957c663631fa0b" category="paragraph">각 클러스터 LIF는 에 대해 true로 표시되어야 합니다<block ref="53db3ce0fe0e71f06b3beb0b676b806c" prefix=" " category="inline-code"></block> 그리고 가 있습니다<block ref="4f21ee5a18672b60f4c01e94e6be9c79" prefix=" " category="inline-code"></block> 의<block ref="fc7c1443e5c7b6439706b6132a4c0829" prefix=" " category="inline-code"></block>.</block>
-  <block id="9a82d0edb58bbaaf806da2f174490820" category="list-text">클러스터 네트워크가 완전히 연결되어 있는지 확인합니다.</block>
   <block id="e64b06ebdf8146ea2bc17ff7d5457eef" category="summary">Cisco Nexus 9336C-FX2 스토리지 스위치의 설치 및 구성 개요</block>
   <block id="be4cd7f1969695f8e6e1f2c8040abcd4" category="paragraph">ONTAP를 실행하는 시스템에서 Cisco Nexus 9336C-FX2 스위치를 처음 구성하려면 다음 단계를 수행하십시오.</block>
   <block id="5ac09e984471f320b2e8920ece32b03d" category="inline-link-macro">케이블 연결 워크시트를 작성합니다</block>
@@ -3029,7 +2991,6 @@
   <block id="1665ddb906f550f2db99dc8dd8ac07cf" category="list-text">ISL이 있는지 확인합니다<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block> CN1610 스위치 CL1에서 다음을 수행합니다.</block>
   <block id="63a080ea10d13b471f345736a9e24da5" category="list-text">모든 노드에서 3132Q-V 스위치 C2에 연결된 모든 클러스터 인터커넥트 포트를 불러옵니다.</block>
   <block id="23fff82d9fb02c285b1502faee4ae332" category="list-text">모든 노드에서 C2에 연결된 마이그레이션된 모든 클러스터 인터커넥트 LIF를 되돌립니다.</block>
-  <block id="00327de917059c9e935218cad8596953" category="list-text">클러스터의 각 노드에서 교체할 첫 번째 CN1610 스위치 CL1과 연결된 인터페이스를 마이그레이션합니다.</block>
   <block id="0a8253221b50cf222a53851a6ddbed1c" category="list-text">모든 노드에서 CL1에 연결된 노드 포트를 종료합니다.</block>
   <block id="f5733555ddee6a45ef7d77727a730c77" category="list-text">활성 3132Q-V 스위치 C2에서 ISL 포트 24, 31 및 32를 종료합니다.</block>
   <block id="23e226519bad1264ff6720a663714b83" category="list-text">포트 24에서 구성을 복원하고 C2에서 임시 포트-채널 2를 복사하여 제거합니다<block ref="8ed2595e258fdd418e60bc54fb8390c0" prefix=" " category="inline-code"></block> 파일을 에 저장합니다<block ref="811ed34e3f89e27ea59dac8cdeb3c7a1" prefix=" " category="inline-code"></block> 파일.</block>
@@ -3076,13 +3037,11 @@
   <block id="a2d66052febf9deb949f7d7e35df53a5" category="paragraph">이 구성은 두 스위치에서 ISL을 가져올 때 3232C 스위치 C2의 ISL 구성과 일치합니다.</block>
   <block id="0cc66efb5c8a511b569cd814c99c92d4" category="list-text">ISL이 있는지 확인합니다<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block> 3232C 스위치 C2:</block>
   <block id="b16c844dd0cab45182a4d3eae43625b0" category="list-text">모든 노드에서 3232C 스위치 C2에 연결된 모든 클러스터 인터커넥트 포트를 불러옵니다.</block>
-  <block id="f8d208c1f437dafdcc22eba9eebccb38" category="list-text">첫 번째 CN1610 스위치 CL1에 연결된 LIF 마이그레이션:</block>
   <block id="502a7ea7de47db18cb4d391cdc1c745e" category="paragraph"><block ref="e3b59667988659c950426714ec77861c" prefix="" category="inline-code"></block></block>
   <block id="80ba2298ea2e8bd12acd9eb6839d255c" category="section-title">3단계: 클러스터 스위치 CL1을 C1로 교체합니다</block>
   <block id="e750586a88360e325f160a338984da3a" category="list-text">모든 노드에서 새 3232C 스위치 C1에 연결된 모든 클러스터 인터커넥트 포트를 불러옵니다.</block>
   <block id="a200c052ea88ce45ca5da5c961c95cd2" category="section-title">4단계: 절차를 완료합니다</block>
   <block id="53df53d4b9649d9b2a5ab348bc614229" category="paragraph"><block ref="fa6e1d1bde7406e301eb5451453f52d0" prefix="" category="inline-code"></block></block>
-  <block id="c8cd62d32eeff74bd4e4085156642109" category="paragraph"><block ref="9e1fb31e56a5a6b23a53159fb353b6be" prefix="" category="inline-code"></block></block>
   <block id="212c45c6e98833f0aea3bc1164020ecf" category="paragraph">다음 예에서는 Nexus 3232C 클러스터 스위치 모두에서 포트 e1/7 및 e1/8에 각각 연결된 40GbE 클러스터 포트가 있는 노드 n3 및 n4를 보여 줍니다. 두 노드가 모두 클러스터에 연결됩니다. 사용되는 40GbE 클러스터 인터커넥트 포트는 e4a 및 e4e입니다.</block>
   <block id="26f6491fcc908bd549c7f4064a11e2b0" category="paragraph"><block ref="fa49d5ecd63dc0afeae5cdf40805aaa2" prefix="" category="inline-code"></block></block>
   <block id="8a83614e560d59c264d55e32972bc26c" category="paragraph">2노드_스위치가 없는_클러스터가 있는 경우 Cisco Nexus 3232C 클러스터 네트워크 스위치를 포함하는 2노드_switched_cluster로 마이그레이션할 수 있습니다. 이는 무중단으로 수행할 수 있는 절차입니다.</block>
@@ -3296,7 +3255,6 @@
   <block id="f0b02a6a42b62e57a146137078a39635" category="section-title">클러스터 환경으로 마이그레이션</block>
   <block id="09a5fb271719ecae04d6c0f573fa3099" category="paragraph">다음 예에서는 스위치 CS1에서 ISL 포트가 * UP * 임을 보여 줍니다.</block>
   <block id="f9431300de8d1a48bf2e554ad1605071" category="paragraph">다음 예에서는 스위치 CS2에서 ISL 포트가 * UP * 임을 보여 줍니다.</block>
-  <block id="99905a9acf063a85c4bbaa70f4455984" category="list-text">다음 명령을 사용하여 클러스터 네트워크가 완벽하게 연결되어 있는지 확인합니다.</block>
   <block id="1e44ccea9f1ae385026deb840bc9b5f4" category="paragraph">자세한 내용은 다음을 참조하십시오.<block ref="780f810d0519883e7efdd6ef45cf51ed" category="inline-link-rx"></block></block>
   <block id="77d285017f370185656b54b03d5b5a16" category="paragraph">BES-53248 클러스터 스위치 기본 모델은 10GbE 또는 25GbE 포트 16개와 100GbE 포트 2개에 대해 라이센스가 부여됩니다. 라이센스를 더 구매하여 새 포트를 추가할 수 있습니다.</block>
   <block id="f95b7ecd3b114623b8699a07a36fd860" category="section-title">사용 가능한 라이센스를 검토합니다</block>
@@ -3508,12 +3466,9 @@
   <block id="6f48ab02f85ba15c8881b13dfb743c1f" category="list-text">모든 ISL(Inter-Switch Link) 포트는 1/35 및 1/36포트에서 비활성화됩니다.</block>
   <block id="2400f4c6ea942e602ee72f34c92149fb" category="list-text">[[4단계]] 모든 클러스터 LIF에 자동 복구가 설정되어 있는지 확인합니다.</block>
   <block id="77c477176f23eee3a054860c86ade8ee" category="paragraph"><block ref="3dc4656499b962a12e176f61ea51ff38" prefix="" category="inline-code"></block></block>
-  <block id="351f5135225bc1aa8573399c24aaee63" category="list-text">[[5단계]] 모든 클러스터 LIF가 통신할 수 있는지 확인:</block>
-  <block id="9a240210c2eead6e36900d78bed7eef4" category="paragraph"><block ref="6719f40a90253c4646383ef86ccea791" prefix="" category="inline-code"></block></block>
   <block id="cdfcdd135ec181475270de06d4e5f91e" category="list-text">[[9단계]] 모든 노드에서 포트 e3b가 작동 중인지 확인합니다.</block>
   <block id="1d559f001e58c1d63e11be4f19b5484b" category="list-text">[[11단계]] 클러스터의 노드에 대한 정보 표시:</block>
   <block id="53c275e60a3964cc951d091cfc9d800d" category="list-text">[[12단계]] 모든 물리적 클러스터 포트가 작동하는지 확인합니다.</block>
-  <block id="d9c7fb52065c9f285a012f315313eb5e" category="list-text">[[step13]] 모든 클러스터 LIF가 통신할 수 있는지 확인:</block>
   <block id="9354d16e8675ab0de41f89b86b5aae21" category="list-text">[[pep14]] 다음 클러스터 네트워크 구성을 확인합니다.</block>
   <block id="c11677f97d3ee2a98d058ccf0190a185" category="list-text">HA 쌍 2에 연결된 스토리지, 공유 스위치 newsh2가 정상인지 확인:</block>
   <block id="31fa17eadf22890247f9b117b5591678" category="paragraph"><block ref="2a56be163fc199ace3546fc94a295c05" prefix="" category="inline-code"></block></block>
@@ -3602,8 +3557,6 @@
   <block id="58665a6b8c7ef44525f1c47106f6a5f7" category="list-text">[[step21]] HA 쌍 1(및 HA 쌍 2)의 스토리지 구성이 올바르고 오류가 없는지 확인:</block>
   <block id="13982e86db6e34f25fefc25b6bdc9157" category="list-text">[[step22]] 설정이 비활성화되었는지 확인합니다.</block>
   <block id="fc62df36a7229b3d62a69029133e4bad" category="list-text">[[step23]] 클러스터에서 노드 구성원의 상태를 확인합니다.</block>
-  <block id="424f5bb3c0f9a5e7519b727f4bbfec8a" category="list-text">[[step24]] 클러스터 네트워크가 완전히 연결되어 있는지 확인합니다.</block>
-  <block id="57cbdf7660ff8108b68333b5cdd82f80" category="list-text">[[step25]] 권한 수준을 다시 admin으로 변경합니다.</block>
   <block id="8e2930bcf2c872a7120bbe73b8779424" category="section-title">2단계: 공유 스위치 설정</block>
   <block id="cee31e17ff4073484e137ee2159131bd" category="list-text">스토리지 노드 포트가 정상 작동 중인지 확인합니다.</block>
   <block id="c7f29a8717b9bbffee0430b5ba54c983" category="list-text">HA 쌍 1, NSM224 경로 B 포트를 SH2 포트 범위 11-22로 이동합니다.</block>
@@ -3678,7 +3631,6 @@
   <block id="d9bc9e589852186d0d0f7ee5549d5002" category="list-text">반환 작업이 완료된 후 HA 쌍이 정상 상태이고 테이크오버 가능성이 있는지 확인합니다.</block>
   <block id="751035e5db88d172e881299c202d9b13" category="paragraph"><block ref="ddf400f1cb6b8b9330ed6c79c508123c" prefix="" category="inline-code"></block></block>
   <block id="7585f91db102237924371a7e706740ac" category="list-text">클러스터 포트 LIF가 올바르게 작동하는지 확인합니다.</block>
-  <block id="975034487eab4a8e96e8e6d1c65f8552" category="list-text">클러스터 포트를 ping하여 클러스터 연결을 확인합니다.</block>
   <block id="d70fd89df8aeadfc5b92548ac7980d1a" category="doc">ONTAP 8.3.1 이상 버전의 FASTPATH 소프트웨어와 RCF를 설치합니다</block>
   <block id="834cc0a95f99fae146baeb2e09562fa9" category="paragraph">다음 절차에 따라 ONTAP 8.3.1 이상에 FASTPATH 소프트웨어와 RCFs를 설치합니다.</block>
   <block id="ef07b7e35e16571ab7d77ce32508e689" category="list-text">지원되는 FASTPATH, RCF 및 ONTAP 버전</block>
@@ -3702,7 +3654,6 @@
   <block id="e358220f8af8ba071a86497546e7cc33" category="list-text">각 클러스터 포트가 파트너 클러스터 노드의 해당 포트에 연결되어 있는지 확인합니다.</block>
   <block id="19f96b9a58e58f1d934e5d8f924b7319" category="paragraph"><block ref="f4dd3947e6c3117e547b63d0f46346d0" prefix="" category="inline-code"></block></block>
   <block id="1437945719c1644405e8d8d8dc10b2fe" category="list-text">모든 클러스터 LIF가 있는지 확인합니다<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block> 및 운영:</block>
-  <block id="a9fdf49653825d5a49c2d40f6431dcad" category="list-text">각 노드의 콘솔에서 포트 e2a로 clus1을 마이그레이션합니다.</block>
   <block id="17c163c5f3cf27f9ab7909ef8b7a260f" category="list-text">마이그레이션이 완료되었는지 확인합니다.</block>
   <block id="6eb5b9b1a64f0c90925b30b2539544ff" category="list-text">두 노드에서 클러스터 포트 E1A를 종료합니다.</block>
   <block id="142949c61ce1a054812f0cd4f16acd78" category="list-text">포트 상태를 확인합니다.</block>
@@ -3715,7 +3666,6 @@
   <block id="2c7197850ace220e695ad5d7c75a398c" category="list-text">두 노드에서 clus2(이전에 마이그레이션됨)를 e2a로 되돌리기:</block>
   <block id="7a8f791edf07ab23985fcd68cfdd3ed6" category="section-title">3단계: 구성을 완료합니다</block>
   <block id="0f6a263c930f026250dc80aee9d05738" category="list-text">모든 인터페이스가 표시되는지 확인합니다<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block> "홈" 열에서:</block>
-  <block id="0f8ff5228b430fcf43b89da43ffa7d18" category="list-text">두 노드 모두 각 스위치에 2개의 연결이 있는지 확인합니다.</block>
   <block id="7d510ed73956b5df449722fc30f548c8" category="paragraph"><block ref="5300819d7d7e3d6993508c34b25e015b" prefix="" category="inline-code"></block></block>
   <block id="4ea8faad6b3f550eb586fe8a6e127d47" category="list-text">advanced 권한 명령을 사용하여 두 노드에서 스위치가 없는 2노드 구성 설정을 비활성화합니다.</block>
   <block id="f3bfe82b35272b9d6cd5e99a1930d66a" category="paragraph"><block ref="f4c4b4bcf8fade11f2bb6f27f2086ed6" prefix="" category="inline-code"></block></block>
@@ -4366,7 +4316,6 @@
   <block id="111cada5d22121a7e11aef39f4aca355" category="list-text">클러스터 스위치 CS2에서 노드의 클러스터 포트에 연결된 포트를 표시합니다.</block>
   <block id="427c15bca394e9d3b5f203c35b96c743" category="inline-link">Cisco 3132Q 클러스터 스위치의 10GbE 포트는 온라인 상태로 제공되지 않습니다</block>
   <block id="20f0f9c709341c54050214259fc6c790" category="admonition">RCF 업그레이드 후 10GbE 포트를 온라인으로 전환하는 방법에 대한 단계는 기술 자료 문서 를 참조하십시오<block ref="917fe6fdad3ed920883f4190398d0805" category="inline-link-rx"></block>.</block>
-  <block id="bc2be245d88ec44ff572954ca52f5e47" category="list-text">스위치 CS1에서 7-15단계를 반복합니다.</block>
   <block id="756f5b45c94a8929404edacf08b1bf8c" category="paragraph">클러스터 LIF가 홈 포트로 돌아오지 않은 경우 수동으로 되돌리십시오.<block ref="af44897f72b682aae5fc0db1bf98e52d" prefix=" " category="inline-code"></block></block>
   <block id="e459e50e2d5bebb928139aa0e4ce09ac" category="list-text">스토리지 노드 포트의 상태를 확인합니다.</block>
   <block id="266daf0ca11ec57d9d3cb7598fd930b3" category="paragraph"><block ref="d14f00174ffa33ec8f559ffde7a52484" prefix="" category="inline-code"></block></block>
@@ -4521,7 +4470,6 @@
   <block id="64ea4acdf8f09e3b62f8764dea1b5bf4" category="list-text">그런 다음 노드와 C2 사이의 케이블 연결이 C2에서 분리되어 SW2에 다시 연결됩니다.</block>
   <block id="5f115706079e667394e9c5fb609142bb" category="list-text">스위치 C1이 스위치 SW1로 대체되었습니다.</block>
   <block id="1b42870c5bc0619ec4b57583bfec41e7" category="list-text">노드와 C1 사이의 케이블 연결이 C1에서 분리되어 SW1에 다시 연결됩니다.</block>
-  <block id="9c4f6f5aa4e55eb8ce92eee32e66b7cd" category="list-text">클러스터 LIF로 페일오버하려면 스위치 C2에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.</block>
   <block id="670028f02a4239fb83dfde9087341e1c" category="list-text">클러스터 LIF로 페일오버하려면 스위치 C1에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.</block>
   <block id="3e10fab2ffa4ef18685db0df5ee45e84" category="list-text">각 노드의 클러스터 포트는 다음과 같은 방식으로 기존 클러스터 스위치에 연결됩니다.</block>
   <block id="c51f636604f29f6f814bde48e4fd4671" category="list-text">클러스터 포트와 스위치는 다음과 같은 방식으로 연결됩니다(스위치 관점에서).</block>
@@ -4543,7 +4491,6 @@
   <block id="e9505b73caa990829220fedbb878ef68" category="list-text">스위치 C2는 먼저 스위치 CS2로 대체됩니다.</block>
   <block id="39bba2bddb2bf527b701828442a18b5e" category="list-text">그런 다음 노드와 C2 사이의 케이블 연결이 C2에서 분리되어 CS2에 다시 연결됩니다.</block>
   <block id="6fa86324fabffaee853e6eeee2824329" category="list-text">스위치 C1이 스위치 CS1로 대체되었습니다.</block>
-  <block id="9f4f9b4efa8b2eb74b227e6e2a18f872" category="list-text">클러스터 LIF로 페일오버하려면 스위치 C2에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.</block>
   <block id="54c071b600d8be038e07b18d66329aa7" category="list-text">클러스터 LIF로 페일오버하려면 스위치 C1에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.</block>
   <block id="5965a3db7e52c18148f117f0240c1e3f" category="paragraph"><block ref="5965a3db7e52c18148f117f0240c1e3f" category="inline-image-macro-rx" type="image"></block></block>
   <block id="6a5dd15f930e244dadfd412b53dd1ac0" category="paragraph">스토리지 스위치를 재사용하면 HA 쌍 1의 스토리지 스위치가 공유 스위치가 됩니다.
@@ -4913,8 +4860,6 @@
   <block id="0ca3ca41c2905b8f6347613ad99abeda" category="paragraph">Cisco NX-OS 소프트웨어 설치 및 RCFs(Reference Configuration File)에 대한 사전 절차를 따르십시오.</block>
   <block id="146fe7ba55f154a00f7fdd5bc0bc3b7f" category="paragraph">Nexus 9336C-FX2 클러스터 스위치에 NX-OS 소프트웨어를 설치 또는 업그레이드합니다.</block>
   <block id="c2682a02fa235bb20233662aeba236ad" category="paragraph">Nexus 9336C-FX2 스위치를 처음 설정한 후 RCF를 설치하거나 업그레이드합니다. 이 절차를 사용하여 RCF 버전을 업그레이드할 수도 있습니다.</block>
-  <block id="b98c51d6f722172518f1e38267bc1da4" category="inline-link-macro">Nexus 9336C-FX2 클러스터 스위치에서 SSH를 사용하도록 설정합니다</block>
-  <block id="ec348def7634a5754cf9d62e8bca7f24" category="list-text"><block ref="853bcb6b647712eac9646e8ede049d7b" category="inline-link-macro-rx"></block>..</block>
   <block id="5f7b61b5cf8ee335e4fdf4eb2e2191b2" category="paragraph">포트는 클러스터 + HA의 경우 40/100GbE용으로, 클러스터에 4x10GbE 브레이크아웃, 클러스터 + HA의 경우 4x25GbE 브레이크아웃, 각 스토리지 HA 쌍에 대해 100GbE용으로 구성됩니다.</block>
   <block id="d30ea82d7096609f0aea87ef848f7ebd" category="paragraph">Cisco Nexus 9336C-FX2 공유 스위치용 소프트웨어를 설치하고 구성하려면 다음 단계를 수행하십시오.</block>
   <block id="e495f3ec8dabfce7925d7c5053f55cbb" category="inline-link-macro">NetApp 캐비닛에 스위치를 설치합니다</block>
@@ -5030,9 +4975,6 @@
   <block id="720c3ddeb84772ef2bbfeba7b1d17a28" category="paragraph"><block ref="df8bbc4b7a2a07f02d567d56129471ab" prefix="" category="inline-code"></block></block>
   <block id="3a88a5741f799dc33a61b15c6f06ef77" category="summary">클러스터 스위치 상태 모니터\(CSMM\) 및 로그 수집 기능을 사용하려면 SSH가 필요합니다. Cisco 3232C 클러스터 스위치에서 SSH를 사용하도록 설정하려면 먼저 SSH 키를 생성한 다음 SSH를 사용하도록 설정합니다.</block>
   <block id="1ea468ba4330d1b99a20149c0e78b4ed" category="summary">클러스터 스위치 상태 모니터\(CSMM\) 및 로그 수집 기능을 사용하려면 SSH가 필요합니다. Cisco 92300YC 클러스터 스위치에서 SSH를 사용하도록 설정하려면 먼저 SSH 키를 생성한 다음 SSH를 사용하도록 설정합니다.</block>
-  <block id="6740010e0f06e1b4faea70ce1b3a4a76" category="inline-link-macro">SSH 키를 생성합니다</block>
-  <block id="c49d0af5a081eb64111a489cb2120d97" category="list-text"><block ref="52338aab140ac2dbc56c2c83d6349939" category="inline-link-macro-rx"></block>..</block>
-  <block id="f12f5027a3dbb2bbb22c5b1ca34d79d7" category="paragraph">이더넷 스위치 상태 모니터(CSHM) 및 로그 수집 기능을 사용하는 경우 스위치에 SSH 키를 생성합니다.</block>
   <block id="2e3301a364286013b9b29237fa347bb1" category="summary">클러스터 스위치 상태 모니터\(CSMM\) 및 로그 수집 기능을 사용하려면 SSH가 필요합니다. Cisco 9336c-FX2 클러스터 스위치에서 SSH를 사용하도록 설정하려면 먼저 SSH 키를 생성한 다음 SSH를 사용하도록 설정합니다.</block>
   <block id="243847a87ff7e0cb67ee578c74d8ad1c" category="paragraph">Cisco Nexus 9336C-FX2 스위치는 Cisco Nexus 9000 플랫폼의 일부이며 NetApp 시스템 캐비닛에 설치할 수 있습니다. Nexus 9336C-FX2는 컨트롤러와 디스크 쉘프 간에 데이터를 전환할 수 있는 이더넷 스위치입니다.</block>
   <block id="81f0d5b127adfd87f50ce10bc85e1e65" category="list-text">공급업체의 지침에 따라 스위치에서 SSH 키를 다시 생성합니다.</block>
@@ -5049,4 +4991,51 @@
   <block id="936b3180f1af844d99a2935c0f8f1407" category="paragraph">이 절차에 대해 자동 되돌리기 기능을 사용하지 않도록 설정함으로써 클러스터 LIF가 홈 포트로 자동으로 다시 이동하지 않습니다. 이 포트는 계속 가동되고 작동하는 동안 현재 포트에 남아 있습니다.</block>
   <block id="8cfe0e3d8ad280ac0655595fef97d183" category="list-text">모든 클러스터 LIF는 새 스위치 CS2로 페일오버됩니다.</block>
   <block id="7f59c84a99e8340f8584b604b173e044" category="list-text">모든 클러스터 LIF가 새 스위치 CS1로 페일오버됩니다.</block>
+  <block id="450c144a370eb64ad7b2fb87b5e08ccd" category="paragraph">* 참고: * 몇 초 동안 기다린 후<block ref="a7dd12b1dab17d25467b0b0a4c8d4a92" prefix=" " category="inline-code"></block> 명령을 실행하여 세부 정보를 표시합니다.</block>
+  <block id="1abee7895e26b219393999144625cf43" category="list-text">[[step7]] 권한 수준을 admin으로 다시 변경합니다.</block>
+  <block id="7a073ea5ec2a763ddf5a0385781ed626" category="list-text">[[step6]] 모든 클러스터 LIF에 자동 되돌리기 명령이 설정되었는지 확인:</block>
+  <block id="2d7cd36455daea92f172ede16d765aae" category="list-text">[[step7]] 클러스터가 정상인지 확인:</block>
+  <block id="acdfe379cf0ed5868b119418e7d41b82" category="list-text">[[step11]] 그룹 2의 포트에 대해 스위치 없는 구성을 설정합니다.</block>
+  <block id="a2f7ec2dd8feebc2c1e30e5f859d4497" category="list-text">[[step6]] 자동 케이스 생성을 억제한 경우 AutoSupport 메시지를 호출하여 다시 활성화합니다.</block>
+  <block id="2f3040f570b3d77425ad0bf50fc7985c" category="list-text">[[step6]] 권한 수준을 다시 admin으로 변경합니다.</block>
+  <block id="4e4f70ba52e8cb595faa069991c5a9f4" category="list-text">[[step5]] 자동 케이스 생성을 억제한 경우 AutoSupport 메시지를 호출하여 다시 활성화합니다.</block>
+  <block id="c97fddef37af781b99f2bb564a90861d" category="list-text">[[step9]] 권한 수준을 다시 admin으로 변경합니다.</block>
+  <block id="991d705309210a9623a3f1d994c15150" category="list-text">[[step10]] 활성 Nexus 5596 스위치의 ISL 포트 41 - 48을 종료합니다. CL1:</block>
+  <block id="86134d7d31c06aa0711aee6c64ddd4f3" category="list-text">[[step12]] 클러스터의 각 노드에서 교체할 첫 번째 Nexus 5596 스위치인 CL1과 연결된 인터페이스를 마이그레이션합니다.</block>
+  <block id="bbb276c46604db63ed55340efd9fdca4" category="list-text">[[step7]] Nexus 3132Q-V 클러스터 스위치에 노드를 추가하여 클러스터를 확장합니다.</block>
+  <block id="5a941b8418c4fe0b34b15c50aa26a877" category="list-text">[[step10]] n1 노드의 e4a에서 케이블을 분리합니다.</block>
+  <block id="654e3d51643a619895e470f1d55bc3ba" category="list-text">[[step2]] 자동 케이스 생성을 억제한 경우 AutoSupport 메시지를 호출하여 다시 활성화합니다.</block>
+  <block id="8b7a1c5ca569b4edf87d12744a873c02" category="list-text">[[step6]] 모든 클러스터 LIF에 명령이 활성화되어 있는지 확인합니다<block ref="9f1b7141f09f19c4e33409646aef43cf" prefix=" " category="inline-code"></block>.</block>
+  <block id="2599d5f1ece8078590877d15b717f346" category="list-text">[[9단계]] CL1에서 1/31 및 1/32를 종료하고 활성 Nexus 3132Q-V 스위치를 종료합니다.</block>
+  <block id="e24c0f89ee0b0fb577ecce66e38a9e4d" category="list-text">[[step10]] 활성 CN1610 스위치 CL1에서 ISL 포트 13~16을 종료합니다.</block>
+  <block id="8401a156e54d36682ab941dd51ed3e9d" category="list-text">[[step12]] 클러스터의 각 노드에서 교체할 첫 번째 CN1610 스위치 CL1에 연결된 인터페이스를 마이그레이션합니다.</block>
+  <block id="a1362b00e7776e62ab541ebf090bf150" category="list-text">스위치 CS1에서 7-17단계를 반복합니다.</block>
+  <block id="09c97f0f4f7a646915b2abf749bc1d6f" category="list-text">[[step3]] 적절한 명령을 사용하여 활성 CN1610 스위치 CL1에서 ISL 포트 13 - 16을 종료합니다.</block>
+  <block id="e2ad2b2cb346f8abd448d557881c7dd5" category="list-text">[[step16]] 첫 번째 CN1610 스위치 CL1에 연결된 LIF를 마이그레이션합니다.</block>
+  <block id="e542ca85e220af35c4b3a82c0642077a" category="list-text">[[4단계]] Nexus 3232C 클러스터 스위치에 노드를 추가하여 클러스터를 확장합니다.</block>
+  <block id="0dee5df137b8161e82554818a557ccc2" category="list-text">[[3단계]] Cisco 명령을 사용하여 활성 Nexus 5596 스위치인 CL1에서 ISL 41 - 48을<block ref="5924f03a95ee6f7277e5bdd1e81b8fdc" prefix=" " category="inline-code"></block> 종료합니다.</block>
+  <block id="36cdf08b85e5feb55a70e6066970eb64" category="list-text">[[step15]] 클러스터의 각 노드에서 교체할 첫 번째 Nexus 5596 스위치인 CL1과 연결된 인터페이스를 마이그레이션합니다.</block>
+  <block id="5744be7d661c6ac9679e21ca3f4dfaeb" category="list-text">[[29단계]] Nexus 3232C 클러스터 스위치에 노드를 추가하여 클러스터를 확장합니다.</block>
+  <block id="d05ecee4a6b0d861bcd1b9258b8245ca" category="list-text">[[step4]] 노드 n1의 e4a에서 케이블을 분리합니다.</block>
+  <block id="cc5ebab0ee641c8983f3228b4974ade1" category="list-text">[[step16]] 자동 케이스 생성을 억제한 경우 AutoSupport 메시지를 호출하여 다시 활성화합니다.</block>
+  <block id="b18c2181f3eba90bca1c7f88f8586e11" category="list-text">[[step6]] 모든 클러스터 LIF에 명령이 활성화되어 있는지 확인합니다<block ref="9f1b7141f09f19c4e33409646aef43cf" prefix=" " category="inline-code"></block>.<block ref="d268e7bf124a9f74e2dbe2e0127d951b" prefix=" " category="inline-code"></block></block>
+  <block id="2ddf49eb6c3fafb7644444a8f6985876" category="list-text">[[step8]] 자동 케이스 생성을 억제한 경우 AutoSupport 메시지를 호출하여 다시 활성화합니다.</block>
+  <block id="22265ef643cb758bbeafeae6b9005960" category="list-text">[[step3]] 자동 케이스 생성을 억제한 경우 AutoSupport 메시지를 호출하여 다시 활성화합니다.</block>
+  <block id="f7e86b0278da2d0f23dfd04e64f68478" category="list-text">[[step2]] 다음 클러스터 네트워크 구성을 확인합니다.</block>
+  <block id="cb9e3eca5ee8f7c34a9beb30eb78e80e" category="inline-link-macro">Nexus 9336C-FX2 클러스터 스위치에서 SSH 구성을 확인합니다</block>
+  <block id="9d35e90712940df4e7dd724e3a99eb05" category="list-text"><block ref="174530f10d1b6584efbd4bb64a5325d0" category="inline-link-macro-rx"></block>..</block>
+  <block id="1de33421daf77940fdd8929e277ba937" category="paragraph">이더넷 스위치 상태 모니터(CSHM) 및 로그 수집 기능을 사용하는 경우 스위치에서 SSH가 활성화되어 있는지 확인합니다.</block>
+  <block id="51ad33f87e9af3baac880cb70771fe46" category="list-text">[[step5]] 클러스터 LIF로 페일오버하기 위해 스위치 C2에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.</block>
+  <block id="09b863ebe2485d0260db2694f545c132" category="doc">이전 Cisco 스위치에서 Cisco Nexus 9336C-FX2 스위치로 마이그레이션합니다</block>
+  <block id="52f52fe5595841a94d975238199fecfa" category="list-text">[[step25]] 권한 수준을 admin으로 다시 변경합니다.</block>
+  <block id="0804eaf4e04da57f4e0f01d9ed605047" category="list-text">[[step5]] 원격 클러스터 인터페이스의 연결을 확인합니다.</block>
+  <block id="1113f8069f1bf162e58048e7da3b5e76" category="list-text">[[step13]] 원격 클러스터 인터페이스의 연결을 확인합니다.</block>
+  <block id="8024b8439487d862ebc200f269b3fd06" category="list-text">[[6단계]] Nexus 9336C-FX2 스위치 CS1에서 ISL 포트 1/35 및 1/36을 종료합니다.</block>
+  <block id="179cedfc35b7060884a77fceb9fb4188" category="list-text">[[step14]] 다음 클러스터 네트워크 구성을 확인합니다.<block ref="838c4deb1e9c47dcd4c44b6e40276467" prefix=" " category="inline-code"></block></block>
+  <block id="ed6ec01ef9cf24a0e109957a15ef2abc" category="list-text">[[step10]] clus1을 각 노드의 콘솔에서 포트 e2a로 마이그레이션합니다.</block>
+  <block id="8454a3a0cd1d8a969c0433bdbb3e8b5f" category="list-text">[[step3]] 두 노드가 각 스위치에 대해 2개의 연결을 가지고 있는지 확인합니다.</block>
+  <block id="0e18e00d28d8ccbabfbea2b32f607774" category="list-text">[[step6]] 권한 수준을 admin으로 다시 변경합니다.</block>
+  <block id="ff518749d3663227de48008bfca511bb" category="list-text">[[step5]] 클러스터 LIF로 페일오버하기 위해 스위치 C2에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.</block>
+  <block id="c47f8dc188da37844fcf13bca92e64bd" category="list-text">[[step8]] 다음 명령을 사용하여 스위치 관련 로그 파일을 수집하기 위해 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화합니다.</block>
+  <block id="d2370f0d6957d5e8b2747d5a02f35221" category="list-text">[[step8]] 스위치 C2에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.</block>
 </blocks>

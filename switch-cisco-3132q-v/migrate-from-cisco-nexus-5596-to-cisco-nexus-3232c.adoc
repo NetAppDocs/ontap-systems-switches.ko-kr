@@ -316,19 +316,47 @@ cluster::*> network port modify -node n2 -port e0b -up-admin false
 cluster::*> network port modify -node n2 -port e0c -up-admin false
 ----
 ====
-. 원격 클러스터 인터페이스에 대해 ping을 수행하고 RPC 서버 검사를 수행합니다.
-+
-'클러스터 ping 클러스터'
+. 원격 클러스터 인터페이스의 연결을 확인합니다.
 
-+
-.예제 보기
-[%collapsible]
+
+[role="tabbed-block"]
 ====
-다음 예는 원격 클러스터 인터페이스를 ping하는 방법을 보여줍니다.
+.ONTAP 9.9.1 이상
+--
+를 사용할 수 있습니다 `network interface check cluster-connectivity` 클러스터 연결에 대한 접근성 검사를 시작한 다음 세부 정보를 표시하는 명령입니다.
 
-[listing]
+`network interface check cluster-connectivity start` 및 `network interface check cluster-connectivity show`
+
+[listing, subs="+quotes"]
 ----
-cluster::*> cluster ping-cluster -node n1
+cluster1::*> *network interface check cluster-connectivity start*
+----
+* 참고: * show 명령을 실행하기 전에 몇 초 동안 기다린 후 세부 정보를 표시합니다.
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity show*
+                                  Source          Destination       Packet
+Node   Date                       LIF             LIF               Loss
+------ -------------------------- --------------- ----------------- -----------
+n1
+       3/5/2022 19:21:18 -06:00   n1_clus2        n2_clus1      none
+       3/5/2022 19:21:20 -06:00   n1_clus2        n2_clus2      none
+
+n2
+       3/5/2022 19:21:18 -06:00   n2_clus2        n1_clus1      none
+       3/5/2022 19:21:20 -06:00   n2_clus2        n1_clus2      none
+----
+--
+.모든 ONTAP 릴리스
+--
+모든 ONTAP 릴리스에 대해 을 사용할 수도 있습니다 `cluster ping-cluster -node <name>` 연결 상태를 확인하는 명령:
+
+`cluster ping-cluster -node <name>`
+
+[listing, subs="+quotes"]
+----
+cluster::*> *cluster ping-cluster -node n1*
 Host is n1
 Getting addresses from network interface table...
 Cluster n1_clus1 n1		e0a	10.10.0.1
@@ -368,10 +396,11 @@ Detected 1500 byte MTU on 16 path(s):
 Larger than PMTU communication succeeds on 16 path(s)
 RPC status:
 4 paths up, 0 paths down (tcp check)
-4 paths up, 0 paths down (udp check
+4 paths up, 0 paths down (udp check)
 ----
+--
 ====
-. 활성 Nexus 5596 스위치 CL1에서 ISL 포트 41 ~ 48을 종료합니다.
+. [[step10]] 활성 Nexus 5596 스위치의 ISL 포트 41 - 48을 종료합니다. CL1:
 +
 .예제 보기
 [%collapsible]
@@ -604,19 +633,47 @@ e0d       Cluster      Cluster          up   9000  auto/10000 -        -
 8 entries were displayed.
 ----
 ====
-. 원격 클러스터 인터페이스에 대해 ping을 수행하고 RPC 서버 검사를 수행합니다.
-+
-'클러스터 ping 클러스터'
+. 원격 클러스터 인터페이스의 연결을 확인합니다.
 
-+
-.예제 보기
-[%collapsible]
+
+[role="tabbed-block"]
 ====
-다음 예는 원격 클러스터 인터페이스를 ping하는 방법을 보여줍니다.
+.ONTAP 9.9.1 이상
+--
+를 사용할 수 있습니다 `network interface check cluster-connectivity` 클러스터 연결에 대한 접근성 검사를 시작한 다음 세부 정보를 표시하는 명령입니다.
 
-[listing]
+`network interface check cluster-connectivity start` 및 `network interface check cluster-connectivity show`
+
+[listing, subs="+quotes"]
 ----
-cluster::*> cluster ping-cluster -node n1
+cluster1::*> *network interface check cluster-connectivity start*
+----
+* 참고: * show 명령을 실행하기 전에 몇 초 동안 기다린 후 세부 정보를 표시합니다.
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity show*
+                                  Source          Destination       Packet
+Node   Date                       LIF             LIF               Loss
+------ -------------------------- --------------- ----------------- -----------
+n1
+       3/5/2022 19:21:18 -06:00   n1_clus2        n2_clus1      none
+       3/5/2022 19:21:20 -06:00   n1_clus2        n2_clus2      none
+
+n2
+       3/5/2022 19:21:18 -06:00   n2_clus2        n1_clus1      none
+       3/5/2022 19:21:20 -06:00   n2_clus2        n1_clus2      none
+----
+--
+.모든 ONTAP 릴리스
+--
+모든 ONTAP 릴리스에 대해 을 사용할 수도 있습니다 `cluster ping-cluster -node <name>` 연결 상태를 확인하는 명령:
+
+`cluster ping-cluster -node <name>`
+
+[listing, subs="+quotes"]
+----
+cluster::*> *cluster ping-cluster -node n1*
 Host is n1
 Getting addresses from network interface table...
 Cluster n1_clus1 n1		e0a	10.10.0.1
@@ -658,8 +715,9 @@ RPC status:
 4 paths up, 0 paths down (tcp check)
 4 paths up, 0 paths down (udp check)
 ----
+--
 ====
-. 클러스터의 각 노드에서 교체할 첫 번째 Nexus 5596 스위치 CL1과 연결된 인터페이스를 마이그레이션합니다.
+. [[step12]] 클러스터의 각 노드에서 교체할 첫 번째 Nexus 5596 스위치인 CL1과 연결된 인터페이스를 마이그레이션합니다.
 +
 네트워크 인터페이스 마이그레이션
 
@@ -859,7 +917,7 @@ cluster::*> network port modify -node n2 -port e0d -up-admin true
 
 [listing]
 ----
-cluster::*> network port show –role cluster
+cluster::*> network port show -role cluster
   (network port show)
 Node: n1
                                                                        Ignore
@@ -930,19 +988,47 @@ Cluster
 8 entries were displayed.
 ----
 ====
-. 원격 클러스터 인터페이스에 대해 ping을 수행한 다음 원격 프로시저 호출 서버 검사를 수행합니다.
-+
-'클러스터 ping 클러스터'
+. 원격 클러스터 인터페이스의 연결을 확인합니다.
 
-+
-.예제 보기
-[%collapsible]
+
+[role="tabbed-block"]
 ====
-다음 예는 원격 클러스터 인터페이스를 ping하는 방법을 보여줍니다.
+.ONTAP 9.9.1 이상
+--
+를 사용할 수 있습니다 `network interface check cluster-connectivity` 클러스터 연결에 대한 접근성 검사를 시작한 다음 세부 정보를 표시하는 명령입니다.
 
-[listing]
+`network interface check cluster-connectivity start` 및 `network interface check cluster-connectivity show`
+
+[listing, subs="+quotes"]
 ----
-cluster::*> cluster ping-cluster -node n1
+cluster1::*> *network interface check cluster-connectivity start*
+----
+* 참고: * show 명령을 실행하기 전에 몇 초 동안 기다린 후 세부 정보를 표시합니다.
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity show*
+                                  Source          Destination       Packet
+Node   Date                       LIF             LIF               Loss
+------ -------------------------- --------------- ----------------- -----------
+n1
+       3/5/2022 19:21:18 -06:00   n1_clus2        n2_clus1      none
+       3/5/2022 19:21:20 -06:00   n1_clus2        n2_clus2      none
+
+n2
+       3/5/2022 19:21:18 -06:00   n2_clus2        n1_clus1      none
+       3/5/2022 19:21:20 -06:00   n2_clus2        n1_clus2      none
+----
+--
+.모든 ONTAP 릴리스
+--
+모든 ONTAP 릴리스에 대해 을 사용할 수도 있습니다 `cluster ping-cluster -node <name>` 연결 상태를 확인하는 명령:
+
+`cluster ping-cluster -node <name>`
+
+[listing, subs="+quotes"]
+----
+cluster::*> *cluster ping-cluster -node n1*
 Host is n1
 Getting addresses from network interface table...
 Cluster n1_clus1 n1		e0a	10.10.0.1
@@ -984,8 +1070,9 @@ RPC status:
 4 paths up, 0 paths down (tcp check)
 4 paths up, 0 paths down (udp check)
 ----
+--
 ====
-. Nexus 3132Q-V 클러스터 스위치에 노드를 추가하여 클러스터를 확장합니다.
+. [[step7]] Nexus 3132Q-V 클러스터 스위치에 노드를 추가하여 클러스터를 확장합니다.
 . 구성에 있는 장치에 대한 정보를 표시합니다.
 +
 ** 네트워크 디바이스 발견 쇼
@@ -1024,7 +1111,7 @@ n4         /cdp
 ----
 [listing]
 ----
-cluster::*> network port show –role cluster
+cluster::*> network port show -role cluster
   (network port show)
 Node: n1
                                                                        Ignore
@@ -1140,8 +1227,8 @@ CL2                           cluster-network    10.10.1.102     NX5596
 
 [listing]
 ----
-cluster::> system cluster-switch delete –device CL1
-cluster::> system cluster-switch delete –device CL2
+cluster::> system cluster-switch delete -device CL1
+cluster::> system cluster-switch delete -device CL2
 ----
 ====
 . 각 노드에서 자동 되돌아가도록 클러스터 clus1 및 clus2를 구성하고 확인합니다.

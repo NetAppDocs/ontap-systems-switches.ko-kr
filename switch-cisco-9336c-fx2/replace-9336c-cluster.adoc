@@ -223,18 +223,46 @@ Cluster      node2_clus2   true
 4 entries were displayed.
 ----
 ====
-. 모든 클러스터 LIF가 통신할 수 있는지 확인:
-+
-'클러스터 ping 클러스터'
+. 원격 클러스터 인터페이스의 연결을 확인합니다.
 
-+
-.예제 보기
-[%collapsible]
+
+[role="tabbed-block"]
 ====
-[listing]
-----
-cluster1::*> cluster ping-cluster node1
+.ONTAP 9.9.1 이상
+--
+를 사용할 수 있습니다 `network interface check cluster-connectivity` 클러스터 연결에 대한 접근성 검사를 시작한 다음 세부 정보를 표시하는 명령입니다.
 
+`network interface check cluster-connectivity start` 및 `network interface check cluster-connectivity show`
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity start*
+----
+* 참고: * 몇 초 동안 기다린 후 `show` 명령을 실행하여 세부 정보를 표시합니다.
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity show*
+                                  Source           Destination      Packet
+Node   Date                       LIF              LIF              Loss
+------ -------------------------- ---------------- ---------------- -----------
+node1
+       3/5/2022 19:21:18 -06:00   node1_clus2      node2-clus1      none
+       3/5/2022 19:21:20 -06:00   node1_clus2      node2_clus2      none
+node2
+       3/5/2022 19:21:18 -06:00   node2_clus2      node1_clus1      none
+       3/5/2022 19:21:20 -06:00   node2_clus2      node1_clus2      none
+----
+--
+.모든 ONTAP 릴리스
+--
+모든 ONTAP 릴리스에 대해 을 사용할 수도 있습니다 `cluster ping-cluster -node <name>` 연결 상태를 확인하는 명령:
+
+`cluster ping-cluster -node <name>`
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster ping-cluster -node local*
 Host is node2
 Getting addresses from network interface table...
 Cluster node1_clus1 169.254.209.69 node1 e0a
@@ -259,9 +287,8 @@ RPC status:
 2 paths up, 0 paths down (tcp check)
 2 paths up, 0 paths down (udp check)
 ----
+--
 ====
-
-
 
 
 === 2단계: 케이블 및 포트 구성
@@ -424,17 +451,46 @@ e0b       Cluster      Cluster          up    9000  auto/10000  healthy  false
 4 entries were displayed.
 ----
 ====
-. 모든 클러스터 LIF가 통신할 수 있는지 확인:
-+
-'클러스터 ping 클러스터'
+. 원격 클러스터 인터페이스의 연결을 확인합니다.
 
-+
-.예제 보기
-[%collapsible]
+
+[role="tabbed-block"]
 ====
-[listing]
+.ONTAP 9.9.1 이상
+--
+를 사용할 수 있습니다 `network interface check cluster-connectivity` 클러스터 연결에 대한 접근성 검사를 시작한 다음 세부 정보를 표시하는 명령입니다.
+
+`network interface check cluster-connectivity start` 및 `network interface check cluster-connectivity show`
+
+[listing, subs="+quotes"]
 ----
-cluster1::*> cluster ping-cluster -node node2
+cluster1::*> *network interface check cluster-connectivity start*
+----
+* 참고: * 몇 초 동안 기다린 후 `show` 명령을 실행하여 세부 정보를 표시합니다.
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity show*
+                                  Source           Destination      Packet
+Node   Date                       LIF              LIF              Loss
+------ -------------------------- ---------------- ---------------- -----------
+node1
+       3/5/2022 19:21:18 -06:00   node1_clus2      node2-clus1      none
+       3/5/2022 19:21:20 -06:00   node1_clus2      node2_clus2      none
+node2
+       3/5/2022 19:21:18 -06:00   node2_clus2      node1_clus1      none
+       3/5/2022 19:21:20 -06:00   node2_clus2      node1_clus2      none
+----
+--
+.모든 ONTAP 릴리스
+--
+모든 ONTAP 릴리스에 대해 을 사용할 수도 있습니다 `cluster ping-cluster -node <name>` 연결 상태를 확인하는 명령:
+
+`cluster ping-cluster -node <name>`
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster ping-cluster -node local*
 Host is node2
 Getting addresses from network interface table...
 Cluster node1_clus1 169.254.209.69 node1 e0a
@@ -459,9 +515,8 @@ RPC status:
 2 paths up, 0 paths down (tcp check)
 2 paths up, 0 paths down (udp check)
 ----
+--
 ====
-
-
 
 
 === 3단계: 구성을 확인합니다

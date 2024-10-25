@@ -377,17 +377,47 @@ Cluster
 cluster::*> network port modify -node n1 -port e4a -up-admin false
 cluster::*> network port modify -node n2 -port e4a -up-admin false
 ----
-. 원격 클러스터 인터페이스에 대해 ping을 수행하고 RPC 서버 검사를 수행합니다.
-+
-'클러스터 ping 클러스터'
+. 원격 클러스터 인터페이스의 연결을 확인합니다.
 
-+
-.예제 보기
-[%collapsible]
+
+[role="tabbed-block"]
 ====
-[listing]
+.ONTAP 9.9.1 이상
+--
+를 사용할 수 있습니다 `network interface check cluster-connectivity` 클러스터 연결에 대한 접근성 검사를 시작한 다음 세부 정보를 표시하는 명령입니다.
+
+`network interface check cluster-connectivity start` 및 `network interface check cluster-connectivity show`
+
+[listing, subs="+quotes"]
 ----
-cluster::*> cluster ping-cluster -node n1
+cluster1::*> *network interface check cluster-connectivity start*
+----
+* 참고: * show 명령을 실행하기 전에 몇 초 동안 기다린 후 세부 정보를 표시합니다.
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity show*
+                                  Source          Destination       Packet
+Node   Date                       LIF             LIF               Loss
+------ -------------------------- --------------- ----------------- -----------
+n1
+       3/5/2022 19:21:18 -06:00   n1_clus2        n2_clus1      none
+       3/5/2022 19:21:20 -06:00   n1_clus2        n2_clus2      none
+
+n2
+       3/5/2022 19:21:18 -06:00   n2_clus2        n1_clus1      none
+       3/5/2022 19:21:20 -06:00   n2_clus2        n1_clus2      none
+----
+--
+.모든 ONTAP 릴리스
+--
+모든 ONTAP 릴리스에 대해 을 사용할 수도 있습니다 `cluster ping-cluster -node <name>` 연결 상태를 확인하는 명령:
+
+`cluster ping-cluster -node <name>`
+
+[listing, subs="+quotes"]
+----
+cluster::*> *cluster ping-cluster -node n1*
 Host is n1
 Getting addresses from network interface table...
 Cluster n1_clus1 n1		e4a	10.10.0.1
@@ -413,8 +443,9 @@ RPC status:
 1 paths up, 0 paths down (tcp check)
 1 paths up, 0 paths down (ucp check)
 ----
+--
 ====
-. 노드 n1의 e4a에서 케이블을 분리합니다.
+. [[step10]] n1 노드의 e4a에서 케이블을 분리합니다.
 +
 실행 중인 구성을 참조하여 Nexus 3132Q-V에서 지원되는 케이블을 사용하여 스위치 C1(이 예에서는 포트 1/7)의 첫 번째 40GbE 포트를 n1의 e4a에 연결할 수 있습니다
 
@@ -796,17 +827,47 @@ network options switchless-cluster show
 
 === 5단계: 구성을 확인합니다
 
-. 원격 클러스터 인터페이스에 대해 ping을 수행하고 RPC 서버 검사를 수행합니다.
-+
-'클러스터 ping 클러스터'
+. 원격 클러스터 인터페이스의 연결을 확인합니다.
 
-+
-.예제 보기
-[%collapsible]
+
+[role="tabbed-block"]
 ====
-[listing]
+.ONTAP 9.9.1 이상
+--
+를 사용할 수 있습니다 `network interface check cluster-connectivity` 클러스터 연결에 대한 접근성 검사를 시작한 다음 세부 정보를 표시하는 명령입니다.
+
+`network interface check cluster-connectivity start` 및 `network interface check cluster-connectivity show`
+
+[listing, subs="+quotes"]
 ----
-cluster::*> cluster ping-cluster -node n1
+cluster1::*> *network interface check cluster-connectivity start*
+----
+* 참고: * show 명령을 실행하기 전에 몇 초 동안 기다린 후 세부 정보를 표시합니다.
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity show*
+                                  Source          Destination       Packet
+Node   Date                       LIF             LIF               Loss
+------ -------------------------- --------------- ----------------- -----------
+n1
+       3/5/2022 19:21:18 -06:00   n1_clus2        n2_clus1      none
+       3/5/2022 19:21:20 -06:00   n1_clus2        n2_clus2      none
+
+n2
+       3/5/2022 19:21:18 -06:00   n2_clus2        n1_clus1      none
+       3/5/2022 19:21:20 -06:00   n2_clus2        n1_clus2      none
+----
+--
+.모든 ONTAP 릴리스
+--
+모든 ONTAP 릴리스에 대해 을 사용할 수도 있습니다 `cluster ping-cluster -node <name>` 연결 상태를 확인하는 명령:
+
+`cluster ping-cluster -node <name>`
+
+[listing, subs="+quotes"]
+----
+cluster::*> *cluster ping-cluster -node n1*
 Host is n1
 Getting addresses from network interface table...
 Cluster n1_clus1 n1		e4a	10.10.0.1
@@ -832,12 +893,13 @@ RPC status:
 1 paths up, 0 paths down (tcp check)
 1 paths up, 0 paths down (ucp check)
 ----
+--
 ====
-. 자동 케이스 생성을 억제한 경우 AutoSupport 메시지를 호출하여 다시 활성화합니다.
+. [[step2]] 자동 케이스 생성을 억제한 경우 AutoSupport 메시지를 호출하여 다시 활성화합니다.
 +
 'System node AutoSupport invoke-node * -type all-message maINT=end'
 
 
 
 .다음 단계
-link:../switch-cshm/config-overview.html["스위치 상태 모니터링을 구성합니다"]
+link:../switch-cshm/config-overview.html["스위치 상태 모니터링을 구성합니다"]..

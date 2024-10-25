@@ -581,7 +581,7 @@ Group Port-       Type     Protocol  Member Ports
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-* 참고: * show 명령을 실행하기 전에 몇 초 동안 기다린 후 세부 정보를 표시합니다.
+* 참고: * 몇 초 동안 기다린 후 `show` 명령을 실행하여 세부 정보를 표시합니다.
 
 [listing, subs="+quotes"]
 ----

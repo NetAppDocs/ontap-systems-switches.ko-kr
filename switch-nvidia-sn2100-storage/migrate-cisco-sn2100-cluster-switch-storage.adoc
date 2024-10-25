@@ -174,12 +174,46 @@ node2                 Eth1/2        124    H           AFF-A400         e3b
 c1                    Eth1/31       175    S I s       N3K-C3232C       Eth1/31
 c1                    Eth1/32       175    S I s       N3K-C3232C       Eth1/32
 ----
-. 다음 명령을 사용하여 클러스터 네트워크가 완벽하게 연결되어 있는지 확인합니다. `cluster ping-cluster -node node-name`
-+
+. 원격 클러스터 인터페이스의 연결을 확인합니다.
+
+
+[role="tabbed-block"]
+====
+.ONTAP 9.9.1 이상
+--
+를 사용할 수 있습니다 `network interface check cluster-connectivity` 클러스터 연결에 대한 접근성 검사를 시작한 다음 세부 정보를 표시하는 명령입니다.
+
+`network interface check cluster-connectivity start` 및 `network interface check cluster-connectivity show`
+
 [listing, subs="+quotes"]
 ----
-cluster1::*> *cluster ping-cluster -node node2*
+cluster1::*> *network interface check cluster-connectivity start*
+----
+* 참고: * 몇 초 동안 기다린 후 `show` 명령을 실행하여 세부 정보를 표시합니다.
 
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity show*
+                                  Source           Destination      Packet
+Node   Date                       LIF              LIF              Loss
+------ -------------------------- ---------------- ---------------- -----------
+node1
+       3/5/2022 19:21:18 -06:00   node1_clus2      node2-clus1      none
+       3/5/2022 19:21:20 -06:00   node1_clus2      node2_clus2      none
+node2
+       3/5/2022 19:21:18 -06:00   node2_clus2      node1_clus1      none
+       3/5/2022 19:21:20 -06:00   node2_clus2      node1_clus2      none
+----
+--
+.모든 ONTAP 릴리스
+--
+모든 ONTAP 릴리스에 대해 을 사용할 수도 있습니다 `cluster ping-cluster -node <name>` 연결 상태를 확인하는 명령:
+
+`cluster ping-cluster -node <name>`
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster ping-cluster -node local*
 Host is node2
 Getting addresses from network interface table...
 Cluster node1_clus1 169.254.209.69 node1     e3a
@@ -204,7 +238,9 @@ RPC status:
 2 paths up, 0 paths down (tcp check)
 2 paths up, 0 paths down (udp check)
 ----
-. 스위치 C2에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.
+--
+====
+. [[step8]] 스위치 C2에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.
 +
 [listing, subs="+quotes"]
 ----
