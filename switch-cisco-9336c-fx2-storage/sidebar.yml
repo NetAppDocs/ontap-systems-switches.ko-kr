@@ -19,6 +19,8 @@ entries:
 - title: 하드웨어를 설치합니다
   pdf-filename: install_hardware_9336c-FX2-storage 를 참조하십시오
   entries:
+  - title: 케이블 연결 워크시트를 작성합니다
+    url: "/switch-cisco-9336c-fx2-storage/setup-worksheet-9336c-storage.html"
   - title: 스위치를 장착하십시오
     url: "/switch-cisco-9336c-fx2-storage/install-9336c-storage.html"
   - title: 스위치를 구성합니다

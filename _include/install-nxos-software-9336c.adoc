@@ -49,9 +49,11 @@ Nexus 9000 시리즈 스위치의 Cisco NX-OS 소프트웨어의 중단 업그�
 . 클러스터 스위치를 관리 네트워크에 연결합니다.
 . ping 명령을 사용하여 NX-OS 소프트웨어 및 RCF를 호스팅하는 서버에 대한 연결을 확인하십시오.
 +
+.예제 보기
+[%collapsible]
+====
 이 예에서는 스위치가 IP 주소 172.19.2.1로 서버에 연결할 수 있는지 확인합니다.
 
-+
 [listing, subs="+quotes"]
 ----
 cs2# *ping 172.19.2.1*
@@ -59,6 +61,150 @@ Pinging 172.19.2.1 with 0 bytes of data:
 
 Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
 ----
+====
+. 클러스터 스위치에 연결된 각 노드의 클러스터 포트를 표시합니다.
++
+네트워크 디바이스 발견 쇼
+
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show*
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------  --------------
+cluster1-01/cdp
+            e0a    cs1                       Ethernet1/7       N9K-C9336C-FX2
+            e0d    cs2                       Ethernet1/7       N9K-C9336C-FX2
+cluster1-02/cdp
+            e0a    cs1                       Ethernet1/8       N9K-C9336C-FX2
+            e0d    cs2                       Ethernet1/8       N9K-C9336C-FX2
+cluster1-03/cdp
+            e0a    cs1                       Ethernet1/1/1     N9K-C9336C-FX2
+            e0b    cs2                       Ethernet1/1/1     N9K-C9336C-FX2
+cluster1-04/cdp
+            e0a    cs1                       Ethernet1/1/2     N9K-C9336C-FX2
+            e0b    cs2                       Ethernet1/1/2     N9K-C9336C-FX2
+cluster1::*>
+----
+====
+. 각 클러스터 포트의 관리 및 운영 상태를 확인합니다.
++
+.. 모든 클러스터 포트가 * UP * 이고 정상 상태인지 확인합니다.
++
+네트워크 포트 show-role cluster
+
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -role cluster*
+
+Node: cluster1-01
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/100000 healthy false
+e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
+
+Node: cluster1-02
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/100000 healthy false
+e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
+8 entries were displayed.
+
+Node: cluster1-03
+
+   Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+Node: cluster1-04
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+cluster1::*>
+----
+====
+.. 모든 클러스터 인터페이스(LIF)가 홈 포트에 있는지 확인합니다.
++
+네트워크 인터페이스 show-role cluster
+
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -role cluster*
+            Logical            Status     Network           Current      Current Is
+Vserver     Interface          Admin/Oper Address/Mask      Node         Port    Home
+----------- ------------------ ---------- ----------------- ------------ ------- ----
+Cluster
+            cluster1-01_clus1  up/up     169.254.3.4/23     cluster1-01  e0a     true
+            cluster1-01_clus2  up/up     169.254.3.5/23     cluster1-01  e0d     true
+            cluster1-02_clus1  up/up     169.254.3.8/23     cluster1-02  e0a     true
+            cluster1-02_clus2  up/up     169.254.3.9/23     cluster1-02  e0d     true
+            cluster1-03_clus1  up/up     169.254.1.3/23     cluster1-03  e0a     true
+            cluster1-03_clus2  up/up     169.254.1.1/23     cluster1-03  e0b     true
+            cluster1-04_clus1  up/up     169.254.1.6/23     cluster1-04  e0a     true
+            cluster1-04_clus2  up/up     169.254.1.7/23     cluster1-04  e0b     true
+8 entries were displayed.
+cluster1::*>
+----
+====
+.. 클러스터가 두 클러스터 스위치에 대한 정보를 표시하는지 확인합니다.
++
+'system cluster-switch show-is-monitoring-enabled-operational true'
+
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *system cluster-switch show -is-monitoring-enabled-operational true*
+Switch                      Type               Address          Model
+--------------------------- ------------------ ---------------- --------------
+cs1                         cluster-network    10.233.205.90    N9K-C9336C-FX2
+     Serial Number: FOCXXXXXXGD
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    9.3(5)
+    Version Source: CDP
+
+cs2                         cluster-network    10.233.205.91    N9K-C9336C-FX2
+     Serial Number: FOCXXXXXXGS
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    9.3(5)
+    Version Source: CDP
+cluster1::*>
+----
+====
+
+
+. 클러스터 LIF에서 자동 되돌리기 기능을 해제합니다. 클러스터 LIF는 파트너 클러스터 스위치로 페일오버하고 타겟 스위치에서 업그레이드 절차를 수행할 때 그대로 유지됩니다.
++
+'network interface modify -vserver Cluster-lif * -auto-revert false'
+
 . NX-OS 소프트웨어 및 EPLD 이미지를 Nexus 9336C-FX2 스위치에 복사합니다.
 +
 .예제 보기
@@ -199,15 +345,15 @@ Notifying services about system upgrade.
 
 
 Compatibility check is done:
-Module  bootable       Impact     Install-type  Reason
-------  --------  --------------- ------------  ------
-  1       yes      disruptive         reset     default upgrade is not hitless
+Module  Bootable  Impact          Install-type  Reason
+------  --------  --------------- ------------  ---------
+  1     yes       Disruptive      Reset         Default upgrade is not hitless
 
 
 
 Images will be upgraded according to following table:
 
-Module   Image    Running-Version(pri:alt                  New-Version         Upg-Required
+Module   Image    Running-Version(pri:alt)                 New-Version         Upg-Required
 ------- --------- ---------------------------------------- ------------------- ------------
   1      nxos     9.3(4)                                   9.3(5)                  yes
   1      bios     v08.37(01/28/2020):v08.23(09/23/2015)    v08.38(05/29/2020)      yes
@@ -316,8 +462,8 @@ GEM  FPGA                        0x2
 
 cs2# *install epld bootflash:n9000-epld.9.3.5.img module 1*
 Compatibility check:
-Module        Type         Upgradable        Impact   Reason
-------  ------------------ ----------------- --------- -----
+Module        Type         Upgradable        Impact    Reason
+------  ------------------ ----------------- --------- -----------
      1         SUP         Yes       disruptive  Module Upgradable
 
 Retrieving EPLD versions.... Please wait.
@@ -348,6 +494,9 @@ Module 1 EPLD upgrade is successful.
 ====
 . 스위치 재부팅 후 다시 로그인하여 새 버전의 EPLD가 성공적으로 로드되었는지 확인합니다.
 +
+.예제 보기
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
 cs2# *show version module 1 epld*
@@ -362,5 +511,171 @@ GEM  FPGA                        0x2
 GEM  FPGA                        0x2
 GEM  FPGA                        0x2
 ----
-. 1-8단계를 반복하여 스위치 CS1에 NX-OS 소프트웨어를 설치합니다.
+====
+. 클러스터에서 클러스터 포트의 상태를 확인합니다.
++
+.. 클러스터 포트가 클러스터의 모든 노드에서 정상 작동하는지 확인합니다.
++
+네트워크 포트 show-role cluster
+
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -role cluster*
+
+Node: cluster1-01
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+Node: cluster1-02
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+Node: cluster1-03
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/100000 healthy false
+e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
+
+Node: cluster1-04
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/100000 healthy false
+e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
+8 entries were displayed.
+----
+====
+.. 클러스터에서 스위치 상태를 확인합니다.
++
+네트워크 디바이스 검색 표시 프로토콜 CDP
+
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show -protocol cdp*
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------- --------------
+cluster1-01/cdp
+            e0a    cs1                       Ethernet1/7       N9K-C9336C-FX2
+            e0d    cs2                       Ethernet1/7       N9K-C9336C-FX2
+cluster01-2/cdp
+            e0a    cs1                       Ethernet1/8       N9K-C9336C-FX2
+            e0d    cs2                       Ethernet1/8       N9K-C9336C-FX2
+cluster01-3/cdp
+            e0a    cs1                       Ethernet1/1/1     N9K-C9336C-FX2
+            e0b    cs2                       Ethernet1/1/1     N9K-C9336C-FX2
+cluster1-04/cdp
+            e0a    cs1                       Ethernet1/1/2     N9K-C9336C-FX2
+            e0b    cs2                       Ethernet1/1/2     N9K-C9336C-FX2
+
+cluster1::*> *system cluster-switch show -is-monitoring-enabled-operational true*
+Switch                      Type               Address          Model
+--------------------------- ------------------ ---------------- --------------
+cs1                         cluster-network    10.233.205.90    N9K-C9336C-FX2
+     Serial Number: FOCXXXXXXGD
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    9.3(5)
+    Version Source: CDP
+
+cs2                         cluster-network    10.233.205.91    N9K-C9336C-FX2
+     Serial Number: FOCXXXXXXGS
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    9.3(5)
+    Version Source: CDP
+
+2 entries were displayed.
+----
+이전에 스위치에 로드된 RCF 버전에 따라 CS1 스위치 콘솔에서 다음 출력을 관찰할 수 있습니다.
+
+[listing]
+----
+2020 Nov 17 16:07:18 cs1 %$ VDC-1 %$ %STP-2-UNBLOCK_CONSIST_PORT: Unblocking port port-channel1 on VLAN0092. Port consistency restored.
+2020 Nov 17 16:07:23 cs1 %$ VDC-1 %$ %STP-2-BLOCK_PVID_PEER: Blocking port-channel1 on VLAN0001. Inconsistent peer vlan.
+2020 Nov 17 16:07:23 cs1 %$ VDC-1 %$ %STP-2-BLOCK_PVID_LOCAL: Blocking port-channel1 on VLAN0092. Inconsistent local vlan.
+----
+====
+
+
+. 클러스터가 정상 상태인지 확인합니다.
++
+'클러스터 쇼'
+
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster show*
+Node                 Health   Eligibility   Epsilon
+-------------------- -------- ------------- -------
+cluster1-01          true     true          false
+cluster1-02          true     true          false
+cluster1-03          true     true          true
+cluster1-04          true     true          false
+4 entries were displayed.
+cluster1::*>
+----
+====
+. 6-13단계를 반복하여 스위치 CS1에 NX-OS 소프트웨어를 설치합니다.
+. 클러스터 LIF에서 자동 되돌리기 기능을 설정합니다.
++
+'network interface modify -vserver Cluster-lif * -auto-revert true'
+
+. 클러스터 LIF가 홈 포트로 되돌려졌는지 확인합니다.
++
+네트워크 인터페이스 show-role cluster
+
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -role cluster*
+            Logical            Status     Network            Current             Current Is
+Vserver     Interface          Admin/Oper Address/Mask       Node                Port    Home
+----------- ------------------ ---------- ------------------ ------------------- ------- ----
+Cluster
+            cluster1-01_clus1  up/up      169.254.3.4/23     cluster1-01         e0d     true
+            cluster1-01_clus2  up/up      169.254.3.5/23     cluster1-01         e0d     true
+            cluster1-02_clus1  up/up      169.254.3.8/23     cluster1-02         e0d     true
+            cluster1-02_clus2  up/up      169.254.3.9/23     cluster1-02         e0d     true
+            cluster1-03_clus1  up/up      169.254.1.3/23     cluster1-03         e0b     true
+            cluster1-03_clus2  up/up      169.254.1.1/23     cluster1-03         e0b     true
+            cluster1-04_clus1  up/up      169.254.1.6/23     cluster1-04         e0b     true
+            cluster1-04_clus2  up/up      169.254.1.7/23     cluster1-04         e0b     true
+8 entries were displayed.
+cluster1::*>
+----
+====
++
+클러스터 LIF가 홈 포트로 반환되지 않은 경우 로컬 노드에서 수동으로 되돌립니다.
+
++
+`network interface revert -vserver Cluster -lif <lif_name>`
+
 

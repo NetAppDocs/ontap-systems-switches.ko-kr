@@ -11,7 +11,7 @@ summary: FAS 및 AFF 시스템용 새 스위치에 대해 알아보십시오.
 
 
 [role="lead"]
-FAS 및 AFF 시스템용 새 스위치에 대해 알아보십시오.
+FAS 및 AFF 시스템용 새 스위치에 대해 알아보십시오. 추가 스위치 정보는 를 https://hwu.netapp.com/Switch/Index["NetApp Hardware Universe를 참조하십시오"^] 참조하십시오.
 
 
 
@@ -23,7 +23,16 @@ FAS 및 AFF 시스템용 새 스위치에 대해 알아보십시오.
 
 
  a| 
-https://hwu.netapp.com/Switch/Index["36포트 100GbE Cisco 스위치(X190200)"]
+16포트 100GbE NVIDIA 스위치(X190006-PE 및 X190006-PI)
+ a| 
+NVIDIA SN2100 클러스터 인터커넥트 스위치 및 스토리지 스위치 지원(MetroCluster IP 구성 지원 포함)
+ a| 
+ONTAP 9.10.1
+
+
+
+ a| 
+36포트 100GbE Cisco 스위치(X190200-CS-PE 및 X190200-CS-PI)
  a| 
 MetroCluster IP 구성을 포함하여 동일한 Cisco Nexus 9336C-FX2 스위치 쌍에서 공유 인프라(클러스터, HA 및 스위치 연결 스토리지)를 지원합니다.
  a| 
@@ -32,27 +41,27 @@ ONTAP 9.9.1
 
 
  a| 
-https://hwu.netapp.com/Switch/Index["36포트 100GbE Cisco 스위치(X190200 및 X190210)"]
+36포트 100GbE Cisco 스위치(X190200-CS-PE 및 X190200-CS-PI), (X190210-FE-PE 및 X190210-FE-PI)
  a| 
-Cisco Nexus 9336C-FX2 클러스터 인터커넥트 스위치 및 스토리지 스위치 지원으로 AFF/FAS 컨트롤러 및 프런트 엔드 데이터 연결 지원
- a| 
-ONTAP 9.8
-
-
-
- a| 
-https://hwu.netapp.com/Switch/Index["Broadcom BES-53248 스위치(X190005 및 X190005R)"]
- a| 
-40/100GbE 포트가 있는 AFF/FAS 컨트롤러에 대한 Broadcom BES-53248 클러스터 인터커넥트 스위치 지원
+Cisco Nexus 9336C-FX2 클러스터 인터커넥트 스위치 및 스토리지 스위치는 AFF 및 ASA 스토리지 시스템과 프런트엔드 데이터 연결을 지원합니다.
  a| 
 ONTAP 9.8
 
 
 
  a| 
-https://hwu.netapp.com/Switch/Index["36포트 100GbE Cisco 스위치(X190200)"] https://hwu.netapp.com/Switch/Index["32포트 100GbE Cisco 스위치(X190100 및 X190100R)"]
+Broadcom BES-53248 스위치(X190005 및 X190005R)
  a| 
-Cisco Nexus 100 GbE 스위치는 NS224 NVMe 드라이브 쉘프를 다음 플랫폼에 연결하는 전용 스토리지 스위치로 사용할 수 있습니다.
+Broadcom BES-53248 클러스터 상호 연결 스위치는 10/25GbE 및 40/100GbE 포트를 갖춘 AFF/FAS 컨트롤러를 지원합니다.
+ a| 
+ONTAP 9.8
+
+
+
+ a| 
+36포트 100GbE Cisco 스위치(X190200) 및 32포트 100GbE Cisco 스위치(X190100 및 X190100R)
+ a| 
+NS224 NVMe 드라이브 쉘프 연결을 위한 Cisco Nexus 3232C 스토리지 스위치 지원 AFF 및 ASA 스토리지 시스템:
 
 * AFF A800/AFF ASA A800
 * AFF A700/AFF ASA A700
@@ -61,14 +70,5 @@ Cisco Nexus 100 GbE 스위치는 NS224 NVMe 드라이브 쉘프를 다음 플랫
 
  a| 
 ONTAP 9.8
-
-
-
- a| 
-https://hwu.netapp.com/Switch/Index["Broadcom BES-53248 스위치(X190005 및 X190005R)"]
- a| 
-Broadcom BES-53248 클러스터 인터커넥트 스위치는 10/25GbE 포트가 있는 AFF/FAS 컨트롤러를 지원합니다.
- a| 
-ONTAP 9.5P8
 
 |===
