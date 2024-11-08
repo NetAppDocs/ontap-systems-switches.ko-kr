@@ -4076,7 +4076,6 @@
   <block id="b211f67e6e9195c32683368a53542802" category="paragraph">이 예에서는 스위치 CS2에서 RCF를 부트 플래시에 복사하는 데 사용되는 SFTP를 보여 줍니다.</block>
   <block id="c77174e35b7f7fc235a87561809ad614" category="list-text">의 배너 출력을 확인합니다<block ref="db837131dc56fab41bddc52d5aff8865" prefix=" " category="inline-code"></block> 명령. 스위치의 올바른 구성과 작동을 위해 이 지침을 읽고 따라야 합니다.</block>
   <block id="420b545896cb1c9b03dbccd44bf33f86" category="list-text">스위치에서 RCF가 적용된 후 라이센스가 부여된 추가 포트가 표시되는지 확인합니다.</block>
-  <block id="e23c199f14d9e7bf9dbb9da03bf726a2" category="list-text">스위치 CS1을 재부팅합니다. 이렇게 하면 클러스터 LIF가 홈 포트로 되돌아갈 수 있습니다. 스위치가 재부팅되는 동안 노드에 보고된 "클러스터 포트 다운" 이벤트를 무시할 수 있습니다.</block>
   <block id="6285269d7b8b003aed53cad1f3d13717" category="list-text">모든 클러스터 노드 연결 케이블을 이전 CS2 스위치에서 새 CS2-새 스위치로 이동합니다.</block>
   <block id="f8e1e48a80ce2fac4d53a95f1f1ffd18" category="paragraph">* 클러스터 노드 연결 케이블이 CS2로 이동됨 - 새 스위치 *</block>
   <block id="e07ca5d2322ee212c9dcb668e9db443a" category="image-alt">클러스터 노드 연결 케이블이 CS2-새 스위치로 이동했습니다</block>
@@ -5059,4 +5058,21 @@
   <block id="c509ae209503be0a774ac204f0f2dc91" category="paragraph">4x100GbE 노드 35</block>
   <block id="f992d2e7f110147780c9ce8e305e4981" category="paragraph">4x100GbE 노드 36</block>
   <block id="cb02ea2e8f595e77e5e6585ac0421c1a" category="paragraph">FAS 및 AFF 시스템용 새 스위치에 대해 알아보십시오. 추가 스위치 정보는 를<block ref="341c1c8afc925d24c41903215e7d4958" category="inline-link-rx"></block> 참조하십시오.</block>
+  <block id="d217db6e5c9fe01778df762ef953150e" category="inline-link-macro">RCF(Reference Configuration File) 및 라이센스 파일을 설치합니다</block>
+  <block id="6503ea0189c5cfc2f7fbdef509813892" category="admonition">EFOS 3.12 이상의 경우 의 설치 단계를 <block ref="2875012234c5bc616da894d0cc04d2b5" category="inline-link-macro-rx"></block>따릅니다.</block>
+  <block id="138707357e50e83ca9a6f1bf487a4c4b" category="paragraph">다음 사항이 제대로 설치되어 있는지 확인합니다.</block>
+  <block id="f3f5793bcca1ebb5ebbd53986eeb7aa2" category="admonition">새 스위치 소프트웨어 버전 및 RCF를 설치하기 전에 기술 자료 문서를<block ref="18b4271d2bf70dbfb01e42cb4850cea6" category="inline-link-rx"></block>참조하십시오. 스위치 설정을 완전히 지워야 하는 경우 기본 구성을 다시 수행해야 합니다. 구성을 완전히 삭제하면 관리 네트워크 구성이 재설정되므로 시리얼 콘솔을 사용하여 스위치에 연결해야 합니다.</block>
+  <block id="760a43dbe67e92dafc9be460c7ec7a71" category="open-title">EFOS 버전 3.12.x 이상</block>
+  <block id="b901c25333441ff036da53fab081d9f0" category="list-text">스크립트가 다운로드되어 지정한 파일 이름으로 저장되었는지 확인합니다.</block>
+  <block id="c996550fa25e7bc14821abd9c8d23ed7" category="open-title">기타 모든 EFOS 버전</block>
+  <block id="cbaf87b69b101c8da09eb66a7e118196" category="list-text">명령에서 배너 출력을<block ref="db837131dc56fab41bddc52d5aff8865" prefix=" " category="inline-code"></block> 검사합니다. 스위치의 올바른 구성 및 작동을 확인하려면 다음 지침을 읽고 따라야 합니다.</block>
+  <block id="d8b62ff42020df981e759bfaae3ea683" category="list-text">스위치 CS1을 재부팅합니다. 이 경우 클러스터 LIF가 홈 포트로 되돌아갑니다. 스위치가 재부팅되는 동안 노드에 보고된 "클러스터 포트 다운" 이벤트를 무시할 수 있습니다.</block>
+  <block id="44b28482ab8476e86718a1ca5ff60e37" category="paragraph">EFOS 3.12.0.1부터 BES-53248 클러스터 스위치를 구성한 후 RCF(Reference Configuration File) 및 라이센스 파일을 설치할 수 있습니다.</block>
+  <block id="9a155684dd1562ffdaa25731d825bbe9" category="admonition">모든 포트는 RCF를 설치할 때 구성되지만 구성된 포트를 활성화하려면 라이센스를 설치해야 합니다.</block>
+  <block id="fbec2ebb075cb19757cff7017cb93af5" category="list-text">현재 RCF는 페이지에서 사용할 수<block ref="b4c2fb45a290e6214474529bd84dd3bc" category="inline-link-rx"></block> 있습니다.</block>
+  <block id="4456b97c43334b2054b59141ede95e7a" category="list-text">FTP, HTTP, TFTP, SFTP 또는 SCP 전송 프로토콜 중 하나를 사용하여 스위치 CS2의 bootflash에 RCF를 복사합니다.</block>
+  <block id="f33dd0ad3ffde0d7eeaba1d3a85f7205" category="paragraph">이 예에서는 스위치 CS2에서 RCF를 부트 플래시에 복사하는 데 사용되는 HTTP를 보여 줍니다.</block>
+  <block id="7bbcf8e324817b180739b7f7d821945a" category="list-text">스위치에서 변경 사항이 적용되었는지 확인합니다.</block>
+  <block id="a84263d893b250f940f2cfa8e599b7e2" category="list-text">[[step21]] 클러스터 스위치 CS1에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.</block>
+  <block id="5bd6c874b20210387cbc3fd552b0e8bc" category="sidebar">EFOS 3.12 이상용 RCF 및 라이센스 파일을 설치합니다</block>
 </blocks>

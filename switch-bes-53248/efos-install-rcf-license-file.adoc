@@ -1,20 +1,20 @@
 ---
-permalink: switch-bes-53248/configure-install-rcf.html 
+permalink: switch-bes-53248/efos-install-rcf-license-file.html 
 sidebar: sidebar 
-keywords: install rcf,setup rcf,rcf file 
+keywords: install rcf,setup rcf,rcf file, efos, license file 
 summary: 'BES-53248 클러스터 스위치를 구성하고 새 라이센스를 적용한 후 RCF(Reference Configuration File)를 설치할 수 있습니다.' 
 ---
-= RCF(Reference Configuration File) 설치
+= RCF(Reference Configuration File) 및 라이센스 파일을 설치합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-BES-53248 클러스터 스위치를 구성하고 새 라이센스를 적용한 후 RCF(Reference Configuration File)를 설치할 수 있습니다.
+EFOS 3.12.0.1부터 BES-53248 클러스터 스위치를 구성한 후 RCF(Reference Configuration File) 및 라이센스 파일을 설치할 수 있습니다.
 
 
-CAUTION: EFOS 3.12 이상의 경우 의 설치 단계를 link:efos-install-rcf-license-file.html["RCF(Reference Configuration File) 및 라이센스 파일을 설치합니다"]따릅니다.
+CAUTION: 모든 포트는 RCF를 설치할 때 구성되지만 구성된 포트를 활성화하려면 라이센스를 설치해야 합니다.
 
 
 
@@ -25,7 +25,7 @@ CAUTION: EFOS 3.12 이상의 경우 의 설치 단계를 link:efos-install-rcf-l
 
 * 스위치 구성의 현재 백업
 * 완전히 작동하는 클러스터(로그에 오류 또는 유사한 문제 없음)
-* 에서 사용 가능한 현재 RCF 파일입니다 https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["Broadcom 클러스터 스위치"^] 페이지.
+* 현재 RCF는 페이지에서 사용할 수 https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["Broadcom 클러스터 스위치"^] 있습니다.
 * EFOS만 설치하고 현재 RCF 버전을 유지하는 경우 필요한 부팅 이미지를 반영하는 RCF의 부팅 구성입니다. 현재 부팅 이미지를 반영하도록 부팅 구성을 변경해야 하는 경우, 나중에 재부팅할 때 올바른 버전이 인스턴스화되도록 RCF를 다시 적용하기 전에 이 구성을 변경해야 합니다.
 * RCF를 공장 출하 시 기본 상태에서 설치할 때 스위치에 콘솔 연결이 필요합니다. 기술 자료 문서를 사용한 경우 이 요구 사항은 선택 사항입니다 https://kb.netapp.com/onprem/Switches/Broadcom/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["원격 연결을 유지하면서 Broadcom 상호 연결 스위치의 구성을 지우는 방법"^] 구성을 지우려면 사전에 확인하십시오.
 
@@ -437,40 +437,40 @@ Are you sure you would like to reset the system? (y/n) *y*
 .. RCF 설치를 완료하려면 SSH를 사용하여 스위치에 다시 로그인하십시오.
 
 
-. 다음 사항에 유의하십시오.
+
+
+. 이전 RCF에서 만든 사용자 지정을 기록하고 새 RCF에 적용합니다. 예를 들어, 포트 속도 또는 하드 코딩 FEC 모드를 설정할 수 있습니다.
+. FTP, HTTP, TFTP, SFTP 또는 SCP 전송 프로토콜 중 하나를 사용하여 스위치 CS2의 bootflash에 RCF를 복사합니다.
 +
-.. 스위치에 추가 포트 라이센스가 설치된 경우 RCF를 수정하여 추가 라이센스 포트를 구성해야 합니다. 을 참조하십시오 link:configure-licenses.html#activate-newly-licensed-ports["새로 라이센스가 부여된 포트를 활성화합니다"] 를 참조하십시오.
-.. 이전 RCF에서 만든 사용자 지정을 기록하고 새 RCF에 적용합니다. 예를 들어, 포트 속도 또는 하드 코딩 FEC 모드를 설정할 수 있습니다.
+이 예에서는 스위치 CS2에서 RCF를 부트 플래시에 복사하는 데 사용되는 HTTP를 보여 줍니다.
 
-
-
-
-[role="tabbed-block"]
++
+.예제 보기
+[%collapsible]
 ====
-.EFOS 버전 3.12.x 이상
---
-. FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 CS2의 부트플래시 에 복사합니다.
-+
-이 예에서는 스위치 CS2에서 RCF를 부트 플래시에 복사하는 데 사용되는 SFTP를 보여 줍니다.
-
-
-
 [listing, subs="+quotes"]
 ----
-(cs2)# *copy sftp://172.19.2.1/BES-53248-RCF-v1.9-Cluster-HA.txt
-nvram:reference-config*
-Remote Password:**
-Mode........................................... TFTP
+(cs2)# *copy http://<ip-to-webserver>/path/to/BES-53248-RCF-v1.12-Cluster-HA.txt nvram:reference-config*
+
+Mode........................................... HTTP
 Set Server IP.................................. 172.19.2.1
-Path........................................... //tmp/
-Filename....................................... BES-53248_RCF_v1.9-Cluster-HA.txt
-Data Type...................................... Config Script
-Destination Filename........................... BES-53248_RCF_v1.9-Cluster-HA.scr
+Path........................................... <ip-to-webserver>/path/to/
+Filename....................................... BES-53248-RCF-v1.12-Cluster-HA.txt
+Data Type...................................... Unknown
+
 Management access will be blocked for the duration of the transfer
 Are you sure you want to start? (y/n) *y*
-TFTP Code transfer starting...
+File transfer in progress.
+Management access will be blocked for the duration of the transfer.
+Please wait...
+HTTP Unknown file type transfer starting...
+Validating configuration script
+.....
+....
+Configuration script validated.
 File transfer operation completed successfully.
 ----
+====
 . 스크립트가 다운로드되어 지정한 파일 이름으로 저장되었는지 확인합니다.
 +
 '스크립트 목록'
@@ -483,14 +483,17 @@ File transfer operation completed successfully.
 Configuration Script Name                  Size(Bytes)  Date of Modification
 -----------------------------------------  -----------  --------------------
 Reference-config.scr                       2680         2024 05 31 21:54:22
-2 configuration script(s) found.
-2042 Kbytes free.
+1 configuration script(s) found.
+2045 Kbytes free.
 ----
 . 스위치에 스크립트를 적용합니다.
 +
 '스크립트 적용'
 
 +
+.예제 보기
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
 (cs2)# *script apply reference-config.scr*
@@ -501,72 +504,51 @@ The system has unsaved changes.
 Would you like to save them now? (y/n) *y*
 Config file 'startup-config' created successfully.
 Configuration Saved!
-
-Configuration script 'BES-53248_RCF_v1.9-Cluster-HA.scr' applied.
+...
+...
+Configuration script 'reference-config.scr' applied.
 ----
-
-
---
-.기타 모든 EFOS 버전
---
-. FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 CS2의 부트플래시 에 복사합니다.
+====
+. 라이센스 파일을 설치합니다.
 +
-이 예에서는 스위치 CS2에서 RCF를 부트 플래시에 복사하는 데 사용되는 SFTP를 보여 줍니다.
-
-
-
+.예제 보기
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
-(cs2)# *copy sftp://172.19.2.1/tmp/BES-53248_RCF_v1.9-Cluster-HA.txt
-nvram:script BES-53248_RCF_v1.9-Cluster-HA.scr*
-Remote Password:**
-Mode........................................... SFTP
+(cs2)# *copy http://<ip-to-webserver>/path/to/BES-53248-LIC.dat nvram:license-key 1*
+Mode........................................... HTTP
 Set Server IP.................................. 172.19.2.1
-Path........................................... //tmp/
-Filename....................................... BES-53248_RCF_v1.9-Cluster-HA.txt
-Data Type...................................... Config Script
-Destination Filename........................... BES-53248_RCF_v1.9-Cluster-HA.scr
+Path........................................... <ip-to-webserver>/path/to/
+Filename....................................... BES-53248-LIC.dat
+Data Type...................................... license
+
 Management access will be blocked for the duration of the transfer
 Are you sure you want to start? (y/n) *y*
-SFTP Code transfer starting...
-File transfer operation completed successfully.
-----
-. 스크립트가 다운로드되어 지정한 파일 이름에 저장되었는지 확인합니다.
-+
-'스크립트 목록'
 
-+
-[listing, subs="+quotes"]
-----
-(cs2)# *script list*
+File transfer in progress. Management access will be blocked for the duration of the transfer.
 
-Configuration Script Name                  Size(Bytes)  Date of Modification
------------------------------------------  -----------  --------------------
-BES-53248_RCF_v1.9-Cluster-HA.scr          2241         2020 09 30 05:41:00
+Please wait...
 
-1 configuration script(s) found.
-----
-. 스위치에 스크립트를 적용합니다.
-+
-'스크립트 적용'
+License Key transfer operation completed successfully.
 
-+
-[listing, subs="+quotes"]
-----
-(cs2)# *script apply BES-53248_RCF_v1.9-Cluster-HA.scr*
+System reboot is required.
+(cs2)# *write memory*
 
-Are you sure you want to apply the configuration script? (y/n) *y*
+This operation may take a few minutes.
 
-The system has unsaved changes.
-Would you like to save them now? (y/n) *y*
+Management interfaces will not be available during this time.
+Are you sure you want to save? (y/n) *y*
+
 Config file 'startup-config' created successfully.
+
 Configuration Saved!
 
-Configuration script 'BES-53248_RCF_v1.9-Cluster-HA.scr' applied.
+(cs2)# *reload*
+Are you sure you would like to reset the system? (y/n) *y*
+...
+...
 ----
-
-
---
 ====
 . 명령에서 배너 출력을 `show clibanner` 검사합니다. 스위치의 올바른 구성 및 작동을 확인하려면 다음 지침을 읽고 따라야 합니다.
 +
@@ -579,29 +561,25 @@ Configuration script 'BES-53248_RCF_v1.9-Cluster-HA.scr' applied.
 
 Banner Message configured :
 =========================
-BES-53248 Reference Configuration File v1.9 for Cluster/HA/RDMA
+BES-53248 Reference Configuration File v1.12 for Cluster/HA/RDMA
 
 Switch   : BES-53248
-Filename : BES-53248-RCF-v1.9-Cluster.txt
-Date     : 10-26-2022
-Version  : v1.9
+Filename : BES-53248-RCF-v1.12-Cluster.txt
+Date     : 11-04-2024
+Version  : v1.12
 Port Usage:
 Ports 01 - 16: 10/25GbE Cluster Node Ports, base config
 Ports 17 - 48: 10/25GbE Cluster Node Ports, with licenses
 Ports 49 - 54: 40/100GbE Cluster Node Ports, with licenses, added right to left
 Ports 55 - 56: 100GbE Cluster ISL Ports, base config
 NOTE:
-- The 48 SFP28/SFP+ ports are organized into 4-port groups in terms of port
-speed:
-Ports 1-4, 5-8, 9-12, 13-16, 17-20, 21-24, 25-28, 29-32, 33-36, 37-40, 41-44,
-45-48
-The port speed should be the same (10GbE or 25GbE) across all ports in a 4-port
-group
+- The 48 SFP28/SFP+ ports are organized into 4-port groups in terms of port speed:
+  Ports 1-4, 5-8, 9-12, 13-16, 17-20, 21-24, 25-28, 29-32, 33-36, 37-40, 41-44, 45-48
+  The port speed should be the same (10GbE or 25GbE) across all ports in a 4-port group
 - If additional licenses are purchased, follow the 'Additional Node Ports
-activated with Licenses' section for instructions
-- If SSH is active, it will have to be re-enabled manually after 'erase
-startup-config'
-command has been executed and the switch rebooted
+  activated with Licenses' section for instructions
+- If SSH is active, it will have to be re-enabled manually after 'erase startup-config'
+  command has been executed and the switch rebooted"
 ----
 ====
 . 스위치에서 RCF가 적용된 후 라이센스가 부여된 추가 포트가 표시되는지 확인합니다.
@@ -881,7 +859,7 @@ cluster1::*>
 ----
 --
 ====
-. [[step20]] 클러스터 스위치 CS1에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.
+. [[step21]] 클러스터 스위치 CS1에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.
 +
 다음 예제에서는 인터페이스 예제 출력을 사용합니다.
 
