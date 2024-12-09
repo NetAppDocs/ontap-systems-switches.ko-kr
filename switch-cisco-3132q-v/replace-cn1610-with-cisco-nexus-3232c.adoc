@@ -41,14 +41,14 @@ summary: 클러스터의 기존 CN1610 클러스터 스위치를 Cisco Nexus 313
 * N1_clus3 은 노드 n1의 클러스터 스위치 2(CL2 또는 C2)에 연결되는 두 번째 LIF입니다.
 * N1_clus4 는 노드 n1의 클러스터 스위치 1(CL1 또는 C1)에 연결되는 두 번째 LIF입니다.
 * 노드는 n1, n2, n3 및 n4입니다.
-* 10GbE 및 40/100 GbE 포트 수는 에서 사용할 수 있는 RCFs(참조 구성 파일)에 정의되어 있습니다 https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Cisco ® 클러스터 네트워크 스위치 참조 구성 파일 다운로드"^] 페이지.
+* 10GbE 및 40GbE 포트 수는 페이지의 참조 구성 파일(RCF)에 정의되어 https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Cisco ® 클러스터 네트워크 스위치 참조 구성 파일 다운로드"^] 있습니다.
 
 
 .예를 참조하십시오
 이 절차의 예에서는 4개의 노드를 사용합니다.
 
 * 노드 2개는 10GbE 클러스터 인터커넥트 포트 4개, e0a, e0b, e0c 및 e0d를 사용합니다.
-* 다른 두 노드는 40/100 GbE 클러스터 인터커넥트 파이버 케이블 2개(e4a 및 e4e)를 사용합니다.
+* 다른 두 노드는 2개의 40GbE 클러스터 인터커넥트 파이버 케이블(e4a 및 e4e)을 사용합니다.
 
 
 를 클릭합니다 link:https://hwu.netapp.com/["Hardware Universe"^] 플랫폼의 클러스터 파이버 케이블에 대한 정보가 있습니다.

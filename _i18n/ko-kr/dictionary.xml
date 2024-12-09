@@ -1249,7 +1249,6 @@
   <block id="622a8e6dbefe6751d8f689c24a2b3649" category="list-text">N2_clus1 은 노드 n2의 클러스터 스위치 C1에 연결되는 첫 번째 클러스터 LIF입니다.</block>
   <block id="cbae7e4732af3199f41bd171fdae91a7" category="list-text">N2_clus2 는 노드 n2의 클러스터 스위치 C2에 연결되는 두 번째 클러스터 LIF입니다.</block>
   <block id="c69cfd9e3ba37b533e64498443964744" category="inline-link">Cisco ® 클러스터 네트워크 스위치 참조 구성 파일 다운로드</block>
-  <block id="797c65f427eb3fe0e8ba459583050be1" category="list-text">10GbE 및 40/100 GbE 포트 수는 에서 사용할 수 있는 RCFs(참조 구성 파일)에 정의되어 있습니다<block ref="9bcfbf4ecbfa5f01b0fe987094e3d8a3" category="inline-link-rx"></block> 페이지.</block>
   <block id="7f66bc04b2dfdeb5c9e1ad66b46c6cc7" category="paragraph">이 절차를 수행하려면 ONTAP 명령과 Cisco Nexus 3000 시리즈 스위치 명령을 모두 사용해야 합니다. ONTAP 명령은 별도의 표시가 없는 한 사용됩니다.</block>
   <block id="7664236fe12ec0638eff103041560e12" category="list-text">스위치가 없는 2노드 클러스터 설정에서 2개의 노드가 연결되어 작동하는 상태에서 클러스터가 시작됩니다.</block>
   <block id="e0c459ee022d3d4ac187fbf896f3a3de" category="paragraph">'System node AutoSupport invoke-node * -type all-message maINT=xh'</block>
@@ -1398,24 +1397,16 @@
   <block id="8eaf3d59876911ccca6dc5bdc347ee06" category="list-text">LIF 정보 표시:</block>
   <block id="280107a5f53cc09efecfd6d30a3b7ebc" category="list-text">NetApp CN1610</block>
   <block id="1d8bdbbecd2a7992d9b2c5314cbc8da8" category="list-text">Cisco Nexus 3132Q-V</block>
-  <block id="246b4f4943a9ef7d81b1ecb7d14db012" category="list-text">Cisco Nexus 3132Q-V: 포트 e1/1-30 (40/100 GbE)</block>
-  <block id="57d3034f2867f54843c59eacb52d62bf" category="list-text">Cisco Nexus 3132Q-V: 포트 e1/31-32(40/100 GbE)</block>
   <block id="472bbef967b4ae7a0b29aff643bee169" category="list-text">10GbE 클러스터 연결이 있는 노드는 QSFP-SFP+ 광 파이버 브레이크아웃 케이블 또는 QSFP-SFP+ 구리 브레이크아웃 케이블이 필요합니다</block>
-  <block id="409f985ef1bffdcbe3bc46fc059d909f" category="list-text">40/100 GbE 클러스터 연결이 있는 노드에는 광 파이버 케이블 또는 QSFP/QSFP28 구리 직접 연결 케이블이 있는 지원되는 QSFP/QSFP28 광 모듈이 필요합니다</block>
   <block id="7b5781881fa8326227e58e694e97198c" category="list-text">시작: CN1610(SFP+에서 SFP+로), SFP+ 광 파이버 4개 또는 구리 직접 연결 케이블</block>
   <block id="277ee11ec93d0d5d7bb265959cfadb18" category="list-text">중간: Nexus 3132Q-V(QSFP - 4 SFP+ 브레이크아웃)에 대한 CN1610의 경우 QSFP - SFP+ 광 파이버 또는 구리 브레이크아웃 케이블 1개</block>
   <block id="21e8ded62a39d44e1afa6aaee348bd88" category="list-text">마지막: Nexus 3132Q-V - Nexus 3132Q-V(QSFP28 - QSFP28), 2개의 QSFP28 광 파이버 또는 구리 직접 연결 케이블</block>
   <block id="d129b7927c768a17882184f936cb7a36" category="list-text">NetApp twinax 케이블은 Cisco Nexus 3132Q-V 스위치와 호환되지 않습니다.</block>
   <block id="9781497a027920a312b9c4cd217b3956" category="paragraph">현재 CN1610 구성에서 클러스터 노드-스위치 연결 또는 ISL 연결에 NetApp twinax 케이블을 사용하고, 현재 환경에서 Twinax를 계속 사용하려면 Cisco 케이블을 확보해야 합니다. 또는 ISL 연결과 클러스터 노드 간 접속 모두에 광 Fibre 케이블을 사용할 수 있습니다.</block>
-  <block id="3d8baabccb49d3044f14c0f5b022686f" category="list-text">Nexus 3132Q-V 스위치에서 QSFP/QSFP28 포트를 40/100Gb 이더넷 또는 4x 10Gb 이더넷 모드로 작동할 수 있습니다.</block>
-  <block id="d443959501e56c10729109864777b8bb" category="paragraph">기본적으로 40/100Gb 이더넷 모드에는 32개의 포트가 있습니다. 이러한 40Gb 이더넷 포트에는 2튜플 명명 규칙이 적용됩니다. 예를 들어, 두 번째 40Gb 이더넷 포트의 번호는 1/2로 지정됩니다. 구성을 40Gb 이더넷에서 10Gb 이더넷으로 변경하는 프로세스를 _breakout_이라고 하며, 구성을 10Gb 이더넷에서 40Gb 이더넷으로 변경하는 프로세스를 _breakin_이라고 합니다. 10Gb 이더넷 포트로 40/100 Gb 이더넷 포트를 분리하면 결과 포트에 3개의 Tuple 명명 규칙을 사용하여 번호가 지정됩니다. 예를 들어, 두 번째 40Gb 이더넷 포트의 브레이크아웃 포트는 1/2/1, 1/2/2, 1/2/3 및 1/2/4로 번호가 지정됩니다.</block>
   <block id="96c63e9512f3230bf1f86bdd048e8470" category="list-text">Nexus 3132Q-V 스위치의 왼쪽에는 첫 번째 QSFP 포트에 멀티플렉싱된 4개의 SFP+ 포트 세트가 있습니다.</block>
   <block id="68f609cf0d26657ca331984cb655e187" category="paragraph">기본적으로 RCF(Reference Configuration File)는 첫 번째 QSFP 포트를 사용하도록 구성되어 있습니다.</block>
   <block id="93b0e80a036070a07fd0baf72e679cd3" category="paragraph">"hardware profile front portmode SFP-plus" 명령을 사용하여 Nexus 3132Q-V 스위치의 QSFP 포트 대신 4개의 SFP+ 포트를 활성화할 수 있습니다. 마찬가지로 "Hardware profile front portmode qsfp" 명령을 사용하여 4개의 SFP+ 포트 대신 QSFP 포트를 사용하도록 Nexus 3132Q-V 스위치를 재설정할 수 있습니다.</block>
   <block id="62773ff807cea7c5201a77e34fd71617" category="paragraph">처음 4개의 SFP+ 포트를 사용하면 첫 번째 40GbE QSFP 포트가 비활성화됩니다.</block>
-  <block id="f03907e32ba4bc1e0430f00b6e896a20" category="list-text">10GbE 또는 40/100 GbE에서 실행되도록 Nexus 3132Q-V 스위치의 일부 포트를 구성해야 합니다.</block>
-  <block id="4769f2909f072141c447ee3c862e9f8d" category="paragraph">'interface breakout module 1 port 1-6 map 10g-4x' 명령을 사용하여 처음 6개 포트를 4x 10GbE 모드로 분리할 수 있습니다. 마찬가지로 "no interface breakout module 1 port 1-6 map 10g-4x" 명령을 사용하여 _breakout_configuration에서 처음 6개의 QSFP+ 포트를 다시 그룹화할 수 있습니다.</block>
-  <block id="7369c77472e2b3190b3567e209220672" category="list-text">계획, 마이그레이션을 완료한 후 노드에서 Nexus 3132Q-V 클러스터 스위치까지 10GbE 및 40/100 GbE 연결에 대한 필수 설명서를 읽어야 합니다.</block>
   <block id="caa7a1b509ffae6e49682160486b956b" category="inline-link">NetApp CN1601 및 CN1610 스위치</block>
   <block id="6de42699e499fd1e22f3dba2b9245b8b" category="summary">기존 Nexus 5596 클러스터 스위치를 Nexus 3132Q-V 클러스터 스위치로 교체하려면 특정 작업 순서를 수행해야 합니다.</block>
   <block id="ba0aeff0757e53b1be2f02ce22967fe1" category="list-text">교체할 Nexus 5596 스위치는 CL1 및 CL2입니다.</block>
@@ -1489,21 +1480,14 @@
   <block id="9330abbaaa76e6624badc34f8f4a32ea" category="paragraph">다음 예에서는 Nexus 5596을 제거하는 방법을 보여 줍니다.</block>
   <block id="dd21090e5d1cd428ffa6730ee85b51b9" category="list-text">클러스터 스위치는 ISL(Inter-Switch Link) 포트 e1/31-32를 사용합니다.</block>
   <block id="0e170ece3637f1f6dfe129d6cce580e6" category="list-text">10GbE 클러스터 연결이 있는 노드에는 브레이크아웃 파이버 케이블이 있는 QSFP 광 모듈 또는 QSFP-SFP+ 구리 브레이크아웃 케이블이 필요합니다.</block>
-  <block id="f37b6623746594c6564087d8bf2a354e" category="list-text">40/100 GbE 클러스터 연결이 있는 노드에는 파이버 케이블 또는 QSFP/QSFP28 구리 직접 연결 케이블이 있는 지원되는 QSFP/QSFP28 광 모듈이 필요합니다.</block>
   <block id="cc577eea5612ed5d434ed2aed6a86680" category="list-text">클러스터 스위치는 2개의 QSFP28 파이버 또는 구리 직접 연결 케이블과 같은 적절한 ISL 케이블을 사용합니다.</block>
-  <block id="e9674399843595f1253f9d09c103dc33" category="list-text">Nexus 3132Q-V에서는 QSFP 포트를 40/100 Gb 이더넷 또는 4Gb 이더넷 모드로 작동할 수 있습니다.</block>
-  <block id="2c75f2d9aba6763d779b9037d7bbb84e" category="paragraph">기본적으로 40/100Gb 이더넷 모드에는 32개의 포트가 있습니다. 이러한 40Gb 이더넷 포트에는 2튜플 명명 규칙이 적용됩니다. 예를 들어, 두 번째 40Gb 이더넷 포트의 번호는 1/2로 지정됩니다. 구성을 40Gb 이더넷에서 10Gb 이더넷으로 변경하는 프로세스를 _breakout_이라고 하며, 구성을 10Gb 이더넷에서 40Gb 이더넷으로 변경하는 프로세스를 _breakin_이라고 합니다. 10Gb 이더넷 포트로 40/100 Gb 이더넷 포트를 분리하면 결과 포트에 3개의 Tuple 명명 규칙을 사용하여 번호가 지정됩니다. 예를 들어, 두 번째 40/100 Gb 이더넷 포트의 브레이크아웃 포트는 1/2/1, 1/2/2, 1/2/3, 1/2/4로 번호가 지정됩니다.</block>
   <block id="1d6565e31007c3df75b7f570d335cc62" category="list-text">Nexus 3132Q-V의 왼쪽에는 첫 번째 QSFP 포트에 멀티플렉싱된 4개의 SFP+ 포트 세트가 있습니다.</block>
   <block id="5434677a69f7a86fa7d41a0731389cc7" category="paragraph">기본적으로 RCF는 첫 번째 QSFP 포트를 사용하도록 구성되었습니다.</block>
   <block id="ed5676888d1e4bdc96d6718b15a728bd" category="paragraph">"hardware profile front portmode SFP-plus" 명령을 사용하여 Nexus 3132Q-V의 QSFP 포트 대신 4개의 SFP+ 포트를 활성화할 수 있습니다. 마찬가지로 "Hardware profile front portmode qsfp" 명령을 사용하여 4개의 SFP+ 포트 대신 QSFP 포트를 사용하도록 Nexus 3132Q-V를 재설정할 수 있습니다.</block>
-  <block id="d749dda1ba6b167863e217ed8100c048" category="list-text">10GbE 또는 40/100 GbE에서 실행되도록 Nexus 3132Q-V의 일부 포트를 구성해야 합니다.</block>
   <block id="436a67b06e6704883d8320cda2928548" category="paragraph">'interface breakout module 1 port 1-6 map 10g-4x' 명령어를 사용하여 처음 6개 포트를 4x10 GbE 모드로 분리할 수 있다. 마찬가지로 'no interface breakout module 1 port 1-6 map 10g-4x' 명령을 사용하여 브레이크아웃 구성에서 처음 6개의 QSFP+ 포트를 다시 그룹화할 수 있습니다.</block>
   <block id="c2f18641e43de285dd6439d822155502" category="list-text">포트 e1/1-40(10GbE): Nexus 5596</block>
-  <block id="bb6ae6b16e1b6cf9dee571c6b226e823" category="list-text">포트 e1/1-30(40/100 GbE): Nexus 3132Q-V</block>
   <block id="b7989549a527f7e48aee50c95bd1de89" category="list-text">포트 e1/41-48(10GbE): Nexus 5596</block>
-  <block id="85fd74fc8657ee1a6bc8030bab203ea4" category="list-text">포트 e1/31-32(40/100 GbE): Nexus 3132Q-V</block>
   <block id="8ad5621547abb5f398de647f01ee8992" category="list-text">10GbE 클러스터 연결이 있는 노드는 QSFP-SFP+ 광 파이버 브레이크아웃 케이블 또는 QSFP-SFP+ 구리 브레이크아웃 케이블이 필요합니다.</block>
-  <block id="b9ca3537419b43c4c252e96426d68d33" category="list-text">40/100 GbE 클러스터 연결이 있는 노드에는 파이버 케이블 또는 QSFP/QSFP28 구리 직접 연결 케이블이 있는 지원되는 QSFP/QSFP 28광학 모듈이 필요합니다.</block>
   <block id="f6d943be4fed7a73b2b20c6cca1c0cb1" category="list-text">클러스터 스위치는 적절한 ISL 케이블 연결을 사용합니다.</block>
   <block id="f684f26bc5b9998c8f656cc25dc42d81" category="list-text">시작: Nexus 5596 ~ Nexus 5596(SFP+ ~ SFP+)</block>
   <block id="e5b4cd0654ee56f4927678ab6792d941" category="list-text">8x SFP+ 파이버 또는 구리 직접 연결 케이블</block>
@@ -1511,14 +1495,10 @@
   <block id="ff844f64ec493dced35fea3af41734fa" category="list-text">QSFP-SFP+ 파이버 브레이크아웃 또는 구리 브레이크아웃 케이블 1개</block>
   <block id="50f94cbc4cf0a33ff4f99b9553620925" category="list-text">최종: Nexus 3132Q-V - Nexus 3132Q-V(QSFP28 - QSFP28)</block>
   <block id="9dac3929f5f08b4f7ea27d4b985ed09c" category="list-text">QSFP28 파이버 또는 구리 직접 연결 케이블 2개</block>
-  <block id="400199f305ffb36a587767aa7ea9bd26" category="list-text">Nexus 3132Q-V 스위치에서 QSFP/QSFP28 포트를 40/100 기가비트 이더넷 또는 4 x10 기가비트 이더넷 모드로 작동할 수 있습니다.</block>
-  <block id="de179381d5dfc05e0a80e7052f0f7086" category="paragraph">기본적으로 40기가비트 이더넷 모드에는 32개의 포트가 있습니다. 이러한 40기가비트 이더넷 포트에는 2 튜플 명명 규칙이 적용됩니다. 예를 들어, 두 번째 40기가비트 이더넷 포트의 번호는 1/2로 지정됩니다. 구성을 40기가비트 이더넷에서 10기가비트 이더넷으로 변경하는 프로세스를 _breakout_이라고 하며, 구성을 10기가비트 이더넷에서 40기가비트 이더넷으로 변경하는 프로세스를 _breakin_이라고 합니다. 40/100 기가비트 이더넷 포트를 10기가비트 이더넷 포트로 분리하면 3 튜플 명명 규칙을 사용하여 결과 포트에 번호가 지정됩니다. 예를 들어, 두 번째 40기가비트 이더넷 포트의 분리 포트는 1/2/1, 1/2/2, 1/2/3 및 1/2/4로 번호가 지정됩니다.</block>
   <block id="4506e9d2fdc343c121f39bdf66de09fd" category="list-text">Nexus 3132Q-V 스위치의 왼쪽에는 해당 QSFP28 포트에 멀티플렉싱된 4개의 SFP+ 포트 세트가 있습니다.</block>
   <block id="6c28101de4bc69c38814cc5f0a5cdcb4" category="paragraph">기본적으로 RCF는 QSFP28 포트를 사용하도록 구성되었습니다.</block>
   <block id="5e51bdc54f5dd33d30418aa5b91af8ad" category="paragraph">"hardware profile front portmode SFP-plus" 명령을 사용하여 Nexus 3132Q-V 스위치의 QSFP 포트 대신 4개의 SFP+ 포트를 활성화할 수 있습니다. 마찬가지로 "Hardware profile front portmode qsfp" 명령을 사용하여 4개의 SFP+ 포트 대신 QSFP 포트를 사용하도록 Nexus 3132Q-V 스위치를 재설정할 수 있습니다.</block>
-  <block id="361c24584ea413c01856408e97a40411" category="list-text">Nexus 3132Q-V 스위치의 일부 포트가 10GbE 또는 40/100 GbE에서 실행되도록 구성했습니다.</block>
   <block id="9043114d5258d60e49a6ff62966f1f4d" category="paragraph">'interface breakout module 1 port 1-6 map 10g-4x' 명령어를 이용하여 처음 6개의 포트를 4x10 GbE 모드로 분리할 수 있다. 마찬가지로 'no interface breakout module 1 port 1-6 map 10g-4x' 명령을 사용하여 브레이크아웃 구성에서 처음 6개의 QSFP+ 포트를 다시 그룹화할 수 있습니다.</block>
-  <block id="b56d0aacb2956c32c453bd556e641731" category="list-text">계획, 마이그레이션을 마치고 노드에서 Nexus 3132Q-V 클러스터 스위치로의 10GbE 및 40/100GbE 연결에 대한 필수 설명서를 읽었습니다.</block>
   <block id="7899d4f691aaa93027bcd88691483be1" category="summary">Cisco Nexus 3132Q-V 스위치 및 패스스루 패널을 스위치에 포함된 표준 브래킷과 함께 NetApp 캐비닛에 설치할 수 있습니다.</block>
   <block id="f7ad0a2648b0185763a6a88e903a53ac" category="list-text">Nexus 3132Q-V 스위치 섀시에 랙 마운트 브래킷을 설치합니다.</block>
   <block id="cb5d7fc87f5f11235e261bd3eb5a7274" category="list-text">스위치 반대쪽에 있는 다른 전면 랙 장착 브래킷과 2a단계를 반복합니다.</block>
@@ -1981,14 +1961,12 @@
   <block id="bc01d49ccd216cbb296208344af71590" category="list-text">CN1610 스위치를 대체하는 Nexus 3132Q-V 스위치는 C1 및 C2입니다.</block>
   <block id="5f6af1e958a3701a7602a4d2261afe6d" category="list-text">를 참조하십시오 <block ref="bea6a113c7846200412c9ca0694f7009" category="inline-link-macro-rx"></block> 페이지를 참조하십시오.</block>
   <block id="d472e6c72465c08732a77102922a611d" category="paragraph">를 참조하십시오 <block ref="34774b6dc875898cd8aa59f7081c068c" category="inline-link-macro-rx"></block> 사용 중인 플랫폼에서 올바른 클러스터 포트를 확인하려면 다음을 수행합니다.</block>
-  <block id="3085acabfffd08789d3274c0ba8c2a88" category="list-text">이 절차의 예제에서는 4개의 노드를 사용합니다. 두 노드는 e0a, e0b, e0c 및 e0d 4개의 10GbE 클러스터 인터커넥트 포트를 사용합니다. 다른 두 노드는 40/100 GbE 클러스터 인터커넥트 포트 2개(e4a, e4e)를 사용합니다. 를 클릭합니다 <block ref="cbfe825e8e02458e2eef3cd048612d7d" category="inline-link-macro-rx"></block> 에는 플랫폼의 실제 클러스터 포트가 나와 있습니다.</block>
   <block id="34de640daae00968b964a68033ca6358" category="inline-xref">1단계</block>
   <block id="e86ea01e700780ea92b3789d44f4c23c" category="list-text">클러스터 스위치 CL2를 C2(<block ref="55f08534725327744dab814bb2ce3ba4" category="inline-xref-macro-rx"></block> - <block ref="758db5a2604e6f852c33eb0fa872c37e" category="inline-xref-macro-rx"></block>)</block>
   <block id="199c448280caf4b3d38b86cfdc4d67e9" category="list-text">로 이동합니다 <block ref="bea6a113c7846200412c9ca0694f7009" category="inline-link-macro-rx"></block> 페이지로 이동합니다.</block>
   <block id="dd91c3681cdde4bc7616a4b3ec5f7e72" category="list-text">를 클릭합니다 <block ref="cbfe825e8e02458e2eef3cd048612d7d" category="inline-link-macro-rx"></block> Nexus 3132Q-V 스위치에 대한 지원되는 케이블 연결에 대한 자세한 내용은 다음을 참조하십시오.</block>
   <block id="82638f9455b90aac4ecd3473c4abd282" category="list-text">이 절차에서 지원되는 ONTAP 및 NX-OS 버전이 에 나열되어 있습니다 <block ref="bea6a113c7846200412c9ca0694f7009" category="inline-link-macro-rx"></block> 페이지.</block>
   <block id="a002527eadfaaff725e2967fe87378fd" category="list-text">이 절차에서 지원되는 ONTAP 및 FASTPATH 버전은 에 나열되어 있습니다 <block ref="02204714444b8dc050a0e8cdbf247292" category="inline-link-macro-rx"></block> 페이지.</block>
-  <block id="615f0ddf4939c2d755829bfd3d0dc075" category="list-text">10GbE 및 40/100 GbE 포트 수는 에서 사용할 수 있는 RCFs(참조 구성 파일)에 정의되어 있습니다 <block ref="fbe8362ccb2da62f365822f496fddba9" category="inline-link-macro-rx"></block> 페이지.</block>
   <block id="20c20e24dfa0ee82d11432c0c1d13fa6" category="list-text">를 클릭합니다 <block ref="9c839fcdfb8699a63c787254d7b1ae03" category="inline-link-macro-rx"></block> Nexus 3132Q-V 스위치에 대한 지원되는 케이블 연결에 대한 자세한 내용은 다음을 참조하십시오.</block>
   <block id="2b6f3ab875b845c218e00770e3512d7b" category="paragraph">를 클릭합니다 <block ref="bd4121ea0586524602af8d06c17dcfca" category="inline-link-macro-rx"></block> 이 절차에서 지원되는 ONTAP 및 NX-OS 버전에 대한 정보가 페이지에 있습니다.</block>
   <block id="0097132bac5d6c6b5abee712913401fa" category="paragraph">Nexus 3132Q-V 스위치를 처음 설정한 후 RCF를 설치할 수 있습니다. 이 절차를 사용하여 RCF 버전을 업그레이드할 수도 있습니다.</block>
@@ -1997,7 +1975,6 @@
   <block id="1a814209dc9d61786687170c6f1e1090" category="list-text">NetApp Support 사이트에서 로 이동합니다 <block ref="9695fe01247a31a02b295ce8d21e5fd0" category="inline-link-macro-rx"></block> 페이지.</block>
   <block id="f31feccfa3205f46547d83274bdfbcbd" category="list-text">이 절차에서 지원되는 ONTAP 및 NX-OS 버전은 에 나와 있습니다 <block ref="bea6a113c7846200412c9ca0694f7009" category="inline-link-macro-rx"></block> 페이지.</block>
   <block id="4dd112d6804b4f82a4602d3778c99cdb" category="list-text">Nexus 3132 클러스터 인프라는 두 스위치 모두에서 중복되고 완전히 작동합니다.</block>
-  <block id="10a697cf363bb941514e8b7cd31c91c7" category="paragraph">이 절차의 예에서는 각각 2개의 40/100 GbE 클러스터 인터커넥트 포트 e4a 및 e4e를 사용하는 2개의 노드를 사용합니다. 를 클릭합니다 <block ref="cbfe825e8e02458e2eef3cd048612d7d" category="inline-link-macro-rx"></block> 플랫폼의 클러스터 포트에 대한 자세한 내용은 에 나와 있습니다.</block>
   <block id="67dbd130b7f97be2f3adeeb97692aa5d" category="list-text">를 참조하십시오 <block ref="03c4e3201f2c647c804c56964354a408" category="inline-link-macro-rx"></block> 페이지로 이동합니다.</block>
   <block id="ef84127d5ef060917ce0f8f8ec03bf82" category="list-text">에서 해당 버전의 이미지 소프트웨어를 다운로드합니다 <block ref="a1b5971027192ba8f103906f3e0c5af3" category="inline-link-macro-rx"></block>.</block>
   <block id="0bb71d16588bbda61c53d6705fca9dd9" category="inline-link-macro">Cisco 이더넷 스위치 페이지</block>
@@ -2893,12 +2870,10 @@
   <block id="d77976c37f0905ead2cec6b14a961b3d" category="paragraph">스위치가 없는 2노드 클러스터가 있는 경우 다음 절차에 따라 Cisco Nexus 3132Q-V 클러스터 네트워크 스위치를 포함하는 2노드 스위치 클러스터로 마이그레이션할 수 있습니다. 교체 절차는 무중단 절차(NDO)입니다.</block>
   <block id="d864686a9a8c19574f54bab270afc92e" category="paragraph-title">포트 및 노드 연결</block>
   <block id="1e7adbcd77a17bde5f2f970332192c58" category="paragraph">Cisco Nexus 3132Q-V 클러스터 스위치를 사용하여 2노드 스위치 클러스터로 마이그레이션할 때 포트 및 노드 연결 및 케이블 연결 요구 사항을 이해해야 합니다.</block>
-  <block id="0470593181facbe8abb9e3758645ad23" category="list-text">Nexus 3132Q-V의 일부 포트가 10GbE 또는 40/100 GbE에서 실행되도록 구성되었는지 확인합니다.</block>
   <block id="2127399e74c64848c33d8818562b72ca" category="list-text">구성이 올바르게 설정되고 작동합니다.</block>
   <block id="8c3cbbc54611a910c53d17d08355f3e0" category="list-text">ONTAP 9.4 이상을 실행하는 노드</block>
   <block id="c39d86e7c435537e2a5a4864517893b6" category="list-text">의 모든 클러스터 포트<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block> 상태.</block>
   <block id="8bd7a2e2adba3a2891e30cfe6cd673be" category="list-text">기존 클러스터 네트워크 구성에는 다음이 있습니다.</block>
-  <block id="d83854356a024169fc6ac96627d8763c" category="paragraph">또한 노드에서 Nexus 3132Q-V 클러스터 스위치로의 10GbE 및 40/100 GbE 연결에 대한 필수 설명서를 계획, 마이그레이션 및 읽어야 합니다.</block>
   <block id="63eab37cfcf6a2b62e0f76932eb79809" category="list-text">첫 번째 클러스터 포트가 C1로 이동됩니다.</block>
   <block id="dd353d2ba6b926b08835d3c60dd7ce88" category="list-text">두 번째 클러스터 포트가 C2로 이동됩니다.</block>
   <block id="55b7e748bf261410178deee3a2012270" category="list-text">스위치가 없는 2노드 클러스터 옵션은 사용하지 않도록 설정됩니다.</block>
@@ -2979,7 +2954,6 @@
   <block id="c6adba6217951ed0e1a8ae3a9a50e632" category="paragraph">자세한 내용은 다음을 참조하십시오.</block>
   <block id="599e429de04ef19f05e05c80158f2130" category="paragraph">이 절차의 예에서는 4개의 노드를 사용합니다.</block>
   <block id="2e5f4bd73780ee0d4f1673a1a4718af2" category="list-text">노드 2개는 10GbE 클러스터 인터커넥트 포트 4개, e0a, e0b, e0c 및 e0d를 사용합니다.</block>
-  <block id="d07ea0336757dc6c738f1426bdf8deba" category="list-text">다른 두 노드는 40/100 GbE 클러스터 인터커넥트 파이버 케이블 2개(e4a 및 e4e)를 사용합니다.</block>
   <block id="c5996a9ce6852df92e273664ad819c84" category="paragraph">를 클릭합니다 <block ref="cbfe825e8e02458e2eef3cd048612d7d" category="inline-link-macro-rx"></block> 플랫폼의 클러스터 파이버 케이블에 대한 정보가 있습니다.</block>
   <block id="149b4d7bd84f0ce5c4d69945fa307e44" category="list-text">C2로 교체할 클러스터 스위치 CL2</block>
   <block id="2c0d653bc3a1aa00fd3687625ec3bd27" category="list-text">클러스터 스위치 CL1을 C1로 교체합니다</block>
@@ -5089,4 +5063,33 @@
   <block id="11b037d97237564e7d301df86420a468" category="inline-link">새 Cumulus Linux 이미지 설치</block>
   <block id="ab12f4d1e56479a81a361f6109b978de" category="paragraph">자세한 내용은 을<block ref="63da15f7ab7ce2a7550fdbf1e5e5d879" category="inline-link-rx"></block> 참조하십시오.</block>
   <block id="43622a7160f0cabed379e73776c14454" category="list-text">Cumulux Linux 5.x 이미지 다운로드: tmp</block>
+  <block id="855b205ca9b9bd2b02453dbd19fc65b7" category="list-text">이 절차의 예제에서는 4개의 노드를 사용합니다. 두 노드는 e0a, e0b, e0c 및 e0d 4개의 10GbE 클러스터 인터커넥트 포트를 사용합니다. 다른 두 노드는 두 개의 40GbE 클러스터 인터커넥트 포트(e4a, e4e)를 사용합니다. 에는 <block ref="cbfe825e8e02458e2eef3cd048612d7d" category="inline-link-macro-rx"></block>플랫폼의 실제 클러스터 포트가 나와 있습니다.</block>
+  <block id="66f3f703ef307f85603b46a4acbb712b" category="list-text">10GbE 및 40GbE 포트 수는 페이지의 참조 구성 파일(RCF)에 정의되어<block ref="cce23acfce4c9bc9bb74fd35873aedf2" category="inline-link-rx"></block> 있습니다.</block>
+  <block id="9f71b0536f9236a6977f9a70d6395a33" category="list-text">40GbE 클러스터 연결을 사용하는 노드는 지원되는 QSFP/QSFP28 광 모듈과 파이버 케이블 또는 QSFP/QSFP28 구리 직접 연결 케이블이 필요합니다.</block>
+  <block id="61f02de546275159b6eba3b5376756d8" category="list-text">Nexus 3132Q-V에서는 QSFP 포트를 40Gb 이더넷 또는 10Gb 이더넷 모드 4개로 작동할 수 있습니다.</block>
+  <block id="e29b2f868e1044896b5cc6d476634b57" category="paragraph">기본적으로 40Gb 이더넷 모드에는 32개의 포트가 있습니다. 이러한 40Gb 이더넷 포트에는 2튜플 명명 규칙이 적용됩니다. 예를 들어, 두 번째 40Gb 이더넷 포트의 번호는 1/2로 지정됩니다. 구성을 40Gb 이더넷에서 10Gb 이더넷으로 변경하는 프로세스를 _breakout_이라고 하며, 구성을 10Gb 이더넷에서 40Gb 이더넷으로 변경하는 프로세스를 _breakin_이라고 합니다. 40Gb 이더넷 포트를 10Gb 이더넷 포트로 분할하면 결과 포트에 3개의 튜플 명명 규칙을 사용하여 번호가 지정됩니다. 예를 들어, 두 번째 40Gb 이더넷 포트의 브레이크아웃 포트는 1/2/1, 1/2/2, 1/2/3 및 1/2/4로 번호가 지정됩니다.</block>
+  <block id="ce8d64c62fe7d0d80ad6a4b2e1744516" category="list-text">Nexus 3132Q-V의 포트 중 일부를 10GbE 또는 40GbE에서 실행하도록 구성했는지 확인합니다.</block>
+  <block id="24b704dc9930f98145e6a041e122d90b" category="list-text">10GbE 및 40GbE 포트 수는 페이지의 참조 구성 파일(RCF)에 정의되어<block ref="9bcfbf4ecbfa5f01b0fe987094e3d8a3" category="inline-link-rx"></block> 있습니다.</block>
+  <block id="64e3923ed88357b9e310c9d354f23200" category="paragraph">또한 노드에서 Nexus 3132Q-V 클러스터 스위치로의 10GbE 및 40GbE 연결에 대한 필수 문서를 계획, 마이그레이션 및 읽어야 합니다.</block>
+  <block id="16f501807c40fcc074813b8de98881be" category="paragraph">이 절차의 예에서는 두 개의 40GbE 클러스터 인터커넥트 포트 e4a 및 e4e 를 사용하는 두 개의 노드를 사용합니다. 는 <block ref="cbfe825e8e02458e2eef3cd048612d7d" category="inline-link-macro-rx"></block>사용자 플랫폼의 클러스터 포트에 대한 세부 정보를 제공합니다.</block>
+  <block id="e1ef80ee500d089193b647b456525328" category="list-text">10GbE 및 40GbE 포트 수는 페이지의 참조 구성 파일(RCF)에 정의되어 <block ref="fbe8362ccb2da62f365822f496fddba9" category="inline-link-macro-rx"></block>있습니다.</block>
+  <block id="adb2312231ae10781221ca6f85f1468b" category="list-text">다른 두 노드는 2개의 40GbE 클러스터 인터커넥트 파이버 케이블(e4a 및 e4e)을 사용합니다.</block>
+  <block id="4a1ae240823f0b9cf20cc4dcd3987a7d" category="list-text">Nexus 3132Q-V에서 QSFP 포트를 40Gb 이더넷 또는 4x10Gb 이더넷 모드로 작동할 수 있습니다.</block>
+  <block id="ecfce3e51258080e9887731dcb939198" category="list-text">Nexus 3132Q-V의 포트 중 일부를 10GbE 또는 40GbE에서 실행하도록 구성해야 합니다.</block>
+  <block id="8121786d2f761f3520658cbd44c0086b" category="list-text">노드에서 Nexus 3132Q-V 클러스터 스위치로의 10GbE 및 40GbE 연결에 대한 계획 및 마이그레이션을 수행하고 필요한 설명서를 읽어야 합니다.</block>
+  <block id="9e85131d818cad8d6273559977450f37" category="list-text">포트 1/1-30(40GbE): Nexus 3132Q-V</block>
+  <block id="6d979896855cb90ebff1fc64d16543df" category="list-text">포트 1/31-32(40GbE): Nexus 3132Q-V</block>
+  <block id="154b6c893ed6c16744f390b9180e6725" category="list-text">40GbE 클러스터 연결을 사용하는 노드는 파이버 케이블이 있는 지원되는 QSFP/QSFP28광 모듈 또는 QSFP/QSFP28 구리 직접 연결 케이블이 필요합니다.</block>
+  <block id="5f6325e48e650901740731047024b139" category="list-text">Nexus 3132Q-V 스위치에서 QSFP/QSFP28 포트를 40기가비트 이더넷 또는 4개의 10기가비트 이더넷 모드로 작동할 수 있습니다.</block>
+  <block id="f348114fb6d1345ea6d8a657d9c00763" category="paragraph">기본적으로 40기가비트 이더넷 모드에서는 32개의 포트가 있습니다. 이러한 40기가비트 이더넷 포트에는 2 튜플 명명 규칙이 적용됩니다. 예를 들어, 두 번째 40기가비트 이더넷 포트의 번호는 1/2로 지정됩니다. 구성을 40기가비트 이더넷에서 10기가비트 이더넷으로 변경하는 프로세스를 _breakout_이라고 하며, 구성을 10기가비트 이더넷에서 40기가비트 이더넷으로 변경하는 프로세스를 _breakin_이라고 합니다. 40기가비트 이더넷 포트를 10기가비트 이더넷 포트로 분할하면 결과 포트에 3개의 튜플 명명 규칙을 사용하여 번호가 지정됩니다. 예를 들어, 두 번째 40기가비트 이더넷 포트의 분리 포트는 1/2/1, 1/2/2, 1/2/3 및 1/2/4로 번호가 지정됩니다.</block>
+  <block id="0440c6eaf862ee4cfd547f551d9a0cb9" category="list-text">Nexus 3132Q-V 스위치의 일부 포트가 10GbE 또는 40GbE에서 실행되도록 구성했습니다.</block>
+  <block id="f202ba5b511e5de6a9e03a15d32b3543" category="list-text">노드에서 Nexus 3132Q-V 클러스터 스위치로의 10GbE 및 40GbE 연결에 대한 계획, 마이그레이션 및 필수 설명서를 읽었습니다.</block>
+  <block id="ea6a4753b32f7dc99b61788ca92c3192" category="list-text">Cisco Nexus 3132Q-V: 포트 1/1-30(40GbE)</block>
+  <block id="41d2c2931dc62eed6aecb954de74c42c" category="list-text">Cisco Nexus 3132Q-V: 포트 1/31-32(40GbE)</block>
+  <block id="902ca5e80a753adb8c809d46ffd2a177" category="list-text">40GbE 클러스터 연결을 사용하는 노드는 광 파이버 케이블이 있는 지원되는 QSFP/QSFP28 광 모듈 또는 QSFP/QSFP28 구리 직접 연결 케이블이 필요합니다</block>
+  <block id="a79e81ac0a0322d06f217ec1313f9c2b" category="list-text">Nexus 3132Q-V 스위치에서 QSFP/QSFP28 포트를 40Gb 이더넷 또는 4x 10Gb 이더넷 모드로 작동할 수 있습니다.</block>
+  <block id="427172b130a849e724ec686d49e97727" category="list-text">Nexus 3132Q-V 스위치의 포트 중 일부를 10GbE 또는 40GbE에서 실행하도록 구성해야 합니다.</block>
+  <block id="57d432809175e2b2a95b3c3c1aeaabb9" category="paragraph">명령을 사용하여 처음 6개의 포트를 4x10 GbE 모드로 분할할 수<block ref="08aac397a11274cd898dfbb3a635cf19" prefix=" " category="inline-code"></block> 있습니다. 마찬가지로 명령을 사용하여 _breakout_configuration 에서 처음 6개의 QSFP+ 포트를 다시 그룹화할 수<block ref="9437e02f9ec4a8d602d396abd2c360b4" prefix=" " category="inline-code"></block> 있습니다.</block>
+  <block id="c66ba47352d59b54f3a4b52ed5c4acb4" category="paragraph">*참고:* 사용자 사양 프롬프트에 응답하는 경우<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block>, 사용자가 에 설명된 대로 필요한 권한을 가지고 <block ref="c36e4b8d8c2789dd7986c4af4bd3d942" category="inline-xref-macro-rx"></block>있는지 확인하십시오.</block>
+  <block id="921a23933bb7a508423ca6a0ad00bfd3" category="paragraph">*참고:* 사용자 사양 프롬프트에 응답하는 경우<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block>, 사용자가 에 설명된 대로 필요한 권한을 가지고 <block ref="c36e4b8d8c2789dd7986c4af4bd3d942" category="inline-xref-macro-rx"></block>있는지 확인하십시오.</block>
 </blocks>

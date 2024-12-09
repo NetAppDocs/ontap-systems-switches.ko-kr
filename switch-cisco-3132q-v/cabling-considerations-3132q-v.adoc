@@ -22,9 +22,6 @@ NVIDIA ConnectX-6(CX6), ConnectX-6 DX(CX6-DX) 또는 ConnectX-7(CX7) NIC 포트�
 [listing, subs="+quotes"]
 ----
 (cs1)(config)# interface Ethernet1/19
-*For 100GbE speed:*
-(cs1)(config-if)# *speed 100000*
-*For 40GbE speed:*
 (cs1)(config-if)# *speed 40000*
 (cs1)(config-if)# no negotiate auto
 (cs1)(config-if)# exit
