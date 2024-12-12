@@ -13,7 +13,7 @@ summary: 필요한 구성 정보 및 설명서가 없는 경우 클러스터 및
 [role="lead"]
 다음 절차에 따라 Cisco Nexus 3132Q-V 스위치를 구성하십시오.
 
-.필요한 것
+.시작하기 전에
 * 설치 사이트에서 HTTP, FTP 또는 TFTP 서버에 액세스하여 해당 NX-OS 및 RCF(Reference Configuration File) 릴리즈를 다운로드합니다.
 * 에서 다운로드한 해당 NX-OS 버전입니다 https://software.cisco.com/download/home["Cisco 소프트웨어 다운로드"^] 페이지.
 * 필요한 네트워크 스위치 설명서, 컨트롤러 설명서 및 ONTAP 설명서 자세한 내용은 을 참조하십시오 link:required-documentation-3132q.html["필수 문서"].

@@ -1,0 +1,464 @@
+---
+permalink: switch-cisco-3132q-v/cn1610-configure-ports.html 
+sidebar: sidebar 
+keywords: cisco 3132q-v, cluster switches 
+summary: Cisco Nexus 3132q-v 스위치를 AFF 또는 FAS 클러스터에서 클러스터 스위치로 사용할 수 있습니다. 
+---
+= CN1610 스위치에서 3132Q-V 스위치로 마이그레이션할 포트를 구성합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+다음 단계에 따라 CN1610 스위치에서 새 Nexus 3132Q-V 스위치로 마이그레이션할 포트를 구성하십시오.
+
+.단계
+. 모든 노드에서 CN1610 스위치 CL2에 연결된 케이블을 제거합니다.
++
+지원되는 케이블 연결을 사용하여 모든 노드의 분리된 포트를 Nexus 3132Q-V 스위치 C2에 다시 연결해야 합니다.
+
+. CN1610 스위치 CL1의 포트 13 - 16에서 ISL 케이블 4개를 분리합니다.
++
+새 Cisco 3132Q-V 스위치 C2의 포트 1/24를 기존 CN1610 스위치 CL1의 포트 13~16에 연결하는 SFP+ 브레이크아웃 케이블에 적절한 Cisco QSFP를 연결해야 합니다.
+
++
+
+NOTE: 새 Cisco 3132Q-V 스위치에 케이블을 다시 연결할 때는 광 파이버 또는 Cisco twinax 케이블을 사용해야 합니다.
+
+. ISL을 동적으로 만들려면 활성 CN1610 스위치에 ISL 인터페이스 3/1 을 구성하여 정적 모드('포트 채널 정적 없음')를 비활성화합니다
++
+이 구성은 11단계에서 두 스위치 모두에서 ISL을 실행할 때 3132Q-V 스위치 C2의 ISL 구성과 일치합니다.
+
++
+.예제 보기
+[%collapsible]
+====
+다음 예에서는 "no port-channel static" 명령을 사용하여 ISL 동적 구성을 보여 줍니다.
+
+[listing]
+----
+(CL1)# configure
+(CL1)(Config)# interface 3/1
+(CL1)(Interface 3/1)# no port-channel static
+(CL1)(Interface 3/1)# exit
+(CL1)(Config)# exit
+(CL1)#
+----
+====
+. 활성 CN1610 스위치 CL1에서 ISL 13 ~ 16을 실행합니다.
++
+.예제 보기
+[%collapsible]
+====
+다음 예에서는 포트 채널 인터페이스 3/1에서 ISL 포트 13~16을 가져오는 프로세스를 보여 줍니다.
+
+[listing]
+----
+(CL1)# configure
+(CL1)(Config)# interface 0/13-0/16,3/1
+(CL1)(Interface 0/13-0/16,3/1)# no shutdown
+(CL1)(Interface 0/13-0/16,3/1)# exit
+(CL1)(Config)# exit
+(CL1)#
+----
+====
+. ISL이 있는지 확인합니다 `up` CN1610 스위치 CL1에서 다음을 수행합니다.
++
+항로를 선택합니다
+
++
+Link State는 Up, Type은 Dynamic여야 하며, Port Active 열은 0/13 ~ 0/16 포트의 경우 True여야 합니다.
+
++
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+(CL1)# show port-channel 3/1
+Local Interface................................ 3/1
+Channel Name................................... ISL-LAG
+Link State..................................... Up
+Admin Mode..................................... Enabled
+Type........................................... Dynamic
+Load Balance Option............................ 7
+(Enhanced hashing mode)
+
+Mbr    Device/       Port        Port
+Ports  Timeout       Speed       Active
+------ ------------- ----------  -------
+0/13   actor/long    10 Gb Full  True
+       partner/long
+0/14   actor/long    10 Gb Full  True
+       partner/long
+0/15   actor/long    10 Gb Full  True
+       partner/long
+0/16   actor/long    10 Gb Full  True
+       partner/long
+----
+====
+. 3132Q-V 스위치 C2에서 ISL이 "UP"인지 확인합니다.
++
+'포트-채널 요약
+
++
+.예제 보기
+[%collapsible]
+====
+Eth1/24/1부터 Eth1/24/4까지의 포트는 '(P)'를 나타내야 합니다. 즉, 4개의 ISL 포트가 모두 포트 채널에서 작동 중임을 의미합니다. eth1/31 및 Eth1/32는 연결되지 않으므로 '(D)'를 표시해야 합니다.
+
+[listing]
+----
+C2# show port-channel summary
+
+Flags:  D - Down        P - Up in port-channel (members)
+        I - Individual  H - Hot-standby (LACP only)
+        s - Suspended   r - Module-removed
+        S - Switched    R - Routed
+        U - Up (port-channel)
+        M - Not in use. Min-links not met
+------------------------------------------------------------------------------
+Group Port-       Type     Protocol  Member Ports
+      Channel
+------------------------------------------------------------------------------
+1     Po1(SU)     Eth      LACP      Eth1/31(D)   Eth1/32(D)
+2     Po2(SU)     Eth      LACP      Eth1/24/1(P) Eth1/24/2(P) Eth1/24/3(P)
+                                     Eth1/24/4(P)
+----
+====
+. 모든 노드에서 3132Q-V 스위치 C2에 연결된 모든 클러스터 인터커넥트 포트를 불러옵니다.
++
+네트워크 포트 수정
+
++
+.예제 보기
+[%collapsible]
+====
+다음 예에서는 3132Q-V 스위치 C2에 연결된 클러스터 인터커넥트 포트를 표시하는 방법을 보여 줍니다.
+
+[listing]
+----
+cluster::*> network port modify -node n1 -port e0b -up-admin true
+cluster::*> network port modify -node n1 -port e0c -up-admin true
+cluster::*> network port modify -node n2 -port e0b -up-admin true
+cluster::*> network port modify -node n2 -port e0c -up-admin true
+----
+====
+. 모든 노드에서 C2에 연결된 마이그레이션된 모든 클러스터 인터커넥트 LIF를 되돌립니다.
++
+네트워크 인터페이스 복원
+
++
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+cluster::*> network interface revert -vserver Cluster -lif n1_clus2
+cluster::*> network interface revert -vserver Cluster -lif n1_clus3
+cluster::*> network interface revert -vserver Cluster -lif n2_clus2
+cluster::*> network interface revert -vserver Cluster -lif n2_clus3
+----
+====
+. 모든 클러스터 인터커넥트 포트가 홈 포트로 되돌려졌는지 확인합니다.
++
+네트워크 인터페이스 쇼
+
++
+.예제 보기
+[%collapsible]
+====
+다음 예에서는 clus2의 LIF가 홈 포트로 되돌려지고 "현재 포트" 열의 포트가 "홈" 열의 상태가 "참"인 경우 LIF가 성공적으로 되돌려지는 것을 보여 줍니다. is Home 값이 false이면 LIF를 되돌릴 수 없습니다.
+
+[listing]
+----
+cluster::*> network interface show -role cluster
+       (network interface show)
+
+         Logical    Status      Network        Current  Current  Is
+Vserver  Interface  Admin/Oper  Address/Mask   Node     Port     Home
+-------- ---------- ----------- -------------- -------- -------- -----
+Cluster
+         n1_clus1   up/up       10.10.0.1/24   n1       e0a      true
+         n1_clus2   up/up       10.10.0.2/24   n1       e0b      true
+         n1_clus3   up/up       10.10.0.3/24   n1       e0c      true
+         n1_clus4   up/up       10.10.0.4/24   n1       e0d      true
+         n2_clus1   up/up       10.10.0.5/24   n2       e0a      true
+         n2_clus2   up/up       10.10.0.6/24   n2       e0b      true
+         n2_clus3   up/up       10.10.0.7/24   n2       e0c      true
+         n2_clus4   up/up       10.10.0.8/24   n2       e0d      true
+
+8 entries were displayed.
+----
+====
+. 모든 클러스터 포트가 연결되어 있는지 확인합니다.
++
+네트워크 포트 쇼
+
++
+.예제 보기
+[%collapsible]
+====
+다음 예에서는 이전의 'network port modify' 명령의 결과를 보여 주며, 모든 클러스터 상호 연결이 'up'인지 확인합니다.
+
+[listing]
+----
+cluster::*> network port show -role Cluster
+       (network port show)
+
+Node: n1
+                Broadcast               Speed (Mbps) Health   Ignore
+Port  IPspace   Domain      Link  MTU   Admin/Open   Status   Health Status
+----- --------- ----------- ----- ----- ------------ -------- -------------
+e0a   cluster   cluster     up    9000  auto/10000     -        -
+e0b   cluster   cluster     up    9000  auto/10000     -        -
+e0c   cluster   cluster     up    9000  auto/10000     -        -
+e0d   cluster   cluster     up    9000  auto/10000     -        -
+
+Node: n2
+                Broadcast               Speed (Mbps) Health   Ignore
+Port  IPspace   Domain      Link  MTU   Admin/Open   Status   Health Status
+----- --------- ----------- ----- ----- ------------ -------- -------------
+e0a   cluster   cluster     up    9000  auto/10000     -        -
+e0b   cluster   cluster     up    9000  auto/10000     -        -
+e0c   cluster   cluster     up    9000  auto/10000     -        -
+e0d   cluster   cluster     up    9000  auto/10000     -        -
+
+8 entries were displayed.
+----
+====
+. 원격 클러스터 인터페이스의 연결을 확인합니다.
+
+
+[role="tabbed-block"]
+====
+.ONTAP 9.9.1 이상
+--
+를 사용할 수 있습니다 `network interface check cluster-connectivity` 클러스터 연결에 대한 접근성 검사를 시작한 다음 세부 정보를 표시하는 명령입니다.
+
+`network interface check cluster-connectivity start` 및 `network interface check cluster-connectivity show`
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity start*
+----
+* 참고: * show 명령을 실행하기 전에 몇 초 동안 기다린 후 세부 정보를 표시합니다.
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity show*
+                                  Source      Destination   Packet
+Node   Date                       LIF         LIF           Loss
+------ -------------------------- ---------- -------------- -----------
+n1
+       3/5/2022 19:21:18 -06:00   n1_clus2   n1_clus1       none
+       3/5/2022 19:21:20 -06:00   n1_clus2   n2_clus2       none
+
+n2
+       3/5/2022 19:21:18 -06:00   n2_clus2   n1_clus1       none
+       3/5/2022 19:21:20 -06:00   n2_clus2   n1_clus2       none
+----
+--
+.모든 ONTAP 릴리스
+--
+모든 ONTAP 릴리스에 대해 을 사용할 수도 있습니다 `cluster ping-cluster -node <name>` 연결 상태를 확인하는 명령:
+
+`cluster ping-cluster -node <name>`
+
+[listing, subs="+quotes"]
+----
+cluster::*> *cluster ping-cluster -node n1*
+Host is n1
+Getting addresses from network interface table...
+Cluster n1_clus1 n1       e0a    10.10.0.1
+Cluster n1_clus2 n1       e0b    10.10.0.2
+Cluster n1_clus3 n1       e0c    10.10.0.3
+Cluster n1_clus4 n1       e0d    10.10.0.4
+Cluster n2_clus1 n2       e0a    10.10.0.5
+Cluster n2_clus2 n2       e0b    10.10.0.6
+Cluster n2_clus3 n2       e0c    10.10.0.7
+Cluster n2_clus4 n2       e0d    10.10.0.8
+
+Local = 10.10.0.1 10.10.0.2 10.10.0.3 10.10.0.4
+Remote = 10.10.0.5 10.10.0.6 10.10.0.7 10.10.0.8
+Cluster Vserver Id = 4294967293
+Ping status:
+....
+Basic connectivity succeeds on 16 path(s)
+Basic connectivity fails on 0 path(s)
+................
+Detected 1500 byte MTU on 16 path(s):
+    Local 10.10.0.1 to Remote 10.10.0.5
+    Local 10.10.0.1 to Remote 10.10.0.6
+    Local 10.10.0.1 to Remote 10.10.0.7
+    Local 10.10.0.1 to Remote 10.10.0.8
+    Local 10.10.0.2 to Remote 10.10.0.5
+    Local 10.10.0.2 to Remote 10.10.0.6
+    Local 10.10.0.2 to Remote 10.10.0.7
+    Local 10.10.0.2 to Remote 10.10.0.8
+    Local 10.10.0.3 to Remote 10.10.0.5
+    Local 10.10.0.3 to Remote 10.10.0.6
+    Local 10.10.0.3 to Remote 10.10.0.7
+    Local 10.10.0.3 to Remote 10.10.0.8
+    Local 10.10.0.4 to Remote 10.10.0.5
+    Local 10.10.0.4 to Remote 10.10.0.6
+    Local 10.10.0.4 to Remote 10.10.0.7
+    Local 10.10.0.4 to Remote 10.10.0.8
+
+Larger than PMTU communication succeeds on 16 path(s)
+RPC status:
+4 paths up, 0 paths down (tcp check)
+4 paths up, 0 paths down (udp check)
+----
+--
+====
+. [[step12]] 클러스터의 각 노드에서 교체할 첫 번째 CN1610 스위치 CL1에 연결된 인터페이스를 마이그레이션합니다.
++
+네트워크 인터페이스 마이그레이션
+
++
+.예제 보기
+[%collapsible]
+====
+다음 예에서는 n1 및 n2 노드에서 마이그레이션되는 포트 또는 LIF를 보여 줍니다.
+
+[listing]
+----
+cluster::*> network interface migrate -vserver Cluster -lif n1_clus1 -destination-node n1 -destination-port e0b
+cluster::*> network interface migrate -vserver Cluster -lif n1_clus4 -destination-node n1 -destination-port e0c
+cluster::*> network interface migrate -vserver Cluster -lif n2_clus1 -destination-node n2 -destination-port e0b
+cluster::*> network interface migrate -vserver Cluster -lif n2_clus4 -destination-node n2 -destination-port e0c
+----
+====
+. 클러스터 상태 확인:
++
+네트워크 인터페이스 쇼
+
++
+.예제 보기
+[%collapsible]
+====
+다음 예에서는 필요한 클러스터 LIF가 클러스터 스위치 C2에 호스팅된 적절한 클러스터 포트로 마이그레이션되었음을 보여 줍니다.
+
+[listing]
+----
+cluster::*> network interface show -role Cluster
+       (network interface show)
+
+         Logical    Status      Network        Current  Current  Is
+Vserver  Interface  Admin/Oper  Address/Mask   Node     Port     Home
+-------- ---------- ----------- -------------- -------- -------- -----
+Cluster
+         n1_clus1   up/up       10.10.0.1/24   n1       e0b      false
+         n1_clus2   up/up       10.10.0.2/24   n1       e0b      true
+         n1_clus3   up/up       10.10.0.3/24   n1       e0c      true
+         n1_clus4   up/up       10.10.0.4/24   n1       e0c      false
+         n2_clus1   up/up       10.10.0.5/24   n2       e0b      false
+         n2_clus2   up/up       10.10.0.6/24   n2       e0b      true
+         n2_clus3   up/up       10.10.0.7/24   n2       e0c      true
+         n2_clus4   up/up       10.10.0.8/24   n2       e0c      false
+
+8 entries were displayed.
+----
+====
+. 모든 노드에서 CL1에 연결된 노드 포트를 종료합니다.
++
+네트워크 포트 수정
+
++
+.예제 보기
+[%collapsible]
+====
+다음 예에서는 n1 및 n2 노드에서 지정된 포트를 종료하는 방법을 보여 줍니다.
+
+[listing]
+----
+cluster::*> network port modify -node n1 -port e0a -up-admin false
+cluster::*> network port modify -node n1 -port e0d -up-admin false
+cluster::*> network port modify -node n2 -port e0a -up-admin false
+cluster::*> network port modify -node n2 -port e0d -up-admin false
+----
+====
+. 활성 3132Q-V 스위치 C2에서 ISL 포트 24, 31 및 32를 종료합니다.
++
+'허틀다운'
+
++
+.예제 보기
+[%collapsible]
+====
+다음 예에서는 활성 3132Q-V 스위치 C2에서 ISL 24, 31 및 32를 종료하는 방법을 보여 줍니다.
+
+[listing]
+----
+C2# configure
+C2(config)# interface ethernet 1/24/1-4
+C2(config-if-range)# shutdown
+C2(config-if-range)# exit
+C2(config)# interface ethernet 1/31-32
+C2(config-if-range)# shutdown
+C2(config-if-range)# exit
+C2(config)# exit
+C2#
+----
+====
+. 모든 노드에서 CN1610 스위치 CL1에 연결된 케이블을 제거합니다.
++
+지원되는 케이블 연결을 사용하여 모든 노드의 분리된 포트를 Nexus 3132Q-V 스위치 C1에 다시 연결해야 합니다.
+
+. Nexus 3132Q-V C2 포트 e1/24에서 QSFP 케이블을 분리합니다.
++
+지원되는 Cisco QSFP 광 케이블 또는 직접 연결 케이블을 사용하여 C1의 포트 e1/31 및 e1/32를 C2의 포트 e1/31 및 e1/32에 연결해야 합니다.
+
+. 포트 24에서 구성을 복원하고 C2에서 임시 포트-채널 2를 복사하여 제거합니다 `running-configuration` 파일을 에 저장합니다 `startup-configuration` 파일.
++
+.예제 보기
+[%collapsible]
+====
+다음 예에서는 'running-configuration' 파일을 'startup-configuration' 파일에 복사합니다.
+
+[listing]
+----
+C2# configure
+C2(config)# no interface breakout module 1 port 24 map 10g-4x
+C2(config)# no interface port-channel 2
+C2(config-if)# interface e1/24
+C2(config-if)# description 40GbE Node Port
+C2(config-if)# spanning-tree port type edge
+C2(config-if)# spanning-tree bpduguard enable
+C2(config-if)# mtu 9216
+C2(config-if-range)# exit
+C2(config)# exit
+C2# copy running-config startup-config
+[########################################] 100%
+Copy Complete.
+----
+====
+. C2에서 ISL 포트 31 및 32를 가동합니다. 활성 3132Q-V 스위치:
++
+`no shutdown`
+
++
+.예제 보기
+[%collapsible]
+====
+다음 예에서는 3132Q-V 스위치 C2에서 ISL 31 및 32를 가져오는 방법을 보여 줍니다.
+
+[listing]
+----
+
+C2# configure
+C2(config)# interface ethernet 1/31-32
+C2(config-if-range)# no shutdown
+C2(config-if-range)# exit
+C2(config)# exit
+C2# copy running-config startup-config
+[########################################] 100%
+Copy Complete.
+----
+====
+
+
+.다음 단계
+link:cn1610-complete-migration.html["마이그레이션을 완료하십시오"]..

@@ -38,12 +38,45 @@ entries:
 - title: 스위치 마이그레이션
   pdf-filename: Migrate_switches_3132q-v
   entries:
-  - title: CN5596 스위치에서 마이그레이션
-    url: "/switch-cisco-3132q-v/migrate-from-cisco-nexus-5596-to-cisco-nexus-3232c.html"
-  - title: CN1610 스위치에서 마이그레이션
-    url: "/switch-cisco-3132q-v/replace-cn1610-with-cisco-nexus-3232c.html"
-  - title: 스위치가 없는 클러스터에서 스위치 없는 클러스터로 마이그레이션
-    url: "/switch-cisco-3132q-v/migrate-from-switchless-cluster-to-cisco-nexus-3132q-v.html"
+  - title: CN1610 스위치 마이그레이션
+    pdf-filename: CN1610_switch_migration를 참조하십시오
+    entries:
+    - title: CN1610 스위치 마이그레이션 워크플로우
+      url: "/switch-cisco-3132q-v/cn1610-migrate-workflow.html"
+    - title: 마이그레이션 요구 사항
+      url: "/switch-cisco-3132q-v/cn1610-migrate-requirements.html"
+    - title: 마이그레이션을 준비합니다
+      url: "/switch-cisco-3132q-v/cn1610-prepare-to-migrate.html"
+    - title: 포트를 구성합니다
+      url: "/switch-cisco-3132q-v/cn1610-configure-ports.html"
+    - title: 마이그레이션을 완료합니다
+      url: "/switch-cisco-3132q-v/cn1610-complete-migration.html"
+  - title: Cisco Nexus 5596 스위치 마이그레이션
+    pdf-filename: CN5596_switch_migration를 참조하십시오
+    entries:
+    - title: Cisco Nexus 5596 스위치 마이그레이션 워크플로우
+      url: "/switch-cisco-3132q-v/cn5596-migrate-workflow.html"
+    - title: 마이그레이션 요구 사항
+      url: "/switch-cisco-3132q-v/cn5596-migrate-requirements.html"
+    - title: 마이그레이션을 준비합니다
+      url: "/switch-cisco-3132q-v/cn5596-prepare-to-migrate.html"
+    - title: 포트를 구성합니다
+      url: "/switch-cisco-3132q-v/cn5596-configure-ports.html"
+    - title: 마이그레이션을 완료하십시오
+      url: "/switch-cisco-3132q-v/cn5596-complete-migration.html"
+  - title: 스위치가 없는 클러스터에서 2노드 스위치 클러스터로 마이그레이션합니다
+    pdf-filename: 스위치 없는_에서 _switched_cluster로 마이그레이션
+    entries:
+    - title: 스위치가 없는 워크플로우에서 2노드 스위치 워크플로우로 마이그레이션
+      url: "/switch-cisco-3132q-v/migrate-switchless-to-switched-workflow.html"
+    - title: 마이그레이션 요구 사항
+      url: "/switch-cisco-3132q-v/migrate-switchless-to-switched-requirements.html"
+    - title: 마이그레이션을 준비합니다
+      url: "/switch-cisco-3132q-v/migrate-switchless-prepare-to-migrate.html"
+    - title: 포트를 구성합니다
+      url: "/switch-cisco-3132q-v/migrate-switchless-configure-ports.html"
+    - title: 마이그레이션을 완료하십시오
+      url: "/switch-cisco-3132q-v/migrate-switchless-complete-migration.html"
 - title: 스위치를 교체합니다
   pdf-filename: 스위치_3132q-v를 교체합니다
   entries:
