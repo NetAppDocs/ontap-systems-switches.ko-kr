@@ -330,19 +330,19 @@ CLI 5.4를 실행하는 NVIDIA SN2100 스위치에서 SNMPv3 사용자 이름 SN
 +
 [source, cli]
 ----
-net add snmp-server username SNMPv3_USER auth-none
+nv set service snmp-server username SNMPv3_USER auth-none
 ----
 * MD5/SHA 인증 * 의 경우:
 +
 [source, cli]
 ----
-net add snmp-server username SNMPv3_USER [auth-md5|auth-sha] AUTH-PASSWORD
+nv set service snmp-server username SNMPv3_USER [auth-md5|auth-sha] AUTH-PASSWORD
 ----
 * AES/DES 암호화를 사용하는 * MD5/SHA 인증 *:
 +
 [source, cli]
 ----
-net add snmp-server username SNMPv3_USER [auth-md5|auth-sha] AUTH-PASSWORD [encrypt-aes|encrypt-des] PRIV-PASSWORD
+nv set service snmp-server username SNMPv3_USER [auth-md5|auth-sha] AUTH-PASSWORD [encrypt-aes|encrypt-des] PRIV-PASSWORD
 ----
 
 
