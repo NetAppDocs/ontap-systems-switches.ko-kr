@@ -34,8 +34,10 @@ entries:
     url: "/switch-cisco-9336c-fx2-shared/prepare-nxos-rcf-9336c-shared.html"
   - title: NX-OS 소프트웨어를 설치합니다
     url: "/switch-cisco-9336c-fx2-shared/install-nxos-software-9336c-shared.html"
-  - title: RCF 구성 파일을 설치합니다
+  - title: RCF를 설치합니다
     url: "/switch-cisco-9336c-fx2-shared/install-nxos-rcf-9336c-shared.html"
+  - title: RCF 버전을 업그레이드하십시오
+    url: "/switch-cisco-9336c-fx2-shared/upgrade-rcf-software-9336c-shared.html"
 - title: 스위치 마이그레이션
   pdf-filename: Migrate_switches_9336c-FX2-shared
   entries:

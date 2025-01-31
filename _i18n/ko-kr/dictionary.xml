@@ -887,9 +887,7 @@
   <block id="9f7a88bb2f9e0c7e0922dc2cc666ca59" category="list-text">모든 새 포트를 사용할 수 있는지 확인합니다.</block>
   <block id="5898eff5c659f32cf3b2f42bd746d0c5" category="doc">EFOS 소프트웨어를 설치합니다</block>
   <block id="ba9e418ff064efca86945643e9b87680" category="list-text">BES-53248 클러스터 스위치를 관리 네트워크에 연결합니다.</block>
-  <block id="c95aaaacb482fe42dce56ee7cd8615a6" category="list-text">CS2에서 현재 활성 이미지 백업:</block>
   <block id="2ab6a6c6e3efa9ded96d007db3c8ddd6" category="paragraph">'How bootvar'입니다</block>
-  <block id="19cb75d1f662e01942f8d897534baeb7" category="list-text">실행 중인 EFOS 소프트웨어 버전을 확인합니다.</block>
   <block id="7c68cb6d1d2efbce76002169b10f787d" category="paragraph">'How version'입니다</block>
   <block id="6c3f6a049adc76db29ca1df525b7c235" category="list-text">이미지 파일을 스위치에 다운로드합니다.</block>
   <block id="9f5a2906a0e63ca6b46604a272791779" category="paragraph">이미지 파일을 활성 이미지로 복사하는 것은 재부팅할 때 해당 이미지가 실행 중인 EFOS 버전을 설정한다는 것을 의미합니다. 이전 이미지는 백업으로 사용할 수 있습니다.</block>
@@ -2698,7 +2696,6 @@
   <block id="f8a26b1330fe6b7b741993630dd932e2" category="list-text">클러스터 LIF가 홈 포트로 되돌아가는지 확인합니다(1분 정도 걸릴 수 있음).</block>
   <block id="65201dcfc7c620613613b15eb161d307" category="paragraph">클러스터 LIF가 홈 포트로 되돌리지 않은 경우 수동으로 되돌리십시오.</block>
   <block id="88fb2189d22d2886ab33f16fdca0bb5b" category="paragraph"><block ref="7eaac8e45910aa8bf3a06f6966ab0656" prefix="" category="inline-code"></block></block>
-  <block id="ea4cd01e183524e8bbb487095fe3c5d9" category="list-text">현재 RCF 파일입니다.</block>
   <block id="03c93e08ed4f9a68f6b404202d454262" category="list-text">NX-OS만 설치하고 현재 RCF 버전을 유지하는 경우 필요한 부팅 이미지를 반영하는 RCF의 부팅 구성입니다. 현재 부팅 이미지를 반영하도록 부팅 구성을 변경해야 하는 경우, 나중에 재부팅할 때 올바른 버전이 인스턴스화되도록 RCF를 다시 적용하기 전에 이 구성을 변경해야 합니다.</block>
   <block id="a0f6e8eb6b5f6a47b9079727da7ff23a" category="list-text">RCF를 설치할 때 스위치에 콘솔 연결 필요</block>
   <block id="adbc02a7e46081db3727786cb62cdc0f" category="list-title">추천 문서</block>
@@ -3200,7 +3197,6 @@
   <block id="5e13628627abec712f77b1d757bfe59f" category="list-text">EFOS 버전에 관한 다음 참고 사항을 검토하십시오.</block>
   <block id="9b2d3fb1dc09edda79dfe09e637f9716" category="list-text">EFOS 버전 3.7.x.x 이상부터는 FIPS를 준수하지 않는 버전과 FIPS 호환 버전을 사용할 수 있습니다. FIPS를 준수하지 않는 버전에서 FIPS를 준수하는 버전으로 전환할 경우 또는 그 반대로 이동할 경우 다른 단계가 적용됩니다. FIPS를 준수하지 않는 버전에서 FIPS를 준수하는 버전으로 또는 그 반대로 EFOS를 변경하면 스위치가 공장 출하 시 기본값으로 재설정됩니다. 이 절차를 수행하려면 직렬 콘솔 포트를 통해 액세스해야 합니다.</block>
   <block id="7f824481c3b83fffcad8abfa0af8b312" category="inline-link">BES-53248 클러스터 스위치 NDU가 EFOS 3.7.0.4 이상으로 업그레이드되지 않았습니다</block>
-  <block id="cec6ec2be042120b7ff4b5d0f1e40dee" category="admonition">BES-53248 클러스터 스위치를 EFOS 3.3.x.x 또는 3.4.x.x에서 EFOS 3.7.0.4 또는 3.8.0.2로 업그레이드한 후 ISL(Inter-Switch Link) 및 포트 채널이 * DOWN * 상태로 표시됩니다. KB 문서:<block ref="eb6085a70a8e8bb2aba905d5e75797ab" category="inline-link-rx"></block> 를 참조하십시오.</block>
   <block id="0fa8ca6cfd731f93388f2f318c1fb1d3" category="paragraph">다음 방법 중 하나를 사용합니다.</block>
   <block id="420b291d479da153c96fd1143e9d0e2f" category="list-text"><block ref="c306cecb30107650b346d91b7d7c74b6" category="inline-xref-macro-rx"></block>. 한 EFOS 버전이 FIPS를 준수하고 다른 EFOS 버전이 FIPS를 준수하지 않는 경우 사용합니다.</block>
   <block id="fa6c2d2a92519a714fe25ca830427ee1" category="section-title">방법 1: EFOS 설치</block>
@@ -3757,7 +3753,6 @@
   <block id="73cb4c03f2757beb35ad69fd322003be" category="list-text">[[step16]]스위치가 없는 클러스터에서 스위치 없는 클러스터로 HA 쌍 1을 변환합니다. 공유 RCF에 의해 정의된 클러스터 포트 할당을 사용합니다. 을 참조하십시오 <block ref="e0b55f136d815f7a36c41fd7fe28e0fd" category="inline-link-macro-rx"></block>를 참조하십시오.</block>
   <block id="12bc639206c2ca12e8a65041a697e4fc" category="paragraph">로 이동합니다<block ref="c686ee523547302c3fa5199eafd95753" category="inline-link-rx"></block>.</block>
   <block id="6446fc62a2115815d4bdbe55f18815c1" category="list-text"><block ref="47109c7943148b2a9617cfcb4b49a79f" category="inline-link-macro-rx"></block>.</block>
-  <block id="22eb01d1e7d6584a0da20f490dc5af77" category="paragraph"><block ref="22eb01d1e7d6584a0da20f490dc5af77" category="inline-link-macro-rx"></block></block>
   <block id="6f773061a9b11739f4b04a8b170f8f8e" category="paragraph">구성에 따라 를 수행할 수 있습니다 <block ref="bd7e5f56c6474a1d0a59eeac0ce681d7" category="inline-link-macro-rx"></block>. 그렇지 않으면 로 이동합니다 <block ref="cd3d2c6d0c8a0c43f0a0e10375ad6bbc" category="inline-link-macro-rx"></block>.</block>
   <block id="7f81bc06b8e7a4bfd515767a4b4385fe" category="list-text">[[step6]] 공유 스위치 A의 스토리지 RCF를 공유 RCF 파일로 교체합니다. 을 참조하십시오 <block ref="2f595b9f03c1eca7e988cc615d685264" category="inline-link-macro-rx"></block> 를 참조하십시오.</block>
   <block id="2b888f1fbb1010b5a426f7a2a88e0914" category="list-text">[[12단계]] 공유 스위치 B의 스토리지 RCF 파일을 공유 RCF 파일로 교체합니다. 을 참조하십시오 <block ref="2f595b9f03c1eca7e988cc615d685264" category="inline-link-macro-rx"></block> 를 참조하십시오.</block>
@@ -4441,9 +4436,7 @@
   <block id="32559ee483b61b36141f9b9e0f4bbfff" category="paragraph">NetApp Support 사이트에서 지원되는 ONTAP 및 RCF 버전은 스위치 호환성 표를 참조하십시오. RCF의 명령 구문과 특정 버전의 NX-OS에 있는 구문 사이에 명령 종속성이 있을 수 있습니다.</block>
   <block id="ad0d19783ccfa19f931108b838e4b7e4" category="list-text"><block ref="ad0d19783ccfa19f931108b838e4b7e4" category="inline-link-macro-rx"></block></block>
   <block id="79509ba15c2970f327dd8610e3b4628c" category="paragraph-title">사용된 명령</block>
-  <block id="1ad593dd61af4356ce9ba12d276c4336" category="section-title">옵션 1: 새 스위치에 RCF 파일을 설치합니다</block>
   <block id="d061b4842fee7f503446ba29253d182f" category="paragraph">Nexus 9336C-FX2 스위치를 처음 설정한 후 RCF(Reference Configuration File)를 설치합니다.</block>
-  <block id="121f18688d36f2438eb17eb52e61e7e8" category="section-title">옵션 2: 기존 스위치를 새 RCF 버전으로 업그레이드합니다</block>
   <block id="eba0713505eba2aab08d4d6fa9ca2cf7" category="paragraph">운영 스위치에 기존 버전의 RCF 파일이 설치되어 있는 경우 RCF 버전을 업그레이드합니다.</block>
   <block id="ddd0020a0684c14dbd50622f84d8917a" category="paragraph">다음 사항을 확인하십시오.</block>
   <block id="28dbd722b252673fdce3f809670e34b8" category="list-text">RCF 버전을 업데이트하는 경우 원하는 부팅 이미지를 반영하는 RCF의 부팅 구성이 필요합니다.</block>
@@ -4549,8 +4542,6 @@
   <block id="56e7024dc2e812be7449228dc66597d9" category="admonition">클러스터 네트워크 작업이 지속적으로 운영되도록 한 번에 하나의 스위치에서 EFOS를 업그레이드합니다.</block>
   <block id="c3e2e765c3744c1b19452b2f233fdd15" category="section-title">방법 1: EFOS를 업그레이드합니다</block>
   <block id="c117ec58c236a456904edaa76f1cc5a9" category="paragraph">EFOS 소프트웨어를 업그레이드하려면 다음 단계를 수행하십시오.</block>
-  <block id="061be1b61be0d3e5b21e6a5912639344" category="admonition">라이센스를 설치한 경우 해당 상태를 검토하십시오.</block>
-  <block id="84d3d1386241334d40a809878bbb05d9" category="list-text">스위치 CS1에서 5 ~ 10단계를 반복합니다.</block>
   <block id="83b8a0042e3650c5af884c9601f53043" category="inline-link-macro">LIF를 홈 포트로 되돌립니다</block>
   <block id="870c6c263570c51afc056f510d552e1f" category="paragraph">자세한 내용은 을 참조하십시오 <block ref="b9ea844d3dd5520c7767de46f1c99a2b" category="inline-link-macro-rx"></block>.</block>
   <block id="d0dc5dfd4c3b3be079653b7f0ac8d844" category="paragraph">한 EFOS 버전이 FIPS를 준수하고 다른 EFOS 버전이 FIPS를 준수하지 않는 경우 다음 단계를 수행할 수 있습니다. 이 단계는 스위치가 부팅되지 않는 경우 ONIE에서 FIPS 또는 FIPS 규격이 아닌 EFOS 3.7.x.x 이미지를 업그레이드하는 데 사용할 수 있습니다.</block>
@@ -4784,7 +4775,6 @@
   <block id="e4da4813fef5b96a216a043d594bf245" category="list-text">이전에 사용자 지정한 내용을 스위치 구성에 다시 적용합니다. <block ref="75ce5666fba6992a0719935651dd5b1b" category="inline-link-macro-rx"></block>필요한 추가 변경에 대한 자세한 내용은 을 참조하십시오.</block>
   <block id="bdbcf1c0d7f9cba19eb12819b953fbf1" category="inline-link">스위치 OS 업그레이드 중에 클러스터 LIF를 마이그레이션할 때 노드가 쿼럼 밖입니다</block>
   <block id="e6ab3c0f7886a69b4cd4dc70d1d4afa9" category="admonition">네트워크 연결 문제를 방지하려면 * 연결된 클러스터 포트 * 를 모두 종료해야 합니다. <block ref="c9b140831402716d03d51afcd09ff177" category="inline-link-rx"></block>자세한 내용은 기술 자료 문서를 참조하십시오.</block>
-  <block id="263b9f10fe7e073e656b08a5b6da7e5a" category="paragraph">이 절차의 예에서는 4개의 노드를 사용합니다. 이러한 노드에는 10GbE 클러스터 인터커넥트 포트 2개 e0a 및 e0b가 사용됩니다. <block ref="cd25cbe53f0a314145c84729c6ce2c78" category="inline-link-rx"></block>플랫폼에서 올바른 클러스터 포트를 확인하려면 를 참조하십시오.</block>
   <block id="fc9b57bfb616bf5697d55f4dc656cead" category="inline-link-macro">SSH 구성을 확인합니다</block>
   <block id="1046b0a81eea5dae9091290036b99362" category="paragraph"><block ref="4767a0bcf3ab94aeda87c79dd4096ef4" category="inline-link-macro-rx"></block>..</block>
   <block id="95baf91c437105360687405b916b57fa" category="list-text">SSH 키 암호화(* FIPS-mode 전용 *):</block>
@@ -5142,7 +5132,6 @@
   <block id="5f9610f3409d9abe96cc344156486c5e" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="4c0a19683ab4dd37cd0517d25639fa78" category="inline-link-macro-rx"></block></block>
   <block id="e796841df950e342f76a5b538574f5f6" category="paragraph">2노드 스위치 클러스터로 마이그레이션을 완료합니다.</block>
   <block id="e4ff582cba38e556dc88b3e74baf1ec1" category="paragraph">&lt;stdin&gt;-include:.../_include/install-rcf-software-9336c-cluster.adoc [ ] 의 해결되지 않은 지시문</block>
-  <block id="688523fe289426758745102b5d3ea37f" category="paragraph">&lt;stdin&gt;-include:../_include/upgrade-rcf-software-9336c-cluster.adoc [ ] 의 해결되지 않은 지시문</block>
   <block id="1ececed2a569720ced41e9cd50d7b238" category="list-text">스위치 CS1 및 스위치 CS2의 전원이 켜지고 초기 스위치 설정이 완료됩니다(관리 IP 주소와 SSH가 설정됨).</block>
   <block id="c3109b36f2c8edda93835ccefa0e4dc3" category="doc">RCF(Reference Configuration File) 개요를 설치 또는 업그레이드합니다</block>
   <block id="6d7b8066e6c7166408cb61e68a705e7f" category="list-text">두 Cisco 스위치의 이름은 * CS1 * 및 * CS2 * 입니다.</block>
@@ -5151,7 +5140,6 @@
   <block id="1c319a6cce094508e045c5bb62d6664e" category="paragraph">이 절차의 예에서는 4개의 노드를 사용합니다. 이러한 노드는 2개의 10GbE 클러스터 인터커넥트 포트 * e0a * 및 * e0b * 를 사용합니다. <block ref="cd25cbe53f0a314145c84729c6ce2c78" category="inline-link-rx"></block>플랫폼에서 올바른 클러스터 포트를 확인하려면 를 참조하십시오.</block>
   <block id="88870df2dabeaf8bc50daf8d504498e0" category="inline-link-macro">RCF를 업그레이드하십시오</block>
   <block id="d1d882c0929e664f5d3052ad227ecec9" category="paragraph"><block ref="51640e6af8359470cbd047034716b7ac" category="inline-link-macro-rx"></block><block ref="d9cc2c4eec198e8f90466b5b89bfc33e" category="inline-link-macro-rx"></block> 또는.</block>
-  <block id="fd7fe8bcb397a94d6c1c59e351072eac" category="doc">RCF(Reference Configuration File) 업그레이드</block>
   <block id="df73b0f89510f793b71a90bf50d82c10" category="list-text">현재 RCF입니다.</block>
   <block id="85e086d364dc39fb9a01f1b57e7afc52" category="list-text">ONTAP 9.10.1P3 이상</block>
   <block id="e6645191453a89d37ca94dbd791a1499" category="paragraph">SN2100 스위치는 ONTAP 9.10.1P3 이상의 다양한 스위치 쌍을 통해 클러스터 및 스토리지 애플리케이션을 지원합니다.</block>
@@ -5194,4 +5182,15 @@
   <block id="b0d1465a243b273a8f71d6084fd2c12c" category="list-text">RCF가 올바른 최신 버전인지 확인합니다.</block>
   <block id="7fd5f97719ed93b62ce57a2401ebb179" category="list-text">RCF 버전 및 스위치 설정이 올바른지 확인한 후 running-config 파일을 startup-config 파일에 복사합니다.</block>
   <block id="f7b017d791fb57f4bbb1b2ce01659ed8" category="paragraph">System Manager에서는 노드 관리 IP 주소 할당, 클러스터 초기화, 로컬 계층 생성, 프로토콜 구성, 초기 스토리지 프로비저닝 등 클러스터 설정 및 구성을 위한 간단하고 쉬운 워크플로를 제공합니다.</block>
+  <block id="7ff4d12d3e81fb159ea571275dbbb3fd" category="admonition">BES-53248 클러스터 스위치를 EFOS 3.3.x.x 또는 3.4.x.x에서 EFOS 3.7.0.4 또는 3.8.0.2로 업그레이드한 후 ISL(Inter-Switch Link) 및 포트 채널이 * DOWN * 상태로 표시됩니다. 이는 정상적인 동작이며 자동 되돌리기 LIF에 문제가 없는 한 업그레이드를 계속해도 안전합니다. 자세한 내용은 기술 자료 문서:<block ref="eb6085a70a8e8bb2aba905d5e75797ab" category="inline-link-rx"></block> 를 참조하십시오.</block>
+  <block id="4624388fca013386d1c7314566aa1510" category="list-text">백업 구성에서 시스템을 부팅합니다.</block>
+  <block id="ae791522c9f7834f0edc56277ffe2340" category="paragraph"><block ref="f2210f21804aee53def01718125f3f18" prefix="" category="inline-code"></block></block>
+  <block id="892854a85c10d8b7b832a094d0b2b95e" category="list-text">스위치 CS1에서 5 ~ 11단계를 반복합니다.</block>
+  <block id="b0411eb90c7d5ca211940fcb5d8f219a" category="doc">RCF(Reference Configuration File) 업그레이드</block>
+  <block id="657454366cb4a451c5905310b7f4d2cc" category="paragraph">Nexus 9336C-FX2 스위치를 처음 설정한 후 RCF(Reference Configuration File)를 설치할 수 있습니다.</block>
+  <block id="34b61fdbe20d7b5fdf2f4d5655d2dc71" category="list-text">스위치 간 ISL(Inter-Switch Link) 연결이 연결되어 있습니다.</block>
+  <block id="5e9fc634461251750aac2012c638665a" category="doc">RCF(참조 구성 파일) 업그레이드</block>
+  <block id="9129459f5b5477d59e1fbb13abc9bbd4" category="admonition">새 스위치 소프트웨어 버전과 RCFs를 설치하기 전에 스위치 설정을 지우고 기본 구성을 수행해야 합니다. 스위치 설정을 지우기 전에 직렬 콘솔을 사용하여 스위치에 연결하거나 기본 구성 정보를 보존해야 합니다.</block>
+  <block id="4c4876d5d981da2e6943a052d93bb189" category="list-text">NX-OS 10.2 이상의 경우<block ref="9c370f72db0e0d920841657ac5268365" prefix=" " category="inline-code"></block> 명령을 사용하여 bootflash에 저장된 RCF 파일과 비교할 수 있습니다. 그렇지 않은 경우 타사 diff 또는 compare 도구를 사용하십시오.</block>
+  <block id="0a306731a6993e7a08026ab2d7ca2d97" category="paragraph">SSH 키와 관련된 호스트 파일 항목을 업데이트해야 할 수 있습니다.</block>
 </blocks>

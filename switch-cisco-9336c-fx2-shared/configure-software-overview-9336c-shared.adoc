@@ -16,5 +16,4 @@ Cisco Nexus 9336C-FX2 공유 스위치용 소프트웨어를 설치하고 구성
 . link:prepare-nxos-rcf-9336c-shared.html["NX-OS 및 RCF 설치 준비"].
 . link:install-nxos-software-9336c-shared.html["NX-OS 소프트웨어를 설치합니다"].
 . link:install-nxos-rcf-9336c-shared.html["RCF를 설치합니다"].
-. link:configure-ssh.html["SSH를 활성화합니다"]..
 

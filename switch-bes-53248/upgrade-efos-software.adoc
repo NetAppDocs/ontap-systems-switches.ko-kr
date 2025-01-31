@@ -147,7 +147,7 @@ NOTE: 클러스터 네트워크 작업이 지속적으로 운영되도록 한 �
 EFOS 소프트웨어를 업그레이드하려면 다음 단계를 수행하십시오.
 
 
-IMPORTANT: BES-53248 클러스터 스위치를 EFOS 3.3.x.x 또는 3.4.x.x에서 EFOS 3.7.0.4 또는 3.8.0.2로 업그레이드한 후 ISL(Inter-Switch Link) 및 포트 채널이 * DOWN * 상태로 표시됩니다. KB 문서: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric%2C_Interconnect_and_Management_Switches/BES-53248_Cluster_Switch_NDU_failed_upgrade_to_EFOS_3.7.0.4_and_later["BES-53248 클러스터 스위치 NDU가 EFOS 3.7.0.4 이상으로 업그레이드되지 않았습니다"^] 를 참조하십시오.
+IMPORTANT: BES-53248 클러스터 스위치를 EFOS 3.3.x.x 또는 3.4.x.x에서 EFOS 3.7.0.4 또는 3.8.0.2로 업그레이드한 후 ISL(Inter-Switch Link) 및 포트 채널이 * DOWN * 상태로 표시됩니다. 이는 정상적인 동작이며 자동 되돌리기 LIF에 문제가 없는 한 업그레이드를 계속해도 안전합니다. 자세한 내용은 기술 자료 문서: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric%2C_Interconnect_and_Management_Switches/BES-53248_Cluster_Switch_NDU_failed_upgrade_to_EFOS_3.7.0.4_and_later["BES-53248 클러스터 스위치 NDU가 EFOS 3.7.0.4 이상으로 업그레이드되지 않았습니다"^] 를 참조하십시오.
 
 .단계
 . BES-53248 클러스터 스위치를 관리 네트워크에 연결합니다.
@@ -190,81 +190,10 @@ network interface modify -vserver Cluster -lif * -auto-revert false
 --------------------------------------------------------------------
  unit      active      backup        current-active    next-active
 --------------------------------------------------------------------
-    1      3.7.0.4     3.4.4.6       3.7.0.4           3.7.0.4
+    1      3.7.0.4     3.4.4.6              3.7.0.4        3.7.0.4
 
 ----
 ====
-. CS2에서 현재 활성 이미지 백업:
-+
-[source, cli]
-----
-copy active backup
-----
-+
-.예제 보기
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-(cs2)# *copy active backup*
-Copying active to backup
-Management access will be blocked for the duration of the operation
-Copy operation successful
-
-(cs2)# *show bootvar*
-
-Image Descriptions
-
- active :
- backup :
- Images currently available on Flash
---------------------------------------------------------------------
- unit      active      backup      current-active    next-active
-------------------------------------------------------------------
-    1      3.7.0.4     3.4.4.6       3.7.0.4           3.7.0.4
-(cs2)#
-----
-====
-. 실행 중인 EFOS 소프트웨어 버전을 확인합니다.
-+
-'How version'입니다
-
-+
-.예제 보기
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-(cs2)# *show version*
-
-Switch: 1
-
-System Description............................. BES-53248A1, 3.7.0.4, Linux 4.4.117-ceeeb99d, 2016.05.00.05
-Machine Type................................... BES-53248A1
-Machine Model.................................. BES-53248
-Serial Number.................................. QTFCU38260014
-Maintenance Level.............................. A
-Manufacturer................................... 0xbc00
-Burned In MAC Address.......................... D8:C4:97:71:12:3D
-Software Version............................... 3.7.0.4
-Operating System............................... Linux 4.4.117-ceeeb99d
-Network Processing Device...................... BCM56873_A0
-CPLD Version................................... 0xff040c03
-
-Additional Packages............................ BGP-4
-...............................................	QOS
-...............................................	Multicast
-............................................... IPv6
-............................................... Routing
-............................................... Data Center
-............................................... OpEN API
-............................................... Prototype Open API
-----
-====
-+
-
-NOTE: 라이센스를 설치한 경우 해당 상태를 검토하십시오.
-
 . 이미지 파일을 스위치에 다운로드합니다.
 +
 이미지 파일을 활성 이미지로 복사하는 것은 재부팅할 때 해당 이미지가 실행 중인 EFOS 버전을 설정한다는 것을 의미합니다. 이전 이미지는 백업으로 사용할 수 있습니다.
@@ -272,7 +201,7 @@ NOTE: 라이센스를 설치한 경우 해당 상태를 검토하십시오.
 +
 [listing, subs="+quotes"]
 ----
-(cs2)# *copy sftp://root@172.19.2.1//tmp/EFOS-3.10.0.3.stk active*
+(cs2)# *copy sftp://root@172.19.2.1//tmp/EFOS-3.10.0.3.stk backup*
 Remote Password:********
 
 Mode........................................... SFTP
@@ -280,7 +209,7 @@ Set Server IP.................................. 172.19.2.1
 Path........................................... //tmp/
 Filename....................................... EFOS-3.10.0.3.stk
 Data Type...................................... Code
-Destination Filename........................... active
+Destination Filename........................... backup
 
 Management access will be blocked for the duration of the transfer
 Are you sure you want to start? (y/n) *y*
@@ -307,10 +236,65 @@ Image Descriptions
  backup :
 
  Images currently available on Flash
---------------------------------------------------------------------
+------------------------------------------------------------------
  unit      active      backup      current-active    next-active
---------------------------------------------------------------------
-    1      3.7.0.4     3.7.0.4     3.7.0.4           3.10.0.3
+------------------------------------------------------------------
+    1      3.7.0.4    3.7.0.4             3.7.0.4       3.10.0.3
+----
+====
+. 백업 구성에서 시스템을 부팅합니다.
++
+`boot system backup`
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *boot system backup*
+Activating image backup ..
+----
+. 활성 및 백업 구성에 대한 부팅 이미지를 표시합니다.
++
+'How bootvar'입니다
+
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)# *show bootvar*
+
+Image Descriptions
+
+ active :
+ backup :
+
+ Images currently available on Flash
+------------------------------------------------------------------
+ unit      active      backup      current-active    next-active
+------------------------------------------------------------------
+    1    3.10.0.3    3.10.0.3            3.10.0.3       3.11.0.2
+----
+====
+. 실행 중인 구성을 시작 구성에 저장합니다.
++
+쓰기 메모리
+
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)# *write memory*
+This operation may take a few minutes.
+
+Management interfaces will not be available during this time.
+
+Are you sure you want to save? (y/n) *y*
+
+Config file 'startup-config' created successfully.
+Configuration Saved!
 ----
 ====
 . 스위치를 재부팅합니다.
@@ -369,7 +353,7 @@ Additional Packages............................ BGP-4
 ............................................... Prototype Open API
 ----
 ====
-. 스위치 CS1에서 5 ~ 10단계를 반복합니다.
+. 스위치 CS1에서 5 ~ 11단계를 반복합니다.
 . 클러스터 LIF에서 자동 되돌리기 기능을 설정합니다.
 +
 [source, cli]
