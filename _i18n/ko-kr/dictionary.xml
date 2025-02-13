@@ -4707,7 +4707,6 @@
   <block id="c76d1ab1bab3f2bc0c89856d8d6e3d40" category="paragraph">CSHM을 지원하는 특정 스위치에 대해 SNMPv3를 구성하려면 다음 절차를 따르십시오.</block>
   <block id="5fb3828593766d454e79a0dcf52fed9d" category="paragraph">다음 명령은 * Broadcom *, * Cisco * 및 * NVIDIA * 스위치에서 SNMPv3 사용자 이름을 구성하는 데 사용됩니다.</block>
   <block id="77f3beca20fcd78f77236507e8d9b4af" category="open-title">Broadcom 스위치</block>
-  <block id="89fe808c6ef5fe301085b5abe4406d35" category="paragraph">Broadcom BES-53248 스위치에서 SNMPv3 사용자 이름 네트워크 운영자를 구성합니다.</block>
   <block id="c59df2c71925eefec8dc03aa685125c8" category="list-text">인증 없음 * 의 경우:</block>
   <block id="4c58055d9b16c25c354c591188cb27ae" category="list-text">MD5/SHA 인증 * 의 경우:</block>
   <block id="b00500f501ccb5c8ab2313d810b6ff29" category="list-text">AES/DES 암호화를 사용하는 * MD5/SHA 인증 *:</block>
@@ -5193,4 +5192,6 @@
   <block id="9129459f5b5477d59e1fbb13abc9bbd4" category="admonition">새 스위치 소프트웨어 버전과 RCFs를 설치하기 전에 스위치 설정을 지우고 기본 구성을 수행해야 합니다. 스위치 설정을 지우기 전에 직렬 콘솔을 사용하여 스위치에 연결하거나 기본 구성 정보를 보존해야 합니다.</block>
   <block id="4c4876d5d981da2e6943a052d93bb189" category="list-text">NX-OS 10.2 이상의 경우<block ref="9c370f72db0e0d920841657ac5268365" prefix=" " category="inline-code"></block> 명령을 사용하여 bootflash에 저장된 RCF 파일과 비교할 수 있습니다. 그렇지 않은 경우 타사 diff 또는 compare 도구를 사용하십시오.</block>
   <block id="0a306731a6993e7a08026ab2d7ca2d97" category="paragraph">SSH 키와 관련된 호스트 파일 항목을 업데이트해야 할 수 있습니다.</block>
+  <block id="8b4a2ab0394283209f67c0b0e8ca9f94" category="list-text">Broadcom 및 Cisco 스위치를 사용한 로그 수집의 경우 로그 수집이 활성화된 각 설정에 대해 스위치에 새 사용자를 생성해야 합니다. 이러한 스위치는 동일한 사용자에 대해 여러 SSH 키를 지원하지 않습니다. 수행된 추가 로그 수집 설정은 사용자의 기존 SSH 키를 덮어씁니다.</block>
+  <block id="1d768064a88b1cd8a98efaa14d7f9949" category="paragraph">Broadcom BES-53248 스위치에서 SNMPv3 사용자 이름 SNMPv3_user를 구성합니다.</block>
 </blocks>

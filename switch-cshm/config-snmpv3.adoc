@@ -27,25 +27,25 @@ CSHM을 지원하는 특정 스위치에 대해 SNMPv3를 구성하려면 다음
 ====
 .Broadcom 스위치
 --
-Broadcom BES-53248 스위치에서 SNMPv3 사용자 이름 네트워크 운영자를 구성합니다.
+Broadcom BES-53248 스위치에서 SNMPv3 사용자 이름 SNMPv3_user를 구성합니다.
 
 * 인증 없음 * 의 경우:
 +
 [source, cli]
 ----
-snmp-server user SNMPv3UserNoAuth NETWORK-OPERATOR noauth
+snmp-server user SNMPv3UserNoAuth SNMPv3_USER noauth
 ----
 * MD5/SHA 인증 * 의 경우:
 +
 [source, cli]
 ----
-snmp-server user SNMPv3UserAuth NETWORK-OPERATOR [auth-md5|auth-sha]
+snmp-server user SNMPv3UserAuth SNMPv3_USER [auth-md5|auth-sha]
 ----
 * AES/DES 암호화를 사용하는 * MD5/SHA 인증 *:
 +
 [source, cli]
 ----
-snmp-server user SNMPv3UserAuthEncrypt NETWORK-OPERATOR [auth-md5|auth-sha] [priv-aes128|priv-des]
+snmp-server user SNMPv3UserAuthEncrypt SNMPv3_USER [auth-md5|auth-sha] [priv-aes128|priv-des]
 ----
 
 
