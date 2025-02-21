@@ -21,7 +21,7 @@ Cisco NX-OS 소프트웨어 및 참조 구성 파일(RCFs)은 Cisco Nexus 9336C-
 +
 Cisco Nexus 9336C-FX2 클러스터 스위치에서 NX-OS 소프트웨어를 다운로드하고 설치하거나 업그레이드합니다.
 
-. link:install-nxos-rcf-9336c-cluster.html["RCF를 설치하거나 업그레이드합니다"]..
+. link:install-upgrade-rcf-overview-cluster.html["RCF를 설치하거나 업그레이드합니다"]..
 +
 Cisco Nexus 9336C-FX2 스위치를 처음 설정한 후 RCF를 설치하거나 업그레이드합니다. 이 절차를 사용하여 RCF 버전을 업그레이드할 수도 있습니다.
 

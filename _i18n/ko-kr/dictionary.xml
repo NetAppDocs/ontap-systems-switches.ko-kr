@@ -56,19 +56,10 @@
   <block id="c0f264a6f90e5505b277b8a8526dbfba" category="admonition">이러한 명령에서 오류가 반환되면 NetApp 지원에 문의하십시오.</block>
   <block id="68cefdf66be1d7a7b066be08057d6859" category="list-text">자동 케이스 생성을 억제한 경우 AutoSupport 메시지 '시스템 노드 AutoSupport invoke -node * -type all-message MAINT=end'를 호출하여 다시 활성화합니다</block>
   <block id="f4041989c699a535116c689437df5c7f" category="inline-link">NetApp 소프트웨어 다운로드</block>
-  <block id="474f795914b70c8d0fc4aa239c11011e" category="list-text">해당 ONTAP 릴리스 버전을 기반으로 클러스터 스위치 상태 모니터 구성 zip 파일을 다운로드합니다. 이 파일은 에서 사용할 수 있습니다<block ref="cb382f539d8e67a00135c8306b3d74b6" category="inline-link-rx"></block> 페이지.</block>
   <block id="87a71c7310f603842228cb9ab1b19ec2" category="list-text">소프트웨어 다운로드 페이지에서 * 상태 모니터 구성 파일 전환 * 을 선택합니다</block>
-  <block id="71e7226148073765129cd7907345e8d0" category="list-text">Platform= * ONTAP * 를 선택하고 * Go! * 를 클릭합니다</block>
-  <block id="10ecf803d0b4415af42ea78c998ea4d0" category="list-text">ONTAP용 상태 모니터 구성 파일 전환 페이지에서 * 보기 및 다운로드 * 를 클릭합니다</block>
-  <block id="7b5f1af07f17424faae23117b93de4fb" category="list-text">ONTAP용 스위치 상태 모니터 구성 파일 - 설명 페이지에서 해당 클러스터 스위치 모델에 대해 * 다운로드 * 를 클릭합니다(예: * Cisco Nexus 92300YC *)</block>
-  <block id="89d871d0880e9496071a54d271f32095" category="list-text">최종 사용자 사용권 계약 페이지에서 * 동의 * 를 클릭합니다</block>
-  <block id="d9342955a19c127d0b1dd4e72f3e86b1" category="list-text">ONTAP용 스위치 상태 모니터 구성 파일 - 다운로드 페이지에서 해당 구성 파일(예: * cisco_nNexus_92300YC.zip *)을 선택합니다</block>
   <block id="3a1759e54cb06a13c2c5b9b85a4c5282" category="list-text">해당 zip 파일을 내부 웹 서버에 업로드하면 IP 주소가 x.x.x.x 입니다</block>
   <block id="903944fca05d1da45a504e69ed5609fb" category="paragraph">내부 웹 서버 IP 주소 192.168.2.20의 경우 /usr/download 디렉토리가 있다고 가정하면 SCP를 사용하여 zip 파일을 웹 서버에 업로드할 수 있습니다.</block>
-  <block id="eacf976afedcff2a1b48626c95df5ae6" category="list-text">고급 명령 set-privilege를 사용하여 클러스터의 ONTAP 시스템 중 하나에서 고급 모드 설정에 액세스합니다.</block>
-  <block id="5b1c58aff8e7e4b9950fac4fb9b4f420" category="list-text">스위치 상태 모니터 configure 명령을 실행합니다. system cluster -switch configure -health-monitor -node * -package -url X.X.X/location_to_download_zip_file:</block>
   <block id="f4ab3be3915b88f9d23c5faf297e78ff" category="list-text">명령 출력에 "downloaded package processed successfully" 텍스트 문자열이 포함되어 있는지 확인합니다. 오류가 발생하면 NetApp 지원 팀에 문의하십시오.</block>
-  <block id="56900e070e593f86cfcbc92add3c9eda" category="admonition">언제든지 이전 버전의 ONTAP로 되돌릴 경우 92300YC 클러스터 스위치의 스위치 상태 모니터링을 활성화하려면 CSHM 구성 파일을 다시 설치해야 합니다.</block>
   <block id="1badeb97f43ea36c10469c15adb79096" category="summary">Cisco Nexus 9336C-FX2 스위치 및 패스스루 패널을 스위치에 포함된 표준 브래킷과 함께 NetApp 캐비닛에 설치할 수 있습니다.</block>
   <block id="4d3903f57cd5de0c57c9b5451b80b72d" category="inline-link">Cisco Nexus 9000 시리즈 하드웨어 설치 가이드 를 참조하십시오</block>
   <block id="e100dc954517cdb4f6f664776708ea27" category="list-text">각 스위치에 대해 브래킷 및 슬라이더 레일을 전면 및 후면 캐비닛 포스트에 장착하기 위해 8개의 10-32 또는 12-24개의 나사와 클립 너트를 제공해야 합니다.</block>
@@ -3553,12 +3544,6 @@
   <block id="b37ec6b5e583c4d4165c4f6468ff4c8d" category="paragraph"><block ref="ec4312d0db3bce928129e7e5c3a58d73" category="inline-link-rx"></block> 에는 해당 플랫폼의 실제 클러스터 포트에 대한 최신 정보가 나와 있습니다.</block>
   <block id="932e02f4dd5ce2afc5f1d337171bbe3b" category="paragraph">+ 다음 예에서는 스위치 CS2에서 ISL 포트가 작동함을 보여 줍니다.</block>
   <block id="a0913b1d0ca305ccc8a7cd70035752bf" category="paragraph">+ 다음 예에서는 스위치 CS2의 인접 장치를 나열합니다.</block>
-  <block id="e14d75f19493380754a91f619e066d40" category="summary">이 절차를 사용하여 Nexus 92300YC 클러스터 스위치의 클러스터 스위치 상태 모니터링에 해당하는 구성 파일을 설치할 수 있습니다.</block>
-  <block id="1ff6e6ca835c55f7604fe145c9b7b1a0" category="paragraph">다음 절차에 따라 Nexus 92300YC 클러스터 스위치의 클러스터 스위치 상태 모니터링에 해당하는 구성 파일을 설치합니다.</block>
-  <block id="a83f4b45204cd2c802ce925a2c2acf4e" category="paragraph">ONTAP 릴리즈 9.5P7 및 이전 버전 9.6P2 및 이전 버전에서는 클러스터 스위치 상태 모니터 구성 파일을 별도로 다운로드해야 합니다. ONTAP 릴리즈 9.5P8 이상, 9.6P3 이상 및 9.7 이상에서는 클러스터 스위치 상태 모니터 구성 파일이 ONTAP와 함께 번들로 제공됩니다.</block>
-  <block id="742faf5d1d23380cf8bd803a6d0e5587" category="paragraph">92300YC 클러스터 스위치용 스위치 상태 모니터를 설정하기 전에 ONTAP 클러스터가 작동 중이고 실행 중인지 확인하십시오.</block>
-  <block id="5b9e24c0df9b0a3c36ea2bc4f8f5689d" category="admonition">또한 CSHM에서 사용 가능한 모든 기능을 사용하려면 SSH를 활성화해야 합니다.</block>
-  <block id="9c25093bf19e7e3701836da707bde234" category="list-text">ONTAP 시스템에서 system cluster-switch show 명령을 실행하고 모니터링되는 필드가 "True"로 설정된 상태에서 클러스터 스위치가 검색되는지 확인합니다.</block>
   <block id="a0a9cbf20cafab0efc048f27174d4b6b" category="paragraph">다음 절차에 따라 Nexus 92300YC 스위치에 NX-OS 소프트웨어를 설치합니다.</block>
   <block id="4467c0e8315716749952b403b5a34f1e" category="list-title">지원되는 포트 및 노드 연결</block>
   <block id="4f1029afef8c698983cd55b4b7196076" category="list-text">해당 NetApp Cisco NX-OS 소프트웨어가 의 NetApp Support 사이트 스위치에 적용됩니다<block ref="7bc6752d2076d2c755eaebbdfeb91d23" category="inline-link-rx"></block></block>
@@ -3687,7 +3672,6 @@
   <block id="be822dc3c2f09a2076f72c87018d7d7b" category="list-text"><block ref="8e341dc1e80127ca0dc2c12db6d0237a" category="inline-link-macro-rx"></block>.</block>
   <block id="279268b426208b389290aef165bbd309" category="paragraph">구성에 따라 Cisco Nexus 9336C-FX2 스위치 및 패스스루 패널을 스위치에 포함된 표준 브래킷과 함께 NetApp 캐비닛에 설치할 수 있습니다.</block>
   <block id="04d079026b4a7b63a084b7ab24426723" category="list-text"><block ref="16a9a5fa8979bab3106e7aad0dfd20d9" category="inline-link-macro-rx"></block>.</block>
-  <block id="b7f670881100cb5015f24ab017668ff1" category="list-text"><block ref="1310b35f96fb7b8136de7cec708b0834" category="inline-link-macro-rx"></block>.</block>
   <block id="fd280d62f276e98d2c1156b6a7cd8932" category="paragraph">BES-53248 클러스터 스위치에서 이더넷 패브릭 OS(EFOS) 소프트웨어를 다운로드하여 설치합니다.</block>
   <block id="e5e0ceddda654af2c9e3c1386537e4f7" category="paragraph">필요에 따라 라이센스를 추가로 구입하여 설치하여 새 포트를 추가합니다. 스위치 기본 모델은 10GbE 또는 25GbE 포트 16개와 100GbE 포트 2개에 대해 라이센스가 부여됩니다.</block>
   <block id="b983f14988f359bc65d91f081089597f" category="list-text"><block ref="e2b4c4f5313b05dff7c4a02a4e9e0df6" category="inline-link-macro-rx"></block>.</block>
@@ -3829,8 +3813,6 @@
   <block id="b2fa408052dc67c0683eaf90858b073f" category="inline-link">NVIDIA 사용자 계정</block>
   <block id="9fce5f0b8e1dcabf168f42a400a2d10d" category="paragraph">을 참조하십시오<block ref="2d38cb404d4e76c701a1714802ee2c54" category="inline-link-rx"></block> 를 참조하십시오.</block>
   <block id="be8d2db807f6ccc0599691b80f14b976" category="list-text">Cumulus Linux가 설치되었습니다. 를 참조하십시오<block ref="c043e01cdc55399f824e6d1e4eb8a5b5" category="inline-link-rx"></block> 를 참조하십시오.</block>
-  <block id="6c92285fa6d3e827b198d120ea3ac674" category="inline-link">여기</block>
-  <block id="b6a9bacb15977dcaaa1e05f20cc4d13b" category="paragraph">클러스터 및 스토리지 애플리케이션에 사용 가능한 RCF 스크립트 2개가 있습니다. 에서 RCFs를 다운로드합니다<block ref="89efcd657168a1e707caf54da1923871" category="inline-link-rx"></block>. 각각의 절차는 동일합니다.</block>
   <block id="54d4022f2a747cb4974fcf06961bdb21" category="list-text">클러스터: * MSN2100-RCF-v1._x_-Cluster-HA-Breakout-LLDP *</block>
   <block id="eac7436c884133e6b945a51430510a32" category="list-text">스토리지: * MSN2100-RCF-v1._x_-스토리지 *</block>
   <block id="b9dfe38b5e91454220a6cd1f3cfb9ac8" category="admonition">3단계 * 위의 MOTD 파일 업데이트 * 에서, 명령어<block ref="900d965bd90d181d344d976a0e3093d8" prefix=" " category="inline-code"></block> 가 실행됩니다. 이를 통해 RCF 배너에서 RCF 파일 이름, RCF 버전, 사용할 포트 및 기타 중요한 정보를 확인할 수 있습니다.</block>
@@ -3923,7 +3905,6 @@
   <block id="b211f67e6e9195c32683368a53542802" category="paragraph">이 예에서는 스위치 CS2에서 RCF를 부트 플래시에 복사하는 데 사용되는 SFTP를 보여 줍니다.</block>
   <block id="c77174e35b7f7fc235a87561809ad614" category="list-text">의 배너 출력을 확인합니다<block ref="db837131dc56fab41bddc52d5aff8865" prefix=" " category="inline-code"></block> 명령. 스위치의 올바른 구성과 작동을 위해 이 지침을 읽고 따라야 합니다.</block>
   <block id="420b545896cb1c9b03dbccd44bf33f86" category="list-text">스위치에서 RCF가 적용된 후 라이센스가 부여된 추가 포트가 표시되는지 확인합니다.</block>
-  <block id="6285269d7b8b003aed53cad1f3d13717" category="list-text">모든 클러스터 노드 연결 케이블을 이전 CS2 스위치에서 새 CS2-새 스위치로 이동합니다.</block>
   <block id="f8e1e48a80ce2fac4d53a95f1f1ffd18" category="paragraph">* 클러스터 노드 연결 케이블이 CS2로 이동됨 - 새 스위치 *</block>
   <block id="e07ca5d2322ee212c9dcb668e9db443a" category="image-alt">클러스터 노드 연결 케이블이 CS2-새 스위치로 이동했습니다</block>
   <block id="604d674dc95a98cb2db636e889289949" category="list-text">클러스터 노드 연결 케이블을 CS1에서 새 CS1-새 스위치로 이동합니다.</block>
@@ -4587,7 +4568,6 @@
   <block id="7d48e882dc8cfcd3a44f3f59ba949595" category="paragraph">Nexus 9000 시리즈 스위치의 Cisco NX-OS 소프트웨어의 중단 업그레이드/다운그레이드에 대한 정보를 제공합니다
 현재 릴리스 및 대상 릴리스 기준.</block>
   <block id="d6221baaf45cc1f4ed9ce13f32541fa8" category="paragraph">페이지에서 * Disruptive Upgrade * 를 선택하고 드롭다운 목록에서 현재 릴리스 및 대상 릴리스를 선택합니다.</block>
-  <block id="103347887335950e25df4c7b93bdd950" category="paragraph"><block ref="103347887335950e25df4c7b93bdd950" category="inline-link-macro-rx"></block></block>
   <block id="cf3a2d2c139bf5c9cc87fe714bfff3b1" category="list-text">다음 사항에 유의하십시오.</block>
   <block id="3ee80345befd8ba67ee5e3200beb2fd8" category="list-text">스위치에 추가 포트 라이센스가 설치된 경우 RCF를 수정하여 추가 라이센스 포트를 구성해야 합니다. 을 참조하십시오 <block ref="029ce138066352981401c2da3f4be7ea" category="inline-link-macro-rx"></block> 를 참조하십시오.</block>
   <block id="febb316f33bb4f57154038c792c90fc0" category="list-text">이전 RCF에서 만든 사용자 지정을 기록하고 새 RCF에 적용합니다. 예를 들어, 포트 속도 또는 하드 코딩 FEC 모드를 설정할 수 있습니다.</block>
@@ -4626,11 +4606,7 @@
   <block id="c36caaf00f9a67804cb39871b93b4fb1" category="list-text">최종 사용자 사용권 계약 페이지에서 동의할 확인란을 선택하고 * Accept &amp; Continue * 를 클릭합니다.</block>
   <block id="e5e0b87b73538c14eb1223ba2685b479" category="list-text">Nvidia CSHM 파일 - 다운로드 페이지에서 해당 구성 파일을 선택합니다. 다음 파일을 사용할 수 있습니다.</block>
   <block id="4b96de8aec25594d2021f91d86aa38cb" category="open-title">ONTAP 9.15.1 이상</block>
-  <block id="b834fb250d0f1e06556ff2af9ce370ff" category="list-text">X190006-PE.zip</block>
-  <block id="33ab7322815a985fdb6cbba64b9ffda9" category="list-text">X190006-PI.zip</block>
   <block id="9fc9e8ea7a5cdfe68b4528fb16936bf1" category="open-title">ONTAP 9.11.1 ~ 9.14.1</block>
-  <block id="00032ac6acd20eb8310604aa0ac6a200" category="list-text">X190006-PE_PRIOR_9.15.1.zip</block>
-  <block id="6a9e7f50780a2f2b4e2b5999c1b1ae2b" category="list-text">X190006-PI_PRIOR_9.15.1.zip</block>
   <block id="3e5315d19591c6790a6c062127cf9a8e" category="list-text">[[step2]] 해당 zip 파일을 내부 웹 서버에 업로드합니다.</block>
   <block id="e319ecf1cb942a0710da7d0d525af1db" category="list-text">클러스터의 ONTAP 시스템 중 하나에서 고급 모드 설정에 액세스합니다.</block>
   <block id="4072831dc74599297a173c0e1d86b538" category="list-text">switch 상태 monitor configure 명령을 실행합니다.</block>
@@ -5193,5 +5169,46 @@
   <block id="4c4876d5d981da2e6943a052d93bb189" category="list-text">NX-OS 10.2 이상의 경우<block ref="9c370f72db0e0d920841657ac5268365" prefix=" " category="inline-code"></block> 명령을 사용하여 bootflash에 저장된 RCF 파일과 비교할 수 있습니다. 그렇지 않은 경우 타사 diff 또는 compare 도구를 사용하십시오.</block>
   <block id="0a306731a6993e7a08026ab2d7ca2d97" category="paragraph">SSH 키와 관련된 호스트 파일 항목을 업데이트해야 할 수 있습니다.</block>
   <block id="8b4a2ab0394283209f67c0b0e8ca9f94" category="list-text">Broadcom 및 Cisco 스위치를 사용한 로그 수집의 경우 로그 수집이 활성화된 각 설정에 대해 스위치에 새 사용자를 생성해야 합니다. 이러한 스위치는 동일한 사용자에 대해 여러 SSH 키를 지원하지 않습니다. 수행된 추가 로그 수집 설정은 사용자의 기존 SSH 키를 덮어씁니다.</block>
-  <block id="1d768064a88b1cd8a98efaa14d7f9949" category="paragraph">Broadcom BES-53248 스위치에서 SNMPv3 사용자 이름 SNMPv3_user를 구성합니다.</block>
+  <block id="89fe808c6ef5fe301085b5abe4406d35" category="paragraph">Broadcom BES-53248 스위치에서 SNMPv3 사용자 이름 네트워크 운영자를 구성합니다.</block>
+  <block id="97e3bfa41185c29b8e204545b638d532" category="open-title">NVIDIA - CLI 5.11</block>
+  <block id="3a5cc736f1918e798338d9e890393631" category="paragraph">CLI 5.11를 실행하는 NVIDIA SN2100 스위치에서 SNMPv3 사용자 이름 SNMPv3_user 구성:</block>
+  <block id="01fabc1436d158d1079e5aac28e9fdc4" category="list-text">[[step_4]] 클러스터 LIF에서 자동 되돌리기 기능을 사용하지 않도록 설정합니다.</block>
+  <block id="5b7bd3025678f1b622b4cfd0f4313991" category="inline-xref">단계. 10</block>
+  <block id="4ea7139be4dc5337c4d5a24c536b310e" category="list-text">클러스터 LIF가 CS1 스위치로 페일오버했고 클러스터가 정상 상태인 경우 로 이동합니다<block ref="1d8bc3843ab5c78170d8cf97ded2a73f" category="inline-xref-macro-rx"></block>. 일부 클러스터 LIF가 정상 상태가 아니거나 클러스터가 비정상 상태인 경우 다음과 같이 스위치 CS2에 대한 연결을 롤백할 수 있습니다.</block>
+  <block id="b52df29b27288e7509af85c891cfa88b" category="list-text">모든 * 노드의 클러스터 포트에 연결된 포트를 불러옵니다.</block>
+  <block id="ca0787e835ac5a719db1548573613d0f" category="inline-xref">단계. 4</block>
+  <block id="bee24c21734f4c3230186de99029991e" category="list-text">LIF 및 클러스터 상태가 복원되면 에서 프로세스를 다시 시작합니다<block ref="6f1447d50cf784e5bfe7d2099a4e4237" category="inline-xref-macro-rx"></block>.</block>
+  <block id="701f1b96f3c7f1e9d631ebd244cb5751" category="list-text">[[STEP_10]] 모든 클러스터 노드 연결 케이블을 이전 CS2 스위치에서 새 CS2-NEW 스위치로 이동합니다.</block>
+  <block id="e443d0981e8ed96d62afd1a1990bd924" category="list-text"><block ref="e1c53d78ceb09f1d765f98cd902707bb" category="inline-link-macro-rx"></block>..</block>
+  <block id="dbe9b3c650ae4dca2117921c884a54d2" category="paragraph"><block ref="dbe9b3c650ae4dca2117921c884a54d2" category="inline-link-macro-rx"></block></block>
+  <block id="04809177ba282c138a7aa6bfb72e2303" category="list-text"><block ref="a01edf94205db0a19942e0d6099d8722" category="inline-link-macro-rx"></block>..</block>
+  <block id="4e83c3d43e8660c85f2e2b6e1374c91c" category="inline-link">NVIDIA SN2100 소프트웨어 다운로드</block>
+  <block id="618905d758007147320232ab81a98bf3" category="paragraph">클러스터 및 스토리지 애플리케이션에 사용 가능한 RCF 스크립트 2개가 있습니다. 페이지에서 RCFs<block ref="5baf2e10c7d5342617f6966efa0bb2fe" category="inline-link-rx"></block>를 다운로드하십시오. 각각의 절차는 동일합니다.</block>
+  <block id="ad1d45bcb656bf91a079869a2361d735" category="open-title">Cumulus Linux 5.4 를 참조하십시오</block>
+  <block id="ccd8680433ee6ee996cb1f0a2ae6fb85" category="admonition">나열된 예외 사항은 성능에 영향을 주지 않으므로 무시해도 됩니다.</block>
+  <block id="a8b6e34450406e412ecb8d40596d9a8d" category="open-title">Cumulus Linux 5.11</block>
+  <block id="554b50c45dae7ea0e30a60829694ee3a" category="admonition">이 예제에 사용되기는 하지만<block ref="8a444a43bdf534c0c6338bb7809659b3" prefix=" " category="inline-code"></block> 선호하는 파일 전송 방법을 사용할 수 있습니다.</block>
+  <block id="9cb95d38203cf6445dec8201a9a5b8df" category="paragraph">다음 절차에 따라 NVIDIA 클러스터 스위치의 이더넷 스위치 상태 모니터링을 위한 해당 구성 파일을 설치하십시오.</block>
+  <block id="118235a8412030b4348eaf7beb295e9a" category="paragraph">지원되는 모델:</block>
+  <block id="4439fd91d84b3562f1b65b6624b8e4af" category="list-text">MSN2100-CB2FC를 참조하십시오</block>
+  <block id="95457e019d4e34bf1527cfc720276bde" category="list-text">MSN2100-CB2RC를 참조하십시오</block>
+  <block id="0a7c753e8699d579b1dd4105b9e6b566" category="list-text">모든 노드에서 디렉토리를 지웁니다<block ref="8be5dd683a73b3d7c1a85aa778b3c099" prefix=" " category="inline-code"></block>.</block>
+  <block id="ccbc1b6fe0fb2c14a182936d44b7998a" category="list-text">노드 쉘을 입력합니다.</block>
+  <block id="fbae52a4debd6c92af11b0063f9a23d8" category="paragraph"><block ref="ce0584b63a66ddeac8919682fc93ce1a" prefix="" category="inline-code"></block></block>
+  <block id="efe7a477280f5bfdffb85faa6e94d148" category="list-text">고급 권한으로 변경:</block>
+  <block id="04f8c8c881d9c66c4b51ab93a42ab746" category="paragraph"><block ref="37c965129cc09840500d7671b0accef3" prefix="" category="inline-code"></block></block>
+  <block id="771d6c6c56d83746eaa82bd62e11363c" category="list-text">디렉터리의 구성 파일을<block ref="e4b3e6938bc5f3e3c811cf46ae8b7d53" prefix=" " category="inline-code"></block> 나열합니다. 디렉토리가 있고 구성 파일이 포함되어 있으면 파일 이름이 나열됩니다.</block>
+  <block id="6e89d35fb8a737baae7064c5ba2d6485" category="paragraph"><block ref="47f0187f585158fcdf3257a96c5d4bab" prefix="" category="inline-code"></block></block>
+  <block id="804c8f34f92745eacda3674d93c6ede1" category="list-text">연결된 스위치 모델에 해당하는 모든 node 파일을 삭제합니다.</block>
+  <block id="f938cfce39fe890a9f9b521c87a02106" category="paragraph">확실하지 않은 경우, 위에 나열된 지원 모델에 대한 모든 nod 파일을 제거한 다음 해당 모델에 대한 최신 nod 파일을 다운로드하여 설치합니다.</block>
+  <block id="ff9495347e1ccb9f937f04b4bbdd58bb" category="paragraph"><block ref="529be1cf6940ca38f1fda287a22c9fda" prefix="" category="inline-code"></block></block>
+  <block id="410e37690b6661c1eaeb818d9bed27c0" category="list-text">삭제된 nod 파일이 더 이상 디렉토리에 없는지 확인합니다.</block>
+  <block id="76bde9294ef84452f21b2745228ae290" category="list-text">MSN2100-CB2FC-v1.4.zip</block>
+  <block id="85c07a49f236d7b33a2e8b48d076ed48" category="list-text">MSN2100-CB2RC-v1.4.zip</block>
+  <block id="ae5e87300b042b85bdd2853f386265e7" category="list-text">X190006-PE-v1.4.zip</block>
+  <block id="ab58ebe2dd50e3692c204585184a34f7" category="list-text">X190006-PI-v1.4.zip</block>
+  <block id="c3a1ef8a44fcace6af948f51ef4d8258" category="list-text">MSN2100-CB2FC_PRIOR_R9.15.1-v1.4.zip</block>
+  <block id="11ef8d241b319efa4a76430a0c6a78dd" category="list-text">MSN2100-CB2RC_PRIOR_R9.15.1-v1.4.zip</block>
+  <block id="0179c8f8dd0b9cba4199d46bd95ddd3b" category="list-text">X190006-PE_PRIOR_9.15.1-v1.4.zip</block>
+  <block id="3dd005cf004a39e1cb3e400094afa4c6" category="list-text">X190006-PI_PRIOR_9.15.1-v1.4.zip</block>
 </blocks>
