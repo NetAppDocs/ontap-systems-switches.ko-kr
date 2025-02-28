@@ -26,7 +26,8 @@ ONTAP 클러스터용 구형 Cisco 클러스터 스위치를 Cisco Nexus 9336C-F
 * Cisco Nexus 9336C-FX2 스위치의 초기 사용자 지정이 완료되었으므로 다음과 같은 작업이 완료됩니다.
 +
 ** 9336C-FX2 스위치는 권장되는 최신 소프트웨어 버전을 실행하고 있습니다.
-** RCF(Reference Configuration Files)가 스위치에 적용되었습니다.
+** LIF를 새 스위치로 마이그레이션하기 전에 RCF(Reference Configuration Files)가 새로운 스위치에 완전히 적용되었는지 확인합니다.
+** 네트워크 트래픽을 전환하기 전에 두 스위치 모두에서 실행 및 시작 구성을 확인하십시오.
 ** DNS, NTP, SMTP, SNMP 등의 사이트 사용자 지정 및 SSH는 새 스위치에 구성됩니다.
 
 

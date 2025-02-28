@@ -18,3 +18,14 @@ summary: FAS 및 AFF 시스템용 EOD 스위치
 * link:./switch-cisco-92300/install-overview-cisco-92300.html["Cisco Nexus 92300YC"]
 * link:./switch-netapp-cn1610/install-overview-cn1610.html["NetApp CN1610"]
 
+
+
+
+== 판매 종료 및 수명 종료 발표
+
+* link:https://www.cisco.com/c/en/us/products/collateral/switches/nexus-3000-series-switches/n3k-c3232c-eol.html["Cisco Nexus 3232C의 판매 종료 및 수명 종료 발표"]
+* link:https://www.cisco.com/c/en/us/products/collateral/switches/nexus-3000-series-switches/nexus-31108pc-v-31108tc-v-nexus-3132q-v-eol.html["Cisco Nexus 31108PC-V, 31108TC-V 및 Nexus 3132Q-V의 판매 종료 및 단종 공지"]
+* link:https://www.cisco.com/c/en/us/products/collateral/switches/nexus-9000-series-switches/eos-eol-notice-c51-742776.html["Cisco N9K-C93120TX, N9K-C92300YC의 판매 종료 및 단종 공지"]
+* link:https://www.cisco.com/c/en/us/products/collateral/switches/nexus-5000-series-switches/eos-eol-notice-c51-740720.html["Cisco Nexus 5500 시리즈 스위치의 판매 종료 및 수명 종료 공지"]
+* link:https://mysupport.netapp.com/info/communications/ECMLP2859128.html["공급 중지:NetApp CN1610 클러스터 인터커넥트 SKU"]
+

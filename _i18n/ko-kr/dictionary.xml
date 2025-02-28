@@ -3000,7 +3000,6 @@
   <block id="19183173bd336c4a7349920f4bc23f03" category="list-text"><block ref="19183173bd336c4a7349920f4bc23f03" category="inline-link-macro-rx"></block></block>
   <block id="7845322ccf047d30291b050b118b43f2" category="list-text"><block ref="7845322ccf047d30291b050b118b43f2" category="inline-link-macro-rx"></block></block>
   <block id="696ff70e4b2816b3772c8643552d89de" category="paragraph">스마트 Call Home 기능을 사용하려면 다음 지침을 검토하십시오.</block>
-  <block id="8d8cdf27c4804b6dda144a3406af3d6f" category="doc">Cisco Nexus 9336C-FX2 클러스터 스위치의 구성 요소 및 부품 번호</block>
   <block id="fc8b273ce2a3b27b90b600bb90d3f6a1" category="paragraph">클러스터 네트워크에서 결함이 있는 Nexus 9336C-FX2 스위치를 교체하려면 다음 단계를 수행하십시오. 이 절차는 NDU(무중단 절차)입니다.</block>
   <block id="e1d51624c9462dce3c8cb21ee2541c35" category="paragraph">스위치 교체를 수행하기 전에 다음 사항을 확인하십시오.</block>
   <block id="e27994329a256d12f62765df177ff9a8" category="list-text">기존 클러스터 및 네트워크 인프라:</block>
@@ -3330,7 +3329,6 @@
   <block id="e7019c875b1e7fa7851e5b2570ff1637" category="list-text">완료된 케이블링 워크시트 을 참조하십시오 <block ref="8e79e8ba8c95547bae4fb86f4526b4fe" category="inline-link-macro-rx"></block>. 케이블 연결에 대한 자세한 내용은 를 참조하십시오<block ref="e8018b6e740a667345f4bcc94e4023fc" category="inline-link-rx"></block>.</block>
   <block id="94f31b898786bbf285eb3f1766d2b846" category="list-text">스위치, 컨트롤러 및 NS224 NVMe 스토리지 쉘프를 랙 마운트하십시오.</block>
   <block id="f1d2082f6b7e2fe0bd21c264b34b1db0" category="inline-link">랙 장착 지침</block>
-  <block id="85fdb4a8732610c4c52e8f55737378a6" category="paragraph">를 참조하십시오<block ref="bbb1ee507d7be4aaba439496ffdc6801" category="inline-link-rx"></block> NetApp 캐비닛에 스위치를 랙에 설치하는 방법을 알아보십시오.</block>
   <block id="d2fa93779a0f6b07d1717e02308c2fa6" category="inline-link-macro">Cisco Nexus 9336C-FX2 공유 스위치를 구성합니다</block>
   <block id="c5ad5ecc479e35c7979fd57a0ebbe702" category="doc">Cisco Nexus 9336C-FX2 공유 스위치를 구성합니다</block>
   <block id="a241f03e92a7f9be7881ccbebc3c49c1" category="list-text">[[3단계]] 스위치의 초기 구성을 수행합니다.</block>
@@ -4424,7 +4422,6 @@
   <block id="5640915560bc663196a684ebfc6fa2ec" category="admonition">새 스위치 소프트웨어 버전과 RCFs를 설치하기 전에 스위치 설정을 지우고 기본 구성을 수행해야 합니다. 스위치 설정을 지우기 전에 직렬 콘솔을 사용하여 스위치에 연결되거나 기본 구성 정보가 보존되어 있어야 합니다.</block>
   <block id="1b49e113d2db8aa6503efc6ca4257925" category="paragraph">Cisco Nexus 9336C-FX2 스위치용 소프트웨어를 설치 및 구성하고 RCF(Reference Configuration File)를 설치 또는 업그레이드하려면 다음 단계를 수행하십시오.</block>
   <block id="2d667925d48008850336e0d43e4d4306" category="sidebar">클러스터 스위치 - Broadcom BES-53248</block>
-  <block id="9013a0f95a05b68811cef544c6eea37b" category="sidebar">클러스터 스위치 - Cisco Nexus 9336C-FX2</block>
   <block id="fc01f4074d379d0722eb2fa3b21e6af4" category="sidebar">스토리지 스위치 - Cisco Nexus 9336C-FX2</block>
   <block id="caf5170cbc1f4850f6d380c982fa61f9" category="sidebar">스토리지 스위치 - NVIDIA SN2100</block>
   <block id="6f738209e5071a9c22c8d336c6dec7a1" category="sidebar">공유 스위치 - Cisco Nexus 9336C-FX2</block>
@@ -4715,7 +4712,6 @@
   <block id="11f32682abba2115ff437faec8512d84" category="paragraph">경고가 표시된 경우 시스템 상태는 클러스터에 대한 성능 저하 상태를 보고합니다. 제기되는 알림에는 저하된 시스템 상태에 응답해야 하는 정보가 포함됩니다.</block>
   <block id="b16485fd5118936281137dbf7e67a0d1" category="inline-link">Switch Health Monitor 경고 해결 가이드 를 참조하십시오</block>
   <block id="4f6ad2ff8706dcda764fc65056aa35bb" category="paragraph">경고에 대한 고급 해결 방법은 기술 자료 문서를<block ref="fa3450ee0f59ff4c6ed811d38ddb851b" category="inline-link-rx"></block> 참조하십시오.</block>
-  <block id="71740cccf1b838f9289aa8a38d080323" category="sidebar">클러스터 스위치 - NVIDIA SN2100</block>
   <block id="43d4629723093f676e7670fc1bb175cc" category="sidebar">클러스터 스위치 - Cisco Nexus 92300YC</block>
   <block id="1838d8ee27b09ea75fadf392eed76c41" category="sidebar">클러스터 스위치 - NetApp CN1610</block>
   <block id="be00341ff3fed2bc4bc077b28c34bb91" category="sidebar">이더넷 스위치 상태 모니터링</block>
@@ -5199,10 +5195,7 @@
   <block id="04f8c8c881d9c66c4b51ab93a42ab746" category="paragraph"><block ref="37c965129cc09840500d7671b0accef3" prefix="" category="inline-code"></block></block>
   <block id="771d6c6c56d83746eaa82bd62e11363c" category="list-text">디렉터리의 구성 파일을<block ref="e4b3e6938bc5f3e3c811cf46ae8b7d53" prefix=" " category="inline-code"></block> 나열합니다. 디렉토리가 있고 구성 파일이 포함되어 있으면 파일 이름이 나열됩니다.</block>
   <block id="6e89d35fb8a737baae7064c5ba2d6485" category="paragraph"><block ref="47f0187f585158fcdf3257a96c5d4bab" prefix="" category="inline-code"></block></block>
-  <block id="804c8f34f92745eacda3674d93c6ede1" category="list-text">연결된 스위치 모델에 해당하는 모든 node 파일을 삭제합니다.</block>
-  <block id="f938cfce39fe890a9f9b521c87a02106" category="paragraph">확실하지 않은 경우, 위에 나열된 지원 모델에 대한 모든 nod 파일을 제거한 다음 해당 모델에 대한 최신 nod 파일을 다운로드하여 설치합니다.</block>
   <block id="ff9495347e1ccb9f937f04b4bbdd58bb" category="paragraph"><block ref="529be1cf6940ca38f1fda287a22c9fda" prefix="" category="inline-code"></block></block>
-  <block id="410e37690b6661c1eaeb818d9bed27c0" category="list-text">삭제된 nod 파일이 더 이상 디렉토리에 없는지 확인합니다.</block>
   <block id="76bde9294ef84452f21b2745228ae290" category="list-text">MSN2100-CB2FC-v1.4.zip</block>
   <block id="85c07a49f236d7b33a2e8b48d076ed48" category="list-text">MSN2100-CB2RC-v1.4.zip</block>
   <block id="ae5e87300b042b85bdd2853f386265e7" category="list-text">X190006-PE-v1.4.zip</block>
@@ -5211,4 +5204,56 @@
   <block id="11ef8d241b319efa4a76430a0c6a78dd" category="list-text">MSN2100-CB2RC_PRIOR_R9.15.1-v1.4.zip</block>
   <block id="0179c8f8dd0b9cba4199d46bd95ddd3b" category="list-text">X190006-PE_PRIOR_9.15.1-v1.4.zip</block>
   <block id="3dd005cf004a39e1cb3e400094afa4c6" category="list-text">X190006-PI_PRIOR_9.15.1-v1.4.zip</block>
+  <block id="b9af6f54ffccbe5a5964a27a139b0b7a" category="list-text">LIF를 새 스위치로 마이그레이션하기 전에 RCF(Reference Configuration Files)가 새로운 스위치에 완전히 적용되었는지 확인합니다.</block>
+  <block id="aab86cc7815bb8b75af6eb99f491f1ac" category="list-text">네트워크 트래픽을 전환하기 전에 두 스위치 모두에서 실행 및 시작 구성을 확인하십시오.</block>
+  <block id="eab4beb6dced72a3b30ce6135ee5d1d4" category="section-title">판매 종료 및 수명 종료 발표</block>
+  <block id="80a2f0887f61bb70c1929561266361c5" category="inline-link-macro">Cisco Nexus 3232C의 판매 종료 및 수명 종료 발표</block>
+  <block id="8f8980c9777dd0d346146e4dbfc23192" category="list-text"><block ref="8f8980c9777dd0d346146e4dbfc23192" category="inline-link-macro-rx"></block></block>
+  <block id="6133f717054b1b5c1c4e711ce691fbab" category="inline-link-macro">Cisco Nexus 31108PC-V, 31108TC-V 및 Nexus 3132Q-V의 판매 종료 및 단종 공지</block>
+  <block id="5f7e5f0b624d50336e8ca3bdbc07934f" category="list-text"><block ref="5f7e5f0b624d50336e8ca3bdbc07934f" category="inline-link-macro-rx"></block></block>
+  <block id="375f5e28ce989611bc4b141db2a793ec" category="inline-link-macro">Cisco N9K-C93120TX, N9K-C92300YC의 판매 종료 및 단종 공지</block>
+  <block id="807c256ae9bedd9909bcb61b645dc7f6" category="list-text"><block ref="807c256ae9bedd9909bcb61b645dc7f6" category="inline-link-macro-rx"></block></block>
+  <block id="093490b8b7832b189936bc485586c659" category="inline-link-macro">Cisco Nexus 5500 시리즈 스위치의 판매 종료 및 수명 종료 공지</block>
+  <block id="9a5f500ffaccd0b3009efe64697ec210" category="list-text"><block ref="9a5f500ffaccd0b3009efe64697ec210" category="inline-link-macro-rx"></block></block>
+  <block id="b28b35ae2bb0ba008baa07b20e30cb9b" category="inline-link-macro">공급 중지:NetApp CN1610 클러스터 인터커넥트 SKU</block>
+  <block id="3f802670007b812ad08c750c46d02d46" category="list-text"><block ref="3f802670007b812ad08c750c46d02d46" category="inline-link-macro-rx"></block></block>
+  <block id="fece371d4cb2229fdd5038868ac1dd4d" category="doc">Cisco Nexus 9336C-FX2 및 9336C-FX2-T 클러스터 스위치의 구성 요소 및 부품 번호</block>
+  <block id="e1041d2eebd055ab991b4e5acb893a64" category="paragraph">Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스위치 설치 및 유지 보수의 경우 구성 요소 및 부품 번호 목록을 검토하십시오.</block>
+  <block id="0c535bea0ccf81dfb11cf214834c4fd6" category="section-title">부품 번호 세부 정보</block>
+  <block id="c3c8898e3b8cf1bf9262fb0d9feefa54" category="paragraph">다음 표에는 9336C-FX2 및 9336C-FX2-T 스위치, 팬 및 전원 공급 장치에 대한 부품 번호와 설명이 나와 있습니다.</block>
+  <block id="06af6b2e91e8e98299954591bddb5f62" category="paragraph">클러스터 스위치, N9336C 36Pt PTSX 10/25/40/100G</block>
+  <block id="8d6ba99f0f19dfe29b2c66cd39563652" category="paragraph">클러스터 스위치, N9336C 36Pt PSIN 10/25/40/100G</block>
+  <block id="0c025108047bff9c58978c87a86c7811" category="paragraph">X190212-CS-PE를 참조하십시오</block>
+  <block id="bd8408b657119da69686e286d6b7bcaa" category="paragraph">클러스터 스위치, N9336C 12pt(9336C-FX2-T) PTSX 10/25/40/100G</block>
+  <block id="9ffd7de811cde03246db3a4665fac7b6" category="paragraph">X190212-CS-PI를 참조하십시오</block>
+  <block id="58a95daabfad4a2b64ff90749a4a3be9" category="paragraph">클러스터 스위치, N9336C 12pt(9336C-FX2-T) PSIN 10/25/40/100G</block>
+  <block id="624a10db1af0d919eadbc61a37d3d1b9" category="paragraph">SW-N9K-FX2-24P-UPG를 참조하십시오</block>
+  <block id="66d6f96d0da80f49ed578ebd202f51eb" category="paragraph">SW, Cisco 9336CFX2 24 포트 POD 라이센스</block>
+  <block id="9bbde79a2adc27dd0834674a54511852" category="paragraph">N9K-9336C, FTE, PTSX, 36PT 10/25/40/100GQSFP28</block>
+  <block id="237dcc725007511d9264805769526146" category="paragraph">N9K-9336C, FTE, PSIN, 36PT 10/25/40/100GQSFP28</block>
+  <block id="583b0c4bec1745b4b73603decad8c614" category="section-title">Cisco Smart 라이센스</block>
+  <block id="fe08e509b48ab8777447aae93b7c5a8f" category="paragraph">Cisco Nexus 9336C-FX-T 클러스터 스위치에서 12개 이상의 포트를 활성화하려면 Cisco Smart 라이센스를 구매해야 합니다. Cisco Smart 라이센스는 Cisco Smart 계정을 통해 관리됩니다.</block>
+  <block id="7fe41b91378917f0081357562fc713a8" category="inline-link">새 Smart 계정을 생성합니다</block>
+  <block id="3cc71bb7c9c2b539e2bc7922ec688b44" category="list-text">필요한 경우 새 Smart 계정을 생성합니다. 자세한 내용은 을<block ref="c236b6c467e9323cbdd95c549d9def1f" category="inline-link-rx"></block> 참조하십시오.</block>
+  <block id="120b6b80efeef7ca672a0b274b256083" category="inline-link">기존 Smart 계정에 대한 액세스를 요청합니다</block>
+  <block id="8fbba80df6dcbd4d547347fd146e1b83" category="list-text">기존 Smart 계정에 대한 액세스를 요청합니다. 자세한 내용은 을<block ref="f4476a827230258a80e0d6788d3c661e" category="inline-link-rx"></block> 참조하십시오.</block>
+  <block id="4363ac02ed8f94606b748a9c8093f0d1" category="admonition">Smart 라이센스를 구입했으면 적절한 RCF를 설치하여 사용할 수 있는 36개의 포트를 모두 활성화하고 구성합니다.</block>
+  <block id="20d4dc5b26b66af5b87062c8cb66e702" category="doc">Cisco Nexus 9336C-FX2 또는 9336C-FX2-T 케이블 연결 워크시트를 작성합니다</block>
+  <block id="d34235ce3b8eeb56732eac003a8b80f5" category="list-text"><block ref="5f7d0a649ff80997d8ca88905c993bff" category="inline-xref-macro-rx"></block></block>
+  <block id="ade6c0cb61106114d61bca7ca65fe64c" category="list-text"><block ref="5e883d5b3902e61fee96d087a27d3028" category="inline-xref-macro-rx"></block></block>
+  <block id="2587e0d23b930dd34376e94aa18b04a3" category="list-text"><block ref="89e3d6d4f88a65d2e49a3b6dad3c2afd" category="inline-xref-macro-rx"></block></block>
+  <block id="4906e48b462c42127652c969091a3013" category="list-text"><block ref="d25614f5ce8d526a0a67b4e405554080" category="inline-xref-macro-rx"></block></block>
+  <block id="2dbed8ef9f0e291a4f3e95571e489dfa" category="section-title">9336C-FX2 샘플 케이블 연결 워크시트</block>
+  <block id="0acd5880e2a4dde041c61de67d25683f" category="section-title">9336C-FX2 블랭크 케이블 연결 워크시트</block>
+  <block id="084af706c38c7c432697d09f104163cb" category="section-title">9336C-FX2-T 샘플 케이블 연결 워크시트(12포트)</block>
+  <block id="afcd5a2ec740515181747b7e9f4cfd93" category="paragraph">11 ~ 34</block>
+  <block id="17c2de625275ee631aeeb131bcf75439" category="paragraph">라이센스가 필요합니다</block>
+  <block id="811b4b7fb3b0d037ae140fe004831efe" category="section-title">9336C-FX2-T 빈 케이블 연결 워크시트(12포트)</block>
+  <block id="7348f30fbfa4e5b2b4f9c3cdb9b9c7c7" category="paragraph">스위치를 NetApp 캐비닛에 랙에 장착하는 방법은 을 <block ref="9ad94c677d9e1ab0aaffa9991490e940" category="inline-link-macro-rx"></block>참조하십시오.</block>
+  <block id="cefefc2081d40fa592f23faffcb8f1e0" category="list-text">연결된 스위치 모델에 해당하는 모든 구성 파일을 삭제합니다.</block>
+  <block id="90842b83190886e90bf2403d6e93be1b" category="paragraph">확실하지 않은 경우 위에 나열된 지원 모델에 대한 모든 구성 파일을 제거한 다음 해당 모델에 대한 최신 구성 파일을 다운로드하여 설치합니다.</block>
+  <block id="77dab6429e3fe4aca5fa3d7f0cd46d71" category="list-text">삭제된 구성 파일이 더 이상 디렉터리에 없는지 확인합니다.</block>
+  <block id="a9fc37ffea4ac5fbd75f369d96c903f6" category="sidebar">클러스터 스위치 - Cisco Nexus 9336C-FX2 또는 9336C-FX2-T</block>
+  <block id="ed3dd7f516f69cf573ae79a1781bbcbf" category="sidebar">클러스터 스위치 - NVIDIA SN2100 클러스터 스위치</block>
+  <block id="49e57b2c31c8feba776b7a2916673678" category="sidebar">Cisco Nexus 9336C-FX2 또는 9336C-FX2-T</block>
 </blocks>
