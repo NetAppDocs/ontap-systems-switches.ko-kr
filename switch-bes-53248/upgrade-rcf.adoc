@@ -426,6 +426,7 @@ Configuration Saved!
 (cs2)# *reload*
 Are you sure you would like to reset the system? (y/n) *y*
 ----
+.. RCF 설치를 완료하려면 SSH를 사용하여 스위치에 다시 로그인하십시오.
 
 
 . 다음 사항에 유의하십시오.
@@ -434,11 +435,78 @@ Are you sure you would like to reset the system? (y/n) *y*
 .. 이전 RCF에서 만든 사용자 지정을 기록하고 새 RCF에 적용합니다. 예를 들어, 포트 속도 또는 하드 코딩 FEC 모드를 설정할 수 있습니다.
 
 
+
+
+[role="tabbed-block"]
+====
+.EFOS 버전 3.12.x 이상
+--
 . FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 CS2의 부트플래시 에 복사합니다.
 +
 이 예에서는 스위치 CS2에서 RCF를 부트 플래시에 복사하는 데 사용되는 SFTP를 보여 줍니다.
 
+
+
+[listing, subs="+quotes"]
+----
+(cs2)# *copy sftp://172.19.2.1/BES-53248-RCF-v1.9-Cluster-HA.txt
+nvram:reference-config*
+Remote Password:**
+Mode........................................... TFTP
+Set Server IP.................................. 172.19.2.1
+Path........................................... //tmp/
+Filename....................................... BES-53248_RCF_v1.9-Cluster-HA.txt
+Data Type...................................... Config Script
+Destination Filename........................... BES-53248_RCF_v1.9-Cluster-HA.scr
+Management access will be blocked for the duration of the transfer
+Are you sure you want to start? (y/n) *y*
+TFTP Code transfer starting...
+File transfer operation completed successfully.
+----
+. 스크립트가 다운로드되어 지정한 파일 이름으로 저장되었는지 확인합니다.
 +
+'스크립트 목록'
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *script list*
+
+Configuration Script Name                  Size(Bytes)  Date of Modification
+-----------------------------------------  -----------  --------------------
+Reference-config.scr                       2680         2024 05 31 21:54:22
+2 configuration script(s) found.
+2042 Kbytes free.
+----
+. 스위치에 스크립트를 적용합니다.
++
+'스크립트 적용'
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *script apply reference-config.scr*
+
+Are you sure you want to apply the configuration script? (y/n) *y*
+
+The system has unsaved changes.
+Would you like to save them now? (y/n) *y*
+Config file 'startup-config' created successfully.
+Configuration Saved!
+
+Configuration script 'BES-53248_RCF_v1.9-Cluster-HA.scr' applied.
+----
+
+
+--
+.기타 모든 EFOS 버전
+--
+. FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 CS2의 부트플래시 에 복사합니다.
++
+이 예에서는 스위치 CS2에서 RCF를 부트 플래시에 복사하는 데 사용되는 SFTP를 보여 줍니다.
+
+
+
 [listing, subs="+quotes"]
 ----
 (cs2)# *copy sftp://172.19.2.1/tmp/BES-53248_RCF_v1.9-Cluster-HA.txt
@@ -460,9 +528,6 @@ File transfer operation completed successfully.
 '스크립트 목록'
 
 +
-.예제 보기
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 (cs2)# *script list*
@@ -473,15 +538,11 @@ BES-53248_RCF_v1.9-Cluster-HA.scr          2241         2020 09 30 05:41:00
 
 1 configuration script(s) found.
 ----
-====
 . 스위치에 스크립트를 적용합니다.
 +
 '스크립트 적용'
 
 +
-.예제 보기
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 (cs2)# *script apply BES-53248_RCF_v1.9-Cluster-HA.scr*
@@ -495,8 +556,11 @@ Configuration Saved!
 
 Configuration script 'BES-53248_RCF_v1.9-Cluster-HA.scr' applied.
 ----
+
+
+--
 ====
-. 의 배너 출력을 확인합니다 `show clibanner` 명령. 스위치의 올바른 구성과 작동을 위해 이 지침을 읽고 따라야 합니다.
+. [[step11]] 명령의 배너 출력을 `show clibanner` 검사합니다. 스위치의 올바른 구성과 작동을 위해 이 지침을 읽고 따라야 합니다.
 +
 `show clibanner`
 
@@ -1042,7 +1106,7 @@ RPC status:
 ----
 --
 ====
-. [[step6]] 권한 수준을 다시 admin으로 변경합니다.
+. 권한 수준을 admin으로 다시 변경합니다.
 +
 [source, cli]
 ----

@@ -19,7 +19,7 @@ Cisco Nexus 9336C-FX2 클러스터 스위치는 Cisco Nexus 9000 플랫폼의 �
 
 ONTAP를 실행하는 시스템에서 Cisco Nexus 9336C-FX2 스위치를 처음 구성하려면 다음 단계를 수행하십시오.
 
-. link:setup-worksheet-9336c-cluster.html["Cisco Nexus 9336C-FX2 케이블링 워크시트를 작성하십시오"]..
+. link:setup-worksheet-9336c-cluster.html["Cisco Nexus 9336C-FX2 또는 9336C-FX2-T 케이블 연결 워크시트를 작성합니다"]..
 +
 샘플 케이블 연결 워크시트는 스위치에서 컨트롤러까지 권장되는 포트 할당의 예를 제공합니다. 빈 워크시트에는 클러스터 설정에 사용할 수 있는 템플릿이 제공됩니다.
 
@@ -43,7 +43,7 @@ Cisco NX-OS 소프트웨어 설치 및 RCFs(Reference Configuration File)에 대
 +
 Nexus 9336C-FX2 클러스터 스위치에 NX-OS 소프트웨어를 설치 또는 업그레이드합니다.
 
-. link:install-nxos-rcf-9336c-cluster.html["RCF를 설치하거나 업그레이드합니다"]..
+. link:install-upgrade-rcf-overview-cluster.html["RCF를 설치하거나 업그레이드합니다"]..
 +
 Nexus 9336C-FX2 스위치를 처음 설정한 후 RCF를 설치하거나 업그레이드합니다. 이 절차를 사용하여 RCF 버전을 업그레이드할 수도 있습니다.
 
