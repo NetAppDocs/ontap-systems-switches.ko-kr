@@ -15,37 +15,7 @@ summary: 클러스터, 스토리지 및 공유 스위치에 대해 알아보십�
 
 스위치 배포에는 다음과 같은 워크플로가 포함됩니다.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1개"] AFF/FAS 컨트롤러 설치
-[role="quick-margin-para"]
-랙 또는 캐비닛에 AFF/FAS 컨트롤러 설치 AFF/FAS 플랫폼 모델의 설치 및 설정 지침에 액세스합니다.
-
-[cols="4,9,9,9"]
-|===
-
-
- a| 
- a| 
-.AFF 시스템
-* https://docs.netapp.com/us-en/ontap-systems/c190/install-setup.html["AFF C190"^]
-* https://docs.netapp.com/us-en/ontap-systems/fas2700/install-setup.html["AFF A220"^]
-* https://docs.netapp.com/us-en/ontap-systems/a250/install-setup.html["AFF A250"^]
-* https://docs.netapp.com/us-en/ontap-systems/a400/install-setup.html["AFF A400"^]
-* https://docs.netapp.com/us-en/ontap-systems/fas9000/install-setup.html["AFF A700"^]
-* https://docs.netapp.com/us-en/ontap-systems/a800/install-setup.html["AFF A800"^]
-* https://docs.netapp.com/us-en/ontap-systems/a900/install_detailed_guide.html["AFF A900"^]
-
- a| 
-.FAS 시스템
-* https://docs.netapp.com/us-en/ontap-systems/fas500f/install-setup.html["500f로 설정합니다"^]
-* https://docs.netapp.com/us-en/ontap-systems/fas8300/install-setup.html["FAS8300"^]
-* https://docs.netapp.com/us-en/ontap-systems/fas8300/install-setup.html["FAS8700"^]
-* https://docs.netapp.com/us-en/ontap-systems/fas9000/install-setup.html["FAS9000"^]
-* https://docs.netapp.com/us-en/ontap-systems/fas9500/install_setup.html["FAS9500"^]
-
- a| 
-
-|===
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["2개"] 스위치 하드웨어를 설치합니다
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1개"] 스위치 하드웨어를 설치합니다
 [role="quick-margin-para"]
 랙 또는 캐비닛에 스위치를 설치합니다. 스위치 모델에 대한 다음 지침을 참조하십시오.
 
@@ -71,9 +41,28 @@ summary: 클러스터, 스토리지 및 공유 스위치에 대해 알아보십�
 
 
 |===
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["2개"] 스토리지 시스템 및 스토리지 쉘프를 설치합니다
+[role="quick-margin-para"]
+스토리지 시스템 및 스토리지 쉘프를 캐비닛 또는 랙에 설치합니다. 해당 플랫폼 모델의 설치 및 설정 지침에 액세스합니다.
+
+[cols="4,9,9,9"]
+|===
+
+
+ a| 
+ a| 
+* https://docs.netapp.com/us-en/ontap-systems/aff-landing/index.html["AFF 시스템"^]
+* https://docs.netapp.com/us-en/ontap-systems/allsan-landing/index.html["ASA 시스템"^]
+* https://docs.netapp.com/us-en/asa-r2/index.html["ASA r2 시스템"^]
+* https://docs.netapp.com/us-en/ontap-systems/fas/index.html["FAS 시스템"^]
+
+ a| 
+ a| 
+
+|===
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["세 가지"]스위치를 컨트롤러에 케이블로 연결합니다
 [role="quick-margin-para"]
-AFF/FAS 설치 및 설정 지침에는 컨트롤러 포트를 스위치에 케이블로 연결하는 지침이 포함되어 있습니다. 그러나 지원되는 케이블 및 트랜시버 목록과 스위치의 호스트 포트에 대한 자세한 정보가 필요한 경우 스위치 모델에 대한 다음 지침을 참조하십시오.
+컨트롤러 포트를 스위치에 케이블로 연결하는 지침은 ONTAP 시스템 설치 및 설정 지침입니다. 그러나 지원되는 케이블 및 트랜시버 목록과 스위치의 호스트 포트에 대한 자세한 정보가 필요한 경우 스위치 모델에 대한 다음 지침을 참조하십시오.
 
 [cols="2,9,9,9"]
 |===
@@ -151,7 +140,7 @@ AFF/FAS 설치 및 설정 지침에는 컨트롤러 포트를 스위치에 케�
 |===
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["6개"] 시스템 설치를 완료합니다
 [role="quick-margin-para"]
-스위치를 구성하고 필요한 소프트웨어를 설치한 후에는 AFF/FAS 플랫폼 모델의 설치 및 설정 지침에 따라 시스템 설정을 완료하십시오.
+스위치를 구성하고 필요한 소프트웨어를 설치한 후 ONTAP 시스템 플랫폼 모델의 설치 및 설정 지침에 액세스하여 시스템 설치를 완료합니다.
 
 [cols="4,9,9,9"]
 |===
@@ -159,29 +148,18 @@ AFF/FAS 설치 및 설정 지침에는 컨트롤러 포트를 스위치에 케�
 
  a| 
  a| 
-.AFF 시스템
-* https://docs.netapp.com/us-en/ontap-systems/c190/install-setup.html["AFF C190"]
-* https://docs.netapp.com/us-en/ontap-systems/fas2700/install-setup.html["AFF A220"^]
-* https://docs.netapp.com/us-en/ontap-systems/a250/install-setup.html["AFF A250"^]
-* https://docs.netapp.com/us-en/ontap-systems/a400/install-setup.html["AFF A400"^]
-* https://docs.netapp.com/us-en/ontap-systems/fas9000/install-setup.html["AFF A700"^]
-* https://docs.netapp.com/us-en/ontap-systems/a800/install-setup.html["AFF A800"^]
-* https://docs.netapp.com/us-en/ontap-systems/a900/install_detailed_guide.html["AFF A900"^]
+* https://docs.netapp.com/us-en/ontap-systems/aff-landing/index.html["AFF 시스템"^]
+* https://docs.netapp.com/us-en/ontap-systems/allsan-landing/index.html["ASA 시스템"^]
+* https://docs.netapp.com/us-en/asa-r2/index.html["ASA r2 시스템"^]
+* https://docs.netapp.com/us-en/ontap-systems/fas/index.html["FAS 시스템"^]
 
  a| 
-.FAS 시스템
-* https://docs.netapp.com/us-en/ontap-systems/fas500f/install-setup.html["500f로 설정합니다"^]
-* https://docs.netapp.com/us-en/ontap-systems/fas8300/install-setup.html["FAS8300"^]
-* https://docs.netapp.com/us-en/ontap-systems/fas8300/install-setup.html["FAS8700"^]
-* https://docs.netapp.com/us-en/ontap-systems/fas9000/install-setup.html["FAS9000"^]
-* https://docs.netapp.com/us-en/ontap-systems/fas9500/install_setup.html["FAS9500"]
-
  a| 
 
 |===
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["7번"] ONTAP 구성을 완료합니다
 [role="quick-margin-para"]
-AFF/FAS 컨트롤러 및 스위치를 설치 및 설정한 후에는 ONTAP에서 스토리지 구성을 완료해야 합니다. 배포 구성에 따라 다음 지침에 액세스합니다.
+ONTAP 시스템 컨트롤러 및 스위치를 설치하고 설정한 후에는 ONTAP에서 스토리지 구성을 완료해야 합니다. 배포 구성에 따라 다음 지침에 액세스합니다.
 
 [role="quick-margin-list"]
 * ONTAP 배포의 경우 를 참조하십시오 https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["ONTAP를 구성합니다"^].

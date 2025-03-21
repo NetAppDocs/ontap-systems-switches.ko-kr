@@ -1,16 +1,7 @@
----
-permalink: switch-cshm/config-log-collection.html 
-sidebar: sidebar 
-keywords: log collection feature,collect switch-related log files,SSh key,crypto key generation 
-summary: '이더넷 스위치 상태 모니터(CSHM) 로그 수집 기능은 ONTAP의 클러스터 또는 스토리지 네트워크 스위치에서 로그를 수집하는 데 사용됩니다.' 
----
-= 로그 수집을 구성합니다
+= 시작하기 전에
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
 
-[role="lead"]
 이더넷 스위치 상태 모니터(CSHM)는 클러스터 및 스토리지 네트워크 스위치의 작동 상태를 확인하고 디버깅을 위한 스위치 로그를 수집하는 역할을 담당합니다. 이 절차는 수집을 설정하고, 자세한 * 지원 * 로그를 요청하며, AutoSupport에서 수집하는 * 주기적 * 데이터의 시간별 수집을 활성화하는 과정을 안내합니다.
 
 * 참고: * FIPS 모드를 활성화한 경우 다음을 완료해야 합니다.
@@ -240,8 +231,3 @@ cluster1::*> *system switch ethernet log show -instance*
 
 --
 ====
-
-CAUTION: 로그 수집 기능에 의해 오류 상태가 보고되는 경우(의 출력에 표시됨 `system switch ethernet log show`) 자세한 내용은 을 참조하십시오. link:log-collection-troubleshoot.html["로그 수집 문제를 해결합니다"]
-
-.다음 단계
-link:config-snmpv3.html["SNMPv3 구성(선택 사항)"]..
