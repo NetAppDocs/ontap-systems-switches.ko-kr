@@ -2061,12 +2061,9 @@
   <block id="b366aa7d44d5ae24af827fa423f8a2f2" category="list-text">'system switch ethernet log setup-password'와 'system switch ethernet log enable-collection' 명령을 사용하여 스위치 관련 로그 파일을 수집하는 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화한다</block>
   <block id="6d5256d36c2629c07d67ddb2fc78e95c" category="list-text">스위치 로그 수집 기능 '시스템 스위치 이더넷 로그 수집 장치 *'를 시작합니다</block>
   <block id="676b4f116c6b65afc97655131da52093" category="paragraph">10분 정도 기다린 후 'system switch ethernet log show' 명령을 사용하여 로그 수집이 성공했는지 확인합니다</block>
-  <block id="3722090c5c0b0496759b23b1db5566cd" category="doc">RCF 스크립트를 설치합니다</block>
   <block id="90bd80eefde443be8809a3edf64f7ef2" category="list-text">IP 주소, 서브넷 마스크 및 기본 게이트웨이는 DHCP를 통해 정의되거나 수동으로 구성됩니다.</block>
   <block id="1d9152605063cf1b257a36675cece81c" category="inline-link-macro">케이블 연결 및 구성 고려 사항</block>
   <block id="526990b43ff7cafabc1a3c5dda4e8c9b" category="paragraph">클러스터링과 스토리지 애플리케이션에 사용 가능한 RCF 스크립트는 두 가지가 있습니다. 각각의 절차는 동일합니다.</block>
-  <block id="d43ffd29b9c1918eacb74ce61ab9c93d" category="list-text">클러스터링: * MSN2100-RCF-v1.8-클러스터 *</block>
-  <block id="85948408e24eaebde36ef1a070afa259" category="list-text">스토리지: * MSN2100-RCF-v1.8-스토리지 *</block>
   <block id="47a90a8bc6531c96684b95f438b570ff" category="admonition">다음 예제 절차에서는 클러스터 스위치용 RCF 스크립트를 다운로드하고 적용하는 방법을 보여 줍니다.</block>
   <block id="8e7538255f1b89e8cb901d939793795e" category="admonition">명령 출력의 예는 스위치 관리 IP 주소 10.233.204.71, 넷마스크 255.255.254.0 및 기본 게이트웨이 10.233.204.1을 사용합니다.</block>
   <block id="cba289d19a283a01be4ec7d5598b25e8" category="list-text">SN2100 스위치에 사용 가능한 인터페이스를 표시합니다.</block>
@@ -2370,7 +2367,6 @@
   <block id="e0ab29823a477894018f5c53cfabeece" category="summary">NVIDIA SN2100 스위치 설치 및 유지 보수에 대해서는 모든 권장 설명서를 참조하십시오.</block>
   <block id="7ec5693d2c180df872f5e23364ecd351" category="doc">NVIDIA SN2100 스위치에 대한 문서 요구 사항</block>
   <block id="5a5096484954db754c9fdc1d20f50720" category="summary">RCF 스크립트를 설치하려면 다음 절차를 따르십시오.</block>
-  <block id="2123b47f46a6b2a44de513e0c343098f" category="paragraph">RCF 스크립트를 설치하기 전에 스위치에서 다음 사항을 사용할 수 있는지 확인하십시오.</block>
   <block id="6b05439cc5176e82c5cfdc0d918624ea" category="paragraph"><block ref="e82a1249d31ab6e6d4064390013e6c55" prefix="" category="inline-code"></block></block>
   <block id="458ab89f862895d8f5ce855c654868d6" category="paragraph">RCF 스크립트는 위에 나열된 단계를 완료합니다.</block>
   <block id="8d64daaea35553b232a39d8de9b07201" category="list-text">인터페이스의 트랜시버에 대한 정보를 확인합니다.</block>
@@ -5231,4 +5227,15 @@
   <block id="1422bf436bfd810c807aacf3aab99615" category="paragraph">스위치를 구성하고 필요한 소프트웨어를 설치한 후 ONTAP 시스템 플랫폼 모델의 설치 및 설정 지침에 액세스하여 시스템 설치를 완료합니다.</block>
   <block id="ce85a54726781b89fe08c28de38285c0" category="paragraph">ONTAP 시스템 컨트롤러 및 스위치를 설치하고 설정한 후에는 ONTAP에서 스토리지 구성을 완료해야 합니다. 배포 구성에 따라 다음 지침에 액세스합니다.</block>
   <block id="674426100287eb3a5e16cf5705c524ea" category="image-alt">구리 케이블을 포함한 25g 포트</block>
+  <block id="ec65012ad6ac37ed9d5b425acfa4cdea" category="doc">RCF(Reference Configuration File) 스크립트를 설치하거나 업그레이드합니다</block>
+  <block id="60db3c5b6db09c40831f96fad7f5b5c4" category="paragraph">다음 절차에 따라 RCF 스크립트를 설치하거나 업그레이드합니다.</block>
+  <block id="a26beebaedce14e4e55b90d7a8d895f4" category="paragraph">RCF 스크립트를 설치하거나 업그레이드하기 전에 스위치에서 다음 기능을 사용할 수 있는지 확인하십시오.</block>
+  <block id="3a0aebe04bfa1f6aaf965b9c027512bc" category="open-title">Cumulus Linux 5.4.0</block>
+  <block id="9ec751f6f6fe23e217638410987b5aab" category="open-title">Cumulus Linux 5.11.0</block>
+  <block id="2340bc2649383727b40f4420d1b47844" category="doc">RCF(Reference Configuration File) 스크립트를 업그레이드합니다</block>
+  <block id="8ab41648ed191efe1d9524e2535c7f4d" category="paragraph">다음 절차에 따라 RCF 스크립트를 업그레이드합니다.</block>
+  <block id="b3be7362d2d8f250dc5fcbfaf784efd0" category="paragraph">RCF 스크립트를 업그레이드하기 전에 스위치에서 다음 기능을 사용할 수 있는지 확인하십시오.</block>
+  <block id="997f5023d76908d72d993d6b09390a5e" category="doc">RCF 스크립트를 설치하거나 업그레이드합니다</block>
+  <block id="7baa7758ed49797651dc1e276762ae15" category="list-text">클러스터링: * MSN2100-RCF-v1._x_-클러스터 *</block>
+  <block id="dd584ffba0b7534139645967bf24df84" category="sidebar">RCF 스크립트를 설치하거나 업그레이드합니다</block>
 </blocks>
