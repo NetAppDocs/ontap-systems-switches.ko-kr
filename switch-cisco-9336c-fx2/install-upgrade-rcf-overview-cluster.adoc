@@ -13,6 +13,8 @@ summary: '클러스터 스위치 상태 모니터\(CSMM\) 및 로그 수집 기�
 [role="lead"]
 Nexus 9336C-FX2 스위치를 처음 설정한 후 RCF(Reference Configuration File)를 설치합니다. 스위치에 기존 버전의 RCF 파일이 설치되어 있으면 RCF 버전을 업그레이드합니다.
 
+RCF를 설치하거나 업그레이드할 때 자세한 내용은 기술 자료 문서를 link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["원격 연결을 유지하면서 Cisco 상호 연결 스위치의 구성을 지우는 방법"^]참조하십시오.
+
 .사용 가능한 RCF 구성
 다음 표에서는 다양한 구성에 사용할 수 있는 RCF에 대해 설명합니다. 구성에 적용할 RCF를 선택합니다.
 

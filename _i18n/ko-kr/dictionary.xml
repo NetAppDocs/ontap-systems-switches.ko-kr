@@ -5213,7 +5213,6 @@
   <block id="49e57b2c31c8feba776b7a2916673678" category="sidebar">Cisco Nexus 9336C-FX2 또는 9336C-FX2-T</block>
   <block id="c66ea64be71d87967746ef74fac6ec75" category="list-text">[[step11]] 명령의 배너 출력을<block ref="db837131dc56fab41bddc52d5aff8865" prefix=" " category="inline-code"></block> 검사합니다. 스위치의 올바른 구성과 작동을 위해 이 지침을 읽고 따라야 합니다.</block>
   <block id="8b084baecf96a692280d1a024d86081d" category="list-text"><block ref="cf3a409f8782a7944244632e6a1adb8e" category="inline-link-macro-rx"></block>..</block>
-  <block id="a0483532706ba341300191e20cafc42e" category="list-text">Broadcom 및 Cisco 스위치를 사용한 로그 수집의 경우 로그 수집이 활성화된 상태에서 각 클러스터 설정에 대해 스위치에 새 사용자를 생성해야 합니다. 이러한 스위치는 동일한 사용자에 대해 여러 SSH 키를 지원하지 않습니다. 수행된 추가 로그 수집 설정은 사용자의 기존 SSH 키를 덮어씁니다.</block>
   <block id="1fcbc8802637b04b8fe9a86ac3d545c9" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block> 스위치 하드웨어를 설치합니다</block>
   <block id="b11226c776ec1b74f6a42f871e3194c9" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block> 스토리지 시스템 및 스토리지 쉘프를 설치합니다</block>
   <block id="130792cb3edc8d0afffb557e50b218c3" category="paragraph">스토리지 시스템 및 스토리지 쉘프를 캐비닛 또는 랙에 설치합니다. 해당 플랫폼 모델의 설치 및 설정 지침에 액세스합니다.</block>
@@ -5238,4 +5237,9 @@
   <block id="997f5023d76908d72d993d6b09390a5e" category="doc">RCF 스크립트를 설치하거나 업그레이드합니다</block>
   <block id="7baa7758ed49797651dc1e276762ae15" category="list-text">클러스터링: * MSN2100-RCF-v1._x_-클러스터 *</block>
   <block id="dd584ffba0b7534139645967bf24df84" category="sidebar">RCF 스크립트를 설치하거나 업그레이드합니다</block>
+  <block id="40b03f9635c63b20aade0ff8145eafb8" category="list-text">Broadcom 및 Cisco 스위치를 사용한 로그 수집:</block>
+  <block id="89f1dd995a5c07ea1e13abc5993d9d59" category="list-text">사용자에게 네트워크 관리자 Privileges가 있어야 합니다.</block>
+  <block id="60f743043272b873831b17c5e7290445" category="list-text">로그 수집이 활성화된 상태에서 각 클러스터 설정에 대해 스위치에 새 사용자를 생성해야 합니다. 이러한 스위치는 동일한 사용자에 대해 여러 SSH 키를 지원하지 않습니다. 수행된 추가 로그 수집 설정은 사용자의 기존 SSH 키를 덮어씁니다.</block>
+  <block id="63229fc9218a5e1a57243ce033e91a3b" category="paragraph">RCF를 설치하거나 업그레이드할 때 자세한 내용은 기술 자료 문서를 <block ref="862bab57a4acfb616afcae48c16f2cfe" category="inline-link-macro-rx"></block>참조하십시오.</block>
+  <block id="26552c2532e5b34c96d8cef5f736c6ff" category="paragraph">RCF를 설치할 때 자세한 내용은 기술 자료 문서를 <block ref="862bab57a4acfb616afcae48c16f2cfe" category="inline-link-macro-rx"></block>참조하십시오.</block>
 </blocks>
