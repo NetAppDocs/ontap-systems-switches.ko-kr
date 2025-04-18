@@ -313,6 +313,10 @@ RPC status:
 ====
 . [[step5]] 클러스터 LIF로 페일오버하기 위해 스위치 C2에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.
 +
+
+CAUTION: 클러스터 LIF를 수동으로 마이그레이션하지 마십시오.
+
++
 [listing, subs="+quotes"]
 ----
 (C2)# *configure*

@@ -5242,4 +5242,37 @@
   <block id="60f743043272b873831b17c5e7290445" category="list-text">로그 수집이 활성화된 상태에서 각 클러스터 설정에 대해 스위치에 새 사용자를 생성해야 합니다. 이러한 스위치는 동일한 사용자에 대해 여러 SSH 키를 지원하지 않습니다. 수행된 추가 로그 수집 설정은 사용자의 기존 SSH 키를 덮어씁니다.</block>
   <block id="63229fc9218a5e1a57243ce033e91a3b" category="paragraph">RCF를 설치하거나 업그레이드할 때 자세한 내용은 기술 자료 문서를 <block ref="862bab57a4acfb616afcae48c16f2cfe" category="inline-link-macro-rx"></block>참조하십시오.</block>
   <block id="26552c2532e5b34c96d8cef5f736c6ff" category="paragraph">RCF를 설치할 때 자세한 내용은 기술 자료 문서를 <block ref="862bab57a4acfb616afcae48c16f2cfe" category="inline-link-macro-rx"></block>참조하십시오.</block>
+  <block id="2b77bb88cf2794536ac9c658ce053c6b" category="doc">ONTAP에서 모니터링할 수 있도록 스위치 항목을 만듭니다</block>
+  <block id="4aa02798c2feea1f87e6fb5301e10d30" category="paragraph">명령을 사용하여<block ref="e59cde6e921a1b23eb9bf8c1c9068aca" prefix=" " category="inline-code"></block> 지정된 이더넷 스위치에 대한 모니터링을 수동으로 구성하고 사용하도록 설정합니다. 이 기능은 ONTAP가 스위치를 자동으로 추가하지 않거나 이전에 스위치를 제거했다가 다시 추가하려는 경우에 유용합니다.</block>
+  <block id="82b694a75e07a035b8cd3b7aae86fdb8" category="paragraph">일반적인 예는 IP 주소가 1.2.3.4이고 SNMPv2c 자격 증명이 * cshm1! * 로 설정된 [DeviceName]이라는 스위치를 추가하는 것입니다. 스토리지 스위치를 구성하는 경우 대신<block ref="0f3e90baa25250f9896e5ad67dd9d1f6" prefix=" " category="inline-code"></block> 를<block ref="0fa5a8d20ad4f199ce4bb17e333f0a4a" prefix=" " category="inline-code"></block> 사용합니다.</block>
+  <block id="9e2f728fd093bf40641895bd7ab81ffc" category="section-title">스위치를 삭제하지 않고 모니터링을 비활성화합니다</block>
+  <block id="71ea82a6a71bd6b5e0857ef4469e6824" category="paragraph">특정 스위치에 대한 모니터링을 일시 중지하거나 중지하지만 향후 모니터링을 위해 유지하려는 경우<block ref="a95032ab49a61ccce65cbef4bf991ebd" prefix=" " category="inline-code"></block> 매개 변수를 삭제하는 대신 매개 변수를 수정합니다.</block>
+  <block id="254dbd09c58880fcc321f2394e42803d" category="paragraph">이를 통해 새 경고를 생성하거나 다시 검색하지 않고도 스위치 세부 정보와 구성을 유지할 수 있습니다.</block>
+  <block id="5c87ebc68b8545e621c4293650f66e8e" category="section-title">더 이상 필요하지 않은 스위치를 제거합니다</block>
+  <block id="c68359f3f21922e686e683f2b1fb2d69" category="paragraph"><block ref="72fd318795f4bf274ff150d0a09106e1" prefix=" " category="inline-code"></block>연결이 끊겼거나 더 이상 필요하지 않은 스위치를 삭제하는 데 사용합니다.</block>
+  <block id="0dcda35c85e27aa3498fa4ab30cb7dae" category="paragraph">기본적으로 이 명령은 ONTAP가 현재 CDP 또는 LLDP를 통해 스위치를 감지하지 못하는 경우에만 성공합니다. 검색된 스위치를 제거하려면<block ref="02e554f8f135bc49b80e8fc45a341757" prefix=" " category="inline-code"></block> 매개 변수를 사용합니다.</block>
+  <block id="6625e054d05a0ea2ca1ae3049f75717e" category="paragraph">를 사용하는 경우<block ref="02e554f8f135bc49b80e8fc45a341757" prefix=" " category="inline-code"></block> ONTAP에서 스위치를 다시 감지하면 스위치가 자동으로 다시 추가될 수 있습니다.</block>
+  <block id="25784bbce13fd0c509a0fd1c5f248f3d" category="doc">연결된 이더넷 스위치의 모니터링을 확인합니다</block>
+  <block id="570122e6553f3a17e7188a6ca23d70d9" category="paragraph">연결된 이더넷 스위치가 모니터링되고 있는지 확인하려면 다음을 실행합니다.</block>
+  <block id="7eaabdc7d2364e9a43feeb5cf07593dc" category="paragraph">열에 * 기타 * 가 표시되거나<block ref="7a19db03ac26c54be196969b77d657a6" prefix=" " category="inline-code"></block> 필드에 * 거짓 * 이 표시되면<block ref="a559b87068921eec05086ce5485e9784" prefix=" " category="inline-code"></block> ONTAP에서 스위치를 모니터링할 수 없습니다. 기타 * 의 값은 일반적으로 ONTAP가 상태 모니터링을 위해 해당 스위치를 지원하지 않음을 나타냅니다.</block>
+  <block id="8d86e89da688f620dafbc70269059388" category="paragraph"><block ref="7a19db03ac26c54be196969b77d657a6" prefix=" " category="inline-code"></block>필드에 지정된 이유로 필드가 * FALSE * 로<block ref="fffcb4d1e12c96b2f571f77ad25878b8" prefix=" " category="inline-code"></block> 설정됩니다.</block>
+  <block id="f9f5c952edf43434e02a625f00102b19" category="inline-link-macro">이더넷 스위치 모니터링을 관리합니다</block>
+  <block id="f6ec6bfa57123a9616038a55e7f332a5" category="paragraph">명령 출력에 스위치가 나열되어 있지 않으면 ONTAP이 해당 스위치를 검색하지 않은 것 같습니다. 스위치의 케이블이 올바르게 연결되었는지 확인합니다. 필요한 경우 스위치를 수동으로 추가할 수 있습니다. 자세한 내용은 을 <block ref="ee7db2a0a5f0654c3c81941bc38adb11" category="inline-link-macro-rx"></block> 참조하십시오.</block>
+  <block id="ed7061b9b8f8c50684797c64a5576941" category="section-title">펌웨어 및 RCF 버전이 최신 버전인지 확인합니다</block>
+  <block id="43558d02214bf83729998ce237b6cdea" category="inline-link">NetApp 지원 다운로드 페이지</block>
+  <block id="9be0ccf5f4aae992d69ea7f079f6d048" category="paragraph">스위치에서 지원되는 최신 펌웨어를 실행하고 있고 호환되는 참조 구성 파일(RCF)이 적용되었는지 확인합니다. 자세한 내용은 를 <block ref="49046ae6b122d9765935bb9b378618a5" category="inline-link-rx"></block>참조하십시오.</block>
+  <block id="14bb00b56dfdaad98ccaf9d2ff1c1eb5" category="paragraph">기본적으로 상태 모니터는 모니터링을 위해 커뮤니티 문자열 * cshm1! * 와 함께 SNMPv2c를 사용하지만 SNMPv3도 구성할 수 있습니다.</block>
+  <block id="35011d870229aa144aa6a66350d2279e" category="paragraph">기본 SNMPv2c 커뮤니티 문자열을 변경해야 하는 경우 스위치에서 원하는 SNMPv2c 커뮤니티 문자열이 구성되어 있는지 확인하십시오.</block>
+  <block id="3d8bd273ce46782520a3a188e037f316" category="admonition">SNMPv3을 사용하도록 구성하는 방법에 대한 자세한 내용은 을 <block ref="ec5440e4cc2d261dc76dac84e641c0ab" category="inline-link-macro-rx"></block>참조하십시오.</block>
+  <block id="f97512ee27e4fc37982423d301b8b2cd" category="section-title">관리 네트워크 연결을 확인합니다</block>
+  <block id="4c3dc933dd2f14499a5b966f0d0f1242" category="paragraph">스위치의 관리 포트가 관리 네트워크에 연결되어 있는지 확인합니다.</block>
+  <block id="7be780b96e93a50316d019e9c7358c89" category="paragraph">ONTAP에서 SNMP 쿼리 및 로그 수집을 수행하려면 올바른 관리 포트 연결이 필요합니다.</block>
+  <block id="6022c2f82411bbd57493d91e903ce8aa" category="admonition">클러스터 LIF를 수동으로 마이그레이션하지 마십시오.</block>
+  <block id="a9b506398d4ccf6e53d71af16370c8e6" category="summary">수동으로 생성, 기본 모니터링 설정 변경 및 모니터링에서 이더넷 스위치를 삭제하는 방법에 대해 알아봅니다.</block>
+  <block id="a1c2fc220383716c158399e227f0b34f" category="paragraph">대부분의 경우 이더넷 스위치는 ONTAP에 의해 자동으로 검색되고 CSHM에 의해 모니터링됩니다. 스위치에 적용된 RCF(Reference Configuration File)는 CDP(Cisco Discovery Protocol) 및/또는 LLDP(Link Layer Discovery Protocol)를 활성화합니다. 그러나 검색되지 않은 스위치를 수동으로 추가하거나 더 이상 사용하지 않는 스위치를 제거해야 할 수도 있습니다. 또한 유지 보수 중과 같이 구성에 스위치를 유지하는 동안 활성 모니터링을 중지할 수 있습니다.</block>
+  <block id="586ef722188ebd1147c5005705cba276" category="summary">이더넷 스위치의 모니터링이 작동하는지 확인하는 방법에 대해 알아봅니다.</block>
+  <block id="73938029de1874ad71500c396fa836b1" category="doc">이더넷 스위치의 모니터링을 확인합니다</block>
+  <block id="7d446387be9f1d7a1583327a693c81a1" category="paragraph">CSHM(이더넷 스위치 상태 모니터)은 검색한 스위치를 자동으로 모니터링하려고 하지만, 스위치가 올바르게 구성되지 않은 경우 모니터링이 자동으로 수행되지 않을 수 있습니다. 스위치를 모니터링하도록 상태 모니터가 올바르게 구성되어 있는지 확인해야 합니다.</block>
+  <block id="a6227aae637a0baad0de1335f2d71396" category="sidebar">스위치 모니터링을 관리합니다</block>
+  <block id="5c46a4758dcc5f666eee202daef67af4" category="sidebar">스위치 모니터링을 확인합니다</block>
 </blocks>

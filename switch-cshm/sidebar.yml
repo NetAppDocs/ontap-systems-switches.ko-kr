@@ -19,6 +19,10 @@ entries:
   entries:
   - title: 상태 점검 개요
     url: "/switch-cshm/monitor-overview.html"
+  - title: 스위치 모니터링을 관리합니다
+    url: "/switch-cshm/monitor-manage.html"
+  - title: 스위치 모니터링을 확인합니다
+    url: "/switch-cshm/monitor-verify.html"
   - title: 알림 문제 해결
     url: "/switch-cshm/monitor-troubleshoot.html"
 - title: 로그 수집
