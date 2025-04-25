@@ -151,11 +151,11 @@ ISL 포트를 비활성화해서는 안 됩니다.
 ----
 cumulus@sw1:~$ *nv set interface swp1s0-3,swp2s0-3,swp3-14 link state down*
 cumulus@sw1:~$ *nv config apply*
-cumulus@sw1:~$ *nv save*
+cumulus@sw1:~$ *nv config save*
 
 cumulus@sw2:~$ *nv set interface swp1s0-3,swp2s0-3,swp3-14 link state down*
 cumulus@sw2:~$ *nv config apply*
-cumulus@sw2:~$ *nv save*
+cumulus@sw2:~$ *nv config save*
 ----
 . 두 SN2100 스위치 SW1과 SW2 사이의 ISL과 ISL의 물리적 포트가 포트 swp15와 swp16에서 작동하는지 확인합니다.
 +

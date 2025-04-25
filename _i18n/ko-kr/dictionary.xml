@@ -3835,7 +3835,6 @@
   <block id="5e7f834bb6ce37fe7786c30951681705" category="list-text">Cumulus Linux 버전이 4.4.3인지 확인합니다.<block ref="98f5dff8534e8c39673b544f567273e7" prefix=" " category="inline-code"></block></block>
   <block id="d3197ab8aed6376fa7796149e9bb5d76" category="paragraph">설치 프로그램이 다운로드를 시작합니다. 메시지가 나타나면 * y * 를 입력합니다.</block>
   <block id="0d5b4669d0f67490dffe38df0a47c207" category="list-text">설치가 자동으로 시작되고 다음과 같은 GRUB 화면이 나타납니다. 선택하지 마십시오 *.</block>
-  <block id="caf789a40cb327fa8f64258a010c13e0" category="list-text">Cumulus Linux 버전이 5.4:<block ref="9fcc1ae85aac3dbd490f575cf5eb3d52" prefix=" " category="inline-code"></block></block>
   <block id="ebf243f9c791c52799ecfef9dba7e609" category="doc">NetApp CN1610 클러스터 스위치를 스위치가 없는 연결로 대체</block>
   <block id="261de3e636d4ab259e73f4993ea87a6a" category="sidebar">Cumulus Linux 버전을 업그레이드하십시오</block>
   <block id="f854d13ce34c20dd774e2f26c0bcbec7" category="paragraph">사용 중인 EFOS 버전이 FIPS 호환 버전인지 또는 FIPS 비호환 버전인지 확인하려면 를 사용합니다<block ref="861d2504fbcbe4985de13f1d87bfc483" prefix=" " category="inline-code"></block> 명령. 다음 예에서 * IP_SWITCH_A1 * 은 FIPS 호환 EFOS를 사용하고 있으며 * IP_SWITCH_A2 * 는 비 FIPS 호환 EFOS를 사용하고 있습니다.</block>
@@ -5275,4 +5274,12 @@
   <block id="7d446387be9f1d7a1583327a693c81a1" category="paragraph">CSHM(이더넷 스위치 상태 모니터)은 검색한 스위치를 자동으로 모니터링하려고 하지만, 스위치가 올바르게 구성되지 않은 경우 모니터링이 자동으로 수행되지 않을 수 있습니다. 스위치를 모니터링하도록 상태 모니터가 올바르게 구성되어 있는지 확인해야 합니다.</block>
   <block id="a6227aae637a0baad0de1335f2d71396" category="sidebar">스위치 모니터링을 관리합니다</block>
   <block id="5c46a4758dcc5f666eee202daef67af4" category="sidebar">스위치 모니터링을 확인합니다</block>
+  <block id="41cda86775eebf53199061928eb39a74" category="list-text">Cumulus Linux 5.4.0 설치:</block>
+  <block id="a731c9953cb3178b61fd688f2c10ea64" category="list-text">Cumulus Linux 버전이 5.4.0인지 확인합니다.<block ref="9fcc1ae85aac3dbd490f575cf5eb3d52" prefix=" " category="inline-code"></block></block>
+  <block id="7fe163201519200ade1c23cd052b6611" category="paragraph">스위치에 처음 로그인할 때 Privileges로 * cumulus */ * cumulus * 의 사용자 이름/암호가 필요합니다<block ref="d338b3f0f405eb5e51c8cc1e5ca66f02" prefix=" " category="inline-code"></block>.</block>
+  <block id="b133f5ec9f6f691880079c684d878177" category="list-text">Cumulus Linux 5.11.0 설치:</block>
+  <block id="528379fa0d040e8e6455094df07828d8" category="list-text">Cumulus Linux 버전이 5.11.0인지 확인합니다.</block>
+  <block id="f90f747e373fe6ad78e15dd0d320ce66" category="paragraph"><block ref="9fcc1ae85aac3dbd490f575cf5eb3d52" prefix="" category="inline-code"></block></block>
+  <block id="fd5f0f669932a550ea7400efc749cfc5" category="list-text">각 노드가 각 스위치에 연결되어 있는지 확인합니다.</block>
+  <block id="2d3e15002e9f668635d184afe49a634e" category="paragraph">자세한 내용은 을<block ref="9fa647797c0e0305f4f3b2116b6db003" category="inline-link-rx"></block> 참조하십시오.</block>
 </blocks>
