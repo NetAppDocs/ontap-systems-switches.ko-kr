@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: install rcf, cisco switches, storage 
 summary: Nexus 9336C-FX2 스토리지 스위치를 처음 설정한 후 RCF를 설치할 수 있습니다. 이 절차를 사용하여 RCF 버전을 업그레이드할 수도 있습니다. 
 ---
-= 참조 구성 파일을 설치합니다
+= 참조 구성 파일을 설치하거나 업그레이드합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

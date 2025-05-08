@@ -4,7 +4,7 @@ permalink: switch-cisco-9336c-fx2-storage/components-9336c-storage.html
 keywords: shared storage cluster switch 
 summary: ONTAP 9.9.1에서 Cisco Nexus 9336C-FX2 스위치를 사용하여 스토리지 및 클러스터 기능을 공유 스위치 시나리오에 결합할 수 있습니다. 
 ---
-= Cisco Nexus 9336C-FX2 스토리지 스위치의 구성 요소 및 부품 번호
+= Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스토리지 스위치의 구성 요소 및 부품 번호
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,9 +14,9 @@ summary: ONTAP 9.9.1에서 Cisco Nexus 9336C-FX2 스위치를 사용하여 스�
 
 
 [role="lead"]
-Cisco Nexus 9336C-FX2 스위치 설치 및 유지 보수의 경우 구성 요소 및 부품 번호 목록을 검토하십시오.
+Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스토리지 스위치 설치 및 유지 보수의 경우 구성 요소 및 부품 번호 목록을 검토하십시오.
 
-다음 표에는 9336C-FX2 스위치, 팬 및 전원 공급 장치에 대한 부품 번호 및 설명이 나와 있습니다.
+다음 표에는 9336C-FX2 및 9336C-FX2-T 저장 장치 스위치, 팬 및 전원 공급 장치에 대한 부품 번호와 설명이 나와 있습니다.
 
 [cols="1,2"]
 |===
@@ -26,28 +26,49 @@ Cisco Nexus 9336C-FX2 스위치 설치 및 유지 보수의 경우 구성 요소
  a| 
 X190200-CS-PE
  a| 
-N9K-9336C-FX2, CS, PTSX, 36PT10/25/40/100GQSFP28
+클러스터 스위치, N9336C 36Pt PTSX 10/25/40/100G
 
 
 
  a| 
 X190200-CS-PI
  a| 
-N9K-9336C-FX2, CS, PSIN, 36PT10/25/40/100GQSFP28
+클러스터 스위치, N9336C 36Pt PSIN 10/25/40/100G
+
+
+
+ a| 
+X190212-CS-PE를 참조하십시오
+ a| 
+클러스터 스위치, N9336C 12pt(9336C-FX2-T) PTSX 10/25/40/100G
+
+
+
+ a| 
+X190212-CS-PI를 참조하십시오
+ a| 
+클러스터 스위치, N9336C 12pt(9336C-FX2-T) PSIN 10/25/40/100G
+
+
+
+ a| 
+SW-N9K-FX2-24P-UPG를 참조하십시오
+ a| 
+SW, Cisco 9336CFX2 24 포트 POD 라이센스
 
 
 
  a| 
 X190210-FE-PE
  a| 
-N9K-9336C, FTE, PTSX, 36PT10/25/40/100GQSFP28
+N9K-9336C, FTE, PTSX, 36PT 10/25/40/100GQSFP28
 
 
 
  a| 
 X190210-FE-PI
  a| 
-N9K-9336C, FTE, PSIN, 36PT10/25/40/100GQSFP28
+N9K-9336C, FTE, PSIN, 36PT 10/25/40/100GQSFP28
 
 
 
@@ -85,3 +106,15 @@ X-NXA-FAN-65CFM-PI
 N9K-9336C 65CFM, 포트 쪽 흡입 공기 흐름
 
 |===
+
+
+== Cisco Smart 라이센스
+
+Cisco Nexus 9336C-FX-T 스토리지 스위치에서 12개 이상의 포트를 활성화하려면 Cisco Smart 라이센스를 구매해야 합니다. Cisco Smart 라이센스는 Cisco Smart 계정을 통해 관리됩니다.
+
+. 필요한 경우 새 Smart 계정을 생성합니다. 자세한 내용은 을 https://id.cisco.com/signin/register["새 Smart 계정을 생성합니다"^] 참조하십시오.
+. 기존 Smart 계정에 대한 액세스를 요청합니다. 자세한 내용은 을 https://id.cisco.com/oauth2/default/v1/authorize?response_type=code&scope=openid%20profile%20address%20offline_access%20cci_coimemberOf%20email&client_id=cae-okta-web-gslb-01&state=s2wvKDiBja__7ylXonWrq8w-FAA&redirect_uri=https%3A%2F%2Frpfa.cloudapps.cisco.com%2Fcb%2Fsso&nonce=qO6s3cZE5ZdhC8UKMEfgE6fbu3mvDJ8PTw5jYOp6z30["기존 Smart 계정에 대한 액세스를 요청합니다"^] 참조하십시오.
+
+
+
+NOTE: Smart 라이센스를 구입했으면 적절한 RCF를 설치하여 사용할 수 있는 36개의 포트를 모두 활성화하고 구성합니다.

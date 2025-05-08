@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cisco, nx-os, software, reference, configuration, file, rcf, install, fx2, cluster, switch, install nx-os software and rcfs on cisco nexus 9336-fx2 cluster switches - cisco nexus 9336x-fx2 
 summary: 'Cisco NX-OS 소프트웨어 및 참조 구성 파일\(RCFs\)은 Cisco Nexus 9336C-FX2 클러스터 스위치에 설치해야 합니다.' 
 ---
-= NX-OS 소프트웨어 및 RCF 설치 준비
+= NX-OS 소프트웨어 및 RCF의 설치 또는 업그레이드를 준비합니다
 :allow-uri-read: 
 
 
@@ -225,4 +225,4 @@ Cluster
 
 
 .다음 단계
-link:install-nxos-software-9336c-storage.html["NX-OS 소프트웨어를 설치합니다"].
+link:install-nxos-software-9336c-storage.html["NX-OS 소프트웨어를 설치 또는 업그레이드합니다"]..

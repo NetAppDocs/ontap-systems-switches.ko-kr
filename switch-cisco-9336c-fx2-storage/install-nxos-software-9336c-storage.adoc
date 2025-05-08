@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: procedure, install, nx-os, software, nexus, cluster, switch, install the nx-os software - cisco nexus 9336c-fx2 
 summary: 이 절차를 사용하여 Nexus 9336C-FX2 클러스터 스위치에 NX-OS 소프트웨어를 설치할 수 있습니다. 
 ---
-= NX-OS 소프트웨어를 설치합니다
+= NX-OS 소프트웨어를 설치 또는 업그레이드합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -694,4 +694,4 @@ cluster1::*>
 
 
 .다음 단계
-link:install-rcf-software-9336c-storage.html["RCF를 설치합니다"]..
+link:install-rcf-software-9336c-storage.html["RCF를 설치하거나 업그레이드합니다"]..
