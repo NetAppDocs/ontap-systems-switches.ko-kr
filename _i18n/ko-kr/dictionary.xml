@@ -4581,7 +4581,6 @@
   <block id="ace8956d8976d528bf22aab3553d5953" category="paragraph">이더넷 스위치 상태 모니터(CSHM) 및 로그 수집 기능을 사용하는 경우, SSH 키를 생성한 다음 클러스터 스위치에서 SSH를 사용하도록 설정해야 합니다.</block>
   <block id="5b8b393a675dcaaee97c02828356657c" category="paragraph"><block ref="5b8b393a675dcaaee97c02828356657c" category="inline-link-macro-rx"></block></block>
   <block id="bc0d8d4243074a46cad51594b5a0fd0f" category="admonition">로그 수집 기능에 이더넷 스위치 상태 모니터(CSHM)를 사용할 때는 SSH를 사용하는 것이 좋습니다. SSHv2는 향상된 보안에도 권장됩니다.</block>
-  <block id="af586f672614707ef07031398b17fe29" category="paragraph"><block ref="af586f672614707ef07031398b17fe29" category="inline-link-macro-rx"></block></block>
   <block id="63a3f29d798fa577b051e98c5ffbca0c" category="admonition">이더넷 스위치 상태 모니터는 ONTAP 9.13.1P8 이하 및 9.14.1P3 이하 또는 NX-OS 버전 10.3(4a)(M)을 지원하지 않습니다.</block>
   <block id="10bd81ac212ccc1de8787d82e4582e46" category="inline-link-macro">NX-OS 소프트웨어 및 RCF 설치를 준비합니다</block>
   <block id="5100b6db0c93d9851fab3b0b6ed72166" category="list-text"><block ref="0f24d169a2f575f17ba79644c46d3a03" category="inline-link-macro-rx"></block>..</block>
@@ -5297,4 +5296,5 @@
   <block id="20eed5f0dc87e5058308718e45381220" category="paragraph">11 ~ 36</block>
   <block id="000bf48a29e422b515b1396c1aac3f2c" category="paragraph">빈 케이블 연결 워크시트를 사용하여 클러스터에서 노드로 지원되는 플랫폼을 문서화할 수 있습니다.</block>
   <block id="af9181560cc346780cf6974ca9209401" category="sidebar">스토리지 스위치 - Cisco Nexus 9336C-FX2 또는 9336C-FX2-T</block>
+  <block id="d35b203e8fe0144f812f95e477dfc8ac" category="paragraph"><block ref="d35b203e8fe0144f812f95e477dfc8ac" category="inline-link-macro-rx"></block></block>
 </blocks>
