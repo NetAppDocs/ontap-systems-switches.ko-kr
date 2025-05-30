@@ -40,6 +40,41 @@ NOTE: RCF에서 특히 로그 수집에 사용할 사용자(관리자 사용자 
 ====
 .Cumulus Linux 4.4.3
 --
+. 클러스터 스위치를 관리 네트워크에 연결합니다.
+. 사용하세요  `ping` Cumulus Linux와 RCF를 호스팅하는 서버에 대한 연결을 확인하는 명령입니다.
+. 클러스터 스위치에 연결된 각 노드의 클러스터 포트를 표시합니다.
++
+네트워크 디바이스 발견 쇼
+
+. 각 클러스터 포트의 관리 및 운영 상태를 확인합니다.
++
+.. 모든 클러스터 포트가 정상 상태인지 확인합니다.
++
+네트워크 포트 show-role cluster
+
+.. 모든 클러스터 인터페이스(LIF)가 홈 포트에 있는지 확인합니다.
++
+네트워크 인터페이스 show-role cluster
+
+.. 클러스터가 두 클러스터 스위치에 대한 정보를 표시하는지 확인합니다.
++
+'system cluster-switch show-is-monitoring-enabled-operational true'
+
+
+
+. 클러스터 LIF에서 자동 되돌리기 기능을 해제합니다. 클러스터 LIF는 파트너 클러스터 스위치로 페일오버하고 타겟 스위치에서 업그레이드 절차를 수행할 때 그대로 유지됩니다.
++
+'network interface modify -vserver Cluster-lif * -auto-revert false'
+
++
+[NOTE]
+.다음 사항에 유의하십시오.
+====
+** RCF를 업그레이드하는 경우 이 단계에서 자동 되돌리기를 비활성화해야 합니다.
+** Cumulus Linux 버전을 업그레이드한 경우 자동 되돌리기가 이미 비활성화되어 있으므로 이 단계에서는 자동 되돌리기를 비활성화할 필요가 없습니다.
+
+
+====
 . SN2100 스위치에 사용 가능한 인터페이스를 표시합니다.
 +
 [listing, subs="+quotes"]
@@ -264,11 +299,55 @@ sw2                         cluster-network    10.233.205.91    MSN2100-CB2RC
 ----
 
 
+. 클러스터가 정상 상태인지 확인합니다.
++
+'클러스터 쇼'
+
+. 두 번째 스위치에서도 1~14단계를 반복합니다.
+. 클러스터 LIF에서 자동 되돌리기 기능을 설정합니다.
++
+'network interface modify -vserver Cluster-lif * -auto-revert true'
+
 
 
 --
 .Cumulus Linux 5.4.0
 --
+. 클러스터 스위치를 관리 네트워크에 연결합니다.
+. 사용하세요  `ping` Cumulus Linux와 RCF를 호스팅하는 서버에 대한 연결을 확인하는 명령입니다.
+. 클러스터 스위치에 연결된 각 노드의 클러스터 포트를 표시합니다.
++
+네트워크 디바이스 발견 쇼
+
+. 각 클러스터 포트의 관리 및 운영 상태를 확인합니다.
++
+.. 모든 클러스터 포트가 정상 상태인지 확인합니다.
++
+네트워크 포트 show-role cluster
+
+.. 모든 클러스터 인터페이스(LIF)가 홈 포트에 있는지 확인합니다.
++
+네트워크 인터페이스 show-role cluster
+
+.. 클러스터가 두 클러스터 스위치에 대한 정보를 표시하는지 확인합니다.
++
+'system cluster-switch show-is-monitoring-enabled-operational true'
+
+
+
+. 클러스터 LIF에서 자동 되돌리기 기능을 해제합니다. 클러스터 LIF는 파트너 클러스터 스위치로 페일오버하고 타겟 스위치에서 업그레이드 절차를 수행할 때 그대로 유지됩니다.
++
+'network interface modify -vserver Cluster-lif * -auto-revert false'
+
++
+[NOTE]
+.다음 사항에 유의하십시오.
+====
+** RCF를 업그레이드하는 경우 이 단계에서 자동 되돌리기를 비활성화해야 합니다.
+** Cumulus Linux 버전을 업그레이드한 경우 자동 되돌리기가 이미 비활성화되어 있으므로 이 단계에서는 자동 되돌리기를 비활성화할 필요가 없습니다.
+
+
+====
 . SN2100 스위치에 사용 가능한 인터페이스를 표시합니다.
 +
 [listing, subs="+quotes"]
@@ -586,11 +665,55 @@ sw2                         cluster-network    10.233.205.91    MSN2100-CB2RC
 ----
 
 
+. 클러스터가 정상 상태인지 확인합니다.
++
+'클러스터 쇼'
+
+. 두 번째 스위치에서도 1~14단계를 반복합니다.
+. 클러스터 LIF에서 자동 되돌리기 기능을 설정합니다.
++
+'network interface modify -vserver Cluster-lif * -auto-revert true'
+
 
 
 --
 .Cumulus Linux 5.11.0
 --
+. 클러스터 스위치를 관리 네트워크에 연결합니다.
+. 사용하세요  `ping` Cumulus Linux와 RCF를 호스팅하는 서버에 대한 연결을 확인하는 명령입니다.
+. 클러스터 스위치에 연결된 각 노드의 클러스터 포트를 표시합니다.
++
+네트워크 디바이스 발견 쇼
+
+. 각 클러스터 포트의 관리 및 운영 상태를 확인합니다.
++
+.. 모든 클러스터 포트가 정상 상태인지 확인합니다.
++
+네트워크 포트 show-role cluster
+
+.. 모든 클러스터 인터페이스(LIF)가 홈 포트에 있는지 확인합니다.
++
+네트워크 인터페이스 show-role cluster
+
+.. 클러스터가 두 클러스터 스위치에 대한 정보를 표시하는지 확인합니다.
++
+'system cluster-switch show-is-monitoring-enabled-operational true'
+
+
+
+. 클러스터 LIF에서 자동 되돌리기 기능을 해제합니다. 클러스터 LIF는 파트너 클러스터 스위치로 페일오버하고 타겟 스위치에서 업그레이드 절차를 수행할 때 그대로 유지됩니다.
++
+'network interface modify -vserver Cluster-lif * -auto-revert false'
+
++
+[NOTE]
+.다음 사항에 유의하십시오.
+====
+** RCF를 업그레이드하는 경우 이 단계에서 자동 되돌리기를 비활성화해야 합니다.
+** Cumulus Linux 버전을 업그레이드한 경우 자동 되돌리기가 이미 비활성화되어 있으므로 이 단계에서는 자동 되돌리기를 비활성화할 필요가 없습니다.
+
+
+====
 . SN2100 스위치에 사용 가능한 인터페이스를 표시합니다.
 +
 [listing, subs="+quotes"]
@@ -907,6 +1030,15 @@ sw2                         cluster-network    10.233.205.91    MSN2100-CB2RC
     Version Source: LLDP
 ----
 
+
+. 클러스터가 정상 상태인지 확인합니다.
++
+'클러스터 쇼'
+
+. 두 번째 스위치에서도 1~14단계를 반복합니다.
+. 클러스터 LIF에서 자동 되돌리기 기능을 설정합니다.
++
+'network interface modify -vserver Cluster-lif * -auto-revert true'
 
 
 

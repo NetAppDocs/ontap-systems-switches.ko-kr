@@ -11,15 +11,22 @@ summary: '이 절차를 사용하여 CSHM(Ethernet Switch Health Monitoring)을 
 
 
 [role="lead"]
-SNMP는 스위치를 모니터링하는 데 사용됩니다. 이더넷 스위치 상태 모니터(CSHM)는 SNMP를 사용하여 클러스터 및 스토리지 스위치의 상태와 성능을 모니터링합니다. 기본적으로 SNMPv2c는 RCF(Reference Configuration File)를 통해 자동으로 구성됩니다.
+SNMP는 스위치를 모니터링하는 데 사용됩니다. SNMPv3에 의한 모니터링은 다음 절차에 따라 구성됩니다.
 
-SNMPv3는 인증, 암호화 및 메시지 무결성과 같은 강력한 보안 기능을 도입하여 무단 액세스로부터 보호하고 전송 중 데이터 기밀성과 무결성을 보장하기 때문에 SNMPv2보다 안전합니다.
+이더넷 스위치 상태 모니터(CSHM)는 SNMP를 사용하여 클러스터 및 스토리지 스위치의 상태와 성능을 모니터링합니다. 기본적으로 SNMPv2c는 RCF(Reference Configuration File)를 통해 자동으로 구성됩니다. SNMPv3는 인증, 암호화 및 메시지 무결성과 같은 강력한 보안 기능을 도입하여 무단 액세스로부터 보호하고 전송 중 데이터 기밀성과 무결성을 보장하기 때문에 SNMPv2보다 안전합니다.
+
+[NOTE]
+====
+* SNMPv3는 ONTAP 9.12.1 이상에서만 지원됩니다.
+* ONTAP 9.13.1P12, 9.14.1P9, 9.15.1P5, 9.16.1 및 이후 버전은 다음 두 가지 문제를 해결합니다.
++
+** link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-Issues/CONTAP-82891["Cisco 스위치의 ONTAP 상태 모니터링의 경우 모니터링을 위해 SNMPv3으로 전환한 후에도 SNMPv2 트래픽이 계속 표시될 수 있습니다."^]
+** link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-Issues/CONTAP-119131["SNMP 장애 발생 시 거짓 양성 스위치 팬 및 전원 경고"^]
 
 
-NOTE: SNMPv3는 ONTAP 9.12.1 이상에서만 지원됩니다.
 
-CSHM을 지원하는 특정 스위치에 대해 SNMPv3를 구성하려면 다음 절차를 따르십시오.
 
+====
 .이 작업에 대해
 다음 명령은 * Broadcom *, * Cisco * 및 * NVIDIA * 스위치에서 SNMPv3 사용자 이름을 구성하는 데 사용됩니다.
 
@@ -134,7 +141,7 @@ DEPRECATED-Community String or SNMPv3 Username: -
 cluster1::*>
 cluster1::*> *system switch ethernet modify -device "sw1" -snmp-version SNMPv3 -community-or-username <username>*
 ----
-. 새로 생성된 SNMPv3 사용자로 쿼리할 일련 번호가 CSHM 폴링 기간이 완료된 후 이전 단계에서 자세히 설명한 일련 번호와 동일한지 확인합니다.
+. CSHM 폴링 기간을 기다린 후 이더넷 스위치의 일련 번호가 채워졌는지 확인하세요.
 +
 [source, cli]
 ----
@@ -322,9 +329,9 @@ cluster1::*>
 
 
 --
-.NVIDIA - CLI 5.4
+.엔비디아 - CL 5.4.0
 --
-CLI 5.4를 실행하는 NVIDIA SN2100 스위치에서 SNMPv3 사용자 이름 SNMPv3_user 구성:
+CLI 5.4.0을 실행하는 NVIDIA SN2100 스위치에서 SNMPv3 사용자 이름 SNMPv3_USER를 구성합니다.
 
 * 인증 없음 * 의 경우:
 +
@@ -518,9 +525,9 @@ DEPRECATED-Community String or SNMPv3 Username: -
 
 
 --
-.NVIDIA - CLI 5.11
+.엔비디아 - CL 5.11.0
 --
-CLI 5.11를 실행하는 NVIDIA SN2100 스위치에서 SNMPv3 사용자 이름 SNMPv3_user 구성:
+CLI 5.11.0을 실행하는 NVIDIA SN2100 스위치에서 SNMPv3 사용자 이름 SNMPv3_USER를 구성합니다.
 
 * 인증 없음 * 의 경우:
 +

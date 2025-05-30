@@ -83,7 +83,7 @@ Nexus 9000 시리즈 스위치에 대한 국제 기관의 규정 준수, 안전 
 
 == ONTAP 시스템 설명서
 
-ONTAP 시스템을 설정하려면 에서 사용 중인 운영 체제 버전에 대한 다음 문서가 필요합니다 https://docs.netapp.com/ontap-9/index.jsp["ONTAP 9 문서 센터"^].
+ONTAP 시스템을 설정하려면 운영 체제 버전에 대한 다음 문서가 필요합니다.  https://docs.netapp.com/ontap-9/index.jsp["ONTAP 9"^] .
 
 [cols="1,2"]
 |===

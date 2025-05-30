@@ -97,7 +97,7 @@ NOTE: AutoSupport 메시지는 유지보수 기간 동안 자동 케이스 생�
 +
 [listing]
 ----
-cluster1::*> system node autosupport invoke -node \* -type all -message MAINT=2h
+cluster1::*> system node autosupport invoke -node * -type all -message MAINT=2h
 ----
 . 권한 수준을 고급으로 변경하고 계속할 것인지 묻는 메시지가 표시되면 * y * 를 입력합니다.
 +
@@ -635,7 +635,7 @@ RPC status:
 ====
 [listing]
 ----
-cluster1::*> system node autosupport invoke -node \* -type all -message MAINT=END
+cluster1::*> system node autosupport invoke -node * -type all -message MAINT=END
 ----
 ====
 +

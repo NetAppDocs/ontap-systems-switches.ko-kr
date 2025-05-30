@@ -42,8 +42,34 @@ CAUTION: 누적 사용자 계정의 기본 암호는 * cumulus * 입니다. Cumu
 .단계
 [role="tabbed-block"]
 ====
-.Cumulus Linux 4.4.x에서 Cumulus Linux 5.x로
+.Cumulus Linux 4.4.x에서 Cumulus Linux 5.4.0으로
 --
+. 클러스터 스위치를 관리 네트워크에 연결합니다.
+. ping 명령을 사용하여 Cumulus Linux와 RCF를 호스팅하는 서버에 대한 연결을 확인합니다.
+. 클러스터 스위치에 연결된 각 노드의 클러스터 포트를 표시합니다.
++
+네트워크 디바이스 발견 쇼
+
+. 각 클러스터 포트의 관리 및 운영 상태를 확인합니다.
++
+.. 모든 클러스터 포트가 정상 상태인지 확인합니다.
++
+네트워크 포트 show-role cluster
+
+.. 모든 클러스터 인터페이스(LIF)가 홈 포트에 있는지 확인합니다.
++
+네트워크 인터페이스 show-role cluster
+
+.. 클러스터가 두 클러스터 스위치에 대한 정보를 표시하는지 확인합니다.
++
+'system cluster-switch show-is-monitoring-enabled-operational true'
+
+
+
+. 클러스터 LIF에서 자동 되돌리기 기능을 해제합니다. 클러스터 LIF는 파트너 클러스터 스위치로 페일오버하고 타겟 스위치에서 업그레이드 절차를 수행할 때 그대로 유지됩니다.
++
+'network interface modify -vserver Cluster-lif * -auto-revert false'
+
 . 현재 Cumulus Linux 버전 및 연결된 포트 확인:
 +
 [listing, subs="+quotes"]
@@ -81,7 +107,7 @@ UP     swp6    100G  9216   Trunk/L2    SHFFG1826000102 (e0b)   Master: bridge(U
 .
 .
 ----
-. Cumulux Linux 5.x 이미지 다운로드: tmp
+. Cumulux Linux 5.4.0 이미지 다운로드:
 +
 [listing, subs="+quotes"]
 ----
@@ -250,8 +276,34 @@ cumulus@sw1:mgmt:~$ *sudo adduser admin nvshow*
 
 
 --
-.Cumulus Linux 5.x에서 Cumulus Linux 5.x로
+.Cumulus Linux 5.x에서 Cumulus Linux 5.4.0으로
 --
+. 클러스터 스위치를 관리 네트워크에 연결합니다.
+. ping 명령을 사용하여 Cumulus Linux와 RCF를 호스팅하는 서버에 대한 연결을 확인합니다.
+. 클러스터 스위치에 연결된 각 노드의 클러스터 포트를 표시합니다.
++
+네트워크 디바이스 발견 쇼
+
+. 각 클러스터 포트의 관리 및 운영 상태를 확인합니다.
++
+.. 모든 클러스터 포트가 정상 상태인지 확인합니다.
++
+네트워크 포트 show-role cluster
+
+.. 모든 클러스터 인터페이스(LIF)가 홈 포트에 있는지 확인합니다.
++
+네트워크 인터페이스 show-role cluster
+
+.. 클러스터가 두 클러스터 스위치에 대한 정보를 표시하는지 확인합니다.
++
+'system cluster-switch show-is-monitoring-enabled-operational true'
+
+
+
+. 클러스터 LIF에서 자동 되돌리기 기능을 해제합니다. 클러스터 LIF는 파트너 클러스터 스위치로 페일오버하고 타겟 스위치에서 업그레이드 절차를 수행할 때 그대로 유지됩니다.
++
+'network interface modify -vserver Cluster-lif * -auto-revert false'
+
 . 현재 Cumulus Linux 버전 및 연결된 포트 확인:
 +
 [listing, subs="+quotes"]
@@ -449,6 +501,173 @@ cumulus@sw1:mgmt:~$ *sudo adduser admin nvshow*
 
 
 --
+.Cumulus Linux 5.4.0에서 Cumulus Linux 5.11.0으로
+--
+. 클러스터 스위치를 관리 네트워크에 연결합니다.
+. ping 명령을 사용하여 Cumulus Linux와 RCF를 호스팅하는 서버에 대한 연결을 확인합니다.
+. 클러스터 스위치에 연결된 각 노드의 클러스터 포트를 표시합니다.
++
+네트워크 디바이스 발견 쇼
+
+. 각 클러스터 포트의 관리 및 운영 상태를 확인합니다.
++
+.. 모든 클러스터 포트가 정상 상태인지 확인합니다.
++
+네트워크 포트 show-role cluster
+
+.. 모든 클러스터 인터페이스(LIF)가 홈 포트에 있는지 확인합니다.
++
+네트워크 인터페이스 show-role cluster
+
+.. 클러스터가 두 클러스터 스위치에 대한 정보를 표시하는지 확인합니다.
++
+'system cluster-switch show-is-monitoring-enabled-operational true'
+
+
+
+. 클러스터 LIF에서 자동 되돌리기 기능을 해제합니다. 클러스터 LIF는 파트너 클러스터 스위치로 페일오버하고 타겟 스위치에서 업그레이드 절차를 수행할 때 그대로 유지됩니다.
++
+'network interface modify -vserver Cluster-lif * -auto-revert false'
+
+. 현재 Cumulus Linux 버전 및 연결된 포트 확인:
++
+[listing, subs="+quotes"]
+----
+admin@sw1:mgmt:~$ *nv show system*
+                    operational          applied
+------------------- -------------------- -----------------
+hostname            cumulus              cumulus
+build               Cumulus Linux 5.4.0
+uptime              6 days, 8:37:36
+timezone            Etc/UTC
+
+admin@sw1:mgmt:~$ *nv show interface*
+Interface     MTU   Speed State Remote Host         Remote Port- Type      Summary
+------------- ----- ----- ----- ------------------- ------------ --------- -------------
++ cluster_isl 9216  200G  up                                      bond
++ eth0        1500  100M  up    mgmt-sw1            Eth105/1/14   eth       IP Address: 10.231.80 206/22
+  eth0                                                                      IP Address: fd20:8b1e:f6ff:fe31:4a0e/64
++ lo          65536       up                                      loopback  IP Address: 127.0.0.1/8
+  lo                                                                        IP Address: ::1/128
++ swp1s0      9216 10G    up cluster01                e0b         swp
+.
+.
+.
++ swp15      9216 100G    up sw2                      swp15       swp
++ swp16      9216 100G    up sw2                      swp16       swp
+----
+. Cumulux Linux 5.11.0 이미지 다운로드:
++
+[listing, subs="+quotes"]
+----
+admin@sw1:mgmt:~$ *sudo onie-install -a -i http://_<ip-to-webserver>_/path/to/cumulus-linux-5.11.0-mlx-amd64.bin*
+[sudo] password for cumulus:
+Fetching installer: http://_<ip-to-webserver>_/path/to/cumulus-linux-5.11.0-mlx-amd64.bin
+Downloading URL: http://_<ip-to-webserver>_/path/to/cumulus-linux-5.11.0-mlx-amd64.bin
+######################################################################### 100.0%
+Success: HTTP download complete.
+EFI variables are not supported on this system
+Warning: SecureBoot is not available.
+Image is signed.
+.
+.
+.
+Staging installer image...done.
+WARNING:
+WARNING: Activating staged installer requested.
+WARNING: This action will wipe out all system data.
+WARNING: Make sure to back up your data.
+WARNING:
+Are you sure (y/N)? *y*
+Activating staged installer...done.
+Reboot required to take effect.
+----
+. 스위치를 재부팅합니다.
++
+[listing, subs="+quotes"]
+----
+admin@sw1:mgmt:~$ *sudo reboot*
+----
+. 암호 변경:
++
+[listing, subs="+quotes"]
+----
+cumulus login: *cumulus*
+Password:
+You are required to change your password immediately (administrator enforced)
+Changing password for cumulus.
+Current password: *cumulus*
+New password: *<new_password>*
+Retype new password: *<new_password>*
+Linux cumulus 5.11.0-cl-1-amd64 #1 SMP Debian 5.10.162-1+cl5.4.0u1 (2023-01-20) x86_64
+
+Welcome to NVIDIA Cumulus (R) Linux (R)
+
+ZTP in progress. To disable, do 'ztp -d'
+----
+. Cumulus Linux 버전 확인: `nv show system`
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *nv show system*
+operational    applied
+-------------- ----------------
+hostname       cumulus cumulus
+build          Cumulus Linux 5.11.0
+uptime         14:07:08
+timezone       Etc/UTC
+----
+. 호스트 이름 변경:
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *nv set system hostname sw1*
+cumulus@cumulus:mgmt:~$ *nv config apply*
+Warning: The following files have been changed since the last save, and they WILL be overwritten.
+- /etc/nsswitch.conf
+- /etc/synced/synced.conf
+.
+.
+----
+. 스위치에서 로그아웃한 다음 다시 로그인하면 프롬프트에서 업데이트된 스위치 이름을 확인할 수 있습니다.
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *exit*
+logout
+
+Debian GNU/Linux 10 cumulus ttyS0
+
+cumulus login: *cumulus*
+Password:
+Last login: Tue Dec 15 21:43:13 UTC 2020 on ttyS0
+Linux cumulus 5.11.0-cl-1-amd64 #1 SMP Debian 5.10.162-1+cl5.4.0u1 (2023-01-20) x86_64
+
+Welcome to NVIDIA Cumulus (R) Linux (R)
+
+
+ZTP in progress. To disable, do 'ztp -d'
+
+cumulus@sw1:mgmt:~$
+----
+. IP 주소 설정:
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:mgmt:~$ *nv unset interface eth0 ip address dhcp*
+cumulus@sw1:mgmt:~$ *nv set interface eth0 ip address 10.231.80.206/22*
+cumulus@sw1:mgmt:~$ *nv set interface eth0 ip gateway 10.231.80.1*
+cumulus@sw1:mgmt:~$ *nv config apply*
+applied [rev_id: 2]
+cumulus@sw1:mgmt:~$ *ip route show vrf mgmt*
+default via 10.231.80.1 dev eth0 proto kernel
+unreachable default metric 4278198272
+10.231.80.0/22 dev eth0 proto kernel scope link src 10.231.80.206
+127.0.0.0/8 dev mgmt proto kernel scope link src 127.0.0.1
+----
+
+
+--
 ====
 .다음 단계
-link:install-rcf-sn2100-cluster.html["RCF(Reference Configuration File) 스크립트를 설치합니다"].
+link:install-rcf-sn2100-cluster.html["RCF 스크립트를 설치하거나 업그레이드합니다"]..

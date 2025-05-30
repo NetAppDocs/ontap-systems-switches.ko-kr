@@ -11,6 +11,24 @@ summary: 'Cisco NX-OS 소프트웨어 및 참조 구성 파일\(RCFs\)은 Cisco 
 [role="lead"]
 NX-OS 소프트웨어 및 RCF(Reference Configuration File)를 설치하기 전에 다음 절차를 따르십시오.
 
+.추천 문서
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치 페이지"^]
++
+지원되는 ONTAP 및 NX-OS 버전은 스위치 호환성 표를 참조하십시오.
+
+* link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-installation-guides-list.html["소프트웨어 업그레이드 및 다운그레이드 설명서"^]
++
+Cisco 스위치 업그레이드 및 다운그레이드 절차에 대한 자세한 내용은 Cisco 웹 사이트에 있는 해당 소프트웨어 및 업그레이드 가이드를 참조하십시오.
+
+* link:https://www.cisco.com/c/dam/en/us/td/docs/dcn/tools/nexus-9k3k-issu-matrix/index.html["Cisco Nexus 9000 및 3000 업그레이드 및 ISSU 매트릭스"^]
++
+현재 및 대상 릴리스를 기반으로 Nexus 9000 시리즈 스위치의 Cisco NX-OS 소프트웨어에 대한 중단적 업그레이드/다운그레이드에 대한 정보를 제공합니다.
+
++
+페이지에서 * Disruptive Upgrade * 를 선택하고 드롭다운 목록에서 현재 릴리스 및 대상 릴리스를 선택합니다.
+
+
+
 .예를 참조하십시오
 이 절차의 예에서는 다음 스위치 및 노드 명명법을 사용합니다.
 
@@ -211,7 +229,7 @@ cluster1::*> *network interface show -vserver Cluster -fields auto-revert*
 
           Logical
 Vserver   Interface           Auto-revert
---------- ––––––-------------- ------------
+--------- ------------------- ------------
 Cluster
           cluster1-01_clus1   true
           cluster1-01_clus2   true

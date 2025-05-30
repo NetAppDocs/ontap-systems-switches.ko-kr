@@ -2,26 +2,21 @@
 :allow-uri-read: 
 
 
-다음 절차에 따라 NVIDIA 클러스터 스위치의 이더넷 스위치 상태 모니터링을 위한 해당 구성 파일을 설치하십시오.
+NVIDIA 이더넷 스위치에서 이더넷 스위치 상태 모니터링을 구성하려면 다음 절차를 따르세요.
 
-지원되는 모델:
+이 지침은 NVIDIA X190006-PE 및 X190006-PI 스위치가 제대로 감지되지 않은 경우 적용되며 다음을 실행하여 확인할 수 있습니다.  `system switch ethernet show` 모델에 *OTHER*가 표시되는지 확인하세요. NVIDIA 스위치 모델을 식별하려면 다음 명령을 사용하여 부품 번호를 찾으세요.  `nv show platform hardware` NVIDIA CL 5.8 및 이전 버전용 또는  `nv show platform` 이후 버전용.
 
-* MSN2100-CB2FC를 참조하십시오
-* MSN2100-CB2RC를 참조하십시오
-* X190006-PE
-* X190006-PI
+[NOTE]
+====
+다음 ONTAP 릴리스에서 NVIDIA CL 5.11.x를 사용할 때 상태 모니터링 및 로그 수집이 의도한 대로 작동하도록 하려면 이 단계를 따르는 것이 좋습니다. 이 단계를 따르지 않아도 상태 모니터링 및 로그 수집이 작동할 수 있지만, 모든 것이 제대로 작동하는지 확인하려면 이 단계를 따르세요.
+
+* 9.10.1P20, 9.11.1P18, 9.12.1P16, 9.13.1P8, 9.14.1, 9.15.1 및 이후 패치 릴리스
 
 
-
-NOTE: 이 설치 절차는 ONTAP 9.10.1 이상에 적용됩니다.
-
+====
 .시작하기 전에
-* 를 실행하고 모델에 * 기타 * 가 표시되는지 확인하여 구성 파일을 다운로드해야 하는지 `system switch ethernet show` 확인합니다.
-+
-구성 파일을 적용한 후에도 모델에 * 기타 * 가 계속 표시되면 NetApp 지원에 문의하십시오.
-
 * ONTAP 클러스터가 작동 중이고 실행 중인지 확인합니다.
-* CSHM에서 사용할 수 있는 모든 기능을 사용하려면 SSH를 활성화합니다.
+* CSHM에서 제공하는 모든 기능을 사용하려면 스위치에서 SSH를 활성화하세요.
 * 모든 노드에서 디렉토리를 지웁니다 `/mroot/etc/cshm_nod/nod_sign/`.
 +
 .. 노드 쉘을 입력합니다.
@@ -92,7 +87,7 @@ NOTE: 이 설치 절차는 ONTAP 9.10.1 이상에 적용됩니다.
 +
 [listing, subs="+quotes"]
 ----
-cluster1::> *system cluster-switch configure-health-monitor -node * -package-url http://192.168.2.20/usr/download/_[filename.zip]_*
+cluster1::> *system switch ethernet*
 ----
 . 명령 출력이 ONTAP 버전에 대한 다음 텍스트로 끝나는지 확인합니다.
 
@@ -125,3 +120,6 @@ CSHM 다운로드 패키지가 성공적으로 처리되었습니다.
 cluster1::> *system switch ethernet show*
 ----
 
+
+
+NOTE: 구성 파일을 적용한 후에도 모델에 * 기타 * 가 계속 표시되면 NetApp 지원에 문의하십시오.
