@@ -273,7 +273,6 @@
   <block id="36fd3a3766a1b332d080839630cb202d" category="paragraph">4포스트 NetApp 캐비닛에 Cisco Nexus 3132Q-V 스위치를 설치하는 방법에 대해 설명합니다.</block>
   <block id="d002eea8f83f99bafbbc5f36440edd41" category="summary">Nexus 9336C-FX2 스위치를 처음 설정한 후 RCF를 설치할 수 있으며, 이 절차를 사용하여 RCF 버전을 업그레이드할 수도 있습니다.</block>
   <block id="2ad05b5c21ff6c71199a379622544a42" category="doc">RCF(Reference Configuration File) 설치</block>
-  <block id="0e20b420112310f5c09a775e13d5ec63" category="paragraph">Nexus 9336C-FX2 스위치를 처음 설정한 후 RCF를 설치할 수 있습니다. 이 절차를 사용하여 RCF 버전을 업그레이드할 수도 있습니다.</block>
   <block id="08a3b4f30cd799b9c46ef942ae0f647d" category="paragraph">이 절차의 예에서는 다음 스위치 및 노드 명명법을 사용합니다.</block>
   <block id="065efbcd9d0a8e180fd23e7abf72c407" category="list-text">두 Cisco 스위치의 이름은 CS1과 CS2입니다.</block>
   <block id="0a7b7f6be6701fe3f4fccf471c185aac" category="list-text">클러스터 LIF 이름은 cluster1-01_clus1, cluster1-01_clus2, cluster1-02_clus1, cluster1-02_clus2, cluster1-03_clus1, cluster1-03_clus2, cluster1-04_clus1 및 cluster1-04_clus2.</block>
@@ -915,14 +914,12 @@
   <block id="4f94088c73aaa0dc7be5cb969d19b296" category="list-text">관리 포트(스위치 왼쪽에 있는 RJ-45 렌치 포트)를 TFTP 서버가 있는 동일한 네트워크에 연결합니다.</block>
   <block id="762035f239a190e974a8bc4f793f5eee" category="list-text">115200 보드</block>
   <block id="ed37a6a8028dc06785735d8c0a7178b4" category="paragraph">serviceport는 기본적으로 DHCP를 사용하도록 설정됩니다. IP 주소, 서브넷 마스크 및 기본 게이트웨이 주소는 자동으로 할당됩니다.</block>
-  <block id="433c21332379db77320fe7a821073bdc" category="list-text">다음 명령을 사용하여 결과를 확인합니다.</block>
   <block id="054f736f28a6918e0571caad3b5d1440" category="paragraph">서비스서비스</block>
   <block id="afac0a52c83984bf1020f56dd9df720f" category="list-text">도메인 및 이름 서버 구성:</block>
   <block id="46180f667842fa1595248c425401bc35" category="paragraph">'설정'을 클릭합니다</block>
   <block id="8c886a759ea380875a589702bd1cdd92" category="list-text">NTP 서버를 구성합니다.</block>
   <block id="20456234bfe7cb1be10155bbffc67c27" category="list-text">시간대 및 시간 동기화(SNTP) 구성:</block>
   <block id="049c9cde4c991381b8a286f75afc69c5" category="paragraph">시계</block>
-  <block id="c04ce9c1c44c5e07bf7a73e79811a429" category="list-text">고정 IP 주소를 설정하려면 예에서와 같이 'erviceport protocol', 'network protocol', 'erviceport IP' 명령어를 사용한다.</block>
   <block id="56901ba0364771cc3907ec9a30481dd8" category="summary">클러스터 네트워크에서 결함이 있는 Broadcom 지원 BES-53248 클러스터 스위치를 교체하는 것은 무중단 절차\(NDU\)입니다.</block>
   <block id="3194b650ad4dc5accb0c1a5ae8050d52" category="list-text">노드 접속은 기본 라이센스를 가진 포트 0/1 - 0/16 이다.</block>
   <block id="144c9cc556d237063df17fcbd9c6991c" category="list-text">기존 BES-53248 스위치의 이름은 CS1, CS2입니다.</block>
@@ -5040,7 +5037,6 @@
   <block id="a631ed2f01f0a384874d92ecdaee2d1c" category="paragraph">스위치가 없는 2노드 클러스터를 구성하여 2노드 스위치 클러스터로 마이그레이션합니다.</block>
   <block id="5f9610f3409d9abe96cc344156486c5e" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="4c0a19683ab4dd37cd0517d25639fa78" category="inline-link-macro-rx"></block></block>
   <block id="e796841df950e342f76a5b538574f5f6" category="paragraph">2노드 스위치 클러스터로 마이그레이션을 완료합니다.</block>
-  <block id="e4ff582cba38e556dc88b3e74baf1ec1" category="paragraph">&lt;stdin&gt;-include:.../_include/install-rcf-software-9336c-cluster.adoc [ ] 의 해결되지 않은 지시문</block>
   <block id="1ececed2a569720ced41e9cd50d7b238" category="list-text">스위치 CS1 및 스위치 CS2의 전원이 켜지고 초기 스위치 설정이 완료됩니다(관리 IP 주소와 SSH가 설정됨).</block>
   <block id="c3109b36f2c8edda93835ccefa0e4dc3" category="doc">RCF(Reference Configuration File) 개요를 설치 또는 업그레이드합니다</block>
   <block id="6d7b8066e6c7166408cb61e68a705e7f" category="list-text">두 Cisco 스위치의 이름은 * CS1 * 및 * CS2 * 입니다.</block>
@@ -5319,4 +5315,9 @@
   <block id="1793733c3fd6ed243dfcb1cd45582f6e" category="list-text">Cumulux Linux 5.11.0 이미지 다운로드:</block>
   <block id="3b17e95301e3d2dffb102ceff49ecd86" category="list-text">스위치에서 로그아웃한 다음 다시 로그인하면 프롬프트에서 업데이트된 스위치 이름을 확인할 수 있습니다.</block>
   <block id="7c7a0b76c488baaa82c48a846faa8727" category="paragraph"><block ref="0d353ea2e4037b21b3bb06f2b69f1c6c" category="inline-link-macro-rx"></block>..</block>
+  <block id="fc6063e37d3407a7d76fabb59f7a96a3" category="list-text">스위치 서비스 포트에 대한 정적 IPv4 또는 IPv6 관리 주소를 설정하려면:</block>
+  <block id="42a9137a05a60eb752dcdf982e717626" category="open-title">IPv4를 참조하십시오</block>
+  <block id="fdb7cb8f657426e7c409bfd6d1a36ce4" category="open-title">IPv6를 참조하십시오</block>
+  <block id="eac292441a720b0a0f4b67dcb9db6398" category="list-text">[[step7]]다음 명령을 사용하여 결과를 확인하세요.</block>
+  <block id="c946088bdd01d4ceb54099911c69adbe" category="admonition">표시되는 포트 수는 클러스터의 노드 수에 따라 달라집니다.</block>
 </blocks>

@@ -66,25 +66,40 @@ Password:
 (Routing)# *hostname cs2*
 (cs2)#
 ----
-. 고정 IP 주소를 설정하려면 예에서와 같이 'erviceport protocol', 'network protocol', 'erviceport IP' 명령어를 사용한다.
-+
+. 스위치 서비스 포트에 대한 정적 IPv4 또는 IPv6 관리 주소를 설정하려면:
+
+
+[role="tabbed-block"]
+====
+.IPv4를 참조하십시오
+--
 serviceport는 기본적으로 DHCP를 사용하도록 설정됩니다. IP 주소, 서브넷 마스크 및 기본 게이트웨이 주소는 자동으로 할당됩니다.
 
-+
 [listing, subs="+quotes"]
 ----
 (cs2)# *serviceport protocol none*
 (cs2)# *network protocol none*
-(cs2)# *serviceport ip ipaddr netmask gateway*
+(cs2)# *serviceport ip <ip-address> <netmask> <gateway>*
 ----
-. 다음 명령을 사용하여 결과를 확인합니다.
+--
+.IPv6를 참조하십시오
+--
+serviceport는 기본적으로 DHCP를 사용하도록 설정됩니다. IP 주소, 서브넷 마스크 및 기본 게이트웨이 주소는 자동으로 할당됩니다.
+
+[listing, subs="+quotes"]
+----
+(cs2)# *serviceport protocol none*
+(cs2)# *network protocol none*
+(cs2)# *serviceport ipv6 <address>*
+(cs2)# *serviceport ipv6 <gateway>*
+----
+--
+====
+. [[step7]]다음 명령을 사용하여 결과를 확인하세요.
 +
 서비스서비스
 
 +
-.예제 보기
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 (cs2)# *show serviceport*
@@ -100,7 +115,6 @@ Configured IPv6 Protocol....................... None
 IPv6 AutoConfig Mode........................... Disabled
 Burned In MAC Address.......................... D8:C4:97:71:12:3C
 ----
-====
 . 도메인 및 이름 서버 구성:
 +
 [source, cli]

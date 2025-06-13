@@ -206,9 +206,17 @@ cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert fals
 +
 [listing, subs="+quotes"]
 ----
+cs2> *enable*
+cs2# *configure*
 cs2(config)# *interface eth1/1/1-2,eth1/7-8*
 cs2(config-if-range)# *shutdown*
+cs2(config-if-range)# *exit*
+cs2# *exit*
 ----
++
+
+NOTE: 표시되는 포트 수는 클러스터의 노드 수에 따라 달라집니다.
+
 . 클러스터 포트가 클러스터 스위치 CS1에 호스팅된 포트로 마이그레이션되었는지 확인합니다. 이 작업은 몇 초 정도 걸릴 수 있습니다.
 +
 'network interface show-vserver cluster'
@@ -570,10 +578,18 @@ NOTE: 클러스터 노드가 정상 상태로 보고되려면 최대 5분이 걸
 ====
 [listing, subs="+quotes"]
 ----
+cs1> *enable*
+cs1# *configure*
 cs1(config)# *interface eth1/1/1-2,eth1/7-8*
 cs1(config-if-range)# *shutdown*
+cs1(config-if-range)# *exit*
+cs1# *exit*
 ----
 ====
++
+
+NOTE: 표시되는 포트 수는 클러스터의 노드 수에 따라 달라집니다.
+
 . 클러스터 LIF가 스위치 CS2에 호스팅된 포트로 마이그레이션되었는지 확인합니다. 이 작업은 몇 초 정도 걸릴 수 있습니다.
 +
 'network interface show-vserver cluster'
