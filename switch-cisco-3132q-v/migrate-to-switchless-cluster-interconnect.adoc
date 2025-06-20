@@ -11,6 +11,19 @@ summary: ONTAP 9.3 이상을 위해 스위치 클러스터 네트워크가 있�
 
 
 [role="lead"]
+ONTAP 9.3 이상에서는 스위치드 클러스터 네트워크가 있는 클러스터에서 두 개의 노드가 직접 연결된 클러스터로 마이그레이션할 수 있습니다.
+
+[NOTE]
+====
+NetApp에서는 Cisco Nexus 3132Q-V 스위치에 대한 스위치리스 클러스터 작업을 진행하기 전에 ONTAP 버전을 업데이트할 것을 권장합니다.
+
+자세한 내용은 다음을 참조하십시오.
+
+* link:https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU540["SU540: Chelsio T6 NIC 오류로 인해 40G에서 100G 네트워크 스위치로 업그레이드할 때 시스템이 종료됩니다."^]
+* link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Node_panic_after_migration_from_switched_to_switchless_cluster["스위치드 클러스터에서 스위치리스 클러스터로 마이그레이션 후 노드 패닉 발생"^]
+
+
+====
 ONTAP 9.3 이상을 위해 스위치 클러스터 네트워크가 있는 클러스터에서 두 노드가 직접 연결된 클러스터로 마이그레이션할 수 있습니다.
 
 
