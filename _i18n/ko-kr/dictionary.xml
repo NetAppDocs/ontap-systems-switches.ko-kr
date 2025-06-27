@@ -4149,7 +4149,6 @@
   <block id="88948f2b657a3c9e5eec3736dcca6cdf" category="paragraph">100GbE ISL을 통해 스위치 A 포트 35에 연결</block>
   <block id="56299051abd1af0cbe5dbee773fed3d5" category="paragraph">100GbE ISL을 통해 스위치 B 포트 36에 연결</block>
   <block id="5e596a6e5f0ffe0604d651cde90e34f0" category="paragraph">100GbE ISL을 통해 스위치 A 포트 36에 연결</block>
-  <block id="b6deba442a3eaadb05f02285eb6e8113" category="admonition">키를 수정하기 전에 SSH가 비활성화되어 있는지 확인하십시오. 그렇지 않으면 스위치에 경고가 표시됩니다.</block>
   <block id="19d577c8c5ac871bd4528e45b94e3215" category="paragraph">40/100GbE 노드 7</block>
   <block id="6eabf22260c7ae80ec5e2274e9c4f09e" category="paragraph">40/100GbE 노드 8</block>
   <block id="bea5a6b9eaf26fd0f9b528724d800b60" category="paragraph">40/100GbE 노드 9</block>
@@ -5327,4 +5326,8 @@
   <block id="de7ffa00f75520afd4312c03db0da03c" category="list-text"><block ref="de7ffa00f75520afd4312c03db0da03c" category="inline-link-macro-rx"></block></block>
   <block id="c409f8a3c1a31991297c71a6ef92dff2" category="inline-link-macro">스위치드 클러스터에서 스위치리스 클러스터로 마이그레이션 후 노드 패닉 발생</block>
   <block id="55f49c71e99a86d3514c015252eee468" category="list-text"><block ref="55f49c71e99a86d3514c015252eee468" category="inline-link-macro-rx"></block></block>
+  <block id="a9a5bde505ea573688279b9aed85b83d" category="paragraph">SSH가 비활성화되어 있지 않은 경우 다음과 같이 비활성화합니다.</block>
+  <block id="1991f73b95765ab4d1861d2717ed45f2" category="admonition">키를 수정하기 전에 SSH를 비활성화해야 합니다. 그렇지 않으면 스위치에서 경고가 보고됩니다.</block>
+  <block id="5046b85a70c9d571be19e2a0283d236b" category="admonition">위의 3단계 *MOTD 파일 업데이트*에서 명령 <block ref="633fe61df4a2e20028fd063d6108557f" prefix=" " category="inline-code"></block> 실행됩니다. 이를 통해 RCF 배너에서 RCF 파일 이름, RCF 버전, 사용할 포트 및 기타 중요한 정보를 확인할 수 있습니다.</block>
+  <block id="1767f5d7b100e3d4d6c5fea66216a39c" category="admonition">위의 3단계 *MOTD 파일 업데이트*에서 `cat /etc/issue.net` 명령이 실행됩니다. 이를 통해 RCF 배너에서 RCF 파일 이름, RCF 버전, 사용할 포트 및 기타 중요한 정보를 확인할 수 있습니다.</block>
 </blocks>

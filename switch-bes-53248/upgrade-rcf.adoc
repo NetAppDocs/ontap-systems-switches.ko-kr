@@ -409,7 +409,7 @@ vlan database
 no vlan 17
 no vlan 18
 exit
-show-running-config
+show running-config
 ----
 .. 실행 중인 구성을 시작 구성에 저장합니다.
 +
@@ -657,7 +657,7 @@ Intf      Type   Mode      Mode         Status     Status Trap    Mode   Timeout
 +
 [source, cli]
 ----
-show running config
+show running-config
 ----
 . 스위치를 재부팅할 때 시작 구성이 되도록 실행 중인 구성을 저장합니다.
 +
