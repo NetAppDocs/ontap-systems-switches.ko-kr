@@ -377,10 +377,14 @@ cumulus@sw1:~$ *sudo hwclock -w*
 +
 [listing, subs="+quotes"]
 ----
-cumulus@sw1:~$ *nv set service ntp default server _<cumulus.network.ntp.org>_ iburst on*
+cumulus@sw1:~$ *nv set service ntp mgmt listen eth0*
+cumulus@sw1:~$ *nv set service ntp mgmt server <server> iburst on*
 cumulus@sw1:~$ *nv config apply*
 cumulus@sw1:~$ *nv config save*
 ----
++
+지식 기반 문서를 참조하세요 link:https://kb.netapp.com/on-prem/Switches/Nvidia-KBs/NTP_Server_configuration_is_not_working_with_NVIDIA_SN2100_Switches["NTP 서버 구성이 NVIDIA SN2100 스위치에서 작동하지 않습니다."^] 자세한 내용은.
+
 .. 시스템에서 가 실행 중인지 `ntpd` 확인합니다.
 +
 [listing, subs="+quotes"]
@@ -615,10 +619,14 @@ cumulus@sw1:~$ *sudo hwclock -w*
 +
 [listing, subs="+quotes"]
 ----
-cumulus@sw1:~$ *nv set service ntp default server _<cumulus.network.ntp.org>_ iburst on*
+cumulus@sw1:~$ *nv set service ntp mgmt listen eth0*
+cumulus@sw1:~$ *nv set service ntp mgmt server <server> iburst on*
 cumulus@sw1:~$ *nv config apply*
 cumulus@sw1:~$ *nv config save*
 ----
++
+지식 기반 문서를 참조하세요 link:https://kb.netapp.com/on-prem/Switches/Nvidia-KBs/NTP_Server_configuration_is_not_working_with_NVIDIA_SN2100_Switches["NTP 서버 구성이 NVIDIA SN2100 스위치에서 작동하지 않습니다."^] 자세한 내용은.
+
 .. 시스템에서 가 실행 중인지 `ntpd` 확인합니다.
 +
 [listing, subs="+quotes"]

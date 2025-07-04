@@ -5330,4 +5330,6 @@
   <block id="1991f73b95765ab4d1861d2717ed45f2" category="admonition">키를 수정하기 전에 SSH를 비활성화해야 합니다. 그렇지 않으면 스위치에서 경고가 보고됩니다.</block>
   <block id="5046b85a70c9d571be19e2a0283d236b" category="admonition">위의 3단계 *MOTD 파일 업데이트*에서 명령 <block ref="633fe61df4a2e20028fd063d6108557f" prefix=" " category="inline-code"></block> 실행됩니다. 이를 통해 RCF 배너에서 RCF 파일 이름, RCF 버전, 사용할 포트 및 기타 중요한 정보를 확인할 수 있습니다.</block>
   <block id="1767f5d7b100e3d4d6c5fea66216a39c" category="admonition">위의 3단계 *MOTD 파일 업데이트*에서 `cat /etc/issue.net` 명령이 실행됩니다. 이를 통해 RCF 배너에서 RCF 파일 이름, RCF 버전, 사용할 포트 및 기타 중요한 정보를 확인할 수 있습니다.</block>
+  <block id="86f7f66cb381cc46fe300e0c2c8f0499" category="inline-link-macro">NTP 서버 구성이 NVIDIA SN2100 스위치에서 작동하지 않습니다.</block>
+  <block id="c77e68e056a1f231532a65076ed213f7" category="paragraph">지식 기반 문서를 참조하세요 <block ref="54a4a8d8880601232d1c62bd5f55e05a" category="inline-link-macro-rx"></block> 자세한 내용은.</block>
 </blocks>
