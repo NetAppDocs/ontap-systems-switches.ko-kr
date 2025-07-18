@@ -3110,7 +3110,6 @@
   <block id="ce4c0c35cac0cafac061a49da52f93cd" category="paragraph"><block ref="74dd19c11d43cfa2dd387ecf7d984746" category="inline-link-macro-rx"></block>.</block>
   <block id="d007743863da413e0445811c05d574db" category="summary">소프트웨어 개요를 검토합니다.</block>
   <block id="93d9f7b647768c2633a5b9f8a68e2b52" category="doc">BES-53248 스위치의 소프트웨어 설치 워크플로</block>
-  <block id="6dd4b5e58bd32b079e19b1dda5c2f1bc" category="paragraph">BES-53248 클러스터 스위치용 소프트웨어를 처음 설치 및 구성하려면 다음 단계를 수행하십시오.</block>
   <block id="9302ce88c481ebfe72d64373c7b0d0e5" category="doc">BES-53248 클러스터 스위치를 업그레이드합니다</block>
   <block id="db3a43c92e9a5ccc39b5fabb1bd97719" category="paragraph">BES-53248 클러스터 스위치를 업그레이드하려면 다음 단계를 수행하십시오.</block>
   <block id="8ac36f1d8b0fc917225a100d2cd4a4c3" category="paragraph">기존 NetApp BES-53248 클러스터 스위치에 EFOS 소프트웨어, 라이센스 및 RCF 파일을 설치하기 전에 다음 사항을 확인하십시오.</block>
@@ -5207,7 +5206,6 @@
   <block id="7baa7758ed49797651dc1e276762ae15" category="list-text">클러스터링: * MSN2100-RCF-v1._x_-클러스터 *</block>
   <block id="dd584ffba0b7534139645967bf24df84" category="sidebar">RCF 스크립트를 설치하거나 업그레이드합니다</block>
   <block id="40b03f9635c63b20aade0ff8145eafb8" category="list-text">Broadcom 및 Cisco 스위치를 사용한 로그 수집:</block>
-  <block id="89f1dd995a5c07ea1e13abc5993d9d59" category="list-text">사용자에게 네트워크 관리자 Privileges가 있어야 합니다.</block>
   <block id="60f743043272b873831b17c5e7290445" category="list-text">로그 수집이 활성화된 상태에서 각 클러스터 설정에 대해 스위치에 새 사용자를 생성해야 합니다. 이러한 스위치는 동일한 사용자에 대해 여러 SSH 키를 지원하지 않습니다. 수행된 추가 로그 수집 설정은 사용자의 기존 SSH 키를 덮어씁니다.</block>
   <block id="63229fc9218a5e1a57243ce033e91a3b" category="paragraph">RCF를 설치하거나 업그레이드할 때 자세한 내용은 기술 자료 문서를 <block ref="862bab57a4acfb616afcae48c16f2cfe" category="inline-link-macro-rx"></block>참조하십시오.</block>
   <block id="26552c2532e5b34c96d8cef5f736c6ff" category="paragraph">RCF를 설치할 때 자세한 내용은 기술 자료 문서를 <block ref="862bab57a4acfb616afcae48c16f2cfe" category="inline-link-macro-rx"></block>참조하십시오.</block>
@@ -5339,4 +5337,19 @@
   <block id="255946ce0bdffe025ba4bdaa710146e6" category="list-text">write_erase.cfg 파일이 예상대로 채워졌는지 확인하세요.</block>
   <block id="c8608e8042094ff03aff5d73acbce651" category="paragraph"><block ref="aa69f627a489063557f4707be7ba43f0" prefix="" category="inline-code"></block></block>
   <block id="90b56b330f7736518fea2723b6853482" category="list-text">스위치 CS2에서 1-20단계를 반복합니다.</block>
+  <block id="fb945b959f6754639fad6c6e9e9469b9" category="list-text">로컬 사용자는 네트워크 관리자 권한이 있어야 합니다.</block>
+  <block id="47547bd96a2d76e2174e671baccc263a" category="paragraph">BES-53248 클러스터 스위치용 소프트웨어를 설치하고 구성하려면 다음 단계를 따르세요.</block>
+  <block id="7a81f2c0648b303fec3fe1081158d0e3" category="inline-link-macro">스위치를 공장 기본값으로 재설정합니다</block>
+  <block id="842f57c662529f95b306feb653984af0" category="list-text"><block ref="6356dc79de453379cf58db845e7c3b08" category="inline-link-macro-rx"></block>..</block>
+  <block id="585a6fd0f28eaade2a16ccaba1bb9b0d" category="paragraph">BES-53248 클러스터 스위치 설정을 지웁니다.</block>
+  <block id="b879f523acbbe3c8d6ea83060443367e" category="doc">BES-53248 클러스터 스위치를 공장 기본값으로 재설정합니다.</block>
+  <block id="7515349dce34258a6f65c5f9b6b0bc58" category="paragraph">BES-53248 클러스터 스위치를 공장 기본값으로 재설정하려면 BES-53248 스위치 설정을 지워야 합니다.</block>
+  <block id="cf8c4cbc63a2e42b70c4b4beddd2e366" category="list-text">직렬 콘솔을 사용하여 스위치에 연결해야 합니다.</block>
+  <block id="55b0c310e4703cc82f05f8c44c9d0d39" category="list-text">이 작업은 관리 네트워크의 구성을 재설정합니다.</block>
+  <block id="eceb40fbe3a93ae0c766b186cce3cba4" category="list-text">관리자 권한 명령 프롬프트로 변경합니다.</block>
+  <block id="8045e733034738065ca77d531de9666f" category="list-text">시작 구성을 지웁니다.</block>
+  <block id="91f81f9cd1a23a248e317b6b22a84ce3" category="paragraph"><block ref="1fb554759d9d32d450daa4da09330114" prefix="" category="inline-code"></block></block>
+  <block id="671537f32d06de75a977dc3008daeff5" category="admonition">스위치를 다시 로드하기 전에 저장되지 않은 구성이나 변경된 구성을 저장할지 묻는 메시지가 나타나면 * No * 를 선택합니다.</block>
+  <block id="01abea5f71122f7491f5d67a54692187" category="list-text">[[step4]] 스위치가 다시 로드될 때까지 기다린 후 스위치에 로그인하세요.</block>
+  <block id="3298c6d813bb0262584ca3882273ff2a" category="paragraph">기본 사용자는 "admin"이고 비밀번호는 설정되어 있지 않습니다. 다음과 유사한 프롬프트가 표시됩니다.</block>
 </blocks>
