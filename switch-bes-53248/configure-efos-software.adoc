@@ -424,3 +424,6 @@ unit 	active 	    backup   current-active  next-active
 
 . 파트너 스위치에서 1-8단계를 반복합니다.
 
+
+.다음은 무엇입니까?
+link:configure-licenses.html["라이센스를 설치합니다"] .

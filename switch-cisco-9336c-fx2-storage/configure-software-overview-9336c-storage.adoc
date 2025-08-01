@@ -13,16 +13,18 @@ summary: Cisco Nexus 9336C-FX2 스토리지 스위치의 소프트웨어 구성 
 [role="lead"]
 Cisco Nexus 9336C-FX2 스토리지 스위치용 소프트웨어를 설치하고 구성하려면 다음 단계를 수행하십시오.
 
-. link:install-nxos-overview-9336c-storage.html["NX-OS 및 RCF 설치 또는 업그레이드를 준비합니다"]..
-+
-Cisco Nexus 9336C-FX2 스토리지 스위치에 Cisco NX-OS 소프트웨어 및 RCF(참조 구성 파일)를 설치해야 합니다.
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1개"]link:setup-switch-9336c-storage.html["스위치를 구성합니다"]
+[role="quick-margin-para"]
+9336C-FX2 스토리지 스위치를 구성합니다.
 
-. link:install-nxos-software-9336c-storage.html["NX-OS 소프트웨어를 설치 또는 업그레이드합니다"]..
-+
-Cisco Nexus 9336C-FX2 스토리지 스위치에서 NX-OS 소프트웨어를 다운로드하고 설치하거나 업그레이드합니다.
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["2개"]link:install-nxos-overview-9336c-storage.html["NX-OS 소프트웨어 및 RCF 설치를 준비합니다"]
+[role="quick-margin-para"]
+Cisco NX-OS 소프트웨어와 참조 구성 파일(RCF)은 Cisco 9336C-FX2 스토리지 스위치에 설치해야 합니다.
 
-. link:install-rcf-software-9336c-storage.html["RCF 구성 파일을 설치하거나 업그레이드합니다"]..
-+
-Cisco Nexus 9336C-FX2 스토리지 스위치를 처음 설정한 후 RCF를 설치하거나 업그레이드합니다. 이 절차를 사용하여 RCF 버전을 업그레이드할 수도 있습니다.
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["세 가지"]link:install-nxos-software-9336c-storage.html["NX-OS 소프트웨어를 설치 또는 업그레이드합니다"]
+[role="quick-margin-para"]
+Cisco 9336C-FX2 스토리지 스위치에 NX-OS 소프트웨어를 다운로드하여 설치하거나 업그레이드합니다.
 
-
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["네"]link:install-rcf-software-9336c-storage.html["RCF를 설치하거나 업그레이드합니다"]
+[role="quick-margin-para"]
+Cisco 9336C-FX2 스위치를 처음 설정한 후 RCF를 설치하거나 업그레이드하세요.  이 절차를 사용하여 RCF 버전을 업그레이드할 수도 있습니다.

@@ -13,7 +13,9 @@ summary: Cisco Nexus 9336C-FX2 스위치 및 패스스루 패널을 스위치에
 [role="lead"]
 구성에 따라 Cisco Nexus 9336C-FX2 스위치와 Pass-Through 패널을 NetApp 캐비닛에 설치해야 할 수도 있습니다. 표준 브래킷이 스위치에 포함되어 있습니다.
 
-.필요한 것
+.시작하기 전에
+다음 사항을 확인하십시오.
+
 * NetApp에서 제공하는 Pass-Through 패널 키트(부품 번호 X8784-R6).
 +
 NetApp pass-through 패널 키트에는 다음 하드웨어가 포함되어 있습니다.

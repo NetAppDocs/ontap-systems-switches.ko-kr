@@ -13,7 +13,9 @@ summary: 'Cisco NX-OS 소프트웨어 및 참조 구성 파일\(RCFs\)은 Cisco 
 [role="lead"]
 NX-OS 소프트웨어 및 RCF(Reference Configuration File)를 설치하기 전에 다음 절차를 따르십시오.
 
-.필요한 것
+.시작하기 전에
+다음 사항을 확인하십시오.
+
 * 완전히 작동하는 클러스터(로그에 오류 또는 유사한 문제 없음)
 * 에서 사용할 수 있는 적절한 소프트웨어 및 업그레이드 가이드 https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#InstallandUpgrade["Cisco Nexus 9000 시리즈 스위치"^].
 

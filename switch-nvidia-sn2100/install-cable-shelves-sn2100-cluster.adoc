@@ -24,4 +24,4 @@ https://hwu.netapp.com/["NetApp Hardware Universe를 참조하십시오"^]
 
 
 .다음 단계
-link:install-cumulus-mode-sn2100-cluster.html["Cumulus 모드에서 Cumulus Linux를 설치합니다"] 또는 link:install-onie-mode-sn2100-cluster.html["ONIE 모드에서 Cumulus Linux를 설치합니다"].
+link:configure-sn2100-cluster.html["스위치를 구성합니다"].

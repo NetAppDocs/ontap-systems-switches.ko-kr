@@ -69,3 +69,6 @@ image:blank_cabling_worksheet.jpg["빈 케이블 연결 워크시트"]
 * 100g ISL을 통해 스위치 B 포트 35에 연결
 * 100g ISL을 통해 스위치 B 포트 36에 연결
 
+
+.다음은 무엇입니까?
+link:install-9336c-shared.html["스위치를 장착하십시오"].

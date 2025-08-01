@@ -13,7 +13,9 @@ summary: 'BES-53248 클러스터 스위치를 구성하고 새 라이센스를 �
 [role="lead"]
 BES-53248 클러스터 스위치 EFOS를 업그레이드한 후 새 라이센스를 적용한 후 RCF(Reference Configuration File)를 업그레이드할 수 있습니다.
 
-.필요한 것
+.시작하기 전에
+다음 사항을 확인하십시오.
+
 * 스위치 구성의 현재 백업
 * 완전히 작동하는 클러스터(로그에 오류 또는 유사한 문제 없음)
 * 에서 사용 가능한 현재 RCF 파일입니다 https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["Broadcom 클러스터 스위치"^] 페이지.

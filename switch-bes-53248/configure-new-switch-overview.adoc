@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: BES-53248 switches, initial installation, configure new bes-53248 switch 
 summary: BES-53248 클러스터 스위치를 구성하기 전에 구성 개요를 검토하십시오. 
 ---
-= BES-53248 스위치의 설치 및 구성 개요
+= BES-53248 스위치 설치 및 설정 워크플로
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,45 +13,24 @@ summary: BES-53248 클러스터 스위치를 구성하기 전에 구성 개요�
 [role="lead"]
 BES-53248은 2개~24개 노드에 이르는 ONTAP 클러스터에서 작동하도록 설계된 베어 메탈 스위치입니다.
 
+BES-53248 스위치를 설치하고 설정하려면 다음 워크플로 단계를 따르세요.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1개"]link:configure-reqs-bes53248.html["구성 요구 사항을 검토하세요"]
+[role="quick-margin-para"]
+BES-53248 클러스터 스위치의 구성 요구 사항을 검토하세요.
 
-== 초기 구성 개요
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["2개"]link:components-bes53248.html["구성 요소와 부품 번호를 검토하세요"]
+[role="quick-margin-para"]
+BES-53248 클러스터 스위치의 구성 요소와 부품 번호를 검토하세요.
 
-ONTAP를 실행하는 시스템에서 BES-53248 클러스터 스위치를 처음 구성하려면 다음 단계를 수행하십시오.
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["세 가지"]link:required-documentation-bes53248.html["필수 서류를 검토하세요"]
+[role="quick-margin-para"]
+BES-53248 스위치와 ONTAP 클러스터를 설정하려면 특정 스위치 및 컨트롤러 설명서를 검토하세요.
 
-. link:install-hardware-bes53248.html["BES-53248 클러스터 스위치용 하드웨어를 설치합니다"].
-+
-지침은 _Broadcom 지원 BES-53248 클러스터 스위치 설치 안내서_에서 확인할 수 있습니다.
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["네"]link:install-hardware-workflow.html["하드웨어를 설치합니다"]
+[role="quick-margin-para"]
+스위치 하드웨어를 설치합니다.
 
-. link:configure-install-initial.html["BES-53248 클러스터 스위치를 구성합니다"].
-+
-BES-53248 클러스터 스위치의 초기 설정을 수행합니다.
-
-. link:configure-efos-software.html["EFOS 소프트웨어를 설치합니다"].
-+
-BES-53248 클러스터 스위치에서 이더넷 패브릭 OS(EFOS) 소프트웨어를 다운로드하여 설치합니다.
-
-. link:configure-licenses.html["BES-53248 클러스터 스위치용 라이센스를 설치합니다"].
-+
-필요에 따라 라이센스를 추가로 구입하여 설치하여 새 포트를 추가합니다. 스위치 기본 모델은 10GbE 또는 25GbE 포트 16개와 100GbE 포트 2개에 대해 라이센스가 부여됩니다.
-
-. link:configure-install-rcf.html["RCF(Reference Configuration File) 설치"].
-+
-BES-53248 클러스터 스위치에 RCF를 설치 또는 업그레이드한 다음 RCF를 적용한 후 포트를 추가 라이센스에 대해 확인합니다.
-
-. link:configure-ssh.html["BES-53248 클러스터 스위치에서 SSH를 활성화합니다"].
-+
-이더넷 스위치 상태 모니터(CSHM) 및 로그 수집 기능을 사용하는 경우 스위치에서 SSH를 사용하도록 설정합니다.
-
-
-
-
-
-== 추가 정보
-
-설치 또는 유지 관리를 시작하기 전에 다음을 검토하십시오.
-
-* link:configure-reqs-bes53248.html["구성 요구 사항"]
-* link:components-bes53248.html["부품 및 부품 번호"]
-* link:required-documentation-bes53248.html["필수 문서"]
-
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["다섯"]link:configure-software-overview-bes53248.html["소프트웨어 구성"]
+[role="quick-margin-para"]
+스위치 소프트웨어를 구성합니다.

@@ -5,7 +5,7 @@ entries:
 - title: 개요
   pdf-filename: 개요_92300yc
   entries:
-  - title: 구성 개요
+  - title: 빠른 시작
     url: "/switch-cisco-92300/install-overview-cisco-92300.html"
   - title: 구성 요구 사항
     url: "/switch-cisco-92300/configure-reqs-92300.html"
@@ -18,15 +18,23 @@ entries:
 - title: 하드웨어를 설치합니다
   pdf-filename: 설치_하드웨어_92300yc
   entries:
+  - title: 하드웨어 설치 워크플로
+    url: "/switch-cisco-92300/install-hardware-workflow.html"
   - title: 케이블 연결 워크시트를 작성합니다
     url: "/switch-cisco-92300/setup-worksheet-92300yc.html"
-  - title: 스위치를 구성합니다
-    url: "/switch-cisco-92300/configure-install-initial.html"
+  - title: 스위치를 장착하십시오
+    url: "/switch-cisco-92300/install-switch-92300yc.html"
+  - title: NetApp 캐비닛에 스위치 설치
+    url: "/switch-cisco-92300/install-switch-netapp-cabinet-92300yc.html"
   - title: 케이블 연결 및 구성을 검토합니다
     url: "/switch-cisco-92300/cabling-considerations-92300.html"
-- title: 소프트웨어를 구성합니다
+- title: 소프트웨어 구성
   pdf-filename: configure_software_92300yc 를 선택합니다
   entries:
+  - title: 소프트웨어 설치 워크플로우
+    url: "/switch-cisco-92300/configure-software-overview-92300-cluster.html"
+  - title: 스위치를 구성합니다
+    url: "/switch-cisco-92300/configure-install-initial.html"
   - title: NX-OS 및 RCF 설치 준비
     url: "/switch-cisco-92300/install-nxos-overview.html"
   - title: NX-OS를 설치합니다

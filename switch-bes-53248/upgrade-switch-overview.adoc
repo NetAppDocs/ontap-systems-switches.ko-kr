@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: BES-53248 switches, initial installation, configure new bes-53248 switch 
 summary: BES-53248 클러스터 스위치를 구성하기 전에 프로세스 개요 및 명명법을 검토하십시오. 
 ---
-= BES-53248 클러스터 스위치의 업그레이드 프로세스 개요
+= BES-53248 클러스터 스위치에 대한 업그레이드 워크플로
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,16 +13,14 @@ summary: BES-53248 클러스터 스위치를 구성하기 전에 프로세스 �
 [role="lead"]
 Broadcom BES-54328 클러스터 스위치에서 EFOS 소프트웨어 및 참조 구성 파일(RCF)을 업그레이드하려면 다음 단계를 수행하십시오(해당하는 경우).
 
-. link:upgrade-efos-software.html["EFOS 버전을 업그레이드합니다"]
-+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1개"]link:upgrade-efos-software.html["EFOS 버전을 업그레이드합니다"]
+[role="quick-margin-para"]
 BES-53248 클러스터 스위치에서 이더넷 패브릭 OS(EFOS) 소프트웨어를 다운로드하여 설치합니다.
 
-. link:upgrade-rcf.html["RCF 버전을 업그레이드하십시오"]
-+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["2개"]link:upgrade-rcf.html["RCF 버전을 업그레이드하십시오"]
+[role="quick-margin-para"]
 BES-53248 클러스터 스위치의 RCF를 업그레이드한 다음 RCF가 적용된 후 추가 라이센스에 대한 포트를 확인합니다.
 
-. link:replace-verify.html["업그레이드 후 ONTAP 클러스터 네트워크를 확인합니다"]
-+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["세 가지"]link:replace-verify.html["업그레이드 후 ONTAP 클러스터 네트워크를 확인합니다"]
+[role="quick-margin-para"]
 EFOS 소프트웨어 또는 BES-53248 클러스터 스위치용 RCF를 업그레이드한 후 ONTAP 클러스터 네트워크의 상태를 확인합니다.
-
-

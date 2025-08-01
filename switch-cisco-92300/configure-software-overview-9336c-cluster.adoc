@@ -1,0 +1,34 @@
+---
+permalink: switch-cisco-92300/configure-software-overview-92300-cluster.html 
+sidebar: sidebar 
+keywords: switches, initial installation, configure switch-92300 switch 
+summary: Cisco Nexus 92300YC 클러스터 스위치용 소프트웨어 구성 개요 
+---
+= Cisco Nexus 92300YC 클러스터 스위치용 소프트웨어 설치 워크플로
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cisco Nexus 92300YC 스위치용 소프트웨어를 설치하고 구성하고, 참조 구성 파일(RCF)을 설치하거나 업그레이드하려면 다음 단계를 따르세요.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1개"]link:configure-install-initial.html["스위치를 구성합니다"]
+[role="quick-margin-para"]
+92300YC 클러스터 스위치를 구성합니다.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["2개"]link:install-nxos-overview.html["NX-OS 소프트웨어 및 RCF 설치를 준비합니다"]
+[role="quick-margin-para"]
+Cisco NX-OS 소프트웨어와 참조 구성 파일(RCF)은 Cisco 92300YC 클러스터 스위치에 설치해야 합니다.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["세 가지"]link:install-nxos-software.html["NX-OS 소프트웨어를 설치 또는 업그레이드합니다"]
+[role="quick-margin-para"]
+Cisco 392300YC 클러스터 스위치에 NX-OS 소프트웨어를 다운로드하여 설치하거나 업그레이드합니다.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["네"]link:install-the-rcf-file.html["RCF를 설치합니다"]
+[role="quick-margin-para"]
+Cisco 92300YC 스위치를 처음 설정한 후 RCF를 설치합니다.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["다섯"]link:configure-ssh-keys.html["SSH 구성을 확인합니다"]
+[role="quick-margin-para"]
+이더넷 스위치 상태 모니터(CSHM) 및 로그 수집 기능을 사용하려면 스위치에서 SSH가 활성화되어 있는지 확인하세요.

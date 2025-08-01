@@ -118,3 +118,6 @@ Cisco Nexus 9336C-FX-T 스토리지 스위치에서 12개 이상의 포트를 �
 
 
 NOTE: Smart 라이센스를 구입했으면 적절한 RCF를 설치하여 사용할 수 있는 36개의 포트를 모두 활성화하고 구성합니다.
+
+.다음은 무엇입니까?
+link:required-documentation-9336c-storage.html["필수 문서"] .

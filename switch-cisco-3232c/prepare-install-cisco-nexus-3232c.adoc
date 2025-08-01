@@ -224,4 +224,4 @@ Cluster
 
 
 .다음 단계
-link:install-nx-os-software-3232c.html["NX-OS 소프트웨어를 설치합니다"]
+link:install-nx-os-software-3232c.html["NX-OS 소프트웨어를 설치합니다"] .

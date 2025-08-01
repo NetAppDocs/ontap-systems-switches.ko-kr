@@ -42,3 +42,5 @@ Cisco Nexus 9336C-FX2 스위치 설치 및 유지 보수의 경우 구성 요소
 
 | X-NXA-FAN-65CFM-PI | N9K-9336C 65CFM, 포트 쪽 흡입 공기 흐름 
 |===
+.다음은 무엇입니까?
+link:required-documentation-9336c-shared.html["필수 문서"] .

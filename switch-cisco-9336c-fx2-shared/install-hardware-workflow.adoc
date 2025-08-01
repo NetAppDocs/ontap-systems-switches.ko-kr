@@ -1,0 +1,26 @@
+---
+permalink: switch-cisco-9336c-fx2-shared/install-hardware-workflow.html 
+sidebar: sidebar 
+keywords: switches, initial installation, configure switch-cisco-9336c-fx2 switch 
+summary: Cisco Nexus 9336C-FX2 스위치를 구성하기 전에 구성 개요를 검토하세요. 
+---
+= Cisco Nexus 9336C-FX2 공유 스위치에 대한 하드웨어 설치 워크플로
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+9336C-FX2 공유 스위치의 하드웨어를 설치하고 구성하려면 다음 단계를 따르세요.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1개"]link:cable-9336c-shared.html["케이블링 워크시트를 완성하세요"]
+[role="quick-margin-para"]
+샘플 케이블 연결 워크시트는 스위치에서 컨트롤러까지 권장되는 포트 할당의 예를 제공합니다. 빈 워크시트에는 클러스터 설정에 사용할 수 있는 템플릿이 제공됩니다.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["2개"]link:install-9336c-shared.html["스위치를 장착하십시오"]
+[role="quick-margin-para"]
+9336C-FX2 스위치를 설치합니다.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["세 가지"]link:install-switch-and-passthrough-panel-9336c-shared.html["NetApp 캐비닛에 스위치를 설치합니다"]
+[role="quick-margin-para"]
+필요에 따라 NetApp 캐비닛에 9336C-FX2 스위치와 패스스루 패널을 설치합니다.

@@ -5,7 +5,7 @@ entries:
 - title: 개요
   pdf-filename: Overview_3232C를 참조하십시오
   entries:
-  - title: 구성 개요
+  - title: 빠른 시작
     url: "/switch-cisco-3232c/install-overview-cisco-3232c.html"
   - title: 구성 요구 사항
     url: "/switch-cisco-3232c/configure-reqs-3232c.html"
@@ -16,10 +16,12 @@ entries:
 - title: 하드웨어를 설치합니다
   pdf-filename: Install_hardware_3232C를 참조하십시오
   entries:
+  - title: 하드웨어 설치 워크플로
+    url: "/switch-cisco-3232c/install-hardware-workflow.html"
   - title: 케이블 연결 워크시트를 작성합니다
     url: "/switch-cisco-3232c/setup_worksheet_3232c.html"
-  - title: 스위치를 구성합니다
-    url: "/switch-cisco-3232c/setup-switch.html"
+  - title: 스위치를 장착하십시오
+    url: "/switch-cisco-3232c/install-switch-3232c.html"
   - title: NetApp 캐비닛에 스위치 설치
     url: "/switch-cisco-3232c/install-cisco-nexus-3232c.html"
   - title: 케이블 연결 및 구성을 검토합니다
@@ -27,6 +29,10 @@ entries:
 - title: 소프트웨어를 구성합니다
   pdf-filename: Configure_software_3232C를 참조하십시오
   entries:
+  - title: 소프트웨어 설치 워크플로우
+    url: "/switch-cisco-3232c/configure-software-overview-3232c-cluster.html"
+  - title: 스위치를 구성합니다
+    url: "/switch-cisco-3232c/setup-switch.html"
   - title: NX-OS 및 RCF 설치 준비
     url: "/switch-cisco-3232c/prepare-install-cisco-nexus-3232c.html"
   - title: NX-OS 소프트웨어를 설치합니다

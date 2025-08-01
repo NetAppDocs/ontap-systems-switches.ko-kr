@@ -6,7 +6,7 @@ entries:
 - title: 개요
   pdf-filename: Overview_sn2100-스토리지
   entries:
-  - title: 구성 개요
+  - title: 빠른 시작
     url: "/switch-nvidia-sn2100-storage/configure-overview-sn2100-storage.html"
   - title: 구성 요구 사항
     url: "/switch-nvidia-sn2100-storage/configure-reqs-sn2100-storage.html"
@@ -17,10 +17,10 @@ entries:
 - title: 하드웨어를 설치합니다
   pdf-filename: install_hardware_sn2100-storage 를 참조하십시오
   entries:
+  - title: 하드웨어 설치 워크플로
+    url: "/switch-nvidia-sn2100-storage/install-hardware-workflow.html"
   - title: 스위치를 장착하십시오
     url: "/switch-nvidia-sn2100-storage/install-hardware-sn2100-storage.html"
-  - title: 스위치를 구성합니다
-    url: "/switch-nvidia-sn2100-storage/configure-sn2100-storage.html"
   - title: 케이블 연결 및 구성을 검토합니다
     url: "/switch-nvidia-sn2100-storage/cabling-considerations-sn2100-storage.html"
   - title: NS224 선반을 케이블로 연결합니다
@@ -30,6 +30,8 @@ entries:
   entries:
   - title: 소프트웨어 설치 워크플로우
     url: "/switch-nvidia-sn2100-storage/configure-software-sn2100-storage.html"
+  - title: 스위치를 구성합니다
+    url: "/switch-nvidia-sn2100-storage/configure-sn2100-storage.html"
   - title: Cumulus 모드에서 Cumulus Linux를 설치합니다
     url: "/switch-nvidia-sn2100-storage/install-cumulus-mode-sn2100-storage.html"
   - title: ONIE 모드에서 Cumulus Linux를 설치합니다

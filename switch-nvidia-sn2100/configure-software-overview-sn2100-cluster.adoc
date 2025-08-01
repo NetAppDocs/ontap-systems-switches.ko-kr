@@ -13,16 +13,26 @@ summary: 소프트웨어 구성 또는 NVIDIA SN2100 스위치 개요
 [role="lead"]
 NVIDIA SN2100 스위치용 소프트웨어를 설치하고 구성하려면 다음 단계를 수행하십시오.
 
-. link:install-cumulus-mode-sn2100-cluster.html["Cumulus 모드에서 Cumulus Linux를 설치합니다"] 또는 link:install-onie-mode-sn2100-cluster.html["ONIE 모드에서 Cumulus Linux를 설치합니다"].
-+
-스위치가 Cumulus Linux 또는 ONIE를 실행 중일 경우 Cumulus Linux(CL) OS를 설치할 수 있습니다.
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1개"]link:configure-sn2100-cluster.html["스위치를 구성합니다"]
+[role="quick-margin-para"]
+NVIDIA SN2100 스위치를 구성합니다.
 
-. link:install-rcf-sn2100-cluster.html["RCF(Reference Configuration File) 스크립트를 설치합니다"].
-+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["2개"]link:install-cumulus-mode-sn2100-cluster.html["Cumulus 모드에서 Cumulus Linux를 설치합니다"]
+[role="quick-margin-para"]
+스위치가 Cumulus Linux를 실행하는 경우 Cumulus Linux(CL) OS를 설치할 수 있습니다.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["세 가지"]link:install-onie-mode-sn2100-cluster.html["ONIE 모드에서 Cumulus Linux를 설치합니다"]
+[role="quick-margin-para"]
+또는 스위치가 ONIE 모드에서 Cumulus Linux를 실행할 때 Cumulus Linux(CL) OS를 설치할 수 있습니다.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["네"]link:upgrade-cl-version.html["필요에 따라 Cumulus Linux 버전을 업그레이드하세요."]
+[role="quick-margin-para"]
+필요에 따라 Cumulus Linux(CL) OS를 업그레이드할 수 있습니다.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["다섯"]link:install-rcf-sn2100-cluster.html["RCF(Reference Configuration File) 스크립트를 설치하거나 업그레이드합니다"]
+[role="quick-margin-para"]
 클러스터링과 스토리지 애플리케이션에 사용 가능한 RCF 스크립트는 두 가지가 있습니다. 각각의 절차는 동일합니다.
 
-. link:setup-install-cshm-file.html["CSHM 파일을 설치합니다"]..
-+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["6개"]link:setup-install-cshm-file.html["CSHM 파일을 설치합니다"]
+[role="quick-margin-para"]
 NVIDIA 클러스터 스위치의 이더넷 스위치 상태 모니터링을 위한 적절한 구성 파일을 설치할 수 있습니다.
-
-

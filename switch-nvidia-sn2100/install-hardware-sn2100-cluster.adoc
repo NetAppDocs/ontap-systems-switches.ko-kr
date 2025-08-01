@@ -19,4 +19,4 @@ SN2100 하드웨어를 설치하려면 NVIDIA 설명서를 참조하십시오.
 
 
 .다음 단계
-link:configure-sn2100-cluster.html["스위치를 구성합니다"].
+link:cabling-considerations-sn2100-cluster.html["케이블 연결 및 구성을 검토합니다"] .

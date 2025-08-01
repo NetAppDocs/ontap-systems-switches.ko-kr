@@ -31,3 +31,6 @@ Cisco Nexus 3232C 스위치 설치 및 유지 관리의 경우 구성 및 네트
 
 
 을 참조하십시오 https://hwu.netapp.com["Hardware Universe"^] 최신 정보를 확인하십시오.
+
+.다음은 무엇입니까?
+link:required-documentation-3232c.html["필수 문서"] .

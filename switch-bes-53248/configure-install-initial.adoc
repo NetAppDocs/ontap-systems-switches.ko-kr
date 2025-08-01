@@ -249,4 +249,4 @@ Configuration Saved!
 
 
 .다음 단계
-link:configure-efos-software.html["EFOS 소프트웨어를 설치합니다"]
+link:configure-efos-software.html["EFOS 소프트웨어를 설치합니다"].
