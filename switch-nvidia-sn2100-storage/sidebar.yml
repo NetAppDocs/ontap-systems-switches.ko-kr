@@ -40,6 +40,8 @@ entries:
     url: "/switch-nvidia-sn2100-storage/install-rcf-sn2100-storage.html"
   - title: CSHM 파일을 설치합니다
     url: "/switch-nvidia-sn2100-storage/setup-install-cshm-file.html"
+  - title: 스위치를 공장 기본값으로 재설정합니다
+    url: "/switch-nvidia-sn2100-storage/reset-switch-sn2100-storage.html"
 - title: 스위치 마이그레이션
   pdf-filename: Migrate_switches_sn2100-스토리지
   entries:

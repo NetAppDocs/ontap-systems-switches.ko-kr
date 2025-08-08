@@ -36,3 +36,7 @@ NVIDIA SN2100 스위치를 구성합니다.
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["6개"]link:setup-install-cshm-file.html["CSHM 파일을 설치합니다"]
 [role="quick-margin-para"]
 NVIDIA 클러스터 스위치의 이더넷 스위치 상태 모니터링을 위한 적절한 구성 파일을 설치할 수 있습니다.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["7번"]link:reset-switch-sn2100.html["스위치를 공장 기본값으로 재설정합니다"]
+[role="quick-margin-para"]
+SN2100 클러스터 스위치 설정을 지웁니다.

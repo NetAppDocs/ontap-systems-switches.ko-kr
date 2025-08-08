@@ -23,6 +23,22 @@ RCF 스크립트를 설치하거나 업그레이드하기 전에 스위치에서
 
 NOTE: RCF에서 특히 로그 수집에 사용할 사용자(관리자 사용자 제외)를 지정해야 합니다.
 
+.고객 구성
+사용 가능한 참조 구성 범주는 다음과 같습니다.
+
+[cols="1,2"]
+|===
+
+
+| 클러스터 | 4x10GbE 브레이크아웃으로 구성된 포트에서 한 포트는 4x25GbE 브레이크아웃으로 구성되고 다른 포트는 40/100GbE로 구성됩니다.  공유 클러스터/HA 포트를 사용하는 노드의 포트에서 공유 클러스터/HA 트래픽을 지원합니다.  지식 기반 문서에서 플랫폼 표를 확인하세요. https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/What_AFF_ASA_and_FAS_platforms_use_shared_Cluster_and_HA_Ethernet_ports["어떤 AFF, ASA, FAS 플랫폼이 공유 클러스터 및 HA 이더넷 포트를 사용합니까?"^] .  모든 포트는 전용 클러스터 포트로도 사용할 수 있습니다. 
+
+
+ a| 
+스토리지
+ a| 
+모든 포트는 100GbE NVMe 스토리지 연결을 위해 구성되었습니다.
+
+|===
 .최신 RCF 스크립트 버전
 클러스터 및 스토리지 애플리케이션에 사용 가능한 RCF 스크립트 2개가 있습니다. 페이지에서 RCFs https://mysupport.netapp.com/site/info/nvidia-cluster-switch["NVIDIA SN2100 소프트웨어 다운로드"^]를 다운로드하십시오. 각각의 절차는 동일합니다.
 

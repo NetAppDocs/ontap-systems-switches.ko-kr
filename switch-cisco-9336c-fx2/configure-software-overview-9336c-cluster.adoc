@@ -32,3 +32,7 @@ Cisco 9336C-FX2 스위치를 처음 설정한 후 RCF를 설치하거나 업그�
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["다섯"]link:configure-ssh-keys.html["SSH 구성을 확인합니다"]
 [role="quick-margin-para"]
 이더넷 스위치 상태 모니터(CSHM) 및 로그 수집 기능을 사용하려면 스위치에서 SSH가 활성화되어 있는지 확인하세요.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["6개"]link:reset-switch-9336c.html["스위치를 공장 기본값으로 재설정합니다"]
+[role="quick-margin-para"]
+9336C-FX2 클러스터 스위치 설정을 지웁니다.
