@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: install, rcf 
 summary: Nexus 3232C 스위치를 처음 설정한 후 RCF를 설치할 수 있으며, 이 절차를 사용하여 RCF 버전을 업그레이드할 수도 있습니다. 
 ---
-= RCF(Reference Configuration File) 설치
+= RCF(Reference Configuration File) 설치 또는 업그레이드
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -262,42 +262,62 @@ cluster1::*>
 +
 'show running-config'를 선택합니다
 
-. 스위치 CS2의 구성을 지우고 스위치를 재부팅합니다.
+. 현재 실행 중인 구성과 사용 중인 RCF 파일 사이의 사용자 정의 추가 사항을 기록합니다.
+. 기본 구성 세부 정보를 bootflash의 write_erase.cfg 파일에 저장합니다.
 +
 
-CAUTION: 새로운 RCF를 업데이트하거나 적용할 때는 스위치 설정을 지우고 기본 구성을 수행해야 합니다. 스위치를 다시 설정하려면 스위치 직렬 콘솔 포트에 연결해야 합니다.
+NOTE: 새로운 RCF를 업그레이드하거나 적용할 때는 스위치 설정을 지우고 기본 구성을 수행해야 합니다.  스위치를 다시 설정하려면 스위치 직렬 콘솔 포트에 연결해야 합니다.
 
 +
-.. 구성 정리:
+`cs2# show run | section "switchname" > bootflash:write_erase.cfg`
+
 +
-.예제 보기
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-(cs2)# *write erase*
+`cs2# show run | section "hostname" >> bootflash:write_erase.cfg`
 
-Warning: This command will erase the startup-configuration.
-
-Do you wish to proceed anyway? (y/n)  [n]  *y*
-----
-====
-.. 스위치를 재부팅합니다.
 +
-.예제 보기
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-(cs2)# *reload*
+`cs2# show run | i "username admin password" >> bootflash:write_erase.cfg`
 
-Are you sure you would like to reset the system? (y/n) *y*
++
+`cs2# show run | section "vrf context management" >> bootflash:write_erase.cfg`
 
-----
-====
++
+`cs2# show run | section "interface mgmt0" >> bootflash:write_erase.cfg`
 
+. RCF 버전 1.12 이상의 경우 다음 명령을 실행하세요.
++
+`cs2# echo "hardware access-list tcam region racl-lite 512" > bootflash:write_erase.cfg`
 
-. 스위치의 기본 설정을 수행합니다. 을 참조하십시오 link:setup-switch.html["3232C 클러스터 스위치를 구성합니다"] 를 참조하십시오.
++
+`cs2# echo "hardware access-list tcam region qos 256" >> bootflash:write_erase.cfg`
+
++
+지식 기반 문서를 참조하세요 https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["원격 연결을 유지하면서 Cisco 상호 연결 스위치의 구성을 지우는 방법"^] 자세한 내용은.
+
+. write_erase.cfg 파일이 예상대로 채워졌는지 확인하세요.
++
+`show file bootflash:write_erase.cfg`
+
+. 발행하다 `write erase` 현재 저장된 구성을 지우는 명령:
++
+`cs2# *write erase*`
+
++
+`Warning: This command will erase the startup-configuration.`
+
++
+`Do you wish to proceed anyway? (y/n)  [n] *y*`
+
+. 이전에 저장한 기본 구성을 시작 구성에 복사합니다.
++
+`cs2# *copy write_erase.cfg startup-config*`
+
+. 스위치를 재부팅합니다.
++
+`cs2# *reload*`
+
++
+`This command will reboot the system. (y/n)?  [n] *y*`
+
 . FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 CS2의 부트플래시 에 복사합니다. Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Cisco Nexus 3000 Series NX-OS 명령 참조"^] 안내선.
 +
 .예제 보기
@@ -599,7 +619,7 @@ cluster1-04          true     true          false
 cluster1::*>
 ----
 ====
-. 스위치 CS1에서 7-17단계를 반복합니다.
+. 스위치 cs1에서 7~20단계를 반복합니다.
 . 클러스터 LIF에서 자동 되돌리기 기능을 설정합니다.
 +
 [listing, subs="+quotes"]
