@@ -779,7 +779,6 @@
   <block id="28d7612827f82272affeaf30e405e24a" category="paragraph">'network interface show-vserver cluster'</block>
   <block id="d5fbb9cb1715ba5a21b66c0aa1b67707" category="paragraph">이 예제에서 '-vserver' 매개 변수는 클러스터 포트와 연결된 LIF에 대한 정보를 표시합니다. '상태 관리/작업'은 반드시 가동되어야 하며 '홈'은 진실이어야 합니다.</block>
   <block id="3bb5f52e05a05dc888185ec616dd0442" category="paragraph">대부분의 시스템에는 각 컨트롤러에 전용 클러스터 네트워크 포트 2개가 필요합니다.</block>
-  <block id="59ed8d797343a87748211be365bd1d90" category="list-text">SSH 키를 생성합니다.</block>
   <block id="83a0e3bf9dd48caad05146cc29f81e6b" category="list-text">SSH가 활성화되었는지 확인합니다.</block>
   <block id="82c7b5069d64f95a2a115dff1c9ad171" category="doc">CSHM(Cluster Switch Health Monitor) 구성 파일을 설치합니다</block>
   <block id="9486f276b196ea9042dc3f0bfb576743" category="summary">BES-53248 클러스터 스위치 업그레이드는 컨트롤러를 업그레이드하기 위한 준비, EFOS 소프트웨어, 라이센스 및 RCF(Reference Configuration File)\ 설치 등으로 시작됩니다. 설치 후 무중단 업그레이드\(NDU\) 및 무중단 운영\(NDO\) 환경에서 컨트롤러 구성을 복원할 수 있습니다.</block>
@@ -2074,19 +2073,12 @@
   <block id="815792b56cadfb802621ba5d3728c768" category="admonition">Cumulus Linux를 설치할 때마다 전체 파일 시스템 구조가 지워지고 다시 구축됩니다.</block>
   <block id="6ae4d8bf3ebde7936b05c2fe894d7ada" category="admonition">누적 사용자 계정의 기본 암호는 * cumulus * 입니다. Cumulus Linux에 처음으로 로그인할 때 이 기본 암호를 변경해야 합니다. 새 이미지를 설치하기 전에 자동화 스크립트를 업데이트해야 합니다. Cumulus Linux는 설치 프로세스 중 기본 암호를 자동으로 변경하는 명령줄 옵션을 제공합니다.</block>
   <block id="06c2ede7dabacb6c8f4f628bf6b1de39" category="paragraph">NVIDIA SN2100 스위치 콘솔 액세스를 위해 직렬 콘솔 스위치에서 보드율 요구 사항은 다음과 같이 115200으로 설정되어야 합니다.</block>
-  <block id="9e6b336700c1d2e767e05525b2b57ef3" category="list-text">Cumulus Linux 버전 확인:</block>
   <block id="2667c65a518ae8fb280dc9f6a61de3c5" category="list-text">호스트 이름, IP 주소, 서브넷 마스크 및 기본 게이트웨이를 구성합니다. 새 호스트 이름은 콘솔/SSH 세션을 다시 시작한 후에만 유효합니다.</block>
   <block id="62b623b92c382746efee9767d590d86c" category="admonition">Cumulus Linux 스위치는 eth0이라는 전용 이더넷 관리 포트를 하나 이상 제공합니다. 이 인터페이스는 특히 대역외 관리를 위해 사용됩니다. 기본적으로 관리 인터페이스는 주소 지정을 위해 DHCPv4를 사용합니다.</block>
   <block id="91dcca4278a428afbccb2f118d523e13" category="admonition">호스트 이름에 밑줄(_), 아포스트로피(') 또는 비 ASCII 문자를 사용하지 마십시오.</block>
   <block id="5e82a0b4b15e3bfeac2a57b4a294a39c" category="paragraph">이 명령어는 '/etc/hostname'과 '/etc/hosts' 파일을 모두 수정합니다.</block>
-  <block id="6c42fa7e4c3302fb56f4374e70b97fc2" category="list-text">NTP 대화식 모드를 사용하여 시간대를 구성합니다.</block>
-  <block id="3f13db29081af25b57d3e76ea324a03b" category="list-text">터미널에서 다음 명령을 실행합니다.</block>
-  <block id="83d1563d45527134091bdab8d6e5072d" category="list-text">화면의 메뉴 옵션에 따라 지리적 영역과 영역을 선택합니다.</block>
-  <block id="fe0f6a5f9b992c1eea817100a2c1c148" category="list-text">모든 서비스 및 데몬에 대한 시간대를 설정하려면 스위치를 재부팅합니다.</block>
-  <block id="61d6aab01fc093c66c1e769d05c39812" category="list-text">스위치의 날짜와 시간이 올바른지 확인하고 필요한 경우 업데이트합니다.</block>
   <block id="9a828cf107e0b55e82b0e52b871aa982" category="paragraph">설치 프로그램이 다운로드를 시작합니다. 메시지가 나타나면 * y * 를 입력합니다.</block>
   <block id="b64202cf747d1cf1ed877a2b16051b9b" category="list-text">NVIDIA SN2100 스위치를 재부팅합니다.</block>
-  <block id="9f4f33c5c40ac522549c3e58d187e0a0" category="list-text">설치가 자동으로 시작되고 다음 GRUB 화면이 나타납니다. 선택 안 함 *:</block>
   <block id="0356af5b3daf1c5f334184d547ba7462" category="list-text">Cumulus - Linux GNU/Linux</block>
   <block id="a64ef5ea949c8d49f35a27151295f942" category="list-text">ONIE: OS를 설치합니다</block>
   <block id="e0fb005ad468c2c6da5d94ae5ee83311" category="list-text">Cumulus - 설치</block>
@@ -2379,7 +2371,6 @@
   <block id="8e64ad5c6fa8e624c5e3a0540ce81b15" category="paragraph">다음 사항에 유의하십시오.</block>
   <block id="ed4bb13420682d03565e592a54ec52c0" category="list-text">스위치에 로그인합니다.</block>
   <block id="0dc40761c6c698e59be5abb0f871de2e" category="paragraph">스위치에 처음 로그인할 때 * cumulus * / * cumulus * 의 사용자 이름/암호가 필요합니다<block ref="d338b3f0f405eb5e51c8cc1e5ca66f02" prefix=" " category="inline-code"></block> 권한.</block>
-  <block id="cbb09f555687650b38fcf6ac05ce4978" category="paragraph"><block ref="518227d11c3d0b4ad2468e4272be661a" prefix="" category="inline-code"></block></block>
   <block id="81ed2a4b4b4f78c31401892f676d00f6" category="list-text">호스트 이름, IP 주소, 서브넷 마스크 및 기본 게이트웨이가 업데이트되었는지 확인합니다.</block>
   <block id="d592f003299c9790cf6b7880991e4552" category="list-text">새 사용자를 만들고 이 사용자를 에 추가합니다<block ref="d338b3f0f405eb5e51c8cc1e5ca66f02" prefix=" " category="inline-code"></block> 그룹. 이 사용자는 콘솔/SSH 세션을 다시 시작한 후에만 유효합니다.</block>
   <block id="d006305baa198ce937fb8d7cec588b7e" category="paragraph"><block ref="5f3d789fda71670b944a623edd4613a5" prefix="" category="inline-code"></block></block>
@@ -3565,7 +3556,6 @@
   <block id="6bb3008abc00d2a0fe4d634f0b89831e" category="list-text">Cumulus Linux 또는 ONIE를 실행 중인 스위치에서 Cumulus Linux를 설치할 수 있습니다.</block>
   <block id="8f77c20cd9bd8afa1521eb15ea44a8ef" category="list-text">Cumulus Linux 4.4.3이 설치되었습니다.</block>
   <block id="2da5e3ee5bdcbc1a5443b42db962c1bb" category="list-text">Cumulus Linux 4.4.3 설치:</block>
-  <block id="d639f69fd7b303cd7aefe025e7d76848" category="list-text">Cumulus Linux 버전이 4.4.3인지 확인합니다.</block>
   <block id="4a4b6084f06cc45c6f17ae2aa9bd4dc4" category="inline-link">Cisco 소프트웨어 다운로드</block>
   <block id="0a6aaed7ba5c231511f7822eac6c4607" category="list-text">에서 다운로드한 해당 NX-OS 버전입니다<block ref="f823faeecc1cbb37f2d732cc29c07d86" category="inline-link-rx"></block> 페이지.</block>
   <block id="b27df45c7b9d2b8ac8126550ac4038eb" category="list-text">클러스터 네트워크 스위치의 버전을 확인하고 필요한 경우 NetApp 지원 소프트웨어 버전을 에서 스위치로 다운로드합니다<block ref="f823faeecc1cbb37f2d732cc29c07d86" category="inline-link-rx"></block> 페이지.</block>
@@ -5588,4 +5578,12 @@
   <block id="bc19795a1e2342c4b6ced06c4d40bf1f" category="paragraph"><block ref="06ea8c0ad9680ca72f21fb9acf4190a7" prefix="" category="inline-code"></block></block>
   <block id="c0203a2fdd4f105bd33b18aba6317c1b" category="paragraph"><block ref="13a92d9b51e90b702df63253eaabc9ad" prefix="" category="inline-code"></block></block>
   <block id="473d16af00e46c61faa5f7ae956e2c65" category="paragraph"><block ref="02a3315103301dc60f71538670f8e63e" prefix="" category="inline-code"></block></block>
+  <block id="a857d7fbcfec4b7266d8ae96e74feaff" category="list-text">구성 모드에서 SSH 키를 생성합니다.</block>
+  <block id="e7a2f981aa0484adea9bedbd78c1087b" category="list-text">구성 모드에서 ONTAP 로그 수집에 대한 AAA 권한을 설정합니다.</block>
+  <block id="4f4336771d0733889f26dc02ed32b5b4" category="paragraph"><block ref="160edba9b79d23472e05dab56e0f0cfa" prefix="" category="inline-code"></block></block>
+  <block id="558547888dbf1ed9cea97d962f5a635c" category="list-text">SSH/SCP를 다시 활성화합니다.</block>
+  <block id="a2c7fa8f383a047f3591230c9b0234c9" category="list-text">다음 변경 사항을 startup-config에 저장합니다.</block>
+  <block id="7411e9f163d9baab36b5ebc3f80bda73" category="admonition">하는 동안<block ref="8a444a43bdf534c0c6338bb7809659b3" prefix=" " category="inline-code"></block> 예시에서는 SFTP, HTTPS 또는 FTP 등 원하는 파일 전송 방법을 사용할 수 있습니다.</block>
+  <block id="5b9b8dea15de063806f0306fe78872c8" category="admonition">하지만<block ref="8a444a43bdf534c0c6338bb7809659b3" prefix=" " category="inline-code"></block> 예시에서는 SFTP, HTTPS 또는 FTP 등 원하는 파일 전송 방법을 사용할 수 있습니다.</block>
+  <block id="bea4eb9c3f61f6fc9076a215ac1173fe" category="paragraph"><block ref="c1b3921cc8c2b4b51a888d2dc803623c" category="inline-link-macro-rx"></block> .</block>
 </blocks>

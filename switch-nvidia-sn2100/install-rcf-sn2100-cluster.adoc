@@ -129,7 +129,7 @@ MSN2100-RCF-v1._x_-Cluster-HA-Breakout-LLDP         100% 8607   111.2KB/s       
 ----
 +
 
-NOTE: 있습니다 `scp` 이 예제에 사용된 경우, 선호하는 파일 전송 방법을 사용할 수 있습니다.
+NOTE: 하는 동안 `scp` 예시에서는 SFTP, HTTPS 또는 FTP 등 원하는 파일 전송 방법을 사용할 수 있습니다.
 
 . RCF python 스크립트 * MSN2100-RCF-v1._x_-Cluster-HA-Breakout-LLDP * 를 적용합니다.
 +
@@ -394,7 +394,7 @@ MSN2100-RCF-v1.x-Cluster-HA-Breakout-LLDP          100% 8607   111.2KB/s        
 ----
 +
 
-NOTE: 있습니다 `scp` 이 예제에 사용된 경우, 선호하는 파일 전송 방법을 사용할 수 있습니다.
+NOTE: 하는 동안 `scp` 예시에서는 SFTP, HTTPS 또는 FTP 등 원하는 파일 전송 방법을 사용할 수 있습니다.
 
 . RCF python 스크립트 * MSN2100-RCF-v1._x_-Cluster-HA-Breakout-LLDP * 를 적용합니다.
 +
@@ -760,7 +760,7 @@ MSN2100-RCF-v1.x-Cluster-HA-Breakout-LLDP          100% 8607   111.2KB/s        
 ----
 +
 
-NOTE: 이 예제에 사용되기는 하지만 `scp` 선호하는 파일 전송 방법을 사용할 수 있습니다.
+NOTE: 하지만 `scp` 예시에서는 SFTP, HTTPS 또는 FTP 등 원하는 파일 전송 방법을 사용할 수 있습니다.
 
 . RCF python 스크립트 * MSN2100-RCF-v1._x_-Cluster-HA-Breakout-LLDP * 를 적용합니다.
 +

@@ -41,8 +41,7 @@ SCP server Administrative Mode: ............... Disabled
 ----
 ====
 +
-SSH가 비활성화되어 있지 않은 경우 다음과 같이 비활성화합니다.
-
+** SSH가 비활성화되어 있지 않은 경우 다음과 같이 비활성화합니다.
 +
 .예제 보기
 [%collapsible]
@@ -57,7 +56,9 @@ SSH가 비활성화되어 있지 않은 경우 다음과 같이 비활성화합�
 
 WARNING: 키를 수정하기 전에 SSH를 비활성화해야 합니다. 그렇지 않으면 스위치에서 경고가 보고됩니다.
 
-. SSH 키를 생성합니다.
+
+
+. 구성 모드에서 SSH 키를 생성합니다.
 +
 `crypto key generate`
 
@@ -82,13 +83,45 @@ Do you want to overwrite the existing DSA keys? (y/n): *y*
 (switch) (Config)# *crypto key generate ecdsa 521*
 
 Do you want to overwrite the existing ECDSA keys? (y/n): *y*
+----
+====
+. 구성 모드에서 ONTAP 로그 수집에 대한 AAA 권한을 설정합니다.
++
+`aaa authorization commands "noCmdAuthList" none`
 
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
 (switch) (Config)# *aaa authorization commands "noCmdAuthList" none*
 (switch) (Config)# *exit*
+----
+====
+. SSH/SCP를 다시 활성화합니다.
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
 (switch)# *ip ssh server enable*
 (switch)# *ip scp server enable*
 (switch)# *ip ssh pubkey-auth*
-(switch)# *write mem*
+----
+====
+. 다음 변경 사항을 startup-config에 저장합니다.
++
+쓰기 메모리
+
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(switch)# *write memory*
 
 This operation may take a few minutes.
 Management interfaces will not be available during this time.
@@ -135,8 +168,8 @@ Do you want to continue? (y/n): *y*
 
 Config file 'startup-config' created successfully.
 
-(switch) (Config)# end
-(switch)# write memory
+(switch) (Config)# *end*
+(switch)# *write memory*
 
 This operation may take a few minutes.
 Management interfaces will not be available during this time.

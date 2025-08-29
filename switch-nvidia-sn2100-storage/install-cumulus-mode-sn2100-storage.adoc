@@ -43,14 +43,15 @@ NOTE: Cumulus Linux를 설치할 때마다 전체 파일 시스템 구조가 지
 CAUTION: 누적 사용자 계정의 기본 암호는 * cumulus * 입니다. Cumulus Linux에 처음으로 로그인할 때 이 기본 암호를 변경해야 합니다. 새 이미지를 설치하기 전에 자동화 스크립트를 업데이트해야 합니다. Cumulus Linux는 설치 프로세스 중 기본 암호를 자동으로 변경하는 명령줄 옵션을 제공합니다.
 
 .단계
+[role="tabbed-block"]
+====
+.Cumulus Linux 4.4.3
+--
 . 스위치에 로그인합니다.
 +
 스위치에 처음 로그인할 때 * cumulus * / * cumulus * 의 사용자 이름/암호가 필요합니다 `sudo` 권한.
 
 +
-.예제 보기
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 cumulus login: *cumulus*
@@ -61,15 +62,8 @@ Current password: *cumulus*
 New password: *<new_password>*
 Retype new password: *<new_password>*
 ----
-====
-. Cumulus Linux 버전 확인:
+. Cumulus Linux 버전 확인: `net show system`
 +
-`net show system`
-
-+
-.예제 보기
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 cumulus@cumulus:mgmt:~$ *net show system*
@@ -90,7 +84,6 @@ ONIE Version..... 2019.11-5.2.0020-115200
 Base MAC Address. 04:3F:72:43:92:80
 Manufacturer..... Mellanox
 ----
-====
 . 호스트 이름, IP 주소, 서브넷 마스크 및 기본 게이트웨이를 구성합니다. 새 호스트 이름은 콘솔/SSH 세션을 다시 시작한 후에만 유효합니다.
 +
 
@@ -101,9 +94,6 @@ NOTE: Cumulus Linux 스위치는 eth0이라는 전용 이더넷 관리 포트를
 CAUTION: 호스트 이름에 밑줄(_), 아포스트로피(') 또는 비 ASCII 문자를 사용하지 마십시오.
 
 +
-.예제 보기
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 cumulus@cumulus:mgmt:~$ *net add hostname sw1*
@@ -112,15 +102,11 @@ cumulus@cumulus:mgmt:~$ *net add interface eth0 ip gateway 10.233.204.1*
 cumulus@cumulus:mgmt:~$ *net pending*
 cumulus@cumulus:mgmt:~$ *net commit*
 ----
-====
 +
 이 명령어는 '/etc/hostname'과 '/etc/hosts' 파일을 모두 수정합니다.
 
 . 호스트 이름, IP 주소, 서브넷 마스크 및 기본 게이트웨이가 업데이트되었는지 확인합니다.
 +
-.예제 보기
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 cumulus@sw1:mgmt:~$ *hostname sw1*
@@ -140,18 +126,67 @@ unreachable default metric 4278198272
 10.233.204.0/23 dev eth0 proto kernel scope link src 10.233.204.71
 127.0.0.0/8 dev mgmt proto kernel scope link src 127.0.0.1
 ----
-====
-. NTP 대화식 모드를 사용하여 시간대를 구성합니다.
+. 스위치에서 날짜, 시간, 시간대 및 NTP 서버를 설정합니다.
 +
-.. 터미널에서 다음 명령을 실행합니다.
+.. 현재 표준 시간대를 확인합니다.
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *cat /etc/timezone*
+----
+.. 새 표준 시간대로 업데이트:
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *sudo dpkg-reconfigure --frontend noninteractive tzdata*
+----
+.. 현재 시간대 확인:
++
+[listing, subs="+quotes"]
+----
+cumulus@switch:~$ *date +%Z*
+----
+.. 안내 마법사를 사용하여 시간대를 설정하려면 다음 명령을 실행합니다.
 +
 [listing, subs="+quotes"]
 ----
 cumulus@sw1:~$ *sudo dpkg-reconfigure tzdata*
 ----
-.. 화면의 메뉴 옵션에 따라 지리적 영역과 영역을 선택합니다.
-.. 모든 서비스 및 데몬에 대한 시간대를 설정하려면 스위치를 재부팅합니다.
-.. 스위치의 날짜와 시간이 올바른지 확인하고 필요한 경우 업데이트합니다.
+.. 구성된 표준 시간대에 따라 소프트웨어 시계를 설정합니다.
++
+[listing, subs="+quotes"]
+----
+cumulus@switch:~$ *sudo date -s "Tue Oct 28 00:37:13 2023"*
+----
+.. 소프트웨어 시계의 현재 값을 하드웨어 시계로 설정합니다.
++
+[listing, subs="+quotes"]
+----
+cumulus@switch:~$ *sudo hwclock -w*
+----
+.. 필요한 경우 NTP 서버를 추가합니다.
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *net add time ntp server _<cumulus.network.ntp.org>_ iburst*
+cumulus@sw1:~$ *net pending*
+cumulus@sw1:~$ *net commit*
+----
+.. 시스템에서 가 실행 중인지 `ntpd` 확인합니다.
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *ps -ef | grep ntp*
+ntp       4074     1  0 Jun20 ?        00:00:33 /usr/sbin/ntpd -p /var/run/ntpd.pid -g -u 101:102
+----
+.. NTP 소스 인터페이스를 지정합니다. 기본적으로 NTP에서 사용하는 소스 인터페이스는 `eth0` 입니다. 다음과 같이 다른 NTP 소스 인터페이스를 구성할 수 있습니다.
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *net add time ntp source _<src_int>_*
+cumulus@sw1:~$ *net pending*
+cumulus@sw1:~$ *net commit*
+----
 
 
 . Cumulus Linux 4.4.3 설치:
@@ -169,7 +204,7 @@ cumulus@sw1:mgmt:~$ *sudo onie-install -a -i http://_<web-server>/<path>_/cumulu
 ----
 cumulus@sw1:mgmt:~$ *sudo reboot*
 ----
-. 설치가 자동으로 시작되고 다음 GRUB 화면이 나타납니다. 선택 안 함 *:
+. 설치가 자동으로 시작되고 다음과 같은 GRUB 화면이 나타납니다. 선택하지 마십시오 *.
 +
 ** Cumulus - Linux GNU/Linux
 ** ONIE: OS를 설치합니다
@@ -178,14 +213,8 @@ cumulus@sw1:mgmt:~$ *sudo reboot*
 
 
 . 1-4단계를 반복하여 로그인합니다.
-. Cumulus Linux 버전이 4.4.3인지 확인합니다.
+. Cumulus Linux 버전이 4.4.3인지 확인합니다. `net show version`
 +
-`net show version`
-
-+
-.예제 보기
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 cumulus@sw1:mgmt:~$ *net show version*
@@ -194,23 +223,19 @@ DISTRIB_ID="Cumulus Linux"
 DISTRIB_RELEASE=*4.4.3*
 DISTRIB_DESCRIPTION=*"Cumulus Linux 4.4.3"*
 ----
-====
 . 새 사용자를 만들고 이 사용자를 에 추가합니다 `sudo` 그룹. 이 사용자는 콘솔/SSH 세션을 다시 시작한 후에만 유효합니다.
 +
 `sudo adduser --ingroup netedit admin`
 
 +
-.예제 보기
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 cumulus@sw1:mgmt:~$ *sudo adduser --ingroup netedit admin*
 [sudo] password for cumulus:
-Adding user `admin’ ...
-Adding new user `admin’ (1001) with group `netedit' ...
-Creating home directory `/home/admin’ ...
-Copying files from `/etc/skel' ...
+Adding user 'admin' ...
+Adding new user 'admin' (1001) with group `netedit' ...
+Creating home directory '/home/admin' ...
+Copying files from '/etc/skel' ...
 New password:
 Retype new password:
 passwd: password updated successfully
@@ -228,13 +253,13 @@ cumulus@sw1:mgmt:~$ *sudo adduser admin sudo*
 Adding user `admin' to group `sudo' ...
 Adding user admin to group sudo
 Done.
-cumulus@sw1:mgmt:~$ exit
+cumulus@sw1:mgmt:~$ *exit*
 logout
 Connection to 10.233.204.71 closed.
 
 [admin@cycrh6svl01 ~]$ ssh admin@10.233.204.71
 admin@10.233.204.71's password:
-Linux sw1 4.19.0-cl-1-amd64 #1 SMP Cumulus 4.19.206-1+cl4.4.3u1 (2021-09-09) x86_64
+Linux sw1 4.19.0-cl-1-amd64 #1 SMP Cumulus 4.19.206-1+cl4.4.1u1 (2021-09-09) x86_64
 Welcome to NVIDIA Cumulus (R) Linux (R)
 
 For support and online technical documentation, visit
@@ -243,8 +268,459 @@ http://www.cumulusnetworks.com/support
 The registered trademark Linux (R) is used pursuant to a sublicense from LMI, the exclusive licensee of Linus Torvalds, owner of the mark on a world-wide basis.
 admin@sw1:mgmt:~$
 ----
+
+
+--
+.Cumulus Linux 5.4.0
+--
+. 스위치에 로그인합니다.
++
+스위치에 처음 로그인할 때 * cumulus * / * cumulus * 의 사용자 이름/암호가 필요합니다 `sudo` 권한.
+
++
+[listing, subs="+quotes"]
+----
+cumulus login: *cumulus*
+Password: *cumulus*
+You are required to change your password immediately (administrator enforced)
+Changing password for cumulus.
+Current password: *cumulus*
+New password: *<new_password>*
+Retype new password: *<new_password>*
+----
+. Cumulus Linux 버전 확인: `nv show system`
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *nv show system*
+operational         applied              description
+------------------- -------------------- ---------------------
+hostname            cumulus              cumulus
+build               Cumulus Linux 5.3.0  system build version
+uptime              6 days, 8:37:36      system uptime
+timezone            Etc/UTC              system time zone
+----
+. 호스트 이름, IP 주소, 서브넷 마스크 및 기본 게이트웨이를 구성합니다. 새 호스트 이름은 콘솔/SSH 세션을 다시 시작한 후에만 유효합니다.
++
+
+NOTE: Cumulus Linux 스위치는 eth0이라는 전용 이더넷 관리 포트를 하나 이상 제공합니다. 이 인터페이스는 특히 대역외 관리를 위해 사용됩니다. 기본적으로 관리 인터페이스는 주소 지정을 위해 DHCPv4를 사용합니다.
+
++
+
+CAUTION: 호스트 이름에 밑줄(_), 아포스트로피(') 또는 비 ASCII 문자를 사용하지 마십시오.
+
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *nv set system hostname sw1*
+cumulus@cumulus:mgmt:~$ *nv set interface eth0 ip address 10.233.204.71/24*
+cumulus@cumulus:mgmt:~$ *nv set interface eth0 ip gateway 10.233.204.1*
+cumulus@cumulus:mgmt:~$ *nv config apply*
+cumulus@cumulus:mgmt:~$ *nv config save*
+----
++
+이 명령어는 '/etc/hostname'과 '/etc/hosts' 파일을 모두 수정합니다.
+
+. 호스트 이름, IP 주소, 서브넷 마스크 및 기본 게이트웨이가 업데이트되었는지 확인합니다.
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:mgmt:~$ *hostname sw1*
+cumulus@sw1:mgmt:~$ *ifconfig eth0*
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+inet 10.233.204.71  netmask 255.255.254.0  broadcast 10.233.205.255
+inet6 fe80::bace:f6ff:fe19:1df6  prefixlen 64  scopeid 0x20<link>
+ether b8:ce:f6:19:1d:f6  txqueuelen 1000  (Ethernet)
+RX packets 75364  bytes 23013528 (21.9 MiB)
+RX errors 0  dropped 7  overruns 0  frame 0
+TX packets 4053  bytes 827280 (807.8 KiB)
+TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0 device memory 0xdfc00000-dfc1ffff
+
+cumulus@sw1::mgmt:~$ *ip route show vrf mgmt*
+default via 10.233.204.1 dev eth0
+unreachable default metric 4278198272
+10.233.204.0/23 dev eth0 proto kernel scope link src 10.233.204.71
+127.0.0.0/8 dev mgmt proto kernel scope link src 127.0.0.1
+----
+. 스위치에서 시간대, 날짜, 시간 및 NTP 서버를 설정합니다.
++
+.. 표준 시간대 설정:
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *nv set system timezone US/Eastern*
+cumulus@sw1:~$ *nv config apply*
+----
+.. 현재 시간대 확인:
++
+[listing, subs="+quotes"]
+----
+cumulus@switch:~$ *date +%Z*
+----
+.. 안내 마법사를 사용하여 시간대를 설정하려면 다음 명령을 실행합니다.
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *sudo dpkg-reconfigure tzdata*
+----
+.. 구성된 표준 시간대에 따라 소프트웨어 시계를 설정합니다.
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *sudo date -s "Tue Oct 28 00:37:13 2023"*
+----
+.. 소프트웨어 시계의 현재 값을 하드웨어 시계로 설정합니다.
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *sudo hwclock -w*
+----
+.. 필요한 경우 NTP 서버를 추가합니다.
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *nv set service ntp mgmt listen eth0*
+cumulus@sw1:~$ *nv set service ntp mgmt server <server> iburst on*
+cumulus@sw1:~$ *nv config apply*
+cumulus@sw1:~$ *nv config save*
+----
++
+지식 기반 문서를 참조하세요 link:https://kb.netapp.com/on-prem/Switches/Nvidia-KBs/NTP_Server_configuration_is_not_working_with_NVIDIA_SN2100_Switches["NTP 서버 구성이 NVIDIA SN2100 스위치에서 작동하지 않습니다."^] 자세한 내용은.
+
+.. 시스템에서 가 실행 중인지 `ntpd` 확인합니다.
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *ps -ef | grep ntp*
+ntp       4074     1  0 Jun20 ?        00:00:33 /usr/sbin/ntpd -p /var/run/ntpd.pid -g -u 101:102
+----
+.. NTP 소스 인터페이스를 지정합니다. 기본적으로 NTP에서 사용하는 소스 인터페이스는 `eth0` 입니다. 다음과 같이 다른 NTP 소스 인터페이스를 구성할 수 있습니다.
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *nv set service ntp default listen _<src_int>_*
+cumulus@sw1:~$ *nv config apply*
+----
+
+
+. Cumulus Linux 5.4.0 설치:
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:mgmt:~$ *sudo onie-install -a -i http://_<web-server>/<path>_/cumulus-linux-5.4-mlx-amd64.bin*
+----
++
+설치 프로그램이 다운로드를 시작합니다. 메시지가 나타나면 * y * 를 입력합니다.
+
+. NVIDIA SN2100 스위치를 재부팅합니다.
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:mgmt:~$ *sudo reboot*
+----
+. 설치가 자동으로 시작되고 다음과 같은 GRUB 화면이 나타납니다. 선택하지 마십시오 *.
++
+** Cumulus - Linux GNU/Linux
+** ONIE: OS를 설치합니다
+** Cumulus - 설치
+** Cumulus - Linux GNU/Linux
+
+
+. 1-4단계를 반복하여 로그인합니다.
+. Cumulus Linux 버전이 5.4.0인지 확인합니다. `nv show system`
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *nv show system*
+operational         applied              description
+------------------- -------------------- ---------------------
+hostname            cumulus              cumulus
+build               Cumulus Linux 5.4.0  system build version
+uptime              6 days, 13:37:36     system uptime
+timezone            Etc/UTC              system time zone
+----
+. 각 노드가 각 스위치에 연결되어 있는지 확인합니다.
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:mgmt:~$ *net show lldp*
+
+LocalPort  Speed  Mode        RemoteHost                          RemotePort
+---------  -----  ----------  ----------------------------------  -----------
+eth0       100M   Mgmt        mgmt-sw1                            Eth110/1/29
+swp2s1     25G    Trunk/L2    node1                               e0a
+swp15      100G   BondMember  sw2                                 swp15
+swp16      100G   BondMember  sw2                                 swp16
+----
+. 새 사용자를 만들고 이 사용자를 에 추가합니다 `sudo` 그룹. 이 사용자는 콘솔/SSH 세션을 다시 시작한 후에만 유효합니다.
++
+`sudo adduser --ingroup netedit admin`
+
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:mgmt:~$ *sudo adduser --ingroup netedit admin*
+[sudo] password for cumulus:
+Adding user 'admin' ...
+Adding new user 'admin' (1001) with group `netedit' ...
+Creating home directory '/home/admin' ...
+Copying files from '/etc/skel' ...
+New password:
+Retype new password:
+passwd: password updated successfully
+Changing the user information for admin
+Enter the new value, or press ENTER for the default
+Full Name []:
+Room Number []:
+Work Phone []:
+Home Phone []:
+Other []:
+Is the information correct? [Y/n] *y*
+
+cumulus@sw1:mgmt:~$ *sudo adduser admin sudo*
+[sudo] password for cumulus:
+Adding user `admin' to group `sudo' ...
+Adding user admin to group sudo
+Done.
+cumulus@sw1:mgmt:~$ *exit*
+logout
+Connection to 10.233.204.71 closed.
+
+[admin@cycrh6svl01 ~]$ ssh admin@10.233.204.71
+admin@10.233.204.71's password:
+Linux sw1 4.19.0-cl-1-amd64 #1 SMP Cumulus 4.19.206-1+cl4.4.1u1 (2021-09-09) x86_64
+Welcome to NVIDIA Cumulus (R) Linux (R)
+
+For support and online technical documentation, visit
+http://www.cumulusnetworks.com/support
+
+The registered trademark Linux (R) is used pursuant to a sublicense from LMI, the exclusive licensee of Linus Torvalds, owner of the mark on a world-wide basis.
+admin@sw1:mgmt:~$
+----
+. 관리자 사용자가 액세스할 수 있도록 사용자 그룹을 추가합니다 `nv` 명령:
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:mgmt:~$ *sudo adduser admin nvshow*
+     [sudo] password for cumulus:
+     Adding user 'admin' to group 'nvshow' ...
+     Adding user admin to group nvshow
+     Done.
+----
++
+을 참조하십시오 https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-54/System-Configuration/Authentication-Authorization-and-Accounting/User-Accounts/["NVIDIA 사용자 계정"^] 를 참조하십시오.
+
+
+
+--
+.Cumulus Linux 5.11.0
+--
+. 스위치에 로그인합니다.
++
+스위치에 처음 로그인할 때 Privileges로 * cumulus */ * cumulus * 의 사용자 이름/암호가 필요합니다 `sudo`.
+
++
+[listing, subs="+quotes"]
+----
+cumulus login: *cumulus*
+Password: *cumulus*
+You are required to change your password immediately (administrator enforced)
+Changing password for cumulus.
+Current password: *cumulus*
+New password: *<new_password>*
+Retype new password: *<new_password>*
+----
+. Cumulus Linux 버전 확인: `nv show system`
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *nv show system*
+operational         applied              description
+------------------- -------------------- ---------------------
+hostname            cumulus              cumulus
+build               Cumulus Linux 5.4.0  system build version
+uptime              6 days, 8:37:36      system uptime
+timezone            Etc/UTC              system time zone
+----
+. 호스트 이름, IP 주소, 서브넷 마스크 및 기본 게이트웨이를 구성합니다. 새 호스트 이름은 콘솔/SSH 세션을 다시 시작한 후에만 유효합니다.
++
+
+NOTE: Cumulus Linux 스위치는 eth0이라는 전용 이더넷 관리 포트를 하나 이상 제공합니다. 이 인터페이스는 특히 대역외 관리를 위해 사용됩니다. 기본적으로 관리 인터페이스는 주소 지정을 위해 DHCPv4를 사용합니다.
+
++
+
+CAUTION: 호스트 이름에 밑줄(_), 아포스트로피(') 또는 비 ASCII 문자를 사용하지 마십시오.
+
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *nv unset interface eth0 ip address dhcp*
+cumulus@cumulus:mgmt:~$ *nv set interface eth0 ip address 10.233.204.71/24*
+cumulus@cumulus:mgmt:~$ *nv set interface eth0 ip gateway 10.233.204.1*
+cumulus@cumulus:mgmt:~$ *nv config apply*
+cumulus@cumulus:mgmt:~$ *nv config save*
+----
++
+이 명령어는 '/etc/hostname'과 '/etc/hosts' 파일을 모두 수정합니다.
+
+. 호스트 이름, IP 주소, 서브넷 마스크 및 기본 게이트웨이가 업데이트되었는지 확인합니다.
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:mgmt:~$ *hostname sw1*
+cumulus@sw1:mgmt:~$ *ifconfig eth0*
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+inet 10.233.204.71  netmask 255.255.254.0  broadcast 10.233.205.255
+inet6 fe80::bace:f6ff:fe19:1df6  prefixlen 64  scopeid 0x20<link>
+ether b8:ce:f6:19:1d:f6  txqueuelen 1000  (Ethernet)
+RX packets 75364  bytes 23013528 (21.9 MiB)
+RX errors 0  dropped 7  overruns 0  frame 0
+TX packets 4053  bytes 827280 (807.8 KiB)
+TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0 device memory 0xdfc00000-dfc1ffff
+
+cumulus@sw1::mgmt:~$ *ip route show vrf mgmt*
+default via 10.233.204.1 dev eth0
+unreachable default metric 4278198272
+10.233.204.0/23 dev eth0 proto kernel scope link src 10.233.204.71
+127.0.0.0/8 dev mgmt proto kernel scope link src 127.0.0.1
+----
+. 스위치에서 시간대, 날짜, 시간 및 NTP 서버를 설정합니다.
++
+.. 표준 시간대 설정:
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *nv set system timezone US/Eastern*
+cumulus@sw1:~$ *nv config apply*
+----
+.. 현재 시간대 확인:
++
+[listing, subs="+quotes"]
+----
+cumulus@switch:~$ *date +%Z*
+----
+.. 안내 마법사를 사용하여 시간대를 설정하려면 다음 명령을 실행합니다.
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *sudo dpkg-reconfigure tzdata*
+----
+.. 구성된 표준 시간대에 따라 소프트웨어 시계를 설정합니다.
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *sudo date -s "Tue Oct 28 00:37:13 2023"*
+----
+.. 소프트웨어 시계의 현재 값을 하드웨어 시계로 설정합니다.
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *sudo hwclock -w*
+----
+.. 필요한 경우 NTP 서버를 추가합니다.
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *nv set service ntp mgmt listen eth0*
+cumulus@sw1:~$ *nv set service ntp mgmt server <server> iburst on*
+cumulus@sw1:~$ *nv config apply*
+cumulus@sw1:~$ *nv config save*
+----
++
+지식 기반 문서를 참조하세요 link:https://kb.netapp.com/on-prem/Switches/Nvidia-KBs/NTP_Server_configuration_is_not_working_with_NVIDIA_SN2100_Switches["NTP 서버 구성이 NVIDIA SN2100 스위치에서 작동하지 않습니다."^] 자세한 내용은.
+
+.. 시스템에서 가 실행 중인지 `ntpd` 확인합니다.
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *ps -ef | grep ntp*
+ntp       4074     1  0 Jun20 ?        00:00:33 /usr/sbin/ntpd -p /var/run/ntpd.pid -g -u 101:102
+----
+.. NTP 소스 인터페이스를 지정합니다. 기본적으로 NTP에서 사용하는 소스 인터페이스는 `eth0` 입니다. 다음과 같이 다른 NTP 소스 인터페이스를 구성할 수 있습니다.
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *nv set service ntp default listen _<src_int>_*
+cumulus@sw1:~$ *nv config apply*
+----
+
+
+. Cumulus Linux 5.11.0 설치:
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:mgmt:~$ *sudo onie-install -a -i http://_<web-server>/<path>_/cumulus-linux-5.11.0-mlx-amd64.bin*
+----
++
+설치 프로그램이 다운로드를 시작합니다. 메시지가 나타나면 * y * 를 입력합니다.
+
+. NVIDIA SN2100 스위치를 재부팅합니다.
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:mgmt:~$ *sudo reboot*
+----
+. 설치가 자동으로 시작되고 다음과 같은 GRUB 화면이 나타납니다. 선택하지 마십시오 *.
++
+** Cumulus - Linux GNU/Linux
+** ONIE: OS를 설치합니다
+** Cumulus - 설치
+** Cumulus - Linux GNU/Linux
+
+
+. 1-4단계를 반복하여 로그인합니다.
+. Cumulus Linux 버전이 5.11.0인지 확인합니다.
++
+`nv show system`
+
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *nv show system*
+operational         applied                description
+------------------- ---------------------- ---------------------
+build               Cumulus Linux 5.11.0
+uptime              153 days, 2:44:16
+hostname            cumulus                cumulus
+product-name        Cumulus Linux
+product-release     5.11.0
+platform            x86_64-mlnx_x86-r0
+system-memory       2.76 GB used / 2.28 GB free / 7.47 GB total
+swap-memory         0 Bytes used / 0 Bytes free / 0 Bytes total
+health-status       not OK
+date-time           2025-04-23 09:55:24
+status              N/A
+timezone            Etc/UTC
+maintenance
+  mode              disabled
+  ports             enabled
+version
+  kernel            6.1.0-cl-1-amd64
+  build-date        Thu Nov 14 13:06:38 UTC 2024
+  image             5.11.0
+  onie              2019.11-5.2.0020-115200
+----
+. 각 노드가 각 스위치에 연결되어 있는지 확인합니다.
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:mgmt:~$ *nv show interface lldp*
+
+LocalPort  Speed  Mode        RemoteHost                          RemotePort
+---------  -----  ----------  ----------------------------------  -----------
+eth0       100M   eth   mgmt-sw1                                  Eth110/1/14
+swp2s1     25G    Trunk/L2    node1                               e0a
+swp1s1     10G    swp   sw2                                       e0a
+swp9       100G   swp   sw3                                       e4a
+swp10      100G   swp   sw4                                       e4a
+swp15      100G   swp   sw5                                       swp15
+swp16      100G   swp   sw6                                       swp16
+----
+
+
+자세한 내용은 을 https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-511/System-Configuration/Authentication-Authorization-and-Accounting/User-Accounts/["NVIDIA 사용자 계정"^] 참조하십시오.
+
+--
 ====
-
-
 .다음 단계
 link:install-rcf-sn2100-storage.html["RCF 스크립트를 설치하거나 업그레이드합니다"] .

@@ -97,7 +97,7 @@ CAUTION: 호스트 이름에 밑줄(_), 아포스트로피(') 또는 비 ASCII �
 [listing, subs="+quotes"]
 ----
 cumulus@cumulus:mgmt:~$ *net add hostname sw1*
-cumulus@cumulus:mgmt:~$ *net add interface eth0 ip address 10.233.204.71*
+cumulus@cumulus:mgmt:~$ *net add interface eth0 ip address 10.233.204.71/24*
 cumulus@cumulus:mgmt:~$ *net add interface eth0 ip gateway 10.233.204.1*
 cumulus@cumulus:mgmt:~$ *net pending*
 cumulus@cumulus:mgmt:~$ *net commit*
