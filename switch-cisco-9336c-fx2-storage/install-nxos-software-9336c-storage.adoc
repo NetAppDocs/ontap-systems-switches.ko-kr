@@ -11,7 +11,7 @@ summary: 이 절차를 사용하여 Nexus 9336C-FX2 클러스터 스위치에 NX
 
 
 [role="lead"]
-다음 절차에 따라 Nexus 9336C-FX2 클러스터 스위치에 NX-OS 소프트웨어를 설치합니다.
+Nexus 9336C-FX2 및 9336C-FX2-T 스위치에 NX-OS 소프트웨어를 설치하려면 다음 절차를 따르세요.
 
 시작하기 전에 의 절차를 완료하십시오 link:install-nxos-overview-9336c-storage.html["NX-OS 및 RCF 설치 준비"].
 
@@ -696,4 +696,4 @@ cluster1::*>
 
 
 .다음 단계
-link:install-rcf-software-9336c-storage.html["RCF를 설치하거나 업그레이드합니다"]..
+NX-OS 소프트웨어를 설치하거나 업그레이드한 후에는link:install-rcf-software-9336c-storage.html["RCF 설치 또는 업그레이드"] .

@@ -2,7 +2,7 @@
 section: switch-cisco-3132q-v
 title: Cisco Nexus 3132Q-V
 entries:
-- title: 개요
+- title: 시작하십시오
   pdf-filename: 개요_3132q-v
   entries:
   - title: 빠른 시작

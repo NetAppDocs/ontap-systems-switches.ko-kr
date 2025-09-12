@@ -43,14 +43,18 @@ SCP server Administrative Mode: ............... Disabled
 +
 ** SSH가 비활성화되어 있지 않은 경우 다음과 같이 비활성화합니다.
 +
-.예제 보기
-[%collapsible]
+`no ip ssh server enable`
+
++
+`no ip scp server enable`
+
++
+[NOTE]
 ====
-[listing, subs="+quotes"]
-----
-(switch)# *ip ssh server disable*
-(switch)# *ip scp server disable*
-----
+*** EFOS 3.12 이상에서는 SSH가 비활성화되면 활성 SSH 세션이 손실되므로 콘솔 액세스가 필요합니다.
+*** EFOS 3.11 및 이전 버전의 경우 SSH 서버를 비활성화한 후에도 현재 SSH 세션이 계속 열려 있습니다.
+
+
 ====
 +
 

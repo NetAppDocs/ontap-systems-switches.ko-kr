@@ -4,7 +4,7 @@ permalink: switch-cisco-9336c-fx2/required-documentation-9336c-cluster.html
 keywords: shared storage cluster switch 
 summary: Cisco Nexus 9336C-FX2 스위치 설치 및 유지 보수의 경우, 특정 스위치 및 컨트롤러 설명서를 검토하여 Cisco 9336-FX2 스위치 및 ONTAP 클러스터를 설정하십시오. 
 ---
-= Cisco Nexus 9336C-FX2 스위치에 대한 문서 요구 사항
+= Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스위치에 대한 문서 요구 사항
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,13 +14,13 @@ summary: Cisco Nexus 9336C-FX2 스위치 설치 및 유지 보수의 경우, 특
 
 
 [role="lead"]
-Cisco Nexus 9336C-FX2 스위치 설치 및 유지 보수의 경우, 특정 스위치 및 컨트롤러 설명서를 검토하여 Cisco 9336-FX2 스위치 및 ONTAP 클러스터를 설정하십시오.
+Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스위치를 설치하고 유지 관리하려면 Cisco 9336-FX2 스위치와 ONTAP 클러스터를 설정하기 위해 특정 스위치 및 컨트롤러 설명서를 검토하세요.
 
 
 
 == 스위치 설명서
 
-Cisco Nexus 9336C-FX2 스위치를 설정하려면 의 다음 설명서가 필요합니다 https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Cisco Nexus 9000 시리즈 스위치 지원"^] 페이지:
+Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스위치를 설정하려면 다음 문서가 필요합니다. https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Cisco Nexus 9000 시리즈 스위치 지원"^] 페이지:
 
 [cols="1,2"]
 |===
@@ -134,6 +134,6 @@ https://library.netapp.com/ecm/ecm_download_file/ECMM1280394["42U 시스템 캐�
  a| 
 link:install-switch-and-passthrough-panel-9336c-cluster.html["NetApp 캐비닛에 Cisco 9336-FX2 스위치를 설치합니다"^]
  a| 
-Cisco Nexus 9336C-FX2 스위치를 4-포스트 NetApp 캐비닛에 설치하는 방법에 대해 설명합니다.
+4포스트 NetApp 캐비닛에 Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스위치를 설치하는 방법을 설명합니다.
 
 |===

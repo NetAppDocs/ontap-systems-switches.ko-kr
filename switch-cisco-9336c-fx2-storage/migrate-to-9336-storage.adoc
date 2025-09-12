@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords: migrating to a cluster with Cisco Nexus 9336C-FX2 cluster switches, how to migrate 
 summary: ONTAP 클러스터에 대한 운영 중단 없이 이전 Cisco 클러스터 스위치를 Cisco Nexus 9336C-FX2 클러스터 네트워크 스위치로 마이그레이션할 수 있습니다. 
 ---
-= 이전 Cisco 스위치에서 Cisco Nexus 9336C-FX2 클러스터 스위치로 마이그레이션합니다
+= 이전 Cisco 스위치에서 Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스위치로 마이그레이션
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-ONTAP 클러스터용 구형 Cisco 클러스터 스위치를 Cisco Nexus 9336C-FX2 스토리지 네트워크 스위치로 마이그레이션할 수 있습니다. 이것은 무중단 절차입니다.
+ONTAP 클러스터의 기존 Cisco 스위치를 Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스토리지 네트워크 스위치로 마이그레이션할 수 있습니다. 이는 방해가 되지 않는 절차입니다.
 
 
 
@@ -711,4 +711,4 @@ RPC status:
 
 
 .다음 단계
-link:../switch-cshm/config-overview.html["스위치 상태 모니터링을 구성합니다"]..
+스위치를 마이그레이션한 후에는link:../switch-cshm/config-overview.html["스위치 상태 모니터링 구성"] .

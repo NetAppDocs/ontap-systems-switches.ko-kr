@@ -4,7 +4,7 @@ permalink: switch-cisco-9336c-fx2-storage/required-documentation-9336c-storage.h
 keywords: shared storage cluster switch 
 summary: Cisco Nexus 9336C-FX2 스위치 설치 및 유지 보수의 경우, 특정 스위치 및 컨트롤러 설명서를 검토하여 Cisco 9336-FX2 스위치 및 ONTAP 클러스터를 설정하십시오. 
 ---
-= Cisco Nexus 9336C-FX2 스토리지 스위치에 대한 문서 요구 사항
+= Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스토리지 스위치에 대한 문서 요구 사항
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Cisco Nexus 9336C-FX2 스위치 설치 및 유지 보수의 경우, 특
 
 
 [role="lead"]
-Cisco Nexus 9336C-FX2 스위치 설치 및 유지 보수의 경우, 특정 스위치 및 컨트롤러 설명서를 검토하여 Cisco 9336-FX2 스위치 및 ONTAP 클러스터를 설정하십시오.
+Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스위치 설치 및 유지관리를 위해 Cisco 9336-FX2 스위치와 ONTAP 클러스터를 설정하기 위해 특정 스위치 및 컨트롤러 설명서를 검토하세요.
 
 
 

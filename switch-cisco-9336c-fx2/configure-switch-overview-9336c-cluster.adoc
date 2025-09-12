@@ -4,28 +4,30 @@ sidebar: sidebar
 keywords: switches, initial installation, configure switch-cisco-9336c-fx2 switch 
 summary: Cisco Nexus 9336C-FX2 클러스터 스위치의 설치 및 구성 개요 
 ---
-= Cisco Nexus 9336C-FX2 클러스터 스위치 설치 및 설정 워크플로
+= Cisco Nexus 9336C-FX2 및 9336C-FX2-T 클러스터 스위치 설치 및 설정 워크플로
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Cisco Nexus 9336C-FX2 클러스터 스위치는 Cisco Nexus 9000 플랫폼의 일부이며 NetApp 시스템 캐비닛에 설치할 수 있습니다. 클러스터 스위치를 사용하면 2개 이상의 노드로 ONTAP 클러스터를 구축할 수 있습니다.
+Cisco Nexus 9336C-FX2 및 9336C-FX2-T 클러스터 스위치는 Cisco Nexus 9000 플랫폼의 일부이며 NetApp 시스템 캐비닛에 설치할 수 있습니다. 클러스터 스위치를 사용하면 두 개 이상의 노드로 ONTAP 클러스터를 구축할 수 있습니다.
 
-Cisco 9336C-FX2 스위치를 설치하고 설정하려면 다음 워크플로 단계를 따르세요.
+Cisco Nexus 9336C-FX2(36포트)는 고포트 밀도 클러스터/스토리지/데이터 스위치입니다. Cisco Nexus 9336C-FX2-T(12포트)는 10/25/40/100GbE 클러스터 구성을 지원하는 저포트 밀도, 고성능 스위치입니다.
+
+Cisco 9336C-FX2 및 9336C-FX2-T 스위치를 설치하고 설정하려면 다음 워크플로 단계를 따르세요.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1개"]link:configure-reqs-9336c-cluster.html["구성 요구 사항을 검토하세요"]
 [role="quick-margin-para"]
-9336C-FX2 클러스터 스위치의 구성 요구 사항을 검토하세요.
+9336C-FX2 및 9336C-FX2-T 클러스터 스위치에 대한 구성 요구 사항을 검토하세요.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["2개"]link:components-9336c-cluster.html["구성 요소와 부품 번호를 검토하세요"]
 [role="quick-margin-para"]
-9336C-FX2 클러스터 스위치의 구성 요소와 부품 번호를 검토하세요.
+9336C-FX2 및 9336C-FX2-T 클러스터 스위치의 구성 요소와 부품 번호를 검토하세요.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["세 가지"]link:required-documentation-9336c-cluster.html["필수 서류를 검토하세요"]
 [role="quick-margin-para"]
-9336C-FX2 스위치와 ONTAP 클러스터를 설정하려면 특정 스위치 및 컨트롤러 설명서를 검토하세요.
+9336C-FX2 및 9336C-FX2-T 스위치와 ONTAP 클러스터를 설정하려면 특정 스위치 및 컨트롤러 설명서를 검토하세요.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["네"]link:smart-call-9336c-cluster.html["Smart Call Home 요구 사항을 검토하세요"]
 [role="quick-margin-para"]

@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 9336c-fx2 
 summary: 다음 절차에 따라 Cisco Nexus 9336C-FX2 스위치를 설치합니다. 
 ---
-= 9336C-FX2 클러스터 스위치를 설치합니다
+= 9336C-FX2 및 9336C-FX2-T 클러스터 스위치 설치
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-다음 절차에 따라 Cisco Nexus 9336C-FX2 스위치를 설정하고 구성합니다.
+Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스위치를 설정하고 구성하려면 다음 절차를 따르세요.
 
 .시작하기 전에
 다음 사항을 확인하십시오.
@@ -50,4 +50,4 @@ Telco 랙에 있는 장비
 
 
 .다음 단계
-선택적으로 다음을 수행할 수 있습니다.link:install-switch-and-passthrough-panel-9336c-cluster.html["NetApp 캐비닛에 Cisco Nexus 9336C-FX2 스위치를 설치합니다"] .  그렇지 않으면 다음으로 이동하세요link:cabling-considerations-9336c-fx2.html["케이블 연결 및 구성을 검토합니다"] .
+선택적으로 다음을 수행할 수 있습니다.link:install-switch-and-passthrough-panel-9336c-cluster.html["NetApp 캐비닛에 Cisco Nexus 9336C-FX2 스위치를 설치합니다"] . 그렇지 않으면 다음으로 이동하세요link:cabling-considerations-9336c-fx2.html["케이블링 및 구성 검토"] .

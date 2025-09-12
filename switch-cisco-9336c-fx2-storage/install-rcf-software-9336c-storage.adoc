@@ -11,7 +11,7 @@ summary: Nexus 9336C-FX2 스토리지 스위치를 처음 설정한 후 RCF를 �
 
 
 [role="lead"]
-Nexus 9336C-FX2 스토리지 스위치를 처음 설정한 후 RCF(Reference Configuration File)를 설치합니다.
+Nexus 9336C-FX2 및 9336C-FX2-T 스토리지 스위치를 처음 설정한 후 참조 구성 파일(RCF)을 설치합니다.
 
 RCF를 설치할 때 자세한 내용은 기술 자료 문서를 link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["원격 연결을 유지하면서 Cisco 상호 연결 스위치의 구성을 지우는 방법"^]참조하십시오.
 
@@ -118,7 +118,7 @@ cs1# show banner motd
 
 . RCF 버전 1.12 이상의 경우 다음 명령을 실행하세요.
 +
-`cs1# echo "hardware access-list tcam region ing-racl 1024" > bootflash:write_erase.cfg`
+`cs1# echo "hardware access-list tcam region ing-racl 1024" >> bootflash:write_erase.cfg`
 
 +
 `cs1# echo "hardware access-list tcam region egr-racl 1024" >> bootflash:write_erase.cfg`
@@ -480,4 +480,4 @@ System Manager에서는 노드 관리 IP 주소 할당, 클러스터 초기화, 
 로 이동합니다 https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["System Manager를 사용하여 새 클러스터에서 ONTAP를 구성합니다"] 를 참조하십시오.
 
 .다음 단계
-link:configure-ssh-keys.html["SSH 구성을 확인합니다"]
+RCF를 설치하거나 업그레이드한 후에는link:configure-ssh-keys.html["SSH 구성을 확인하세요"]

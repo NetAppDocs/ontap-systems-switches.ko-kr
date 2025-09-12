@@ -920,4 +920,4 @@ RPC status:
 --
 ====
 .다음 단계
-link:configure-ssh-keys.html["SSH 구성을 확인합니다"]..
+RCF를 업그레이드한 후에는link:configure-ssh-keys.html["SSH 구성을 확인하세요"] .

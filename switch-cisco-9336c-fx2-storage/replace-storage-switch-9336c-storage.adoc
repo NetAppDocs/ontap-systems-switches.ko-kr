@@ -4,19 +4,19 @@ sidebar: sidebar
 keywords: replacing, replace, defective, nexus, switch, cluster, network, nondisruptive, procedure, ndu, replace a cisco nexus 9336c-fx2 cluster switch - cisco nexus 9336c-fx2 
 summary: '클러스터 네트워크에서 결함이 있는 Nexus 9336C-FX2 스위치를 교체하는 것은 무중단 절차(NDU\)입니다.' 
 ---
-= Cisco Nexus 9336C-FX2 스토리지 스위치를 교체합니다
+= Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스토리지 스위치 교체
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-클러스터 네트워크에서 결함이 있는 Nexus 9336C-FX2 스위치를 교체할 수 있습니다. 이는 무중단으로 수행할 수 있는 절차입니다.
+클러스터 네트워크에서 결함이 있는 Nexus 9336C-FX2 및 9336C-FX2-T 스위치를 교체할 수 있습니다. 이것은 방해가 되지 않는 절차입니다.
 
 .시작하기 전에
-Cisco Nexus 9336C-FX2 스토리지 스위치에 NX-OS 소프트웨어 및 RCF를 설치하기 전에 다음 사항을 확인하십시오.
+Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스토리지 스위치에 NX-OS 소프트웨어와 RCF를 설치하기 전에 다음 사항을 확인하세요.
 
-* 이 시스템은 Cisco Nexus 9336C-FX2 스토리지 스위치를 지원할 수 있습니다.
+* 귀하의 시스템은 Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스토리지 스위치를 지원할 수 있습니다.
 * 지원되는 ONTAP, NX-OS 및 RCF 버전에 대해서는 Cisco 이더넷 스위치 페이지의 스위치 호환성 표를 참조하십시오.
 * Cisco 웹 사이트에서 사용할 수 있는 적절한 소프트웨어 및 업그레이드 가이드를 참조했습니다.
 
@@ -267,4 +267,4 @@ storage::*>
 
 
 .다음 단계
-link:../switch-cshm/config-overview.html["스위치 상태 모니터링을 구성합니다"]..
+스위치를 교체한 후에는link:../switch-cshm/config-overview.html["스위치 상태 모니터링 구성"] .

@@ -2,7 +2,7 @@
 section: switch-cisco-92300
 title: Cisco Nexus 92300YC
 entries:
-- title: 개요
+- title: 시작하십시오
   pdf-filename: 개요_92300yc
   entries:
   - title: 빠른 시작
