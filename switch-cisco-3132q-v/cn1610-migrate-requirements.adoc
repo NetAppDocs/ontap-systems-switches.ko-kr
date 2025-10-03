@@ -19,8 +19,8 @@ Cisco Nexus 3132Q-V 스위치는 AFF 또는 FAS 클러스터에서 클러스터 
 ====
 자세한 내용은 다음을 참조하십시오.
 
-* http://support.netapp.com/NOW/download/software/cm_switches_ntap/["NetApp CN1601 및 CN1610 설명 페이지"^]
-* http://support.netapp.com/NOW/download/software/cm_switches/["Cisco 이더넷 스위치 설명 페이지"^]
+* https://mysupport.netapp.com/site/products/all/details/netapp-cluster-switches/docs-tab["NetApp CN1601 및 CN1610 설명 페이지"^]
+* https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치 설명 페이지"^]
 * http://hwu.netapp.com["Hardware Universe"^]
 
 

@@ -19,8 +19,8 @@ Cisco Nexus 3132Q-V 스위치는 AFF 또는 FAS 클러스터에서 클러스터 
 ====
 자세한 내용은 다음을 참조하십시오.
 
-* http://support.netapp.com/NOW/download/software/cm_switches/["Cisco 이더넷 스위치 설명 페이지"^]
-* http://hwu.netapp.com["Hardware Universe"^]
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치"^]
+* link:http://hwu.netapp.com["Hardware Universe"^]
 
 
 
@@ -81,7 +81,7 @@ Cisco Nexus 3132Q-V 스위치는 AFF 또는 FAS 클러스터에서 클러스터 
 
 ====
 * 귀사는 계획, 마이그레이션 작업을 완료했으며 노드에서 Nexus 3132Q-V 클러스터 스위치까지 10GbE 및 40/100 GbE 연결에 대한 필수 문서를 읽었습니다.
-* 이 절차에서 지원되는 ONTAP 및 NX-OS 버전은 에 나와 있습니다 link:http://support.netapp.com/NOW/download/software/cm_switches/.html["Cisco 이더넷 스위치 페이지"^].
+* 이 절차에서 지원되는 ONTAP 및 NX-OS 버전은 다음과 같습니다.link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치"^] .
 
 
 .사용된 예제에 대해 설명합니다
@@ -96,7 +96,7 @@ Cisco Nexus 3132Q-V 스위치는 AFF 또는 FAS 클러스터에서 클러스터 
 * * n1_clus2 * 는 노드 * n1 * 의 클러스터 스위치 2(CL2 또는 C2)에 연결된 첫 번째 클러스터 LIF입니다.
 * * n1_clus3 * 은 노드 * n1 * 의 클러스터 스위치 2(CL2 또는 C2)에 연결된 두 번째 LIF입니다.
 * * n1_clus4 * 는 노드 * n1 * 의 클러스터 스위치 1(CL1 또는 C1)에 연결된 두 번째 LIF입니다.
-* 10GbE 및 40/100 GbE 포트 수는 에서 사용할 수 있는 RCFs(참조 구성 파일)에 정의되어 있습니다 https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Cisco ® 클러스터 네트워크 스위치 참조 구성 파일 다운로드"^] 페이지.
+* 10GbE 및 40/100GbE 포트의 수는 다음에서 사용 가능한 참조 구성 파일(RCF)에 정의되어 있습니다.link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Cisco ® 클러스터 네트워크 스위치 참조 구성 파일 다운로드"^] .
 * 노드는 * n1 *, * n2 *, * n3 * 및 * n4 * 입니다.
 
 

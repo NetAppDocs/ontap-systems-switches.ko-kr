@@ -24,9 +24,9 @@ NOTE: 이 절차를 수행하려면 ONTAP 명령과 Cisco Nexus 3000 시리즈 �
 
 필요한 경우 다음 정보를 참조하십시오.
 
-* http://support.netapp.com/NOW/download/software/cm_switches_ntap/["NetApp CN1601 및 CN1610 설명 페이지"^]
-* http://support.netapp.com/NOW/download/software/cm_switches/["Cisco 이더넷 스위치 설명 페이지"^]
-* http://hwu.netapp.com["Hardware Universe"^]
+* link:https://mysupport.netapp.com/site/products/all/details/netapp-cluster-switches/docs-tab["NetApp CN1601 및 CN1610"^]
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치"^]
+* link:http://hwu.netapp.com["Hardware Universe"^]
 
 
 
@@ -46,7 +46,7 @@ NOTE: 이 절차를 수행하려면 ONTAP 명령과 Cisco Nexus 3000 시리즈 �
 * N1_clus2 는 노드 n1의 클러스터 스위치 2(CL2 또는 C2)에 연결되는 첫 번째 클러스터 LIF입니다.
 * N1_clus3 은 노드 n1의 클러스터 스위치 2(CL2 또는 C2)에 연결되는 두 번째 LIF입니다.
 * N1_clus4 는 노드 n1의 클러스터 스위치 1(CL1 또는 C1)에 연결되는 두 번째 LIF입니다.
-* 10GbE 및 40/100 GbE 포트 수는 에서 사용할 수 있는 RCFs(참조 구성 파일)에 정의되어 있습니다 https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Cisco ® 클러스터 네트워크 스위치 참조 구성 파일 다운로드"^] 페이지.
+* 10GbE 및 40/100GbE 포트의 수는 다음에서 사용 가능한 참조 구성 파일(RCF)에 정의되어 있습니다.link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Cisco ® 클러스터 네트워크 스위치 참조 구성 파일 다운로드"^] .
 
 
 
@@ -198,11 +198,11 @@ CL2                           cluster-network  10.10.1.102   CN1610
 이때 두 스위치를 모두 준비해야 합니다. RCF 및 이미지를 업그레이드해야 하는 경우 다음 절차를 완료해야 합니다.
 
 +
-.. 를 참조하십시오 link:http://support.netapp.com/NOW/download/software/cm_switches/.html["Cisco 이더넷 스위치"^] 페이지로 이동합니다.
+.. 보다link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치"^] NetApp 지원 사이트에서.
 .. 스위치 및 필요한 소프트웨어 버전을 해당 페이지의 표에 기록합니다.
 .. RCF의 적절한 버전을 다운로드합니다.
 .. Description * 페이지에서 * continue * 를 클릭하고 사용권 계약에 동의한 다음 * Download * 페이지의 지침에 따라 RCF를 다운로드합니다.
-.. 에서 해당 버전의 이미지 소프트웨어를 다운로드합니다 link:http://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.html["Cisco ® 클러스터 및 관리 네트워크 스위치 참조 구성 파일 다운로드"^].
+.. 이미지 소프트웨어의 적절한 버전을 다운로드하세요.link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Cisco ® 클러스터 및 관리 네트워크 스위치 참조 구성 파일 다운로드"^] .
 
 
 . 교체하려는 두 번째 CN1610 스위치에 연결된 LIF를 마이그레이션하십시오.
@@ -332,8 +332,8 @@ Cluster n2_clus3 n2       e0c    10.10.0.7
 Cluster n2_clus4 n2       e0d    10.10.0.8
 Local = 10.10.0.1 10.10.0.2 10.10.0.3 10.10.0.4
 Remote = 10.10.0.5 10.10.0.6 10.10.0.7 10.10.0.8
-Cluster Vserver Id = 4294967293 Ping status:
-....
+Cluster Vserver Id = 4294967293
+Ping status:....
 Basic connectivity succeeds on 16 path(s)
 Basic connectivity fails on 0 path(s)
 ................
@@ -687,8 +687,8 @@ Cluster n2_clus3 n2       e0c    10.10.0.7
 Cluster n2_clus4 n2       e0d    10.10.0.8
 Local = 10.10.0.1 10.10.0.2 10.10.0.3 10.10.0.4
 Remote = 10.10.0.5 10.10.0.6 10.10.0.7 10.10.0.8
-Cluster Vserver Id = 4294967293 Ping status:
-....
+Cluster Vserver Id = 4294967293
+Ping status:....
 Basic connectivity succeeds on 16 path(s)
 Basic connectivity fails on 0 path(s)
 ................
@@ -1081,8 +1081,8 @@ Cluster n2_clus3 n2       e0c    10.10.0.7
 Cluster n2_clus4 n2       e0d    10.10.0.8
 Local = 10.10.0.1 10.10.0.2 10.10.0.3 10.10.0.4
 Remote = 10.10.0.5 10.10.0.6 10.10.0.7 10.10.0.8
-Cluster Vserver Id = 4294967293 Ping status:
-....
+Cluster Vserver Id = 4294967293
+Ping status:....
 Basic connectivity succeeds on 16 path(s)
 Basic connectivity fails on 0 path(s)
 ................

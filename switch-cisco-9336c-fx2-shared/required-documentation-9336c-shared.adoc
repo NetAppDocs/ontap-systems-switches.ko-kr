@@ -10,7 +10,7 @@ summary: Cisco Nexus 9336C-FX2 스위치 설치 및 유지 보수의 경우, 특
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -34,7 +34,7 @@ Cisco Nexus 9336C-FX2 공유 스위치를 설정하려면 을 참조하십시오
 | link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Cisco Nexus 9000 Series NX-OS 명령 참조 마스터 인덱스"] | Cisco에서 제공하는 다양한 명령 참조에 대한 링크를 제공합니다. 
 
 
-| link:https://www.cisco.com/c/en/us/td/docs/switches/datacenter/sw/mib/quickreference/b_Cisco_Nexus_7000_Series_and_9000_Series_NX-OS_MIB_Quick_Reference.html["Cisco Nexus 9000 MIB 참조"] | 에서는 Nexus 9000 스위치에 대한 MIB(Management Information Base) 파일에 대해 설명합니다. 
+| link:https://www.cisco.com/c/en/us/td/docs/switches/datacenter/sw/mib/reference/MIBRef.html["Cisco Nexus 9000 MIB 참조"] | 에서는 Nexus 9000 스위치에 대한 MIB(Management Information Base) 파일에 대해 설명합니다. 
 
 
 | link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-system-message-guides-list.html["Nexus 9000 Series NX-OS 시스템 메시지 참조"] | Cisco Nexus 9000 시리즈 스위치의 시스템 메시지, 정보를 제공하는 스위치 및 링크, 내부 하드웨어 또는 시스템 소프트웨어의 문제를 진단하는 데 도움이 되는 기타 메시지를 설명합니다. 

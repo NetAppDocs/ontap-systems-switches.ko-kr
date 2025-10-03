@@ -21,7 +21,7 @@ entries:
   - title: 스위치를 장착하십시오
     url: "/switch-bes-53248/install-hardware-bes53248.html"
   - title: 케이블 연결 및 구성을 검토합니다
-    url: "/switch-bes-53248/cabling-considerations-bes-53248.html"
+    url: "/switch-bes-53248/cabling-considerations-bes53248.html"
 - title: 소프트웨어 구성
   pdf-filename: configure_software_bes53248 을 참조하십시오
   entries:

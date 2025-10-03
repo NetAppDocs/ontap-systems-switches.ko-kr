@@ -1,5 +1,9 @@
 ---
 indexpage:
+  title: ONTAP 시스템용 스위치
+  summary: 이 사이트의 문서를 사용하여 클러스터, 공유 스토리지 및 MetroCluster 스위치를 설치, 업그레이드 및 유지 관리할 수
+    있습니다.
+  keywords: switches
   lead: NetApp에서는 클러스터, 스토리지, 공유 스위치를 제공하여 호스트 스토리지와 2개 이상의 NetApp 컨트롤러 간에 연결을 제공함으로써
     스토리지 인프라 전체에서 데이터와 네트워크 인터페이스를 중단 없이 이동할 수 있도록 지원합니다.
   tiles:
@@ -22,7 +26,7 @@ indexpage:
     - title: 스토리지 스위치 - Cisco Nexus 9336C-FX2 또는 9336C-FX2-T
       url: "/switch-cisco-9336c-fx2-storage/configure-switch-overview-9336c-storage.html"
     - title: 스토리지 스위치 - NVIDIA SN2100
-      url: "/switch-nvidia-sn2100/configure-overview-sn2100-storage.html"
+      url: "/switch-nvidia-sn2100-storage/configure-overview-sn2100-storage.html"
     - title: 공유 스위치 - Cisco Nexus 9336C-FX2
       url: "/switch-cisco-9336c-fx2-shared/configure-switch-overview-9336c-shared.html"
   - title: 사용 종료 스위치

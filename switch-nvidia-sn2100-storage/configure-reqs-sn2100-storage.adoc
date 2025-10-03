@@ -21,7 +21,7 @@ NVIDIA SN2100 스위치 설치 및 유지 보수의 경우 모든 요구 사항�
 
 NVIDIA SN2100 스위치(X190006/X190106)는 스위치에 포함된 표준 브래킷을 사용하여 NVIDIA 이중/단일 스위치 캐비닛에 설치합니다.
 
-케이블 연결 지침은 을 참조하십시오 link:cabling-considerations-sn2100-cluster.html["케이블 연결 및 구성 고려 사항"].
+케이블링 지침은 다음을 참조하세요.link:cabling-considerations-sn2100-storage.html["케이블 연결 및 구성 고려 사항"] .
 
 
 

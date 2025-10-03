@@ -60,7 +60,7 @@ summary: 스위치가 없는 2노드 클러스터가 있는 경우, Cisco Nexus 
 * N1_clus2 는 노드 n1의 클러스터 스위치 C2에 연결되는 첫 번째 클러스터 LIF입니다.
 * N2_clus1 은 노드 n2의 클러스터 스위치 C1에 연결되는 첫 번째 클러스터 LIF입니다.
 * N2_clus2 는 노드 n2의 클러스터 스위치 C2에 연결되는 두 번째 클러스터 LIF입니다.
-* 10GbE 및 40/100 GbE 포트 수는 에서 사용할 수 있는 RCFs(참조 구성 파일)에 정의되어 있습니다 https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Cisco ® 클러스터 네트워크 스위치 참조 구성 파일 다운로드"^] 페이지.
+* 10GbE 및 40/100GbE 포트의 수는 다음에서 사용 가능한 참조 구성 파일(RCF)에 정의되어 있습니다.link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Cisco ® 클러스터 네트워크 스위치 참조 구성 파일 다운로드"^] .
 
 
 [NOTE]
@@ -165,14 +165,14 @@ Enable Switchless Cluster Detection: true
 +
 .. NetApp Support 사이트의 _Cisco 이더넷 스위치_ 페이지로 이동하십시오.
 +
-http://support.netapp.com/NOW/download/software/cm_switches/["Cisco 이더넷 스위치"^]
+link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치"^]
 
 .. 스위치 및 필요한 소프트웨어 버전을 해당 페이지의 표에 기록합니다.
 .. 적절한 버전의 RCF를 다운로드합니다.
 .. Description * 페이지에서 * continue * 를 클릭하고 사용권 계약에 동의한 다음 * Download * 페이지의 지침에 따라 RCF를 다운로드합니다.
 .. 해당 버전의 이미지 소프트웨어를 다운로드합니다.
 +
-https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Cisco 클러스터 및 관리 네트워크 스위치 참조 구성 파일 다운로드 페이지"^]
+link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Cisco 클러스터 및 관리 네트워크 스위치 참조 구성 파일 다운로드"^] .
 
 
 

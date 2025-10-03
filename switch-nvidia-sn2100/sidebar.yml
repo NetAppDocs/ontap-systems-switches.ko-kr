@@ -1,10 +1,8 @@
 ---
 section: switch-nvidia-sn2100
 title: nVidia SN2100
-pdf-filename: 스위치 - nVidia-sn2100-클러스터
 entries:
 - title: 시작하십시오
-  pdf-filename: Overview_sn2100 을 참조하십시오
   entries:
   - title: 빠른 시작
     url: "/switch-nvidia-sn2100/configure-overview-sn2100-cluster.html"

@@ -179,13 +179,13 @@ cluster::*> network interface modify -vserver node2 -lif clus4 -auto-revert fals
 이때 두 스위치를 모두 준비해야 합니다. RCF 및 이미지를 업그레이드해야 하는 경우 다음 단계를 따르십시오.
 
 +
-.. 를 참조하십시오 link:http://support.netapp.com/NOW/download/software/cm_switches/["Cisco 이더넷 스위치"^] 페이지를 참조하십시오.
+.. 보다link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치"^] NetApp 지원 사이트에서.
 .. 스위치 및 필요한 소프트웨어 버전을 해당 페이지의 표에 기록합니다.
 .. RCF의 적절한 버전을 다운로드합니다.
 .. 설명 * 페이지에서 * 계속 * 을 선택하고 사용권 계약에 동의한 다음 * 다운로드 * 페이지의 지침에 따라 RCF를 다운로드합니다.
 .. 해당 버전의 이미지 소프트웨어를 다운로드합니다.
 +
-http://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Cisco ® 클러스터 및 관리 네트워크 스위치 참조 구성 파일 다운로드"^]
+https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Cisco ® 클러스터 및 관리 네트워크 스위치 참조 구성 파일 다운로드"^]
 
 
 
@@ -318,8 +318,7 @@ Cluster n2_clus4 n2       e0d    10.10.0.8
 Local = 10.10.0.1 10.10.0.2 10.10.0.3 10.10.0.4
 Remote = 10.10.0.5 10.10.0.6 10.10.0.7 10.10.0.8
 Cluster Vserver Id = 4294967293
-Ping status:
-....
+Ping status:....
 Basic connectivity succeeds on 16 path(s)
 Basic connectivity fails on 0 path(s)
 ................

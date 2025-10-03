@@ -25,7 +25,7 @@ summary: '클러스터 네트워크에서 결함이 있는 Cisco Nexus 3132Q-V �
 +
 ** Nexus 3132Q-V 클러스터 인프라는 중복되어 있으며 두 스위치에서 모두 완벽하게 작동합니다.
 +
-를 클릭합니다 link:http://support.netapp.com/NOW/download/software/cm_switches/["Cisco 이더넷 스위치"^] 페이지에 최신 RCF 및 NX-OS 버전이 스위치가 있습니다.
+link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Cisco 이더넷 스위치"^]스위치에 최신 RCF 및 NX-OS 버전이 있습니다.
 
 ** 모든 클러스터 포트는 에 있습니다 `up` 상태.
 ** 두 스위치 모두에 관리 접속이 있습니다.
@@ -40,7 +40,7 @@ summary: '클러스터 네트워크에서 결함이 있는 Cisco Nexus 3132Q-V �
 ** 스위치의 초기 사용자 정의가 완료되었습니다.
 
 
-* http://hwu.netapp.com["Hardware Universe"^]
+* link:http://hwu.netapp.com["Hardware Universe"^]
 
 
 
@@ -50,8 +50,8 @@ summary: '클러스터 네트워크에서 결함이 있는 Cisco Nexus 3132Q-V �
 NetApp은 사용 중인 장치에서 콘솔 로깅을 사용하도록 설정하고 스위치를 교체할 때 다음 작업을 수행할 것을 적극 권장합니다.
 
 * 유지 관리 중에는 AutoSupport를 활성화된 상태로 둡니다.
-* 유지 관리 전후에 유지 관리 AutoSupport를 트리거하여 유지 보수 기간 동안 케이스 생성을 비활성화합니다. 이 기술 자료 문서를 참조하십시오 https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: 예약된 유지 관리 기간 동안 자동 케이스 생성을 억제하는 방법"^] 를 참조하십시오.
-* 모든 CLI 세션에 대해 세션 로깅을 설정합니다. 세션 로깅을 활성화하는 방법에 대한 지침은 이 기술 자료 문서의 "로깅 세션 출력" 섹션을 참조하십시오 https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["ONTAP 시스템에 대한 최적의 연결을 위해 PuTTY를 구성하는 방법"^].
+* 유지 관리 기간 동안 케이스 생성을 비활성화하려면 유지 관리 전후에 유지 관리 AutoSupport 트리거합니다.  이 지식 기반 문서를 참조하세요.link:https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: 예약된 유지 관리 기간 동안 자동 케이스 생성을 억제하는 방법"^] 자세한 내용은.
+* 모든 CLI 세션에 대한 세션 로깅을 활성화합니다.  세션 로깅을 활성화하는 방법에 대한 지침은 이 기술 자료 문서의 "세션 출력 로깅" 섹션을 검토하세요.link:https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["ONTAP 시스템에 대한 최적의 연결을 위해 PuTTY를 구성하는 방법"^] .
 
 
 
@@ -67,7 +67,7 @@ NetApp은 사용 중인 장치에서 콘솔 로깅을 사용하도록 설정하�
 * N1_clus2 는 노드 n1의 클러스터 스위치 CL2 또는 C2에 연결된 첫 번째 클러스터 LIF입니다.
 * N1_clus3 은 노드 n1에 대해 클러스터 스위치 C2에 연결된 두 번째 LIF입니다.
 * N1_clus4 는 노드 n1에 대해 클러스터 스위치 CL1에 연결된 두 번째 LIF입니다.
-* 10GbE 및 40GbE 포트 수는 페이지의 참조 구성 파일(RCF)에 정의되어 link:https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Cisco ® 클러스터 네트워크 스위치 참조 구성 파일 다운로드"^]있습니다.
+* 10GbE 및 40GbE 포트의 수는 다음에서 사용 가능한 참조 구성 파일(RCF)에 정의되어 있습니다.link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Cisco ® 클러스터 네트워크 스위치 참조 구성 파일 다운로드"^] .
 * 노드는 n1, n2, n3 및 n4입니다. 이 절차의 예제에서는 4개의 노드를 사용합니다. 두 노드는 e0a, e0b, e0c 및 e0d 4개의 10GB 클러스터 인터커넥트 포트를 사용합니다. 다른 두 노드는 두 개의 40GB 클러스터 인터커넥트 포트(e4a 및 e4e)를 사용합니다. 를 참조하십시오 link:https://hwu.netapp.com/["Hardware Universe"^] 플랫폼에 있는 실제 클러스터 포트의 경우
 
 
@@ -261,7 +261,7 @@ CL2                          cluster-network   10.10.1.102      NX3132V
 이때 교체 스위치를 준비해야 합니다. RCF 및 이미지를 업그레이드해야 하는 경우 다음 단계를 따라야 합니다.
 
 +
-.. NetApp Support 사이트에서 로 이동합니다 link:http://support.netapp.com/NOW/download/software/cm_switches/["Cisco 이더넷 스위치"^] 페이지.
+.. NetApp 지원 사이트에서 다음을 참조하세요.link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch/["Cisco 이더넷 스위치"^] .
 .. 스위치 및 필요한 소프트웨어 버전을 해당 페이지의 표에 기록합니다.
 .. RCF의 적절한 버전을 다운로드합니다.
 .. Description * 페이지에서 * continue * 를 클릭하고 사용권 계약에 동의한 다음 * Download * 페이지의 지침에 따라 RCF를 다운로드합니다.
@@ -577,8 +577,8 @@ cluster::*> network interface revert -vserver Cluster -lif n1_clus2
 cluster::*> network interface revert -vserver Cluster -lif n1_clus3
 cluster::*> network interface revert -vserver Cluster -lif n2_clus2
 cluster::*> network interface revert -vserver Cluster -lif n2_clus3
-Cluster::*> network interface revert –vserver Cluster –lif n3_clus2
-Cluster::*> network interface revert –vserver Cluster –lif n4_clus2
+cluster::*> network interface revert -vserver Cluster -lif n3_clus2
+cluster::*> network interface revert -vserver Cluster -lif n4_clus2
 ----
 ====
 . 클러스터 인터커넥트 포트가 이제 홈 으로 되돌려졌는지 확인합니다.
@@ -624,7 +624,7 @@ Cluster
 ====
 [listing]
 ----
-cluster::*> network port show –role cluster
+cluster::*> network port show -role cluster
   (network port show)
 Node: n1
                                                                        Ignore

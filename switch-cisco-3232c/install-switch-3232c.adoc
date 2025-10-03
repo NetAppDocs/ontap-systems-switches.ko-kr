@@ -19,7 +19,7 @@ summary: Cisco Nexus 3232C 스위치를 설치하려면 다음 절차를 따르�
 * 설치 사이트에서 HTTP, FTP 또는 TFTP 서버에 액세스하여 해당 NX-OS 및 RCF(Reference Configuration File) 릴리즈를 다운로드합니다.
 * 에서 다운로드한 해당 NX-OS 버전입니다 https://software.cisco.com/download/home["Cisco 소프트웨어 다운로드"^] 페이지.
 * 관련 라이센스, 네트워크 및 구성 정보, 케이블.
-* 완전한link:setup-worksheet-3232c.html["케이블 연결 워크시트"] .
+* 완전한link:setup_worksheet_3232c.html["케이블 연결 워크시트"] .
 * 해당 NetApp 클러스터 네트워크 및 관리 네트워크 RCFs는 NetApp Support 사이트 에서 다운로드할 수 있습니다 http://mysupport.netapp.com/["mysupport.netapp.com"^]. 모든 Cisco 클러스터 네트워크 및 관리 네트워크 스위치는 표준 Cisco 공장 출하시 기본 구성으로 제공됩니다. 이러한 스위치에는 최신 버전의 NX-OS 소프트웨어도 있지만 RCFs가 로드되지 않았습니다.
 * link:required-documentation-3232c.html["필수 스위치 및 ONTAP 문서"] .
 

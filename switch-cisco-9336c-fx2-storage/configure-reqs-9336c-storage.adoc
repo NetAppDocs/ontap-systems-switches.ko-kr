@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar 
-permalink: /switch-cisco-9336c-fx2-storage/configure-reqs-9336c-storage.html 
+permalink: switch-cisco-9336c-fx2-storage/configure-reqs-9336c-storage.html 
 keywords: shared storage cluster switch 
 summary: ONTAP 9.9.1에서 Cisco Nexus 9336C-FX2 스위치를 사용하여 스토리지 및 클러스터 기능을 공유 스위치 시나리오에 결합할 수 있습니다. 
 ---
@@ -10,7 +10,7 @@ summary: ONTAP 9.9.1에서 Cisco Nexus 9336C-FX2 스위치를 사용하여 스�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

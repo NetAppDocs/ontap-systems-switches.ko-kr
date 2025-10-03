@@ -40,8 +40,8 @@ Cisco 이더넷 스위치 페이지에는 스위치에 최신 RCF 및 NX-OS 버�
 .를 참조하십시오
 다음을 참조하십시오.
 
-* http://support.netapp.com/NOW/download/software/cm_switches/["Cisco 이더넷 스위치 설명 페이지"^]
-* http://hwu.netapp.com["Hardware Universe"^]
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치"^]
+* link:http://hwu.netapp.com["Hardware Universe"^]
 
 
 
@@ -51,8 +51,8 @@ Cisco 이더넷 스위치 페이지에는 스위치에 최신 RCF 및 NX-OS 버�
 NetApp은 사용 중인 장치에서 콘솔 로깅을 사용하도록 설정하고 스위치를 교체할 때 다음 작업을 수행할 것을 적극 권장합니다.
 
 * 유지 관리 중에는 AutoSupport를 활성화된 상태로 둡니다.
-* 유지 관리 전후에 유지 관리 AutoSupport를 트리거하여 유지 보수 기간 동안 케이스 생성을 비활성화합니다. 이 기술 자료 문서를 참조하십시오 https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: 예약된 유지 관리 기간 동안 자동 케이스 생성을 억제하는 방법"^] 를 참조하십시오.
-* 모든 CLI 세션에 대해 세션 로깅을 설정합니다. 세션 로깅을 활성화하는 방법에 대한 지침은 이 기술 자료 문서의 "로깅 세션 출력" 섹션을 참조하십시오 https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["ONTAP 시스템에 대한 최적의 연결을 위해 PuTTY를 구성하는 방법"^].
+* 유지 관리 기간 동안 케이스 생성을 비활성화하려면 유지 관리 전후에 유지 관리 AutoSupport 트리거합니다.  이 지식 기반 문서를 참조하세요.link:https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: 예약된 유지 관리 기간 동안 자동 케이스 생성을 억제하는 방법"^] 자세한 내용은.
+* 모든 CLI 세션에 대한 세션 로깅을 활성화합니다.  세션 로깅을 활성화하는 방법에 대한 지침은 이 기술 자료 문서의 "세션 출력 로깅" 섹션을 검토하세요.link:https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["ONTAP 시스템에 대한 최적의 연결을 위해 PuTTY를 구성하는 방법"^] .
 
 
 
@@ -84,7 +84,7 @@ NetApp은 사용 중인 장치에서 콘솔 로깅을 사용하도록 설정하�
 * N1_clus4 는 노드 n1에 대해 클러스터 스위치 CL1에 연결된 두 번째 LIF입니다.
 
 
-10GbE 및 40/100 GbE 포트 수는 에서 사용할 수 있는 RCFs(참조 구성 파일)에 정의되어 있습니다 https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Cisco ® 클러스터 네트워크 스위치 참조 구성 파일 다운로드"^] 페이지.
+10GbE 및 40/100GbE 포트의 수는 다음에서 사용 가능한 참조 구성 파일(RCF)에 정의되어 있습니다.link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Cisco ® 클러스터 네트워크 스위치 참조 구성 파일 다운로드"^] .
 
 이 교체 절차의 예에서는 4개의 노드를 사용합니다. 노드 중 2개에서 10GB 클러스터 인터커넥트 포트 4개, e0a, e0b, e0c, e0d를 사용합니다. 다른 두 노드는 두 개의 40GB 클러스터 인터커넥트 포트(e4a 및 e4e)를 사용합니다. 를 참조하십시오 link:https://hwu.netapp.com["Hardware Universe"^] 사용 중인 플랫폼에 맞는 클러스터 포트를 확인합니다.
 
@@ -260,13 +260,13 @@ http://mysupport.netapp.com/["mysupport.netapp.com"^]
 
 .. Cisco 이더넷 스위치 * 페이지로 이동하여 표에 필요한 소프트웨어 버전을 기록합니다.
 +
-https://mysupport.netapp.com/NOW/download/software/cm_switches/["Cisco 이더넷 스위치"^]
+https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치"^]
 
 .. RCF의 적절한 버전을 다운로드합니다.
 .. 설명 * 페이지에서 * 계속 * 을 클릭하고 사용권 계약에 동의한 다음 * 다운로드 * 페이지로 이동합니다.
 .. Cisco ® 클러스터 및 관리 네트워크 스위치 참조 구성 파일 다운로드 * 페이지에서 올바른 버전의 이미지 소프트웨어를 다운로드하십시오.
 +
-http://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Cisco ® 클러스터 및 관리 네트워크 스위치 참조 구성 파일 다운로드"^]
+link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Cisco ® 클러스터 및 관리 네트워크 스위치 참조 구성 파일 다운로드"^]
 
 
 

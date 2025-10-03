@@ -33,7 +33,7 @@ summary: 클러스터, 스토리지 및 공유 스위치에 대해 알아보십�
  a| 
 .스토리지 스위치
 * link:../switch-cisco-9336c-fx2-storage/install-9336c-storage.html["Cisco Nexus 9336C-FX2 스위치를 설치합니다"]
-* link:../switch-nvidia-sn2100/install-hardware-sn2100-storage.html["NVIDIA SN2100 스위치를 설치합니다"]
+* link:../switch-nvidia-sn2100-storage/install-hardware-sn2100-storage.html["NVIDIA SN2100 스위치를 설치합니다"]
 
  a| 
 .공유 스위치
@@ -78,7 +78,7 @@ summary: 클러스터, 스토리지 및 공유 스위치에 대해 알아보십�
  a| 
 .스토리지 스위치
 * link:../switch-cisco-9336c-fx2-storage/setup-worksheet-9336c-storage.html["Cisco Nexus 9336C-FX2 스위치 케이블 연결"]
-* link:../switch-nvidia-sn2100/cabling-considerations-sn2100-storage.html["NVIDIA SN2100 스위치에 케이블을 연결합니다"]
+* link:../switch-nvidia-sn2100-storage/cabling-considerations-sn2100-storage.html["NVIDIA SN2100 스위치에 케이블을 연결합니다"]
 
  a| 
 .공유 스위치
@@ -104,7 +104,7 @@ summary: 클러스터, 스토리지 및 공유 스위치에 대해 알아보십�
  a| 
 .스토리지 스위치
 * link:../switch-cisco-9336c-fx2-storage/setup-switch-9336c-storage.html["Cisco Nexus 9336C-FX2 스위치를 구성합니다"]
-* link:../switch-nvidia-sn2100/configure-sn2100-storage.html["NVIDIA SN2100 스위치를 구성합니다"]
+* link:../switch-nvidia-sn2100-storage/configure-sn2100-storage.html["NVIDIA SN2100 스위치를 구성합니다"]
 
  a| 
 .공유 스위치
@@ -130,7 +130,7 @@ summary: 클러스터, 스토리지 및 공유 스위치에 대해 알아보십�
  a| 
 .스토리지 스위치
 * link:../switch-cisco-9336c-fx2-storage/configure-software-overview-9336c-storage.html["Cisco Nexus 9336C-FX2 스위치용 소프트웨어를 설치합니다"]
-* link:../switch-nvidia-sn2100/configure-software-sn2100-storage.html["NVIDIA SN2100 스위치용 소프트웨어를 설치합니다"]
+* link:../switch-nvidia-sn2100-storage/configure-software-sn2100-storage.html["NVIDIA SN2100 스위치용 소프트웨어를 설치합니다"]
 
  a| 
 .공유 스위치

@@ -172,7 +172,7 @@ RCF 및 이미지를 업그레이드해야 하는 경우 다음 단계를 완료
 +
 .. NetApp Support 사이트의 _Cisco 이더넷 스위치_ 페이지로 이동하십시오.
 +
-http://support.netapp.com/NOW/download/software/cm_switches/["Cisco 이더넷 스위치"^]
+link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치"^]
 
 .. 스위치 및 필요한 소프트웨어 버전을 해당 페이지의 표에 기록합니다.
 .. RCF의 적절한 버전을 다운로드합니다.

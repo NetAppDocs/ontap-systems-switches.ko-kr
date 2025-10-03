@@ -123,8 +123,14 @@ g mode:
 
 
 
-. 이전에 사용자 지정한 내용을 스위치 구성에 다시 적용합니다. link:cabling-considerations-9336c-fx2.html["케이블 연결 및 구성 고려 사항을 검토합니다"]필요한 추가 변경에 대한 자세한 내용은 을 참조하십시오.
-. 기본 구성 세부 정보를 bootflash의 write_erase.cfg 파일에 저장합니다.
+. 현재 사이의 사용자 정의 추가 사항을 기록합니다. `running-config` 파일과 사용 중인 RCF 파일.
+. RCF 버전과 스위치 설정이 올바른지 확인한 후 복사하세요. `running-config` 파일을 `startup-config` 파일.
++
+[listing]
+----
+cs1# copy running-config startup-config [########################################] 100% Copy complete
+----
+. 기본 구성 세부 정보를 저장합니다. `write_erase.cfg` 부트플래시에 있는 파일입니다.
 +
 `cs1# show run | i "username admin password" > bootflash:write_erase.cfg`
 
@@ -148,9 +154,9 @@ g mode:
 `cs1# echo "hardware access-list tcam region ing-l2-qos 1280" >> bootflash:write_erase.cfg`
 
 +
-지식 기반 문서를 참조하세요 https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["원격 연결을 유지하면서 Cisco 상호 연결 스위치의 구성을 지우는 방법"^] 자세한 내용은.
+지식 기반 문서를 참조하세요link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["원격 연결을 유지하면서 Cisco 상호 연결 스위치의 구성을 지우는 방법"^] 자세한 내용은.
 
-. write_erase.cfg 파일이 예상대로 채워졌는지 확인하세요.
+. 다음을 확인하십시오. `write_erase.cfg` 예상대로 파일이 채워졌습니다.
 +
 `show file bootflash:write_erase.cfg`
 
@@ -175,7 +181,7 @@ g mode:
 +
 `This command will reboot the system. (y/n)?  [n] *y*`
 
-. 스위치 cs2에서 1~12단계를 반복합니다.
+. 스위치 cs2에서 1~13단계를 반복합니다.
 . ONTAP 클러스터에 있는 모든 노드의 클러스터 포트를 스위치 CS1 및 CS2에 연결합니다.
 
 

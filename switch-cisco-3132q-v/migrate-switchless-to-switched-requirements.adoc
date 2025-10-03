@@ -19,9 +19,9 @@ summary: Cisco Nexus 3132q-v 스위치를 구성하기 전에 프로세스 개�
 ====
 자세한 내용은 다음을 참조하십시오.
 
-* http://support.netapp.com/NOW/download/software/cm_switches_ntap/["NetApp CN1601 및 CN1610 설명 페이지"^]
-* http://support.netapp.com/NOW/download/software/cm_switches/["Cisco 이더넷 스위치 설명 페이지"^]
-* http://hwu.netapp.com["Hardware Universe"^]
+* link:https://mysupport.netapp.com/site/products/all/details/netapp-cluster-switches/docs-tab["NetApp CN1601 및 CN1610"^]
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치"^]
+* link:http://hwu.netapp.com["Hardware Universe"^]
 
 
 .포트 및 노드 연결
@@ -50,7 +50,7 @@ Cisco Nexus 3132Q-V 클러스터 스위치를 사용하여 2노드 스위치 클
 +
 'interface breakout module 1 port 1-6 map 10g-4x' 명령어를 사용하여 처음 6개 포트를 4x10 GbE 모드로 분리할 수 있다. 마찬가지로 'no interface breakout module 1 port 1-6 map 10g-4x' 명령을 사용하여 브레이크아웃 구성에서 처음 6개의 QSFP+ 포트를 다시 그룹화할 수 있습니다.
 
-* 10GbE 및 40GbE 포트 수는 페이지의 참조 구성 파일(RCF)에 정의되어 https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Cisco ® 클러스터 네트워크 스위치 참조 구성 파일 다운로드"^] 있습니다.
+* 10GbE 및 40GbE 포트의 수는 다음에서 사용 가능한 참조 구성 파일(RCF)에 정의되어 있습니다.link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Cisco ® 클러스터 네트워크 스위치 참조 구성 파일 다운로드"^] .
 
 
 .시작하기 전에
@@ -63,7 +63,7 @@ Cisco Nexus 3132Q-V 클러스터 스위치를 사용하여 2노드 스위치 클
 ** Nexus 3132 클러스터 인프라는 두 스위치 모두에서 중복되고 완전히 작동합니다.
 ** 최신 RCF 및 NX-OS 버전을 스위치에서 사용할 수 있습니다.
 +
-를 클릭합니다 link:http://mysupport.netapp.com/NOW/download/software/cm_switches/["Cisco 이더넷 스위치"^] 이 절차에서 지원되는 ONTAP 및 NX-OS 버전에 대한 정보가 페이지에 있습니다.
+link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치"^]이 절차에서 지원되는 ONTAP 및 NX-OS 버전에 대한 정보가 있습니다.
 
 ** 두 스위치 모두에서 관리 접속 구성
 ** 두 스위치에 대한 콘솔 액세스
@@ -94,7 +94,7 @@ Cisco Nexus 3132Q-V 클러스터 스위치를 사용하여 2노드 스위치 클
 * * n1_clus2 * 는 노드 * n1 * 용 클러스터 스위치 C2에 연결되는 첫 번째 클러스터 LIF입니다.
 * * n2_clus1 * 은 노드 * n2 * 용 클러스터 스위치 C1에 연결되는 첫 번째 클러스터 LIF입니다.
 * * n2_clus2 * 는 노드 * n2 * 용 클러스터 스위치 C2에 연결되는 두 번째 클러스터 LIF입니다.
-* 10GbE 및 40GbE 포트 수는 페이지의 참조 구성 파일(RCF)에 정의되어 https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Cisco ® 클러스터 네트워크 스위치 참조 구성 파일 다운로드"^] 있습니다.
+* 10GbE 및 40GbE 포트의 수는 다음에서 사용 가능한 참조 구성 파일(RCF)에 정의되어 있습니다.link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Cisco ® 클러스터 네트워크 스위치 참조 구성 파일 다운로드"^] .
 
 
 [NOTE]

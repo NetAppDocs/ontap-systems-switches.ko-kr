@@ -1,10 +1,8 @@
 ---
 section: switch-nvidia-sn2100-storage
 title: nVidia SN2100
-pdf-filename: 스위치 - nVidia-sn2100-스토리지
 entries:
 - title: 시작하십시오
-  pdf-filename: Overview_sn2100-스토리지
   entries:
   - title: 빠른 시작
     url: "/switch-nvidia-sn2100-storage/configure-overview-sn2100-storage.html"

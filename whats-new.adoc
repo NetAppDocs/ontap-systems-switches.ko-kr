@@ -7,7 +7,7 @@ summary: FAS 및 AFF 시스템용 새 스위치에 대해 알아보십시오.
 = 스위치의 새로운 기능
 :allow-uri-read: 
 :icons: font
-:imagesdir: ../media/
+:imagesdir: ./media/
 
 
 [role="lead"]

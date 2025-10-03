@@ -66,11 +66,11 @@ CN1610 대 CN1610(SFP+에서 SFP+)
 QSFP 광 파이버 또는 구리 직접 연결 케이블 2개
 
 |===
-해당 참조 구성 파일(RCFs)을 다운로드해야 합니다. 10GbE 및 40/100 GbE 포트 수는 에서 사용할 수 있는 RCFs에 정의되어 있습니다 https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Cisco ® 클러스터 네트워크 스위치 참조 구성 파일 다운로드"^] 페이지.
+해당 참조 구성 파일(RCF)을 다운로드했어야 합니다.  10GbE 및 40/100GbE 포트의 수는 다음에서 사용 가능한 RCF에 정의되어 있습니다.link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Cisco ® 클러스터 네트워크 스위치 참조 구성 파일 다운로드"^] .
 
-이 절차에서 지원되는 ONTAP 및 NX-OS 버전이 에 나열되어 있습니다 link:https://mysupport.netapp.com/NOW/download/software/cm_switches/.html["Cisco 이더넷 스위치 페이지"^].
+이 절차에서 지원되는 ONTAP 및 NX-OS 버전은 다음에 나열되어 있습니다.link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치"^] .
 
-이 절차에서 지원되는 ONTAP 및 FASTPATH 버전은 에 나열되어 있습니다 link:http://support.netapp.com/NOW/download/software/cm_switches_ntap/.html["NetApp CN1601 및 CN1610 스위치 페이지"^].
+이 절차에서 지원되는 ONTAP 및 FASTPATH ​​버전은 다음에 나열되어 있습니다.link:https://mysupport.netapp.com/site/products/all/details/netapp-cluster-switches/docs-tab["NetApp CN1601 및 CN1610 스위치"^] .
 
 
 
@@ -123,7 +123,7 @@ QSFP 광 파이버 또는 구리 직접 연결 케이블 2개
 
 ====
 *** 귀사는 계획, 마이그레이션 작업을 완료했으며 노드에서 Nexus 3232C 클러스터 스위치까지 10GbE 및 40/100 GbE 연결에 대한 필수 문서를 읽었습니다.
-*** 이 절차에서 지원되는 ONTAP 및 NX-OS 버전은 에 나와 있습니다 link:http://support.netapp.com/NOW/download/software/cm_switches/.html["Cisco 이더넷 스위치 페이지"^].
+*** 이 절차에서 지원되는 ONTAP 및 NX-OS 버전은 다음과 같습니다.link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치"^] .
 
 
 

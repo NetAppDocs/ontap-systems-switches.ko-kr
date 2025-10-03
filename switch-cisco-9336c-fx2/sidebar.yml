@@ -1,10 +1,8 @@
 ---
 section: switch-cisco-9336c-fx2
 title: Cisco Nexus 9336C-FX2 또는 9336C-FX2-T
-pdf-filename: Cisco-9336c-FX2-클러스터
 entries:
 - title: 시작하십시오
-  pdf-filename: Overview_9336c-FX2
   entries:
   - title: 빠른 시작
     url: "/switch-cisco-9336c-fx2/configure-switch-overview-9336c-cluster.html"

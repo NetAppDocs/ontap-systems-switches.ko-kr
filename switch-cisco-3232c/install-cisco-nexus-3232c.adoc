@@ -45,7 +45,7 @@ NetApp pass-through 패널 키트에는 다음 하드웨어가 포함되어 있�
 ... 인접한 랙 공간에 침입하지 않도록 패널을 수직으로 중앙에 놓고 나사를 조입니다.
 ... 패널 후면과 브러시 어셈블리를 통해 48인치 점퍼 코드의 암 커넥터를 모두 삽입합니다.
 +
-image::../media/cisco_9148_jumper_cords.gif[Cisco 9148 점퍼 코드]
+image::../media/cisco_9148_jumper_cords.gif[]
 
 
 
@@ -68,7 +68,7 @@ image::../media/3132q_front_bracket.gif[프론트 브래킷]
 
 . 4개의 IEA 포스트 모두에 대한 사각 구멍 위치에 클립 너트를 장착하십시오.
 +
-image::../media/ru_locations_for_3132q_v.gif[3132q v 의 RU 위치]
+image::../media/ru_locations_for_3132q_v.gif[]
 
 +
 3232C 스위치 2개는 항상 캐비닛 RU41 및 42의 상단 2U에 장착됩니다.
@@ -77,7 +77,7 @@ image::../media/ru_locations_for_3132q_v.gif[3132q v 의 RU 위치]
 +
 .. 첫 번째 슬라이더 레일을 후면 왼쪽 포스트의 후면에 있는 RU42 표시에 놓고 일치하는 나사 유형을 가진 나사를 삽입한 다음 손가락으로 나사를 조입니다.
 +
-image::../media/3132q_v_slider_rails.gif[3132q v 슬라이더 레일]
+image::../media/3132q_v_slider_rails.gif[]
 
 +
 _ (1) 슬라이더 레일을 조심스럽게 밀고 랙의 나사 구멍에 맞춥니다. _+_(2) 슬라이더 레일의 나사를 캐비닛 포스트에 조입니다. _
@@ -106,7 +106,7 @@ _ (2) 전면 랙 장착 브래킷이 전면 포스트와 같은 높이가 될 �
 
 .. 스위치를 캐비닛에 연결합니다.
 +
-image::../media/3132q_attaching.gif[3132q 부착]
+image::../media/3132q_attaching.gif[]
 
 +
 _ (1) 한 사람이 섀시 전면의 앞쪽을 잡고 있는 상태에서 다른 사람은 네 개의 후면 나사를 캐비닛 포스트에 완전히 조여야 합니다. _

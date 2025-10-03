@@ -46,6 +46,6 @@ NOTE: RCF 버전 1.2에서는 보안 문제로 인해 텔넷에 대한 지원이
 
 이 절차에는 두 가지 부품이 있습니다.
 
-* link:task-install-fastpath-software.html["FASTPATH 소프트웨어를 설치합니다"] FASTPATH 소프트웨어를 설치하는 방법에 대해 설명합니다.
-* link:task-install-an-rcf-on-a-cn1610-switch.html["RCF를 CN1610 스위치에 설치합니다"] RCFs를 설치하는 방법에 대해 설명합니다.
+* link:install-fastpath-software.html["FASTPATH 소프트웨어를 설치합니다"]FASTPATH 소프트웨어를 설치하는 방법을 설명합니다.
+* link:install-rcf-file.html["RCF를 CN1610 스위치에 설치합니다"]RCF를 설치하는 방법을 설명합니다.
 

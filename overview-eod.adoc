@@ -7,7 +7,7 @@ summary: FAS 및 AFF 시스템용 EOD 스위치
 = 이용 종료
 :allow-uri-read: 
 :icons: font
-:imagesdir: ../media/
+:imagesdir: ./media/
 
 
 [role="lead"]

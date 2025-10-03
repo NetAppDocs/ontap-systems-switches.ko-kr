@@ -10,7 +10,7 @@ summary: Cisco Nexus 9336C-FX2 스위치 설치 및 유지 보수의 경우, 특
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

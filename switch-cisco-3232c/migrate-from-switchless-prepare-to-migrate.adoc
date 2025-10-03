@@ -107,14 +107,14 @@ Enable Switchless Cluster Detection: true
 +
 .. NetApp Support 사이트의 _Cisco 이더넷 스위치_ 페이지로 이동하십시오.
 +
-http://support.netapp.com/NOW/download/software/cm_switches/["Cisco 이더넷 스위치"^]
+link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch/["Cisco 이더넷 스위치"^]
 
 .. 스위치 및 필요한 소프트웨어 버전을 해당 페이지의 표에 기록합니다.
 .. 적절한 버전의 RCF를 다운로드합니다.
 .. 설명 * 페이지에서 * 계속 * 을 선택하고 사용권 계약에 동의한 다음 * 다운로드 * 페이지의 지침에 따라 RCF를 다운로드합니다.
 .. 해당 버전의 이미지 소프트웨어를 다운로드합니다.
 +
-https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Cisco 클러스터 및 관리 네트워크 스위치 참조 구성 파일 다운로드 페이지"^]
+link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Cisco 클러스터 및 관리 네트워크 스위치 참조 구성 파일 다운로드"^]
 
 
 
