@@ -1,0 +1,108 @@
+---
+sidebar: sidebar 
+permalink: switch-cisco-9332d-gx2b/required-documentation-9332d-cluster.html 
+keywords: shared storage cluster switch 
+summary: Cisco Nexus 9332D-GX2B 스위치 설치 및 유지관리를 위해서는 Cisco 9336-FX2 스위치와 ONTAP 클러스터를 설정하기 위해 특정 스위치 및 컨트롤러 설명서를 검토하세요. 
+---
+= Cisco Nexus 9332D-GX2B 스위치에 대한 문서 요구 사항
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cisco Nexus 9332D-GX2B 스위치 설치 및 유지관리를 위해서는 9332D-GX2B 스위치와 ONTAP 클러스터를 설정하기 위해 특정 스위치 및 컨트롤러 설명서를 반드시 검토하세요.
+
+
+
+== 스위치 설명서
+
+Cisco Nexus 9332D-GX2B 스위치를 설정하려면 다음 문서가 필요합니다.link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Cisco Nexus 9000 시리즈 스위치 지원"^] 페이지:
+
+[cols="1,2"]
+|===
+| 문서 제목 | 설명 
+
+
+ a| 
+link:https://www.cisco.com/c/en/us/td/docs/dcn/hw/nx-os/nexus9000/9332d-gx2b/cisco-nexus-9332d-gx2b-nx-os-mode-switch-hardware-installation-guide/m_installing-the-switch-chassis-new-1ru-rack-mount.html["Cisco Nexus 9332D-GX2B NX-OS 모드 스위치 하드웨어 설치 가이드"^]
+ a| 
+사이트 요구 사항, 스위치 하드웨어 세부 정보 및 설치 옵션에 대한 자세한 내용은 에 나와 있습니다.
+
+
+
+ a| 
+link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-installation-and-configuration-guides-list.html["Cisco Nexus 9000 시리즈 스위치 소프트웨어 구성 가이드"^](스위치에 설치된 NX-OS 릴리스에 대한 가이드를 선택하세요)
+ a| 
+ONTAP 작동을 위해 스위치를 구성하기 전에 필요한 초기 스위치 구성 정보를 제공합니다.
+
+
+
+ a| 
+link:https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/101x/upgrade/cisco-nexus-9000-nx-os-software-upgrade-downgrade-guide-101x.html["Cisco Nexus 9000 Series NX-OS 소프트웨어 업그레이드 및 다운그레이드 가이드"^](스위치에 설치된 NX-OS 릴리스에 대한 가이드를 선택하세요)
+ a| 
+필요한 경우 스위치를 ONTAP 지원 스위치 소프트웨어로 다운그레이드하는 방법에 대한 정보를 제공합니다.
+
+
+
+ a| 
+link:https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/102x/command-reference/config/b_n9k_config_commands_1021.html["Cisco Nexus 9000 Series NX-OS 명령 참조"^]
+ a| 
+Cisco에서 제공하는 다양한 명령 참조에 대한 링크를 제공합니다.
+
+
+
+ a| 
+link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-system-message-guides-list.html["Cisco Nexus 9000 시리즈 NX-OS 시스템 메시지 참조"^]
+ a| 
+Cisco Nexus 9000 시리즈 스위치의 시스템 메시지, 정보를 제공하는 스위치 및 링크, 내부 하드웨어 또는 시스템 소프트웨어의 문제를 진단하는 데 도움이 되는 기타 메시지를 설명합니다.
+
+
+
+ a| 
+link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-release-notes-list.html["Cisco Nexus 9000 시리즈 NX-OS 릴리즈 노트"^](스위치에 설치된 NX-OS 릴리스에 대한 참고 사항을 선택하세요)
+ a| 
+Cisco Nexus 9000 시리즈의 기능, 버그 및 제한에 대해 설명합니다.
+
+
+
+ a| 
+link:https://www.cisco.com/c/en/us/td/docs/switches/datacenter/mds9000/hw/regulatory/compliance/RCSI.html?dtid=osscdc000283&linkclickid=srch["Cisco Nexus 9000 시리즈에 대한 규정 준수 및 안전 정보"^]
+ a| 
+Nexus 9000 시리즈 스위치에 대한 국제 기관의 규정 준수, 안전 및 법적 정보를 제공합니다.
+
+|===
+
+
+== ONTAP 시스템 설명서
+
+ONTAP 시스템을 설정하려면 운영 체제 버전에 대한 다음 문서가 필요합니다. https://docs.netapp.com/ontap-9/index.jsp["ONTAP 9 문서 센터"^] .
+
+[cols="1,2"]
+|===
+| 이름 | 설명 
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-afx/index.html["AFX 시스템 문서"^]
+ a| 
+에서는 NetApp 하드웨어를 설치하는 방법에 대해 설명합니다.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-family/["ONTAP 설명서"^]
+ a| 
+ONTAP 릴리스의 모든 측면에 대한 자세한 내용은 에 나와 있습니다.
+
+
+
+ a| 
+https://hwu.netapp.com["Hardware Universe"^]
+ a| 
+NetApp 하드웨어 구성 및 호환성 정보를 제공합니다.
+
+|===

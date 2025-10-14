@@ -1,0 +1,36 @@
+---
+permalink: switch-cisco-9332d-gx2b/configure-setup-ports-9332d.html 
+sidebar: sidebar 
+keywords: switches, initial installation, ports, configure switch-cisco-9332d-gx2b switch 
+summary: Cisco Nexus 9332D-GX2B 스위치의 포트 세부 정보 
+---
+= Cisco Nexus 9332D-GX2B 스위치의 포트 세부 정보
+:allow-uri-read: 
+
+
+[role="lead"]
+Cisco Nexus 9332D-GX2B 스위치는 Cisco Nexus 9000 플랫폼의 일부입니다.  AFX 시스템 스위치를 사용하면 두 개 이상의 노드로 ONTAP 클러스터를 구축할 수 있습니다.
+
+
+
+== Cisco Nexus 9332D-GX2B 포트 세부 정보
+
+[cols="1,2"]
+|===
+| 포트 | 설명 
+
+
+ a| 
+이더넷1/1/1-4에서 이더넷1/30/1-4로
+ a| 
+클러스터, HA 및 스토리지 연결을 위한 4x100GbE 모드
+
+
+
+ a| 
+이더넷1/31, 이더넷1/32
+ a| 
+400GbE ISL
+
+|===
+를 참조하십시오 https://hwu.netapp.com["Hardware Universe"^] 플랫폼에서 사용하는 포트에 대한 자세한 내용은 다음을 참조하세요.

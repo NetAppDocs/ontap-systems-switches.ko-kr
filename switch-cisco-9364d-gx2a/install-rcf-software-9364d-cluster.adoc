@@ -1,0 +1,716 @@
+---
+permalink: switch-cisco-9364d-gx2a/install-rcf-software-9364d-cluster.html 
+sidebar: sidebar 
+keywords: install rcf, cisco switches 
+summary: Nexus 9364d-gx2a 스위치를 처음 설정한 후 RCF를 설치할 수 있습니다. 
+---
+= RCF(Reference Configuration File) 설치
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Nexus 9364D-GX2A 스위치를 처음 설정한 후 참조 구성 파일(RCF)을 설치합니다.
+
+.시작하기 전에
+다음 설치 및 연결을 확인합니다.
+
+* 스위치에 콘솔 연결 스위치에 원격으로 액세스할 수 있는 경우 콘솔 연결은 선택 사항입니다.
+* 스위치 CS1 및 스위치 CS2의 전원이 켜지고 초기 스위치 설정이 완료됩니다(관리 IP 주소와 SSH가 설정됨).
+* 원하는 NX-OS 버전이 설치되었습니다.
+* 스위치 간 ISL 연결이 연결되었습니다.
+* ONTAP 노드 클러스터 포트가 연결되어 있지 않습니다.
+
+
+
+
+== 1단계: 스위치에 RCF를 설치합니다
+
+. SSH를 사용하거나 시리얼 콘솔을 사용하여 스위치 CS1에 로그인합니다.
+. FTP, TFTP, SFTP 또는 SCP 전송 프로토콜 중 하나를 사용하여 RCF를 스위치 CS1의 bootflash에 복사합니다.
++
+Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Cisco Nexus 9000 Series NX-OS 명령 참조"^] 안내선.
+
++
+.예제 보기
+[%collapsible]
+====
+이 예에서는 스위치 CS1의 bootflash에 RCF를 복제하는 데 사용되는 TFTP를 보여 줍니다.
+
+[listing, subs="+quotes"]
+----
+cs1# *copy tftp: bootflash: vrf management*
+Enter source filename: *NX9364D-GX2A-RCF-v10.0-Shared.txt*
+Enter hostname for the tftp server: *172.22.201.50*
+Trying to connect to tftp server......Connection to Server Established.
+TFTP get operation was successful
+Copy complete, now saving to disk (please wait)...
+----
+====
+. 이전에 다운로드한 RCF를 bootflash에 적용합니다.
++
+Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Cisco Nexus 9000 Series NX-OS 명령 참조"^] 안내선.
+
++
+.예제 보기
+[%collapsible]
+====
+이 예에서는 RCF 파일을 보여줍니다. `NX9364D-GX2A-RCF-v10.0-Shared.txt` 스위치 cs1에 설치 중:
+
+[listing]
+----
+cs1# copy NX9364D-GX2A-RCF-v10.0-Shared.txt running-config echo-commands
+----
+====
+. 'show banner mott' 명령어의 배너 출력을 조사한다. 스위치의 올바른 구성과 작동을 위해 이 지침을 읽고 따라야 합니다.
++
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+cs1# show banner motd
+
+******************************************************************************
+* NetApp Reference Configuration File (RCF)
+*
+* Switch   : NX9364D-GX2A
+* Filename : NX9364D-GX2A-RCF-v10.0-Shared.txt
+* Date     : 05-09-2025
+* Version  : v10.0
+* Port Usage:
+* Ports  1-62: 100GbE Intra-Cluster/HA/Storage Ports, int e1/{1-62}/1-4
+* Ports 63-64: Intra-Cluster ISL Ports, int e1/63-64
+*
+* IMPORTANT NOTES
+* Interface port-channel999 is reserved to identify the version of this file.
+*
+******************************************************************************
+----
+====
+. RCF 파일이 올바른 최신 버전인지 확인합니다.
++
+'show running-config'를 선택합니다
+
++
+출력을 점검하여 올바른 RCF가 있는지 확인할 때 다음 정보가 올바른지 확인하십시오.
+
++
+** RCF 배너
+** 노드 및 포트 설정입니다
+** 사용자 지정
++
+출력은 사이트 구성에 따라 달라집니다. 포트 설정을 확인하고 설치된 RCF에 대한 변경 사항은 릴리스 노트를 참조하십시오.
+
+
+
+. 기본 구성 세부 정보를 저장합니다. `write_erase.cfg` 부트플래시에 있는 파일입니다.
++
+[NOTE]
+====
+다음 사항을 구성해야 합니다.
+
+** 사용자 이름과 비밀번호
+** 관리 IP 주소
+** 기본 게이트웨이
+** 스위치 이름
+
+
+====
++
+`cs1# show run | i "username admin password" > bootflash:write_erase.cfg`
+
++
+`cs1# show run | section "vrf context management" >> bootflash:write_erase.cfg`
+
++
+`cs1# show run | section "interface mgmt0" >> bootflash:write_erase.cfg`
+
++
+`cs1# show run | section "switchname" >> bootflash:write_erase.cfg`
+
++
+`cs1# echo "hardware access-list tcam region ing-racl 1024" >> bootflash:write_erase.cfg`
+
++
+`cs1# echo "hardware access-list tcam region egr-racl 1024" >> bootflash:write_erase.cfg`
+
++
+`cs1# echo "hardware access-list tcam region ing-l2-qos 1536" >> bootflash:write_erase.cfg`
+
++
+지식 기반 문서를 참조하세요link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["원격 연결을 유지하면서 Cisco 상호 연결 스위치의 구성을 지우는 방법"^] 자세한 내용은.
+
+. 다음을 확인하십시오. `write_erase.cfg` 예상대로 파일이 채워졌습니다.
++
+`*show file bootflash:write_erase.cfg*`
+
+. 발행하다 `write erase` 현재 저장된 구성을 지우는 명령:
++
+`cs1# *write erase*`
+
++
+`Warning: This command will erase the startup-configuration.`
+
++
+`Do you wish to proceed anyway? (y/n)  [n] *y*`
+
+. 이전에 저장한 기본 구성을 시작 구성에 복사합니다.
++
+`cs1# *copy bootflash:write_erase.cfg startup-config*`
+
+. 스위치를 재부팅합니다.
++
+`cs1# *reload*`
+
++
+`This command will reboot the system. (y/n)?  [n] *y*`
+
+. 스위치 cs2에서 1~10단계를 반복합니다.
+. ONTAP 클러스터의 모든 노드의 포트를 스위치 cs1과 cs2에 연결합니다.
+
+
+
+
+== 2단계: 스위치 연결을 확인합니다
+
+. 클러스터 포트에 연결된 스위치 포트가 작동하는지 확인하세요.
++
+`show interface brief`
+
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs1# *show interface brief | grep up*
+.
+.
+Eth1/9/3        1       eth  trunk  up      none                     100G(D) --
+Eth1/9/4        1       eth  trunk  up      none                     100G(D) --
+Eth1/15/1       1       eth  trunk  up      none                     100G(D) --
+Eth1/15/2       1       eth  trunk  up      none                     100G(D) --
+Eth1/15/3       1       eth  trunk  up      none                     100G(D) --
+Eth1/15/4       1       eth  trunk  up      none                     100G(D) --
+Eth1/16/1       1       eth  trunk  up      none                     100G(D) --
+Eth1/16/2       1       eth  trunk  up      none                     100G(D) --
+Eth1/16/3       1       eth  trunk  up      none                     100G(D) --
+Eth1/16/4       1       eth  trunk  up      none                     100G(D) --
+Eth1/17/1       1       eth  trunk  up      none                     100G(D) --
+Eth1/17/2       1       eth  trunk  up      none                     100G(D) --
+Eth1/17/3       1       eth  trunk  up      none                     100G(D) --
+Eth1/17/4       1       eth  trunk  up      none                     100G(D) --
+.
+.
+----
+====
+. 다음 명령을 사용하여 클러스터 노드가 올바른 클러스터 VLAN에 있는지 확인합니다.
++
+`show vlan brief`
+
++
+`show interface trunk`
+
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs1# *show vlan brief*
+
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Po1, Po999, Eth1/63, Eth1/64
+                                                Eth1/65, Eth1/66, Eth1/1/1
+                                                Eth1/1/2, Eth1/1/3, Eth1/1/4
+                                                Eth1/2/1, Eth1/2/2, Eth1/2/3
+                                                Eth1/2/4, Eth1/3/1, Eth1/3/2
+                                                Eth1/3/3, Eth1/3/4, Eth1/4/1
+                                                Eth1/4/2, Eth1/4/3, Eth1/4/4
+                                                Eth1/5/1, Eth1/5/2, Eth1/5/3
+                                                Eth1/5/4, Eth1/6/1, Eth1/6/2
+                                                Eth1/6/3, Eth1/6/4, Eth1/7/1
+                                                Eth1/7/2, Eth1/7/3, Eth1/7/4
+                                                Eth1/8/1, Eth1/8/2, Eth1/8/3
+                                                Eth1/8/4, Eth1/9/1, Eth1/9/2
+                                                Eth1/9/3, Eth1/9/4, Eth1/10/1
+                                                Eth1/10/2, Eth1/10/3, Eth1/10/4
+                                                Eth1/11/1, Eth1/11/2, Eth1/11/3
+                                                Eth1/11/4, Eth1/12/1, Eth1/12/2
+                                                Eth1/12/3, Eth1/12/4, Eth1/13/1
+                                                Eth1/13/2, Eth1/13/3, Eth1/13/4
+                                                Eth1/14/1, Eth1/14/2, Eth1/14/3
+                                                Eth1/14/4, Eth1/15/1, Eth1/15/2
+                                                Eth1/15/3, Eth1/15/4, Eth1/16/1
+                                                Eth1/16/2, Eth1/16/3, Eth1/16/4
+                                                Eth1/17/1, Eth1/17/2, Eth1/17/3
+                                                Eth1/17/4, Eth1/18/1, Eth1/18/2
+                                                Eth1/18/3, Eth1/18/4, Eth1/19/1
+                                                Eth1/19/2, Eth1/19/3, Eth1/19/4
+                                                Eth1/20/1, Eth1/20/2, Eth1/20/3
+                                                Eth1/20/4, Eth1/21/1, Eth1/21/2
+                                                Eth1/21/3, Eth1/21/4, Eth1/22/1
+                                                Eth1/22/2, Eth1/22/3, Eth1/22/4
+                                                Eth1/23/1, Eth1/23/2, Eth1/23/3
+                                                Eth1/23/4, Eth1/24/1, Eth1/24/2
+                                                Eth1/24/3, Eth1/24/4, Eth1/25/1
+                                                Eth1/25/2, Eth1/25/3, Eth1/25/4
+                                                Eth1/26/1, Eth1/26/2, Eth1/26/3
+                                                Eth1/26/4, Eth1/27/1, Eth1/27/2
+                                                Eth1/27/3, Eth1/27/4, Eth1/28/1
+                                                Eth1/28/2, Eth1/28/3, Eth1/28/4
+                                                Eth1/29/1, Eth1/29/2, Eth1/29/3
+                                                Eth1/29/4, Eth1/30/1, Eth1/30/2
+                                                Eth1/30/3, Eth1/30/4, Eth1/31/1
+                                                Eth1/31/2, Eth1/31/3, Eth1/31/4
+                                                Eth1/32/1, Eth1/32/2, Eth1/32/3
+                                                Eth1/32/4, Eth1/33/1, Eth1/33/2
+                                                Eth1/33/3, Eth1/33/4, Eth1/34/1
+                                                Eth1/34/2, Eth1/34/3, Eth1/34/4
+                                                Eth1/35/1, Eth1/35/2, Eth1/35/3
+                                                Eth1/35/4, Eth1/36/1, Eth1/36/2
+                                                Eth1/36/3, Eth1/36/4, Eth1/37/1
+                                                Eth1/37/2, Eth1/37/3, Eth1/37/4
+                                                Eth1/38/1, Eth1/38/2, Eth1/38/3
+                                                Eth1/38/4, Eth1/39/1, Eth1/39/2
+                                                Eth1/39/3, Eth1/39/4, Eth1/40/1
+                                                Eth1/40/2, Eth1/40/3, Eth1/40/4
+                                                Eth1/41/1, Eth1/41/2, Eth1/41/3
+                                                Eth1/41/4, Eth1/42/1, Eth1/42/2
+                                                Eth1/42/3, Eth1/42/4, Eth1/43/1
+                                                Eth1/43/2, Eth1/43/3, Eth1/43/4
+                                                Eth1/44/1, Eth1/44/2, Eth1/44/3
+                                                Eth1/44/4, Eth1/45/1, Eth1/45/2
+                                                Eth1/45/3, Eth1/45/4, Eth1/46/1
+                                                Eth1/46/2, Eth1/46/3, Eth1/46/4
+                                                Eth1/47/1, Eth1/47/2, Eth1/47/3
+                                                Eth1/47/4, Eth1/48/1, Eth1/48/2
+                                                Eth1/48/3, Eth1/48/4, Eth1/49/1
+                                                Eth1/49/2, Eth1/49/3, Eth1/49/4
+                                                Eth1/50/1, Eth1/50/2, Eth1/50/3
+                                                Eth1/50/4, Eth1/51/1, Eth1/51/2
+                                                Eth1/51/3, Eth1/51/4, Eth1/52/1
+                                                Eth1/52/2, Eth1/52/3, Eth1/52/4
+                                                Eth1/53/1, Eth1/53/2, Eth1/53/3
+                                                Eth1/53/4, Eth1/54/1, Eth1/54/2
+                                                Eth1/54/3, Eth1/54/4, Eth1/55/1
+                                                Eth1/55/2, Eth1/55/3, Eth1/55/4
+                                                Eth1/56/1, Eth1/56/2, Eth1/56/3
+                                                Eth1/56/4, Eth1/57/1, Eth1/57/2
+                                                Eth1/57/3, Eth1/57/4, Eth1/58/1
+                                                Eth1/58/2, Eth1/58/3, Eth1/58/4
+                                                Eth1/59/1, Eth1/59/2, Eth1/59/3
+                                                Eth1/59/4, Eth1/60/1, Eth1/60/2
+                                                Eth1/60/3, Eth1/60/4, Eth1/61/1
+                                                Eth1/61/2, Eth1/61/3, Eth1/61/4
+                                                Eth1/62/1, Eth1/62/2, Eth1/62/3
+                                                Eth1/62/4
+17   VLAN0017                         active    Eth1/1/1, Eth1/1/2, Eth1/1/3
+                                                Eth1/1/4, Eth1/2/1, Eth1/2/2
+                                                Eth1/2/3, Eth1/2/4, Eth1/3/1
+                                                Eth1/3/2, Eth1/3/3, Eth1/3/4
+                                                Eth1/4/1, Eth1/4/2, Eth1/4/3
+                                                Eth1/4/4, Eth1/5/1, Eth1/5/2
+                                                Eth1/5/3, Eth1/5/4, Eth1/6/1
+                                                Eth1/6/2, Eth1/6/3, Eth1/6/4
+                                                Eth1/7/1, Eth1/7/2, Eth1/7/3
+                                                Eth1/7/4, Eth1/8/1, Eth1/8/2
+                                                Eth1/8/3, Eth1/8/4, Eth1/9/1
+                                                Eth1/9/2, Eth1/9/3, Eth1/9/4
+                                                Eth1/10/1, Eth1/10/2, Eth1/10/3
+                                                Eth1/10/4, Eth1/11/1, Eth1/11/2
+                                                Eth1/11/3, Eth1/11/4, Eth1/12/1
+                                                Eth1/12/2, Eth1/12/3, Eth1/12/4
+                                                Eth1/13/1, Eth1/13/2, Eth1/13/3
+                                                Eth1/13/4, Eth1/14/1, Eth1/14/2
+                                                Eth1/14/3, Eth1/14/4, Eth1/15/1
+                                                Eth1/15/2, Eth1/15/3, Eth1/15/4
+                                                Eth1/16/1, Eth1/16/2, Eth1/16/3
+                                                Eth1/16/4, Eth1/17/1, Eth1/17/2
+                                                Eth1/17/3, Eth1/17/4, Eth1/18/1
+                                                Eth1/18/2, Eth1/18/3, Eth1/18/4
+                                                Eth1/19/1, Eth1/19/2, Eth1/19/3
+                                                Eth1/19/4, Eth1/20/1, Eth1/20/2
+                                                Eth1/20/3, Eth1/20/4, Eth1/21/1
+                                                Eth1/21/2, Eth1/21/3, Eth1/21/4
+                                                Eth1/22/1, Eth1/22/2, Eth1/22/3
+                                                Eth1/22/4, Eth1/23/1, Eth1/23/2
+                                                Eth1/23/3, Eth1/23/4, Eth1/24/1
+                                                Eth1/24/2, Eth1/24/3, Eth1/24/4
+                                                Eth1/25/1, Eth1/25/2, Eth1/25/3
+                                                Eth1/25/4, Eth1/26/1, Eth1/26/2
+                                                Eth1/26/3, Eth1/26/4, Eth1/27/1
+                                                Eth1/27/2, Eth1/27/3, Eth1/27/4
+                                                Eth1/28/1, Eth1/28/2, Eth1/28/3
+                                                Eth1/28/4, Eth1/29/1, Eth1/29/2
+                                                Eth1/29/3, Eth1/29/4, Eth1/30/1
+                                                Eth1/30/2, Eth1/30/3, Eth1/30/4
+                                                Eth1/31/1, Eth1/31/2, Eth1/31/3
+                                                Eth1/31/4, Eth1/32/1, Eth1/32/2
+                                                Eth1/32/3, Eth1/32/4, Eth1/33/1
+                                                Eth1/33/2, Eth1/33/3, Eth1/33/4
+                                                Eth1/34/1, Eth1/34/2, Eth1/34/3
+                                                Eth1/34/4, Eth1/35/1, Eth1/35/2
+                                                Eth1/35/3, Eth1/35/4, Eth1/36/1
+                                                Eth1/36/2, Eth1/36/3, Eth1/36/4
+                                                Eth1/37/1, Eth1/37/2, Eth1/37/3
+                                                Eth1/37/4, Eth1/38/1, Eth1/38/2
+                                                Eth1/38/3, Eth1/38/4, Eth1/39/1
+                                                Eth1/39/2, Eth1/39/3, Eth1/39/4
+                                                Eth1/40/1, Eth1/40/2, Eth1/40/3
+                                                Eth1/40/4, Eth1/41/1, Eth1/41/2
+                                                Eth1/41/3, Eth1/41/4, Eth1/42/1
+                                                Eth1/42/2, Eth1/42/3, Eth1/42/4
+                                                Eth1/43/1, Eth1/43/2, Eth1/43/3
+                                                Eth1/43/4, Eth1/44/1, Eth1/44/2
+                                                Eth1/44/3, Eth1/44/4, Eth1/45/1
+                                                Eth1/45/2, Eth1/45/3, Eth1/45/4
+                                                Eth1/46/1, Eth1/46/2, Eth1/46/3
+                                                Eth1/46/4, Eth1/47/1, Eth1/47/2
+                                                Eth1/47/3, Eth1/47/4, Eth1/48/1
+                                                Eth1/48/2, Eth1/48/3, Eth1/48/4
+                                                Eth1/49/1, Eth1/49/2, Eth1/49/3
+                                                Eth1/49/4, Eth1/50/1, Eth1/50/2
+                                                Eth1/50/3, Eth1/50/4, Eth1/51/1
+                                                Eth1/51/2, Eth1/51/3, Eth1/51/4
+                                                Eth1/52/1, Eth1/52/2, Eth1/52/3
+                                                Eth1/52/4, Eth1/53/1, Eth1/53/2
+                                                Eth1/53/3, Eth1/53/4, Eth1/54/1
+                                                Eth1/54/2, Eth1/54/3, Eth1/54/4
+                                                Eth1/55/1, Eth1/55/2, Eth1/55/3
+                                                Eth1/55/4, Eth1/56/1, Eth1/56/2
+                                                Eth1/56/3, Eth1/56/4, Eth1/57/1
+                                                Eth1/57/2, Eth1/57/3, Eth1/57/4
+                                                Eth1/58/1, Eth1/58/2, Eth1/58/3
+                                                Eth1/58/4, Eth1/59/1, Eth1/59/2
+                                                Eth1/59/3, Eth1/59/4, Eth1/60/1
+                                                Eth1/60/2, Eth1/60/3, Eth1/60/4
+                                                Eth1/61/1, Eth1/61/2, Eth1/61/3
+                                                Eth1/61/4, Eth1/62/1, Eth1/62/2
+                                                Eth1/62/3, Eth1/62/4
+18   VLAN0018                         active    Eth1/1/1, Eth1/1/2, Eth1/1/3
+                                                Eth1/1/4, Eth1/2/1, Eth1/2/2
+                                                Eth1/2/3, Eth1/2/4, Eth1/3/1
+                                                Eth1/3/2, Eth1/3/3, Eth1/3/4
+                                                Eth1/4/1, Eth1/4/2, Eth1/4/3
+                                                Eth1/4/4, Eth1/5/1, Eth1/5/2
+                                                Eth1/5/3, Eth1/5/4, Eth1/6/1
+                                                Eth1/6/2, Eth1/6/3, Eth1/6/4
+                                                Eth1/7/1, Eth1/7/2, Eth1/7/3
+                                                Eth1/7/4, Eth1/8/1, Eth1/8/2
+                                                Eth1/8/3, Eth1/8/4, Eth1/9/1
+                                                Eth1/9/2, Eth1/9/3, Eth1/9/4
+                                                Eth1/10/1, Eth1/10/2, Eth1/10/3
+                                                Eth1/10/4, Eth1/11/1, Eth1/11/2
+                                                Eth1/11/3, Eth1/11/4, Eth1/12/1
+                                                Eth1/12/2, Eth1/12/3, Eth1/12/4
+                                                Eth1/13/1, Eth1/13/2, Eth1/13/3
+                                                Eth1/13/4, Eth1/14/1, Eth1/14/2
+                                                Eth1/14/3, Eth1/14/4, Eth1/15/1
+                                                Eth1/15/2, Eth1/15/3, Eth1/15/4
+                                                Eth1/16/1, Eth1/16/2, Eth1/16/3
+                                                Eth1/16/4, Eth1/17/1, Eth1/17/2
+                                                Eth1/17/3, Eth1/17/4, Eth1/18/1
+                                                Eth1/18/2, Eth1/18/3, Eth1/18/4
+                                                Eth1/19/1, Eth1/19/2, Eth1/19/3
+                                                Eth1/19/4, Eth1/20/1, Eth1/20/2
+                                                Eth1/20/3, Eth1/20/4, Eth1/21/1
+                                                Eth1/21/2, Eth1/21/3, Eth1/21/4
+                                                Eth1/22/1, Eth1/22/2, Eth1/22/3
+                                                Eth1/22/4, Eth1/23/1, Eth1/23/2
+                                                Eth1/23/3, Eth1/23/4, Eth1/24/1
+                                                Eth1/24/2, Eth1/24/3, Eth1/24/4
+                                                Eth1/25/1, Eth1/25/2, Eth1/25/3
+                                                Eth1/25/4, Eth1/26/1, Eth1/26/2
+                                                Eth1/26/3, Eth1/26/4, Eth1/27/1
+                                                Eth1/27/2, Eth1/27/3, Eth1/27/4
+                                                Eth1/28/1, Eth1/28/2, Eth1/28/3
+                                                Eth1/28/4, Eth1/29/1, Eth1/29/2
+                                                Eth1/29/3, Eth1/29/4, Eth1/30/1
+                                                Eth1/30/2, Eth1/30/3, Eth1/30/4
+                                                Eth1/31/1, Eth1/31/2, Eth1/31/3
+                                                Eth1/31/4, Eth1/32/1, Eth1/32/2
+                                                Eth1/32/3, Eth1/32/4, Eth1/33/1
+                                                Eth1/33/2, Eth1/33/3, Eth1/33/4
+                                                Eth1/34/1, Eth1/34/2, Eth1/34/3
+                                                Eth1/34/4, Eth1/35/1, Eth1/35/2
+                                                Eth1/35/3, Eth1/35/4, Eth1/36/1
+                                                Eth1/36/2, Eth1/36/3, Eth1/36/4
+                                                Eth1/37/1, Eth1/37/2, Eth1/37/3
+                                                Eth1/37/4, Eth1/38/1, Eth1/38/2
+                                                Eth1/38/3, Eth1/38/4, Eth1/39/1
+                                                Eth1/39/2, Eth1/39/3, Eth1/39/4
+                                                Eth1/40/1, Eth1/40/2, Eth1/40/3
+                                                Eth1/40/4, Eth1/41/1, Eth1/41/2
+                                                Eth1/41/3, Eth1/41/4, Eth1/42/1
+                                                Eth1/42/2, Eth1/42/3, Eth1/42/4
+                                                Eth1/43/1, Eth1/43/2, Eth1/43/3
+                                                Eth1/43/4, Eth1/44/1, Eth1/44/2
+                                                Eth1/44/3, Eth1/44/4, Eth1/45/1
+                                                Eth1/45/2, Eth1/45/3, Eth1/45/4
+                                                Eth1/46/1, Eth1/46/2, Eth1/46/3
+                                                Eth1/46/4, Eth1/47/1, Eth1/47/2
+                                                Eth1/47/3, Eth1/47/4, Eth1/48/1
+                                                Eth1/48/2, Eth1/48/3, Eth1/48/4
+                                                Eth1/49/1, Eth1/49/2, Eth1/49/3
+                                                Eth1/49/4, Eth1/50/1, Eth1/50/2
+                                                Eth1/50/3, Eth1/50/4, Eth1/51/1
+                                                Eth1/51/2, Eth1/51/3, Eth1/51/4
+                                                Eth1/52/1, Eth1/52/2, Eth1/52/3
+                                                Eth1/52/4, Eth1/53/1, Eth1/53/2
+                                                Eth1/53/3, Eth1/53/4, Eth1/54/1
+                                                Eth1/54/2, Eth1/54/3, Eth1/54/4
+                                                Eth1/55/1, Eth1/55/2, Eth1/55/3
+                                                Eth1/55/4, Eth1/56/1, Eth1/56/2
+                                                Eth1/56/3, Eth1/56/4, Eth1/57/1
+                                                Eth1/57/2, Eth1/57/3, Eth1/57/4
+                                                Eth1/58/1, Eth1/58/2, Eth1/58/3
+                                                Eth1/58/4, Eth1/59/1, Eth1/59/2
+                                                Eth1/59/3, Eth1/59/4, Eth1/60/1
+                                                Eth1/60/2, Eth1/60/3, Eth1/60/4
+                                                Eth1/61/1, Eth1/61/2, Eth1/61/3
+                                                Eth1/61/4, Eth1/62/1, Eth1/62/2
+                                                Eth1/62/3, Eth1/62/4
+30   VLAN0030                         active    Eth1/1/1, Eth1/1/2, Eth1/1/3
+                                                Eth1/1/4, Eth1/2/1, Eth1/2/2
+                                                Eth1/2/3, Eth1/2/4, Eth1/3/1
+                                                Eth1/3/2, Eth1/3/3, Eth1/3/4
+                                                Eth1/4/1, Eth1/4/2, Eth1/4/3
+                                                Eth1/4/4, Eth1/5/1, Eth1/5/2
+                                                Eth1/5/3, Eth1/5/4, Eth1/6/1
+                                                Eth1/6/2, Eth1/6/3, Eth1/6/4
+                                                Eth1/7/1, Eth1/7/2, Eth1/7/3
+                                                Eth1/7/4, Eth1/8/1, Eth1/8/2
+                                                Eth1/8/3, Eth1/8/4, Eth1/9/1
+                                                Eth1/9/2, Eth1/9/3, Eth1/9/4
+                                                Eth1/10/1, Eth1/10/2, Eth1/10/3
+                                                Eth1/10/4, Eth1/11/1, Eth1/11/2
+                                                Eth1/11/3, Eth1/11/4, Eth1/12/1
+                                                Eth1/12/2, Eth1/12/3, Eth1/12/4
+                                                Eth1/13/1, Eth1/13/2, Eth1/13/3
+                                                Eth1/13/4, Eth1/14/1, Eth1/14/2
+                                                Eth1/14/3, Eth1/14/4, Eth1/15/1
+                                                Eth1/15/2, Eth1/15/3, Eth1/15/4
+                                                Eth1/16/1, Eth1/16/2, Eth1/16/3
+                                                Eth1/16/4, Eth1/17/1, Eth1/17/2
+                                                Eth1/17/3, Eth1/17/4, Eth1/18/1
+                                                Eth1/18/2, Eth1/18/3, Eth1/18/4
+                                                Eth1/19/1, Eth1/19/2, Eth1/19/3
+                                                Eth1/19/4, Eth1/20/1, Eth1/20/2
+                                                Eth1/20/3, Eth1/20/4, Eth1/21/1
+                                                Eth1/21/2, Eth1/21/3, Eth1/21/4
+                                                Eth1/22/1, Eth1/22/2, Eth1/22/3
+                                                Eth1/22/4, Eth1/23/1, Eth1/23/2
+                                                Eth1/23/3, Eth1/23/4, Eth1/24/1
+                                                Eth1/24/2, Eth1/24/3, Eth1/24/4
+                                                Eth1/25/1, Eth1/25/2, Eth1/25/3
+                                                Eth1/25/4, Eth1/26/1, Eth1/26/2
+                                                Eth1/26/3, Eth1/26/4, Eth1/27/1
+                                                Eth1/27/2, Eth1/27/3, Eth1/27/4
+                                                Eth1/28/1, Eth1/28/2, Eth1/28/3
+                                                Eth1/28/4, Eth1/29/1, Eth1/29/2
+                                                Eth1/29/3, Eth1/29/4, Eth1/30/1
+                                                Eth1/30/2, Eth1/30/3, Eth1/30/4
+                                                Eth1/31/1, Eth1/31/2, Eth1/31/3
+                                                Eth1/31/4, Eth1/32/1, Eth1/32/2
+                                                Eth1/32/3, Eth1/32/4, Eth1/33/1
+                                                Eth1/33/2, Eth1/33/3, Eth1/33/4
+                                                Eth1/34/1, Eth1/34/2, Eth1/34/3
+                                                Eth1/34/4, Eth1/35/1, Eth1/35/2
+                                                Eth1/35/3, Eth1/35/4, Eth1/36/1
+                                                Eth1/36/2, Eth1/36/3, Eth1/36/4
+                                                Eth1/37/1, Eth1/37/2, Eth1/37/3
+                                                Eth1/37/4, Eth1/38/1, Eth1/38/2
+                                                Eth1/38/3, Eth1/38/4, Eth1/39/1
+                                                Eth1/39/2, Eth1/39/3, Eth1/39/4
+                                                Eth1/40/1, Eth1/40/2, Eth1/40/3
+                                                Eth1/40/4, Eth1/41/1, Eth1/41/2
+                                                Eth1/41/3, Eth1/41/4, Eth1/42/1
+                                                Eth1/42/2, Eth1/42/3, Eth1/42/4
+                                                Eth1/43/1, Eth1/43/2, Eth1/43/3
+                                                Eth1/43/4, Eth1/44/1, Eth1/44/2
+                                                Eth1/44/3, Eth1/44/4, Eth1/45/1
+                                                Eth1/45/2, Eth1/45/3, Eth1/45/4
+                                                Eth1/46/1, Eth1/46/2, Eth1/46/3
+                                                Eth1/46/4, Eth1/47/1, Eth1/47/2
+                                                Eth1/47/3, Eth1/47/4, Eth1/48/1
+                                                Eth1/48/2, Eth1/48/3, Eth1/48/4
+                                                Eth1/49/1, Eth1/49/2, Eth1/49/3
+                                                Eth1/49/4, Eth1/50/1, Eth1/50/2
+                                                Eth1/50/3, Eth1/50/4, Eth1/51/1
+                                                Eth1/51/2, Eth1/51/3, Eth1/51/4
+                                                Eth1/52/1, Eth1/52/2, Eth1/52/3
+                                                Eth1/52/4, Eth1/53/1, Eth1/53/2
+                                                Eth1/53/3, Eth1/53/4, Eth1/54/1
+                                                Eth1/54/2, Eth1/54/3, Eth1/54/4
+                                                Eth1/55/1, Eth1/55/2, Eth1/55/3
+                                                Eth1/55/4, Eth1/56/1, Eth1/56/2
+                                                Eth1/56/3, Eth1/56/4, Eth1/57/1
+                                                Eth1/57/2, Eth1/57/3, Eth1/57/4
+                                                Eth1/58/1, Eth1/58/2, Eth1/58/3
+                                                Eth1/58/4, Eth1/59/1, Eth1/59/2
+                                                Eth1/59/3, Eth1/59/4, Eth1/60/1
+                                                Eth1/60/2, Eth1/60/3, Eth1/60/4
+                                                Eth1/61/1, Eth1/61/2, Eth1/61/3
+                                                Eth1/61/4, Eth1/62/1, Eth1/62/2
+                                                Eth1/62/3, Eth1/62/4
+40   VLAN0040                         active    Eth1/1/1, Eth1/1/2, Eth1/1/3
+                                                Eth1/1/4, Eth1/2/1, Eth1/2/2
+                                                Eth1/2/3, Eth1/2/4, Eth1/3/1
+                                                Eth1/3/2, Eth1/3/3, Eth1/3/4
+                                                Eth1/4/1, Eth1/4/2, Eth1/4/3
+                                                Eth1/4/4, Eth1/5/1, Eth1/5/2
+                                                Eth1/5/3, Eth1/5/4, Eth1/6/1
+                                                Eth1/6/2, Eth1/6/3, Eth1/6/4
+                                                Eth1/7/1, Eth1/7/2, Eth1/7/3
+                                                Eth1/7/4, Eth1/8/1, Eth1/8/2
+                                                Eth1/8/3, Eth1/8/4, Eth1/9/1
+                                                Eth1/9/2, Eth1/9/3, Eth1/9/4
+                                                Eth1/10/1, Eth1/10/2, Eth1/10/3
+                                                Eth1/10/4, Eth1/11/1, Eth1/11/2
+                                                Eth1/11/3, Eth1/11/4, Eth1/12/1
+                                                Eth1/12/2, Eth1/12/3, Eth1/12/4
+                                                Eth1/13/1, Eth1/13/2, Eth1/13/3
+                                                Eth1/13/4, Eth1/14/1, Eth1/14/2
+                                                Eth1/14/3, Eth1/14/4, Eth1/15/1
+                                                Eth1/15/2, Eth1/15/3, Eth1/15/4
+                                                Eth1/16/1, Eth1/16/2, Eth1/16/3
+                                                Eth1/16/4, Eth1/17/1, Eth1/17/2
+                                                Eth1/17/3, Eth1/17/4, Eth1/18/1
+                                                Eth1/18/2, Eth1/18/3, Eth1/18/4
+                                                Eth1/19/1, Eth1/19/2, Eth1/19/3
+                                                Eth1/19/4, Eth1/20/1, Eth1/20/2
+                                                Eth1/20/3, Eth1/20/4, Eth1/21/1
+                                                Eth1/21/2, Eth1/21/3, Eth1/21/4
+                                                Eth1/22/1, Eth1/22/2, Eth1/22/3
+                                                Eth1/22/4, Eth1/23/1, Eth1/23/2
+                                                Eth1/23/3, Eth1/23/4, Eth1/24/1
+                                                Eth1/24/2, Eth1/24/3, Eth1/24/4
+                                                Eth1/25/1, Eth1/25/2, Eth1/25/3
+                                                Eth1/25/4, Eth1/26/1, Eth1/26/2
+                                                Eth1/26/3, Eth1/26/4, Eth1/27/1
+                                                Eth1/27/2, Eth1/27/3, Eth1/27/4
+                                                Eth1/28/1, Eth1/28/2, Eth1/28/3
+                                                Eth1/28/4, Eth1/29/1, Eth1/29/2
+                                                Eth1/29/3, Eth1/29/4, Eth1/30/1
+                                                Eth1/30/2, Eth1/30/3, Eth1/30/4
+                                                Eth1/31/1, Eth1/31/2, Eth1/31/3
+                                                Eth1/31/4, Eth1/32/1, Eth1/32/2
+                                                Eth1/32/3, Eth1/32/4, Eth1/33/1
+                                                Eth1/33/2, Eth1/33/3, Eth1/33/4
+                                                Eth1/34/1, Eth1/34/2, Eth1/34/3
+                                                Eth1/34/4, Eth1/35/1, Eth1/35/2
+                                                Eth1/35/3, Eth1/35/4, Eth1/36/1
+                                                Eth1/36/2, Eth1/36/3, Eth1/36/4
+                                                Eth1/37/1, Eth1/37/2, Eth1/37/3
+                                                Eth1/37/4, Eth1/38/1, Eth1/38/2
+                                                Eth1/38/3, Eth1/38/4, Eth1/39/1
+                                                Eth1/39/2, Eth1/39/3, Eth1/39/4
+                                                Eth1/40/1, Eth1/40/2, Eth1/40/3
+                                                Eth1/40/4, Eth1/41/1, Eth1/41/2
+                                                Eth1/41/3, Eth1/41/4, Eth1/42/1
+                                                Eth1/42/2, Eth1/42/3, Eth1/42/4
+                                                Eth1/43/1, Eth1/43/2, Eth1/43/3
+                                                Eth1/43/4, Eth1/44/1, Eth1/44/2
+                                                Eth1/44/3, Eth1/44/4, Eth1/45/1
+                                                Eth1/45/2, Eth1/45/3, Eth1/45/4
+                                                Eth1/46/1, Eth1/46/2, Eth1/46/3
+                                                Eth1/46/4, Eth1/47/1, Eth1/47/2
+                                                Eth1/47/3, Eth1/47/4, Eth1/48/1
+                                                Eth1/48/2, Eth1/48/3, Eth1/48/4
+                                                Eth1/49/1, Eth1/49/2, Eth1/49/3
+                                                Eth1/49/4, Eth1/50/1, Eth1/50/2
+                                                Eth1/50/3, Eth1/50/4, Eth1/51/1
+                                                Eth1/51/2, Eth1/51/3, Eth1/51/4
+                                                Eth1/52/1, Eth1/52/2, Eth1/52/3
+                                                Eth1/52/4, Eth1/53/1, Eth1/53/2
+                                                Eth1/53/3, Eth1/53/4, Eth1/54/1
+                                                Eth1/54/2, Eth1/54/3, Eth1/54/4
+                                                Eth1/55/1, Eth1/55/2, Eth1/55/3
+                                                Eth1/55/4, Eth1/56/1, Eth1/56/2
+                                                Eth1/56/3, Eth1/56/4, Eth1/57/1
+                                                Eth1/57/2, Eth1/57/3, Eth1/57/4
+                                                Eth1/58/1, Eth1/58/2, Eth1/58/3
+                                                Eth1/58/4, Eth1/59/1, Eth1/59/2
+                                                Eth1/59/3, Eth1/59/4, Eth1/60/1
+                                                Eth1/60/2, Eth1/60/3, Eth1/60/4
+                                                Eth1/61/1, Eth1/61/2, Eth1/61/3
+                                                Eth1/61/4, Eth1/62/1, Eth1/62/2
+                                                Eth1/62/3, Eth1/62/4
+
+cs1# *show interface trunk*
+
+-----------------------------------------------------
+Port          Native  Status        Port
+              Vlan                  Channel
+-----------------------------------------------------
+Eth1/1/1      1       trunking      --
+Eth1/1/2      1       trunking      --
+Eth1/1/3      1       trunking      --
+Eth1/1/4      1       trunking      --
+Eth1/2/1      1       trunking      --
+Eth1/2/2      1       trunking      --
+Eth1/2/3      1       trunking      --
+Eth1/2/4      1       trunking      --
+.
+.
+.
+Eth1/62/2     none
+Eth1/62/3     none
+Eth1/62/4     none
+Eth1/63       none
+Eth1/64       none
+Po1           1
+----
+====
++
+
+NOTE: 특정 포트 및 VLAN 사용에 대한 자세한 내용은 RCF의 배너 및 중요 참고 사항 섹션을 참조하십시오.
+
+. CS1과 CS2 사이의 ISL이 작동하는지 확인합니다.
++
+[source, cli]
+----
+show port-channel summary
+----
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs1# *show port-channel summary*
+Flags:  D - Down        P - Up in port-channel (members)
+        I - Individual  H - Hot-standby (LACP only)
+        s - Suspended   r - Module-removed
+        b - BFD Session Wait
+        S - Switched    R - Routed
+        U - Up (port-channel)
+        p - Up in delay-lacp mode (member)
+        M - Not in use. Min-links not met
+--------------------------------------------------------------------------------
+Group Port-       Type     Protocol  Member Ports
+      Channel
+--------------------------------------------------------------------------------
+1     Po1(SU)     Eth      LACP      Eth1/63(P)   Eth1/64(P)
+999   Po999(SD)   Eth      NONE      --
+cs1#
+----
+====
+
+
+
+
+== 3단계: ONTAP 클러스터 설정
+
+NetApp은 System Manager를 사용하여 새 클러스터를 설정할 것을 권장합니다.
+
+System Manager에서는 노드 관리 IP 주소 할당, 클러스터 초기화, 로컬 계층 생성, 프로토콜 구성, 초기 스토리지 프로비저닝 등 클러스터 설정 및 구성을 위한 간단하고 쉬운 워크플로를 제공합니다.
+
+로 이동합니다 https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["System Manager를 사용하여 새 클러스터에서 ONTAP를 구성합니다"] 를 참조하십시오.
+
+.다음 단계
+RCF를 설치한 후에는link:configure-ssh-keys.html["SSH 구성을 확인하세요"] .

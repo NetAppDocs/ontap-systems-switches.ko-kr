@@ -100,7 +100,7 @@ https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/configur
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/migrate-to-92300yc-overview.html["_ 이전 Cisco 스위치에서 Cisco Nexus 92300YC 스위치로 마이그레이션 _"^]
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/migrate-to-92300yc.html["_ 이전 Cisco 스위치에서 Cisco Nexus 92300YC 스위치로 마이그레이션 _"^]
  a| 
 이전 Cisco 스위치를 Cisco Nexus 92300YC 클러스터 스위치로 교체하는 절차를 설명합니다.
 

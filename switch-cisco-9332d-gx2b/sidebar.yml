@@ -1,0 +1,45 @@
+---
+section: switch-cisco-9332d-gx2b
+title: Cisco 넥서스 9332D-GX2B
+entries:
+- title: 시작하십시오
+  pdf-filename: Overview_9332d-gx2b
+  entries:
+  - title: 빠른 시작
+    url: "/switch-cisco-9332d-gx2b/configure-switch-overview-9332d-cluster.html"
+  - title: 스위치 포트 세부 정보
+    url: "/switch-cisco-9332d-gx2b/configure-setup-ports-9332d.html"
+  - title: 필수 문서
+    url: "/switch-cisco-9332d-gx2b/required-documentation-9332d-cluster.html"
+  - title: Smart Call Home 요구 사항
+    url: "/switch-cisco-9332d-gx2b/smart-call-9332d-cluster.html"
+- title: 하드웨어를 설치합니다
+  url: "/switch-cisco-9332d-gx2b/install-hardware.html"
+  pdf-filename: Install_hardware_9332d-gx2b
+- title: 소프트웨어를 구성합니다
+  pdf-filename: Configure_software_9332d-gx2b
+  entries:
+  - title: 소프트웨어 워크플로 구성
+    url: "/switch-cisco-9332d-gx2b/configure-software-overview-9332d-cluster.html"
+  - title: 스위치를 구성합니다
+    url: "/switch-cisco-9332d-gx2b/setup-switch-9332d-cluster.html"
+  - title: NX-OS 및 RCF 설치 준비
+    url: "/switch-cisco-9332d-gx2b/install-nxos-overview-9332d-cluster.html"
+  - title: NX-OS 소프트웨어를 설치 또는 업그레이드합니다
+    url: "/switch-cisco-9332d-gx2b/install-nxos-software-9332d-cluster.html"
+  - title: RCF를 설치하거나 업그레이드합니다
+    pdf-filename: install_upgrade_rcf 를 참조하십시오
+    entries:
+    - title: RCF 설치 또는 업그레이드 개요
+      url: "/switch-cisco-9332d-gx2b/install-upgrade-rcf-overview-cluster.html"
+    - title: RCF를 설치합니다
+      url: "/switch-cisco-9332d-gx2b/install-rcf-software-9332d-cluster.html"
+    - title: RCF 버전을 업그레이드하십시오
+      url: "/switch-cisco-9332d-gx2b/upgrade-rcf-software-9332d-cluster.html"
+  - title: SSH가 활성화되어 있는지 확인하세요
+    url: "/switch-cisco-9332d-gx2b/configure-ssh-keys.html"
+  - title: 스위치를 공장 기본값으로 재설정합니다
+    url: "/switch-cisco-9332d-gx2b/reset-switch-9332d.html"
+- title: 9332D-GX2B 스위치 교체
+  pdf-filename: Replace_switches_9332d-gx2b
+  url: "/switch-cisco-9332d-gx2b/replace-9332d-cluster.html"

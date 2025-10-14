@@ -1,0 +1,21 @@
+---
+permalink: switch-cisco-9364d-gx2a/install-hardware.html 
+sidebar: sidebar 
+keywords: switches, hardware installation, Cisco Nexus, 9332D-GX2B switches 
+summary: 시스템에 스위치 하드웨어와 컨트롤러 하드웨어를 설치하고 설정하는 방법에 대한 자세한 내용입니다. 
+---
+= 하드웨어를 설치합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+로 가다link:https://docs.netapp.com/us-en/ontap-afx/install-setup/install-setup-workflow.html["AFX 설치 및 설정 워크플로"^] 시스템에 스위치 하드웨어와 컨트롤러 하드웨어를 설치하고 설정하는 방법을 알아보세요.
+
+AFX 설치 및 설정 설명서에는 다음과 같은 정보가 포함되어 있습니다.
+
+* 사이트 준비, 상자 풀기, 상자 내용물과 포장 명세서 비교, 지원 혜택을 받기 위한 시스템 등록에 대한 지침입니다.
+* NetApp 캐비닛이나 통신 랙에 스위치, 컨트롤러 및 스토리지 선반을 설치하는 방법에 대한 지침입니다.
+* 컨트롤러 스토리지를 스위치 연결에 케이블로 연결하는 방법, 선반을 스위치 연결에 케이블로 연결하는 방법을 포함하여 시스템 케이블 연결에 대한 지침입니다.
+
