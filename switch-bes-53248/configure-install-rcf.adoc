@@ -449,7 +449,7 @@ Are you sure you would like to reset the system? (y/n) *y*
 ====
 .EFOS 버전 3.12.x 이상
 --
-. FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 CS2의 부트플래시 에 복사합니다.
+. HTTP, HTTPS, FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 cs2의 부트플래시에 복사합니다.
 +
 이 예에서는 스위치 CS2에서 RCF를 부트 플래시에 복사하는 데 사용되는 SFTP를 보여 줍니다.
 
@@ -508,7 +508,7 @@ Configuration script 'reference-config.scr' applied.
 --
 .기타 모든 EFOS 버전
 --
-. FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 CS2의 부트플래시 에 복사합니다.
+. HTTP, HTTPS, FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 cs2의 부트플래시에 복사합니다.
 +
 이 예에서는 스위치 CS2에서 RCF를 부트 플래시에 복사하는 데 사용되는 SFTP를 보여 줍니다.
 

@@ -47,11 +47,6 @@
   <block id="336de3195b73abbcfeae4d93dc45e199" category="list-text">권한 수준을 다시 admin:'Set-Privilege admin'으로 변경합니다</block>
   <block id="c0f264a6f90e5505b277b8a8526dbfba" category="admonition">이러한 명령에서 오류가 반환되면 NetApp 지원에 문의하십시오.</block>
   <block id="68cefdf66be1d7a7b066be08057d6859" category="list-text">자동 케이스 생성을 억제한 경우 AutoSupport 메시지 '시스템 노드 AutoSupport invoke -node * -type all-message MAINT=end'를 호출하여 다시 활성화합니다</block>
-  <block id="f4041989c699a535116c689437df5c7f" category="inline-link">NetApp 소프트웨어 다운로드</block>
-  <block id="87a71c7310f603842228cb9ab1b19ec2" category="list-text">소프트웨어 다운로드 페이지에서 * 상태 모니터 구성 파일 전환 * 을 선택합니다</block>
-  <block id="3a1759e54cb06a13c2c5b9b85a4c5282" category="list-text">해당 zip 파일을 내부 웹 서버에 업로드하면 IP 주소가 x.x.x.x 입니다</block>
-  <block id="903944fca05d1da45a504e69ed5609fb" category="paragraph">내부 웹 서버 IP 주소 192.168.2.20의 경우 /usr/download 디렉토리가 있다고 가정하면 SCP를 사용하여 zip 파일을 웹 서버에 업로드할 수 있습니다.</block>
-  <block id="f4ab3be3915b88f9d23c5faf297e78ff" category="list-text">명령 출력에 "downloaded package processed successfully" 텍스트 문자열이 포함되어 있는지 확인합니다. 오류가 발생하면 NetApp 지원 팀에 문의하십시오.</block>
   <block id="1badeb97f43ea36c10469c15adb79096" category="summary">Cisco Nexus 9336C-FX2 스위치 및 패스스루 패널을 스위치에 포함된 표준 브래킷과 함께 NetApp 캐비닛에 설치할 수 있습니다.</block>
   <block id="4d3903f57cd5de0c57c9b5451b80b72d" category="inline-link">Cisco Nexus 9000 시리즈 하드웨어 설치 가이드 를 참조하십시오</block>
   <block id="e100dc954517cdb4f6f664776708ea27" category="list-text">각 스위치에 대해 브래킷 및 슬라이더 레일을 전면 및 후면 캐비닛 포스트에 장착하기 위해 8개의 10-32 또는 12-24개의 나사와 클립 너트를 제공해야 합니다.</block>
@@ -3427,7 +3422,6 @@
   <block id="3dcdf9c7761ce642c5fe2fe73d425b75" category="list-text">실행 중인 구성을 시작 구성에 저장합니다.</block>
   <block id="b48ffac2fb8952951818ab2ce539c1d3" category="list-text">스위치를 재부팅합니다.</block>
   <block id="d03fee12ab01ee4f556908abcba26347" category="list-text">RCF 설치를 완료하려면 SSH를 사용하여 스위치에 다시 로그인하십시오.</block>
-  <block id="63f7338fc9ee539e34242e8d03110038" category="list-text">FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 CS2의 부트플래시 에 복사합니다.</block>
   <block id="b211f67e6e9195c32683368a53542802" category="paragraph">이 예에서는 스위치 CS2에서 RCF를 부트 플래시에 복사하는 데 사용되는 SFTP를 보여 줍니다.</block>
   <block id="420b545896cb1c9b03dbccd44bf33f86" category="list-text">스위치에서 RCF가 적용된 후 라이센스가 부여된 추가 포트가 표시되는지 확인합니다.</block>
   <block id="f8e1e48a80ce2fac4d53a95f1f1ffd18" category="paragraph">* 클러스터 노드 연결 케이블이 CS2로 이동됨 - 새 스위치 *</block>
@@ -3628,22 +3622,6 @@
   <block id="d71c484dda1d9ad3392c9e1a47d3f9d8" category="paragraph">포트 Eth1/31 및 Eth1/32는 (P)를 나타내야 합니다. 즉, 두 ISL 포트가 모두 포트 채널에서 작동함을 의미합니다.</block>
   <block id="e2163aa514dd6f969019af7f51eb5403" category="paragraph"><block ref="ba8401ca8d9063944fa4c23801539873" prefix="" category="inline-code"></block></block>
   <block id="2bc32577d8d84ba98d84472c4916dd0f" category="admonition">NetApp에서 검증된 백 엔드 스위치(NetApp에서 주문)만 지원됩니다.</block>
-  <block id="a8d8d025a84c64f53b535b4e606fd65a" category="summary">이 절차를 사용하여 Nexus 92300YC 클러스터 스위치의 클러스터 스위치 상태 모니터링에 해당하는 구성 파일을 설치할 수 있습니다.</block>
-  <block id="0bf9f283c6d4cf639f7438f8d69e8f4f" category="doc">클러스터 SHM(Switch Health Monitor) 구성 파일을 설치합니다</block>
-  <block id="5a70ef3971f7a5956d9f9f829efc730c" category="paragraph">이 절차에 따라 Nexus 9336C-FX2 클러스터 스위치의 SHM(클러스터 스위치 상태 모니터링)에 해당하는 구성 파일을 설치하십시오.</block>
-  <block id="f57e4aaddd9c8384a74d025e1d9d52e6" category="paragraph">9336C-FX2 클러스터 스위치용 SHM을 설정하기 전에 ONTAP 클러스터가 작동 중이고 실행 중인지 확인하십시오.</block>
-  <block id="cd4d857d877848b2146cf2f93a12041d" category="admonition">SHM에서 사용할 수 있는 모든 기능을 사용하려면 SSH를 활성화해야 합니다.</block>
-  <block id="a9d9ad7431acc9b1210326b704dc7fb3" category="list-text">해당 ONTAP 릴리스 버전을 기준으로 클러스터 SHM 구성 zip 파일을 다운로드합니다. 이 파일은 에서 사용할 수 있습니다<block ref="cb382f539d8e67a00135c8306b3d74b6" category="inline-link-rx"></block> 페이지.</block>
-  <block id="470c3e165e39b12d964347208e2a16a1" category="list-text">Platform = * ONTAP * 를 선택하고 * Go! * 를 선택합니다</block>
-  <block id="037e852f07c16de5553f7bccdaa3a63c" category="list-text">ONTAP용 상태 모니터 구성 파일 전환 페이지에서 * 보기 및 다운로드 * 를 선택합니다</block>
-  <block id="5a5fb2da99c4622e3d8789a3ac1306ad" category="list-text">ONTAP용 스위치 상태 모니터 구성 파일 &gt; 설명 페이지에서 해당 클러스터 스위치 모델에 대해 * 다운로드 * 를 선택합니다(예: * Cisco Nexus 9336C-FX2 *)</block>
-  <block id="561743fab903fb6e0d1c67b5908f3af6" category="list-text">최종 사용자 사용권 계약 페이지에서 * 동의 * 를 선택합니다</block>
-  <block id="b90cace861b20bc63e4a912115ded04e" category="list-text">ONTAP용 스위치 상태 모니터 구성 파일 &gt; 다운로드 페이지에서 해당 구성 파일(예: * Cisco_Nexus_9336C-FX2.zip *)을 선택합니다</block>
-  <block id="4f278cd45a027c9d4afd47d2010265aa" category="list-text">클러스터의 ONTAP 시스템 중 하나에서 고급 모드 설정에 액세스합니다.</block>
-  <block id="02e9ffa5a65e7f62f638cd4e28c1dc9f" category="paragraph"><block ref="6b8bc155cdb61a87cc039bea00534962" prefix="" category="inline-code"></block></block>
-  <block id="242513ff76ac739e35a8e7e168d947bd" category="list-text">switch 상태 monitor configure 명령을 실행합니다<block ref="0477ef599648fe2dbbf01945805f0e88" prefix=" " category="inline-code"></block>:</block>
-  <block id="174ee6e9c9130ef3e6ceab7f0ab7356c" category="list-text">명령을 실행합니다<block ref="694b56ad85eb627acc97ea9295f39018" prefix=" " category="inline-code"></block> ONTAP 시스템에서 모니터링되는 필드가 "True"로 설정된 상태에서 클러스터 스위치가 검색되는지 확인합니다.</block>
-  <block id="c94eee10204c293e476c9b772d10ddfe" category="admonition">언제든지 이전 버전의 ONTAP로 되돌릴 경우 SHM 구성 파일을 다시 설치하여 9336C-FX2 클러스터 스위치의 SHM을 활성화해야 합니다.</block>
   <block id="680284a2e0d6a86aafc85099ca58d7af" category="list-text">이더넷 스위치 상태 모니터 로그 수집 기능에 대한 암호를 생성합니다.</block>
   <block id="3fc74bed2ec666d227e966120d5c4160" category="inline-link">버그 1570339</block>
   <block id="a9881d2bc89c135aee3c1490acc55259" category="inline-link">40GbE에서 100GbE로 변환한 후 T6 포트에서 CRC 오류가 발생했습니다</block>
@@ -3821,7 +3799,6 @@
   <block id="72477c9fa5c7321db80c98ce8db97acf" category="list-text">재부팅 후<block ref="e0a64c365feb7b2f913e6a4048472af6" prefix=" " category="inline-code"></block> 드라이버 코드가 사용할 수 있도록 설정이 그대로 유지됩니다.</block>
   <block id="25cb4346e07d274b036816fdb6e793af" category="sidebar">NetApp에서는 클러스터, 스토리지, 공유 스위치를 제공하여 호스트 스토리지와 2개 이상의 NetApp 컨트롤러 간에 연결을 제공함으로써 스토리지 인프라 전체에서 데이터와 네트워크 인터페이스를 중단 없이 이동할 수 있도록 지원합니다.</block>
   <block id="e039aa1be61543fd84f1c4eb5d3e9f6b" category="sidebar">ONTAP 하드웨어 시스템</block>
-  <block id="9d07d8327ebc12554e974699f677fdb7" category="sidebar">ONTAP 하드웨어용 문서를 전환합니다</block>
   <block id="1be807f8d70b208f4d04b385b1c81765" category="sidebar">2노드 스위치로 마이그레이션합니다</block>
   <block id="baeb2b9edd2060971ec4838ea0641d18" category="paragraph">클러스터 LIFS가 홈 포트로 반환되지 않은 경우 로컬 노드에서 수동으로 되돌립니다.</block>
   <block id="b6dd8221599de3110a6be11272b8d643" category="summary">Cisco 3232C 스위치를 구성하기 전에 다음 정보를 검토하십시오.</block>
@@ -3886,7 +3863,6 @@
   <block id="ddd0020a0684c14dbd50622f84d8917a" category="paragraph">다음 사항을 확인하십시오.</block>
   <block id="28dbd722b252673fdce3f809670e34b8" category="list-text">RCF 버전을 업데이트하는 경우 원하는 부팅 이미지를 반영하는 RCF의 부팅 구성이 필요합니다.</block>
   <block id="5640915560bc663196a684ebfc6fa2ec" category="admonition">새 스위치 소프트웨어 버전과 RCFs를 설치하기 전에 스위치 설정을 지우고 기본 구성을 수행해야 합니다. 스위치 설정을 지우기 전에 직렬 콘솔을 사용하여 스위치에 연결되거나 기본 구성 정보가 보존되어 있어야 합니다.</block>
-  <block id="6f738209e5071a9c22c8d336c6dec7a1" category="sidebar">공유 스위치 - Cisco Nexus 9336C-FX2</block>
   <block id="a306bc0f90914bd9715854d664b6505a" category="sidebar">클러스터 스위치 - Cisco Nexus 32c</block>
   <block id="2dc82baa4aac6df7519361c705672faa" category="sidebar">클러스터 스위치 - Cisco Nexus 3132Q-V</block>
   <block id="43822bbc5cba6f539b9e148db3e66253" category="list-text">로그 수집 기능을 사용하려면 ONTAP 버전 9.10.1P15, 9.11.1P12 또는 9.12.1 이상 및 EFOS 3.8.0.2 이상을 실행해야 합니다.</block>
@@ -5336,12 +5312,6 @@
   <block id="8741c9a7235936d7adbe4b11e84059a0" category="list-text">10GbE 및 40/100GbE 포트의 수는 다음에서 사용 가능한 참조 구성 파일(RCF)에 정의되어 있습니다.<block ref="45b8f1baa941c556d7daa8d8054d886c" category="inline-link-macro-rx"></block> .</block>
   <block id="c0ddaa892e58fbb2392ff94b96d1be20" category="list-text">이미지 소프트웨어의 적절한 버전을 다운로드하세요.<block ref="63d583816b323795a688346cd7512345" category="inline-link-macro-rx"></block> .</block>
   <block id="30197795f50e0c0bd227d8e9fad9f92a" category="list-text">10GbE 및 40/100GbE 포트의 수는 다음에서 사용 가능한 참조 구성 파일(RCF)에 정의되어 있습니다.<block ref="45b8f1baa941c556d7daa8d8054d886c" category="inline-link-macro-rx"></block> .</block>
-  <block id="54f425ce8d89f4ed6b8a546561af5d60" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="6fb43cd5c831afd08ed62ea7c301589a" category="paragraph"><block ref="6fb43cd5c831afd08ed62ea7c301589a" category="inline-link-macro-rx"></block></block>
-  <block id="05b2444faffd66d76e88602ea7dd353f" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="c8a7fd6048c409f4bb8f849cc3de1f18" category="paragraph"><block ref="c8a7fd6048c409f4bb8f849cc3de1f18" category="inline-link-macro-rx"></block></block>
-  <block id="beadfa85a2fdca06b91edc1131c603e6" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="76b532b4ae4cf629b8e1a3ede08fd7ff" category="paragraph"><block ref="76b532b4ae4cf629b8e1a3ede08fd7ff" category="inline-link-macro-rx"></block></block>
   <block id="9fbc1f2b0342da208a4f6f75ac79debf" category="list-text">현재 사이의 사용자 정의 추가 사항을 기록합니다.<block ref="092a495b03acdb0bf155d8ff2997a8d6" prefix=" " category="inline-code"></block> 그리고 RCF 파일을 사용 중입니다.</block>
   <block id="1399d69a0008babf2e123d92108c9240" category="list-text">스위치 cs1에서 7~23단계를 반복합니다.</block>
   <block id="0befd81589201067221e5dedef199de2" category="list-text">완전한<block ref="e75e7c0418fc871b5a3b592fa97dc163" category="inline-link-macro-rx"></block> .</block>
@@ -5382,7 +5352,6 @@
   <block id="a1a8993ffd320908d06ade7e913bcf50" category="list-text">콘솔을 사용하여 교체 스위치에 접근할 수 있습니다.</block>
   <block id="f83f7aba00816a09361edd4eb88615c6" category="list-text">스토리지 스위치 S1에 대한 연결을 확인하려면 스토리지 노드 포트의 상태를 확인하세요.</block>
   <block id="3f3ce4386bf6fdd6162760e69ae218fe" category="admonition">Cumulus Linux 설치에 대한 자세한 내용은 다음을 참조하세요.<block ref="af71380c0413e75eac6b68cce7246d02" category="inline-link-macro-rx"></block> .</block>
-  <block id="cee5d5761c41be926d640491ba26a759" category="sidebar">ONTAP 시스템용 스위치</block>
   <block id="b5c21eb86a919fae7fbd813fa824c997" category="paragraph">32포트 400GbE 포트 Cisco 스위치(X190300-CS-PI 및 X190300-PE)</block>
   <block id="927253d00033b562398e359530b8c650" category="paragraph">Cisco 9332D-GX2B 클러스터 내/HA/스토리지 스위치 지원.</block>
   <block id="ea1ad38d91c2e87ef2e9571bd55654fd" category="paragraph">ONTAP 9.17.1</block>
@@ -5620,7 +5589,6 @@
   <block id="c381feb9e35ad6357b56aa385cbf8df4" category="paragraph">RCF의 *설치 참고 사항*, *중요 참고 사항* 및 *배너* 섹션을 자세히 읽으세요.  스위치의 올바른 구성과 작동을 보장하려면 이 지침을 읽고 따라야 합니다.</block>
   <block id="f2b841e904646043e10710dfe9d1e37a" category="list-text">RCF 버전, 사용자 정의 추가 및 스위치 설정이 올바른지 확인한 후 복사하십시오.<block ref="092a495b03acdb0bf155d8ff2997a8d6" prefix=" " category="inline-code"></block> 파일을<block ref="35b7dd24bfd716b0553d5e558b8afe97" prefix=" " category="inline-code"></block> 파일.</block>
   <block id="4344efedc73e6df8e9abcaf5b0aee7eb" category="paragraph"><block ref="d0eae35adde61cce792eadfd9a3848b5" prefix="" category="inline-code"></block></block>
-  <block id="12e872eea692f68038e507bf2825a27c" category="list-text">스위치 cs2에서 4~17단계를 반복합니다.</block>
   <block id="919c92b88565abe73b79f95942fbce89" category="paragraph"><block ref="e002d8fd0e250f5b26dcc64d23922af9" prefix="" category="inline-code"></block></block>
   <block id="9c6c3f61af7dff11347a9a97366c4acb" category="summary">Cisco 9364d-gx2a 스위치를 구성하기 전에 다음 정보를 검토하세요.</block>
   <block id="b771416dbd66215d66c0fd3bf739e5a2" category="paragraph">Cisco 9364D-GX2A 스위치를 구성하기 전에 다음 고려 사항을 검토하세요.</block>
@@ -5721,7 +5689,6 @@
   <block id="085ebea59269f171d2893f7c9fd27a56" category="list-text">NX-OS 10.2 이상에서는 다음을 사용하세요.<block ref="9c370f72db0e0d920841657ac5268365" prefix=" " category="inline-code"></block> 부트플래시에 저장된 RCF 파일과 비교하는 명령입니다.  그렇지 않은 경우, 제3자 diff/compare 도구를 사용하세요.</block>
   <block id="f3e103ce1d9f1725786017bc3ce6fb97" category="admonition">RCF의 *설치 참고사항*, *중요 참고사항* 및 *배너* 섹션을 자세히 읽으세요.  스위치의 올바른 구성과 작동을 보장하려면 이 지침을 읽고 따라야 합니다.</block>
   <block id="1d83453cdc3e9845f2dd373ab3a4eb9a" category="list-text">클러스터의 포트 상태를 확인합니다.</block>
-  <block id="9caef6b72d42d5b9b488c14628ec50f1" category="list-text">스위치 cs2에서 4~16단계를 반복합니다.</block>
   <block id="dc6df28d41590823cd1a46d26721aa90" category="paragraph"><block ref="7a3ac7d679afae00f79673d5cee23dbd" prefix="" category="inline-code"></block></block>
   <block id="e8030276d8c658d9eaec982502889193" category="paragraph"><block ref="e8030276d8c658d9eaec982502889193" category="inline-link-macro-rx"></block></block>
   <block id="0c456a63d50970f4ea4aa716b1c085bb" category="inline-link-macro">Cisco 스토리지 스위치에서 NVIDIA SN2100 스토리지 스위치로 마이그레이션_</block>
@@ -5776,4 +5743,61 @@
   <block id="e794d3cef6a4e7ec0816d2e0b3d15391" category="sidebar">Install_hardware_9364d-gx2a</block>
   <block id="21843f0ca65aacac87cb9a404d7ec8c2" category="sidebar">Configure_software_9364d-gx2a</block>
   <block id="6daec6c2b8fbb1afe63ebf51e3d00096" category="sidebar">Replace_switches_9364d-gx2a</block>
+  <block id="39f4b0e38301a0ba8f2a052d53cce479" category="list-text">HTTP, HTTPS, FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 cs2의 부트플래시에 복사합니다.</block>
+  <block id="988b3c94f8e38d6de10d5305c4dd7696" category="summary">클러스터 스위치 상태 모니터(CSHM) 및 로그 수집 기능을 사용하려면 SSH가 필요합니다. Cisco 3132q-v 클러스터 스위치에서 SSH를 활성화하려면 먼저 SSH 키를 생성한 다음 SSH를 활성화합니다.</block>
+  <block id="cb3f16de867ce1284b9d6fd6671e24e8" category="paragraph">Nexus 3132Q-V 스위치를 처음 설정한 후 참조 구성 파일(RCF)을 설치합니다.</block>
+  <block id="dd1dcdff568232584ad0d54ba8eabf6f" category="paragraph">이 절차 중에는 작동 중인 ISL(스위치 간 링크)이 필요하지 않습니다.  이는 RCF 버전 변경으로 인해 ISL 연결에 일시적으로 영향을 미칠 수 있기 때문에 설계된 기능입니다.  중단 없는 클러스터 작업을 가능하게 하기 위해 다음 절차에서는 대상 스위치에서 단계를 수행하는 동안 모든 클러스터 LIF를 운영 파트너 스위치로 마이그레이션합니다.</block>
+  <block id="a27da7c112086ff6f74e71e94765bdf8" category="list-text">클러스터 포트가 클러스터 스위치 cs1에 호스팅된 포트로 장애 조치되었는지 확인합니다. 몇 초 정도 걸릴 수 있습니다.</block>
+  <block id="c0f1b2428ed898fe18279f19d05686a8" category="paragraph">다음을 구성해야 합니다. * 사용자 이름 및 비밀번호 * 관리 IP 주소 * 기본 게이트웨이 * 스위치 이름</block>
+  <block id="33177e7ea9d802a2459c4c696ca9fc50" category="section-title">3단계: ONTAP 클러스터 설정</block>
+  <block id="967158937f5ed9889c944a8bdc4c5f3c" category="paragraph">System Manager는 노드 관리 IP 주소 할당, 클러스터 초기화, 로컬 계층 생성, 프로토콜 구성, 초기 스토리지 프로비저닝을 포함하여 클러스터 설정 및 구성을 위한 간단하고 쉬운 워크플로를 제공합니다.</block>
+  <block id="5543c3a2f910404565380899dc9aea75" category="paragraph">참조하다<block ref="5eda5047b59c9b5f59b3190e510f9d84" category="inline-link-macro-rx"></block> 설정 지침은 여기를 참조하세요.</block>
+  <block id="ea5eb4efceeb5282f0b40d0425e8b38f" category="paragraph">Nexus 3132Q-V 스위치를 처음 설정한 후 참조 구성 파일(RCF)을 설치합니다. 스위치에 기존 RCF 파일 버전이 설치되어 있는 경우 RCF 버전을 업그레이드합니다.</block>
+  <block id="2a917a0a7302e1f65c83202bf07f91ef" category="paragraph">사용 가능한 RCF 구성에 대한 자세한 내용은 다음을 참조하세요.<block ref="11bb90bc5f1c47010095143f71af2df0" category="inline-link-macro-rx"></block> .</block>
+  <block id="195c3c96b4091f1b3af3f3de28e1b6c1" category="paragraph">RCF 설치 또는 RCF 업그레이드 절차를 검토한 후<block ref="843984edd190fa3e3f76595f442f3c54" category="inline-link-macro-rx"></block> 또는<block ref="07fd345659bc842d65f80bec478d43cc" category="inline-link-macro-rx"></block> 필요에 따라.</block>
+  <block id="1baf58b9cdbc82bab1fbe9e031b1814f" category="admonition">RCF 업그레이드 후 10GbE 포트를 온라인으로 전환하는 방법에 대한 단계는 기술 자료 문서를 참조하세요.<block ref="8af1e03135c7f23e3be69339a3c199e2" category="inline-link-macro-rx"></block> .</block>
+  <block id="da99213210f61725fb1f59afca9c4c0a" category="list-text">RCF 버전과 스위치 설정이 올바른지 확인한 후 복사하십시오.<block ref="092a495b03acdb0bf155d8ff2997a8d6" prefix=" " category="inline-code"></block> 파일을<block ref="35b7dd24bfd716b0553d5e558b8afe97" prefix=" " category="inline-code"></block> 파일.</block>
+  <block id="684a4c2862f5fef1f6d28303a5df57cb" category="list-text">스위치 cs1에서 1~19단계를 반복합니다.</block>
+  <block id="2a337cc6f46f4693d67597c0ef1ee846" category="list-text">클러스터 LIF가 홈 포트로 되돌아갔는지 확인하세요.</block>
+  <block id="4762efa89f72255be51c1d0825e428be" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="6fb43cd5c831afd08ed62ea7c301589a" category="inline-link-macro-rx"></block></block>
+  <block id="b909ee9989176f6e840120585c3fea56" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="c8a7fd6048c409f4bb8f849cc3de1f18" category="inline-link-macro-rx"></block></block>
+  <block id="ae93ed58d7575c5c70b27cf4137f8eea" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="76b532b4ae4cf629b8e1a3ede08fd7ff" category="inline-link-macro-rx"></block></block>
+  <block id="d75e350c3cf28f8c449927363dd63c2d" category="summary">클러스터 스위치 상태 모니터(CSHM) 및 로그 수집 기능을 사용하려면 SSH가 필요합니다. Cisco 3232c 클러스터 스위치에서 SSH를 활성화하려면 먼저 SSH 키를 생성한 다음 SSH를 활성화합니다.</block>
+  <block id="ebdf13bb97bf138835dab6c2a993e949" category="paragraph">Nexus 3232C 스위치를 처음 설정한 후 참조 구성 파일(RCF)을 설치합니다.</block>
+  <block id="fe30b32a598525ac96383ad88e17b716" category="list-text">SSH나 직렬 콘솔을 사용하여 Switch cs2에 로그인합니다.</block>
+  <block id="2f406b2bd46b9ba5f6666f06bf5e0963" category="list-text">FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 cs2의 부트플래시에 복사합니다.  Cisco 명령에 대한 자세한 내용은 해당 가이드를 참조하세요.<block ref="f93981dab484b88c422e924c27565997" category="inline-link-rx"></block> .</block>
+  <block id="cb777c10f9fb518790486e5ed5aaa726" category="paragraph">Cisco 명령에 대한 자세한 내용은 해당 가이드를 참조하세요.<block ref="f93981dab484b88c422e924c27565997" category="inline-link-rx"></block> .</block>
+  <block id="7c76693fe3a5440ca33fd1c97c9b7d5f" category="list-text">스위치 cs2를 재부팅하세요:</block>
+  <block id="4024f3f51435c125a23a18c9eb97a8f1" category="list-text">스위치 cs1에서 1~12단계를 반복합니다.</block>
+  <block id="1959becdb9eb2f2b79f8d0f6a1c3dac5" category="section-title">2단계: 스위치 연결 확인</block>
+  <block id="e584e042106b9f2e3cb1bed1028c54ec" category="paragraph">클러스터 LIFS가 홈 포트로 돌아오지 않은 경우 수동으로 되돌리세요.<block ref="fd9372c4352804e1777df0a2cb83a782" prefix=" " category="inline-code"></block></block>
+  <block id="e7d0e521aaef91db12e42096f85621fb" category="paragraph">참조하다<block ref="76a0ad9e6d9605be893ded0930762dd1" category="inline-link-rx"></block> 설정 지침은 여기를 참조하세요.</block>
+  <block id="2412ff6bce69dc4d650edfaf531b0713" category="paragraph">Nexus 3232C 스위치를 처음 설정한 후 참조 구성 파일(RCF)을 설치합니다. 스위치에 기존 RCF 파일 버전이 설치되어 있는 경우 RCF 버전을 업그레이드합니다.</block>
+  <block id="3d2afa4ea8ad3376eaf42149ff603bb8" category="paragraph">사용 가능한 RCF 구성에 대한 자세한 내용은 다음을 참조하세요.<block ref="ae1b7e6502ecb7d7f7a8bedc8a444edf" category="inline-link-macro-rx"></block> .</block>
+  <block id="859e86b59e029b4d8c6d1da0c4315c5b" category="paragraph">RCF 설치 또는 RCF 업그레이드 절차를 검토한 후<block ref="7022ba5e5ec6244ac8d3473bbc8c433f" category="inline-link-macro-rx"></block> 또는<block ref="8a829f0d1f577ca80ad99d80f239a28e" category="inline-link-macro-rx"></block> 필요에 따라.</block>
+  <block id="0030df7a82cb9ead737fc3da5e46570b" category="list-text">스위치 cs2를 재부팅합니다:</block>
+  <block id="8b205e91662e46037aa9052c6d1ff328" category="list-text">FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 cs2의 부트플래시에 복사합니다.  Cisco 명령에 대한 자세한 내용은 해당 가이드를 참조하세요.<block ref="f93981dab484b88c422e924c27565997" category="inline-link-rx"></block> 가이드.</block>
+  <block id="b023bb729025ca88fe6c5be17701fc24" category="paragraph">이전에 스위치에 로드된 RCF 버전에 따라 cs1 스위치 콘솔에서 다음 출력을 볼 수 있습니다. 2020년 11월 17일 16:07:18 cs1 %$ VDC-1 %$ %STP-2-UNBLOCK_CONSIST_PORT: VLAN0092에서 포트 port-channel1 차단 해제.  포트 일관성이 복구되었습니다.  2020년 11월 17일 16:07:23 cs1 %$ VDC-1 %$ %STP-2-BLOCK_PVID_PEER: VLAN0001에서 port-channel1을 차단합니다.  피어 VLAN이 일관되지 않습니다.  2020년 11월 17일 16:07:23 cs1 %$ VDC-1 %$ %STP-2-BLOCK_PVID_LOCAL: VLAN0092에서 port-channel1을 차단합니다.  로컬 VLAN이 일관되지 않습니다.</block>
+  <block id="278a6e8b09deddf22df3bc66e8fde4d6" category="list-text">스위치 cs1에서 4~19단계를 반복합니다.</block>
+  <block id="3ce877113d00b2d2db1bf03284161f16" category="paragraph">당신은 사용할 수 있습니다<block ref="27ef00bd0eeb78214f4636adfe0cfe59" prefix=" " category="inline-code"></block> 클러스터 연결에 대한 접근성 검사를 시작한 다음 세부 정보를 표시하는 명령:<block ref="79ca324fd00eadc332828cf274c18782" prefix=" " category="inline-code"></block> 그리고<block ref="349936611c6519c48a39cbd40f1f907a" prefix=" " category="inline-code"></block></block>
+  <block id="f889f50da345ce88363bb40f1b9c08c7" category="paragraph">모든 ONTAP 릴리스의 경우 다음을 사용할 수도 있습니다.<block ref="7eaac8e45910aa8bf3a06f6966ab0656" prefix=" " category="inline-code"></block> 연결성을 확인하는 명령:<block ref="7eaac8e45910aa8bf3a06f6966ab0656" prefix=" " category="inline-code"></block></block>
+  <block id="56009d4a3551e4cd8dd286aeb3b995b2" category="list-text">스위치 cs2에서 4~18단계를 반복합니다.</block>
+  <block id="ccc0c44906852495d8366985298ade30" category="paragraph"><block ref="8a0cae1eba0d9e7d8585394230633a6a" prefix="" category="inline-code"></block></block>
+  <block id="978b1c1834eeeeb2cd4f5e31b0fcd031" category="paragraph"><block ref="2604b542355ffcabadf719bc679823f5" prefix="" category="inline-code"></block></block>
+  <block id="d3dc05ffb632711e253bcbaf70df3ac1" category="paragraph"><block ref="e5087c379e47889d9cd3b1c58d6a78fc" prefix="" category="inline-code"></block></block>
+  <block id="586d42207828d6f0182104524a563f38" category="paragraph"><block ref="02c3ce8b7cc1fcd04a2b4fdfb66a017a" prefix="" category="inline-code"></block></block>
+  <block id="075ac52ed81c056bfc96abfbf9b92730" category="paragraph">Cisco 명령에 대한 자세한 내용은 해당 가이드를 참조하세요.<block ref="83c120250f1359d2a0f3a51d41516558" category="inline-link-macro-rx"></block> .</block>
+  <block id="cdc07d8ef141a4d566e6de1f333e3f61" category="list-text">스위치 cs2에서 1~19단계를 반복합니다.</block>
+  <block id="6015ba5fcef1f3caa77869608d6c2789" category="sidebar">ONTAP 하드웨어 시스템에 대한 스위치 설명서</block>
+  <block id="3cfca170bb40e17157ca40a91be0fc18" category="sidebar">공유 스위치를 사용하면 두 개 이상의 노드로 ONTAP 클러스터를 구축할 수 있습니다. 이러한 Cisco Nexus 9000 플랫폼 스위치는 NetApp ONTAP 환경에서 확장 가능한 클러스터 상호 연결 솔루션의 기반을 제공합니다.</block>
+  <block id="6540ada8c7e3cfaf34a97a9fc18ba533" category="sidebar">이 사이트의 문서를 사용하여 ONTAP 클러스터 배포를 위한 공유 스위치를 설치, 구성 및 유지 관리하세요.</block>
+  <block id="c69eabfb6733d6d3c9d2ba971bfd15b2" category="sidebar">공유 스위치 설치 및 구성</block>
+  <block id="fe39b20bc3fd9de68b9c56c1555eba44" category="sidebar">9336C-FX2 스위치 하드웨어 설치</block>
+  <block id="292bfbc74faa3c69ea97053b710050e1" category="sidebar">9336C-FX2 스위치 소프트웨어 구성</block>
+  <block id="6d2ac3125800134a281aad252b2e6f7e" category="sidebar">공유 스위치 유지</block>
+  <block id="e3a2407d2baf9ca6f3a0a7a13bf9ab66" category="sidebar">9336C-FX2 스위치 교체</block>
+  <block id="9725b453d47042649c1d30716f06297d" category="sidebar">9336C-FX2 스위치를 공장 기본값으로 재설정</block>
+  <block id="da3536e3f4767ec4860d848c1b36098e" category="sidebar">ONTAP 하드웨어 시스템에 대한 스위치 문서</block>
+  <block id="d0dfe2145063d5d6960f55dcbfb612c8" category="sidebar">설치_업그레이드_rcf</block>
+  <block id="f3b17afc64da773efa83071745456131" category="sidebar">SSH 구성을 확인하세요</block>
 </blocks>

@@ -951,7 +951,7 @@ node1-04          true     true          false
 4 entries were displayed.
 ----
 ====
-. 스위치 cs2에서 4~17단계를 반복합니다.
+. 스위치 cs2에서 4~18단계를 반복합니다.
 . 클러스터 LIF에서 자동 되돌리기 기능을 설정합니다.
 +
 'network interface modify -vserver Cluster-lif * -auto-revert true'
