@@ -534,4 +534,4 @@ exit
 NOTE: 0/49에서 0/54까지의 고속 포트의 경우 각 포트의 주석을 해제하고 각 포트의 RCF에 대해 하나의 * 속도 * 라인만 주석으로 표시합니다. 이 예에서 볼 수 있듯이 * 속도 100G 전이중 * 또는 * 속도 40G 전이중 * 입니다. 17/0/48 사이의 저속 포트의 경우, 적절한 라이센스가 활성화된 경우 전체 8포트 섹션의 설명을 해제하십시오.
 
 .다음 단계
-link:configure-install-rcf.html["RCF(Reference Configuration File) 설치"] 또는 link:upgrade-rcf.html["RCF를 업그레이드한다"].
+라이센스를 설치한 후에는 다음을 수행할 수 있습니다. link:configure-install-rcf.html["참조 구성 파일(RCF) 설치"] 또는 link:upgrade-rcf.html["RCF 업그레이드"].

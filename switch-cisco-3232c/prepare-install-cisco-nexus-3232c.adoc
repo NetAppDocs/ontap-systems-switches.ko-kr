@@ -223,4 +223,4 @@ Cluster
 
 
 .다음 단계
-link:install-nx-os-software-3232c.html["NX-OS 소프트웨어를 설치합니다"] .
+NX-OS 소프트웨어와 RCF를 설치할 준비가 되면 link:install-nx-os-software-3232c.html["NX-OS 소프트웨어 설치"].

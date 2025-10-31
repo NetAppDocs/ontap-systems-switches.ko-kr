@@ -219,4 +219,4 @@ NOTE: 이 단계에서 구성을 저장하지 않으면 다음에 스위치를 �
 
 
 .다음 단계
-link:prepare-install-cisco-nexus-3232c.html["NX-OS 및 RCF 설치 준비"].
+스위치를 구성한 후에는 link:prepare-install-cisco-nexus-3232c.html["NX-OS 및 RCF 설치 준비"].

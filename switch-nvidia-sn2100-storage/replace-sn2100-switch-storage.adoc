@@ -268,4 +268,4 @@ cluster1::*>
 
 
 .다음 단계
-link:../switch-cshm/config-overview.html["스위치 상태 모니터링을 구성합니다"]..
+스위치를 교체한 후에는link:../switch-cshm/config-overview.html["스위치 상태 모니터링 구성"] .

@@ -333,4 +333,4 @@ UP     swp16      100G  9216   BondMember  cs01 (swp16)     Master: cl
 --
 ====
 .다음 단계
-link:install-cable-shelves-sn2100-storage.html["NS224 쉘프를 스위치 연결 스토리지로 케이블로 연결합니다"].
+케이블링 및 구성 요구 사항을 검토한 후 link:install-cable-shelves-sn2100-storage.html["NS224 선반을 스위치 연결 스토리지로 케이블 연결"].

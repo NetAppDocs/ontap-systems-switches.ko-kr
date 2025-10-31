@@ -19,4 +19,4 @@ SN2100 스위치를 구성하려면 NVIDIA 설명서를 참조하십시오.
 
 
 .다음 단계
-link:install-cumulus-mode-sn2100-cluster.html["Cumulus 모드에서 Cumulus Linux를 설치합니다"]또는link:install-onie-mode-sn2100-cluster.html["ONIE 모드에서 Cumulus Linux를 설치합니다"] .
+스위치를 구성한 후에는 link:install-cumulus-mode-sn2100-cluster.html["Cumulus 모드로 Cumulus Linux 설치"] 또는 link:install-onie-mode-sn2100-cluster.html["ONIE 모드로 Cumulus Linux 설치"].

@@ -13,7 +13,7 @@ summary: Cisco Nexus 3132Q-V 클러스터 스위치를 구성하기 전에 구�
 [role="lead"]
 3132Q-V 클러스터 스위치용 하드웨어를 설치하고 구성하려면 다음 단계를 따르세요.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1개"]link:setup_worksheet_3132q.html["케이블링 워크시트를 완성하세요"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1개"]link:setup-worksheet-3132q.html["케이블링 워크시트를 완성하세요"]
 [role="quick-margin-para"]
 샘플 케이블 연결 워크시트는 스위치에서 컨트롤러까지 권장되는 포트 할당의 예를 제공합니다. 빈 워크시트에는 클러스터 설정에 사용할 수 있는 템플릿이 제공됩니다.
 

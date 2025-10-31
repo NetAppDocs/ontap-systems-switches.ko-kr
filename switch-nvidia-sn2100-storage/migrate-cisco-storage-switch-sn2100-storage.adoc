@@ -442,4 +442,4 @@ swp6       100G   Trunk/L2  SHFFG1826000102        e0b
 
 
 .다음 단계
-link:../switch-cshm/config-overview.html["스위치 상태 모니터링을 구성합니다"]..
+스위치를 마이그레이션한 후에는link:../switch-cshm/config-overview.html["스위치 상태 모니터링 구성"] .

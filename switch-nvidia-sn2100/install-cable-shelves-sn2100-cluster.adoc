@@ -24,4 +24,4 @@ https://hwu.netapp.com/["NetApp Hardware Universe를 참조하십시오"^]
 
 
 .다음 단계
-link:configure-sn2100-cluster.html["스위치를 구성합니다"].
+선반에 케이블을 연결한 후 link:configure-sn2100-cluster.html["스위치 구성"].

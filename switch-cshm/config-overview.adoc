@@ -14,5 +14,5 @@ summary: '이더넷 스위치 상태 모니터(CSHM)는 클러스터 및 스토�
 이더넷 스위치 상태 모니터(CSHM)는 클러스터 및 스토리지 네트워크 스위치의 작동 상태를 확인하고 디버깅을 위한 스위치 로그를 수집하는 역할을 담당합니다.
 
 * link:config-log-collection.html["로그 수집을 구성합니다"]
-* link:config-snmpv3.html["선택 사항: SNMPv3을 구성합니다"]
+* link:config-snmpv3.html["SNMPv3 구성(선택 사항)"]
 

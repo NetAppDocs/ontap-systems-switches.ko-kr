@@ -134,4 +134,4 @@ cluster1::> *system switch ethernet show*
 
 
 .다음 단계
-link:../switch-cshm/config-overview.html["스위치 상태 모니터링을 구성합니다"]..
+CSHM 파일을 설치한 후에는 link:../switch-cshm/config-overview.html["스위치 상태 모니터링 구성"].

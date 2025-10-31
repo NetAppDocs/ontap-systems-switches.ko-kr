@@ -291,7 +291,7 @@ NOTE: 새로운 RCF를 업그레이드하거나 적용할 때는 스위치 설�
 +
 `cs2# show run | section "interface mgmt0" >> bootflash:write_erase.cfg`
 
-. RCF 버전 1.12 이상의 경우 다음 명령을 실행하세요.
+. RCF 버전 1.12 이상으로 업그레이드하는 경우 다음 명령을 실행하세요.
 +
 `cs2# echo "hardware access-list tcam region vpc-convergence 256" >> bootflash:write_erase.cfg`
 

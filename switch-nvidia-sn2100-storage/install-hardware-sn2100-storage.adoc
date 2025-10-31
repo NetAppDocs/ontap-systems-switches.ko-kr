@@ -19,4 +19,4 @@ SN2100 하드웨어를 설치하려면 NVIDIA 설명서를 참조하십시오.
 
 
 .다음 단계
-link:cabling-considerations-sn2100-storage.html["케이블 연결 및 구성을 검토합니다"] .
+하드웨어를 설치한 후에는 link:cabling-considerations-sn2100-storage.html["케이블링 및 구성 검토"] 요구사항.

@@ -19,7 +19,7 @@ entries:
   - title: 하드웨어 설치 워크플로
     url: "/switch-cisco-3132q-v/install-hardware-workflow.html"
   - title: 케이블 연결 워크시트를 작성합니다
-    url: "/switch-cisco-3132q-v/setup_worksheet_3132q.html"
+    url: "/switch-cisco-3132q-v/setup-worksheet-3132q.html"
   - title: 스위치를 장착하십시오
     url: "/switch-cisco-3132q-v/install-switch-3132qv.html"
   - title: NetApp 캐비닛에 스위치 설치
@@ -33,6 +33,8 @@ entries:
     url: "/switch-cisco-3132q-v/configure-software-overview-3132q-v-cluster.html"
   - title: 스위치를 구성합니다
     url: "/switch-cisco-3132q-v/setup-switch.html"
+  - title: NX-OS 소프트웨어 및 RCF 설치 준비
+    url: "/switch-cisco-3132q-v/prepare-install-cisco-nexus-3132q.html"
   - title: NX-OS 소프트웨어를 설치합니다
     url: "/switch-cisco-3132q-v/install-nx-os-software-3132q-v.html"
   - title: RCF를 설치하거나 업그레이드합니다

@@ -689,4 +689,4 @@ cluster1::*>
 
 
 .다음 단계
-link:install-rcf-3232c.html["RCF 구성 파일을 설치합니다"]..
+NX-OS 소프트웨어를 설치한 후에는 link:install-upgrade-rcf-overview-3232c.html["참조 구성 파일(RCF) 설치 또는 업그레이드"].

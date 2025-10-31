@@ -351,4 +351,4 @@ cumulus@cumulus:mgmt:~$ *sudo adduser admin nvshow*
 --
 ====
 .다음 단계
-link:install-rcf-sn2100-cluster.html["RCF(Reference Configuration File) 스크립트를 설치합니다"].
+ONIE 모드에서 Cumulus Linux를 설치한 후 link:install-rcf-sn2100-cluster.html["참조 구성 파일(RCF) 스크립트 설치"].

@@ -19,4 +19,4 @@ BES-53248 하드웨어를 설치하려면 Broadcom 설명서를 참조하십시�
 
 
 .다음 단계
-link:cabling-considerations-bes-53248.html["케이블 연결 및 구성을 검토합니다"] .
+스위치용 하드웨어를 설치한 후에는 다음을 수행할 수 있습니다. link:cabling-considerations-bes53248.html["케이블링 및 구성 검토"] 요구사항.
