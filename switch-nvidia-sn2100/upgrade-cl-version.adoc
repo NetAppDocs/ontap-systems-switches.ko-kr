@@ -672,4 +672,4 @@ unreachable default metric 4278198272
 --
 ====
 .다음 단계
-Cumulus Linux 버전을 업그레이드한 후에는 link:install-rcf-sn2100-cluster.html["RCF 스크립트를 설치하거나 업그레이드합니다."].
+Cumulus Linux 버전을 업그레이드한 후에는 다음을 수행할 수 있습니다.link:install-rcf-sn2100-cluster.html["RCF 스크립트를 설치하거나 업그레이드합니다."] .

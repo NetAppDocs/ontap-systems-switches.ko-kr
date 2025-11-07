@@ -96,7 +96,7 @@ NVIDIA 이더넷 스위치에서 이더넷 스위치 상태 모니터링을 구�
 +
 [listing, subs="+quotes"]
 ----
-cluster1::> *system switch ethernet*
+cluster1::> *system switch ethernet configure-health-monitor*
 ----
 . 명령 출력이 ONTAP 버전에 대한 다음 텍스트로 끝나는지 확인합니다.
 
@@ -122,11 +122,11 @@ CSHM 다운로드 패키지가 성공적으로 처리되었습니다.
 오류가 발생하면 NetApp 지원 팀에 문의하십시오.
 
 . [[step6]] 다음 단계를 완료하기 전에 를 실행하여 찾은 이더넷 스위치 상태 모니터 폴링 간격을 최대 2배까지 기다립니다 `system switch ethernet polling-interval show`.
-. ONTAP 시스템에서 명령을 `system switch ethernet show` 실행하고 모니터링되는 필드가 * True * 로 설정되어 있고 일련 번호 필드가 * Unknown * 으로 표시되지 않는 상태에서 클러스터 스위치가 검색되는지 확인합니다.
+. 명령을 실행하세요 `system switch ethernet configure-health-monitor show` ONTAP 시스템에서 클러스터 스위치가 모니터링 필드가 *True*로 설정되어 있고 일련 번호 필드에 *Unknown*이 표시되지 않는지 확인합니다.
 +
 [listing, subs="+quotes"]
 ----
-cluster1::> *system switch ethernet show*
+cluster1::> *system switch ethernet configure-health-monitor show*
 ----
 
 
@@ -136,4 +136,4 @@ NOTE: 구성 파일을 적용한 후에도 모델에 * 기타 * 가 계속 표�
 를 참조하십시오 https://docs.netapp.com/us-en/ontap-cli/system-switch-ethernet-configure-health-monitor.html["시스템 스위치 이더넷 구성-상태-모니터"^] 자세한 내용은 명령을 참조하세요.
 
 .다음 단계
-CSHM 파일을 설치한 후에는 link:../switch-cshm/config-overview.html["스위치 상태 모니터링 구성"].
+CSHM 파일을 설치한 후에는 다음을 수행할 수 있습니다.link:../switch-cshm/config-overview.html["스위치 상태 모니터링 구성"] .

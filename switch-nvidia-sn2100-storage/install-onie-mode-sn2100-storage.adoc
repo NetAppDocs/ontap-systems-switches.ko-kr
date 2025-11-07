@@ -140,4 +140,4 @@ DISTRIB_DESCRIPTION=*"Cumulus Linux 4.4.3”*
 
 
 .다음 단계
-ONIE 모드에서 Cumulus Linux를 설치한 후 link:install-rcf-sn2100-storage.html["RCF 스크립트를 설치하거나 업그레이드합니다."].
+ONIE 모드에서 Cumulus Linux를 설치한 후에는 다음을 수행할 수 있습니다.link:install-rcf-sn2100-storage.html["RCF 스크립트를 설치하거나 업그레이드합니다."] .

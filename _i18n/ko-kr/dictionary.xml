@@ -4022,7 +4022,6 @@
   <block id="74d14036e96594d67869316b84c6d566" category="paragraph">CSHM 다운로드 패키지가 성공적으로 처리되었습니다.</block>
   <block id="89c6b3e5f896b8d329ae4e4fe91cc812" category="paragraph">오류가 발생하면 NetApp 지원 팀에 문의하십시오.</block>
   <block id="a6fd16052b19595c024aa4e5bcb0b366" category="list-text">[[step6]] 다음 단계를 완료하기 전에 를 실행하여 찾은 이더넷 스위치 상태 모니터 폴링 간격을 최대 2배까지 기다립니다<block ref="c9e6cd6140c9d8677df821c7cce2aac1" prefix=" " category="inline-code"></block>.</block>
-  <block id="c947c5faccdddd0a9a87be7895f50511" category="list-text">ONTAP 시스템에서 명령을<block ref="db3929a8e897b02a87f7f4bc42f38fc1" prefix=" " category="inline-code"></block> 실행하고 모니터링되는 필드가 * True * 로 설정되어 있고 일련 번호 필드가 * Unknown * 으로 표시되지 않는 상태에서 클러스터 스위치가 검색되는지 확인합니다.</block>
   <block id="31c020d11cc321faf9c0793a662d1e53" category="list-text">스위치 CS2를 재부팅합니다. 스위치가 재부팅되고 오류 출력이 발생하는 동안 노드에 보고된 "클러스터 포트 다운" 이벤트를 모두 무시할 수<block ref="a9e34a08c2be7359540cbf7337dc5ce9" prefix=" " category="inline-code"></block> 있습니다.</block>
   <block id="db82c22b5434946b4bc226a3b9b7888a" category="list-text">동일한 RCF를 적용하고 실행 중인 구성을 다시 저장합니다. RCF는 QoS를 사용하며 스위치 사이에 재부팅된 상태에서 RCF를 두 번 로드하는 TCAM을 다시 구성해야 하기 때문에 이 작업이 필요합니다.</block>
   <block id="c7ca49e9f550dc9b18f2402f13ad9430" category="list-text">[[step5]] 자동 케이스 생성을 억제한 경우 AutoSupport 메시지를 호출하여 다시 활성화합니다.<block ref="9ac424c0d7b432975df36a19daf50c9c" prefix=" " category="inline-code"></block></block>
@@ -4665,8 +4664,6 @@
   <block id="bcf1c9a6a953488392920f911a4c6e27" category="paragraph">다음 표에는 9336C-FX2 및 9336C-FX2-T 저장 장치 스위치, 팬 및 전원 공급 장치에 대한 부품 번호와 설명이 나와 있습니다.</block>
   <block id="6aea76bb63b89b76edb29df0b9ec6a5c" category="paragraph">Cisco Nexus 9336C-FX-T 스토리지 스위치에서 12개 이상의 포트를 활성화하려면 Cisco Smart 라이센스를 구매해야 합니다. Cisco Smart 라이센스는 Cisco Smart 계정을 통해 관리됩니다.</block>
   <block id="0da3cc28f42ccf09143f2cd285547a2a" category="doc">NX-OS 소프트웨어 및 RCF의 설치 또는 업그레이드를 준비합니다</block>
-  <block id="7246a16d8a655c05a2c1f478efbf9e66" category="inline-link-macro">RCF를 설치하거나 업그레이드합니다</block>
-  <block id="c41f329c2fc325ce101685a7ff1c2b6c" category="doc">참조 구성 파일을 설치하거나 업그레이드합니다</block>
   <block id="78fdfe1b105d9f6ad1f515d29394fcd3" category="paragraph">11~36세</block>
   <block id="20eed5f0dc87e5058308718e45381220" category="paragraph">11 ~ 36</block>
   <block id="000bf48a29e422b515b1396c1aac3f2c" category="paragraph">빈 케이블 연결 워크시트를 사용하여 클러스터에서 노드로 지원되는 플랫폼을 문서화할 수 있습니다.</block>
@@ -4937,7 +4934,6 @@
   <block id="1130d64161a0e7dd5dc134ca8eeed3bc" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="c49772a60328b39d671da109a076acd4" category="inline-link-macro-rx"></block></block>
   <block id="2cb440b90b3a2604826ca6513ffc0e42" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="cc92556d54e7bbc14c83aad61946e82d" category="inline-link-macro-rx"></block></block>
   <block id="96c0f9b9f35ec112769fb42b69304b92" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="6dc839faa17719bf6b40745660551f1b" category="inline-link-macro-rx"></block></block>
-  <block id="102c54c666c08f4173fa519e6ff129bc" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="7c940c5373653de732f444e5b7d2c3dd" category="inline-link-macro-rx"></block></block>
   <block id="1b3b19f43be6e28ee8c396fbe7b03fbc" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="aaff47cc4c157f05f1c45463332a8bad" category="inline-link-macro-rx"></block></block>
   <block id="afa756f05eda52021550fbc6716553fa" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="77ca0bf349d1638c9c1dd8a9b3a241bc" category="inline-link-macro-rx"></block></block>
   <block id="d815e2d84c80deace1c71e359ea4539c" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="892235a4ff1b7daae2f665bdf48836dc" category="inline-link-macro-rx"></block></block>
@@ -5089,7 +5085,6 @@
   <block id="7411e9f163d9baab36b5ebc3f80bda73" category="admonition">하는 동안<block ref="8a444a43bdf534c0c6338bb7809659b3" prefix=" " category="inline-code"></block> 예시에서는 SFTP, HTTPS 또는 FTP 등 원하는 파일 전송 방법을 사용할 수 있습니다.</block>
   <block id="5b9b8dea15de063806f0306fe78872c8" category="admonition">하지만<block ref="8a444a43bdf534c0c6338bb7809659b3" prefix=" " category="inline-code"></block> 예시에서는 SFTP, HTTPS 또는 FTP 등 원하는 파일 전송 방법을 사용할 수 있습니다.</block>
   <block id="00a850fef80958a3c902c0d0b0fc20c4" category="inline-link-macro">스위치 상태 모니터링 구성</block>
-  <block id="07c675c656e29cd460e1d99b7aa706f4" category="paragraph">스위치를 마이그레이션한 후에는<block ref="9c3be868eca09e30ec03c7542e485ba6" category="inline-link-macro-rx"></block> .</block>
   <block id="549a122380830b4e1927b9e610dcece8" category="paragraph">Smart Call Home은 네트워크의 하드웨어 및 소프트웨어 구성 요소를 모니터링합니다. 중요한 시스템 구성이 발생하면 이메일 기반 알림이 생성되고 대상 프로필에 구성된 모든 수신자에게 경고가 발생합니다.</block>
   <block id="28fb65da5b2eab881647ad7ac77194d0" category="paragraph"><block ref="a037a4ee5864384f65ede6ae904e9f62" prefix="" category="inline-code"></block></block>
   <block id="28e93aa1782799e707ae36e6a9e56495" category="paragraph"><block ref="55f80a7437b0e7a7a6b41469ac913031" prefix="" category="inline-code"></block></block>
@@ -5103,7 +5098,6 @@
   <block id="130f8f76dcd11a71af2a6e35ecfdb42f" category="paragraph">9336C-FX2 및 9336C-FX2-T 스위치에서는 스위치에서 사용하는 구성에서 구성된 TCAM(Ternary Content Addressable Memory) 리소스가 모두 소진되었습니다.</block>
   <block id="910722336d2dd2b53c967a5f53c7de18" category="section-title">9336C-FX2-T 포트에만 적용되는 Cisco Smart 라이선스</block>
   <block id="b50aca116f0bd723f5c38d48f51c2ab0" category="inline-link-macro">필수 서류</block>
-  <block id="e5cb7ccaa2366df9a6c6ca888569dc95" category="paragraph">구성 요소와 부품 번호를 확인한 후 다음을 검토합니다.<block ref="59e15a623229fb37fc5dda6561b10061" category="inline-link-macro-rx"></block> .</block>
   <block id="85fda41aaa9ea1a4147e242ab3ed56a9" category="doc">Cisco Nexus 9336C-FX2 및 9336C-FX2-T 클러스터 스위치에 대한 구성 요구 사항</block>
   <block id="e80c428a7eea6075f03255c9ec326bc8" category="paragraph">Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스위치 설치 및 유지 관리를 위해서는 구성 및 네트워크 요구 사항을 검토하세요.</block>
   <block id="da0a7deaa793fc61622c871d3afe9a2d" category="open-title">ONTAP 9.10.1 이상</block>
@@ -5130,7 +5124,6 @@
   <block id="1b2cbf1d5cdfcc9cbb6b5b9f86d59665" category="paragraph">9336C-FX2 및 9336C-FX2-T 스위치를 설치합니다.</block>
   <block id="5c45a309af117bf72296ab3073d25c28" category="paragraph">필요에 따라 NetApp 캐비닛에 9336C-FX2 및 9336C-FX2-T 스위치와 패스스루 패널을 설치합니다.</block>
   <block id="51a2ed9bde6e6aaf9d7c536fcfb97d05" category="inline-link-macro">NX-OS 소프트웨어를 설치하거나 업그레이드하세요</block>
-  <block id="9a902e7f4742e91939e7f89660ba44b7" category="paragraph">NX-OS 소프트웨어와 RCF를 설치할 준비가 되면<block ref="af60ba4b6c39eb7f1655b798abad8e11" category="inline-link-macro-rx"></block> .</block>
   <block id="9eb0d2dee744ca5726b57d78636445af" category="paragraph">Nexus 9336C-FX2 및 9336C-FX2-T 클러스터 스위치에 NX-OS 소프트웨어를 설치하거나 업그레이드하려면 다음 절차를 따르세요.</block>
   <block id="4d5cc1717a6d575674caf1667d7cd847" category="inline-link-macro">참조 구성 파일(RCF) 설치 또는 업그레이드</block>
   <block id="ad599980e8b337c42970271e9b84f0ee" category="paragraph">NX-OS 소프트웨어를 설치하거나 업그레이드한 후에는<block ref="d510068a163bd661380221025541f5da" category="inline-link-macro-rx"></block> .</block>
@@ -5146,11 +5139,9 @@
   <block id="86e063f9cb7c5f3f2a96d0eadcc62744" category="paragraph">두 개의 9336C-FX2와 9336C-FX2-T 스위치는 항상 캐비닛 RU41과 42의 상단 2U에 장착됩니다.</block>
   <block id="7e2d17623d3c5b661d8a503fb0b8140e" category="list-text">각 9336C-FX2 및 9336C-FX2-T 스위치의 관리 포트를 관리 스위치(주문한 경우)에 연결하거나 관리 네트워크에 직접 연결합니다.</block>
   <block id="11e38055fe460ee1b1086763cf1cd15b" category="inline-link-macro">Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스위치 구성</block>
-  <block id="875716c453b187736ba6daf886734549" category="paragraph">NetApp 캐비닛에 스위치를 설치한 후<block ref="04831059e32b83b4a29d50c410dcfb7a" category="inline-link-macro-rx"></block> .</block>
   <block id="3770b71681be5f01527157fd0dc50b61" category="paragraph">Nexus 9336C-FX2 및 9336C-FX2-T 스위치를 처음 설정한 후 참조 구성 파일(RCF)을 설치합니다. 스위치에 기존 RCF 파일 버전이 설치되어 있는 경우 RCF 버전을 업그레이드합니다.</block>
   <block id="eebaf4fed546b3a0992a87fde29aa8eb" category="inline-link-macro">RCF를 설치하다</block>
   <block id="a5f34389dd818124e9902ca190b9a24e" category="inline-link-macro">RCF를 업그레이드하세요</block>
-  <block id="4463dfd36adae473f01c4ccdf8c64bf3" category="paragraph">RCF 설치 또는 RCF 업그레이드 절차를 검토한 후<block ref="657b0126c63dca332f6eb2a1abd407b9" category="inline-link-macro-rx"></block> 또는<block ref="a2077d156a5f79cc9b42ae5ebd286488" category="inline-link-macro-rx"></block> 필요에 따라.</block>
   <block id="3a6d24a4a4d0d823eee73a6ee98e03ec" category="doc">NetApp CN1610 클러스터 스위치에서 Cisco 9336C-FX2 및 9336C-FX2-T 클러스터 스위치로 마이그레이션</block>
   <block id="8f14575a7f194822de8634bcb415b980" category="paragraph">ONTAP 클러스터용 NetApp CN1610 클러스터 스위치를 Cisco 9336C-FX2 및 9336C-FX2-T 클러스터 스위치로 마이그레이션할 수 있습니다. 이것은 방해가 되지 않는 절차입니다.</block>
   <block id="274eb7afa7e488f3bc565f66031b6e27" category="paragraph">NetApp CN1610 클러스터 스위치를 Cisco 9336C-FX2 및 9336C-FX2-T 클러스터 스위치로 교체하는 경우 특정 구성 정보, 포트 연결 및 케이블 요구 사항을 알고 있어야 합니다. 올바른 스위치가 마이그레이션되었는지 확인하려면 스위치 일련 번호도 확인해야 합니다.</block>
@@ -5160,7 +5151,6 @@
   <block id="536dc42692ad46fdf34e9088089ba498" category="list-text">노드에서 Cisco 9336C-FX2 및 9336C-FX2-T 클러스터 스위치로 40GbE 및 100GbE 연결을 계획, 마이그레이션 및 문서화했습니다.</block>
   <block id="30f44adb252ce4b9244da29072afe599" category="list-text">Cisco 9336C-FX2 및 9336C-FX2-T에서 지원하는 적절한 케이블을 사용하여 노드 클러스터 포트를 이전 스위치 C2에서 새 스위치 cs2로 이동합니다.</block>
   <block id="3d689abfa62a3dafb7db6a7d255491eb" category="list-text">Cisco 9336C-FX2 및 9336C-FX2-T에서 지원하는 적절한 케이블을 사용하여 노드 클러스터 포트를 이전 스위치 C1에서 새 스위치 cs1로 이동합니다.</block>
-  <block id="5607369fa249db572762bd8da8119d88" category="paragraph">스위치를 마이그레이션한 후에는<block ref="9c3be868eca09e30ec03c7542e485ba6" category="inline-link-macro-rx"></block> .</block>
   <block id="44062246be6e5585fa8092a371375894" category="paragraph">기존의 2노드 _스위치리스_ 클러스터 환경이 있는 경우 Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스위치를 사용하여 2노드 _스위치_ 클러스터 환경으로 마이그레이션할 수 있습니다.</block>
   <block id="e275ddb46a068c9b5b18e40afa41bb49" category="doc">이전 Cisco 스위치에서 Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스위치로 마이그레이션</block>
   <block id="8dd5a454f9a20a1b095f4f408856ede3" category="paragraph">기존 Cisco 클러스터 스위치에서 Cisco Nexus 9336C-FX2 및 9336C-FX2-T 클러스터 네트워크 스위치로 중단 없는 마이그레이션을 수행할 수 있습니다.</block>
@@ -5177,11 +5167,8 @@
   <block id="dae8311507e70973aef15b74d2c49647" category="doc">9336C-FX2 및 9336C-FX2-T 클러스터 스위치 구성</block>
   <block id="3f5be581cc9dcc706d1626ae6d69f859" category="paragraph">Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스위치를 구성하려면 다음 절차를 따르세요.</block>
   <block id="fa115eaa6bb67b1f30145b50e2909494" category="inline-link-macro">NX-OS 소프트웨어와 RCF 설치를 준비합니다</block>
-  <block id="56de77ab5cc67b75b4ee729281c45085" category="paragraph">스위치를 구성한 후에는<block ref="fc9a049c460091b99cacecbc6842e0d4" category="inline-link-macro-rx"></block> .</block>
   <block id="659074b8bec9aa34a34060887c630758" category="inline-link-macro">스위치를 설치하다</block>
-  <block id="9ef15c24896a81d852e0ec927d07b576" category="paragraph">케이블 작업지를 완성한 후에는<block ref="a4d08a22d117d50c4f6f41bb907b902c" category="inline-link-macro-rx"></block> .</block>
   <block id="7c5d661f478455e8b4969c0db6fe980b" category="paragraph">RCF를 업그레이드한 후에는<block ref="9c2eadd0cc07686b4a17c38ca62f4a4c" category="inline-link-macro-rx"></block> .</block>
-  <block id="b5091eb9e945ba6ef5067dde084633c9" category="paragraph">구성 요소와 부품 번호를 확인한 후 다음을 검토하십시오.<block ref="c9c7b33eb7ecfb82310ed8ccd1b741e8" category="inline-link-macro-rx"></block> .</block>
   <block id="f7b54db8bb1edb66d9e7729b369d5cba" category="doc">Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스토리지 스위치에 대한 구성 요구 사항</block>
   <block id="802eabd8abd0754593f6d0b63c7c7415" category="paragraph">Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스위치 설치 및 유지관리를 위해서는 구성 및 네트워크 요구 사항을 검토하세요.</block>
   <block id="b7abf5be3f262d14e6b24c3da10f12bf" category="paragraph">구성 요구 사항을 검토한 후 다음을 확인할 수 있습니다.<block ref="956f80516b807d0f1eb3f339d37ac1f0" category="inline-link-macro-rx"></block> .</block>
@@ -5205,14 +5192,10 @@
   <block id="3c0c80bf32bba937eaca13c19214d19e" category="paragraph">9336C-FX2 및 9336C-FX2-T 스토리지 스위치용 하드웨어를 설치하고 구성하려면 다음 단계를 따르세요.</block>
   <block id="5f1b2b82356028cd84a1fef439b79336" category="paragraph">9336C-FX2 및 9336C-FX2-T 스토리지 스위치를 설치합니다.</block>
   <block id="0aece77864e401ea696f4af5f4c2400c" category="paragraph">필요에 따라 NetApp 캐비닛에 9336C-FX2 및 9336C-FX2-T 스위치와 패스스루 패널을 설치합니다.</block>
-  <block id="cb080d5089a28a8e356d2f35d216d871" category="paragraph">NX-OS 소프트웨어와 RCF를 설치할 준비가 되면<block ref="3344c060e83f2395d70c5fc1776e5497" category="inline-link-macro-rx"></block> .</block>
   <block id="0399e2e67ad24e3896fc54df77685320" category="paragraph">Nexus 9336C-FX2 및 9336C-FX2-T 스위치에 NX-OS 소프트웨어를 설치하려면 다음 절차를 따르세요.</block>
   <block id="f0cf67e2ac311b9ab91b420f0644cb83" category="inline-link-macro">RCF 설치 또는 업그레이드</block>
-  <block id="2f4c165bed0d1ff46749148ff938a80b" category="paragraph">NX-OS 소프트웨어를 설치하거나 업그레이드한 후에는<block ref="7ffcba0482753b1f6ae93308b4e57219" category="inline-link-macro-rx"></block> .</block>
   <block id="a4af8e244603f507e79d0e5e42756fd0" category="paragraph">Nexus 9336C-FX2 및 9336C-FX2-T 스토리지 스위치를 처음 설정한 후 참조 구성 파일(RCF)을 설치합니다.</block>
-  <block id="96299a3365c60d52212f4e4279da5d71" category="paragraph">RCF를 설치하거나 업그레이드한 후에는<block ref="9c2eadd0cc07686b4a17c38ca62f4a4c" category="inline-link-macro-rx"></block></block>
   <block id="4bdf8c06f6f7a17fdeee480cd24906a4" category="paragraph">구성에 따라 NetApp 캐비닛에 Cisco Nexus 9336C-FX2 9336C-FX2-T 스위치와 패스스루 패널을 설치해야 할 수도 있습니다. 스위치에는 표준 브라켓이 포함되어 있습니다.</block>
-  <block id="7ebdc9bd3d41414c92b63bf64adce4d5" category="paragraph">NetApp 캐비닛에 스위치를 설치한 후<block ref="cd8ba9a916eba0640468a7d563330303" category="inline-link-macro-rx"></block> .</block>
   <block id="daba0abed2f861ff72b586dd0bd226bf" category="paragraph">ONTAP 클러스터의 기존 Cisco 스위치를 Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스토리지 네트워크 스위치로 마이그레이션할 수 있습니다. 이는 방해가 되지 않는 절차입니다.</block>
   <block id="2f5712748f2dc83192b39344c5cb8cfb" category="doc">Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스토리지 스위치 교체</block>
   <block id="c07faefbb9a5cb11d7945e0d6dfc660a" category="paragraph">클러스터 네트워크에서 결함이 있는 Nexus 9336C-FX2 및 9336C-FX2-T 스위치를 교체할 수 있습니다. 이것은 방해가 되지 않는 절차입니다.</block>
@@ -5223,8 +5206,6 @@
   <block id="f29eb20a17171f9da2762c9003af3a0c" category="doc">9336C-FX2 및 9336C-FX2-T 스토리지 스위치를 공장 기본값으로 재설정합니다.</block>
   <block id="37ad66f3b8723f9e7bd118d6a030dfbd" category="paragraph">9336C-FX2 및 9336C-FX2-T 스토리지 스위치를 공장 기본값으로 재설정하려면 9336C-FX2 및 9336C-FX2-T 스위치 설정을 지워야 합니다.</block>
   <block id="6a5127ae1421c6eadaa6d46f2df70ef6" category="doc">9336C-FX2 및 9336C-FX2-T 스토리지 스위치 구성</block>
-  <block id="bb1f78fc1f8bcd4ab502b4f5c6fcdea1" category="paragraph">스위치를 구성한 후에는<block ref="48457dceaecddf3406f5c3a0ab2cf67e" category="inline-link-macro-rx"></block> .</block>
-  <block id="8874a79dc54d118d630ce595ac682392" category="paragraph">케이블 작업지를 완성한 후에는<block ref="d9d3d8dae0a36eea938e144b4f81717e" category="inline-link-macro-rx"></block> .</block>
   <block id="fb17b612fdcb19e9fe42f0afa4b960d0" category="admonition">실행하기 전에 몇 초 동안 기다리십시오.<block ref="a7dd12b1dab17d25467b0b0a4c8d4a92" prefix=" " category="inline-code"></block> 세부 정보를 표시하는 명령입니다.</block>
   <block id="0862ad0f7776942c99ebd5bb91f3dbe1" category="paragraph">스위치가 명령 출력에 나열되지 않으면 ONTAP 해당 스위치를 발견하지 못했을 가능성이 높습니다.  스위치 케이블이 올바르게 연결되었는지 확인하세요.  필요한 경우 스위치를 수동으로 추가할 수 있습니다. <block ref="ba1ca38a0bc63ade7c865d33bc05e53b" category="inline-link-macro-rx"></block> 자세한 내용은.</block>
   <block id="6e34d959a466433c3adb0cd3d9eb0150" category="list-text"><block ref="6e34d959a466433c3adb0cd3d9eb0150" category="inline-link-macro-rx"></block></block>
@@ -5792,9 +5773,7 @@
   <block id="88fdc99e69a743a1eb164994c319127b" category="paragraph">스위치를 구성한 후에는 <block ref="cd06af6a9a8fb3236be1b579437fb58f" category="inline-link-macro-rx"></block>.</block>
   <block id="b23946ab85420318ad29297bc09065d0" category="paragraph">케이블 작업지를 완성한 후에는 <block ref="158345103486debcc0cfc10501f464f8" category="inline-link-macro-rx"></block>.</block>
   <block id="1fc28573c4253eea534a9b0a7346c2ae" category="paragraph">케이블링 워크시트를 완료한 후에는 다음을 수행할 수 있습니다. <block ref="4952d250d292a65a90c0bebba6014799" category="inline-link-macro-rx"></block>.</block>
-  <block id="1ef6eed0ebf9cc7427083a8bd2e14d4b" category="paragraph">구성 요소와 부품 번호를 확인한 후 다음을 검토합니다. <block ref="df0358fd02066e7e9ccbaff4c1a048a5" category="inline-link-macro-rx"></block>.</block>
   <block id="3c7137666241068803662df69a2b396f" category="paragraph">구성 요구 사항을 검토한 후 다음을 확인할 수 있습니다. <block ref="7f669d24d9aef19198d4056386b39684" category="inline-link-macro-rx"></block>.</block>
-  <block id="fe8431277c54167a72c8b61fe4a00ac3" category="paragraph">RCF를 설치한 후에는 다음을 수행할 수 있습니다. <block ref="5b8b393a675dcaaee97c02828356657c" category="inline-link-macro-rx"></block>.</block>
   <block id="fe7ed7c52d6e6e2009c6cf35bf3fe240" category="paragraph">NX-OS 소프트웨어를 설치한 후에는 다음을 수행할 수 있습니다. <block ref="081d00f96e1fa5769dbf06cd540488d3" category="inline-link-macro-rx"></block>.</block>
   <block id="0753226c968a573c0f0e13bee0aef3d8" category="paragraph">NX-OS 소프트웨어와 RCF를 설치할 준비가 되면 다음을 수행할 수 있습니다. <block ref="9b6aa2dad0d0afce300d884800fc9c37" category="inline-link-macro-rx"></block>.</block>
   <block id="b843d161450c20e0071c16a2c9d56952" category="paragraph">스위치를 구성한 후에는 다음을 수행할 수 있습니다. <block ref="746057c05111c8d98d05f7c2aa1f8967" category="inline-link-macro-rx"></block>.</block>
@@ -5802,28 +5781,66 @@
   <block id="a294afff18b68f8c1e4f78aeef5ef294" category="list-text"><block ref="a294afff18b68f8c1e4f78aeef5ef294" category="inline-link-macro-rx"></block></block>
   <block id="62f22218ea7fb3cf6669cdfdb6c908e0" category="doc">스위치에 SNMPv3 구성(선택 사항)</block>
   <block id="f8f4eb0f97707e7f8ebb995321498794" category="inline-link-macro">NS224 선반을 스위치 연결 스토리지로 케이블 연결</block>
-  <block id="ff22d5f888f5a0913f853ce7392a315e" category="paragraph">케이블링 및 구성 요구 사항을 검토한 후 <block ref="9b56153f8288ea213a61283aa51d0b66" category="inline-link-macro-rx"></block>.</block>
-  <block id="21d99f2d550020c5a0b4816423b48ba6" category="paragraph">구성 요소와 부품 번호를 확인한 후 다음을 검토합니다. <block ref="49a5e49bddaeabf84f2ee5cfa4f2c2f8" category="inline-link-macro-rx"></block>.</block>
   <block id="e078b89c94c4240cd6dab3e59e8b1f98" category="paragraph">구성 요구 사항을 검토한 후 다음을 확인할 수 있습니다. <block ref="73d4a57b8c77c4dbdae06c6c07cd9dcc" category="inline-link-macro-rx"></block>.</block>
   <block id="732e3e82bec2d756529a769494dc70f8" category="inline-link-macro">Cumulus 모드로 Cumulus Linux 설치</block>
   <block id="8043ee61c7f7379917235c3269fed7c9" category="inline-link-macro">ONIE 모드로 Cumulus Linux 설치</block>
-  <block id="88e5314f302655cbcf7f227e92429626" category="paragraph">스위치를 구성한 후에는 <block ref="abc8e2fb5cb0373d7006d768e8dc0bfd" category="inline-link-macro-rx"></block> 또는 <block ref="28a30a7b340666b28d9a4222e714aaf7" category="inline-link-macro-rx"></block>.</block>
-  <block id="255f37e0f64c267cbe1845aba29c7c7c" category="paragraph">선반에 케이블을 연결한 후 <block ref="a5a547b7e695aa3612b72d881f169519" category="inline-link-macro-rx"></block>.</block>
   <block id="81f5064b20459a10b0a452ae24733718" category="inline-link-macro">참조 구성 파일(RCF) 스크립트 설치</block>
   <block id="ed3b40beeb91dc0a99c4580cb378b4b6" category="paragraph">Cumulus 모드로 Cumulus Linux를 설치한 후 <block ref="83ca9f457d58548616bdf5d734a73df4" category="inline-link-macro-rx"></block>.</block>
-  <block id="482ccd1106eaba7536fd24593f4e76f2" category="paragraph">하드웨어를 설치한 후에는 <block ref="b80562321e7105a297052828d3712cf7" category="inline-link-macro-rx"></block> 요구사항.</block>
-  <block id="81b9a3178dc726848b0b45d04848ad99" category="paragraph">ONIE 모드에서 Cumulus Linux를 설치한 후 <block ref="83ca9f457d58548616bdf5d734a73df4" category="inline-link-macro-rx"></block>.</block>
   <block id="86a6c0bf628510e354b0911c128a4e0e" category="inline-link-macro">CSHM 파일을 설치하세요</block>
-  <block id="4976123a345a946ae994590aa9c2dfa3" category="paragraph">RCF를 설치한 후에는 <block ref="f3791ff783629f66fe5f05b40418ed92" category="inline-link-macro-rx"></block>.</block>
-  <block id="ff10673c2cf2dcff4a056995095cf432" category="paragraph">CSHM 파일을 설치한 후에는 <block ref="9c3be868eca09e30ec03c7542e485ba6" category="inline-link-macro-rx"></block>.</block>
   <block id="2c2eb6e2450884003d431faa5248647a" category="inline-link-macro">RCF 스크립트를 설치하거나 업그레이드합니다.</block>
-  <block id="800f95ad6373c68fc216bece87093f65" category="paragraph">Cumulus Linux 버전을 업그레이드한 후에는 <block ref="ac720c45794c201b5f80c4938224f8dc" category="inline-link-macro-rx"></block>.</block>
-  <block id="548165e58dfad6461a9166d5091e701e" category="paragraph">케이블링 및 구성 요구 사항을 검토한 후 <block ref="75b216e283a24f30a49086565a4dd379" category="inline-link-macro-rx"></block>.</block>
-  <block id="3755fc7d8677ebe8f5018b192d76ecee" category="paragraph">구성 요소와 부품 번호를 확인한 후 다음을 검토합니다. <block ref="439fe3fb46bcc21d34c70ab0497fdf03" category="inline-link-macro-rx"></block>.</block>
   <block id="e151bfa4f47eb413c8e626e023b54eb2" category="paragraph">구성 요구 사항을 검토한 후 다음을 확인할 수 있습니다. <block ref="00ac7ae7a02f4d4916cc2e9a0c466e89" category="inline-link-macro-rx"></block>.</block>
-  <block id="abe2721f38aeb4a52b34f031e63cb999" category="paragraph">스위치를 구성한 후에는 <block ref="393555469596ca2345e43e80c6e74ba5" category="inline-link-macro-rx"></block> 또는 <block ref="ac50052da6099ecd2d2a2ee1cd713de9" category="inline-link-macro-rx"></block>.</block>
-  <block id="15d61e1a8c8e02ed201c6c136d785267" category="paragraph">Cumulus 모드로 Cumulus Linux를 설치한 후 <block ref="3acf483c9de841e025c40a5da17bc790" category="inline-link-macro-rx"></block>.</block>
-  <block id="09398bfa676e806eeb6998df2ece8bef" category="paragraph">하드웨어를 설치한 후에는 <block ref="9158e03ff3d3214abbf7c9c47bc446be" category="inline-link-macro-rx"></block> 요구사항.</block>
-  <block id="9e54073d137b0a37710654f115f0a5c2" category="paragraph">ONIE 모드에서 Cumulus Linux를 설치한 후 <block ref="3acf483c9de841e025c40a5da17bc790" category="inline-link-macro-rx"></block>.</block>
-  <block id="b659527f486f2e9b0bf097bbf528b934" category="paragraph">RCF를 설치하거나 업그레이드한 후에는 <block ref="f3791ff783629f66fe5f05b40418ed92" category="inline-link-macro-rx"></block>.</block>
+  <block id="930d2612130a6eae69f4f0d6b6f79e03" category="paragraph">스위치를 마이그레이션한 후에는 다음을 수행할 수 있습니다.<block ref="9c3be868eca09e30ec03c7542e485ba6" category="inline-link-macro-rx"></block> .</block>
+  <block id="62633c6c7bc1e478b0c226fc706ce7d1" category="list-text">명령을 실행하세요<block ref="350d65f100fdbc8d411ce22a179f4b29" prefix=" " category="inline-code"></block> ONTAP 시스템에서 클러스터 스위치가 모니터링 필드가 *True*로 설정되어 있고 일련 번호 필드에 *Unknown*이 표시되지 않는지 확인합니다.</block>
+  <block id="e53b7c886f3f537cf2dee85298564259" category="list-text">RCF 버전 1.12 이상을 설치하는 경우 다음 명령을 실행하세요.</block>
+  <block id="7ffdde9c95545f134ed1094103de59de" category="paragraph">구성 요소와 부품 번호를 확인한 후 다음을 검토할 수 있습니다. <block ref="59e15a623229fb37fc5dda6561b10061" category="inline-link-macro-rx"></block>.</block>
+  <block id="cfca9eeb73fd293484872bcafdcb1798" category="paragraph">NX-OS 소프트웨어와 RCF를 설치할 준비가 되면 다음을 수행할 수 있습니다. <block ref="af60ba4b6c39eb7f1655b798abad8e11" category="inline-link-macro-rx"></block>.</block>
+  <block id="f81ef217d2c8bc05e0d4e6f1aad50a66" category="paragraph">NX-OS 소프트웨어를 설치하거나 업그레이드한 후에는 다음을 수행할 수 있습니다.<block ref="d510068a163bd661380221025541f5da" category="inline-link-macro-rx"></block> .</block>
+  <block id="4b4276f17a129d2a0b5a68d13f83c61f" category="paragraph">NetApp 캐비닛에 스위치를 설치한 후에는 다음을 수행할 수 있습니다.<block ref="04831059e32b83b4a29d50c410dcfb7a" category="inline-link-macro-rx"></block> .</block>
+  <block id="dce26f97d0ce9fc5e48df873d850aee0" category="paragraph">RCF 설치 또는 RCF 업그레이드 절차를 검토한 후 다음을 수행할 수 있습니다.<block ref="657b0126c63dca332f6eb2a1abd407b9" category="inline-link-macro-rx"></block> 또는<block ref="a2077d156a5f79cc9b42ae5ebd286488" category="inline-link-macro-rx"></block> 필요에 따라.</block>
+  <block id="266663ffc89ef64ec7152146a5acd185" category="inline-link-macro">재구성하다</block>
+  <block id="181e8dbfe0f0edbd919610671d07e363" category="paragraph">스위치를 재설정한 후에는 다음을 수행할 수 있습니다.<block ref="63b72c4143b368ca73fbdfe96509c1fb" category="inline-link-macro-rx"></block> 필요에 따라.</block>
+  <block id="79895eb9b79a1b70c4fa2f8ccf753423" category="paragraph">스위치를 구성한 후에는 다음을 수행할 수 있습니다. <block ref="fc9a049c460091b99cacecbc6842e0d4" category="inline-link-macro-rx"></block>.</block>
+  <block id="cf60172b5b7bd3108017a0c8d8931ff0" category="paragraph">케이블링 워크시트를 완료한 후에는 다음을 수행할 수 있습니다. <block ref="a4d08a22d117d50c4f6f41bb907b902c" category="inline-link-macro-rx"></block>.</block>
+  <block id="f3316ab2f1c41dcaa23af237fe3914f4" category="paragraph">RCF를 업그레이드한 후에는 다음을 수행할 수 있습니다.<block ref="9c2eadd0cc07686b4a17c38ca62f4a4c" category="inline-link-macro-rx"></block> .</block>
+  <block id="4cb219409f45f928d2f889c1966a3169" category="paragraph">구성 요소와 부품 번호를 확인한 후 다음을 검토할 수 있습니다. <block ref="df0358fd02066e7e9ccbaff4c1a048a5" category="inline-link-macro-rx"></block>.</block>
+  <block id="46dcef2d14a7c31860923194965da5f5" category="paragraph">RCF를 설치한 후에는 다음을 수행할 수 있습니다. <block ref="9c3be868eca09e30ec03c7542e485ba6" category="inline-link-macro-rx"></block>.</block>
+  <block id="29d8fe526a7d6929c1ad5f07b48f0f85" category="paragraph">스위치를 재설정한 후에는 다음을 수행할 수 있습니다.<block ref="7af3609e284bdd614ac2f663cd73b283" category="inline-link-macro-rx"></block> 필요에 따라.</block>
+  <block id="b18dc978370f3f8cacf709e5705ad70f" category="paragraph">구성 요소와 부품 번호를 확인한 후 다음을 검토할 수 있습니다. <block ref="c9c7b33eb7ecfb82310ed8ccd1b741e8" category="inline-link-macro-rx"></block>.</block>
+  <block id="6f709850fe16249960a6e2c10b9830b2" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="395d656047d87f7a6416e2793ec12679" category="inline-link-macro-rx"></block></block>
+  <block id="88225f1c375ed36ece935c872d1fb4d9" category="paragraph">NX-OS 소프트웨어와 RCF를 설치할 준비가 되면 다음을 수행할 수 있습니다. <block ref="3344c060e83f2395d70c5fc1776e5497" category="inline-link-macro-rx"></block>.</block>
+  <block id="06f8321f45bda8cdd2fe178c765742ca" category="paragraph">NX-OS 소프트웨어를 설치하거나 업그레이드한 후에는 다음을 수행할 수 있습니다.<block ref="7ffcba0482753b1f6ae93308b4e57219" category="inline-link-macro-rx"></block> .</block>
+  <block id="231baebed8c9c3eb752573b55f8d5397" category="paragraph">RCF를 설치한 후에는 다음을 수행할 수 있습니다.<block ref="9c2eadd0cc07686b4a17c38ca62f4a4c" category="inline-link-macro-rx"></block></block>
+  <block id="8335bad0d130ba0c631cf01fe0fbd9c5" category="paragraph">NetApp 캐비닛에 스위치를 설치한 후에는 다음을 수행할 수 있습니다.<block ref="cd8ba9a916eba0640468a7d563330303" category="inline-link-macro-rx"></block> .</block>
+  <block id="0e20b420112310f5c09a775e13d5ec63" category="summary">Nexus 9336C-FX2 스위치를 처음 설정한 후 RCF를 설치할 수 있습니다. 이 절차를 사용하여 RCF 버전을 업그레이드할 수도 있습니다.</block>
+  <block id="9fbd2c2a1c6faa13eae851caa7d33ad2" category="paragraph">Nexus 9336C-FX2 스토리지 스위치를 처음 설정한 후 참조 구성 파일(RCF)을 설치합니다. 스위치에 기존 RCF 파일 버전이 설치되어 있는 경우 RCF 버전을 업그레이드합니다.</block>
+  <block id="4be048282f782e8a846872f71f451fc2" category="paragraph">포트는 클러스터+HA의 경우 40/100GbE, 클러스터의 경우 4x10GbE 브레이크아웃, 클러스터+HA의 경우 4x25GbE 브레이크아웃, 각 스토리지 HA 쌍의 경우 100GbE로 구성됩니다.</block>
+  <block id="a6f7ce910d3dd7c5a5ef8b867451277f" category="paragraph">4x10GbE 포트(브레이크아웃)와 40/100GbE 포트를 다르게 할당한 두 가지 RCF 유형입니다.  AFF A320, AFF A250, FAS500f 시스템을 제외한 모든 FAS 및 AFF 노드가 지원됩니다.</block>
+  <block id="856674c3de1f4bcf2e5ea5493575c451" category="paragraph">RCF 설치 또는 RCF 업그레이드 절차를 검토한 후 다음을 수행할 수 있습니다.<block ref="b8f42f23e92e2416c2fcc479cb623e08" category="inline-link-macro-rx"></block> 또는<block ref="e1e20e7ec447be8460e088f54ae82b68" category="inline-link-macro-rx"></block> 필요에 따라.</block>
+  <block id="78934ddae7bf7ea3539dacd98defb22f" category="paragraph">스위치를 재설정한 후에는 다음을 수행할 수 있습니다.<block ref="1b5b77ff163bc7f1424f4e9286f32076" category="inline-link-macro-rx"></block> 필요에 따라.</block>
+  <block id="892ab3f36730fc94ceea92587935d80f" category="paragraph">스위치를 구성한 후에는 다음을 수행할 수 있습니다. <block ref="48457dceaecddf3406f5c3a0ab2cf67e" category="inline-link-macro-rx"></block>.</block>
+  <block id="6c7072958775e2716da05784c2834f65" category="paragraph">케이블링 워크시트를 완료한 후에는 다음을 수행할 수 있습니다. <block ref="d9d3d8dae0a36eea938e144b4f81717e" category="inline-link-macro-rx"></block>.</block>
+  <block id="3e1208bc4bf9384a3afbda89e7d0cb5a" category="paragraph">여기서 _x_는 유지 관리 기간(시간)입니다.</block>
+  <block id="22e5bcc55974e1667f105918832f4dea" category="list-text">NX-OS 10.2 이상의 경우 다음을 사용하세요.<block ref="9c370f72db0e0d920841657ac5268365" prefix=" " category="inline-code"></block> 부트플래시에 저장된 RCF 파일과 비교하는 명령입니다.  그렇지 않은 경우 타사의 diff 또는 비교 도구를 사용하세요.</block>
+  <block id="545690f880b0659f4099413677e4a382" category="list-text">RCF 버전 1.12 이상으로 업그레이드하는 경우 다음 명령을 실행하세요.<block ref="c43d8f1df82823c11979a10dcc012390" prefix=" " category="inline-code"></block></block>
+  <block id="ebb31683cbe594d17c15073b14f55cf6" category="paragraph"><block ref="71d6cd1eac422fe68a9920549c567f16" prefix="" category="inline-code"></block></block>
+  <block id="7d7e314330aff9e7013f44b93a26b6d5" category="paragraph">이 예에서는 RCF 파일을 보여줍니다.<block ref="f40a54f2bc400ed707f0cc267c8ad07a" prefix=" " category="inline-code"></block> 스위치 cs1에 설치 중:</block>
+  <block id="9594f79ec7c1b5381a4d66f8bdec8cb3" category="list-text">스위치 cs2에서 4~19단계를 반복합니다.</block>
+  <block id="0fe12ef2e89553af6379e839f094af65" category="paragraph">케이블링 및 구성 요구 사항을 검토한 후에는 다음을 수행할 수 있습니다.<block ref="9b56153f8288ea213a61283aa51d0b66" category="inline-link-macro-rx"></block> .</block>
+  <block id="4ecfcea68abfc6c5e768c0c05c979d4c" category="paragraph">구성 요소와 부품 번호를 확인한 후 다음을 검토할 수 있습니다. <block ref="49a5e49bddaeabf84f2ee5cfa4f2c2f8" category="inline-link-macro-rx"></block>.</block>
+  <block id="4c1ba37e9fde3a7a56ee066c6f5bbff0" category="paragraph">스위치를 구성한 후에는 다음을 수행할 수 있습니다.<block ref="abc8e2fb5cb0373d7006d768e8dc0bfd" category="inline-link-macro-rx"></block> 또는<block ref="28a30a7b340666b28d9a4222e714aaf7" category="inline-link-macro-rx"></block> .</block>
+  <block id="aa690319dc0361fc52f6d6941197617e" category="paragraph">선반에 케이블을 연결한 후에는 다음을 수행할 수 있습니다.<block ref="a5a547b7e695aa3612b72d881f169519" category="inline-link-macro-rx"></block> .</block>
+  <block id="15f4bb46c2f563d794f12c95f7363bc3" category="paragraph">하드웨어를 설치한 후에는 다음을 수행할 수 있습니다.<block ref="b80562321e7105a297052828d3712cf7" category="inline-link-macro-rx"></block> 요구사항.</block>
+  <block id="4a1181d68f4fdad9078d5fe767825f78" category="paragraph">ONIE 모드에서 Cumulus Linux를 설치한 후에는 다음을 수행할 수 있습니다.<block ref="83ca9f457d58548616bdf5d734a73df4" category="inline-link-macro-rx"></block> .</block>
+  <block id="fa1137b5cd5dd8308f683c6f4c4f6fee" category="paragraph">RCF를 설치한 후에는 다음을 수행할 수 있습니다. <block ref="f3791ff783629f66fe5f05b40418ed92" category="inline-link-macro-rx"></block>.</block>
+  <block id="5bfbe06a9c5a1deae1ee6d69cbd2c74d" category="paragraph">스위치를 재설정한 후에는 다음을 수행할 수 있습니다.<block ref="d31ba40b12700baf930882b0c2782421" category="inline-link-macro-rx"></block> 필요에 따라.</block>
+  <block id="0a7fa80f3e44e6ba2121fadd4ba8aea2" category="paragraph">CSHM 파일을 설치한 후에는 다음을 수행할 수 있습니다.<block ref="9c3be868eca09e30ec03c7542e485ba6" category="inline-link-macro-rx"></block> .</block>
+  <block id="d3ec46f2dac7a867fcfb9bfb7e7c420f" category="paragraph">Cumulus Linux 버전을 업그레이드한 후에는 다음을 수행할 수 있습니다.<block ref="ac720c45794c201b5f80c4938224f8dc" category="inline-link-macro-rx"></block> .</block>
+  <block id="ad10d9d4b39fe4e73cf4cfae7f45f48d" category="paragraph">케이블링 및 구성 요구 사항을 검토한 후에는 다음을 수행할 수 있습니다.<block ref="75b216e283a24f30a49086565a4dd379" category="inline-link-macro-rx"></block> .</block>
+  <block id="8856be56f8aa4134e809b9a855cd3067" category="paragraph">구성 요소와 부품 번호를 확인한 후 다음을 검토할 수 있습니다. <block ref="439fe3fb46bcc21d34c70ab0497fdf03" category="inline-link-macro-rx"></block>.</block>
+  <block id="0eea634734f912ee07b2637c3bf93f7f" category="paragraph">스위치를 구성한 후에는 다음을 수행할 수 있습니다.<block ref="393555469596ca2345e43e80c6e74ba5" category="inline-link-macro-rx"></block> 또는<block ref="ac50052da6099ecd2d2a2ee1cd713de9" category="inline-link-macro-rx"></block> .</block>
+  <block id="203db0d4c4cef065192f0c1c8e11ec89" category="paragraph">Cumulus 모드로 Cumulus Linux를 설치한 후에는 다음을 수행할 수 있습니다.<block ref="3acf483c9de841e025c40a5da17bc790" category="inline-link-macro-rx"></block> .</block>
+  <block id="850c2098a891a6a0c730a37b6ad7c7aa" category="paragraph">하드웨어를 설치한 후에는 다음을 수행할 수 있습니다.<block ref="9158e03ff3d3214abbf7c9c47bc446be" category="inline-link-macro-rx"></block> 요구사항.</block>
+  <block id="e97e9b3be2fac0213159d6416ed26304" category="paragraph">ONIE 모드에서 Cumulus Linux를 설치한 후에는 다음을 수행할 수 있습니다.<block ref="3acf483c9de841e025c40a5da17bc790" category="inline-link-macro-rx"></block> .</block>
+  <block id="d1c87417ef01b3bb9ef749bfc91a91cd" category="paragraph">RCF를 설치하거나 업그레이드한 후에는 다음을 수행할 수 있습니다.<block ref="f3791ff783629f66fe5f05b40418ed92" category="inline-link-macro-rx"></block> .</block>
+  <block id="03225e13f6008b647272291aae7f9169" category="paragraph">스위치를 재설정한 후에는 다음을 수행할 수 있습니다.<block ref="bab7f2e68d62a2e1e4a58e02ed320bda" category="inline-link-macro-rx"></block> 필요에 따라.</block>
 </blocks>

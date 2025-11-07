@@ -112,7 +112,7 @@ RCF의 *설치 참고사항*, *중요 참고사항* 및 *배너* 섹션을 자�
 +
 `cs2# show run | section "interface mgmt0" >> bootflash:write_erase.cfg`
 
-. RCF 버전 1.12 이상의 경우 다음 명령을 실행하세요.
+. RCF 버전 1.12 이상을 설치하는 경우 다음 명령을 실행하세요.
 +
 `cs2# echo "hardware access-list tcam region racl-lite 512" >> bootflash:write_erase.cfg`
 

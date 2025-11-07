@@ -1,0 +1,459 @@
+---
+permalink: switch-cisco-9336c-fx2-storage/upgrade-rcf-software-9336c-storage.html 
+sidebar: sidebar 
+keywords: install rcf, cisco switches 
+summary: 이 절차를 사용하여 RCF 버전을 업그레이드할 수 있습니다. 
+---
+= RCF(Reference Configuration File) 업그레이드
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+운영 스위치에 기존 버전의 RCF 파일이 설치되어 있는 경우 RCF 버전을 업그레이드합니다.
+
+.시작하기 전에
+다음 사항을 확인하십시오.
+
+* 스위치 구성의 현재 백업
+* 완전히 작동하는 클러스터(로그에 오류 또는 유사한 문제 없음)
+* 현재 RCF입니다.
+* RCF 버전을 업데이트하는 경우 원하는 부팅 이미지를 반영하는 RCF의 부팅 구성이 필요합니다.
++
+현재 부팅 이미지를 반영하도록 부팅 구성을 변경해야 하는 경우, 나중에 재부팅할 때 올바른 버전이 인스턴스화되도록 RCF를 다시 적용하기 전에 이 구성을 변경해야 합니다.
+
+
+
+
+NOTE: 이 절차 중에는 작동 중인 ISL(Inter-Switch Link)이 필요하지 않습니다. RCF 버전 변경이 ISL 연결에 일시적으로 영향을 미칠 수 있기 때문에 이는 설계상 가능합니다. 무중단 클러스터 운영을 보장하기 위해 다음 절차를 수행하면 타겟 스위치에 대한 단계를 수행하는 동안 모든 클러스터 LIF가 운영 파트너 스위치로 마이그레이션됩니다.
+
+
+CAUTION: 새 스위치 소프트웨어 버전과 RCFs를 설치하기 전에 스위치 설정을 지우고 기본 구성을 수행해야 합니다. 스위치 설정을 지우기 전에 직렬 콘솔을 사용하여 스위치에 연결하거나 기본 구성 정보를 보존해야 합니다.
+
+
+
+== 1단계: 업그레이드 준비
+
+. 이 클러스터에서 AutoSupport가 활성화되어 있는 경우 AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다.
++
+'System node AutoSupport invoke-node * -type all-message maINT=xh'
+
++
+여기서 _x_는 유지 관리 기간(시간)입니다.
+
+. 권한 수준을 고급으로 변경하고 계속할 것인지 묻는 메시지가 표시되면 * y * 를 입력합니다.
++
+세트 프리빌리지 고급
+
++
+고급 프롬프트(*>)가 나타납니다.
+
+. 스위치에 연결된 각 노드의 포트를 표시합니다.
++
+[source, cli]
+----
+network device-discovery show
+----
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> network device-discovery show
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID) Interface       Platform
+----------- ------ ------------------------ --------------- ---------
+node1-01/cdp
+            e3a    cs1                       Ethernet1/7     N9K-C9336C
+            e3b    cs2                       Ethernet1/7     N9K-C9336C
+node1-02/cdp
+            e3a    cs1                       Ethernet1/8     N9K-C9336C
+            e3b    cs2                       Ethernet1/8     N9K-C9336C
+.
+.
+.
+----
+====
+. 모든 스토리지 포트가 정상 상태로 작동하는지 확인하세요.
++
+[source, cli]
+----
+storage port show -port-type ENET
+----
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage port show -port-type ENET*
+
+
+                                      Speed
+Node               Port Type  Mode    (Gb/s) State    Status
+------------------ ---- ----- ------- ------ -------- -----------
+node1-01
+                   e3a ENET  -         100   enabled  online
+                   e3b ENET  -         100   enabled  online
+                   e7a ENET  -         100   enabled  online
+                   e7b ENET  -         100   enabled  online
+node1-02
+                   e3a ENET  -         100   enabled  online
+                   e3b ENET  -         100   enabled  online
+                   e7a ENET  -         100   enabled  online
+                   e7b ENET  -         100   enabled  online
+.
+.
+.
+----
+====
+. 클러스터 LIF에서 자동 되돌리기 기능을 해제합니다.
++
+'network interface modify -vserver Cluster-lif * -auto-revert false'
+
+
+
+
+
+== 2단계: 포트 구성
+
+. 스위치 cs1에서 노드의 모든 포트에 연결된 포트를 종료합니다.
++
+[listing, subs="+quotes"]
+----
+cs1> *enable*
+cs1# *configure*
+cs1(config)# *interface eth1/1/1-2,eth1/7-8*
+cs1(config-if-range)# *shutdown*
+cs1(config-if-range)# *exit*
+cs1(config)# *exit*
+----
++
+
+CAUTION: 네트워크 연결 문제를 방지하려면 *모든* 연결된 포트를 반드시 종료하세요. 지식 기반 문서를 참조하세요 https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Node_out_of_quorum_when_migrating_cluster_lif_during_switch_OS_upgrade["스위치 OS 업그레이드 중에 클러스터 LIF를 마이그레이션할 때 노드가 쿼럼 밖입니다"^] 자세한 내용은.
+
+. 클러스터 LIF가 스위치 cs1에 호스팅된 포트로 장애 조치되었는지 확인합니다.  몇 초 정도 걸릴 수 있습니다.
++
+[source, cli]
+----
+network interface show -role cluster
+----
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -role cluster*
+
+            Logical         Status     Network            Current     Current Is
+Vserver     Interface       Admin/Oper Address/Mask       Node        Port    Home
+----------- --------------- ---------- ------------------ ----------- ------- ----
+Cluster
+            node1-01_clus1  up/up      169.254.36.44/16   node1-01    e7a     true
+            node1-01_clus2  up/up      169.254.7.5/16     node1-01    e7b     true
+            node1-02_clus1  up/up      169.254.197.206/16 node1-02    e7a     true
+            node1-02_clus2  up/up      169.254.195.186/16 node1-02    e7b     true
+            node1-03_clus1  up/up      169.254.192.49/16  node1-03    e7a     true
+            node1-03_clus2  up/up      169.254.182.76/16  node1-03    e7b     true
+            node1-04_clus1  up/up      169.254.59.49/16   node1-04    e7a     true
+            node1-04_clus2  up/up      169.254.62.244/16  node1-04    e7b     true
+
+8 entries were displayed.
+----
+====
+. 클러스터가 정상 상태인지 확인합니다.
++
+'클러스터 쇼'
+
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster show*
+Node              Health  Eligibility   Epsilon
+----------------- ------- ------------  -------
+node1-01          true    true          false
+node1-02          true    true          false
+node1-03          true    true          true
+node1-04          true    true          false
+
+4 entries were displayed.
+----
+====
+. 아직 저장하지 않은 경우 다음 명령의 출력을 텍스트 파일로 복사하여 현재 스위치 구성의 복사본을 저장합니다.
++
+'show running-config'를 선택합니다
+
++
+.. 현재 사이의 사용자 정의 추가 사항을 기록합니다. `running-config` 그리고 사용 중인 RCF 파일(예: 조직의 SNMP 구성)
+.. NX-OS 10.2 이상의 경우 다음을 사용하세요. `show diff running-config` 부트플래시에 저장된 RCF 파일과 비교하는 명령입니다.  그렇지 않은 경우 타사의 diff 또는 비교 도구를 사용하세요.
+
+
+. 기본 구성 세부 정보를 저장합니다. `write_erase.cfg` 부트플래시에 있는 파일입니다.
++
+[NOTE]
+====
+다음 사항을 구성해야 합니다.
+
+** 사용자 이름과 비밀번호
+** 관리 IP 주소
+** 기본 게이트웨이
+** 스위치 이름
+
+
+====
++
+`cs1# show run | i "username admin password" > bootflash:write_erase.cfg`
+
++
+`cs1# show run | section "vrf context management" >> bootflash:write_erase.cfg`
+
++
+`cs1# show run | section "interface mgmt0" >> bootflash:write_erase.cfg`
+
++
+`cs1# show run | section "switchname" >> bootflash:write_erase.cfg`
+
+. RCF 버전 1.12 이상으로 업그레이드하는 경우 다음 명령을 실행하세요.
+`cs1# echo "hardware access-list tcam region ing-racl 1024" >> bootflash:write_erase.cfg`
++
+`cs1# echo "hardware access-list tcam region egr-racl 1024" >> bootflash:write_erase.cfg`
+
++
+`cs1# echo "hardware access-list tcam region ing-l2-qos 1280 >> bootflash:write_erase.cfg`
+
++
+지식 기반 문서를 참조하세요link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["원격 연결을 유지하면서 Cisco 상호 연결 스위치의 구성을 지우는 방법"^] 자세한 내용은.
+
+. 다음을 확인하십시오. `write_erase.cfg` 예상대로 파일이 채워졌습니다.
++
+`*show file bootflash:write_erase.cfg*`
+
+. 발행하다 `write erase` 현재 저장된 구성을 지우는 명령:
++
+`cs1# *write erase*`
+
++
+`Warning: This command will erase the startup-configuration.`
+
++
+`Do you wish to proceed anyway? (y/n)  [n] *y*`
+
+. 이전에 저장한 기본 구성을 시작 구성에 복사합니다.
++
+`cs1# *copy bootflash:write_erase.cfg startup-config*`
+
+. 스위치를 재부팅합니다.
++
+`cs1# *reload*`
+
++
+`This command will reboot the system. (y/n)?  [n] *y*`
+
+. 관리 IP 주소에 다시 연결한 후 SSH를 통해 스위치에 로그인합니다.
++
+SSH 키와 관련된 호스트 파일 항목을 업데이트해야 할 수 있습니다.
+
+. FTP, TFTP, SFTP 또는 SCP 전송 프로토콜 중 하나를 사용하여 RCF를 스위치 CS1의 bootflash에 복사합니다.
++
+Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Cisco Nexus 9000 Series NX-OS 명령 참조"^] 안내선.
+
++
+.예제 보기
+[%collapsible]
+====
+이 예에서는 스위치 CS1의 bootflash에 RCF를 복제하는 데 사용되는 TFTP를 보여 줍니다.
+
+[listing, subs="+quotes"]
+----
+cs1# *copy tftp: bootflash: vrf management*
+Enter source filename: *Nexus_9336C_RCF_v1.6-Storage.txt*
+Enter hostname for the tftp server: *172.22.201.50*
+Trying to connect to tftp server......Connection to Server Established.
+TFTP get operation was successful
+Copy complete, now saving to disk (please wait)...
+----
+====
+. 이전에 다운로드한 RCF를 bootflash에 적용합니다.
++
+Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Cisco Nexus 9000 Series NX-OS 명령 참조"^] 안내선.
+
++
+이 예에서는 RCF 파일을 보여줍니다. `NX9336C-FX2-RCF-v1.13-1-Storage.txt` 스위치 cs1에 설치 중:
+
++
+[listing, subs="+quotes"]
+----
+cs1# *copy Nexus_9336C_RCF_v1.6-Storage.txt running-config echo-commands*
+----
++
+[CAUTION]
+====
+RCF의 *설치 참고 사항*, *중요 참고 사항* 및 *배너* 섹션을 자세히 읽으세요.  스위치의 올바른 구성과 작동을 보장하려면 이 지침을 읽고 따라야 합니다.
+
+====
+. RCF 파일이 올바른 최신 버전인지 확인합니다.
++
+'show running-config'를 선택합니다
+
++
+출력을 점검하여 올바른 RCF가 있는지 확인할 때 다음 정보가 올바른지 확인하십시오.
+
++
+** RCF 배너
+** 노드 및 포트 설정입니다
+** 사용자 지정
++
+출력은 사이트 구성에 따라 달라집니다. 포트 설정을 확인하고 설치된 RCF에 대한 변경 사항은 릴리스 노트를 참조하십시오.
+
+
+
+. 스위치 구성에 이전의 사용자 정의를 다시 적용합니다.
+. RCF 버전, 사용자 정의 추가 및 스위치 설정이 올바른지 확인한 후 복사하십시오. `running-config` 파일을 `startup-config` 파일.
++
+Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Cisco Nexus 9000 Series NX-OS 명령 참조"^] 안내선.
+
++
+`cs1# *copy running-config startup-config*`
+
++
+`[########################################] 100% Copy complete`
+
+. 스위치 CS1을 재부팅합니다. 스위치가 재부팅되는 동안 노드에 보고된 클러스터 스위치 상태 모니터 경고 및 "클러스터 포트 다운" 이벤트를 무시할 수 있습니다.
++
+`cs1# *reload*`
+
++
+`This command will reboot the system. (y/n)?  [n] *y*`
+
+. 모든 스토리지 포트가 정상 상태로 작동하는지 확인하세요.
++
+[source, cli]
+----
+storage port show -port-type ENET
+----
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage port show -port-type ENET*
+
+
+                                      Speed
+Node               Port Type  Mode    (Gb/s) State    Status
+------------------ ---- ----- ------- ------ -------- -----------
+node1-01
+                   e3a  ENET  -          100 enabled  online
+                   e3b  ENET  -          100 enabled  online
+                   e7a  ENET  -          100 enabled  online
+                   e7b  ENET  -          100 enabled  online
+node1-02
+                   e3a  ENET  -          100 enabled  online
+                   e3b  ENET  -          100 enabled  online
+                   e7a  ENET  -          100 enabled  online
+                   e7b  ENET  -          100 enabled  online
+.
+.
+.
+----
+====
+. 클러스터가 정상 상태인지 확인합니다.
++
+'클러스터 쇼'
+
++
+.예제 보기
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster show*
+Node              Health   Eligibility   Epsilon
+----------------- -------- ------------- -------
+node1-01          true     true          false
+node1-02          true     true          false
+node1-03          true     true          true
+node1-04          true     true          false
+
+4 entries were displayed.
+----
+====
+. 스위치 cs2에서 4~19단계를 반복합니다.
+. 클러스터 LIF에서 자동 되돌리기 기능을 설정합니다.
++
+'network interface modify -vserver Cluster-lif * -auto-revert true'
+
+
+
+
+
+== 3단계: 클러스터 네트워크 구성 및 클러스터 상태 확인
+
+. 클러스터 포트에 연결된 스위치 포트가 * 업 * 인지 확인합니다.
++
+[source, cli]
+----
+show interface brief
+----
+. 예상 노드가 계속 연결되어 있는지 확인합니다.
++
+[source, cli]
+----
+show cdp neighbors
+----
+. 다음 명령을 사용하여 클러스터 노드가 올바른 클러스터 VLAN에 있는지 확인합니다.
++
+[source, cli]
+----
+show vlan brief
+----
++
+[source, cli]
+----
+show interface trunk
+----
+. 클러스터 LIF가 홈 포트로 되돌려졌는지 확인합니다.
++
+[source, cli]
+----
+network interface show -role cluster
+----
++
+클러스터 LIF가 홈 포트로 반환되지 않은 경우 로컬 노드에서 수동으로 되돌립니다.
+
++
+`network interface revert -vserver vserver_name -lif <lif-name>`
+
+. 클러스터가 정상 상태인지 확인합니다.
++
+[source, cli]
+----
+cluster show
+----
+. 원격 클러스터 인터페이스의 연결을 확인합니다.
++
+.. 당신은 사용할 수 있습니다 `network interface check cluster-connectivity show` 클러스터 연결에 대한 접근성 검사 세부 정보를 표시하는 명령:
++
+[source, cli]
+----
+network interface check cluster-connectivity show
+----
+.. 또는 다음을 사용할 수 있습니다. `cluster ping-cluster -node <node-name>` 연결성을 확인하는 명령:
++
+[source, cli]
+----
+cluster ping-cluster -node <node-name>
+----
+
+
+
+
+.다음 단계
+RCF를 업그레이드한 후에는 다음을 수행할 수 있습니다.link:configure-ssh-keys.html["SSH 구성을 확인하세요"] .

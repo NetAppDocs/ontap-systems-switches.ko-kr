@@ -25,7 +25,7 @@ Cisco NX-OS 소프트웨어와 참조 구성 파일(RCF)은 Cisco 9336C-FX2 및 
 [role="quick-margin-para"]
 Cisco 9336C-FX2 및 9336C-FX2-T 스토리지 스위치에 NX-OS 소프트웨어를 다운로드하여 설치하거나 업그레이드하세요.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["네"]link:install-rcf-software-9336c-storage.html["RCF를 설치하거나 업그레이드합니다"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["네"]link:install-upgrade-rcf-overview-9336c-storage.html["RCF를 설치하거나 업그레이드합니다"]
 [role="quick-margin-para"]
 Cisco 9336C-FX2 및 9336C-FX2-T 스위치를 처음 설정한 후 RCF를 설치하거나 업그레이드합니다. 이 절차를 사용하여 RCF 버전을 업그레이드할 수도 있습니다.
 

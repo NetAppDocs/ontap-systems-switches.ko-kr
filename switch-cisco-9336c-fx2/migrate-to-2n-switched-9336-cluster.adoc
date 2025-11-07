@@ -629,4 +629,4 @@ RPC status:
 
 
 .다음 단계
-스위치를 마이그레이션한 후에는link:../switch-cshm/config-overview.html["스위치 상태 모니터링 구성"] .
+스위치를 마이그레이션한 후에는 다음을 수행할 수 있습니다. link:../switch-cshm/config-overview.html["스위치 상태 모니터링 구성"].

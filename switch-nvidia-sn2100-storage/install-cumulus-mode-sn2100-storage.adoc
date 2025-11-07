@@ -723,4 +723,4 @@ swp16      100G   swp   sw6                                       swp16
 --
 ====
 .다음 단계
-Cumulus 모드로 Cumulus Linux를 설치한 후 link:install-rcf-sn2100-storage.html["RCF 스크립트를 설치하거나 업그레이드합니다."].
+Cumulus 모드로 Cumulus Linux를 설치한 후에는 다음을 수행할 수 있습니다.link:install-rcf-sn2100-storage.html["RCF 스크립트를 설치하거나 업그레이드합니다."] .
