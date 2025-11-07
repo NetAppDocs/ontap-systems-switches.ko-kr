@@ -1,103 +1,103 @@
 ---
 section: switch-cisco-3132q-v
-title: Cisco Nexus 3132Q-V
+title: Cisco 넥서스 3132Q-V
 entries:
-- title: 시작하십시오
+- title: 시작하기
   pdf-filename: 개요_3132q-v
   entries:
   - title: 빠른 시작
     url: "/switch-cisco-3132q-v/install-overview-cisco-3132qv.html"
   - title: 구성 요구 사항
     url: "/switch-cisco-3132q-v/configure-reqs-3132q.html"
-  - title: 필수 문서
+  - title: 필수 서류
     url: "/switch-cisco-3132q-v/required-documentation-3132q.html"
-  - title: Smart Call Home 요구 사항
+  - title: 스마트 콜 홈 요구 사항
     url: "/switch-cisco-3132q-v/smart-call-home-3132q.html"
-- title: 하드웨어를 설치합니다
-  pdf-filename: install_hardware_3132q-v
+- title: 하드웨어 설치
+  pdf-filename: 설치_하드웨어_3132q-v
   entries:
   - title: 하드웨어 설치 워크플로
     url: "/switch-cisco-3132q-v/install-hardware-workflow.html"
-  - title: 케이블 연결 워크시트를 작성합니다
+  - title: 완전한 케이블링 워크시트
     url: "/switch-cisco-3132q-v/setup-worksheet-3132q.html"
-  - title: 스위치를 장착하십시오
+  - title: 스위치를 설치하세요
     url: "/switch-cisco-3132q-v/install-switch-3132qv.html"
   - title: NetApp 캐비닛에 스위치 설치
     url: "/switch-cisco-3132q-v/install-cisco-nexus-3132qv.html"
-  - title: 케이블 연결 및 구성을 검토합니다
+  - title: 케이블링 및 구성 검토
     url: "/switch-cisco-3132q-v/cabling-considerations-3132q-v.html"
-- title: 소프트웨어를 구성합니다
-  pdf-filename: configure_software_3132q-v
+- title: 소프트웨어 구성
+  pdf-filename: 구성_소프트웨어_3132q-v
   entries:
-  - title: 소프트웨어 설치 워크플로우
+  - title: 소프트웨어 설치 워크플로
     url: "/switch-cisco-3132q-v/configure-software-overview-3132q-v-cluster.html"
-  - title: 스위치를 구성합니다
+  - title: 스위치 구성
     url: "/switch-cisco-3132q-v/setup-switch.html"
   - title: NX-OS 소프트웨어 및 RCF 설치 준비
     url: "/switch-cisco-3132q-v/prepare-install-cisco-nexus-3132q.html"
-  - title: NX-OS 소프트웨어를 설치합니다
+  - title: NX-OS 소프트웨어 설치
     url: "/switch-cisco-3132q-v/install-nx-os-software-3132q-v.html"
-  - title: RCF를 설치하거나 업그레이드합니다
+  - title: RCF 설치 또는 업그레이드
     pdf-filename: 설치_업그레이드_rcf
     entries:
     - title: RCF 설치 또는 업그레이드 개요
       url: "/switch-cisco-3132q-v/install-upgrade-rcf-overview-3132q-v.html"
-    - title: RCF를 설치합니다
+    - title: RCF 설치
       url: "/switch-cisco-3132q-v/install-rcf-software-3132q-v.html"
-    - title: RCF 버전을 업그레이드하십시오
+    - title: RCF 버전을 업그레이드하세요
       url: "/switch-cisco-3132q-v/upgrade-rcf-3132q-v.html"
   - title: SSH 구성을 확인하세요
     url: "/switch-cisco-3132q-v/configure-ssh-keys.html"
   - title: 스위치를 공장 기본값으로 재설정합니다
     url: "/switch-cisco-3132q-v/reset-switch-3132q-v.html"
 - title: 스위치 마이그레이션
-  pdf-filename: Migrate_switches_3132q-v
+  pdf-filename: 마이그레이션_스위치_3132q-v
   entries:
   - title: CN1610 스위치 마이그레이션
-    pdf-filename: CN1610_switch_migration를 참조하십시오
+    pdf-filename: CN1610_switch_migration
     entries:
-    - title: CN1610 스위치 마이그레이션 워크플로우
+    - title: CN1610 스위치 마이그레이션 워크플로
       url: "/switch-cisco-3132q-v/cn1610-migrate-workflow.html"
-    - title: 마이그레이션 요구 사항
+    - title: 이주 요구 사항
       url: "/switch-cisco-3132q-v/cn1610-migrate-requirements.html"
-    - title: 마이그레이션을 준비합니다
+    - title: 이주 준비
       url: "/switch-cisco-3132q-v/cn1610-prepare-to-migrate.html"
-    - title: 포트를 구성합니다
+    - title: 포트 구성
       url: "/switch-cisco-3132q-v/cn1610-configure-ports.html"
-    - title: 마이그레이션을 완료합니다
+    - title: 마이그레이션을 완료하세요
       url: "/switch-cisco-3132q-v/cn1610-complete-migration.html"
   - title: Cisco Nexus 5596 스위치 마이그레이션
-    pdf-filename: CN5596_switch_migration를 참조하십시오
+    pdf-filename: CN5596_switch_migration
     entries:
-    - title: Cisco Nexus 5596 스위치 마이그레이션 워크플로우
+    - title: Cisco Nexus 5596 스위치 마이그레이션 워크플로
       url: "/switch-cisco-3132q-v/cn5596-migrate-workflow.html"
-    - title: 마이그레이션 요구 사항
+    - title: 이주 요구 사항
       url: "/switch-cisco-3132q-v/cn5596-migrate-requirements.html"
-    - title: 마이그레이션을 준비합니다
+    - title: 이주 준비
       url: "/switch-cisco-3132q-v/cn5596-prepare-to-migrate.html"
-    - title: 포트를 구성합니다
+    - title: 포트 구성
       url: "/switch-cisco-3132q-v/cn5596-configure-ports.html"
-    - title: 마이그레이션을 완료하십시오
+    - title: 마이그레이션을 완료하세요
       url: "/switch-cisco-3132q-v/cn5596-complete-migration.html"
-  - title: 스위치가 없는 클러스터에서 2노드 스위치 클러스터로 마이그레이션합니다
-    pdf-filename: 스위치 없는_에서 _switched_cluster로 마이그레이션
+  - title: 스위치리스 클러스터에서 2노드 스위치 클러스터로 마이그레이션
+    pdf-filename: 스위치리스에서 스위치드 클러스터로 마이그레이션
     entries:
-    - title: 스위치가 없는 워크플로우에서 2노드 스위치 워크플로우로 마이그레이션
+    - title: 스위치리스에서 2노드 스위치 워크플로로 마이그레이션
       url: "/switch-cisco-3132q-v/migrate-switchless-to-switched-workflow.html"
-    - title: 마이그레이션 요구 사항
+    - title: 이주 요구 사항
       url: "/switch-cisco-3132q-v/migrate-switchless-to-switched-requirements.html"
-    - title: 마이그레이션을 준비합니다
+    - title: 이주 준비
       url: "/switch-cisco-3132q-v/migrate-switchless-prepare-to-migrate.html"
-    - title: 포트를 구성합니다
+    - title: 포트 구성
       url: "/switch-cisco-3132q-v/migrate-switchless-configure-ports.html"
-    - title: 마이그레이션을 완료하십시오
+    - title: 마이그레이션을 완료하세요
       url: "/switch-cisco-3132q-v/migrate-switchless-complete-migration.html"
-- title: 스위치를 교체합니다
-  pdf-filename: 스위치_3132q-v를 교체합니다
+- title: 스위치 교체
+  pdf-filename: 교체_스위치_3132q-v
   entries:
-  - title: 요구 사항을 교체합니다
+  - title: 요구 사항 교체
     url: "/switch-cisco-3132q-v/switch-requirements.html"
-  - title: 3132Q-V 스위치를 교체합니다
+  - title: 3132Q-V 스위치 교체
     url: "/switch-cisco-3132q-v/replace-cisco-nexus-3132q-v.html"
-  - title: 클러스터 스위치를 스위치가 없는 연결로 대체
+  - title: 클러스터 스위치를 스위치리스 연결로 교체
     url: "/switch-cisco-3132q-v/migrate-to-switchless-cluster-interconnect.html"

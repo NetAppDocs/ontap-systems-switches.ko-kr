@@ -14,13 +14,13 @@ sidebar:
   entries:
   - title: ONTAP 하드웨어 시스템에 대한 스위치 문서
     url: "/index.html"
-  - title: 시작하십시오
+  - title: 시작하기
     entries:
     - title: 새로운 소식
       url: "/whats-new.html"
-    - title: ONTAP 시스템 스위치에 대해 자세히 알아보십시오
+    - title: ONTAP 시스템 스위치에 대해 알아보세요
       url: "/get-started/learn-switch-concept.html"
-    - title: 준비 및 실행
+    - title: 일어나서 실행하세요
       url: "/get-started/get-up-and-running.html"
   - title: AFX 시스템 스위치
     url: "/afx/index.html"
@@ -42,9 +42,9 @@ sidebar:
     url: "/shared/index.html"
     entries:
     - section: switch-cisco-9336c-fx2-shared
-      pdf-filename: 스위치 - Cisco-9336c-FX2-스토리지
+      pdf-filename: 스위치-시스코-9336c-fx2-스토리지
   - section: switch-cshm
-  - title: 사용 종료 스위치
+  - title: 사용 가능 종료 스위치
     entries:
     - title: 개요
       url: "/overview-eod.html"
@@ -52,7 +52,7 @@ sidebar:
     - section: switch-cisco-3132q-v
     - section: switch-cisco-92300
     - section: switch-netapp-cn1610
-  - title: 법적 고지
+  - title: 법적 고지 사항
     url: "/legal-notices.html"
 product-family:
   name: ONTAP hardware systems

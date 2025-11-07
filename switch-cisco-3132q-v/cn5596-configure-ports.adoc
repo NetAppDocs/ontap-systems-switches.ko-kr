@@ -4,31 +4,31 @@ sidebar: sidebar
 keywords: cisco 3132q-v, cluster switches 
 summary: Cisco Nexus 3132q-v 스위치를 AFF 또는 FAS 클러스터에서 클러스터 스위치로 사용할 수 있습니다. 
 ---
-= 5596 스위치에서 3132Q-V 스위치로 마이그레이션할 포트를 구성합니다
+= 5596 스위치에서 3132Q-V 스위치로 마이그레이션을 위해 포트를 구성하세요.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-다음 단계에 따라 Nexus 5596 스위치에서 새 Nexus 3132Q-V 스위치로 마이그레이션할 포트를 구성합니다.
+Nexus 5596 스위치에서 새로운 Nexus 3132Q-V 스위치로 마이그레이션하기 위해 포트를 구성하려면 다음 단계를 따르세요.
 
 .단계
-. 모든 노드에서 Nexus 5596 스위치 CL2에 연결된 모든 케이블을 분리합니다.
+. 모든 노드에서 Nexus 5596 스위치 CL2에 연결된 모든 케이블을 제거합니다.
 +
-지원되는 케이블 연결을 사용하여 모든 노드의 분리된 포트를 Nexus 3132Q-V 스위치 C2에 다시 연결합니다.
+지원되는 케이블을 사용하여 모든 노드의 연결이 끊긴 포트를 Nexus 3132Q-V 스위치 C2에 다시 연결합니다.
 
-. Nexus 5596 스위치 CL2에서 모든 케이블을 분리합니다.
+. Nexus 5596 스위치 CL2에서 모든 케이블을 제거합니다.
 +
-새 Cisco 3132Q-V 스위치 C2의 포트 1/24를 기존 Nexus 5596, CL1의 포트 45-48에 연결하는 SFP+ 브레이크아웃 케이블에 해당 Cisco QSFP를 연결합니다.
+새로운 Cisco 3132Q-V 스위치 C2의 포트 1/24를 기존 Nexus 5596 CL1의 포트 45~48에 연결하는 적절한 Cisco QSFP-SFP+ 분기 케이블을 연결합니다.
 
-. 실행 중인 구성에서 인터페이스 eth1/45-48에 이미 채널 그룹 1 모드가 활성화되어 있는지 확인합니다.
-. 활성 Nexus 5596 스위치 CL1에서 ISL 포트 45 - 48을 가져옵니다.
+. eth1/45-48 인터페이스가 이미 있는지 확인하십시오. `channel-group 1 mode active` 실행 구성에서.
+. 활성화된 Nexus 5596 스위치 CL1에서 ISL 포트 45~48을 활성화합니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 ISL 포트 45 - 48이 가동되는 것을 보여 줍니다.
+다음 예에서는 ISL 포트 45~48이 활성화되는 것을 보여줍니다.
 
 [listing]
 ----
@@ -40,15 +40,15 @@ summary: Cisco Nexus 3132q-v 스위치를 AFF 또는 FAS 클러스터에서 클�
 (CL1)#
 ----
 ====
-. Nexus 5596 스위치 CL1에서 ISL이 "작동" 상태인지 확인합니다.
+. ISL이 있는지 확인하세요 `up` Nexus 5596 스위치 CL1에서:
 +
-'포트-채널 요약
+`show port-channel summary`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-포트 eth1/45 ~ eth1/48은 포트 채널에서 ISL 포트가 "UP"임을 나타내는 (P)이어야 합니다.
+eth1/45 ~ eth1/48 포트는 ISL 포트가 (P)임을 나타내야 합니다. `up` 항구 채널에서:
 
 [listing]
 ----
@@ -69,15 +69,15 @@ Group Port-        Type   Protocol  Member Ports
                                     Eth1/47(P)   Eth1/48(P)
 ----
 ====
-. 3132Q-V 스위치 C2에서 ISL이 "UP"인지 확인합니다.
+. ISL이 있는지 확인하세요 `up` 3132Q-V 스위치 C2에서:
 +
-'포트-채널 요약
+`show port-channel summary`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-포트 eth1/24/1, eth1/24/2, eth1/24/3 및 eth1/24/4는 포트 채널에서 ISL 포트가 "UP"임을 나타내는 P를 표시해야 합니다.
+포트 eth1/24/1, eth1/24/2, eth1/24/3 및 eth1/24/4는 ISL 포트가 (P)임을 나타내야 합니다. `up` 항구 채널에서:
 
 [listing]
 ----
@@ -97,15 +97,15 @@ Group Port-        Type   Protocol  Member Ports
                                     Eth1/24/4(P)
 ----
 ====
-. 모든 노드에서 3132Q-V 스위치 C2에 연결된 모든 클러스터 인터커넥트 포트를 불러옵니다.
+. 모든 노드에서 3132Q-V 스위치 C2에 연결된 모든 클러스터 상호 연결 포트를 불러옵니다.
 +
-네트워크 포트 수정
+`network port modify`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 n1 및 n2 노드에서 지정된 포트가 가동되는 것을 보여 줍니다.
+다음 예에서는 지정된 포트가 노드 n1과 n2에서 실행되는 것을 보여줍니다.
 
 [listing]
 ----
@@ -115,15 +115,15 @@ cluster::*> network port modify -node n2 -port e0b -up-admin true
 cluster::*> network port modify -node n2 -port e0c -up-admin true
 ----
 ====
-. 모든 노드에서 C2에 연결된 마이그레이션된 모든 클러스터 인터커넥트 LIF를 되돌립니다.
+. 모든 노드에서 C2에 연결된 모든 마이그레이션된 클러스터 상호 연결 LIF를 되돌립니다.
 +
-네트워크 인터페이스 복원
+`network interface revert`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 n1 및 n2 노드의 홈 포트로 되돌아갈 마이그레이션된 클러스터 LIF를 보여 줍니다.
+다음 예에서는 마이그레이션된 클러스터 LIF가 노드 n1 및 n2의 홈 포트로 복귀되는 것을 보여줍니다.
 
 [listing]
 ----
@@ -133,15 +133,15 @@ cluster::*> network interface revert -vserver Cluster -lif n2_clus2
 cluster::*> network interface revert -vserver Cluster -lif n2_clus3
 ----
 ====
-. 모든 클러스터 인터커넥트 포트가 이제 홈 으로 되돌려졌는지 확인합니다.
+. 모든 클러스터 상호 연결 포트가 이제 홈으로 돌아갔는지 확인하세요.
 +
-네트워크 인터페이스 쇼
+`network interface show`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예제는 clus2의 LIF가 홈 포트로 되돌려진 것을 보여 주고 현재 포트 열의 포트가 "홈" 열에서 "참" 상태인 경우 LIF가 성공적으로 되돌려지는 것을 보여 줍니다. '홈'이 '거짓'이면 LIF는 되돌릴 수 없습니다.
+다음 예에서는 clus2의 LIF가 홈 포트로 복귀되었으며 현재 포트 열의 포트 상태가 다음과 같은 경우 LIF가 성공적으로 복귀되었음을 보여줍니다. `true` 에서 `Is Home` 열.  만약 `Is Home` 가치는 `false` LIF는 복귀되지 않았습니다.
 
 [listing]
 ----
@@ -162,15 +162,15 @@ Cluster
 8 entries were displayed.
 ----
 ====
-. 클러스터된 포트가 연결되었는지 확인합니다.
+. 클러스터된 포트가 연결되었는지 확인하세요.
 +
-네트워크 포트 쇼
+`network port show`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 이전의 'network port modify' 명령의 결과를 보여 주며, 모든 클러스터 상호 연결이 'up'인지 확인합니다.
+다음 예는 이전 결과를 보여줍니다. `network port modify` 명령을 사용하여 모든 클러스터 상호 연결이 올바른지 확인합니다. `up` :
 
 [listing]
 ----
@@ -198,22 +198,22 @@ e0d       Cluster      Cluster          up   9000  auto/10000 -        -
 8 entries were displayed.
 ----
 ====
-. 원격 클러스터 인터페이스의 연결을 확인합니다.
+. 원격 클러스터 인터페이스의 연결성을 확인하세요.
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.9.1 이상
 --
-를 사용할 수 있습니다 `network interface check cluster-connectivity` 클러스터 연결에 대한 접근성 검사를 시작한 다음 세부 정보를 표시하는 명령입니다.
+당신은 사용할 수 있습니다 `network interface check cluster-connectivity` 클러스터 연결에 대한 접근성 검사를 시작한 다음 세부 정보를 표시하는 명령:
 
-`network interface check cluster-connectivity start` 및 `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`그리고 `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-* 참고: * show 명령을 실행하기 전에 몇 초 동안 기다린 후 세부 정보를 표시합니다.
+*참고:* show 명령을 실행하기 전에 몇 초 동안 기다려 세부 정보를 표시하세요.
 
 [listing, subs="+quotes"]
 ----
@@ -232,7 +232,7 @@ n2
 --
 .모든 ONTAP 릴리스
 --
-모든 ONTAP 릴리스에 대해 을 사용할 수도 있습니다 `cluster ping-cluster -node <name>` 연결 상태를 확인하는 명령:
+모든 ONTAP 릴리스의 경우 다음을 사용할 수도 있습니다. `cluster ping-cluster -node <name>` 연결성을 확인하는 명령:
 
 `cluster ping-cluster -node <name>`
 
@@ -281,15 +281,15 @@ RPC status:
 ----
 --
 ====
-. [[step12]] 클러스터의 각 노드에서 교체할 첫 번째 Nexus 5596 스위치인 CL1과 연결된 인터페이스를 마이그레이션합니다.
+. [[step12]]클러스터의 각 노드에서 교체할 첫 번째 Nexus 5596 스위치 CL1과 연결된 인터페이스를 마이그레이션합니다.
 +
-네트워크 인터페이스 마이그레이션
+`network interface migrate`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 n1 및 n2 노드에서 마이그레이션되는 포트 또는 LIF를 보여 줍니다.
+다음 예에서는 노드 n1 및 n2에서 마이그레이션되는 포트 또는 LIF를 보여줍니다.
 
 [listing]
 ----
@@ -303,15 +303,15 @@ cluster::*> network interface migrate -vserver Cluster -lif n2_clus4 -source-nod
 destination-node n2 -destination-port e0c
 ----
 ====
-. 클러스터 상태 확인:
+. 클러스터 상태를 확인하세요.
 +
-네트워크 인터페이스 쇼
+`network interface show`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 필요한 클러스터 LIF가 클러스터 스위치 C2에서 호스팅되는 적절한 클러스터 포트로 마이그레이션되었음을 보여 줍니다.
+다음 예에서는 필수 클러스터 LIF가 클러스터 스위치 C2에 호스팅된 적절한 클러스터 포트로 마이그레이션되었음을 보여줍니다.
 
 [listing]
 ----
@@ -335,13 +335,13 @@ Cluster
 ====
 . 모든 노드에서 CL1에 연결된 노드 포트를 종료합니다.
 +
-네트워크 포트 수정
+`network port modify`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예는 n1 및 n2 노드에서 종료되는 지정된 포트를 보여줍니다.
+다음 예에서는 지정된 포트가 노드 n1 및 n2에서 종료되는 것을 보여줍니다.
 
 [listing]
 ----
@@ -351,15 +351,15 @@ cluster::*> network port modify -node n2 -port e0a -up-admin false
 cluster::*> network port modify -node n2 -port e0d -up-admin false
 ----
 ====
-. 활성 3132Q-V 스위치 C2에서 ISL 포트 24, 31 및 32를 종료합니다.
+. 활성 3132Q-V 스위치 C2에서 ISL 포트 24, 31, 32를 종료합니다.
 +
-'허틀다운'
+`shutdown`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 ISL 24, 31 및 32를 종료하는 방법을 보여 줍니다.
+다음 예에서는 ISL 24, 31, 32를 종료하는 방법을 보여줍니다.
 
 [listing]
 ----
@@ -374,15 +374,15 @@ C2(config-if)# exit
 C2#
 ----
 ====
-. 모든 노드에서 Nexus 5596 스위치 CL1에 연결된 모든 케이블을 분리합니다.
+. 모든 노드에서 Nexus 5596 스위치 CL1에 연결된 모든 케이블을 제거합니다.
 +
-지원되는 케이블 연결을 사용하여 모든 노드의 분리된 포트를 Nexus 3132Q-V 스위치 C1에 다시 연결합니다.
+지원되는 케이블을 사용하여 모든 노드의 연결이 끊긴 포트를 Nexus 3132Q-V 스위치 C1에 다시 연결합니다.
 
-. Nexus 3132Q-V C2 포트 e1/24에서 QSFP 브레이크아웃 케이블을 분리합니다.
+. Nexus 3132Q-V C2 포트 e1/24에서 QSFP 브레이크아웃 케이블을 제거합니다.
 +
-지원되는 Cisco QSFP 광 케이블 또는 직접 연결 케이블을 사용하여 C1의 포트 e1/31 및 e1/32를 C2의 포트 e1/31 및 e1/32에 연결합니다.
+지원되는 Cisco QSFP 광섬유 또는 직접 연결 케이블을 사용하여 C1의 포트 e1/31 및 e1/32를 C2의 포트 e1/31 및 e1/32에 연결합니다.
 
-. 포트 24에서 구성을 복원하고 C2에서 임시 포트 채널 2를 제거합니다.
+. 포트 24의 구성을 복원하고 C2의 임시 포트 채널 2를 제거합니다.
 +
 [listing]
 ----
@@ -400,12 +400,12 @@ C2# copy running-config startup-config
 [########################################] 100%
 Copy Complete.
 ----
-. 활성 3132Q-V 스위치인 C2에서 ISL 포트 31 및 32를 "no shutdown"으로 불러옵니다
+. 활성 3132Q-V 스위치인 C2에서 ISL 포트 31과 32를 활성화합니다. `no shutdown`
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 3132Q-V 스위치 C2에서 ISL 31 및 32를 가져오는 방법을 보여 줍니다.
+다음 예에서는 3132Q-V 스위치 C2에서 ISL 31과 32를 활성화하는 방법을 보여줍니다.
 
 [listing]
 ----
@@ -421,5 +421,5 @@ Copy Complete.
 ====
 
 
-.다음 단계
-link:cn5596-complete-migration.html["마이그레이션을 완료하십시오"]..
+.다음은 무엇인가요?
+link:cn5596-complete-migration.html["마이그레이션을 완료하세요"].

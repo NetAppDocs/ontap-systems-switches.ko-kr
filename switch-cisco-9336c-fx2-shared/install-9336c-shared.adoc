@@ -4,7 +4,7 @@ permalink: switch-cisco-9336c-fx2-shared/install-9336c-shared.html
 keywords:  
 summary:  
 ---
-= Cisco Nexus 9336C-FX2 공유 스위치를 설치합니다
+= Cisco Nexus 9336C-FX2 공유 스위치 설치
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,23 +14,23 @@ summary:
 
 
 [role="lead"]
-다음 지침에 따라 Cisco Nexus 9336C-FX2 공유 스위치를 구성합니다.
+Cisco Nexus 9336C-FX2 공유 스위치를 구성하려면 다음 지침을 따르세요.
 
 .시작하기 전에
-다음 사항을 확인하십시오.
+다음 사항이 있는지 확인하세요.
 
-* 필요한 공유 스위치 설명서, 컨트롤러 설명서 및 ONTAP 설명서 을 참조하십시오 link:required-documentation-9336c-shared.html["Cisco Nexus 9336C-FX2 공유 스위치에 대한 문서 요구 사항"] 및 https://docs.netapp.com/us-en/ontap/index.html["NetApp ONTAP 문서"^].
-* 관련 라이센스, 네트워크 및 구성 정보, 케이블.
-* 완료된 케이블링 워크시트 을 참조하십시오 link:cable-9336c-shared.html["Cisco Nexus 9336C-FX2 케이블링 워크시트를 작성하십시오"]. 케이블 연결에 대한 자세한 내용은 를 참조하십시오 https://hwu.netapp.com["Hardware Universe"].
+* 공유 스위치 문서, 컨트롤러 문서 및 ONTAP 문서가 필요합니다.  보다link:required-documentation-9336c-shared.html["Cisco Nexus 9336C-FX2 공유 스위치에 대한 문서 요구 사항"] 그리고 https://docs.netapp.com/us-en/ontap/index.html["NetApp ONTAP 설명서"^] .
+* 적용 가능한 라이센스, 네트워크 및 구성 정보, 케이블.
+* 케이블링 워크시트를 완성했습니다. 보다link:cable-9336c-shared.html["Cisco Nexus 9336C-FX2 케이블링 워크시트를 완성하세요"] .  케이블링에 대한 자세한 내용은 다음을 참조하세요. https://hwu.netapp.com["Hardware Universe"] .
 
 
 .단계
-. 스위치, 컨트롤러 및 NS224 NVMe 스토리지 쉘프를 랙 마운트하십시오.
+. 스위치, 컨트롤러 및 NS224 NVMe 스토리지 선반을 랙에 장착합니다.
 +
-스위치를 NetApp 캐비닛에 랙에 장착하는 방법은 을 link:../switch-cisco-9336c-fx2/install-switch-and-passthrough-panel-9336c-cluster.html["랙 장착 지침"]참조하십시오.
+를 참조하십시오link:../switch-cisco-9336c-fx2/install-switch-and-passthrough-panel-9336c-cluster.html["래킹 지침"] NetApp 캐비닛에 스위치를 장착하는 방법을 알아보세요.
 
-. 스위치, 컨트롤러 및 NS224 NVMe 스토리지 쉘프의 전원을 켭니다.
+. 스위치, 컨트롤러 및 NS224 NVMe 스토리지 선반의 전원을 켭니다.
 
 
-.다음 단계
-선택적으로 다음을 수행할 수 있습니다.link:install-switch-and-passthrough-panel-9336c-shared.html["NetApp 캐비닛에 Cisco Nexus 9336C-FX2 스위치를 설치합니다"] .  그렇지 않으면 다음으로 이동하세요link:setup-and-configure-9336c-shared.html["스위치를 구성합니다"] .
+.다음은 무엇인가요?
+선택적으로 다음을 수행할 수 있습니다. link:install-switch-and-passthrough-panel-9336c-shared.html["NetApp 캐비닛에 Cisco Nexus 9336C-FX2 스위치 설치"]. 그렇지 않으면 다음으로 이동하세요. link:setup-and-configure-9336c-shared.html["스위치 구성"].

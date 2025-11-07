@@ -2,22 +2,22 @@
 permalink: switch-bes-53248/required-documentation-bes53248.html 
 sidebar: sidebar 
 keywords: documentation requirements, BES-53248 switches,cluster switches 
-summary: Cluster-Mode 구성을 설정하려면 특정 스위치 및 컨트롤러 설명서가 필요합니다. 
+summary: 클러스터 모드 구성을 설정하려면 특정 스위치 및 컨트롤러 설명서가 필요합니다. 
 ---
-= BES-53248 클러스터 스위치에 대한 설명서 요구 사항
+= BES-53248 클러스터 스위치에 대한 문서 요구 사항
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-BES-53248 스위치 설치 및 유지 보수의 경우 특정 스위치 및 컨트롤러 설명서를 검토하십시오.
+BES-53248 스위치 설치 및 유지관리에 대해서는 해당 스위치 및 컨트롤러 설명서를 반드시 검토하세요.
 
 
 
-== Broadcom 설명서
+== Broadcom 문서
 
-BES-53248 클러스터 스위치를 설정하려면 Broadcom 지원 사이트에서 제공되는 다음 문서가 필요합니다. https://www.broadcom.com/support/bes-switch["Broadcom Ethernet 스위치 제품 라인"^]
+BES-53248 클러스터 스위치를 설정하려면 Broadcom 지원 사이트에서 다음 문서를 다운로드해야 합니다. https://www.broadcom.com/support/bes-switch["Broadcom 이더넷 스위치 제품군"^]
 
 [cols="1,2"]
 |===
@@ -27,63 +27,63 @@ BES-53248 클러스터 스위치를 설정하려면 Broadcom 지원 사이트에
  a| 
 _EFOS 관리자 가이드 v3.4.3_
  a| 
-일반적인 네트워크에서 BES-53248 스위치를 사용하는 방법의 예를 제공합니다.
+일반적인 네트워크에서 BES-53248 스위치를 사용하는 방법에 대한 예를 제공합니다.
 
 
 
  a| 
 _EFOS CLI 명령 참조 v3.4.3_
  a| 
-에서는 BES-53248 소프트웨어를 보고 구성하는 데 사용하는 CLI(Command-Line Interface) 명령에 대해 설명합니다.
+BES-53248 소프트웨어를 보고 구성하는 데 사용하는 명령줄 인터페이스(CLI) 명령을 설명합니다.
 
 
 
  a| 
-_EFOS 시작 안내서 v3.4.3_
+_EFOS 시작 가이드 v3.4.3_
  a| 
-BES-53248 스위치에 대한 자세한 내용은 에 나와 있습니다.
+BES-53248 스위치에 대한 자세한 정보를 제공합니다.
 
 
 
  a| 
 _EFOS SNMP 참조 가이드 v3.4.3_
  a| 
-일반적인 네트워크에서 BES-53248 스위치를 사용하는 방법의 예를 제공합니다.
+일반적인 네트워크에서 BES-53248 스위치를 사용하는 방법에 대한 예를 제공합니다.
 
 
 
  a| 
-_EFOS 배율 매개 변수 및 값 v3.4.3_
+_EFOS 스케일링 매개변수 및 값 v3.4.3_
  a| 
-지원되는 플랫폼에서 EFOS 소프트웨어를 제공하고 유효성을 검사하는 기본 확장 매개 변수에 대해 설명합니다.
+지원되는 플랫폼에서 EFOS 소프트웨어가 제공되고 검증되는 기본 스케일링 매개변수를 설명합니다.
 
 
 
  a| 
 _EFOS 기능 사양 v3.4.3_
  a| 
-지원되는 플랫폼의 EFOS 소프트웨어 사양에 대해 설명합니다.
+지원되는 플랫폼의 EFOS 소프트웨어 사양을 설명합니다.
 
 
 
  a| 
-_EFOS 릴리스 정보 v3.4.3_
+_EFOS 릴리스 노트 v3.4.3_
  a| 
-BES-53248 소프트웨어에 대한 릴리스 관련 정보를 제공합니다.
+BES-53248 소프트웨어에 대한 릴리스별 정보를 제공합니다.
 
 
 
  a| 
-_클러스터 네트워크 및 관리 네트워크 호환성 매트릭스 _
+_클러스터 네트워크 및 관리 네트워크 호환성 매트릭스_
  a| 
-네트워크 호환성에 대한 정보를 제공합니다. 이 매트릭스는 BES-53248 스위치 다운로드 사이트 에서 다운로드할 수 있습니다 https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["Broadcom 클러스터 스위치"^].
+네트워크 호환성에 대한 정보를 제공합니다.  매트릭스는 BES-53248 스위치 다운로드 사이트에서 사용할 수 있습니다. https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["Broadcom 클러스터 스위치"^] .
 
 |===
 
 
-== ONTAP 시스템 설명서 및 KB 문서
+== ONTAP 시스템 문서 및 KB 문서
 
-ONTAP 시스템을 설정하려면 NetApp Support 사이트 에서 다음 문서가 필요합니다 http://mysupport.netapp.com/["mysupport.netapp.com"^] 또는 의 Knowledgebase(KB) 사이트를 참조하십시오 https://kb.netapp.com/["kb.netapp.com"^].
+ONTAP 시스템을 설정하려면 NetApp 지원 사이트에서 다음 문서가 필요합니다. http://mysupport.netapp.com/["mysupport.netapp.com"^] 또는 Knowledgebase(KB) 사이트 https://kb.netapp.com/["kb.netapp.com"^] .
 
 [cols="1,2"]
 |===
@@ -91,29 +91,29 @@ ONTAP 시스템을 설정하려면 NetApp Support 사이트 에서 다음 문서
 
 
  a| 
-https://hwu.netapp.com/Home/Index["NetApp Hardware Universe를 참조하십시오"^]
+https://hwu.netapp.com/Home/Index["NetApp Hardware Universe"^]
  a| 
-시스템 캐비닛을 비롯한 모든 NetApp 하드웨어의 전원 및 사이트 요구사항을 설명하고 관련 커넥터 및 케이블 옵션에 대한 정보와 부품 번호를 제공합니다.
+시스템 캐비닛을 포함한 모든 NetApp 하드웨어에 대한 전원 및 사이트 요구 사항을 설명하고, 해당 커넥터 및 케이블 옵션과 해당 부품 번호에 대한 정보를 제공합니다.
 
 
 
  a| 
-컨트롤러별 설치 및 설정 지침 _
+컨트롤러별 _설치 및 설정 지침_
  a| 
-에서는 NetApp 하드웨어를 설치하는 방법에 대해 설명합니다.
+NetApp 하드웨어를 설치하는 방법을 설명합니다.
 
 
 
  a| 
 ONTAP 9
  a| 
-ONTAP 9 릴리즈의 모든 측면에 대해 자세히 설명합니다.
+ONTAP 9 릴리스의 모든 측면에 대한 자세한 정보를 제공합니다.
 
 
 
  a| 
-_Broadcom 지원 BES-53248 스위치 _ 에 대한 포트 라이센스를 추가하는 방법
+_Broadcom 지원 BES-53248 스위치에 추가 포트 라이선싱을 추가하는 방법_
  a| 
-포트 라이센스 추가에 대한 자세한 내용은 에 나와 있습니다. 로 이동합니다 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/How_to_add_Additional_Port_Licensing_for_the_Broadcom-Supported_BES-53248_Switch["KB 문서를 참조하십시오"^].
+포트 라이센스 추가에 대한 자세한 정보를 제공합니다.  로 가다 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/How_to_add_Additional_Port_Licensing_for_the_Broadcom-Supported_BES-53248_Switch["KB 문서"^] .
 
 |===

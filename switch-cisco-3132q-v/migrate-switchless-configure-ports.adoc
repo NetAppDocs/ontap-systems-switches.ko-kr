@@ -4,22 +4,22 @@ sidebar: sidebar
 keywords: cisco 3132q-v, cluster switches 
 summary: Cisco Nexus 3132q-v 스위치를 AFF 또는 FAS 클러스터에서 클러스터 스위치로 사용할 수 있습니다. 
 ---
-= 스위치가 없는 클러스터에서 스위치 클러스터로 마이그레이션하도록 포트를 구성합니다
+= 스위치리스 클러스터에서 스위치드 클러스터로 마이그레이션을 위해 포트를 구성하세요.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-스위치가 없는 2노드 클러스터에서 2노드 스위치 클러스터로 마이그레이션하도록 포트를 구성하려면 다음 단계를 따르십시오.
+2노드 스위치리스 클러스터에서 2노드 스위치드 클러스터로 마이그레이션하기 위해 포트를 구성하려면 다음 단계를 따르세요.
 
 .단계
-. Nexus 3132Q-V 스위치 C1 및 C2에서 모든 노드 대상 포트 C1 및 C2를 비활성화하지만 ISL 포트는 비활성화하지 않습니다.
+. Nexus 3132Q-V 스위치 C1 및 C2에서 모든 노드 연결 포트 C1 및 C2를 비활성화하지만 ISL 포트는 비활성화하지 마세요.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 RCF에서 지원되는 구성을 사용하여 Nexus 3132Q-V 클러스터 스위치 C1 및 C2에서 포트 1부터 30까지 비활성화되는 것을 보여 줍니다 `NX3132_RCF_v1.1_24p10g_26p40g.txt`:
+다음 예에서는 RCF에서 지원하는 구성을 사용하여 Nexus 3132Q-V 클러스터 스위치 C1 및 C2에서 포트 1~30이 비활성화되는 것을 보여줍니다. `NX3132_RCF_v1.1_24p10g_26p40g.txt` :
 
 [listing]
 ----
@@ -42,13 +42,13 @@ C2(config-if-range)# exit
 C2(config)# exit
 ----
 ====
-. 지원되는 케이블 연결을 사용하여 C1의 포트 1/31 및 1/32를 C2의 동일한 포트에 연결합니다.
-. ISL 포트가 C1 및 C2에서 작동하는지 확인합니다.
+. 지원되는 케이블을 사용하여 C1의 포트 1/31과 1/32를 C2의 동일한 포트에 연결합니다.
+. C1 및 C2에서 ISL 포트가 작동하는지 확인하세요.
 +
-'포트-채널 요약
+`show port-channel summary`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing]
@@ -82,10 +82,10 @@ Group Port-        Type   Protocol  Member Ports
 ====
 . 스위치에 있는 인접 장치 목록을 표시합니다.
 +
-CDP 이웃의 성전
+`show cdp neighbors`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing]
@@ -117,13 +117,13 @@ Total entries displayed: 2
 ====
 . 각 노드의 클러스터 포트 연결을 표시합니다.
 +
-네트워크 디바이스 발견 쇼
+`network device-discovery show`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예는 스위치가 없는 2노드 클러스터 구성을 보여줍니다.
+다음 예에서는 2노드 스위치리스 클러스터 구성을 보여줍니다.
 
 [listing]
 ----
@@ -141,13 +141,13 @@ n2         /cdp
 ====
 . clus1 인터페이스를 clus2를 호스팅하는 물리적 포트로 마이그레이션합니다.
 +
-네트워크 인터페이스 마이그레이션
+`network interface migrate`
 
 +
 각 로컬 노드에서 이 명령을 실행합니다.
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing]
@@ -158,12 +158,12 @@ cluster::*> network interface migrate -vserver Cluster -lif n2_clus1 -source-nod
 -destination-node n2 -destination-port e4e
 ----
 ====
-. 클러스터 인터페이스 마이그레이션 확인:
+. 클러스터 인터페이스 마이그레이션을 확인하세요.
 +
-네트워크 인터페이스 쇼
+`network interface show`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing]
@@ -184,7 +184,7 @@ Cluster
 ====
 . 두 노드 모두에서 클러스터 포트 clus1 LIF를 종료합니다.
 +
-네트워크 포트 수정
+`network port modify`
 
 +
 [listing]
@@ -192,22 +192,22 @@ Cluster
 cluster::*> network port modify -node n1 -port e4a -up-admin false
 cluster::*> network port modify -node n2 -port e4a -up-admin false
 ----
-. 원격 클러스터 인터페이스의 연결을 확인합니다.
+. 원격 클러스터 인터페이스의 연결성을 확인하세요.
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.9.1 이상
 --
-를 사용할 수 있습니다 `network interface check cluster-connectivity` 클러스터 연결에 대한 접근성 검사를 시작한 다음 세부 정보를 표시하는 명령입니다.
+당신은 사용할 수 있습니다 `network interface check cluster-connectivity` 클러스터 연결에 대한 접근성 검사를 시작한 다음 세부 정보를 표시하는 명령:
 
-`network interface check cluster-connectivity start` 및 `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`그리고 `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-* 참고: * show 명령을 실행하기 전에 몇 초 동안 기다린 후 세부 정보를 표시합니다.
+*참고:* show 명령을 실행하기 전에 몇 초 동안 기다려 세부 정보를 표시하세요.
 
 [listing, subs="+quotes"]
 ----
@@ -226,7 +226,7 @@ n2
 --
 .모든 ONTAP 릴리스
 --
-모든 ONTAP 릴리스에 대해 을 사용할 수도 있습니다 `cluster ping-cluster -node <name>` 연결 상태를 확인하는 명령:
+모든 ONTAP 릴리스의 경우 다음을 사용할 수도 있습니다. `cluster ping-cluster -node <name>` 연결성을 확인하는 명령:
 
 `cluster ping-cluster -node <name>`
 
@@ -259,24 +259,24 @@ RPC status:
 ----
 --
 ====
-. [[step10]] n1 노드의 e4a에서 케이블을 분리합니다.
+. [[step10]]노드 n1의 e4a에서 케이블을 분리합니다.
 +
-실행 중인 구성을 참조하여 Nexus 3132Q-V에서 지원되는 케이블을 사용하여 스위치 C1(이 예에서는 포트 1/7)의 첫 번째 40GbE 포트를 n1의 e4a에 연결할 수 있습니다
+실행 구성을 참조하고 Nexus 3132Q-V에서 지원되는 케이블을 사용하여 스위치 C1의 첫 번째 40GbE 포트(이 예에서는 포트 1/7)를 n1의 e4a에 연결할 수 있습니다.
 
 +
 
-NOTE: 새 Cisco 클러스터 스위치에 케이블을 다시 연결할 때 사용되는 케이블은 Cisco에서 지원하는 광섬유 또는 케이블이어야 합니다.
+NOTE: 새로운 Cisco 클러스터 스위치에 케이블을 다시 연결할 때 사용하는 케이블은 Cisco 에서 지원하는 광섬유나 케이블링이어야 합니다.
 
 . 노드 n2의 e4a에서 케이블을 분리합니다.
 +
-지원되는 케이블 연결을 사용하여 실행 중인 구성을 참조하여 다음 사용 가능한 C1, 포트 1/8의 40GbE 포트에 e4a를 연결할 수 있습니다.
+실행 구성을 참조하고 지원되는 케이블을 사용하여 e4a를 C1의 다음 사용 가능한 40GbE 포트, 포트 1/8에 연결할 수 있습니다.
 
 . C1에서 모든 노드 연결 포트를 활성화합니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 RCF에서 지원되는 구성을 사용하여 Nexus 3132Q-V 클러스터 스위치 C1 및 C2에서 포트 1~30을 사용하는 것을 보여 줍니다 `NX3132_RCF_v1.1_24p10g_26p40g.txt`:
+다음 예에서는 RCF에서 지원하는 구성을 사용하여 Nexus 3132Q-V 클러스터 스위치 C1 및 C2에서 포트 1~30이 활성화되는 것을 보여줍니다. `NX3132_RCF_v1.1_24p10g_26p40g.txt` :
 
 [listing]
 ----
@@ -289,10 +289,10 @@ C1(config)# exit
 ====
 . 각 노드에서 첫 번째 클러스터 포트 e4a를 활성화합니다.
 +
-네트워크 포트 수정
+`network port modify`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing]
@@ -301,12 +301,12 @@ cluster::*> network port modify -node n1 -port e4a -up-admin true
 cluster::*> network port modify -node n2 -port e4a -up-admin true
 ----
 ====
-. 클러스터가 두 노드에 모두 있는지 확인합니다.
+. 두 노드 모두에서 클러스터가 작동하는지 확인하세요.
 +
-네트워크 포트 쇼
+`network port show`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing]
@@ -331,15 +331,15 @@ e4e       Cluster      Cluster          up   9000 auto/40000  -        -
 4 entries were displayed.
 ----
 ====
-. 각 노드에서 마이그레이션된 모든 클러스터 인터커넥트 LIF를 되돌립니다.
+. 각 노드에 대해 마이그레이션된 모든 클러스터 상호 연결 LIF를 되돌립니다.
 +
-네트워크 인터페이스 복원
+`network interface revert`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 마이그레이션된 LIF가 홈 포트로 되돌아가는 것을 보여 줍니다.
+다음 예에서는 마이그레이션된 LIF가 홈 포트로 복귀되는 모습을 보여줍니다.
 
 [listing]
 ----
@@ -347,15 +347,15 @@ cluster::*> network interface revert -vserver Cluster -lif n1_clus1
 cluster::*> network interface revert -vserver Cluster -lif n2_clus1
 ----
 ====
-. 모든 클러스터 인터커넥트 포트가 이제 홈 포트로 되돌려졌는지 확인합니다.
+. 모든 클러스터 상호 연결 포트가 이제 홈 포트로 돌아갔는지 확인하세요.
 +
-네트워크 인터페이스 쇼
+`network interface show`
 
 +
-현재 포트 열에 나열된 모든 포트에 대해 "홈"이라는 값이 표시되어야 합니다. 표시된 값이 false이면 포트가 복구되지 않은 것입니다.
+그만큼 `Is Home` 열에는 값이 표시되어야 합니다. `true` 나열된 모든 포트에 대해 `Current Port` 열.  표시된 값이 `false` , 포트가 복귀되지 않았습니다.
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing]
@@ -375,10 +375,10 @@ Cluster
 ====
 . 각 노드의 클러스터 포트 연결을 표시합니다.
 +
-네트워크 디바이스 발견 쇼
+`network device-discovery show`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing]
@@ -397,10 +397,10 @@ n2         /cdp
 ====
 . 각 노드의 콘솔에서 clus2를 포트 e4a로 마이그레이션합니다.
 +
-네트워크 인터페이스 마이그레이션
+`network interface migrate`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing]
@@ -413,10 +413,10 @@ cluster::*> network interface migrate -vserver Cluster -lif n2_clus2 -source-nod
 ====
 . 두 노드 모두에서 클러스터 포트 clus2 LIF를 종료합니다.
 +
-네트워크 포트 수정
+`network port modify`
 
 +
-다음 예는 두 노드에서 종료되는 지정된 포트를 보여줍니다.
+다음 예에서는 두 노드 모두에서 지정된 포트가 종료되는 것을 보여줍니다.
 
 +
 [listing]
@@ -424,12 +424,12 @@ cluster::*> network interface migrate -vserver Cluster -lif n2_clus2 -source-nod
 cluster::*> network port modify -node n1 -port e4e -up-admin false
 cluster::*> network port modify -node n2 -port e4e -up-admin false
 ----
-. 클러스터 LIF 상태를 확인합니다.
+. 클러스터 LIF 상태를 확인하세요.
 +
-네트워크 인터페이스 쇼
+`network interface show`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing]
@@ -449,18 +449,18 @@ Cluster
 ====
 . 노드 n1의 e4e에서 케이블을 분리합니다.
 +
-실행 중인 구성을 참조하여 Nexus 3132Q-V에서 지원되는 케이블을 사용하여 스위치 C2(이 예에서는 포트 1/7)의 첫 번째 40GbE 포트를 n1의 e4e에 연결할 수 있습니다
+실행 구성을 참조하고 Nexus 3132Q-V에서 지원되는 케이블을 사용하여 스위치 C2의 첫 번째 40GbE 포트(이 예에서는 포트 1/7)를 n1의 e4e에 연결할 수 있습니다.
 
 . 노드 n2의 e4e에서 케이블을 분리합니다.
 +
-지원되는 케이블 연결을 사용하여 실행 중인 구성을 참조하여 e4e를 C2, 포트 1/8에서 사용 가능한 다음 40 GbE 포트에 연결할 수 있습니다.
+실행 구성을 참조하고 지원되는 케이블을 사용하여 e4e를 C2의 다음 사용 가능한 40GbE 포트, 포트 1/8에 연결할 수 있습니다.
 
-. C2에서 모든 노드 대상 포트를 활성화합니다.
+. C2에서 모든 노드 연결 포트를 활성화합니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 RCF에서 지원되는 구성을 사용하여 Nexus 3132Q-V 클러스터 스위치 C1 및 C2에서 포트 1~30을 사용하는 것을 보여 줍니다 `NX3132_RCF_v1.1_24p10g_26p40g.txt`:
+다음 예에서는 RCF에서 지원하는 구성을 사용하여 Nexus 3132Q-V 클러스터 스위치 C1 및 C2에서 포트 1~30이 활성화되는 것을 보여줍니다. `NX3132_RCF_v1.1_24p10g_26p40g.txt` :
 
 [listing]
 ----
@@ -473,10 +473,10 @@ C2(config)# exit
 ====
 . 각 노드에서 두 번째 클러스터 포트 e4e를 활성화합니다.
 +
-네트워크 포트 수정
+`network port modify`
 
 +
-다음 예에서는 지정된 포트가 표시되는 것을 보여 줍니다.
+다음 예에서는 지정된 포트가 활성화되는 것을 보여줍니다.
 
 +
 [listing]
@@ -484,12 +484,12 @@ C2(config)# exit
 cluster::*> network port modify -node n1 -port e4e -up-admin true
 cluster::*> network port modify -node n2 -port e4e -up-admin true
 ----
-. 각 노드에서 마이그레이션된 모든 클러스터 인터커넥트 LIF를 되돌립니다.
+. 각 노드에 대해 마이그레이션된 모든 클러스터 상호 연결 LIF를 되돌립니다.
 +
-네트워크 인터페이스 복원
+`network interface revert`
 
 +
-다음 예에서는 마이그레이션된 LIF가 홈 포트로 되돌아가는 것을 보여 줍니다.
+다음 예에서는 마이그레이션된 LIF가 홈 포트로 복귀되는 모습을 보여줍니다.
 
 +
 [listing]
@@ -497,15 +497,15 @@ cluster::*> network port modify -node n2 -port e4e -up-admin true
 cluster::*> network interface revert -vserver Cluster -lif n1_clus2
 cluster::*> network interface revert -vserver Cluster -lif n2_clus2
 ----
-. 모든 클러스터 인터커넥트 포트가 이제 홈 포트로 되돌려졌는지 확인합니다.
+. 모든 클러스터 상호 연결 포트가 이제 홈 포트로 돌아갔는지 확인하세요.
 +
-네트워크 인터페이스 쇼
+`network interface show`
 
 +
-현재 포트 열에 나열된 모든 포트에 대해 "홈"이라는 값이 표시되어야 합니다. 표시된 값이 false이면 포트가 복구되지 않은 것입니다.
+그만큼 `Is Home` 열에는 값이 표시되어야 합니다. `true` 나열된 모든 포트에 대해 `Current Port` 열.  표시된 값이 `false` , 포트가 복귀되지 않았습니다.
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing]
@@ -523,12 +523,12 @@ Cluster
 4 entries were displayed.
 ----
 ====
-. 모든 클러스터 인터커넥트 포트가 'UP' 상태인지 확인합니다.
+. 모든 클러스터 상호 연결 포트가 다음 위치에 있는지 확인하십시오. `up` 상태.
 +
-네트워크 포트 show-role cluster
+`network port show -role cluster`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing]
@@ -555,5 +555,5 @@ e4e       Cluster      Cluster          up   9000 auto/40000  -        -
 ====
 
 
-.다음 단계
-link:migrate-switchless-complete-migration.html["마이그레이션을 완료하십시오"]..
+.다음은 무엇인가요?
+link:migrate-switchless-complete-migration.html["마이그레이션을 완료하세요"].

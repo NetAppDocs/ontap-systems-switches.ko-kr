@@ -4,25 +4,25 @@ sidebar: sidebar
 keywords: cisco 3232c, cluster switches 
 summary: Cisco Nexus 3232C 스위치를 AFF 또는 FAS 클러스터에서 클러스터 스위치로 사용할 수 있습니다. 
 ---
-= CN1610 스위치 CL2를 32C 스위치 C2로 교체하십시오
+= CN1610 스위치 CL2를 3232C 스위치 C2로 교체합니다.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-다음 단계에 따라 CN1610(CL2) 스위치를 Nexus 3232C(C2) 스위치로 교체합니다.
+다음 단계에 따라 CN1610(CL2) 스위치를 Nexus 3232C(C2) 스위치로 교체하세요.
 
 .단계
-. 스위치 CL2에 물리적으로 연결된 클러스터 인터커넥트 포트를 종료합니다.
+. 스위치 CL2에 물리적으로 연결된 클러스터 상호 연결 포트를 종료합니다.
 +
-'network port modify -node_node -name_-port_port -name_-up-admin false'
+`network port modify -node _node-name_ -port _port-name_ -up-admin false`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예는 노드 n1 및 노드 n2에 대해 종료되는 클러스터 인터커넥트 포트 4개를 보여줍니다.
+다음 예에서는 노드 n1과 노드 n2에 대해 4개의 클러스터 상호 연결 포트가 종료되는 것을 보여줍니다.
 
 [listing, subs="+quotes"]
 ----
@@ -32,22 +32,22 @@ cluster::*> *network port modify -node n2 -port e0b -up-admin false*
 cluster::*> *network port modify -node n2 -port e0c -up-admin false*
 ----
 ====
-. 원격 클러스터 인터페이스의 연결을 확인합니다.
+. 원격 클러스터 인터페이스의 연결성을 확인하세요.
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.9.1 이상
 --
-를 사용할 수 있습니다 `network interface check cluster-connectivity` 클러스터 연결에 대한 접근성 검사를 시작한 다음 세부 정보를 표시하는 명령입니다.
+당신은 사용할 수 있습니다 `network interface check cluster-connectivity` 클러스터 연결에 대한 접근성 검사를 시작한 다음 세부 정보를 표시하는 명령:
 
-`network interface check cluster-connectivity start` 및 `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`그리고 `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-* 참고: * 몇 초 동안 기다린 후 `show` 명령을 실행하여 세부 정보를 표시합니다.
+*참고:* 실행하기 전에 몇 초 동안 기다리십시오. `show` 세부 정보를 표시하는 명령입니다.
 
 [listing, subs="+quotes"]
 ----
@@ -66,7 +66,7 @@ n2
 --
 .모든 ONTAP 릴리스
 --
-모든 ONTAP 릴리스에 대해 을 사용할 수도 있습니다 `cluster ping-cluster -node <name>` 연결 상태를 확인하는 명령:
+모든 ONTAP 릴리스의 경우 다음을 사용할 수도 있습니다. `cluster ping-cluster -node <name>` 연결성을 확인하는 명령:
 
 `cluster ping-cluster -node <name>`
 
@@ -115,15 +115,15 @@ RPC status:
 ----
 --
 ====
-. [[step3]] 적절한 명령을 사용하여 활성 CN1610 스위치 CL1에서 ISL 포트 13 - 16을 종료합니다.
+. [[3단계]] 적절한 명령을 사용하여 활성 CN1610 스위치 CL1의 ISL 포트 13~16을 종료합니다.
 +
-Cisco 명령에 대한 자세한 내용은 에 나와 있는 가이드를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^].
+Cisco 명령에 대한 자세한 내용은 다음 가이드를 참조하세요. https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^] .
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 CN1610 스위치 CL1에서 ISL 포트 13~16이 종료되는 것을 보여 줍니다.
+다음 예에서는 CN1610 스위치 CL1에서 ISL 포트 13~16이 종료되는 것을 보여줍니다.
 
 [listing, subs="+quotes"]
 ----
@@ -135,15 +135,15 @@ Cisco 명령에 대한 자세한 내용은 에 나와 있는 가이드를 참조
 (CL1)#
 ----
 ====
-. CL1과 C2 간에 임시 ISL 구축:
+. CL1과 C2 사이에 임시 ISL을 구축합니다.
 +
-Cisco 명령에 대한 자세한 내용은 에 나와 있는 가이드를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^].
+Cisco 명령에 대한 자세한 내용은 다음 가이드를 참조하세요. https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^] .
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 Cisco의 'witchport 모드 트렁크' 명령을 사용하여 CL1(포트 13-16)과 C2(포트 e1/24/1-4) 사이에 임시 ISL을 구축한 것을 보여 줍니다.
+다음 예에서는 Cisco 사용하여 CL1(포트 13-16)과 C2(포트 e1/24/1-4) 사이에 임시 ISL이 구축되는 것을 보여줍니다. `switchport mode trunk` 명령:
 
 [listing, subs="+quotes"]
 ----
@@ -161,32 +161,32 @@ C2(config-if-range)# *exit*
 C2(config-if)# *exit*
 ----
 ====
-. 모든 노드에서 CN1610 스위치 CL2에 연결된 케이블을 제거합니다.
+. 모든 노드의 CN1610 스위치 CL2에 연결된 케이블을 제거합니다.
 +
-지원되는 케이블 연결을 사용하여 모든 노드의 연결이 끊긴 포트를 Nexus 3232C 스위치 C2에 다시 연결해야 합니다.
+지원되는 케이블을 사용하여 모든 노드의 연결이 끊긴 포트를 Nexus 3232C 스위치 C2에 다시 연결해야 합니다.
 
-. CN1610 스위치 CL1의 포트 13 - 16에서 ISL 케이블 4개를 분리합니다.
+. CN1610 스위치 CL1의 포트 13~16에서 ISL 케이블 4개를 제거합니다.
 +
-새 Cisco 3232C 스위치 C2의 포트 1/24를 기존 CN1610 스위치 CL1의 포트 13~16에 연결하는 SFP+ 브레이크아웃 케이블에 적절한 Cisco QSFP28을 연결해야 합니다.
+새로운 Cisco 3232C 스위치 C2의 포트 1/24를 기존 CN1610 스위치 CL1의 포트 13~16에 연결하는 적절한 Cisco QSFP28-SFP+ 브레이크아웃 케이블을 연결해야 합니다.
 
 +
 [NOTE]
 ====
-새 Cisco 3232C 스위치에 케이블을 다시 연결하는 경우 사용되는 케이블은 광 파이버 또는 Cisco Twinax 케이블이어야 합니다.
+새로운 Cisco 3232C 스위치에 케이블을 다시 연결할 때는 광섬유 케이블이나 Cisco Twinax 케이블을 사용해야 합니다.
 
 ====
-. 활성 CN1610 스위치에 ISL 인터페이스 3/1을 구성하여 정적 모드를 비활성화함으로써 ISL을 동적으로 만듭니다.
+. 활성 CN1610 스위치에서 ISL 인터페이스 3/1을 구성하여 정적 모드를 비활성화하여 ISL을 동적으로 만듭니다.
 +
-이 구성은 두 스위치에서 ISL을 가져올 때 3232C 스위치 C2의 ISL 구성과 일치합니다.
+이 구성은 두 스위치 모두에서 ISL이 활성화될 때 3232C 스위치 C2의 ISL 구성과 일치합니다.
 
 +
-Cisco 명령에 대한 자세한 내용은 에 나와 있는 가이드를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^].
+Cisco 명령에 대한 자세한 내용은 다음 가이드를 참조하세요. https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^] .
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 ISL의 동적 구성을 위해 ISL 인터페이스 3/1을 구성하는 방법을 보여 줍니다.
+다음 예에서는 ISL 인터페이스 3/1이 ISL을 동적으로 만들기 위해 구성된 것을 보여줍니다.
 
 [listing, subs="+quotes"]
 ----
@@ -198,15 +198,15 @@ Cisco 명령에 대한 자세한 내용은 에 나와 있는 가이드를 참조
 (CL1)#
 ----
 ====
-. 활성 CN1610 스위치 CL1에서 ISL 13 ~ 16을 실행합니다.
+. 활성 CN1610 스위치 CL1에서 ISL 13~16을 불러옵니다.
 +
-Cisco 명령에 대한 자세한 내용은 에 나와 있는 가이드를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^].
+Cisco 명령에 대한 자세한 내용은 다음 가이드를 참조하세요. https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^] .
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 포트 채널 인터페이스 3/1에서 ISL 포트 13~16이 가동되는 것을 보여 줍니다.
+다음 예에서는 ISL 포트 13~16이 포트 채널 인터페이스 3/1에서 활성화되는 것을 보여줍니다.
 
 [listing, subs="+quotes"]
 ----
@@ -218,15 +218,15 @@ Cisco 명령에 대한 자세한 내용은 에 나와 있는 가이드를 참조
 (CL1)#
 ----
 ====
-. CN1610 스위치 CL1에서 ISL이 "작동"되는지 확인합니다.
+. ISL이 있는지 확인하세요 `up` CN1610 스위치 CL1에서.
 +
-Link State는 Up, Type은 Dynamic, Port Active 칼럼은 True여야 하며, Port Active 칼럼은 0/13 ~ 0/16 포트의 경우 True여야 합니다.
+"링크 상태"는 다음과 같아야 합니다. `Up` , "유형"은 다음과 같아야 합니다. `Dynamic` , 그리고 "포트 활성" 열은 다음과 같아야 합니다. `True` 포트 0/13 ~ 0/16용.
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 CN1610 스위치 CL1에서 "UP"으로 확인되는 ISL을 보여 줍니다.
+다음 예에서는 ISL이 다음과 같이 검증되는 것을 보여줍니다. `up` CN1610 스위치 CL1에서:
 
 [listing, subs="+quotes"]
 ----
@@ -252,21 +252,21 @@ Ports  Timeout       Speed       Active
        partner/long
 ----
 ====
-. ISL이 있는지 확인합니다 `up` 3232C 스위치 C2:
+. ISL이 있는지 확인하세요 `up` 3232C 스위치 C2에서:
 +
-'포트-채널 요약
+`show port-channel summary`
 
 +
-Cisco 명령에 대한 자세한 내용은 에 나와 있는 가이드를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^].
+Cisco 명령에 대한 자세한 내용은 다음 가이드를 참조하세요. https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^] .
 
 +
-Eth1/24/1부터 Eth1/24/4까지의 포트는 '(P)'를 나타내야 합니다. 즉, 4개의 ISL 포트가 모두 포트 채널에서 작동 중임을 의미합니다. eth1/31 및 Eth1/32는 연결되지 않은 경우 '(D)'를 표시해야 합니다.
+Eth1/24/1부터 Eth1/24/4까지의 포트는 다음을 표시해야 합니다. `(P)` 즉, 4개의 ISL 포트가 모두 포트 채널에 연결되어 있다는 의미입니다.  Eth1/31 및 Eth1/32는 다음을 표시해야 합니다. `(D)` 서로 연결되어 있지 않기 때문입니다.
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 3232C 스위치 C2에서 "UP"로 확인되는 ISL을 보여 줍니다.
+다음 예에서는 ISL이 다음과 같이 검증되는 것을 보여줍니다. `up` 3232C 스위치 C2에서:
 
 [listing, subs="+quotes"]
 ----
@@ -287,15 +287,15 @@ Group Port-       Type     Protocol  Member Ports
                                      Eth1/24/4(P)
 ----
 ====
-. 모든 노드에서 3232C 스위치 C2에 연결된 모든 클러스터 인터커넥트 포트를 불러옵니다.
+. 모든 노드의 3232C 스위치 C2에 연결된 모든 클러스터 상호 연결 포트를 불러옵니다.
 +
-'network port modify -node_node -name_-port_port -name_-up-admin TRUE'
+`network port modify -node _node-name_ -port _port-name_ -up-admin true`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 3232C 스위치 C2에 연결된 클러스터 인터커넥트 포트를 가져오는 방법을 보여 줍니다.
+다음 예제에서는 3232C 스위치 C2에 연결된 클러스터 상호 연결 포트를 불러오는 방법을 보여줍니다.
 
 [listing, subs="+quotes"]
 ----
@@ -305,12 +305,12 @@ cluster::*> *network port modify -node n2 -port e0b -up-admin true*
 cluster::*> *network port modify -node n2 -port e0c -up-admin true*
 ----
 ====
-. 모든 노드에서 C2에 연결된 마이그레이션된 모든 클러스터 인터커넥트 LIF를 되돌립니다.
+. 모든 노드에서 C2에 연결된 모든 마이그레이션된 클러스터 상호 연결 LIF를 되돌립니다.
 +
-'network interface revert-vserver cluster-lif_lif-name_'
+`network interface revert -vserver cluster -lif _lif-name_`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -321,15 +321,15 @@ cluster::*> *network interface revert -vserver cluster -lif n2_clus2*
 cluster::*> *network interface revert -vserver cluster -lif n2_clus3*
 ----
 ====
-. 모든 클러스터 인터커넥트 포트가 홈 포트로 되돌려졌는지 확인합니다.
+. 모든 클러스터 상호 연결 포트가 홈 포트로 되돌아갔는지 확인하세요.
 +
-네트워크 인터페이스 show-role cluster
+`network interface show -role cluster`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 clus2의 LIF가 홈 포트로 되돌려지고 "현재 포트" 열의 포트가 "홈" 열에 "참" 상태가 되면 LIF가 성공적으로 되돌려집니다. "홈" 값이 "거짓"이면 LIF가 되돌려지지 않습니다.
+다음 예에서는 clus2의 LIF가 홈 포트로 되돌아가는 것을 보여줍니다. "현재 포트" 열의 포트 상태가 다음과 같으면 LIF가 성공적으로 되돌아간 것입니다. `true` "집" 열에 있습니다.  "Is Home" 값이 `false` 그러면 LIF는 되돌려지지 않습니다.
 
 [listing, subs="+quotes"]
 ----
@@ -351,15 +351,15 @@ Cluster
 8 entries were displayed.
 ----
 ====
-. 모든 클러스터 포트가 연결되어 있는지 확인합니다.
+. 모든 클러스터 포트가 연결되었는지 확인하세요.
 +
-네트워크 포트 show-role cluster
+`network port show -role cluster`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예는 모든 클러스터 인터커넥트가 '작동'되었는지 확인하는 출력을 보여줍니다.
+다음 예에서는 모든 클러스터 상호 연결이 확인되는 출력을 보여줍니다. `up` :
 
 [listing, subs="+quotes"]
 ----
@@ -387,22 +387,22 @@ e0d   cluster   cluster     up    9000  auto/10000     -
 8 entries were displayed.
 ----
 ====
-. 원격 클러스터 인터페이스의 연결을 확인합니다.
+. 원격 클러스터 인터페이스의 연결성을 확인하세요.
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.9.1 이상
 --
-를 사용할 수 있습니다 `network interface check cluster-connectivity` 클러스터 연결에 대한 접근성 검사를 시작한 다음 세부 정보를 표시하는 명령입니다.
+당신은 사용할 수 있습니다 `network interface check cluster-connectivity` 클러스터 연결에 대한 접근성 검사를 시작한 다음 세부 정보를 표시하는 명령:
 
-`network interface check cluster-connectivity start` 및 `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`그리고 `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-* 참고: * 몇 초 동안 기다린 후 `show` 명령을 실행하여 세부 정보를 표시합니다.
+*참고:* 실행하기 전에 몇 초 동안 기다리십시오. `show` 세부 정보를 표시하는 명령입니다.
 
 [listing, subs="+quotes"]
 ----
@@ -421,7 +421,7 @@ n2
 --
 .모든 ONTAP 릴리스
 --
-모든 ONTAP 릴리스에 대해 을 사용할 수도 있습니다 `cluster ping-cluster -node <name>` 연결 상태를 확인하는 명령:
+모든 ONTAP 릴리스의 경우 다음을 사용할 수도 있습니다. `cluster ping-cluster -node <name>` 연결성을 확인하는 명령:
 
 `cluster ping-cluster -node <name>`
 
@@ -470,15 +470,15 @@ RPC status:
 ----
 --
 ====
-. [[step16]] 첫 번째 CN1610 스위치 CL1에 연결된 LIF를 마이그레이션합니다.
+. [[step16]] 첫 번째 CN1610 스위치 CL1과 연관된 LIF를 마이그레이션합니다.
 +
 `network interface migrate -vserver cluster -lif _lif-name_ -source-node _node-name_`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에 표시된 대로 각 클러스터 LIF를 클러스터 스위치 C2에 호스팅된 적절한 클러스터 포트로 개별적으로 마이그레이션해야 합니다.
+다음 예와 같이 각 클러스터 LIF를 클러스터 스위치 C2에 호스팅된 적절한 클러스터 포트로 개별적으로 마이그레이션해야 합니다.
 
 [listing, subs="+quotes"]
 ----
@@ -494,5 +494,5 @@ cluster::*> *network interface migrate -vserver cluster -lif n2_clus4 -source-no
 ====
 
 
-.다음 단계
-link:cn1610-replace-CL1.html["CN1610 스위치 CL1을 32C 스위치 C1로 교체하십시오"]..
+.다음은 무엇인가요?
+link:cn1610-replace-CL1.html["CN1610 스위치 CL1을 3232C 스위치 C1로 교체합니다."].

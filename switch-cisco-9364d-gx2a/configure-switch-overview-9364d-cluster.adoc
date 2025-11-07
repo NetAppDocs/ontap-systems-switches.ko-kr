@@ -9,23 +9,23 @@ summary: Cisco Nexus 9364d-gx2a 클러스터 스위치 설치 및 설정 개요
 
 
 [role="lead"]
-Cisco 9364D-GX2A 스위치는 Cisco Nexus 9000 플랫폼의 일부입니다.  AFX 시스템 스위치를 사용하면 두 개 이상의 노드로 ONTAP 클러스터를 구축할 수 있습니다.
+Cisco 9364D-GX2A 스위치는 Cisco Nexus 9000 플랫폼의 일부입니다. AFX 시스템 스위치를 사용하면 두 개 이상의 노드로 ONTAP 클러스터를 구축할 수 있습니다.
 
 Cisco 9364D-GX2A 스위치를 설치하고 설정하려면 다음 워크플로 단계를 따르세요.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1개"]link:configure-setup-ports-9364d.html["스위치 포트 세부 정보 검토"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["하나"]link:configure-setup-ports-9364d.html["스위치 포트 세부 정보 검토"]
 [role="quick-margin-para"]
 Cisco 9364D-GX2A 스위치의 포트 세부 정보를 검토하세요.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["2개"]link:required-documentation-9364d-cluster.html["필수 서류를 검토하세요"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["둘"]link:required-documentation-9364d-cluster.html["필수 서류를 검토하세요"]
 [role="quick-margin-para"]
 9364D-GX2A 스위치와 ONTAP 클러스터를 설정하려면 특정 스위치 및 컨트롤러 설명서를 검토하세요.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["세 가지"]link:smart-call-9364d-cluster.html["Smart Call Home 요구 사항을 검토하세요"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["삼"]link:smart-call-9364d-cluster.html["Smart Call Home 요구 사항을 검토하세요"]
 [role="quick-margin-para"]
 네트워크의 하드웨어 및 소프트웨어 구성 요소를 모니터링하는 데 사용되는 Cisco Smart Call Home 기능에 대한 요구 사항을 검토하세요.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["네"]link:install-hardware.html["하드웨어를 설치합니다"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["네"]link:install-hardware.html["하드웨어 설치"]
 [role="quick-margin-para"]
 스위치 하드웨어를 설치합니다.
 

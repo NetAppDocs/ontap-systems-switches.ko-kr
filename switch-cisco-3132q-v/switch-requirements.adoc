@@ -2,47 +2,47 @@
 permalink: switch-cisco-3132q-v/switch-requirements.html 
 sidebar: sidebar 
 keywords: replace, cisco nexus 3132q-v cluster switches 
-summary: Cisco Nexus 3132Q-V 클러스터 스위치를 교체할 때 특정 구성 정보, 포트 연결 및 케이블 연결 요구 사항을 알고 있어야 합니다. 
+summary: Cisco Nexus 3132Q-V 클러스터 스위치를 교체하는 경우 특정 구성 정보, 포트 연결 및 케이블 요구 사항을 알고 있어야 합니다. 
 ---
-= Cisco Nexus 3132Q-V 클러스터 스위치 교체에 대한 요구 사항
+= Cisco Nexus 3132Q-V 클러스터 스위치 교체 요구 사항
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-클러스터 스위치를 교체할 때 구성 요구사항, 포트 연결 및 케이블 연결 요구사항을 이해해야 합니다.
+클러스터 스위치를 교체할 때는 구성 요구 사항, 포트 연결 및 케이블 요구 사항을 이해해야 합니다.
 
 
 
 == Cisco Nexus 3132Q-V 요구 사항
 
 * Cisco Nexus 3132Q-V 클러스터 스위치가 지원됩니다.
-* 10GbE 및 40GbE 포트의 수는 다음에서 사용 가능한 참조 구성 파일(RCF)에 정의되어 있습니다.link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Cisco ® 클러스터 네트워크 스위치 참조 구성 파일 다운로드"^] .
+* 10GbE 및 40GbE 포트의 수는 다음에서 사용 가능한 참조 구성 파일(RCF)에 정의되어 있습니다.link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Cisco® 클러스터 네트워크 스위치 참조 구성 파일 다운로드"^] .
 * 클러스터 스위치는 ISL(Inter-Switch Link) 포트 e1/31-32를 사용합니다.
-* 를 클릭합니다 link:https://hwu.netapp.com["Hardware Universe"^] Nexus 3132Q-V 스위치에 대한 지원되는 케이블 연결에 대한 자세한 내용은 다음을 참조하십시오.
+* 그만큼link:https://hwu.netapp.com["Hardware Universe"^] Nexus 3132Q-V 스위치에 지원되는 케이블에 대한 정보가 포함되어 있습니다.
 +
-** 10GbE 클러스터 연결이 있는 노드에는 브레이크아웃 파이버 케이블이 있는 QSFP 광 모듈 또는 QSFP-SFP+ 구리 브레이크아웃 케이블이 필요합니다.
-** 40GbE 클러스터 연결을 사용하는 노드는 지원되는 QSFP/QSFP28 광 모듈과 파이버 케이블 또는 QSFP/QSFP28 구리 직접 연결 케이블이 필요합니다.
-** 클러스터 스위치는 2개의 QSFP28 파이버 또는 구리 직접 연결 케이블과 같은 적절한 ISL 케이블을 사용합니다.
+** 10GbE 클러스터 연결이 있는 노드에는 브레이크아웃 파이버 케이블이 있는 QSFP 광 모듈이나 QSFP-SFP+ 구리 브레이크아웃 케이블이 필요합니다.
+** 40GbE 클러스터 연결이 있는 노드에는 파이버 케이블이나 QSFP/QSFP28 구리 직접 연결 케이블이 있는 지원되는 QSFP/QSFP28 광 모듈이 필요합니다.
+** 클러스터 스위치는 적절한 ISL 케이블, 즉 2개의 QSFP28 파이버 또는 구리 직접 연결 케이블을 사용합니다.
 
 
-* Nexus 3132Q-V에서 QSFP 포트를 40Gb 이더넷 또는 4x10Gb 이더넷 모드로 작동할 수 있습니다.
+* Nexus 3132Q-V에서는 QSFP 포트를 40Gb 이더넷 또는 4x10Gb 이더넷 모드로 작동할 수 있습니다.
 +
-기본적으로 40Gb 이더넷 모드에는 32개의 포트가 있습니다. 이러한 40Gb 이더넷 포트에는 2튜플 명명 규칙이 적용됩니다. 예를 들어, 두 번째 40Gb 이더넷 포트의 번호는 1/2로 지정됩니다. 구성을 40Gb 이더넷에서 10Gb 이더넷으로 변경하는 프로세스를 _breakout_이라고 하며, 구성을 10Gb 이더넷에서 40Gb 이더넷으로 변경하는 프로세스를 _breakin_이라고 합니다. 40Gb 이더넷 포트를 10Gb 이더넷 포트로 분할하면 결과 포트에 3개의 튜플 명명 규칙을 사용하여 번호가 지정됩니다. 예를 들어, 두 번째 40Gb 이더넷 포트의 브레이크아웃 포트는 1/2/1, 1/2/2, 1/2/3 및 1/2/4로 번호가 지정됩니다.
+기본적으로 40Gb 이더넷 모드에는 32개의 포트가 있습니다.  이 40Gb 이더넷 포트는 2-튜플 명명 규칙에 따라 번호가 매겨집니다.  예를 들어, 두 번째 40Gb 이더넷 포트는 1/2로 번호가 매겨집니다.  40Gb 이더넷에서 10Gb 이더넷으로 구성을 변경하는 과정을 _breakout_이라고 하고, 10Gb 이더넷에서 40Gb 이더넷으로 구성을 변경하는 과정을 _breakin_이라고 합니다.  40Gb 이더넷 포트를 10Gb 이더넷 포트로 분리하면 생성되는 포트에는 3-튜플 명명 규칙을 사용하여 번호가 지정됩니다.  예를 들어, 두 번째 40Gb 이더넷 포트의 브레이크아웃 포트는 1/2/1, 1/2/2, 1/2/3, 1/2/4로 번호가 매겨집니다.
 
 * Nexus 3132Q-V의 왼쪽에는 첫 번째 QSFP 포트에 멀티플렉싱된 4개의 SFP+ 포트 세트가 있습니다.
 +
-기본적으로 RCF는 첫 번째 QSFP 포트를 사용하도록 구성되었습니다.
+기본적으로 RCF는 첫 번째 QSFP 포트를 사용하도록 구성되어 있습니다.
 
 +
-"hardware profile front portmode SFP-plus" 명령을 사용하여 Nexus 3132Q-V의 QSFP 포트 대신 4개의 SFP+ 포트를 활성화할 수 있습니다. 마찬가지로 "Hardware profile front portmode qsfp" 명령을 사용하여 4개의 SFP+ 포트 대신 QSFP 포트를 사용하도록 Nexus 3132Q-V를 재설정할 수 있습니다.
+Nexus 3132Q-V의 경우 QSFP 포트 대신 4개의 SFP+ 포트를 활성화할 수 있습니다. `hardware profile front portmode sfp-plus` 명령.  마찬가지로, 다음을 사용하여 Nexus 3132Q-V를 재설정하여 4개의 SFP+ 포트 대신 QSFP 포트를 사용할 수 있습니다. `hardware profile front portmode qsfp` 명령.
 
-* Nexus 3132Q-V의 포트 중 일부를 10GbE 또는 40GbE에서 실행하도록 구성해야 합니다.
+* Nexus 3132Q-V의 일부 포트를 10GbE 또는 40GbE로 실행하도록 구성했어야 합니다.
 +
-'interface breakout module 1 port 1-6 map 10g-4x' 명령어를 사용하여 처음 6개 포트를 4x10 GbE 모드로 분리할 수 있다. 마찬가지로 'no interface breakout module 1 port 1-6 map 10g-4x' 명령을 사용하여 브레이크아웃 구성에서 처음 6개의 QSFP+ 포트를 다시 그룹화할 수 있습니다.
+다음을 사용하여 첫 번째 6개 포트를 4x10 GbE 모드로 분리할 수 있습니다. `interface breakout module 1 port 1-6 map 10g-4x` 명령.  마찬가지로, 다음을 사용하여 브레이크아웃 구성에서 처음 6개의 QSFP+ 포트를 다시 그룹화할 수 있습니다. `no interface breakout module 1 port 1-6 map 10g-4x` 명령.
 
-* 노드에서 Nexus 3132Q-V 클러스터 스위치로의 10GbE 및 40GbE 연결에 대한 계획 및 마이그레이션을 수행하고 필요한 설명서를 읽어야 합니다.
+* 노드에서 Nexus 3132Q-V 클러스터 스위치로 10GbE 및 40GbE 연결을 구축하려면 계획, 마이그레이션을 완료하고 필요한 문서를 읽어야 합니다.
 +
 link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치"^]이 절차에서 지원되는 ONTAP 및 NX-OS 버전에 대한 정보가 있습니다.
 
@@ -52,130 +52,130 @@ link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더�
 
 == Cisco Nexus 5596 요구 사항
 
-* 지원되는 클러스터 스위치는 다음과 같습니다.
+* 다음 클러스터 스위치가 지원됩니다.
 +
-** Nexus 5596
-** Nexus 3132Q-V
+** 넥서스 5596
+** 넥서스 3132Q-V
 
 
-* 10GbE 및 40GbE 포트의 수는 다음에서 사용 가능한 참조 구성 파일(RCF)에 정의되어 있습니다.link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Cisco ® 클러스터 네트워크 스위치 참조 구성 파일 다운로드"^] .
-* 클러스터 스위치는 노드 연결에 다음 포트를 사용합니다.
+* 10GbE 및 40GbE 포트의 수는 다음에서 사용 가능한 참조 구성 파일(RCF)에 정의되어 있습니다.link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Cisco® 클러스터 네트워크 스위치 참조 구성 파일 다운로드"^] .
+* 클러스터 스위치는 노드에 연결하기 위해 다음 포트를 사용합니다.
 +
 ** 포트 e1/1-40(10GbE): Nexus 5596
-** 포트 1/1-30(40GbE): Nexus 3132Q-V
+** 포트 e1/1-30(40GbE): Nexus 3132Q-V
 
 
-* 클러스터 스위치는 다음과 같은 ISL(Inter-Switch Link) 포트를 사용합니다.
+* 클러스터 스위치는 다음의 ISL(Inter-Switch Link) 포트를 사용합니다.
 +
 ** 포트 e1/41-48(10GbE): Nexus 5596
-** 포트 1/31-32(40GbE): Nexus 3132Q-V
+** 포트 e1/31-32(40GbE): Nexus 3132Q-V
 
 
-* 를 클릭합니다 link:https://hwu.netapp.com/["Hardware Universe"^] Nexus 3132Q-V 스위치에 대한 지원되는 케이블 연결에 대한 자세한 내용은 다음을 참조하십시오.
+* 그만큼link:https://hwu.netapp.com/["Hardware Universe"^] Nexus 3132Q-V 스위치에 지원되는 케이블에 대한 정보가 포함되어 있습니다.
 +
-** 10GbE 클러스터 연결이 있는 노드는 QSFP-SFP+ 광 파이버 브레이크아웃 케이블 또는 QSFP-SFP+ 구리 브레이크아웃 케이블이 필요합니다.
-** 40GbE 클러스터 연결을 사용하는 노드는 파이버 케이블이 있는 지원되는 QSFP/QSFP28광 모듈 또는 QSFP/QSFP28 구리 직접 연결 케이블이 필요합니다.
+** 10GbE 클러스터 연결이 있는 노드에는 QSFP-SFP+ 광섬유 분기 케이블이나 QSFP-SFP+ 구리 분기 케이블이 필요합니다.
+** 40GbE 클러스터 연결이 있는 노드에는 파이버 케이블이나 QSFP/QSFP28 구리 직접 연결 케이블이 있는 지원되는 QSFP/QSFP28 광 모듈이 필요합니다.
 
 
-* 클러스터 스위치는 적절한 ISL 케이블 연결을 사용합니다.
+* 클러스터 스위치는 적절한 ISL 케이블을 사용합니다.
 +
-** 시작: Nexus 5596 ~ Nexus 5596(SFP+ ~ SFP+)
+** 시작: Nexus 5596에서 Nexus 5596으로(SFP+에서 SFP+로)
 +
 *** 8x SFP+ 파이버 또는 구리 직접 연결 케이블
 
 
-** 중간: Nexus 5596 - Nexus 3132Q-V(QSFP - 4xSFP+ 브레이크아웃)
+** 중간: Nexus 5596에서 Nexus 3132Q-V로(QSFP에서 4xSFP+로 분리)
 +
-*** QSFP-SFP+ 파이버 브레이크아웃 또는 구리 브레이크아웃 케이블 1개
+*** 1x QSFP-SFP+ 파이버 브레이크아웃 또는 구리 브레이크아웃 케이블
 
 
-** 최종: Nexus 3132Q-V - Nexus 3132Q-V(QSFP28 - QSFP28)
+** 최종: Nexus 3132Q-V에서 Nexus 3132Q-V로(QSFP28에서 QSFP28로)
 +
-*** QSFP28 파이버 또는 구리 직접 연결 케이블 2개
+*** 2x QSFP28 파이버 또는 구리 직접 연결 케이블
 
 
 
 
-* Nexus 3132Q-V 스위치에서 QSFP/QSFP28 포트를 40기가비트 이더넷 또는 4개의 10기가비트 이더넷 모드로 작동할 수 있습니다.
+* Nexus 3132Q-V 스위치에서는 QSFP/QSFP28 포트를 40기가비트 이더넷 또는 4 x 10기가비트 이더넷 모드로 작동할 수 있습니다.
 +
-기본적으로 40기가비트 이더넷 모드에서는 32개의 포트가 있습니다. 이러한 40기가비트 이더넷 포트에는 2 튜플 명명 규칙이 적용됩니다. 예를 들어, 두 번째 40기가비트 이더넷 포트의 번호는 1/2로 지정됩니다. 구성을 40기가비트 이더넷에서 10기가비트 이더넷으로 변경하는 프로세스를 _breakout_이라고 하며, 구성을 10기가비트 이더넷에서 40기가비트 이더넷으로 변경하는 프로세스를 _breakin_이라고 합니다. 40기가비트 이더넷 포트를 10기가비트 이더넷 포트로 분할하면 결과 포트에 3개의 튜플 명명 규칙을 사용하여 번호가 지정됩니다. 예를 들어, 두 번째 40기가비트 이더넷 포트의 분리 포트는 1/2/1, 1/2/2, 1/2/3 및 1/2/4로 번호가 지정됩니다.
+기본적으로 40기가비트 이더넷 모드에는 32개의 포트가 있습니다.  이 40개의 기가비트 이더넷 포트는 2-튜플 명명 규칙에 따라 번호가 매겨집니다.  예를 들어, 두 번째 40기가비트 이더넷 포트는 1/2로 번호가 매겨집니다.  40기가비트 이더넷에서 10기가비트 이더넷으로 구성을 변경하는 과정을 _breakout_이라고 하고, 10기가비트 이더넷에서 40기가비트 이더넷으로 구성을 변경하는 과정을 _breakin_이라고 합니다.  40기가비트 이더넷 포트를 10기가비트 이더넷 포트로 분리하면, 생성된 포트는 3-튜플 명명 규칙을 사용하여 번호가 지정됩니다.  예를 들어, 두 번째 40기가비트 이더넷 포트의 브레이크아웃 포트는 1/2/1, 1/2/2, 1/2/3, 1/2/4로 번호가 매겨집니다.
 
-* Nexus 3132Q-V 스위치의 왼쪽에는 해당 QSFP28 포트에 멀티플렉싱된 4개의 SFP+ 포트 세트가 있습니다.
+* Nexus 3132Q-V 스위치의 왼쪽에는 QSFP28 포트에 멀티플렉싱된 4개의 SFP+ 포트 세트가 있습니다.
 +
-기본적으로 RCF는 QSFP28 포트를 사용하도록 구성되었습니다.
+기본적으로 RCF는 QSFP28 포트를 사용하도록 구성되어 있습니다.
 
-+
-
-NOTE: "hardware profile front portmode SFP-plus" 명령을 사용하여 Nexus 3132Q-V 스위치의 QSFP 포트 대신 4개의 SFP+ 포트를 활성화할 수 있습니다. 마찬가지로 "Hardware profile front portmode qsfp" 명령을 사용하여 4개의 SFP+ 포트 대신 QSFP 포트를 사용하도록 Nexus 3132Q-V 스위치를 재설정할 수 있습니다.
-
-* Nexus 3132Q-V 스위치의 일부 포트가 10GbE 또는 40GbE에서 실행되도록 구성했습니다.
 +
 
-NOTE: 'interface breakout module 1 port 1-6 map 10g-4x' 명령어를 이용하여 처음 6개의 포트를 4x10 GbE 모드로 분리할 수 있다. 마찬가지로 'no interface breakout module 1 port 1-6 map 10g-4x' 명령을 사용하여 브레이크아웃 구성에서 처음 6개의 QSFP+ 포트를 다시 그룹화할 수 있습니다.
+NOTE: Nexus 3132Q-V 스위치의 경우 QSFP 포트 대신 4개의 SFP+ 포트를 활성화할 수 있습니다. `hardware profile front portmode sfp-plus` 명령.  마찬가지로, 다음을 사용하여 Nexus 3132Q-V 스위치를 재설정하여 4x SFP+ 포트 대신 QSFP 포트를 사용할 수 있습니다. `hardware profile front portmode qsfp` 명령.
 
-* 노드에서 Nexus 3132Q-V 클러스터 스위치로의 10GbE 및 40GbE 연결에 대한 계획, 마이그레이션 및 필수 설명서를 읽었습니다.
+* Nexus 3132Q-V 스위치의 일부 포트를 10GbE 또는 40GbE로 실행하도록 구성했습니다.
++
+
+NOTE: 다음을 사용하여 첫 번째 6개 포트를 4x10 GbE 모드로 분리할 수 있습니다. `interface breakout module 1 port 1-6 map 10g-4x` 명령.  마찬가지로, 다음을 사용하여 브레이크아웃 구성에서 처음 6개의 QSFP+ 포트를 다시 그룹화할 수 있습니다. `no interface breakout module 1 port 1-6 map 10g-4x` 명령.
+
+* 노드에서 Nexus 3132Q-V 클러스터 스위치로 10GbE 및 40GbE 연결을 구축하기 위한 계획, 마이그레이션을 완료하고 필요한 문서를 읽었습니다.
 * 이 절차에서 지원되는 ONTAP 및 NX-OS 버전은 다음과 같습니다.link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치"^] .
 
 
 
 
-== NetApp CN1610 요구사항
+== NetApp CN1610 요구 사항
 
-* 지원되는 클러스터 스위치는 다음과 같습니다.
+* 다음 클러스터 스위치가 지원됩니다.
 +
 ** NetApp CN1610
-** Cisco Nexus 3132Q-V
+** Cisco 넥서스 3132Q-V
 
 
-* 클러스터 스위치는 다음과 같은 노드 연결을 지원합니다.
+* 클러스터 스위치는 다음 노드 연결을 지원합니다.
 +
 ** NetApp CN1610: 포트 0/1~0/12(10GbE)
-** Cisco Nexus 3132Q-V: 포트 1/1-30(40GbE)
+** Cisco Nexus 3132Q-V: 포트 e1/1-30(40GbE)
 
 
-* 클러스터 스위치는 다음과 같은 ISL(Inter-Switch Link) 포트를 사용합니다.
+* 클러스터 스위치는 다음과 같은 ISL(스위치 간 링크) 포트를 사용합니다.
 +
 ** NetApp CN1610: 포트 0/13~0/16(10GbE)
-** Cisco Nexus 3132Q-V: 포트 1/31-32(40GbE)
+** Cisco Nexus 3132Q-V: 포트 e1/31-32(40GbE)
 
 
-* 를 클릭합니다 link:https://hwu.netapp.com/["Hardware Universe"^] Nexus 3132Q-V 스위치에 대한 지원되는 케이블 연결에 대한 자세한 내용은 다음을 참조하십시오.
+* 그만큼link:https://hwu.netapp.com/["Hardware Universe"^] Nexus 3132Q-V 스위치에 지원되는 케이블에 대한 정보가 포함되어 있습니다.
 +
-** 10GbE 클러스터 연결이 있는 노드는 QSFP-SFP+ 광 파이버 브레이크아웃 케이블 또는 QSFP-SFP+ 구리 브레이크아웃 케이블이 필요합니다
-** 40GbE 클러스터 연결을 사용하는 노드는 광 파이버 케이블이 있는 지원되는 QSFP/QSFP28 광 모듈 또는 QSFP/QSFP28 구리 직접 연결 케이블이 필요합니다
+** 10GbE 클러스터 연결이 있는 노드에는 QSFP-SFP+ 광섬유 분기 케이블 또는 QSFP-SFP+ 구리 분기 케이블이 필요합니다.
+** 40GbE 클러스터 연결이 있는 노드에는 광섬유 케이블 또는 QSFP/QSFP28 구리 직접 연결 케이블이 있는 지원되는 QSFP/QSFP28 광 모듈이 필요합니다.
 
 
-* 적절한 ISL 케이블 연결은 다음과 같습니다.
+* 적절한 ISL 케이블링은 다음과 같습니다.
 +
-** 시작: CN1610(SFP+에서 SFP+로), SFP+ 광 파이버 4개 또는 구리 직접 연결 케이블
-** 중간: Nexus 3132Q-V(QSFP - 4 SFP+ 브레이크아웃)에 대한 CN1610의 경우 QSFP - SFP+ 광 파이버 또는 구리 브레이크아웃 케이블 1개
-** 마지막: Nexus 3132Q-V - Nexus 3132Q-V(QSFP28 - QSFP28), 2개의 QSFP28 광 파이버 또는 구리 직접 연결 케이블
+** 시작: CN1610 대 CN1610(SFP+ 대 SFP+)의 경우 4개의 SFP+ 광섬유 또는 구리 직접 연결 케이블
+** 임시: CN1610에서 Nexus 3132Q-V(QSFP에서 4개의 SFP+ 브레이크아웃으로)로의 경우, QSFP에서 SFP+ 광섬유 또는 구리 브레이크아웃 케이블 1개
+** 최종: Nexus 3132Q-V에서 Nexus 3132Q-V(QSFP28에서 QSFP28)로의 경우 두 개의 QSFP28 광섬유 또는 구리 직접 연결 케이블
 
 
-* NetApp twinax 케이블은 Cisco Nexus 3132Q-V 스위치와 호환되지 않습니다.
+* NetApp Twinax 케이블은 Cisco Nexus 3132Q-V 스위치와 호환되지 않습니다.
 +
-현재 CN1610 구성에서 클러스터 노드-스위치 연결 또는 ISL 연결에 NetApp twinax 케이블을 사용하고, 현재 환경에서 Twinax를 계속 사용하려면 Cisco 케이블을 확보해야 합니다. 또는 ISL 연결과 클러스터 노드 간 접속 모두에 광 Fibre 케이블을 사용할 수 있습니다.
+현재 CN1610 구성에서 클러스터-노드-스위치 연결 또는 ISL 연결에 NetApp Twinax 케이블을 사용하고 해당 환경에서 Twinax를 계속 사용하려면 Cisco Twinax 케이블을 구매해야 합니다.  또는 ISL 연결과 클러스터-노드-스위치 연결 모두에 광섬유 케이블을 사용할 수 있습니다.
 
-* Nexus 3132Q-V 스위치에서 QSFP/QSFP28 포트를 40Gb 이더넷 또는 4x 10Gb 이더넷 모드로 작동할 수 있습니다.
+* Nexus 3132Q-V 스위치에서는 QSFP/QSFP28 포트를 40Gb 이더넷 또는 4x 10Gb 이더넷 모드로 작동할 수 있습니다.
 +
-기본적으로 40Gb 이더넷 모드에는 32개의 포트가 있습니다. 이러한 40Gb 이더넷 포트에는 2튜플 명명 규칙이 적용됩니다. 예를 들어, 두 번째 40Gb 이더넷 포트의 번호는 1/2로 지정됩니다. 구성을 40Gb 이더넷에서 10Gb 이더넷으로 변경하는 프로세스를 _breakout_이라고 하며, 구성을 10Gb 이더넷에서 40Gb 이더넷으로 변경하는 프로세스를 _breakin_이라고 합니다. 40Gb 이더넷 포트를 10Gb 이더넷 포트로 분할하면 결과 포트에 3개의 튜플 명명 규칙을 사용하여 번호가 지정됩니다. 예를 들어, 두 번째 40Gb 이더넷 포트의 브레이크아웃 포트는 1/2/1, 1/2/2, 1/2/3 및 1/2/4로 번호가 지정됩니다.
+기본적으로 40Gb 이더넷 모드에는 32개의 포트가 있습니다.  이 40Gb 이더넷 포트는 2-튜플 명명 규칙에 따라 번호가 매겨집니다.  예를 들어, 두 번째 40Gb 이더넷 포트는 1/2로 번호가 매겨집니다.  40Gb 이더넷에서 10Gb 이더넷으로 구성을 변경하는 과정을 _breakout_이라고 하고, 10Gb 이더넷에서 40Gb 이더넷으로 구성을 변경하는 과정을 _breakin_이라고 합니다.  40Gb 이더넷 포트를 10Gb 이더넷 포트로 분리하면 생성되는 포트에는 3-튜플 명명 규칙을 사용하여 번호가 지정됩니다.  예를 들어, 두 번째 40Gb 이더넷 포트의 브레이크아웃 포트는 1/2/1, 1/2/2, 1/2/3, 1/2/4로 번호가 매겨집니다.
 
 * Nexus 3132Q-V 스위치의 왼쪽에는 첫 번째 QSFP 포트에 멀티플렉싱된 4개의 SFP+ 포트 세트가 있습니다.
 +
-기본적으로 RCF(Reference Configuration File)는 첫 번째 QSFP 포트를 사용하도록 구성되어 있습니다.
+기본적으로 참조 구성 파일(RCF)은 첫 번째 QSFP 포트를 사용하도록 구성되어 있습니다.
 
 +
-"hardware profile front portmode SFP-plus" 명령을 사용하여 Nexus 3132Q-V 스위치의 QSFP 포트 대신 4개의 SFP+ 포트를 활성화할 수 있습니다. 마찬가지로 "Hardware profile front portmode qsfp" 명령을 사용하여 4개의 SFP+ 포트 대신 QSFP 포트를 사용하도록 Nexus 3132Q-V 스위치를 재설정할 수 있습니다.
+Nexus 3132Q-V 스위치의 경우 QSFP 포트 대신 4개의 SFP+ 포트를 활성화할 수 있습니다. `hardware profile front portmode sfp-plus` 명령.  마찬가지로, 다음을 사용하여 Nexus 3132Q-V 스위치를 재설정하여 4개의 SFP+ 포트 대신 QSFP 포트를 사용할 수 있습니다. `hardware profile front portmode qsfp` 명령.
 
 +
 
 NOTE: 처음 4개의 SFP+ 포트를 사용하면 첫 번째 40GbE QSFP 포트가 비활성화됩니다.
 
-* Nexus 3132Q-V 스위치의 포트 중 일부를 10GbE 또는 40GbE에서 실행하도록 구성해야 합니다.
+* Nexus 3132Q-V 스위치의 일부 포트를 10GbE 또는 40GbE로 실행하도록 구성했어야 합니다.
 +
-명령을 사용하여 처음 6개의 포트를 4x10 GbE 모드로 분할할 수 `interface breakout module 1 port 1-6 map 10g-4x` 있습니다. 마찬가지로 명령을 사용하여 _breakout_configuration 에서 처음 6개의 QSFP+ 포트를 다시 그룹화할 수 `no interface breakout module 1 port 1-6 map 10g-4x` 있습니다.
+다음을 사용하여 첫 번째 6개 포트를 4x10 GbE 모드로 분리할 수 있습니다. `interface breakout module 1 port 1-6 map 10g-4x` 명령.  마찬가지로 _breakout_ 구성에서 처음 6개의 QSFP+ 포트를 다시 그룹화하려면 다음을 사용할 수 있습니다. `no interface breakout module 1 port 1-6 map 10g-4x` 명령.
 
-* 노드에서 Nexus 3132Q-V 클러스터 스위치로의 10GbE 및 40GbE 연결에 대한 계획 및 마이그레이션을 수행하고 필요한 설명서를 읽어야 합니다.
+* 노드에서 Nexus 3132Q-V 클러스터 스위치로 10GbE 및 40GbE 연결을 구축하려면 계획, 마이그레이션을 완료하고 필요한 문서를 읽어야 합니다.
 * 이 절차에서 지원되는 ONTAP 및 NX-OS 버전은 다음에 나열되어 있습니다.link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치"^] .
 * 이 절차에서 지원되는 ONTAP 및 FASTPATH ​​버전은 다음에 나열되어 있습니다.link:https://mysupport.netapp.com/site/products/all/details/netapp-cluster-switches/docs-tab["NetApp CN1601 및 CN1610 스위치"^] .
 

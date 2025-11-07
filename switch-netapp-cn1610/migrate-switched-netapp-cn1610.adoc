@@ -2,45 +2,45 @@
 permalink: switch-netapp-cn1610/migrate-switched-netapp-cn1610.html 
 sidebar: sidebar 
 keywords: migrate, switchless cluster environment, switched netapp cn1610 
-summary: 스위치가 없는 기존 2노드 클러스터 환경이 있는 경우, 두 노드 이상으로 확장할 수 있는 CN1610 클러스터 네트워크 스위치를 사용하여 2노드 스위치 클러스터 환경으로 마이그레이션할 수 있습니다. 
+summary: 기존에 2노드 스위치리스 클러스터 환경이 있는 경우 CN1610 클러스터 네트워크 스위치를 사용하여 2노드 스위치 클러스터 환경으로 마이그레이션할 수 있으며, 이를 통해 2노드 이상으로 확장할 수 있습니다. 
 ---
-= 스위치가 없는 클러스터 환경에서 스위치 있는 NetApp CN1610 클러스터 환경으로 마이그레이션하십시오
+= 스위치리스 클러스터 환경에서 스위치형 NetApp CN1610 클러스터 환경으로 마이그레이션
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-스위치가 없는 기존 2노드 클러스터 환경이 있는 경우, 두 노드 이상으로 확장할 수 있는 CN1610 클러스터 네트워크 스위치를 사용하여 2노드 스위치 클러스터 환경으로 마이그레이션할 수 있습니다.
+기존에 2노드 스위치리스 클러스터 환경이 있는 경우 CN1610 클러스터 네트워크 스위치를 사용하여 2노드 스위치 클러스터 환경으로 마이그레이션할 수 있으며, 이를 통해 2노드 이상으로 확장할 수 있습니다.
 
 
 
-== 요구사항 검토
+== 검토 요구 사항
 
 .시작하기 전에
-다음 사항을 확인하십시오.
+다음 사항이 있는지 확인하세요.
 
-스위치가 없는 2노드 구성의 경우 다음을 확인하십시오.
+2노드 스위치리스 구성의 경우 다음 사항을 확인하세요.
 
-* 스위치가 없는 2노드 구성이 올바르게 설정 및 작동합니다.
-* 노드에서 ONTAP 8.2 이상 실행
-* 모든 클러스터 포트는 에 있습니다 `up` 상태.
-* 모든 클러스터 논리 인터페이스(LIF)는 에 있습니다 `up` 주 및 홈 포트에서.
+* 2노드 스위치리스 구성이 올바르게 설정되고 작동하고 있습니다.
+* 노드는 ONTAP 8.2 이상을 실행합니다.
+* 모든 클러스터 포트는 `up` 상태.
+* 모든 클러스터 논리 인터페이스(LIF)는 `up` 주와 모항에서.
 
 
 CN1610 클러스터 스위치 구성의 경우:
 
-* CN1610 클러스터 스위치 인프라가 두 스위치에서 모두 작동합니다.
-* 두 스위치 모두 관리 네트워크 연결을 사용합니다.
-* 클러스터 스위치에 대한 콘솔 액세스가 있습니다.
-* CN1610 노드 간 스위치 및 스위치 간 연결에는 twinax 또는 파이버 케이블을 사용합니다.
+* CN1610 클러스터 스위치 인프라는 두 스위치 모두에서 완벽하게 작동합니다.
+* 두 스위치 모두 관리 네트워크 연결 기능을 갖추고 있습니다.
+* 클러스터 스위치에 콘솔로 접근할 수 있습니다.
+* CN1610 노드 간 스위치와 스위치 간 연결은 Twinax 또는 파이버 케이블을 사용합니다.
 +
 그만큼link:https://hwu.netapp.com/["Hardware Universe"^] 케이블링에 대한 자세한 정보가 포함되어 있습니다.
 
-* ISL(Inter-Switch Link) 케이블은 두 CN1610 스위치에서 포트 13~16에 연결됩니다.
-* 두 CN1610 스위치의 초기 사용자 지정이 완료되었습니다.
+* ISL(Inter-Switch Link) 케이블은 두 CN1610 스위치의 포트 13~16에 연결됩니다.
+* 두 CN1610 스위치의 초기 사용자 정의가 완료되었습니다.
 +
-SMTP, SNMP, SSH 등의 이전 사이트 사용자 지정은 새 스위치에 복사해야 합니다.
+SMTP, SNMP, SSH 등 이전 사이트 사용자 정의 내용은 새 스위치에 복사해야 합니다.
 
 
 
@@ -48,21 +48,21 @@ SMTP, SNMP, SSH 등의 이전 사이트 사용자 지정은 새 스위치에 복
 * link:http://hwu.netapp.com["Hardware Universe"^]
 * link:https://mysupport.netapp.com/site/products/all/details/netapp-cluster-switches/docs-tab["NetApp CN1601 및 CN1610"]
 * link:https://library.netapp.com/ecm/ecm_download_file/ECMP1118645["CN1601 및 CN1610 스위치 설정 및 구성"^]
-* link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_suppress_automatic_case_creation_during_scheduled_maintenance_windows["NetApp KB 문서 101010449: 예약된 유지 관리 창에서 자동 케이스 생성을 억제하는 방법"^]
+* link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_suppress_automatic_case_creation_during_scheduled_maintenance_windows["NetApp KB 문서 1010449: 예약된 유지 관리 기간 동안 자동 케이스 생성을 억제하는 방법"^]
 
 
 
 
-== 스위치를 마이그레이션합니다
+== 스위치 마이그레이션
 
-.예를 참조하십시오
-이 절차의 예에서는 다음과 같은 클러스터 스위치 및 노드 명명법을 사용합니다.
+.예시에 관하여
+이 절차의 예에서는 다음 클러스터 스위치와 노드 명명법을 사용합니다.
 
-* CN1610 스위치의 이름은 CS1과 CS2입니다.
-* LIF의 이름은 clus1 및 clus2입니다.
-* 노드 이름은 노드 1과 노드 2입니다.
-* 'cluster::: *>' 프롬프트는 클러스터의 이름을 나타냅니다.
-* 이 절차에 사용되는 클러스터 포트는 E1A와 e2a입니다.
+* CN1610 스위치의 이름은 cs1과 cs2입니다.
+* LIF의 이름은 clus1과 clus2입니다.
+* 노드의 이름은 node1과 node2입니다.
+* 그만큼 `cluster::*>` 프롬프트는 클러스터의 이름을 나타냅니다.
+* 이 절차에서 사용되는 클러스터 포트는 e1a와 e2a입니다.
 +
 그만큼link:https://hwu.netapp.com/["Hardware Universe"^] 플랫폼의 실제 클러스터 포트에 대한 최신 정보가 포함되어 있습니다.
 
@@ -72,29 +72,29 @@ SMTP, SNMP, SSH 등의 이전 사이트 사용자 지정은 새 스위치에 복
 
 === 1단계: 마이그레이션 준비
 
-. 권한 수준을 고급으로 변경하고 계속할 것인지 묻는 메시지가 표시되면 y를 입력합니다.
+. 권한 수준을 고급으로 변경하려면 다음을 입력하세요. `y` 계속하라는 메시지가 표시되면:
 +
-세트 프리빌리지 고급
+`set -privilege advanced`
 
 +
 고급 프롬프트(*>)가 나타납니다.
 
-. 이 클러스터에서 AutoSupport가 활성화되어 있는 경우 AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다.
+. 이 클러스터에서 AutoSupport 활성화된 경우 AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다.
 +
-'System node AutoSupport invoke-node * -type all-message maINT=xh'
+`system node autosupport invoke -node * -type all -message MAINT=xh`
 
 +
-_x_는 유지보수 기간(시간)입니다.
+_x_는 유지 관리 기간(시간)입니다.
 
 +
 
-NOTE: AutoSupport 메시지는 유지보수 기간 동안 자동 케이스 생성이 억제되도록 이 유지보수 작업의 기술 지원에 알립니다.
+NOTE: AutoSupport 메시지는 기술 지원팀에 이 유지 관리 작업을 알려 유지 관리 기간 동안 자동 케이스 생성이 억제되도록 합니다.
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 명령을 실행하면 2시간 동안 자동 케이스가 생성되지 않습니다.
+다음 명령은 2시간 동안 자동 케이스 생성을 억제합니다.
 
 [listing]
 ----
@@ -107,15 +107,15 @@ cluster::*> system node autosupport invoke -node * -type all -message MAINT=2h
 
 === 2단계: 포트 구성
 
-. 새 클러스터 스위치 CS1과 CS2 모두에서 ISL 포트가 아닌 모든 노드 대상 포트를 비활성화합니다.
+. 새로운 클러스터 스위치 cs1과 cs2에서 노드에 연결된 모든 포트(ISL 포트 제외)를 비활성화합니다.
 +
-ISL 포트를 비활성화해서는 안 됩니다.
+ISL 포트를 비활성화하면 안 됩니다.
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 스위치 CS1에서 노드 방향 포트 1부터 12까지 비활성 상태를 보여 줍니다.
+다음 예에서는 스위치 cs1에서 노드에 연결된 포트 1~12가 비활성화되어 있음을 보여줍니다.
 
 [listing]
 ----
@@ -127,7 +127,7 @@ ISL 포트를 비활성화해서는 안 됩니다.
 (cs1)(Interface 0/1-0/12)# exit
 (cs1)(Config)# exit
 ----
-다음 예에서는 스위치 CS2에서 노드 방향 포트 1부터 12까지 비활성 상태입니다.
+다음 예에서는 스위치 cs2에서 노드에 연결된 포트 1~12가 비활성화되어 있음을 보여줍니다.
 
 [listing]
 ----
@@ -140,15 +140,15 @@ ISL 포트를 비활성화해서는 안 됩니다.
 (cs2)(Config)# exit
 ----
 ====
-. 두 CN1610 클러스터 스위치 CS1과 CS2 사이에 있는 ISL과 ISL의 물리적 포트가 있는지 확인합니다 `up`:
+. 두 CN1610 클러스터 스위치 cs1과 cs2 사이의 ISL과 ISL의 물리적 포트가 동일한지 확인하십시오. `up` :
 +
-항로를 선택합니다
+`show port-channel`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 스위치 CS1에서 ISL 포트가 "작동"되는 것을 보여 줍니다.
+다음 예에서는 ISL 포트가 다음과 같은 것을 보여줍니다. `up` 스위치 cs1에서:
 
 [listing]
 ----
@@ -174,7 +174,7 @@ Ports  Timeout       Speed     Active
 0/16   actor/long    10G Full  True
        partner/long
 ----
-다음 예에서는 스위치 CS2에서 ISL 포트가 "UP"임을 보여 줍니다.
+다음 예에서는 ISL 포트가 다음과 같은 것을 보여줍니다. `up` 스위치 cs2에서:
 
 [listing]
 ----
@@ -201,18 +201,18 @@ Ports  Timeout       Speed     Active
        partner/long
 ----
 ====
-. 인접 장치 목록을 표시합니다.
+. 이웃 장치 목록을 표시합니다.
 +
-'ISDP 네이버 표시
+`show isdp neighbors`
 
 +
 이 명령은 시스템에 연결된 장치에 대한 정보를 제공합니다.
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 스위치 CS1의 인접 장치를 나열합니다.
+다음 예에서는 스위치 cs1의 인접 장치를 나열합니다.
 
 [listing]
 ----
@@ -227,7 +227,7 @@ cs2                    0/14         11        S            CN1610    0/14
 cs2                    0/15         11        S            CN1610    0/15
 cs2                    0/16         11        S            CN1610    0/16
 ----
-다음 예에서는 스위치 CS2의 인접 장치를 나열합니다.
+다음 예에서는 스위치 cs2의 인접 장치를 나열합니다.
 
 [listing]
 ----
@@ -245,13 +245,13 @@ cs1                    0/16         11        S            CN1610    0/16
 ====
 . 클러스터 포트 목록을 표시합니다.
 +
-네트워크 포트 쇼
+`network port show`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예는 사용 가능한 클러스터 포트를 보여줍니다.
+다음 예에서는 사용 가능한 클러스터 포트를 보여줍니다.
 
 [listing]
 ----
@@ -283,15 +283,15 @@ e4b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 12 entries were displayed.
 ----
 ====
-. 각 클러스터 포트가 파트너 클러스터 노드의 해당 포트에 연결되어 있는지 확인합니다.
+. 각 클러스터 포트가 해당 파트너 클러스터 노드의 해당 포트에 연결되어 있는지 확인하세요.
 +
 `run * cdpd show-neighbors`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 클러스터 포트 E1A와 e2a가 클러스터 파트너 노드의 동일한 포트에 연결되어 있음을 보여 줍니다.
+다음 예에서는 클러스터 포트 e1a와 e2a가 클러스터 파트너 노드의 동일한 포트에 연결되어 있음을 보여줍니다.
 
 [listing]
 ----
@@ -316,15 +316,15 @@ e1a    node1           e1a                    FAS3270           161   H
 e2a    node1           e2a                    FAS3270           161   H
 ----
 ====
-. 모든 클러스터 LIF가 있는지 확인합니다 `up` 및 운영:
+. 모든 클러스터 LIF가 있는지 확인하십시오. `up` 그리고 운영:
 +
-'network interface show-vserver cluster'
+`network interface show -vserver Cluster`
 
 +
-각 클러스터 LIF는 "홈" 열에 "참"으로 표시되어야 합니다.
+각 클러스터 LIF는 다음을 표시해야 합니다. `true` ``집`` 열에.
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing]
@@ -346,14 +346,14 @@ node2
 ====
 +
 
-NOTE: 10단계에서 13단계까지 다음과 같은 수정 및 마이그레이션 명령을 로컬 노드에서 수행해야 합니다.
+NOTE: 10단계부터 13단계까지의 다음 수정 및 마이그레이션 명령은 로컬 노드에서 수행해야 합니다.
 
-. 모든 클러스터 포트가 'UP' 상태인지 확인합니다.
+. 모든 클러스터 포트가 있는지 확인하십시오. `up` :
 +
-네트워크 포트 표시 - IPSpace 클러스터
+`network port show -ipspace Cluster`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing]
@@ -373,12 +373,12 @@ node2
 4 entries were displayed.
 ----
 ====
-. 클러스터 LIF clus1과 clus2의 두 노드에서 '-auto-revert' 매개 변수를 'false'로 설정합니다.
+. 설정하다 `-auto-revert` 매개변수 `false` 두 노드의 클러스터 LIF clus1 및 clus2에서:
 +
-네트워크 인터페이스 수정
+`network interface modify`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing]
@@ -392,24 +392,24 @@ cluster::*> network interface modify -vserver node2 -lif clus2 -auto-revert fals
 ====
 +
 
-NOTE: 릴리즈 8.3 이상에서는 'network interface modify -vserver Cluster-lif * -auto-revert false' 명령을 사용합니다
+NOTE: 릴리스 8.3 이상의 경우 다음 명령을 사용하세요. `network interface modify -vserver Cluster -lif * -auto-revert false`
 
-. 원격 클러스터 인터페이스의 연결을 확인합니다.
+. 원격 클러스터 인터페이스의 연결성을 확인하세요.
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.9.1 이상
 --
-를 사용할 수 있습니다 `network interface check cluster-connectivity` 클러스터 연결에 대한 접근성 검사를 시작한 다음 세부 정보를 표시하는 명령입니다.
+당신은 사용할 수 있습니다 `network interface check cluster-connectivity` 클러스터 연결에 대한 접근성 검사를 시작한 다음 세부 정보를 표시하는 명령:
 
-`network interface check cluster-connectivity start` 및 `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`그리고 `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-* 참고: * 몇 초 동안 기다린 후 `show` 명령을 실행하여 세부 정보를 표시합니다.
+*참고:* 실행하기 전에 몇 초 동안 기다리십시오. `show` 세부 정보를 표시하는 명령입니다.
 
 [listing, subs="+quotes"]
 ----
@@ -427,7 +427,7 @@ node2
 --
 .모든 ONTAP 릴리스
 --
-모든 ONTAP 릴리스에 대해 을 사용할 수도 있습니다 `cluster ping-cluster -node <name>` 연결 상태를 확인하는 명령:
+모든 ONTAP 릴리스의 경우 다음을 사용할 수도 있습니다. `cluster ping-cluster -node <name>` 연결성을 확인하는 명령:
 
 `cluster ping-cluster -node <name>`
 
@@ -460,15 +460,15 @@ RPC status:
 ----
 --
 ====
-. [[step10]] clus1을 각 노드의 콘솔에서 포트 e2a로 마이그레이션합니다.
+. [[step10]] 각 노드의 콘솔에서 clus1을 포트 e2a로 마이그레이션합니다.
 +
-네트워크 인터페이스 마이그레이션
+`network interface migrate`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예제에서는 node1과 node2의 포트 e2a로 clus1을 마이그레이션하는 프로세스를 보여 줍니다.
+다음 예에서는 clus1을 node1과 node2의 포트 e2a로 마이그레이션하는 프로세스를 보여줍니다.
 
 [listing]
 ----
@@ -479,14 +479,14 @@ cluster::*> network interface migrate -vserver node2 -lif clus1 -source-node nod
 ====
 +
 
-NOTE: 릴리즈 8.3 이상에서는 'network interface migrate-vserver Cluster-lif clus1-destination-node node1-destination-port e2a' 명령을 사용합니다
+NOTE: 릴리스 8.3 이상의 경우 다음 명령을 사용하세요. `network interface migrate -vserver Cluster -lif clus1 -destination-node node1 -destination-port e2a`
 
-. 마이그레이션이 완료되었는지 확인합니다.
+. 마이그레이션이 수행되었는지 확인하세요.
 +
-'network interface show-vserver cluster'
+`network interface show -vserver Cluster`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 다음 예제에서는 clus1이 node1과 node2의 포트 e2a로 마이그레이션되었는지 확인합니다.
@@ -508,15 +508,15 @@ node2
 4 entries were displayed.
 ----
 ====
-. 두 노드에서 클러스터 포트 E1A를 종료합니다.
+. 두 노드 모두에서 클러스터 포트 e1a를 종료합니다.
 +
-네트워크 포트 수정
+`network port modify`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예제에서는 node1과 node2에서 포트 E1A를 종료하는 방법을 보여 줍니다.
+다음 예제에서는 node1과 node2에서 포트 e1a를 종료하는 방법을 보여줍니다.
 
 [listing]
 ----
@@ -525,15 +525,15 @@ cluster::*> network port modify -node node1 -port e1a -up-admin false
 cluster::*> network port modify -node node2 -port e1a -up-admin false
 ----
 ====
-. 포트 상태를 확인합니다.
+. 포트 상태를 확인하세요:
 +
-네트워크 포트 쇼
+`network port show`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 노드 1과 노드 2에서 포트 E1A가 down인 것을 보여 줍니다.
+다음 예에서는 포트 e1a가 `down` node1과 node2에서:
 
 [listing]
 ----
@@ -552,17 +552,17 @@ node2
 4 entries were displayed.
 ----
 ====
-. 노드 1의 클러스터 포트 E1A에서 케이블을 분리한 다음, CN1610 스위치가 지원하는 적절한 케이블을 사용하여 클러스터 스위치 CS1의 포트 1에 E1A를 연결합니다.
+. 노드 1의 클러스터 포트 e1a에서 케이블을 분리한 다음, CN1610 스위치에서 지원하는 적절한 케이블을 사용하여 e1a를 클러스터 스위치 cs1의 포트 1에 연결합니다.
 +
-를 클릭합니다 link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] 케이블 연결에 대한 자세한 내용은 에 나와 있습니다.
+그만큼link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] 케이블링에 대한 자세한 정보가 포함되어 있습니다.
 
-. 노드 2의 클러스터 포트 E1A에서 케이블을 분리한 다음, CN1610 스위치가 지원하는 적절한 케이블을 사용하여 클러스터 스위치 CS1의 포트 2에 E1A를 연결합니다.
-. 클러스터 스위치 CS1의 모든 노드 대상 포트를 활성화합니다.
+. 노드2의 클러스터 포트 e1a에서 케이블을 분리한 다음, CN1610 스위치에서 지원하는 적절한 케이블을 사용하여 e1a를 클러스터 스위치 cs1의 포트 2에 연결합니다.
+. 클러스터 스위치 cs1에서 모든 노드 연결 포트를 활성화합니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 스위치 CS1에서 포트 1부터 12까지 활성화되었음을 보여 줍니다.
+다음 예에서는 스위치 cs1에서 포트 1~12가 활성화되어 있음을 보여줍니다.
 
 [listing]
 ----
@@ -574,15 +574,15 @@ node2
 (cs1)(Config)# exit
 ----
 ====
-. 각 노드에서 첫 번째 클러스터 포트 E1A를 사용하도록 설정합니다.
+. 각 노드에서 첫 번째 클러스터 포트 e1a를 활성화합니다.
 +
-네트워크 포트 수정
+`network port modify`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예제에서는 노드 1과 노드 2에서 포트 E1A를 활성화하는 방법을 보여 줍니다.
+다음 예제에서는 node1과 node2에서 포트 e1a를 활성화하는 방법을 보여줍니다.
 
 [listing]
 ----
@@ -591,15 +591,15 @@ cluster::*> network port modify -node node1 -port e1a -up-admin true
 cluster::*> network port modify -node node2 -port e1a -up-admin true
 ----
 ====
-. 모든 클러스터 포트가 작동하는지 확인합니다 `up`:
+. 모든 클러스터 포트가 있는지 확인하십시오. `up` :
 +
-네트워크 포트 표시 - IPSpace 클러스터
+`network port show -ipspace Cluster`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 node1과 node2에서 모든 클러스터 포트가 "작동"되는 것을 보여 줍니다.
+다음 예에서는 모든 클러스터 포트가 `up` node1과 node2에서:
 
 [listing]
 ----
@@ -618,15 +618,15 @@ node2
 4 entries were displayed.
 ----
 ====
-. 양쪽 노드에서 clus1(이전에 마이그레이션됨)을 E1A로 되돌리기:
+. 두 노드 모두에서 이전에 마이그레이션된 clus1을 e1a로 되돌립니다.
 +
-네트워크 인터페이스 복원
+`network interface revert`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예제에서는 node1과 node2의 포트 E1A로 clus1을 되돌리는 방법을 보여 줍니다.
+다음 예제에서는 clus1을 node1과 node2의 포트 e1a로 되돌리는 방법을 보여줍니다.
 
 [listing]
 ----
@@ -637,17 +637,17 @@ cluster::*> network interface revert -vserver node2 -lif clus1
 ====
 +
 
-NOTE: 릴리즈 8.3 이상에서는 ' network interface revert-vserver cluster-lif <nodename_clus <N>>' 명령을 사용합니다
+NOTE: 릴리스 8.3 이상의 경우 다음 명령을 사용하세요. `network interface revert -vserver Cluster -lif <nodename_clus<N>>`
 
-. 모든 클러스터 LIF가 있는지 확인합니다 `up`, 작동 및 표시 `true` "홈" 열에서:
+. 모든 클러스터 LIF가 있는지 확인하십시오. `up` , 운영 및 표시 `true` "집" 열에서:
 +
-'network interface show-vserver cluster'
+`network interface show -vserver Cluster`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 node1과 node2에서 모든 LIF가 "up"이고 "is Home" 열 결과가 "true"임을 보여 줍니다.
+다음 예에서는 모든 LIF가 `up` 노드1과 노드2에서 "Is Home" 열 결과가 다음과 같습니다. `true` :
 
 [listing]
 ----
@@ -668,13 +668,13 @@ node2
 ====
 . 클러스터의 노드 상태에 대한 정보를 표시합니다.
 +
-'클러스터 쇼'
+`cluster show`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예제에는 클러스터에 있는 노드의 상태 및 자격에 대한 정보가 표시됩니다.
+다음 예에서는 클러스터 내 노드의 상태와 적격성에 대한 정보를 표시합니다.
 
 [listing]
 ----
@@ -686,15 +686,15 @@ node1                true    true          false
 node2                true    true          false
 ----
 ====
-. 각 노드의 콘솔에서 포트 E1A로 clus2를 마이그레이션합니다.
+. 각 노드의 콘솔에서 clus2를 포트 e1a로 마이그레이션합니다.
 +
-네트워크 인터페이스 마이그레이션
+`network interface migrate`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예제에서는 node1과 node2의 포트 E1A로 clus2를 마이그레이션하는 프로세스를 보여 줍니다.
+다음 예에서는 clus2를 node1과 node2의 포트 e1a로 마이그레이션하는 프로세스를 보여줍니다.
 
 [listing]
 ----
@@ -705,17 +705,17 @@ cluster::*> network interface migrate -vserver node2 -lif clus2 -source-node nod
 ====
 +
 
-NOTE: 릴리즈 8.3 이상에서는 'network interface migrate-vserver Cluster-lif node1_clus2-dest-node node1-dest-port E1A' 명령을 사용합니다
+NOTE: 릴리스 8.3 이상의 경우 다음 명령을 사용하세요. `network interface migrate -vserver Cluster -lif node1_clus2 -dest-node node1 -dest-port e1a`
 
-. 마이그레이션이 완료되었는지 확인합니다.
+. 마이그레이션이 수행되었는지 확인하세요.
 +
-'network interface show-vserver cluster'
+`network interface show -vserver Cluster`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예제에서는 clus2가 노드 1과 노드 2의 포트 E1A로 마이그레이션되었는지 확인합니다.
+다음 예제에서는 clus2가 node1과 node2의 포트 e1a로 마이그레이션되었는지 확인합니다.
 
 [listing]
 ----
@@ -734,15 +734,15 @@ node2
 4 entries were displayed.
 ----
 ====
-. 두 노드에서 클러스터 포트 e2a를 종료합니다.
+. 두 노드 모두에서 클러스터 포트 e2a를 종료합니다.
 +
-네트워크 포트 수정
+`network port modify`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예제에서는 node1과 node2에서 포트 e2a를 종료하는 방법을 보여 줍니다.
+다음 예제에서는 node1과 node2에서 포트 e2a를 종료하는 방법을 보여줍니다.
 
 [listing]
 ----
@@ -751,15 +751,15 @@ cluster::*> network port modify -node node1 -port e2a -up-admin false
 cluster::*> network port modify -node node2 -port e2a -up-admin false
 ----
 ====
-. 포트 상태를 확인합니다.
+. 포트 상태를 확인하세요:
 +
-네트워크 포트 쇼
+`network port show`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 node1과 node2에서 포트 e2a가 down인 것을 보여 줍니다.
+다음 예에서는 포트 e2a가 `down` node1과 node2에서:
 
 [listing]
 ----
@@ -778,14 +778,14 @@ node2
 4 entries were displayed.
 ----
 ====
-. 노드 1의 클러스터 포트 e2a에서 케이블을 분리한 다음, CN1610 스위치가 지원하는 적절한 케이블을 사용하여 클러스터 스위치 CS2의 포트 1에 e2a를 연결합니다.
-. 노드 2의 클러스터 포트 e2a에서 케이블을 분리한 다음, CN1610 스위치가 지원하는 적절한 케이블을 사용하여 클러스터 스위치 CS2의 포트 2에 e2a를 연결합니다.
-. 클러스터 스위치 CS2에서 모든 노드 대상 포트를 활성화합니다.
+. 노드 1의 클러스터 포트 e2a에서 케이블을 분리한 다음, CN1610 스위치에서 지원하는 적절한 케이블을 사용하여 e2a를 클러스터 스위치 cs2의 포트 1에 연결합니다.
+. 노드2의 클러스터 포트 e2a에서 케이블을 분리한 다음, CN1610 스위치에서 지원하는 적절한 케이블을 사용하여 e2a를 클러스터 스위치 cs2의 포트 2에 연결합니다.
+. 클러스터 스위치 cs2에서 모든 노드 연결 포트를 활성화합니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 스위치 CS2에서 포트 1부터 12까지 활성화되었음을 보여 줍니다.
+다음 예에서는 스위치 cs2에서 포트 1~12가 활성화되어 있음을 보여줍니다.
 
 [listing]
 ----
@@ -797,12 +797,12 @@ node2
 (cs2)(Config)# exit
 ----
 ====
-. 각 노드에서 두 번째 클러스터 포트 e2a를 설정합니다.
+. 각 노드에서 두 번째 클러스터 포트 e2a를 활성화합니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예제에서는 node1과 node2에서 포트 e2a를 설정하는 방법을 보여 줍니다.
+다음 예제에서는 node1과 node2에서 포트 e2a를 활성화하는 방법을 보여줍니다.
 
 [listing]
 ----
@@ -811,15 +811,15 @@ cluster::*> network port modify -node node1 -port e2a -up-admin true
 cluster::*> network port modify -node node2 -port e2a -up-admin true
 ----
 ====
-. 모든 클러스터 포트가 작동하는지 확인합니다 `up`:
+. 모든 클러스터 포트가 있는지 확인하십시오. `up` :
 +
-네트워크 포트 표시 - IPSpace 클러스터
+`network port show -ipspace Cluster`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 node1과 node2에서 모든 클러스터 포트가 "작동"되는 것을 보여 줍니다.
+다음 예에서는 모든 클러스터 포트가 `up` node1과 node2에서:
 
 [listing]
 ----
@@ -838,15 +838,15 @@ node2
 4 entries were displayed.
 ----
 ====
-. 두 노드에서 clus2(이전에 마이그레이션됨)를 e2a로 되돌리기:
+. 두 노드 모두에서 clus2(이전에 마이그레이션됨)를 e2a로 되돌립니다.
 +
-네트워크 인터페이스 복원
+`network interface revert`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예제에서는 node1과 node2의 포트 e2a로 clus2를 되돌리는 방법을 보여 줍니다.
+다음 예제에서는 clus2를 node1과 node2의 포트 e2a로 되돌리는 방법을 보여줍니다.
 
 [listing]
 ----
@@ -857,23 +857,25 @@ cluster::*> network interface revert -vserver node2 -lif clus2
 ====
 +
 
-NOTE: 릴리즈 8.3 이상에서는 'cluster::: * > network interface revert-vserver cluster-lif node1_clus2' 및 'cluster:: * > network interface revert-vserver cluster-lif node2_clus2' 명령이 있습니다
+NOTE: 릴리스 8.3 이상에서는 명령이 다음과 같습니다.
+`cluster::*> network interface revert -vserver Cluster -lif node1_clus2` 그리고
+`cluster::*> network interface revert -vserver Cluster -lif node2_clus2`
 
 
 
 
 
-=== 3단계: 구성을 완료합니다
+=== 3단계: 구성 완료
 
-. 모든 인터페이스가 표시되는지 확인합니다 `true` "홈" 열에서:
+. 모든 인터페이스가 표시되는지 확인하세요. `true` "집" 열에서:
 +
-'network interface show-vserver cluster'
+`network interface show -vserver Cluster`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 node1과 node2에서 모든 LIF가 "up"이고 "is Home" 열 결과가 "true"임을 보여 줍니다.
+다음 예에서는 모든 LIF가 `up` 노드1과 노드2에서 "Is Home" 열 결과가 다음과 같습니다. `true` :
 
 [listing]
 ----
@@ -891,22 +893,22 @@ node2
              clus2      up/up      10.10.11.2/16      node2       e2a     true
 ----
 ====
-. 원격 클러스터 인터페이스의 연결을 확인합니다.
+. 원격 클러스터 인터페이스의 연결성을 확인하세요.
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.9.1 이상
 --
-를 사용할 수 있습니다 `network interface check cluster-connectivity` 클러스터 연결에 대한 접근성 검사를 시작한 다음 세부 정보를 표시하는 명령입니다.
+당신은 사용할 수 있습니다 `network interface check cluster-connectivity` 클러스터 연결에 대한 접근성 검사를 시작한 다음 세부 정보를 표시하는 명령:
 
-`network interface check cluster-connectivity start` 및 `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`그리고 `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-* 참고: * 몇 초 동안 기다린 후 `show` 명령을 실행하여 세부 정보를 표시합니다.
+*참고:* 실행하기 전에 몇 초 동안 기다리십시오. `show` 세부 정보를 표시하는 명령입니다.
 
 [listing, subs="+quotes"]
 ----
@@ -924,7 +926,7 @@ node2
 --
 .모든 ONTAP 릴리스
 --
-모든 ONTAP 릴리스에 대해 을 사용할 수도 있습니다 `cluster ping-cluster -node <name>` 연결 상태를 확인하는 명령:
+모든 ONTAP 릴리스의 경우 다음을 사용할 수도 있습니다. `cluster ping-cluster -node <name>` 연결성을 확인하는 명령:
 
 `cluster ping-cluster -node <name>`
 
@@ -957,15 +959,15 @@ RPC status:
 ----
 --
 ====
-. [[step3]] 두 노드가 각 스위치에 대해 2개의 연결을 가지고 있는지 확인합니다.
+. [[3단계]] 두 노드 모두 각 스위치에 두 개의 연결이 있는지 확인합니다.
 +
-'ISDP 네이버 표시
+`show isdp neighbors`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 두 스위치에 대해 적절한 결과를 보여 줍니다.
+다음 예는 두 스위치에 대한 적절한 결과를 보여줍니다.
 
 [listing]
 ----
@@ -999,15 +1001,15 @@ cs1                    0/16         11        S            CN1610    0/16
 +
 `network device discovery show`
 
-. advanced 권한 명령을 사용하여 두 노드에서 스위치가 없는 2노드 구성 설정을 비활성화합니다.
+. 고급 권한 명령을 사용하여 두 노드 모두에서 2노드 스위치리스 구성 설정을 비활성화합니다.
 +
 `network options detect-switchless modify`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 스위치가 없는 구성 설정을 비활성화하는 방법을 보여줍니다.
+다음 예에서는 스위치리스 구성 설정을 비활성화하는 방법을 보여줍니다.
 
 [listing]
 ----
@@ -1017,17 +1019,17 @@ cluster::*> network options detect-switchless modify -enabled false
 ====
 +
 
-NOTE: 릴리스 9.2 이상의 경우 구성이 자동으로 변환되므로 이 단계를 건너뛰십시오.
+NOTE: 릴리스 9.2 이상에서는 구성이 자동으로 변환되므로 이 단계를 건너뜁니다.
 
-. 설정이 비활성화되었는지 확인합니다.
+. 설정이 비활성화되었는지 확인하세요.
 +
-'네트워크 옵션 detect-switchless-cluster show'
+`network options detect-switchless-cluster show`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예제의 "false" 출력은 구성 설정이 비활성화되어 있음을 보여 줍니다.
+그만큼 `false` 다음 예제의 출력은 구성 설정이 비활성화되었음을 보여줍니다.
 
 [listing]
 ----
@@ -1038,11 +1040,11 @@ Enable Switchless Cluster Detection: false
 ====
 +
 
-NOTE: 릴리스 9.2 이상의 경우 스위치 없는 클러스터 활성화 가 false 로 설정될 때까지 기다립니다. 이 작업은 최대 3분 정도 걸릴 수 있습니다.
+NOTE: 릴리스 9.2 이상에서는 다음까지 기다리십시오. `Enable Switchless Cluster` false로 설정됩니다.  최대 3분 정도 걸릴 수 있습니다.
 
-. 각 노드에서 자동 되돌아가도록 클러스터 clus1 및 clus2를 구성하고 확인합니다.
+. 각 노드에서 클러스터 clus1과 clus2를 자동으로 되돌리도록 구성하고 확인합니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing]
@@ -1056,17 +1058,17 @@ cluster::*> network interface modify -vserver node2 -lif clus2 -auto-revert true
 ====
 +
 
-NOTE: 릴리즈 8.3 이상의 경우 클러스터의 모든 노드에서 자동 복원을 활성화하려면 'network interface modify -vserver Cluster-lif * -auto-revert true' 명령을 사용하십시오.
+NOTE: 릴리스 8.3 이상의 경우 다음 명령을 사용하세요. `network interface modify -vserver Cluster -lif * -auto-revert true` 클러스터의 모든 노드에서 자동 복귀를 활성화합니다.
 
-. 클러스터에서 노드 구성원의 상태를 확인합니다.
+. 클러스터의 노드 멤버 상태를 확인하세요.
 +
-'클러스터 쇼'
+`cluster show`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예는 클러스터에 있는 노드의 상태 및 적격성에 대한 정보를 보여줍니다.
+다음 예에서는 클러스터 내 노드의 상태와 적격성에 대한 정보를 보여줍니다.
 
 [listing]
 ----
@@ -1078,12 +1080,12 @@ node1                true    true          false
 node2                true    true          false
 ----
 ====
-. 자동 케이스 생성을 억제한 경우 AutoSupport 메시지를 호출하여 다시 활성화합니다.
+. 자동 케이스 생성을 억제한 경우 AutoSupport 메시지를 호출하여 다시 활성화하세요.
 +
-'System node AutoSupport invoke-node * -type all-message maINT=end'
+`system node autosupport invoke -node * -type all -message MAINT=END`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing]
@@ -1091,8 +1093,8 @@ node2                true    true          false
 cluster::*> system node autosupport invoke -node * -type all -message MAINT=END
 ----
 ====
-. 권한 수준을 admin으로 다시 변경합니다.
+. 권한 수준을 다시 관리자로 변경합니다.
 +
-'Set-Privilege admin'입니다
+`set -privilege admin`
 
 

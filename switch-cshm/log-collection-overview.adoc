@@ -2,7 +2,7 @@
 permalink: switch-cshm/log-collection-overview.html 
 sidebar: sidebar 
 keywords: cshm, cluster, storage, switch logs, debugging, collection 
-summary: 제공된 명령을 사용할 수 있습니다 
+summary: 제공된 명령을 사용할 수 있습니다.... 
 ---
 = 로그 수집 개요
 :allow-uri-read: 
@@ -11,6 +11,6 @@ summary: 제공된 명령을 사용할 수 있습니다
 
 
 [role="lead"]
-로그 수집이 설정되어 있으면 AutoSupport에서 수집하는 주기적 데이터의 시간별 수집을 설정하고 자세한 지원 로그를 요청할 수 있습니다.
+로그 수집을 설정하면 AutoSupport 에서 수집하는 주기적 데이터의 매시간 수집을 활성화하고 자세한 지원 로그를 요청할 수 있습니다.
 
-자세한 내용은 을 link:config-log-collection.html["로그 수집을 구성합니다"] 참조하십시오.
+보다link:config-log-collection.html["로그 수집 구성"] 자세한 내용은.

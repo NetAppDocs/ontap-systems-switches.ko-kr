@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: two-node switchless cluster environments,migrating to a two-node switched 9332D-GX2B cluster environment,switchless cluster environments,9332D-GX2B switches 
 summary: 기존에 2노드 스위치리스 클러스터 환경이 있는 경우 Cisco Nexus 9332D-GX2B 스위치를 사용하여 2노드 스위치 클러스터 환경으로 마이그레이션하면 클러스터에서 노드를 두 개 이상으로 확장할 수 있습니다. 
 ---
-= 스위치가 있는 2노드 클러스터로 마이그레이션
+= 2노드 스위치 클러스터로 마이그레이션
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,28 +13,28 @@ summary: 기존에 2노드 스위치리스 클러스터 환경이 있는 경우 
 [role="lead"]
 기존의 2노드 _스위치리스_ 클러스터 환경이 있는 경우 Cisco Nexus 9332D-GX2B 스위치를 사용하여 2노드 _스위치_ 클러스터 환경으로 마이그레이션할 수 있습니다.
 
-마이그레이션 프로세스는 광 또는 Twinax 포트를 사용하는 모든 노드에서 작동하지만, 노드에서 클러스터 네트워크 포트에 온보드 10Gb BASE-T RJ45 포트를 사용하는 경우 이 스위치에서 지원되지 않습니다.
+마이그레이션 프로세스는 광 포트나 Twinax 포트를 사용하는 모든 노드에서 작동하지만, 노드가 클러스터 네트워크 포트에 온보드 10Gb BASE-T RJ45 포트를 사용하는 경우 이 스위치에서는 지원되지 않습니다.
 
 
 
-== 요구사항 검토
+== 검토 요구 사항
 
 .필요한 것
-* 스위치가 없는 2노드 구성의 경우:
+* 2노드 스위치리스 구성의 경우:
 +
-** 스위치가 없는 2노드 구성이 올바르게 설정 및 작동합니다.
-** 모든 클러스터 포트는 * UP * 상태입니다.
-** 모든 클러스터 논리 인터페이스(LIF)는 * UP * 상태 및 홈 포트에 있습니다.
-** 을 참조하십시오 https://hwu.netapp.com["Hardware Universe"^] 지원되는 모든 ONTAP 버전.
+** 2노드 스위치리스 구성이 올바르게 설정되고 작동하고 있습니다.
+** 모든 클러스터 포트가 *작동* 상태입니다.
+** 모든 클러스터 논리 인터페이스(LIF)는 *작동* 상태이며 홈 포트에 있습니다.
+** 보다 https://hwu.netapp.com["Hardware Universe"^] 지원되는 모든 ONTAP 버전에 대해.
 
 
 * Cisco Nexus 9332D-GX2B 스위치 구성의 경우:
 +
-** 두 스위치 모두 관리 네트워크 연결을 사용합니다.
-** 클러스터 스위치에 대한 콘솔 액세스가 있습니다.
+** 두 스위치 모두 관리 네트워크 연결 기능을 갖추고 있습니다.
+** 클러스터 스위치에 콘솔로 접근할 수 있습니다.
 ** Nexus 9332D-GX2B 노드 간 스위치와 스위치 간 연결에는 Twinax 또는 파이버 케이블을 사용합니다.
 +
-을 참조하십시오 https://hwu.netapp.com["Hardware Universe"^] 케이블 연결에 대한 자세한 내용은 를 참조하십시오.
+보다 https://hwu.netapp.com["Hardware Universe"^] 케이블링에 대한 자세한 내용은 여기를 참조하세요.
 
 
 
@@ -42,64 +42,64 @@ summary: 기존에 2노드 스위치리스 클러스터 환경이 있는 경우 
 * 두 9332D-GX2B 스위치의 초기 사용자 정의가 완료되어 다음과 같은 결과가 나왔습니다.
 +
 ** 9332D-GX2B 스위치는 최신 버전의 소프트웨어를 실행하고 있습니다.
-** RCF(Reference Configuration Files)가 스위치에 적용됩니다. SMTP, SNMP, SSH 등의 사이트 사용자 지정은 새 스위치에서 구성됩니다.
+** 스위치에 참조 구성 파일(RCF)이 적용됩니다.  SMTP, SNMP, SSH 등의 모든 사이트 사용자 정의는 새 스위치에서 구성됩니다.
 
 
 
 
-.예를 참조하십시오
-이 절차의 예에서는 다음과 같은 클러스터 스위치 및 노드 명명법을 사용합니다.
+.예시에 관하여
+이 절차의 예에서는 다음 클러스터 스위치와 노드 명명법을 사용합니다.
 
 * 9332D-GX2B2 스위치의 이름은 cs1과 cs2입니다.
-* 클러스터 SVM의 이름은 노드 1과 노드 2입니다.
-* LIF의 이름은 노드 1의 node1_clus1 및 node1_clus2이고, 노드 2의 node2_clus1 및 node2_clus2입니다.
-* 'cluster1:: *>' 프롬프트는 클러스터의 이름을 나타냅니다.
-* 이 절차에 사용되는 클러스터 포트는 e0a 및 e0b입니다.
+* 클러스터 SVM의 이름은 node1과 node2입니다.
+* LIF의 이름은 노드 1에서는 각각 node1_clus1과 node1_clus2이고, 노드 2에서는 각각 node2_clus1과 node2_clus2입니다.
+* 그만큼 `cluster1::*>` 프롬프트는 클러스터의 이름을 나타냅니다.
+* 이 절차에서 사용되는 클러스터 포트는 e0a와 e0b입니다.
 
 
-을 참조하십시오 https://hwu.netapp.com["Hardware Universe"^] 플랫폼을 위한 클러스터 포트에 대한 자세한 내용은 를 참조하십시오.
+보다 https://hwu.netapp.com["Hardware Universe"^] 플랫폼에 대한 클러스터 포트에 대한 정보는 다음을 참조하세요.
 
 
 
-== 스위치를 마이그레이션합니다
+== 스위치 마이그레이션
 
 
 
 === 1단계: 마이그레이션 준비
 
-. 이 클러스터에서 AutoSupport가 활성화되어 있는 경우 AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다.
+. 이 클러스터에서 AutoSupport 활성화된 경우 AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다.
 +
-'System node AutoSupport invoke-node * -type all-message maINT=xh'
-
-+
-여기서 x는 유지 보수 기간(시간)입니다.
+`system node autosupport invoke -node * -type all -message MAINT=xh`
 
 +
-
-NOTE: AutoSupport 메시지는 유지보수 기간 동안 자동 케이스 생성이 억제되도록 이 유지보수 작업의 기술 지원에 알립니다.
-
-. 권한 수준을 고급으로 변경하고 계속할 것인지 묻는 메시지가 표시되면 y를 입력합니다.
-+
-세트 프리빌리지 고급
+여기서 x는 유지 관리 기간(시간)입니다.
 
 +
-고급 프롬프트('*>')가 나타납니다.
 
+NOTE: AutoSupport 메시지는 기술 지원팀에 이 유지 관리 작업을 알려 유지 관리 기간 동안 자동 케이스 생성이 억제되도록 합니다.
 
-
-
-
-=== 2단계: 포트 및 케이블 연결 구성
-
-. 새 클러스터 스위치 CS1과 CS2 모두에서 ISL 포트가 아닌 모든 노드 대상 포트를 비활성화합니다.
+. 권한 수준을 고급으로 변경하려면 다음을 입력하세요. `y` 계속하라는 메시지가 표시되면:
 +
-ISL 포트를 비활성화하지 마십시오.
+`set -privilege advanced`
 
 +
-.예제 보기
+고급 프롬프트(`*>` )이 나타납니다.
+
+
+
+
+
+=== 2단계: 포트 및 케이블 구성
+
+. 새로운 클러스터 스위치 cs1과 cs2에서 노드에 연결된 모든 포트(ISL 포트 제외)를 비활성화합니다.
++
+ISL 포트를 비활성화하지 마세요.
+
++
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 스위치 CS1에서 노드 방향 포트 1부터 34까지 비활성 상태를 보여 줍니다.
+다음 예에서는 스위치 cs1에서 노드에 연결된 포트 1~34가 비활성화되어 있음을 보여줍니다.
 
 [listing]
 ----
@@ -111,13 +111,13 @@ cs1(config-if-range)# shutdown
 ====
 . 두 9332D-GX2B 스위치 cs1과 cs2 사이의 ISL과 ISL의 물리적 포트가 포트 1/35와 1/36에서 작동하는지 확인하세요.
 +
-'포트-채널 요약
+`show port-channel summary`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 스위치 CS1에서 ISL 포트가 작동 중인 것을 보여 줍니다.
+다음 예에서는 ISL 포트가 스위치 cs1에서 작동 중임을 보여줍니다.
 
 [listing]
 ----
@@ -137,7 +137,7 @@ Group Port-       Type     Protocol  Member Ports
 --------------------------------------------------------------------------------
 1     Po1(SU)     Eth      LACP      Eth1/35(P)   Eth1/36(P)
 ----
-다음 예에서는 스위치 CS2에서 ISL 포트가 작동 중인 것을 보여 줍니다.
+다음 예에서는 ISL 포트가 스위치 cs2에서 작동 중임을 보여줍니다.
 
 [listing]
 ----
@@ -158,18 +158,18 @@ Group Port-       Type     Protocol  Member Ports
 1     Po1(SU)     Eth      LACP      Eth1/35(P)   Eth1/36(P)
 ----
 ====
-. 인접 장치 목록을 표시합니다.
+. 이웃 장치 목록을 표시합니다.
 +
-CDP 이웃의 성전
+`show cdp neighbors`
 
 +
 이 명령은 시스템에 연결된 장치에 대한 정보를 제공합니다.
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 스위치 CS1의 인접 장치를 나열합니다.
+다음 예에서는 스위치 cs1의 인접 장치를 나열합니다.
 
 [listing]
 ----
@@ -186,7 +186,7 @@ cs2                Eth1/36        175    R S I s     N9K-C9336C    Eth1/36
 
 Total entries displayed: 2
 ----
-다음 예에서는 스위치 CS2의 인접 장치를 나열합니다.
+다음 예에서는 스위치 cs2의 인접 장치를 나열합니다.
 
 [listing]
 ----
@@ -204,15 +204,15 @@ cs1                Eth1/36        177    R S I s     N9K-C9336C    Eth1/36
 Total entries displayed: 2
 ----
 ====
-. 모든 클러스터 포트가 작동하는지 확인합니다.
+. 모든 클러스터 포트가 작동 중인지 확인하세요.
 +
-네트워크 포트 표시 - IPSpace 클러스터
+`network port show -ipspace Cluster`
 
 +
-각 포트는 Link에, Health Status에 대해서는 Healthy로 표시되어야 합니다.
+각 포트는 다음과 같이 표시되어야 합니다. `Link` 그리고 건강하다 `Health Status` .
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing]
@@ -238,15 +238,15 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy
 4 entries were displayed.
 ----
 ====
-. 모든 클러스터 LIF가 작동 중인지 확인합니다.
+. 모든 클러스터 LIF가 작동 중인지 확인하세요.
 +
-'network interface show-vserver cluster'
+`network interface show -vserver Cluster`
 
 +
-각 클러스터 LIF가 표시되어야 합니다 `true` 용 `Is Home` 그리고 가 있습니다 `Status Admin/Oper` 위/위.
+각 클러스터 LIF는 다음을 표시해야 합니다. `true` ~을 위한 `Is Home` 그리고 가지고있다 `Status Admin/Oper` 위로/위로.
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing]
@@ -264,12 +264,12 @@ Cluster
 4 entries were displayed.
 ----
 ====
-. 모든 클러스터 LIF에서 자동 복구가 설정되었는지 확인합니다.
+. 모든 클러스터 LIF에서 자동 되돌리기가 활성화되어 있는지 확인하세요.
 +
-'network interface show-vserver Cluster-fields auto-revert'
+`network interface show -vserver Cluster -fields auto-revert`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing]
@@ -290,18 +290,18 @@ Cluster
 ====
 . 노드 1의 클러스터 포트 e0a에서 케이블을 분리한 다음, 9332D-GX2B 스위치에서 지원하는 적절한 케이블을 사용하여 e0a를 클러스터 스위치 cs1의 포트 1에 연결합니다.
 +
-를 클릭합니다 https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - 스위치"^] 케이블 연결에 대한 자세한 내용은 에 나와 있습니다.
+그만큼 https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - 스위치"^] 케이블링에 대한 자세한 정보가 포함되어 있습니다.
 
 +
 https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - 스위치"^]
 
-. 노드 2의 클러스터 포트 e0a에서 케이블을 분리한 다음, 9332D-GX2B 스위치에서 지원하는 적절한 케이블을 사용하여 e0a를 클러스터 스위치 cs1의 포트 2에 연결합니다.
-. 클러스터 스위치 CS1에서 모든 노드 대상 포트를 활성화합니다.
+. 노드2의 클러스터 포트 e0a에서 케이블을 분리한 다음, 9332D-GX2B 스위치에서 지원하는 적절한 케이블을 사용하여 e0a를 클러스터 스위치 cs1의 포트 2에 연결합니다.
+. 클러스터 스위치 cs1에서 모든 노드 연결 포트를 활성화합니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 스위치 CS1에서 포트 1/1에서 1/34 사이의 포트가 활성화되어 있음을 보여 줍니다.
+다음 예에서는 스위치 cs1에서 포트 1/1~1/34가 활성화되어 있음을 보여줍니다.
 
 [listing]
 ----
@@ -311,15 +311,15 @@ cs1(config)# interface e1/1/1-4, e1/2/1-4, e1/3/1-4, e1/4/1-4, e1/5/1-4, e1/6/1-
 cs1(config-if-range)# no shutdown
 ----
 ====
-. 모든 클러스터 LIF가 작동 중이고 "홈"에 대해 "참"으로 표시되는지 확인합니다.
+. 모든 클러스터 LIF가 작동 중이고 표시되어 있는지 확인하십시오. `true` ~을 위한 `Is Home` :
 +
-'network interface show-vserver cluster'
+`network interface show -vserver Cluster`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 모든 LIF가 node1과 node2에 있으며 "홈" 결과가 true인 것을 보여 줍니다.
+다음 예에서는 모든 LIF가 node1과 node2에 있고 `Is Home` 결과는 사실입니다:
 
 [listing]
 ----
@@ -339,13 +339,13 @@ Cluster
 ====
 . 클러스터의 노드 상태에 대한 정보를 표시합니다.
 +
-'클러스터 쇼'
+`cluster show`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예제에는 클러스터에 있는 노드의 상태 및 자격에 대한 정보가 표시됩니다.
+다음 예에서는 클러스터 내 노드의 상태와 적격성에 대한 정보를 표시합니다.
 
 [listing]
 ----
@@ -361,12 +361,12 @@ node2                true    true          false
 ====
 . 노드 1의 클러스터 포트 e0b에서 케이블을 분리한 다음, 9332D-GX2B 스위치에서 지원하는 적절한 케이블을 사용하여 e0b를 클러스터 스위치 cs2의 포트 1에 연결합니다.
 . 노드2의 클러스터 포트 e0b에서 케이블을 분리한 다음, 9332D-GX2B 스위치에서 지원하는 적절한 케이블을 사용하여 e0b를 클러스터 스위치 cs2의 포트 2에 연결합니다.
-. 클러스터 스위치 CS2에서 모든 노드 대상 포트를 활성화합니다.
+. 클러스터 스위치 cs2에서 모든 노드 연결 포트를 활성화합니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 스위치 CS2에서 포트 1/1 ~ 1/34 가 활성화되어 있음을 보여 줍니다.
+다음 예에서는 스위치 cs2에서 포트 1/1~1/34가 활성화되어 있음을 보여줍니다.
 
 [listing]
 ----
@@ -376,15 +376,15 @@ cs2(config)# interface e1/1/1-4, e1/2/1-4, e1/3/1-4, e1/4/1-4, e1/5/1-4, e1/6/1-
 cs2(config-if-range)# no shutdown
 ----
 ====
-. 모든 클러스터 포트가 작동하는지 확인합니다.
+. 모든 클러스터 포트가 작동 중인지 확인하세요.
 +
-네트워크 포트 표시 - IPSpace 클러스터
+`network port show -ipspace Cluster`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 모든 클러스터 포트가 노드 1과 노드 2에 있음을 보여 줍니다.
+다음 예에서는 모든 클러스터 포트가 node1과 node2에서 작동 중임을 보여줍니다.
 
 [listing]
 ----
@@ -413,21 +413,21 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 
 
 
-=== 3단계: 구성을 확인합니다
+=== 3단계: 구성 확인
 
-. 모든 인터페이스가 '홈'에 대해 true로 표시되는지 확인합니다.
+. 모든 인터페이스가 true로 표시되는지 확인하십시오. `Is Home` :
 +
-'network interface show-vserver cluster'
-
-+
-
-NOTE: 이 작업을 완료하는 데 몇 분 정도 걸릴 수 있습니다.
+`network interface show -vserver Cluster`
 
 +
-.예제 보기
+
+NOTE: 완료하는 데 몇 분 정도 걸릴 수 있습니다.
+
++
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 모든 LIF가 node1과 node2에 있으며 "홈" 결과가 true인 것을 보여 줍니다.
+다음 예에서는 모든 LIF가 node1과 node2에 있고 `Is Home` 결과는 사실입니다:
 
 [listing]
 ----
@@ -445,15 +445,15 @@ Cluster
 4 entries were displayed.
 ----
 ====
-. 두 노드 모두 각 스위치에 하나씩 연결되어 있는지 확인합니다.
+. 두 노드 모두 각 스위치에 하나의 연결이 있는지 확인하세요.
 +
-CDP 이웃의 성전
+`show cdp neighbors`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 두 스위치에 대해 적절한 결과를 보여 줍니다.
+다음 예는 두 스위치에 대한 적절한 결과를 보여줍니다.
 
 [listing]
 ----
@@ -490,10 +490,10 @@ Total entries displayed: 4
 ====
 . 클러스터에서 검색된 네트워크 장치에 대한 정보를 표시합니다.
 +
-네트워크 디바이스 검색 표시 프로토콜 CDP
+`network device-discovery show -protocol cdp`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing]
@@ -512,19 +512,19 @@ node1      /cdp
 4 entries were displayed.
 ----
 ====
-. 설정이 비활성화되었는지 확인합니다.
+. 설정이 비활성화되었는지 확인하세요.
 +
-'network options switchless-cluster show'
+`network options switchless-cluster show`
 
 +
 
-NOTE: 명령이 완료되는 데 몇 분 정도 걸릴 수 있습니다. '3분 수명 만료' 메시지가 표시될 때까지 기다립니다.
+NOTE: 명령을 완료하는 데 몇 분이 걸릴 수 있습니다.  '3분 유효기간 만료' 공지를 기다리세요.
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예제의 false 출력은 구성 설정이 비활성화되어 있음을 보여 줍니다.
+다음 예제의 잘못된 출력은 구성 설정이 비활성화되었음을 보여줍니다.
 
 [listing]
 ----
@@ -532,15 +532,15 @@ cluster1::*> network options switchless-cluster show
 Enable Switchless Cluster: false
 ----
 ====
-. 클러스터에서 노드 구성원의 상태를 확인합니다.
+. 클러스터의 노드 멤버 상태를 확인하세요.
 +
-'클러스터 쇼'
+`cluster show`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예는 클러스터에 있는 노드의 상태 및 적격성에 대한 정보를 보여줍니다.
+다음 예에서는 클러스터 내 노드의 상태와 적격성에 대한 정보를 보여줍니다.
 
 [listing]
 ----
@@ -552,22 +552,22 @@ node1                true    true          false
 node2                true    true          false
 ----
 ====
-. 원격 클러스터 인터페이스의 연결을 확인합니다.
+. 원격 클러스터 인터페이스의 연결성을 확인하세요.
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.9.1 이상
 --
-를 사용할 수 있습니다 `network interface check cluster-connectivity` 클러스터 연결에 대한 접근성 검사를 시작한 다음 세부 정보를 표시하는 명령입니다.
+당신은 사용할 수 있습니다 `network interface check cluster-connectivity` 클러스터 연결에 대한 접근성 검사를 시작한 다음 세부 정보를 표시하는 명령:
 
-`network interface check cluster-connectivity start` 및 `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`그리고 `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-* 참고: * 몇 초 동안 기다린 후 `show` 명령을 실행하여 세부 정보를 표시합니다.
+*참고:* 실행하기 전에 몇 초 동안 기다리십시오. `show` 세부 정보를 표시하는 명령입니다.
 
 [listing, subs="+quotes"]
 ----
@@ -585,7 +585,7 @@ node2
 --
 .모든 ONTAP 릴리스
 --
-모든 ONTAP 릴리스에 대해 을 사용할 수도 있습니다 `cluster ping-cluster -node <name>` 연결 상태를 확인하는 명령:
+모든 ONTAP 릴리스의 경우 다음을 사용할 수도 있습니다. `cluster ping-cluster -node <name>` 연결성을 확인하는 명령:
 
 `cluster ping-cluster -node <name>`
 
@@ -618,15 +618,15 @@ RPC status:
 ----
 --
 ====
-. [[step7]] 권한 수준을 admin으로 다시 변경합니다.
+. [[7단계]] 권한 수준을 다시 관리자로 변경합니다.
 +
-'Set-Privilege admin'입니다
+`set -privilege admin`
 
-. 자동 케이스 생성을 억제한 경우 AutoSupport 메시지를 호출하여 다시 활성화합니다.
+. 자동 케이스 생성을 억제한 경우 AutoSupport 메시지를 호출하여 다시 활성화하세요.
 +
-'System node AutoSupport invoke-node * -type all-message maINT=end'
+`system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 
-.다음 단계
-link:../switch-cshm/config-overview.html["스위치 상태 모니터링을 구성합니다"]..
+.다음은 무엇인가요?
+link:../switch-cshm/config-overview.html["스위치 상태 모니터링 구성"].

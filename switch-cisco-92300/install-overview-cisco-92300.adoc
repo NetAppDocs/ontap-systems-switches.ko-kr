@@ -2,7 +2,7 @@
 permalink: switch-cisco-92300/install-overview-cisco-92300.html 
 sidebar: sidebar 
 keywords: install, cisco nexus 92300 switch, 
-summary: Cisco Nexus 92300 스위치를 구성하기 전에 프로세스 및 명명법을 검토하십시오. 
+summary: Cisco Nexus 92300 스위치를 구성하기 전에 프로세스 개요와 명명법을 살펴보세요. 
 ---
 = Cisco Nexus 92300YC 스위치 설치 및 설정 워크플로
 :allow-uri-read: 
@@ -11,23 +11,23 @@ summary: Cisco Nexus 92300 스위치를 구성하기 전에 프로세스 및 명
 
 
 [role="lead"]
-Cisco Nexus 92300YC 스위치는 AFF 또는 FAS 클러스터에서 클러스터 스위치로 사용할 수 있습니다.  클러스터 스위치를 사용하면 두 개 이상의 노드로 ONTAP 클러스터를 구축할 수 있습니다.
+Cisco Nexus 92300YC 스위치는 AFF 또는 FAS 클러스터에서 클러스터 스위치로 사용할 수 있습니다. 클러스터 스위치를 사용하면 두 개 이상의 노드로 ONTAP 클러스터를 구축할 수 있습니다.
 
 Cisco Nexus 92300YC 스위치를 설치하고 설정하려면 다음 워크플로 단계를 따르세요.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1개"]link:configure-reqs-92300.html["구성 요구 사항"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["하나"]link:configure-reqs-92300.html["구성 요구 사항"]
 [role="quick-margin-para"]
 92300YC 클러스터 스위치의 구성 요구 사항을 검토하세요.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["2개"]link:required-documentation-92300.html["필수 문서"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["둘"]link:required-documentation-92300.html["필수 서류"]
 [role="quick-margin-para"]
 92300YC 스위치와 ONTAP 클러스터를 설정하려면 특정 스위치 및 컨트롤러 설명서를 검토하세요.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["세 가지"]link:smart-call-home-92300.html["Smart Call Home 요구 사항"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["삼"]link:smart-call-home-92300.html["스마트 콜 홈 요구 사항"]
 [role="quick-margin-para"]
 네트워크의 하드웨어 및 소프트웨어 구성 요소를 모니터링하는 데 사용되는 Cisco Smart Call Home 기능에 대한 요구 사항을 검토하세요.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["네"]link:install-hardware-workflow.html["하드웨어를 설치합니다"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["네"]link:install-hardware-workflow.html["하드웨어 설치"]
 [role="quick-margin-para"]
 스위치 하드웨어를 설치합니다.
 

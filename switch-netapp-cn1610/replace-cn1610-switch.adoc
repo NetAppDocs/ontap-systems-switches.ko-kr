@@ -2,63 +2,63 @@
 permalink: switch-netapp-cn1610/replace-cn1610-switch.html 
 sidebar: sidebar 
 keywords: replace, netapp cn1610, cluster switch 
-summary: 특정 작업 시퀀스를 실행하여 결함이 있는 NetApp CN1610 클러스터 스위치를 중단 없이 교체할 수 있습니다. 
+summary: 특정 작업 순서를 수행하면 결함이 있는 NetApp CN1610 클러스터 스위치를 중단 없이 교체할 수 있습니다. 
 ---
-= NetApp CN1610 클러스터 스위치를 교체합니다
+= NetApp CN1610 클러스터 스위치 교체
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-다음 단계에 따라 클러스터 네트워크에서 결함이 있는 NetApp CN1610 스위치를 교체하십시오. 이는 NDU(무중단 절차)입니다.
+클러스터 네트워크에서 결함이 있는 NetApp CN1610 스위치를 교체하려면 다음 단계를 따르세요.  이는 중단 없는 절차(NDU)입니다.
 
 
 
-== 요구사항 검토
+== 검토 요구 사항
 
 .시작하기 전에
-스위치 교체를 수행하기 전에 기존 클러스터 및 네트워크 인프라에 대한 교체 스위치 및 현재 환경에서 스위치 교체를 수행하기 전에 다음 조건이 충족되어야 합니다.
+스위치 교체를 수행하기 전에 현재 환경과 기존 클러스터 및 네트워크 인프라의 교체 스위치에서 스위치 교체를 수행하기 전에 다음 조건이 충족되어야 합니다.
 
-* 기존 클러스터가 완전히 연결된 클러스터 스위치를 한 개 이상 사용하여 완전하게 작동하는지 확인해야 합니다.
-* 모든 클러스터 포트는 * UP * 이어야 합니다.
-* 모든 클러스터 논리 인터페이스(LIF)가 가동되어야 하며 마이그레이션되지 않아야 합니다.
-* ONTAP 클러스터 `ping-cluster -node node1` 명령은 모든 경로에서 기본 연결 및 PMTU 통신 이상의 통신이 성공했음을 나타내야 합니다.
-
-
-
-
-== 콘솔 로깅을 활성화합니다
-
-NetApp은 사용 중인 장치에서 콘솔 로깅을 사용하도록 설정하고 스위치를 교체할 때 다음 작업을 수행할 것을 적극 권장합니다.
-
-* 유지 관리 중에는 AutoSupport를 활성화된 상태로 둡니다.
-* 유지 관리 전후에 유지 관리 AutoSupport를 트리거하여 유지 보수 기간 동안 케이스 생성을 비활성화합니다. 이 기술 자료 문서를 참조하십시오 https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: 예약된 유지 관리 기간 동안 자동 케이스 생성을 억제하는 방법"^] 를 참조하십시오.
-* 모든 CLI 세션에 대해 세션 로깅을 설정합니다. 세션 로깅을 활성화하는 방법에 대한 지침은 이 기술 자료 문서의 "로깅 세션 출력" 섹션을 참조하십시오 https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["ONTAP 시스템에 대한 최적의 연결을 위해 PuTTY를 구성하는 방법"^].
+* 기존 클러스터는 적어도 하나의 완전히 연결된 클러스터 스위치를 통해 완벽하게 작동하는지 검증되어야 합니다.
+* 모든 클러스터 포트가 *작동*해야 합니다.
+* 모든 클러스터 논리 인터페이스(LIF)는 작동 중이어야 하며 마이그레이션되어서는 안 됩니다.
+* ONTAP 클러스터 `ping-cluster -node node1` 명령은 기본 연결과 PMTU보다 큰 통신이 모든 경로에서 성공적임을 나타내야 합니다.
 
 
 
 
-== 스위치를 교체합니다
+== 콘솔 로깅 활성화
 
-.이 작업에 대해
-클러스터 LIF가 호스팅된 노드에서 클러스터 LIF를 마이그레이션하기 위한 명령을 실행해야 합니다.
+NetApp 사용 중인 장치에서 콘솔 로깅을 활성화하고 스위치를 교체할 때 다음 작업을 수행할 것을 강력히 권장합니다.
 
-이 절차의 예에서는 다음과 같은 클러스터 스위치 및 노드 명명법을 사용합니다.
+* 유지관리 중에는 AutoSupport 활성화해 두세요.
+* 유지 관리 기간 동안 케이스 생성을 비활성화하려면 유지 관리 전후에 유지 관리 AutoSupport 트리거합니다.  이 지식 기반 문서를 참조하세요. https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: 예약된 유지 관리 기간 동안 자동 케이스 생성을 억제하는 방법"^] 자세한 내용은.
+* 모든 CLI 세션에 대한 세션 로깅을 활성화합니다.  세션 로깅을 활성화하는 방법에 대한 지침은 이 기술 자료 문서의 "세션 출력 로깅" 섹션을 검토하세요. https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["ONTAP 시스템에 대한 최적의 연결을 위해 PuTTY를 구성하는 방법"^] .
 
-* 두 CN1610 클러스터 스위치의 이름은 입니다 `cs1` 및 `cs2`.
-* 교체할 CN1610 스위치 이름(결함이 있는 스위치)은 입니다 `old_cs1`.
-* 새 CN1610 스위치(교체 스위치)의 이름은 입니다 `new_cs1`.
-* 교체되지 않는 파트너 스위치의 이름은 입니다 `cs2`.
+
+
+
+== 스위치를 교체하세요
+
+.이 작업에 관하여
+클러스터 LIF가 호스팅되는 노드에서 클러스터 LIF를 마이그레이션하는 명령을 실행해야 합니다.
+
+이 절차의 예에서는 다음 클러스터 스위치와 노드 명명법을 사용합니다.
+
+* 두 개의 CN1610 클러스터 스위치의 이름은 다음과 같습니다. `cs1` 그리고 `cs2` .
+* 교체할 CN1610 스위치(결함 있는 스위치)의 이름은 다음과 같습니다. `old_cs1` .
+* 새로운 CN1610 스위치(교체 스위치)의 이름은 다음과 같습니다. `new_cs1` .
+* 교체되지 않는 파트너 스위치의 이름은 다음과 같습니다. `cs2` .
 
 
 .단계
-. 시작 구성 파일이 실행 중인 구성 파일과 일치하는지 확인합니다. 교체 중에 사용할 수 있도록 이러한 파일을 로컬에 저장해야 합니다.
+. 시작 구성 파일이 실행 구성 파일과 일치하는지 확인하세요.  교체 작업 중에 사용하려면 이 파일을 로컬에 저장해야 합니다.
 +
-다음 예제의 구성 명령은 FASTPATH 1.2.0.7에 대한 것입니다.
+다음 예제의 구성 명령은 FASTPATH 1.2.0.7을 위한 것입니다.
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -68,12 +68,12 @@ NetApp은 사용 중인 장치에서 콘솔 로깅을 사용하도록 설정하�
 (old_cs1)# *show startup-config*
 ----
 ====
-. 실행 중인 구성 파일의 복사본을 만듭니다.
+. 실행 중인 구성 파일의 사본을 만듭니다.
 +
-다음 예제의 명령은 FASTPATH 1.2.0.7입니다.
+다음 예제의 명령은 FASTPATH 1.2.0.7에 대한 것입니다.
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -85,11 +85,11 @@ Config script created successfully.
 
 
 
-NOTE: 를 제외한 모든 파일 이름을 사용할 수 있습니다 `CN1610_CS_RCF_v1.2.scr`. 파일 이름은 *.scr * 확장자를 가져야 합니다.
+NOTE: 다음을 제외한 모든 파일 이름을 사용할 수 있습니다. `CN1610_CS_RCF_v1.2.scr` .  파일 이름에는 *.scr* 확장자가 있어야 합니다.
 
-. [[step3]] 교체 준비를 위해 스위치의 실행 중인 구성 파일을 외부 호스트에 저장합니다.
+. [[step3]]교체에 대비하여 스위치의 실행 구성 파일을 외부 호스트에 저장합니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -97,14 +97,14 @@ NOTE: 를 제외한 모든 파일 이름을 사용할 수 있습니다 `CN1610_C
 (old_cs1)# *copy nvram:script filename.scr scp://<Username>@<remote_IP_address>/path_to_file/filename.scr*
 ----
 ====
-. 스위치와 ONTAP 버전이 호환성 매트릭스에서 일치하는지 확인합니다. 를 참조하십시오 https://mysupport.netapp.com/site/info/netapp-cluster-switch["NetApp CN1601 및 CN1610 스위치"^] 페이지를 참조하십시오.
-. 에서 https://mysupport.netapp.com/site/products/all/details/netapp-cluster-switches/downloads-tab["소프트웨어 다운로드 페이지"^] NetApp Support 사이트에서 NetApp 클러스터 스위치를 선택하여 적절한 RCF 및 FASTPATH 버전을 다운로드합니다.
-. FASTPATH, RCF 및 저장된 구성을 사용하여 TFTP(Trivial File Transfer Protocol) 서버를 설정합니다 `.scr` 새 스위치와 함께 사용할 파일입니다.
-. 직렬 포트(스위치 오른쪽에 "IOI"라고 표시된 RJ-45 커넥터)를 터미널 에뮬레이션이 있는 사용 가능한 호스트에 연결합니다.
-. 호스트에서 직렬 터미널 연결 설정을 설정합니다.
+. 호환성 매트릭스에서 스위치와 ONTAP 버전이 일치하는지 확인하세요.  를 참조하십시오 https://mysupport.netapp.com/site/info/netapp-cluster-switch["NetApp CN1601 및 CN1610 스위치"^] 자세한 내용은 페이지를 참조하세요.
+. 에서 https://mysupport.netapp.com/site/products/all/details/netapp-cluster-switches/downloads-tab["소프트웨어 다운로드 페이지"^] NetApp 지원 사이트에서 NetApp 클러스터 스위치를 선택하여 적절한 RCF 및 FASTPATH ​​버전을 다운로드하세요.
+. FASTPATH, RCF 및 저장된 구성을 사용하여 TFTP(Trivial File Transfer Protocol) 서버를 설정합니다. `.scr` 새로운 스위치와 함께 사용할 파일입니다.
+. 터미널 에뮬레이션이 있는 사용 가능한 호스트에 직렬 포트(스위치 오른쪽에 "IOIOI"라고 표시된 RJ-45 커넥터)를 연결합니다.
+. 호스트에서 직렬 터미널 연결 설정을 지정합니다.
 +
 .. 9600보드
-.. 8 데이터 비트
+.. 8개의 데이터 비트
 .. 1 정지 비트
 .. 패리티: 없음
 .. 흐름 제어: 없음
@@ -113,13 +113,13 @@ NOTE: 를 제외한 모든 파일 이름을 사용할 수 있습니다 `CN1610_C
 . 관리 포트(스위치 왼쪽에 있는 RJ-45 렌치 포트)를 TFTP 서버가 있는 동일한 네트워크에 연결합니다.
 . TFTP 서버를 사용하여 네트워크에 연결할 준비를 합니다.
 +
-DHCP(Dynamic Host Configuration Protocol)를 사용하는 경우 현재 스위치의 IP 주소를 구성할 필요가 없습니다. 서비스 포트는 기본적으로 DHCP를 사용하도록 설정되어 있습니다. 네트워크 관리 포트는 IPv4 및 IPv6 프로토콜 설정에 대해 없음으로 설정됩니다. 렌치 포트가 DHCP 서버가 있는 네트워크에 연결되어 있으면 서버 설정이 자동으로 구성됩니다.
+DHCP(동적 호스트 구성 프로토콜)를 사용하는 경우 이때 스위치에 대한 IP 주소를 구성할 필요가 없습니다.  서비스 포트는 기본적으로 DHCP를 사용하도록 설정되어 있습니다.  IPv4 및 IPv6 프로토콜 설정에 대해 네트워크 관리 포트가 없음으로 설정되었습니다.  렌치 포트가 DHCP 서버가 있는 네트워크에 연결된 경우 서버 설정이 자동으로 구성됩니다.
 
 +
-정적 IP 주소를 설정하려면 serviceport 프로토콜, 네트워크 프로토콜 및 serviceport IP 명령을 사용해야 합니다.
+정적 IP 주소를 설정하려면 serviceport protocol, network protocol, serviceport ip 명령을 사용해야 합니다.
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -127,15 +127,15 @@ DHCP(Dynamic Host Configuration Protocol)를 사용하는 경우 현재 스위�
 (new_cs1)# *serviceport ip <ipaddr> <netmask> <gateway>*
 ----
 ====
-. 선택적으로 TFTP 서버가 랩톱에 있는 경우 표준 이더넷 케이블을 사용하여 CN1610 스위치를 랩톱에 연결한 다음 대체 IP 주소를 사용하여 동일한 네트워크에서 해당 네트워크 포트를 구성합니다.
+. 선택적으로, TFTP 서버가 노트북에 있는 경우 표준 이더넷 케이블을 사용하여 CN1610 스위치를 노트북에 연결한 다음, 동일한 네트워크에서 대체 IP 주소로 네트워크 포트를 구성합니다.
 +
-를 사용할 수 있습니다 `ping` 명령을 사용하여 주소를 확인합니다. 연결을 설정할 수 없는 경우 라우팅되지 않은 네트워크를 사용하고 IP 192.168.x 또는 172.16.x를 사용하여 서비스 포트를 구성해야 합니다 나중에 서비스 포트를 운영 관리 IP 주소로 재구성할 수 있습니다.
+당신은 사용할 수 있습니다 `ping` 주소를 확인하는 명령입니다.  연결을 설정할 수 없는 경우 라우팅되지 않은 네트워크를 사용하고 IP 192.168.x 또는 172.16.x를 사용하여 서비스 포트를 구성해야 합니다.  나중에 서비스 포트를 프로덕션 관리 IP 주소로 재구성할 수 있습니다.
 
-. 필요에 따라 새 스위치에 적합한 버전의 RCF 및 FASTPATH 소프트웨어를 확인하고 설치합니다. 새 스위치가 올바르게 설정되어 있고 RCF 및 FASTPATH 소프트웨어에 대한 업데이트가 필요하지 않은 경우 13단계로 이동하십시오.
+. 선택적으로, 새로운 스위치에 적합한 RCF 및 FASTPATH 소프트웨어 버전을 확인하고 설치합니다.  새 스위치가 올바르게 설정되었고 RCF 및 FASTPATH 소프트웨어를 업데이트할 필요가 없는지 확인한 경우 13단계로 이동해야 합니다.
 +
-.. 새 스위치 설정을 확인합니다.
+.. 새로운 스위치 설정을 확인하세요.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -144,9 +144,9 @@ DHCP(Dynamic Host Configuration Protocol)를 사용하는 경우 현재 스위�
 (new_cs1)# *show version*
 ----
 ====
-.. RCF를 새 스위치에 다운로드합니다.
+.. 새로운 스위치에 RCF를 다운로드하세요.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -173,9 +173,9 @@ Configuration script validated.
 File transfer operation completed successfully.
 ----
 ====
-.. RCF가 스위치에 다운로드되었는지 확인합니다.
+.. RCF가 스위치에 다운로드되었는지 확인하세요.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -193,9 +193,9 @@ latest_config.scr                 2356
 ====
 
 
-. RCF를 CN1610 스위치에 적용합니다.
+. CN1610 스위치에 RCF를 적용합니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -212,9 +212,9 @@ After the script is applied, those settings will be active in the running-config
 ----
 ====
 +
-.. 스위치를 재부팅할 때 시작 구성 파일이 되도록 실행 중인 구성 파일을 저장합니다.
+.. 실행 중인 구성 파일을 저장하면 스위치를 재부팅할 때 시작 구성 파일이 됩니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -230,9 +230,9 @@ Config file 'startup-config' created successfully.
 Configuration Saved!
 ----
 ====
-.. 이미지를 CN1610 스위치에 다운로드합니다.
+.. CN1610 스위치에 이미지를 다운로드합니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -254,12 +254,12 @@ TFTP Code transfer starting...
 File transfer operation completed successfully.
 ----
 ====
-.. 스위치를 재부팅하여 새 활성 부팅 이미지를 실행합니다.
+.. 스위치를 재부팅하여 새로운 활성 부트 이미지를 실행합니다.
 +
-새 이미지를 반영하려면 6단계의 명령을 위해 스위치를 재부팅해야 합니다. reload 명령을 입력하면 두 가지 가능한 응답 보기가 표시될 수 있습니다.
+6단계의 명령을 적용하여 새 이미지를 반영하려면 스위치를 재부팅해야 합니다.  다시 로드 명령을 입력한 후 볼 수 있는 응답에는 두 가지 가능한 보기가 있습니다.
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -279,9 +279,9 @@ Cluster Interconnect Infrastructure
 User:admin Password: (new_cs1) >*enable*
 ----
 ====
-.. 이전 스위치에서 새 스위치로 저장된 구성 파일을 복사합니다.
+.. 이전 스위치에서 저장된 구성 파일을 새 스위치로 복사합니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -289,9 +289,9 @@ User:admin Password: (new_cs1) >*enable*
 (new_cs1)# *copy tftp://<server_ip_address>/<filename>.scr nvram:script <filename>.scr*
 ----
 ====
-.. 이전에 저장한 구성을 새 스위치에 적용합니다.
+.. 이전에 저장된 구성을 새 스위치에 적용합니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -309,7 +309,7 @@ Configuration Saved!
 ====
 .. 실행 중인 구성 파일을 시작 구성 파일에 저장합니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -319,19 +319,20 @@ Configuration Saved!
 ====
 
 
-. 이 클러스터에서 AutoSupport가 활성화되어 있으면 'system node AutoSupport invoke -node * -type all-message maINT=xh' AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다
+. 이 클러스터에서 AutoSupport 활성화된 경우 AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다.
+`system node autosupport invoke -node * -type all - message MAINT=xh`
 +
-_x_는 유지보수 기간(시간)입니다.
+_x_는 유지 관리 기간(시간)입니다.
 
 +
 [NOTE]
 ====
-AutoSupport 메시지는 유지보수 기간 동안 자동 케이스 생성이 억제되도록 이 유지보수 작업의 기술 지원에 알립니다.
+AutoSupport 메시지는 기술 지원팀에 이 유지 관리 작업을 알려 유지 관리 기간 동안 자동 케이스 생성이 억제되도록 합니다.
 
 ====
-. 새 스위치 new_CS1에서 admin 사용자로 로그인하고 노드 클러스터 인터페이스(포트 1~12)에 연결된 모든 포트를 종료합니다.
+. 새로운 스위치 new_cs1에서 관리자 사용자로 로그인하고 노드 클러스터 인터페이스에 연결된 모든 포트(포트 1~12)를 종료합니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -347,12 +348,12 @@ Password:
 (new_cs1)# *write memory*
 ----
 ====
-. 클러스터 LIF를 old_CS1 스위치에 연결된 포트에서 마이그레이션합니다.
+. old_cs1 스위치에 연결된 포트에서 클러스터 LIF를 마이그레이션합니다.
 +
 각 클러스터 LIF를 현재 노드의 관리 인터페이스에서 마이그레이션해야 합니다.
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -361,9 +362,9 @@ cluster::> *set -privilege advanced*
 cluster::> *network interface migrate -vserver <vserver_name> -lif <Cluster_LIF_to_be_moved> - sourcenode <current_node> -dest-node <current_node> -dest-port <cluster_port_that_is_UP>*
 ----
 ====
-. 모든 클러스터 LIF가 각 노드의 적절한 클러스터 포트로 이동되었는지 확인합니다.
+. 모든 클러스터 LIF가 각 노드의 적절한 클러스터 포트로 이동되었는지 확인하세요.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -373,7 +374,7 @@ cluster::> *network interface show -role cluster*
 ====
 . 교체한 스위치에 연결된 클러스터 포트를 종료합니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -381,9 +382,9 @@ cluster::> *network interface show -role cluster*
 cluster::*> *network port modify -node <node_name> -port <port_to_admin_down> -up-admin false*
 ----
 ====
-. 클러스터의 상태를 확인합니다.
+. 클러스터의 상태를 확인하세요.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -391,9 +392,9 @@ cluster::*> *network port modify -node <node_name> -port <port_to_admin_down> -u
 cluster::*> *cluster show*
 ----
 ====
-. 포트가 다운되었는지 확인합니다.
+. 포트가 다운되었는지 확인하세요.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -401,9 +402,9 @@ cluster::*> *cluster show*
 cluster::*> *cluster ping-cluster -node <node_name>*
 ----
 ====
-. 스위치 CS2에서 ISL 포트 13 - 16을 종료합니다.
+. 스위치 cs2에서 ISL 포트 13~16을 종료합니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -414,11 +415,11 @@ cluster::*> *cluster ping-cluster -node <node_name>*
 (cs2)# *show port-channel 3/1*
 ----
 ====
-. 스토리지 관리자가 스위치를 교체할 준비가 되었는지 확인합니다.
-. 이전_CS1 스위치에서 모든 케이블을 분리한 다음 케이블을 new_CS1 스위치의 같은 포트에 연결합니다.
-. CS2 스위치에서 ISL 포트 13 - 16을 불러옵니다.
+. 스토리지 관리자가 스위치 교체에 대비했는지 확인하세요.
+. old_cs1 스위치에서 모든 케이블을 제거한 다음, 해당 케이블을 new_cs1 스위치의 동일한 포트에 연결합니다.
+. cs2 스위치에서 ISL 포트 13~16을 켜세요.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -428,9 +429,9 @@ cluster::*> *cluster ping-cluster -node <node_name>*
 (cs2)(interface 0/13-0/16)# *no shutdown*
 ----
 ====
-. 클러스터 노드에 연결된 새 스위치의 포트를 불러옵니다.
+. 클러스터 노드와 연결된 새 스위치의 포트를 활성화합니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -440,9 +441,9 @@ cluster::*> *cluster ping-cluster -node <node_name>*
 (new_cs1)(interface 0/13-0/16)# *no shutdown*
 ----
 ====
-. 단일 노드에서 교체된 스위치에 연결된 클러스터 노드 포트를 불러와 링크가 작동하는지 확인합니다.
+. 단일 노드에서 교체된 스위치에 연결된 클러스터 노드 포트를 가동한 다음 링크가 작동하는지 확인합니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -451,12 +452,12 @@ cluster::*> *network port modify -node node1 -port <port_to_be_onlined> -up-admi
 cluster::*> *network port show -role cluster*
 ----
 ====
-. 25단계의 동일한 노드에서 포트에 연결된 클러스터 LIF를 되돌립니다.
+. 25단계에서 동일한 노드의 포트와 연결된 클러스터 LIF를 되돌립니다.
 +
-이 예제에서는 "홈" 열이 true 이면 node1의 LIF가 성공적으로 되돌려집니다.
+이 예에서 "홈" 열이 참이면 node1의 LIF가 성공적으로 되돌려집니다.
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -465,10 +466,10 @@ cluster::*> *network interface revert -vserver node1 -lif <cluster_lif_to_be_rev
 cluster::*> *network interface show -role cluster*
 ----
 ====
-. 첫 번째 노드의 클러스터 LIF가 가동되어 홈 포트로 되돌아갈 경우 25단계와 26단계를 반복하여 클러스터 포트를 불러오고 클러스터의 다른 노드에 클러스터 LIF를 되돌립니다.
+. 첫 번째 노드의 클러스터 LIF가 작동 중이고 홈 포트로 되돌아간 경우 25단계와 26단계를 반복하여 클러스터 포트를 작동시키고 클러스터의 다른 노드에서 클러스터 LIF를 되돌립니다.
 . 클러스터의 노드에 대한 정보를 표시합니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -476,9 +477,9 @@ cluster::*> *network interface show -role cluster*
 cluster::*> *cluster show*
 ----
 ====
-. 교체된 스위치에서 시작 구성 파일과 실행 중인 구성 파일이 올바른지 확인합니다. 이 구성 파일은 1단계의 출력과 일치해야 합니다.
+. 교체된 스위치에서 시작 구성 파일과 실행 구성 파일이 올바른지 확인하세요.  이 구성 파일은 1단계의 출력과 일치해야 합니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -488,8 +489,8 @@ cluster::*> *cluster show*
 (new_cs1)# *show startup-config*
 ----
 ====
-. 자동 케이스 생성을 억제한 경우 AutoSupport 메시지를 호출하여 다시 활성화합니다.
+. 자동 케이스 생성을 억제한 경우 AutoSupport 메시지를 호출하여 다시 활성화하세요.
 +
-'System node AutoSupport invoke-node * -type all-message maINT=end'
+`system node autosupport invoke -node * -type all -message MAINT=END`
 
 

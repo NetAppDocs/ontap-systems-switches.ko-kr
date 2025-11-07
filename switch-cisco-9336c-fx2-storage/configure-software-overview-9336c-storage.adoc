@@ -2,7 +2,7 @@
 permalink: switch-cisco-9336c-fx2-storage/configure-software-overview-9336c-storage.html 
 sidebar: sidebar 
 keywords: BES-53248 switches, initial installation, configure switch-cisco-9336c-fx2 switch 
-summary: Cisco Nexus 9336C-FX2 스토리지 스위치의 소프트웨어 구성 개요 
+summary: Cisco Nexus 9336C-FX2 스토리지 스위치용 소프트웨어 구성 개요 
 ---
 = Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스토리지 스위치용 소프트웨어 설치 워크플로
 :allow-uri-read: 
@@ -13,26 +13,26 @@ summary: Cisco Nexus 9336C-FX2 스토리지 스위치의 소프트웨어 구성 
 [role="lead"]
 Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스토리지 스위치용 소프트웨어를 설치하고 구성하려면 다음 단계를 따르세요.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1개"]link:setup-switch-9336c-storage.html["스위치를 구성합니다"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["하나"]link:setup-switch-9336c-storage.html["스위치 구성"]
 [role="quick-margin-para"]
 9336C-FX2 및 9336C-FX2-T 스토리지 스위치를 구성합니다.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["2개"]link:install-nxos-overview-9336c-storage.html["NX-OS 소프트웨어 및 RCF 설치를 준비합니다"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["둘"]link:install-nxos-overview-9336c-storage.html["NX-OS 소프트웨어 및 RCF 설치를 준비하세요"]
 [role="quick-margin-para"]
 Cisco NX-OS 소프트웨어와 참조 구성 파일(RCF)은 Cisco 9336C-FX2 및 9336C-FX2-T 스토리지 스위치에 설치해야 합니다.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["세 가지"]link:install-nxos-software-9336c-storage.html["NX-OS 소프트웨어를 설치 또는 업그레이드합니다"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["삼"]link:install-nxos-software-9336c-storage.html["NX-OS 소프트웨어 설치 또는 업그레이드"]
 [role="quick-margin-para"]
 Cisco 9336C-FX2 및 9336C-FX2-T 스토리지 스위치에 NX-OS 소프트웨어를 다운로드하여 설치하거나 업그레이드하세요.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["네"]link:install-upgrade-rcf-overview-9336c-storage.html["RCF를 설치하거나 업그레이드합니다"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["네"]link:install-upgrade-rcf-overview-9336c-storage.html["RCF 설치 또는 업그레이드"]
 [role="quick-margin-para"]
 Cisco 9336C-FX2 및 9336C-FX2-T 스위치를 처음 설정한 후 RCF를 설치하거나 업그레이드합니다. 이 절차를 사용하여 RCF 버전을 업그레이드할 수도 있습니다.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["다섯"]link:configure-ssh-keys.html["SSH 구성을 확인합니다"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["다섯"]link:configure-ssh-keys.html["SSH 구성 확인"]
 [role="quick-margin-para"]
 이더넷 스위치 상태 모니터(CSHM) 및 로그 수집 기능을 사용하려면 스위치에서 SSH가 활성화되어 있는지 확인하세요.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["6개"]link:reset-switch-9336c-storage.html["스위치를 공장 기본값으로 재설정합니다"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["육"]link:reset-switch-9336c-storage.html["스위치를 공장 기본값으로 재설정합니다"]
 [role="quick-margin-para"]
 9336C-FX2 및 9336C-FX2-T 스토리지 스위치 설정을 지웁니다.

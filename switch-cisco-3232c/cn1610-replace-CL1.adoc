@@ -4,25 +4,25 @@ sidebar: sidebar
 keywords: cisco 3232c, cluster switches 
 summary: Cisco Nexus 3232C 스위치를 AFF 또는 FAS 클러스터에서 클러스터 스위치로 사용할 수 있습니다. 
 ---
-= CN1610 스위치 CL1을 32C 스위치 C1로 교체하십시오
+= CN1610 스위치 CL1을 3232C 스위치 C1로 교체합니다.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-다음 단계에 따라 CN1610(CL1) 스위치를 Nexus 3232C(C1) 스위치로 교체합니다.
+다음 단계에 따라 CN1610(CL1) 스위치를 Nexus 3232C(C1) 스위치로 교체하세요.
 
 .단계
-. 클러스터의 상태 확인:
+. 클러스터 상태를 확인하세요.
 +
-네트워크 인터페이스 show-role cluster
+`network interface show -role cluster`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 필요한 클러스터 LIF가 클러스터 스위치 C2에 호스팅된 적절한 클러스터 포트로 마이그레이션되었음을 보여 줍니다.
+다음 예에서는 필수 클러스터 LIF가 클러스터 스위치 C2에 호스팅된 적절한 클러스터 포트로 마이그레이션되었음을 보여줍니다.
 
 [listing, subs="+quotes"]
 ----
@@ -46,13 +46,13 @@ Cluster
 ====
 . 모든 노드에서 CL1에 연결된 노드 포트를 종료합니다.
 +
-'network port modify -node_node -name_-port_port -name_-up-admin false'
+`network port modify -node _node-name_ -port _port-name_ -up-admin false`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예는 노드 n1 및 n2에서 종료되는 특정 포트를 보여줍니다.
+다음 예에서는 노드 n1과 n2에서 특정 포트가 종료되는 것을 보여줍니다.
 
 [listing, subs="+quotes"]
 ----
@@ -62,15 +62,15 @@ cluster::*> *network port modify -node n2 -port e0a -up-admin false*
 cluster::*> *network port modify -node n2 -port e0d -up-admin false*
 ----
 ====
-. 활성 3232C 스위치 C2에서 ISL 포트 24, 31 및 32를 종료합니다.
+. 활성화된 3232C 스위치 C2에서 ISL 포트 24, 31, 32를 종료합니다.
 +
-Cisco 명령에 대한 자세한 내용은 에 나와 있는 가이드를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^].
+Cisco 명령에 대한 자세한 내용은 다음 가이드를 참조하세요. https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^] .
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 활성 3232C 스위치 C2에서 종료되는 ISL 24, 31 및 32를 보여 줍니다.
+다음 예에서는 활성 3232C 스위치 C2에서 ISL 24, 31, 32가 종료되는 것을 보여줍니다.
 
 [listing, subs="+quotes"]
 ----
@@ -85,23 +85,23 @@ C2(config)# *exit*
 C2#
 ----
 ====
-. 모든 노드에서 CN1610 스위치 CL1에 연결된 케이블을 제거합니다.
+. 모든 노드의 CN1610 스위치 CL1에 연결된 케이블을 제거합니다.
 +
 적절한 케이블을 사용하여 모든 노드의 연결이 끊긴 포트를 Nexus 3232C 스위치 C1에 다시 연결해야 합니다.
 
 . Nexus 3232C C2 포트 e1/24에서 QSFP28 케이블을 제거합니다.
 +
-지원되는 Cisco QSFP28 광 파이버 또는 직접 연결 케이블을 사용하여 C1의 포트 e1/31 및 e1/32를 C2의 포트 e1/31 및 e1/32에 연결해야 합니다.
+지원되는 Cisco QSFP28 광섬유 또는 직접 연결 케이블을 사용하여 C1의 포트 e1/31 및 e1/32를 C2의 포트 e1/31 및 e1/32에 연결해야 합니다.
 
-. 포트 24에서 구성을 복원하고 C2에서 임시 포트-채널 2를 제거합니다.
+. 포트 24의 구성을 복원하고 C2의 임시 포트 채널 2를 제거합니다.
 +
-Cisco 명령에 대한 자세한 내용은 에 나와 있는 가이드를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^].
+Cisco 명령에 대한 자세한 내용은 다음 가이드를 참조하세요. https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^] .
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 'startup-configuration' 파일에 복사되는 'running-configuration' 파일을 보여줍니다.
+다음 예는 다음을 보여줍니다. `running-configuration` 복사되는 파일 `startup-configuration` 파일:
 
 [listing, subs="+quotes"]
 ----
@@ -128,15 +128,15 @@ C2# copy running-config startup-config
 Copy Complete.
 ----
 ====
-. 활성 3232C 스위치인 C2에서 ISL 포트 31 및 32를 불러옵니다.
+. 활성 3232C 스위치인 C2에서 ISL 포트 31과 32를 켭니다.
 +
-Cisco 명령에 대한 자세한 내용은 에 나와 있는 가이드를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^].
+Cisco 명령에 대한 자세한 내용은 다음 가이드를 참조하세요. https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^] .
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 3232C 스위치 C2에 도입되는 ISL 31 및 32를 보여 줍니다.
+다음 예에서는 ISL 31과 32가 3232C 스위치 C2에 적용되는 것을 보여줍니다.
 
 [listing, subs="+quotes"]
 ----
@@ -150,15 +150,15 @@ C2# copy running-config startup-config
 Copy Complete.
 ----
 ====
-. 3232C 스위치 C2에서 ISL 연결이 '작동'되었는지 확인합니다.
+. ISL 연결이 올바른지 확인하십시오. `up` 3232C 스위치 C2에 있습니다.
 +
-Cisco 명령에 대한 자세한 내용은 에 나와 있는 가이드를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^].
+Cisco 명령에 대한 자세한 내용은 다음 가이드를 참조하세요. https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^] .
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 확인 중인 ISL 연결을 보여 줍니다. 포트 Eth1/31과 Eth1/32는 포트 채널에서 ISL 포트가 모두 "위쪽"으로 표시됨을 의미합니다.
+다음 예에서는 ISL 연결이 검증되는 것을 보여줍니다.  포트 Eth1/31 및 Eth1/32는 다음을 나타냅니다. `(P)` 즉, 두 ISL 포트 모두 `up` 항구 채널에서:
 
 [listing, subs="+quotes"]
 ----
@@ -189,15 +189,15 @@ Group Port-       Type     Protocol  Member Ports
 1     Po1(SU)     Eth      LACP      Eth1/31(P)   Eth1/32(P)
 ----
 ====
-. 모든 노드에서 새 3232C 스위치 C1에 연결된 모든 클러스터 인터커넥트 포트를 불러옵니다.
+. 모든 노드에서 새로운 3232C 스위치 C1에 연결된 모든 클러스터 상호 연결 포트를 불러옵니다.
 +
-'network port modify -node_node -name_-port_port -name_-up-admin TRUE'
+`network port modify -node _node-name_ -port _port-name_ -up-admin true`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 새로운 3232C 스위치 C1에 연결된 모든 클러스터 인터커넥트 포트를 가져와서 표시합니다.
+다음 예에서는 새로운 3232C 스위치 C1에 연결된 모든 클러스터 상호 연결 포트가 활성화되는 모습을 보여줍니다.
 
 [listing, subs="+quotes"]
 ----
@@ -207,15 +207,15 @@ cluster::*> *network port modify -node n2 -port e0a -up-admin true*
 cluster::*> *network port modify -node n2 -port e0d -up-admin true*
 ----
 ====
-. 클러스터 노드 포트의 상태를 확인합니다.
+. 클러스터 노드 포트의 상태를 확인하세요.
 +
-네트워크 포트 show-role cluster
+`network port show -role cluster`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 새 3232C 스위치 C1의 노드 n1과 n2의 클러스터 인터커넥트 포트가 '가동'인지 확인하는 출력을 보여 줍니다.
+다음 예에서는 새 3232C 스위치 C1의 노드 n1 및 n2에 있는 클러스터 상호 연결 포트가 다음과 같은지 확인하는 출력을 보여줍니다. `up` :
 
 [listing, subs="+quotes"]
 ----
@@ -245,5 +245,5 @@ e0d   cluster   cluster    up    9000  auto/10000     -
 ====
 
 
-.다음 단계
-link:cn1610-complete-migration.html["마이그레이션을 완료하십시오"]..
+.다음은 무엇인가요?
+link:cn1610-complete-migration.html["마이그레이션을 완료하세요"].

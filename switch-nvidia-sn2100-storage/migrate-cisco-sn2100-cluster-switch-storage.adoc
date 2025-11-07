@@ -2,77 +2,77 @@
 permalink: switch-nvidia-sn2100-storage/migrate-cisco-sn2100-cluster-switch-storage.html 
 sidebar: sidebar 
 keywords: migrating to a cluster with NVIDIA SN2100 cluster switches, how to migrate 
-summary: ONTAP 클러스터의 이전 Cisco 클러스터 스위치를 중단 없이 NVIDIA SN2100 클러스터 네트워크 스위치로 마이그레이션할 수 있습니다. 
+summary: ONTAP 클러스터용 기존 Cisco 클러스터 스위치를 NVIDIA SN2100 클러스터 네트워크 스위치로 중단 없이 마이그레이션할 수 있습니다. 
 ---
-= Cisco 클러스터 스위치에서 NVIDIA SN2100 클러스터 스위치로 마이그레이션합니다
+= Cisco 클러스터 스위치에서 NVIDIA SN2100 클러스터 스위치로 마이그레이션
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-ONTAP 클러스터용 Cisco 클러스터 스위치를 NVIDIA SN2100 클러스터 스위치로 중단 없이 마이그레이션할 수 있습니다. 일부 구형 Cisco 클러스터 스위치를 NVIDIA SN2100 클러스터 스위치로 교체하는 경우 특정 구성 정보, 포트 연결 및 케이블 연결 요구 사항을 알고 있어야 합니다.
+ONTAP 클러스터용 Cisco 클러스터 스위치를 NVIDIA SN2100 클러스터 스위치로 중단 없이 마이그레이션할 수 있습니다.  일부 기존 Cisco 클러스터 스위치를 NVIDIA SN2100 클러스터 스위치로 교체하는 경우 특정 구성 정보, 포트 연결 및 케이블 요구 사항을 알고 있어야 합니다.
 
-지원되는 Cisco 클러스터 스위치는 다음과 같습니다.
+다음 Cisco 클러스터 스위치가 지원됩니다.
 
-* Nexus 9336C-FX2
-* Nexus 92300YC
-* Nexus 5596UP
-* Nexus 3232C
-* Nexus 3132Q-V
+* 넥서스 9336C-FX2
+* 넥서스 92300YC
+* 넥서스 5596UP
+* 넥서스 3232C
+* 넥서스 3132Q-V
 
 
 .시작하기 전에
-ONTAP 클러스터의 이전 Cisco 클러스터 스위치를 중단 없이 NVIDIA SN2100 클러스터 스위치로 마이그레이션할 수 있습니다.
+ONTAP 클러스터용 기존 Cisco 클러스터 스위치를 NVIDIA SN2100 클러스터 스위치로 중단 없이 마이그레이션할 수 있습니다.
 
-* 기존 클러스터가 올바르게 설정되고 작동해야 합니다.
-* 무중단 운영을 보장하기 위해 모든 클러스터 포트가 가동 상태여야 합니다.
-* NVIDIA SN2100 클러스터 스위치는 RCF(Reference Configuration File)가 적용된 Cumulus Linux의 적절한 버전에서 구성 및 작동해야 합니다.
-* 기존 클러스터 네트워크 구성에는 다음이 있어야 합니다.
+* 기존 클러스터는 적절하게 설정되고 작동해야 합니다.
+* 중단 없는 운영을 보장하려면 모든 클러스터 포트가 작동 상태여야 합니다.
+* NVIDIA SN2100 클러스터 스위치는 참조 구성 파일(RCF)이 적용된 적절한 버전의 Cumulus Linux에서 구성되고 작동해야 합니다.
+* 기존 클러스터 네트워크 구성에는 다음이 포함되어야 합니다.
 +
-** 구형 Cisco 스위치를 사용하는 완전히 기능이 정상 작동하는 중복 NetApp 클러스터입니다.
-** 이전 Cisco 스위치와 새 스위치 모두에 대한 관리 연결 및 콘솔 액세스
-** 클러스터 LIF를 사용하는 UP 상태의 모든 클러스터 LIF는 홈 포트에 있습니다.
-** 이전 Cisco 스위치 간에 또는 새 스위치 간에 연결되고 연결된 ISL 포트
+** 두 가지 이전 Cisco 스위치를 모두 사용하는 중복되고 완벽한 기능을 갖춘 NetApp 클러스터입니다.
+** 기존 Cisco 스위치와 새로운 스위치 모두에 대한 관리 연결 및 콘솔 액세스가 가능합니다.
+** 클러스터 LIf가 있는 업 상태의 모든 클러스터 LIF는 홈 포트에 있습니다.
+** 기존 Cisco 스위치와 새로운 스위치 사이에 ISL 포트가 활성화되어 있고 케이블로 연결되어 있습니다.
 
 
-* 를 참조하십시오 https://hwu.netapp.com/["Hardware Universe"^] 지원되는 포트 및 해당 구성에 대한 자세한 내용은 를 참조하십시오.
-* NVIDIA SN2100 스위치의 일부 포트가 40GbE 또는 100GbE에서 실행되도록 구성했습니다.
+* 를 참조하십시오 https://hwu.netapp.com/["Hardware Universe"^] 지원되는 포트와 구성에 대한 자세한 내용은 다음을 참조하세요.
+* NVIDIA SN2100 스위치의 일부 포트를 40GbE 또는 100GbE로 실행하도록 구성했습니다.
 * 노드에서 NVIDIA SN2100 클러스터 스위치로의 40GbE 및 100GbE 연결을 계획, 마이그레이션 및 문서화했습니다.
 +
 
-NOTE: 이 절차에서 Cisco Nexus 3232C 클러스터 스위치는 명령 및 출력과 같은 용도로 사용됩니다.
+NOTE: 이 절차에서는 Cisco Nexus 3232C 클러스터 스위치를 예제 명령과 출력으로 사용합니다.
 
 
 
-.이 작업에 대해
+.이 작업에 관하여
 이 절차의 예에서는 다음 스위치 및 노드 명명법을 사용합니다.
 
-* 기존 Cisco Nexus 3232C 클러스터 스위치는 _C1_과 _C2_입니다.
-* 새로운 NVIDIA SN2100 클러스터 스위치는 _SW1_와 _SW2_입니다.
-* 노드는 _node1_ 및 _node2_입니다.
+* 기존의 Cisco Nexus 3232C 클러스터 스위치는 _c1_과 _c2_입니다.
+* 새로운 NVIDIA SN2100 클러스터 스위치는 _sw1_과 _sw2_입니다.
+* 노드는 _node1_과 _node2_입니다.
 * 클러스터 LIF는 각각 노드 1의 _node1_clus1_과 _node1_clus2_이고, 노드 2의 _node2_clus1_과 _node2_clus2_입니다.
-* 'cluster1:: *>' 프롬프트는 클러스터의 이름을 나타냅니다.
-* 이 절차에 사용되는 클러스터 포트는 _e3a_와 _e3b_입니다.
-* 브레이크아웃 포트는 SWP [port]s [브레이크아웃 포트 0-3] 형식을 사용합니다. 예를 들어 swp1의 4개의 브레이크아웃 포트는 _swp1s0_, _swp1s1_, _swp1s2_ 및 _swp1s3_입니다.
-* 스위치 C2가 스위치 SW2로 먼저 교체된 후 스위치 C1이 스위치 SW1로 교체됩니다.
+* 그만큼 `cluster1::*>` 프롬프트는 클러스터의 이름을 나타냅니다.
+* 이 절차에서 사용되는 클러스터 포트는 _e3a_와 _e3b_입니다.
+* 브레이크아웃 포트는 swp[포트]s[브레이크아웃 포트 0-3] 형식을 따릅니다.  예를 들어, swp1의 4개 브레이크아웃 포트는 _swp1s0_, _swp1s1_, _swp1s2_, _swp1s3_입니다.
+* 스위치 c2는 먼저 스위치 sw2로 교체되고, 그 다음 스위치 c1은 스위치 sw1로 교체됩니다.
 +
-** 그런 다음 노드와 C2 사이의 케이블 연결을 C2에서 분리하고 SW2에 다시 연결합니다.
-** 그런 다음 노드와 C1 사이의 케이블 연결을 C1에서 분리하고 SW1에 다시 연결합니다.
+** 그런 다음 노드와 c2 사이의 케이블이 c2에서 분리되고 sw2에 다시 연결됩니다.
+** 그런 다음 노드와 c1 사이의 케이블이 c1에서 분리되고 sw1에 다시 연결됩니다.
 
 
 
 
 .단계
-. 이 클러스터에서 AutoSupport가 활성화되어 있으면 'system node AutoSupport invoke -node * -type all-message maINT=xh' AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다
+. 이 클러스터에서 AutoSupport 활성화된 경우 AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다. `system node autosupport invoke -node * -type all -message MAINT=xh`
 +
-여기서 _x_는 유지보수 기간(시간)입니다.
+여기서 _x_는 유지 관리 기간(시간)입니다.
 
-. 권한 수준을 고급으로 변경하고 'Set-Privilege advanced'라는 메시지가 나타나면 * y * 를 입력합니다
+. 계속할지 묻는 메시지가 나타나면 *y*를 입력하여 권한 수준을 고급으로 변경합니다. `set -privilege advanced`
 +
 고급 프롬프트(*>)가 나타납니다.
 
-. 클러스터 LIF에서 자동 되돌리기 기능 해제: 'network interface modify -vserver Cluster-lif * -auto-revert false
+. 클러스터 LIF에서 자동 되돌리기를 비활성화합니다. `network interface modify -vserver Cluster -lif * -auto-revert false`
 +
 [listing, subs="+quotes"]
 ----
@@ -80,12 +80,12 @@ cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert fals
 
 Warning: Disabling the auto-revert feature of the cluster logical interface may effect the availability of your cluster network. Are you sure you want to continue? {y|n}: *y*
 ----
-. 각 클러스터 인터페이스의 관리 또는 운영 상태 확인:
+. 각 클러스터 인터페이스의 관리 또는 운영 상태를 확인합니다.
 +
-각 포트는 Link에, Health Status에 대해서는 Healthy로 표시되어야 합니다.
+각 포트는 다음과 같이 표시되어야 합니다. `Link` 그리고 건강하다 `Health Status` .
 
 +
-.. 네트워크 포트 속성 'network port show-ipSpace Cluster'를 표시합니다
+.. 네트워크 포트 속성을 표시합니다. `network port show -ipspace Cluster`
 +
 [listing, subs="+quotes"]
 ----
@@ -107,9 +107,9 @@ Port      IPspace    Broadcast Domain Link MTU   Admin/Oper   Status   Status
 e3a       Cluster    Cluster          up   9000  auto/100000  healthy  false
 e3b       Cluster    Cluster          up   9000  auto/100000  healthy  false
 ----
-.. 논리 인터페이스 및 지정된 홈 노드에 대한 정보를 표시합니다. 네트워크 인터페이스 show-vserver 클러스터
+.. 논리적 인터페이스와 지정된 홈 노드에 대한 정보를 표시합니다. `network interface show -vserver Cluster`
 +
-각 LIF는 '상태 관리/작업'에 대해 위/위로 표시되고 '홈'에 대해서는 true로 표시되어야 합니다.
+각 LIF는 다음을 위해 위로/위로 표시되어야 합니다. `Status Admin/Oper` 그리고 사실 `Is Home` .
 
 +
 [listing, subs="+quotes"]
@@ -128,7 +128,7 @@ Cluster
 ----
 
 
-. 각 노드의 클러스터 포트는 'network device-discovery show -protocol lldp' 명령을 사용하여 노드 관점에서 기존 클러스터 스위치에 연결됩니다
+. 각 노드의 클러스터 포트는 다음 명령을 사용하여 (노드 관점에서) 다음과 같은 방식으로 기존 클러스터 스위치에 연결됩니다. `network device-discovery show -protocol lldp`
 +
 [listing, subs="+quotes"]
 ----
@@ -143,7 +143,7 @@ node2      /lldp
             e3a    c1 (6a:ad:4f:98:3b:3f)    Eth1/2            -
             e3b    c2 (6a:ad:4f:98:4c:a4)    Eth1/2            -
 ----
-. 클러스터 포트와 스위치는 'show CDP neighbors' 명령을 사용하여 스위치의 관점에서 다음과 같이 연결됩니다
+. 클러스터 포트와 스위치는 다음 명령을 사용하여 (스위치 관점에서) 다음과 같은 방식으로 연결됩니다. `show cdp neighbors`
 +
 [listing, subs="+quotes"]
 ----
@@ -174,22 +174,22 @@ node2                 Eth1/2        124    H           AFF-A400         e3b
 c1                    Eth1/31       175    S I s       N3K-C3232C       Eth1/31
 c1                    Eth1/32       175    S I s       N3K-C3232C       Eth1/32
 ----
-. 원격 클러스터 인터페이스의 연결을 확인합니다.
+. 원격 클러스터 인터페이스의 연결성을 확인하세요.
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.9.1 이상
 --
-를 사용할 수 있습니다 `network interface check cluster-connectivity` 클러스터 연결에 대한 접근성 검사를 시작한 다음 세부 정보를 표시하는 명령입니다.
+당신은 사용할 수 있습니다 `network interface check cluster-connectivity` 클러스터 연결에 대한 접근성 검사를 시작한 다음 세부 정보를 표시하는 명령:
 
-`network interface check cluster-connectivity start` 및 `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`그리고 `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-* 참고: * 몇 초 동안 기다린 후 `show` 명령을 실행하여 세부 정보를 표시합니다.
+*참고:* 실행하기 전에 몇 초 동안 기다리십시오. `show` 세부 정보를 표시하는 명령입니다.
 
 [listing, subs="+quotes"]
 ----
@@ -207,7 +207,7 @@ node2
 --
 .모든 ONTAP 릴리스
 --
-모든 ONTAP 릴리스에 대해 을 사용할 수도 있습니다 `cluster ping-cluster -node <name>` 연결 상태를 확인하는 명령:
+모든 ONTAP 릴리스의 경우 다음을 사용할 수도 있습니다. `cluster ping-cluster -node <name>` 연결성을 확인하는 명령:
 
 `cluster ping-cluster -node <name>`
 
@@ -239,7 +239,7 @@ RPC status:
 ----
 --
 ====
-. [[step8]] 스위치 C2에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.
+. [[step8]] 스위치 c2에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.
 +
 [listing, subs="+quotes"]
 ----
@@ -252,8 +252,8 @@ Enter configuration commands, one per line. End with CNTL/Z.
 (c2)(Config)# *exit*
 (c2)#
 ----
-. NVIDIA SN2100에서 지원하는 적절한 케이블을 사용하여 노드 클러스터 포트를 이전 스위치 C2에서 새 스위치 SW2로 이동합니다.
-. 네트워크 포트 속성 'network port show-ipSpace Cluster'를 표시합니다
+. NVIDIA SN2100에서 지원하는 적절한 케이블을 사용하여 노드 클러스터 포트를 이전 스위치 c2에서 새 스위치 sw2로 이동합니다.
+. 네트워크 포트 속성을 표시합니다. `network port show -ipspace Cluster`
 +
 [listing, subs="+quotes"]
 ----
@@ -275,7 +275,7 @@ Port      IPspace    Broadcast Domain Link MTU   Admin/Oper   Status   Status
 e3a       Cluster    Cluster          up   9000  auto/100000  healthy  false
 e3b       Cluster    Cluster          up   9000  auto/100000  healthy  false
 ----
-. 이제 각 노드의 클러스터 포트가 노드의 관점에서 클러스터 스위치에 다음과 같은 방식으로 연결됩니다.
+. 각 노드의 클러스터 포트는 이제 노드 관점에서 다음과 같은 방식으로 클러스터 스위치에 연결됩니다.
 +
 [listing, subs="+quotes"]
 ----
@@ -291,7 +291,7 @@ node2      /lldp
             e3a    c1  (6a:ad:4f:98:3b:3f)   Eth1/2            -
             e3b    sw2 (b8:ce:f6:19:1b:96)   swp4              -
 ----
-. 스위치 SW2에서 모든 노드 클러스터 포트가 작동 중인지 확인합니다. 'net show interface'
+. 스위치 sw2에서 모든 노드 클러스터 포트가 작동 중인지 확인하세요. `net show interface`
 +
 [listing, subs="+quotes"]
 ----
@@ -306,7 +306,7 @@ UP     swp4         100G  9216   Trunk/L2    e3b               Master: bridge(UP
 UP     swp15        100G  9216   BondMember  sw1 (swp15)       Master: cluster_isl(UP)
 UP     swp16        100G  9216   BondMember  sw1 (swp16)       Master: cluster_isl(UP)
 ----
-. 스위치 C1에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.
+. 스위치 c1에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.
 +
 [listing, subs="+quotes"]
 ----
@@ -319,10 +319,10 @@ Enter configuration commands, one per line. End with CNTL/Z.
 (c1)(Config)# *exit*
 (c1)#
 ----
-. NVIDIA SN2100이 지원하는 적절한 케이블을 사용하여 노드 클러스터 포트를 이전 스위치 C1에서 새 스위치 SW1로 이동합니다.
-. 클러스터의 최종 구성 'network port show-ipSpace Cluster'를 확인합니다
+. NVIDIA SN2100에서 지원하는 적절한 케이블을 사용하여 노드 클러스터 포트를 이전 스위치 c1에서 새 스위치 sw1로 이동합니다.
+. 클러스터의 최종 구성을 확인하세요. `network port show -ipspace Cluster`
 +
-각 포트는 Link에, Health Status에 대해서는 Healthy로 표시되어야 합니다.
+각 포트는 다음과 같이 표시되어야 합니다. `Link` 그리고 건강하다 `Health Status` .
 
 +
 [listing, subs="+quotes"]
@@ -345,7 +345,7 @@ Port      IPspace    Broadcast Domain Link MTU   Admin/Oper   Status   Status
 e3a       Cluster    Cluster          up   9000  auto/100000  healthy  false
 e3b       Cluster    Cluster          up   9000  auto/100000  healthy  false
 ----
-. 이제 각 노드의 클러스터 포트가 노드의 관점에서 클러스터 스위치에 다음과 같은 방식으로 연결됩니다.
+. 각 노드의 클러스터 포트는 이제 노드 관점에서 다음과 같은 방식으로 클러스터 스위치에 연결됩니다.
 +
 [listing, subs="+quotes"]
 ----
@@ -361,7 +361,7 @@ node2      /lldp
             e3a    sw1 (b8:ce:f6:19:1a:7e)   swp4            -
             e3b    sw2 (b8:ce:f6:19:1b:96)   swp4            -
 ----
-. 스위치 SW1과 SW2에서 모든 노드 클러스터 포트가 작동 중인지 확인합니다. 'net show interface'
+. 스위치 sw1 및 sw2에서 모든 노드 클러스터 포트가 작동 중인지 확인합니다. `net show interface`
 +
 [listing, subs="+quotes"]
 ----
@@ -388,9 +388,9 @@ UP     swp4         100G  9216   Trunk/L2    e3b               Master: bridge(UP
 UP     swp15        100G  9216   BondMember  sw1 (swp15)       Master: cluster_isl(UP)
 UP     swp16        100G  9216   BondMember  sw1 (swp16)       Master: cluster_isl(UP)
 ----
-. 두 노드 모두 각 스위치에 대한 연결이 하나씩 있는지 확인합니다. 'net show lldp'
+. 두 노드 모두 각 스위치에 하나의 연결이 있는지 확인하세요. `net show lldp`
 +
-다음 예에서는 두 스위치에 대해 적절한 결과를 보여 줍니다.
+다음 예는 두 스위치에 대한 적절한 결과를 보여줍니다.
 
 +
 [listing, subs="+quotes"]
@@ -413,8 +413,8 @@ swp4       100G   Trunk/L2    node2               e3b
 swp15      100G   BondMember  sw1                 swp15
 swp16      100G   BondMember  sw1                 swp16
 ----
-. 클러스터 LIF에서 자동 되돌리기 사용: 'cluster1:: * > 네트워크 인터페이스 modify -vserver Cluster-lif * -auto-revert true'
-. 모든 클러스터 네트워크 LIF가 홈 포트인 'network interface show'에 있는지 확인합니다
+. 클러스터 LIF에서 자동 되돌리기를 활성화합니다. `cluster1::*> network interface modify -vserver Cluster -lif * -auto-revert true`
+. 모든 클러스터 네트워크 LIF가 홈 포트로 돌아왔는지 확인하세요. `network interface show`
 +
 [listing, subs="+quotes"]
 ----
@@ -429,9 +429,9 @@ Cluster
             node2_clus1  up/up    169.254.47.194/16  node2         e3a     true
             node2_clus2  up/up    169.254.19.183/16  node2         e3b     true
 ----
-. 'system switch ethernet log setup-password'와 'system switch ethernet log enable-collection' 명령을 사용하여 스위치 관련 로그 파일을 수집하는 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화한다
+. 다음 두 명령을 사용하여 스위치 관련 로그 파일을 수집하는 이더넷 스위치 상태 모니터 로그 수집 기능을 활성화합니다. `system switch ethernet log setup-password` 그리고 `system switch ethernet log enable-collection`
 +
-'시스템 스위치 이더넷 로그 설정 - 암호'를 입력합니다
+입력하다: `system switch ethernet log setup-password`
 
 +
 [listing, subs="+quotes"]
@@ -462,7 +462,7 @@ Enter the password: <enter switch password>
 Enter the password again: <enter switch password>
 ----
 +
-'시스템 스위치 이더넷 로그 Enable-collection'이 그 뒤를 따랐습니다
+이어서: `system switch ethernet log enable-collection`
 
 +
 [listing, subs="+quotes"]
@@ -478,11 +478,11 @@ cluster1::*>
 ----
 +
 
-NOTE: 이러한 명령에서 오류가 반환되면 NetApp 지원에 문의하십시오.
+NOTE: 이러한 명령 중 하나라도 오류를 반환하면 NetApp 지원팀에 문의하세요.
 
-. 스위치 로그 수집 기능 '시스템 스위치 이더넷 로그 수집 장치 *'를 시작합니다
+. 스위치 로그 수집 기능을 시작합니다. `system switch ethernet log collect -device *`
 +
-10분 정도 기다린 후 'system switch ethernet log show' 명령을 사용하여 로그 수집이 성공했는지 확인합니다
+10분간 기다린 후 다음 명령을 사용하여 로그 수집이 성공적으로 완료되었는지 확인하세요. `system switch ethernet log show`
 
 +
 [listing, subs="+quotes"]
@@ -495,6 +495,6 @@ Index  Switch                       Log Timestamp        Status
 1      sw1 (b8:ce:f6:19:1b:42)      4/29/2022 03:05:25   complete   
 2      sw2 (b8:ce:f6:19:1b:96)      4/29/2022 03:07:42   complete
 ----
-. 권한 수준을 다시 admin:'Set-Privilege admin'으로 변경합니다
-. 자동 케이스 생성을 억제한 경우 AutoSupport 메시지 '시스템 노드 AutoSupport invoke -node * -type all-message MAINT=end'를 호출하여 다시 활성화합니다
+. 권한 수준을 다시 관리자로 변경합니다. `set -privilege admin`
+. 자동 케이스 생성을 억제한 경우 AutoSupport 메시지를 호출하여 다시 활성화하세요. `system node autosupport invoke -node * -type all -message MAINT=END`
 

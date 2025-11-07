@@ -2,24 +2,24 @@
 permalink: switch-bes-53248/configure-ssh.html 
 sidebar: sidebar 
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, bes, enable ssh on bes-53248 cluster switches - bes-53248 switches 
-summary: '클러스터 스위치 상태 모니터\(CSMM\) 및 로그 수집 기능을 사용하려면 SSH가 필요합니다. BES-53248 클러스터 스위치에서 SSH를 활성화하려면 먼저 SSH 키를 생성한 다음 SSH를 활성화합니다.' 
+summary: '클러스터 스위치 상태 모니터(CSHM) 및 로그 수집 기능을 사용하려면 SSH가 필요합니다. BES-53248 클러스터 스위치에서 SSH를 활성화하려면 먼저 SSH 키를 생성한 다음 SSH를 활성화합니다.' 
 ---
-= BES-53248 클러스터 스위치에서 SSH를 활성화합니다
+= BES-53248 클러스터 스위치에서 SSH 활성화
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-이더넷 스위치 상태 모니터(CSHM) 및 로그 수집 기능을 사용하는 경우, SSH 키를 생성한 다음 클러스터 스위치에서 SSH를 사용하도록 설정해야 합니다.
+CSHM(Ethernet Switch Health Monitor) 및 로그 수집 기능을 사용하는 경우 SSH 키를 생성한 다음 클러스터 스위치에서 SSH를 활성화해야 합니다.
 
 .단계
-. SSH가 해제되어 있는지 확인합니다.
+. SSH가 비활성화되어 있는지 확인하세요.
 +
 `show ip ssh`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -41,7 +41,7 @@ SCP server Administrative Mode: ............... Disabled
 ----
 ====
 +
-** SSH가 비활성화되어 있지 않은 경우 다음과 같이 비활성화합니다.
+** SSH가 비활성화되어 있지 않으면 다음과 같이 비활성화합니다.
 +
 `no ip ssh server enable`
 
@@ -67,7 +67,7 @@ WARNING: 키를 수정하기 전에 SSH를 비활성화해야 합니다. 그렇�
 `crypto key generate`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -94,7 +94,7 @@ Do you want to overwrite the existing ECDSA keys? (y/n): *y*
 `aaa authorization commands "noCmdAuthList" none`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -105,7 +105,7 @@ Do you want to overwrite the existing ECDSA keys? (y/n): *y*
 ====
 . SSH/SCP를 다시 활성화합니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -117,10 +117,10 @@ Do you want to overwrite the existing ECDSA keys? (y/n): *y*
 ====
 . 다음 변경 사항을 startup-config에 저장합니다.
 +
-쓰기 메모리
+`write memory`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -136,13 +136,13 @@ Config file 'startup-config' created successfully.
 Configuration Saved!
 ----
 ====
-. SSH 키 암호화(* FIPS-mode 전용 *):
+. SSH 키 암호화(FIPS 모드에만 해당):
 +
 
-CAUTION: FIPS 모드에서는 보안을 위해 암호를 사용하여 키를 암호화해야 합니다. 암호화된 키가 없으면 응용 프로그램이 시작되지 않습니다. 키는 다음 명령을 사용하여 생성되고 암호화됩니다.
+CAUTION: FIPS 모드에서는 보안을 위해 키를 암호로 암호화해야 합니다.  암호화된 키가 없으면 애플리케이션이 시작되지 않습니다.  키는 다음 명령을 사용하여 생성되고 암호화됩니다.
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -184,16 +184,16 @@ Config file 'startup-config' created successfully.
 Configuration Saved!
 ----
 ====
-. 스위치를 재부팅합니다.
+. 스위치를 재부팅하세요:
 +
-다시 로드
+`reload`
 
-. SSH가 활성화되었는지 확인합니다.
+. SSH가 활성화되어 있는지 확인하세요.
 +
 `show ip ssh`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -216,5 +216,5 @@ SCP server Administrative Mode: ............... Enabled
 ====
 
 
-.다음 단계
+.다음은 무엇인가요?
 SSH를 활성화한 후에는 다음을 수행할 수 있습니다. link:../switch-cshm/config-overview.html["스위치 상태 모니터링 구성"].

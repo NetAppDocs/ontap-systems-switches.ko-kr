@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: 9332d-gx2b cabling setup, 9332d-gx2b switches configuration, nx-os 
 summary: Cisco 9332D-GX2B 스위치를 구성하기 전에 다음 정보를 검토하세요. 
 ---
-= 케이블 연결 및 구성 고려 사항을 검토합니다
+= 케이블링 및 구성 고려 사항 검토
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -29,4 +29,4 @@ NVIDIA ConnectX-6 Dx(CX6-DX) NIC 포트(부품 번호 X50130B)를 사용하여 �
 (cs1)(config)# *exit*
 (cs1)# *copy running-config startup-config*
 ----
-를 참조하십시오 https://hwu.netapp.com/Switch/Index["Hardware Universe"^] 스위치 포트에 대한 자세한 내용은 을 참조하십시오.
+를 참조하십시오 https://hwu.netapp.com/Switch/Index["Hardware Universe"^] 스위치 포트에 대한 자세한 내용은 다음을 참조하세요.

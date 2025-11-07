@@ -2,7 +2,7 @@
 permalink: switch-nvidia-sn2100/configure-overview-sn2100-cluster.html 
 sidebar: sidebar 
 keywords: sn2100 SN2100 switches setup, sn2100 SN2100 switches install, cumulus linux 
-summary: NVIDIA SN2100 스위치는 Cumulus Linux를 실행하는 10/25/40/100 GbE 이더넷 스위치입니다. SN2100 스위치는 ONTAP 9.10.1에서 서로 다른 스위치 쌍에 대한 클러스터 및 스토리지 애플리케이션을 지원합니다. 
+summary: NVIDIA SN2100 스위치는 Cumulus Linux를 실행하는 10/25/40/100 GbE 이더넷 스위치입니다.  SN2100 스위치는 다양한 스위치 쌍을 통해 ONTAP 9.10.1의 클러스터 및 스토리지 애플리케이션을 지원합니다. 
 ---
 = NVIDIA SN2100 스위치 설치 및 설정 워크플로
 :allow-uri-read: 
@@ -11,23 +11,23 @@ summary: NVIDIA SN2100 스위치는 Cumulus Linux를 실행하는 10/25/40/100 G
 
 
 [role="lead"]
-NVIDIA SN2100은 2개 이상의 노드로 ONTAP 클러스터를 구축할 수 있는 클러스터 스위치입니다.
+NVIDIA SN2100은 두 개 이상의 노드로 ONTAP 클러스터를 구축할 수 있는 클러스터 스위치입니다.
 
 NVIDIA SN2100 스위치를 설치하고 설정하려면 다음 워크플로 단계를 따르세요.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1개"]link:configure-reqs-sn2100-cluster.html["구성 요구 사항을 검토하세요"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["하나"]link:configure-reqs-sn2100-cluster.html["구성 요구 사항을 검토하세요"]
 [role="quick-margin-para"]
 SN2100 클러스터 스위치의 구성 요구 사항을 검토하세요.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["2개"]link:components-sn2100-cluster.html["구성 요소와 부품 번호를 검토하세요"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["둘"]link:components-sn2100-cluster.html["구성 요소와 부품 번호를 검토하세요"]
 [role="quick-margin-para"]
 SN2100 클러스터 스위치의 구성 요소와 부품 번호를 검토하세요.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["세 가지"]link:required-documentation-sn2100-cluster.html["필수 서류를 검토하세요"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["삼"]link:required-documentation-sn2100-cluster.html["필수 서류를 검토하세요"]
 [role="quick-margin-para"]
 SN2100 스위치와 ONTAP 클러스터를 설정하려면 특정 스위치 및 컨트롤러 설명서를 검토하세요.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["네"]link:install-hardware-workflow.html["하드웨어를 설치합니다"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["네"]link:install-hardware-workflow.html["하드웨어 설치"]
 [role="quick-margin-para"]
 스위치 하드웨어를 설치합니다.
 

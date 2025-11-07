@@ -2,36 +2,41 @@
 permalink: switch-nvidia-sn2100-storage/install-snmpv3-sn2100-storage.html 
 sidebar: sidebar 
 keywords: sn2100 SN2100 cabling setup, sn2100 switches configuration, cumulus linux os 
-summary: 이 릴리스는 로그 모니터링을 위한 SNMPv3을 지원합니다. 
+summary: 이 릴리스에는 로그 모니터링을 위한 SNMPv3 지원이 포함되어 있습니다. 
 ---
-= 스위치 로그 수집을 위해 SNMPv3을 구성합니다
+= 스위치 로그 수집을 위해 SNMPv3 구성
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-스위치 로그 수집 및 스위치 상태 모니터링(SHM)을 지원하는 SNMPv3을 구성하려면 다음 절차를 따르십시오.
+스위치 로그 수집 및 스위치 상태 모니터링(SHM)을 지원하는 SNMPv3를 구성하려면 다음 절차를 따르세요.
 
-.이 작업에 대해
+.이 작업에 관하여
 다음 명령은 NVIDIA SN2100 스위치에서 SNMPv3 사용자 이름을 구성합니다.
 
-* 인증 없음 *:'net add snmp-server username_snmpv3_user_auth-none'입니다
-* MD5/SHA 인증의 경우 *:'net add snmp-server username_SNMPv3_user_[auth-MD5|auth-sha]_AUTH-password_'
-* AES/DES 암호화를 사용한 * MD5/SHA 인증의 경우 *:'net add snmp-server username_SNMPv3_user_[auth-MD5|auth-sha]_AUTH-password_[encrypt-aes|encrypt-des]_PRIV-password_'
+* *인증 없음*의 경우:
+`net add snmp-server username _SNMPv3_USER_ auth-none`
+* *MD5/SHA 인증*의 경우:
+`net add snmp-server username _SNMPv3_USER_ [auth-md5|auth-sha] _AUTH-PASSWORD_`
+* *AES/DES 암호화를 사용한 MD5/SHA 인증*의 경우:
+`net add snmp-server username _SNMPv3_USER_ [auth-md5|auth-sha] _AUTH-PASSWORD_ [encrypt-aes|encrypt-des] _PRIV-PASSWORD_`
 
 
-다음 명령은 ONTAP 측에서 SNMPv3 사용자 이름을 구성합니다. ' cluster1: * > security login create -user -or -group -name_SNMPv3_user_ -application snmp-authentication-method USM -remote-switch-ipaddress_address _'
+다음 명령은 ONTAP 측에서 SNMPv3 사용자 이름을 구성합니다.
+`cluster1::*> security login create -user-or-group-name _SNMPv3_USER_ -application snmp -authentication-method usm -remote-switch-ipaddress _ADDRESS_`
 
-다음 명령은 SHM을 사용하여 SNMPv3 사용자 이름을 설정합니다. 'cluster1:: * > 시스템 스위치 이더넷 수정 -device_device_-snmp-version SNMPv3-community-or-username_SNMPv3_user_'
+다음 명령은 SHM을 사용하여 SNMPv3 사용자 이름을 설정합니다.
+`cluster1::*> system switch ethernet modify -device _DEVICE_ -snmp-version SNMPv3 -community-or-username _SNMPv3_USER_`
 
 .단계
-. 인증 및 암호화를 사용하도록 스위치에서 SNMPv3 사용자를 설정합니다.
+. 스위치에서 SNMPv3 사용자를 설정하여 인증 및 암호화를 사용합니다.
 +
 `net show snmp status`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -109,7 +114,7 @@ cumulus@sw1:~$
 `security login create -user-or-group-name SNMPv3User -application snmp -authentication-method usm -remote-switch-ipaddress 10.231.80.212`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -131,12 +136,12 @@ Enter privacy protocol password (minimum 8 characters long):
 Enter privacy protocol password again:
 ----
 ====
-. 새 SNMPv3 사용자를 모니터링하도록 SHM 구성:
+. 새로운 SNMPv3 사용자로 모니터링하도록 SHM을 구성합니다.
 +
 `system switch ethernet show-all -device "sw1 (b8:59:9f:09:7c:22)" -instance`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -161,12 +166,12 @@ cluster1::*>
 cluster1::*> *system switch ethernet modify -device "sw1 (b8:59:9f:09:7c:22)" -snmp-version SNMPv3 -community-or-username SNMPv3User*
 ----
 ====
-. 새로 생성된 SNMPv3 사용자에게 쿼리할 일련 번호가 SHM 폴링 기간이 완료된 후 이전 단계에서 자세히 설명한 번호와 동일한지 확인합니다.
+. SHM 폴링 기간이 완료되면 새로 생성된 SNMPv3 사용자에게 쿼리할 일련 번호가 이전 단계에서 자세히 설명한 것과 동일한지 확인합니다.
 +
 `system switch ethernet polling-interval show`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]

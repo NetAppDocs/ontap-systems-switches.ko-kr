@@ -2,37 +2,37 @@
 permalink: switch-nvidia-sn2100-storage/configure-software-sn2100-storage.html 
 sidebar: sidebar 
 keywords: sn2100 SN2100 switches setup, sn2100 SN2100 switches install, cumulus linux 
-summary: NVIDIA SN2100 스토리지 스위치에 대한 소프트웨어 구성 프로세스 개요 
+summary: NVIDIA SN2100 스토리지 스위치의 소프트웨어 구성 프로세스 개요. 
 ---
-= NVIDIA SN2100 스토리지 스위치용 소프트웨어 설치 워크플로우
+= NVIDIA SN2100 스토리지 스위치용 소프트웨어 설치 워크플로
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-NVIDIA SN2100 스위치용 소프트웨어를 설치하고 구성하려면 다음 단계를 수행하십시오.
+NVIDIA SN2100 스위치용 소프트웨어를 설치하고 구성하려면 다음 단계를 따르세요.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1개"]link:configure-sn2100-storage.html["스위치를 구성합니다"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["하나"]link:configure-sn2100-storage.html["스위치 구성"]
 [role="quick-margin-para"]
 NVIDIA SN2100 스위치를 구성합니다.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["2개"]link:install-cumulus-mode-sn2100-storage.html["Cumulus 모드에서 Cumulus Linux를 설치합니다"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["둘"]link:install-cumulus-mode-sn2100-storage.html["Cumulus 모드로 Cumulus Linux 설치"]
 [role="quick-margin-para"]
 스위치가 Cumulus Linux를 실행하는 경우 Cumulus Linux(CL) OS를 설치할 수 있습니다.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["세 가지"]link:install-onie-mode-sn2100-storage.html["ONIE 모드에서 Cumulus Linux를 설치합니다"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["삼"]link:install-onie-mode-sn2100-storage.html["ONIE 모드로 Cumulus Linux 설치"]
 [role="quick-margin-para"]
 또는 스위치가 ONIE 모드에서 Cumulus Linux를 실행할 때 Cumulus Linux(CL) OS를 설치할 수 있습니다.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["네"]link:install-rcf-sn2100-storage.html["RCF(Reference Configuration File) 스크립트를 설치합니다"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["네"]link:install-rcf-sn2100-storage.html["참조 구성 파일(RCF) 스크립트 설치"]
 [role="quick-margin-para"]
-클러스터링과 스토리지 애플리케이션에 사용 가능한 RCF 스크립트는 두 가지가 있습니다. 각각의 절차는 동일합니다.
+클러스터링 및 스토리지 애플리케이션에 사용할 수 있는 RCF 스크립트는 두 가지가 있습니다.  각각의 절차는 동일합니다.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["다섯"]link:setup-install-cshm-file.html["CSHM 파일을 설치합니다"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["다섯"]link:setup-install-cshm-file.html["CSHM 파일을 설치하세요"]
 [role="quick-margin-para"]
-NVIDIA 클러스터 스위치의 이더넷 스위치 상태 모니터링을 위한 적절한 구성 파일을 설치할 수 있습니다.
+NVIDIA 클러스터 스위치의 이더넷 스위치 상태 모니터링을 위해 해당 구성 파일을 설치할 수 있습니다.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["6개"]link:reset-switch-sn2100-storage.html["스위치를 공장 기본값으로 재설정합니다"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["육"]link:reset-switch-sn2100-storage.html["스위치를 공장 기본값으로 재설정합니다"]
 [role="quick-margin-para"]
 SN2100 스토리지 스위치 설정을 지웁니다.

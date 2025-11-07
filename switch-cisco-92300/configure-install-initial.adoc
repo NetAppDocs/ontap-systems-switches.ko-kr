@@ -4,33 +4,33 @@ sidebar: sidebar
 keywords: install cisco 92300YC cluster switch, cisco nx 92300yc 
 summary: 이 절차를 사용하여 Cisco Nexus 92300YC 스위치의 초기 설치를 수행할 수 있습니다. 
 ---
-= Cisco Nexus 92300YC 스위치를 구성합니다
+= Cisco Nexus 92300YC 스위치 구성
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-다음 절차에 따라 Cisco Nexus 92300YC 스위치를 설정하고 구성합니다.
+Cisco Nexus 92300YC 스위치를 설정하고 구성하려면 다음 절차를 따르세요.
 
 .단계
-. 직렬 포트를 호스트 또는 직렬 포트에 연결합니다.
-. 관리 포트(스위치의 포트 측 아님)를 SFTP 서버가 있는 동일한 네트워크에 연결합니다.
-. 콘솔에서 호스트 측 직렬 설정을 설정합니다.
+. 직렬 포트를 호스트나 직렬 포트에 연결합니다.
+. SFTP 서버가 있는 동일한 네트워크에 관리 포트(스위치의 포트가 아닌 쪽)를 연결합니다.
+. 콘솔에서 호스트 측 직렬 설정을 지정합니다.
 +
 ** 9600보드
-** 8 데이터 비트
+** 8개의 데이터 비트
 ** 1 정지 비트
 ** 패리티: 없음
 ** 흐름 제어: 없음
 
 
-. 실행 중인 구성을 지운 후 처음 부팅하거나 재부팅하는 경우 부팅 주기에서 Nexus 92300YC 스위치 루프가 발생합니다. Auto Provisioning의 전원을 중단하려면 * yes * 를 입력하여 이 주기를 중단합니다.
+. 처음 부팅하거나 실행 중인 구성을 지운 후 재부팅할 때 Nexus 92300YC 스위치는 부팅 주기를 반복합니다.  *예*를 입력하여 전원 켜짐 자동 프로비저닝을 중단하면 이 주기가 중단됩니다.
 +
 시스템 관리자 계정 설정이 표시됩니다.
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -44,22 +44,22 @@ Disabling POAP.......Disabling POAP
 Do you want to enforce secure password standard (yes/no) [y]:
 ----
 ====
-. 보안 암호 표준을 적용하려면 * y * 를 입력합니다.
+. 안전한 비밀번호 표준을 적용하려면 *y*를 입력하세요.
 +
 [listing, subs="+quotes"]
 ----
 Do you want to enforce secure password standard (yes/no) [y]: *y*
 ----
-. admin 사용자의 암호를 입력하고 확인합니다.
+. 사용자 admin의 비밀번호를 입력하고 확인하세요:
 +
 [listing]
 ----
 Enter the password for "admin":
 Confirm the password for "admin":
 ----
-. 기본 시스템 구성 대화 상자에 들어가려면 * yes * 를 입력합니다.
+. *예*를 입력하여 기본 시스템 구성 대화 상자를 엽니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing]
@@ -79,13 +79,13 @@ to skip the remaining dialogs.
 Would you like to enter the basic configuration dialog (yes/no):
 ----
 ====
-. 다른 로그인 계정 만들기:
+. 다른 로그인 계정을 만드세요:
 +
 [listing]
 ----
 Create another login account (yes/no) [n]:
 ----
-. 읽기 전용 및 읽기-쓰기 SNMP 커뮤니티 문자열 구성:
+. 읽기 전용 및 읽기-쓰기 SNMP 커뮤니티 문자열을 구성합니다.
 +
 [listing]
 ----
@@ -93,13 +93,13 @@ Configure read-only SNMP community string (yes/no) [n]:
 
 Configure read-write SNMP community string (yes/no) [n]:
 ----
-. 클러스터 스위치 이름 구성:
+. 클러스터 스위치 이름을 구성합니다.
 +
 [listing, subs="+quotes"]
 ----
 Enter the switch name : *cs2*
 ----
-. 대역외 관리 인터페이스 구성:
+. 대역 외 관리 인터페이스를 구성합니다.
 +
 [listing, subs="+quotes"]
 ----
@@ -119,13 +119,13 @@ IPv4 address of the default gateway : 172.22.128.1
 ----
 Configure advanced IP options? (yes/no) [n]: *n*
 ----
-. 텔넷 서비스 구성:
+. Telnet 서비스 구성:
 +
 [listing, subs="+quotes"]
 ----
 Enable the telnet service? (yes/no) [n]: *n*
 ----
-. SSH 서비스 및 SSH 키 구성:
+. SSH 서비스와 SSH 키 구성:
 +
 [listing, subs="+quotes"]
 ----
@@ -135,7 +135,7 @@ Enable the ssh service? (yes/no) [y]: *y*
 
        Number of rsa key bits <1024-2048> [1024]: *2048*
 ----
-. 기타 설정 구성:
+. 다른 설정을 구성하세요:
 +
 [listing, subs="+quotes"]
 ----
@@ -161,5 +161,5 @@ Copy complete.
 ----
 
 
-.다음 단계
+.다음은 무엇인가요?
 link:install-nxos-overview.html["NX-OS 소프트웨어 및 RCF 설치 준비"].

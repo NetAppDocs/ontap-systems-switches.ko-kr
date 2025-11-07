@@ -4,22 +4,22 @@ sidebar: sidebar
 keywords: cisco 3132q-v, cluster switches 
 summary: Cisco Nexus 3132q-v 스위치를 AFF 또는 FAS 클러스터에서 클러스터 스위치로 사용할 수 있습니다. 
 ---
-= 스위치가 없는 2노드 클러스터에서 2노드 스위치 클러스터로 마이그레이션을 완료합니다
+= 2노드 스위치리스 클러스터에서 2노드 스위치 클러스터로 마이그레이션을 완료합니다.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-다음 단계를 따라 스위치가 없는 클러스터에서 2노드 스위치 클러스터로 마이그레이션을 완료합니다.
+스위치리스 클러스터에서 2노드 스위치 클러스터로 마이그레이션을 완료하려면 다음 단계를 따르세요.
 
 .단계
-. 각 클러스터 포트가 각 노드에서 연결되는 클러스터 스위치 포트 번호를 표시합니다.
+. 각 노드에서 각 클러스터 포트가 연결된 클러스터 스위치 포트 번호를 표시합니다.
 +
-네트워크 디바이스 발견 쇼
+`network device-discovery show`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing]
@@ -36,12 +36,12 @@ n2         /cdp
             e4e    C2                  Ethernet1/8      N3K-C3132Q-V
 ----
 ====
-. 검색 및 모니터링되는 클러스터 스위치 표시:
+. 검색 및 모니터링된 클러스터 스위치를 표시합니다.
 +
-'system cluster-switch show'
+`system cluster-switch show`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing]
@@ -69,37 +69,37 @@ C2                          cluster-network      10.10.1.102    NX3132V
 2 entries were displayed.
 ----
 ====
-. 모든 노드에서 스위치가 없는 2노드 구성 설정을 사용하지 않도록 설정합니다.
+. 모든 노드에서 2노드 스위치리스 구성 설정을 비활성화합니다.
 +
-'네트워크 옵션 스위치 없는 클러스터'
+`network options switchless-cluster`
 
 +
 [listing]
 ----
 network options switchless-cluster modify -enabled false
 ----
-. 를 확인합니다 `switchless-cluster` 옵션이 비활성화되었습니다.
+. 다음을 확인하십시오. `switchless-cluster` 옵션이 비활성화되었습니다.
 +
 [listing]
 ----
 network options switchless-cluster show
 ----
-. 원격 클러스터 인터페이스의 연결을 확인합니다.
+. 원격 클러스터 인터페이스의 연결성을 확인하세요.
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.9.1 이상
 --
-를 사용할 수 있습니다 `network interface check cluster-connectivity` 클러스터 연결에 대한 접근성 검사를 시작한 다음 세부 정보를 표시하는 명령입니다.
+당신은 사용할 수 있습니다 `network interface check cluster-connectivity` 클러스터 연결에 대한 접근성 검사를 시작한 다음 세부 정보를 표시하는 명령:
 
-`network interface check cluster-connectivity start` 및 `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`그리고 `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-* 참고: * show 명령을 실행하기 전에 몇 초 동안 기다린 후 세부 정보를 표시합니다.
+*참고:* show 명령을 실행하기 전에 몇 초 동안 기다려 세부 정보를 표시하세요.
 
 [listing, subs="+quotes"]
 ----
@@ -118,7 +118,7 @@ n2
 --
 .모든 ONTAP 릴리스
 --
-모든 ONTAP 릴리스에 대해 을 사용할 수도 있습니다 `cluster ping-cluster -node <name>` 연결 상태를 확인하는 명령:
+모든 ONTAP 릴리스의 경우 다음을 사용할 수도 있습니다. `cluster ping-cluster -node <name>` 연결성을 확인하는 명령:
 
 `cluster ping-cluster -node <name>`
 
@@ -151,11 +151,11 @@ RPC status:
 ----
 --
 ====
-. [[step6]] 자동 케이스 생성을 억제한 경우 AutoSupport 메시지를 호출하여 다시 활성화합니다.
+. [[step6]] 자동 케이스 생성을 억제한 경우 AutoSupport 메시지를 호출하여 다시 활성화하세요.
 +
-'System node AutoSupport invoke-node * -type all-message maINT=end'
+`system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 
-.다음 단계
-link:../switch-cshm/config-overview.html["스위치 상태 모니터링을 구성합니다"]..
+.다음은 무엇인가요?
+link:../switch-cshm/config-overview.html["스위치 상태 모니터링 구성"].

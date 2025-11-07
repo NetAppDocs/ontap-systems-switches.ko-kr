@@ -2,113 +2,109 @@
 permalink: switch-bes-53248/upgrade-efos-software.html 
 sidebar: sidebar 
 keywords: BES-53248 cluster switches,upgrading EFOS software 
-summary: '다음 단계에 따라 BES-53248 클러스터 스위치에서 EFOS(Ethernet Fabric OS) 소프트웨어를 업그레이드합니다.' 
+summary: 'BES-53248 클러스터 스위치에서 EFOS(Ethernet Fabric OS) 소프트웨어를 업그레이드하려면 다음 단계를 따르세요.' 
 ---
-= EFOS 소프트웨어를 업그레이드합니다
+= EFOS 소프트웨어 업그레이드
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-다음 단계에 따라 BES-53248 클러스터 스위치에서 EFOS 소프트웨어를 업그레이드합니다.
+BES-53248 클러스터 스위치에서 EFOS 소프트웨어를 업그레이드하려면 다음 단계를 따르세요.
 
-EFOS 소프트웨어에는 이더넷 및 IP 인프라스트럭처 시스템 개발을 위한 고급 네트워킹 기능 및 프로토콜 세트가 포함되어 있습니다. 이 소프트웨어 아키텍처는 철저한 패킷 검사나 분리를 필요로 하는 애플리케이션을 사용하는 모든 네트워크 조직 장치에 적합합니다.
+EFOS 소프트웨어에는 이더넷 및 IP 인프라 시스템을 개발하기 위한 고급 네트워킹 기능과 프로토콜 세트가 포함되어 있습니다.  이 소프트웨어 아키텍처는 철저한 패킷 검사나 분리가 필요한 애플리케이션을 사용하는 모든 네트워크 조직 장치에 적합합니다.
 
 
 
-== 업그레이드를 준비합니다
+== 업그레이드 준비
 
 .시작하기 전에
-* 에서 클러스터 스위치에 해당하는 Broadcom EFOS 소프트웨어를 다운로드합니다 https://www.broadcom.com/support/bes-switch["Broadcom Ethernet 스위치 지원"^] 사이트.
-* EFOS 버전에 관한 다음 참고 사항을 검토하십시오.
+* 클러스터 스위치에 적용 가능한 Broadcom EFOS 소프트웨어를 다운로드하세요. https://www.broadcom.com/support/bes-switch["Broadcom 이더넷 스위치 지원"^] 대지.
+* EFOS 버전에 대한 다음 참고 사항을 검토하세요.
 
 
 []
 ====
-* 다음 사항에 유의하십시오. *
+*다음 사항에 유의하세요:*
 
-* EFOS 3.4.x.x에서 EFOS 3.7.x.x 이상으로 업그레이드할 경우 스위치에서 EFOS 3.4.4.6(또는 이후 3.4.x.x 릴리즈)이 실행되고 있어야 합니다. 그 전에 릴리스를 실행 중인 경우 먼저 스위치를 EFOS 3.4.4.6(또는 그 이상 3.4.x.x 릴리스)로 업그레이드한 다음 스위치를 EFOS 3.7.x.x 이상으로 업그레이드하십시오.
-* EFOS 3.4.x.x 및 3.7.x.x 이상의 구성은 다릅니다. EFOS 버전을 3.4.x.x에서 3.7.x.x 이상으로 변경하거나 그 반대로 변경하려면 스위치를 출고 시 기본값으로 재설정하고 해당 EFOS 버전의 RCF 파일을 (다시) 적용해야 합니다. 이 절차를 수행하려면 직렬 콘솔 포트를 통해 액세스해야 합니다.
-* EFOS 버전 3.7.x.x 이상부터는 FIPS를 준수하지 않는 버전과 FIPS 호환 버전을 사용할 수 있습니다. FIPS를 준수하지 않는 버전에서 FIPS를 준수하는 버전으로 전환할 경우 또는 그 반대로 이동할 경우 다른 단계가 적용됩니다. FIPS를 준수하지 않는 버전에서 FIPS를 준수하는 버전으로 또는 그 반대로 EFOS를 변경하면 스위치가 공장 출하 시 기본값으로 재설정됩니다. 이 절차를 수행하려면 직렬 콘솔 포트를 통해 액세스해야 합니다.
+* EFOS 3.4.xx에서 EFOS 3.7.xx 이상으로 업그레이드하는 경우, 스위치는 EFOS 3.4.4.6(또는 이후 3.4.xx 릴리스)을 실행해야 합니다.  이전 릴리스를 실행 중이라면 먼저 스위치를 EFOS 3.4.4.6(또는 이후 3.4.xx 릴리스)으로 업그레이드한 다음, 스위치를 EFOS 3.7.xx 이상으로 업그레이드하세요.
+* EFOS 3.4.xx 및 3.7.xx 이상의 구성은 다릅니다.  EFOS 버전을 3.4.xx에서 3.7.xx 이상으로 변경하거나 그 반대로 변경하려면 스위치를 공장 기본값으로 재설정하고 해당 EFOS 버전의 RCF 파일을 (다시) 적용해야 합니다.  이 절차를 수행하려면 직렬 콘솔 포트를 통해 액세스해야 합니다.
+* EFOS 버전 3.7.xx 이상부터 FIPS와 호환되지 않는 버전과 FIPS와 호환되는 버전을 사용할 수 있습니다.  FIPS를 준수하지 않는 버전에서 FIPS를 준수하는 버전으로, 또는 그 반대로 전환할 때는 각기 다른 단계가 적용됩니다.  FIPS를 준수하지 않는 버전에서 FIPS를 준수하는 버전으로 변경하거나 그 반대로 하면 스위치가 공장 기본값으로 재설정됩니다.  이 절차를 수행하려면 직렬 콘솔 포트를 통해 액세스해야 합니다.
 
 
 ====
 |===
 
 
-| * 절차 * | * 현재 EFOS 버전 * | * 새로운 EFOS 버전 * | * 고급 단계 * 
+| *절차* | *현재 EFOS 버전* | *새로운 EFOS 버전* | *높은 수준의 단계* 
 
 
  a| 
-FIPS를 준수하지 않는 두 버전 간에 EFOS를 업그레이드하는 단계
- a| 
-3.4.x.x
+두 개의 (비) FIPS 호환 버전 간에 EFOS를 업그레이드하는 단계
  a| 
 3.4.x.x
  a| 
-를 사용하여 새 EFOS 이미지를 업그레이드합니다 <<방법 1: EFOS를 업그레이드합니다>>.
-구성 및 라이센스 정보가 유지됩니다.
+3.4.x.x
+ a| 
+새로운 EFOS 이미지를 업그레이드하세요<<방법 1: EFOS 업그레이드>> .  구성 및 라이센스 정보는 보존됩니다.
 
 
 
  a| 
-3.4.4.6(또는 그 이상 3.4.x.x)
+3.4.4.6(또는 이후 3.4.xx)
  a| 
-3.7.x.x 이상 비 FIPS 규격
+3.7.xx 이상 FIPS 호환 불가
  a| 
-를 사용하여 EFOS를 업그레이드합니다 <<방법 1: EFOS를 업그레이드합니다>>.
-스위치를 출고 시 기본값으로 재설정하고 EFOS 3.7.x.x 이상에 RCF 파일을 적용합니다.
+EFOS를 사용하여 업그레이드<<방법 1: EFOS 업그레이드>> .  스위치를 공장 기본값으로 재설정하고 EFOS 3.7.xx 이상에 대한 RCF 파일을 적용합니다.
 
 
 
-.2+| 3.7.x.x 이상 비 FIPS 규격  a| 
-3.4.4.6(또는 그 이상 3.4.x.x)
+.2+| 3.7.xx 이상 FIPS 호환 불가  a| 
+3.4.4.6(또는 이후 3.4.xx)
  a| 
-를 사용하여 EFOS를 다운그레이드합니다 <<방법 1: EFOS를 업그레이드합니다>>.
-스위치를 출고 시 기본값으로 재설정하고 EFOS 3.4.x.x의 RCF 파일을 적용합니다
+EFOS를 사용하여 다운그레이드<<방법 1: EFOS 업그레이드>> .  스위치를 공장 기본값으로 재설정하고 EFOS 3.4.xx에 대한 RCF 파일을 적용합니다.
 
 
 
  a| 
-3.7.x.x 이상 비 FIPS 규격
+3.7.xx 이상 FIPS 호환 불가
  a| 
-를 사용하여 새 EFOS 이미지를 업그레이드합니다 <<방법 1: EFOS를 업그레이드합니다>>. 구성 및 라이센스 정보가 유지됩니다.
+새로운 EFOS 이미지를 업그레이드하세요<<방법 1: EFOS 업그레이드>> .  구성 및 라이센스 정보는 보존됩니다.
 
 
 
  a| 
-3.7.x.x 이상 FIPS 규격
+3.7.xx 이상 FIPS 호환
  a| 
-3.7.x.x 이상 FIPS 규격
+3.7.xx 이상 FIPS 호환
  a| 
-를 사용하여 새 EFOS 이미지를 업그레이드합니다 <<방법 1: EFOS를 업그레이드합니다>>.
-구성 및 라이센스 정보가 유지됩니다.
+새로운 EFOS 이미지를 업그레이드하세요<<방법 1: EFOS 업그레이드>> .  구성 및 라이센스 정보는 보존됩니다.
 
 
 
  a| 
-FIPS 호환 EFOS 버전으로 업그레이드 단계
+FIPS 호환 EFOS 버전으로 업그레이드하는 단계
  a| 
-FIPS 비호환
+FIPS 규격 미준수
  a| 
-FIPS 규격
+FIPS 준수
  a| 
-를 사용하여 EFOS 이미지를 업그레이드합니다 <<방법 2: ONIE OS 설치를 사용하여 EFOS 업그레이드>>. 스위치 구성 및 라이센스 정보가 손실됩니다.
+EFOS 이미지 업그레이드<<방법 2: ONIE OS 설치를 사용하여 EFOS 업그레이드>> .  스위치 구성 및 라이센스 정보가 손실됩니다.
 
 
 
  a| 
-FIPS 규격
+FIPS 준수
  a| 
-FIPS 비호환
+FIPS 규격 미준수
 
 |===
 [IMPORTANT]
 ====
-사용 중인 EFOS 버전이 FIPS 호환 버전인지 또는 FIPS 비호환 버전인지 확인하려면 를 사용합니다 `show fips status` 명령. 다음 예에서 * IP_SWITCH_A1 * 은 FIPS 호환 EFOS를 사용하고 있으며 * IP_SWITCH_A2 * 는 비 FIPS 호환 EFOS를 사용하고 있습니다.
+EFOS 버전이 FIPS 호환인지 FIPS 호환이 아닌지 확인하려면 다음을 사용하세요. `show fips status` 명령.  다음 예에서 *IP_switch_a1*은 FIPS 호환 EFOS를 사용하고 *IP_switch_a2*는 FIPS 호환이 아닌 EFOS를 사용합니다.
 
-* 스위치 IP_SWITCH_A1(FIPS 호환 EFOS):
+* 스위치 IP_switch_a1(FIPS 호환 EFOS)에서:
 +
 [listing, subs="+quotes"]
 ----
@@ -116,7 +112,7 @@ IP_switch_a1 # *show fips status*
 
 System running in FIPS mode
 ----
-* 스위치 IP_SWITCH_A2(비 FIPS 호환 EFOS):
+* 스위치 IP_switch_a2(FIPS 호환이 아닌 EFOS)에서:
 +
 [listing, subs="+quotes"]
 ----
@@ -129,31 +125,31 @@ IP_switch_a2 # *show fips status*
 ====
 
 
-== 소프트웨어를 업그레이드합니다
+== 소프트웨어 업그레이드
 
-다음 방법 중 하나를 사용합니다.
+다음 방법 중 하나를 사용하세요.
 
-* <<방법 1: EFOS를 업그레이드합니다>>. 대부분의 경우 사용합니다(위 표 참조).
-* <<방법 2: ONIE OS 설치를 사용하여 EFOS 업그레이드>>. 한 EFOS 버전이 FIPS를 준수하고 다른 EFOS 버전이 FIPS를 준수하지 않는 경우 사용합니다.
-
-
-
-NOTE: 클러스터 네트워크 작업이 지속적으로 운영되도록 한 번에 하나의 스위치에서 EFOS를 업그레이드합니다.
+* <<방법 1: EFOS 업그레이드>>. 대부분의 경우에 사용합니다(위의 표 참조).
+* <<방법 2: ONIE OS 설치를 사용하여 EFOS 업그레이드>>. 한 EFOS 버전이 FIPS 규격을 준수하고 다른 EFOS 버전이 FIPS 규격을 준수하지 않는 경우 사용합니다.
 
 
 
-=== 방법 1: EFOS를 업그레이드합니다
-
-EFOS 소프트웨어를 업그레이드하려면 다음 단계를 수행하십시오.
+NOTE: 클러스터 네트워크가 계속 작동하도록 하려면 한 번에 한 스위치의 EFOS를 업그레이드하세요.
 
 
-IMPORTANT: BES-53248 클러스터 스위치를 EFOS 3.3.x.x 또는 3.4.x.x에서 EFOS 3.7.0.4 또는 3.8.0.2로 업그레이드한 후 ISL(Inter-Switch Link) 및 포트 채널이 * DOWN * 상태로 표시됩니다. 이는 정상적인 동작이며 자동 되돌리기 LIF에 문제가 없는 한 업그레이드를 계속해도 안전합니다. 자세한 내용은 기술 자료 문서: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric%2C_Interconnect_and_Management_Switches/BES-53248_Cluster_Switch_NDU_failed_upgrade_to_EFOS_3.7.0.4_and_later["BES-53248 클러스터 스위치 NDU가 EFOS 3.7.0.4 이상으로 업그레이드되지 않았습니다"^] 를 참조하십시오.
+
+=== 방법 1: EFOS 업그레이드
+
+EFOS 소프트웨어를 업그레이드하려면 다음 단계를 수행하세요.
+
+
+IMPORTANT: BES-53248 클러스터 스위치를 EFOS 3.3.xx 또는 3.4.xx에서 EFOS 3.7.0.4 또는 3.8.0.2로 업그레이드한 후에는 ISL(스위치 간 링크)과 포트 채널이 *다운* 상태로 표시됩니다.  이는 예상된 동작이며 LIF 자동 되돌리기에 문제가 없는 한 업그레이드를 계속 진행해도 안전합니다.  지식 기반 문서를 참조하세요. https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric%2C_Interconnect_and_Management_Switches/BES-53248_Cluster_Switch_NDU_failed_upgrade_to_EFOS_3.7.0.4_and_later["BES-53248 클러스터 스위치 NDU가 EFOS 3.7.0.4 이상으로 업그레이드하지 못했습니다."^] 자세한 내용은.
 
 .단계
 . BES-53248 클러스터 스위치를 관리 네트워크에 연결합니다.
-. "ping" 명령을 사용하여 EFOS, 라이센스 및 RCF 파일을 호스팅하는 서버에 대한 연결을 확인합니다.
+. 사용하다 `ping` EFOS, 라이선스 및 RCF 파일을 호스팅하는 서버에 대한 연결을 확인하는 명령입니다.
 +
-이 예에서는 스위치가 IP 주소 172.19.2.1로 서버에 연결되어 있는지 확인합니다.
+이 예제에서는 스위치가 IP 주소 172.19.2.1의 서버에 연결되어 있는지 확인합니다.
 
 +
 [listing, subs="+quotes"]
@@ -163,7 +159,7 @@ Pinging 172.19.2.1 with 0 bytes of data:
 
 Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
 ----
-. 클러스터 LIF에서 자동 되돌리기 기능을 해제합니다.
+. 클러스터 LIF에서 자동 되돌리기를 비활성화합니다.
 +
 [source, cli]
 ----
@@ -171,10 +167,10 @@ network interface modify -vserver Cluster -lif * -auto-revert false
 ----
 . 활성 및 백업 구성에 대한 부팅 이미지를 표시합니다.
 +
-'How bootvar'입니다
+`show bootvar`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -194,7 +190,7 @@ network interface modify -vserver Cluster -lif * -auto-revert false
 
 ----
 ====
-. 이미지 파일을 스위치에 다운로드합니다.
+. 스위치에 이미지 파일을 다운로드합니다.
 +
 이미지 파일을 백업 이미지에 복사하면 재부팅 시 해당 이미지가 실행 중인 EFOS 버전을 설정하고 업데이트가 완료됩니다.
 
@@ -220,10 +216,10 @@ File transfer operation completed successfully.
 ----
 . 활성 및 백업 구성에 대한 부팅 이미지를 표시합니다.
 +
-'How bootvar'입니다
+`show bootvar`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -254,10 +250,10 @@ Activating image backup ..
 ----
 . 활성 및 백업 구성에 대한 부팅 이미지를 표시합니다.
 +
-'How bootvar'입니다
+`show bootvar`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -276,12 +272,12 @@ Image Descriptions
     1    3.10.0.3    3.10.0.3            3.10.0.3       3.10.0.3
 ----
 ====
-. 실행 중인 구성을 시작 구성에 저장합니다.
+. 실행 구성을 시작 구성에 저장합니다.
 +
-쓰기 메모리
+`write memory`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -297,12 +293,12 @@ Config file 'startup-config' created successfully.
 Configuration Saved!
 ----
 ====
-. 스위치를 재부팅합니다.
+. 스위치를 재부팅하세요:
 +
-다시 로드
+`reload`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -317,12 +313,12 @@ Configuration Saved!
 System will now restart!
 ----
 ====
-. 다시 로그인하여 EFOS 소프트웨어의 새 버전을 확인합니다.
+. 다시 로그인하여 EFOS 소프트웨어의 새 버전을 확인하세요.
 +
-'How version'입니다
+`show version`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -353,21 +349,21 @@ Additional Packages............................ BGP-4
 ............................................... Prototype Open API
 ----
 ====
-. 스위치 CS1에서 5 ~ 11단계를 반복합니다.
-. 클러스터 LIF에서 자동 되돌리기 기능을 설정합니다.
+. 스위치 cs1에서 5~11단계를 반복합니다.
+. 클러스터 LIF에서 자동 되돌리기를 활성화합니다.
 +
 [source, cli]
 ----
 network interface modify -vserver Cluster -lif * -auto-revert true
 ----
-. 클러스터 LIF가 홈 포트로 되돌려졌는지 확인합니다.
+. 클러스터 LIF가 홈 포트로 되돌아갔는지 확인하세요.
 +
 [source, cli]
 ----
 network interface show -role Cluster
 ----
 +
-자세한 내용은 을 참조하십시오 link:https://docs.netapp.com/us-en/ontap/networking/revert_a_lif_to_its_home_port.html["LIF를 홈 포트로 되돌립니다"].
+자세한 내용은 다음을 참조하세요.link:https://docs.netapp.com/us-en/ontap/networking/revert_a_lif_to_its_home_port.html["LIF를 홈 포트로 되돌리기"] .
 
 
 
@@ -375,16 +371,16 @@ network interface show -role Cluster
 
 === 방법 2: ONIE OS 설치를 사용하여 EFOS 업그레이드
 
-한 EFOS 버전이 FIPS를 준수하고 다른 EFOS 버전이 FIPS를 준수하지 않는 경우 다음 단계를 수행할 수 있습니다. 이 단계는 스위치가 부팅되지 않는 경우 ONIE에서 FIPS 또는 FIPS 규격이 아닌 EFOS 3.7.x.x 이미지를 업그레이드하는 데 사용할 수 있습니다.
+한 EFOS 버전이 FIPS 규격을 준수하고 다른 EFOS 버전이 FIPS 규격을 준수하지 않는 경우 다음 단계를 수행할 수 있습니다.  스위치가 부팅에 실패하면 이러한 단계를 사용하여 ONIE에서 FIPS가 아닌 EFOS 3.7.xx 이미지나 FIPS 호환 EFOS 3.7.xx 이미지를 업그레이드할 수 있습니다.
 
 
-NOTE: 이 기능은 EFOS 3.7.x.x 이상 비 FIPS 준수 버전에서만 사용할 수 있습니다.
+NOTE: 이 기능은 FIPS 규격을 준수하지 않는 EFOS 3.7.xx 이상에서만 사용할 수 있습니다.
 
 
-CAUTION: ONIE OS 설치를 사용하여 EFOS를 업그레이드하면 구성이 출하 시 기본값으로 재설정되고 라이센스가 삭제됩니다. 스위치를 정상 작동 상태로 되돌리려면 스위치를 설정하고 라이센스 및 지원되는 RCF를 설치해야 합니다.
+CAUTION: ONIE OS 설치를 사용하여 EFOS를 업그레이드하는 경우 구성이 공장 기본값으로 재설정되고 라이선스가 삭제됩니다.  스위치를 정상 작동 상태로 되돌리려면 스위치를 설정하고 라이선스와 지원되는 RCF를 설치해야 합니다.
 
 .단계
-. 클러스터 LIF에서 자동 되돌리기 기능을 해제합니다.
+. 클러스터 LIF에서 자동 되돌리기를 비활성화합니다.
 +
 [source, cli]
 ----
@@ -392,7 +388,7 @@ network interface modify -vserver Cluster -lif * -auto-revert false
 ----
 . 스위치를 ONIE 설치 모드로 부팅합니다.
 +
-부팅 중에 다음 프롬프트가 표시되면 ONIE를 선택합니다.
+부팅하는 동안 다음 메시지가 나타나면 ONIE를 선택하세요.
 
 +
 [listing]
@@ -413,7 +409,7 @@ network interface modify -vserver Cluster -lif * -auto-revert false
 +--------------------------------------------------------------------+
 ----
 +
-ONIE * 를 선택하면 스위치가 로드되고 몇 가지 선택 사항이 표시됩니다. OS 설치 * 를 선택합니다.
+*ONIE*를 선택하면 스위치가 로드되어 여러 가지 선택 사항이 표시됩니다.  *OS 설치*를 선택하세요.
 
 +
 [listing]
@@ -438,7 +434,7 @@ ONIE * 를 선택하면 스위치가 로드되고 몇 가지 선택 사항이 �
 
 . ONIE 검색을 중지하고 이더넷 인터페이스를 구성합니다.
 +
-다음 메시지가 나타나면 * Enter * 를 눌러 ONIE 콘솔을 호출합니다.
+다음 메시지가 나타나면 *Enter*를 눌러 ONIE 콘솔을 호출합니다.
 
 +
 [listing]
@@ -448,7 +444,7 @@ Please press Enter to activate this console. Info: eth0:  Checking link... up.
 ----
 +
 
-NOTE: ONIE 검색이 계속되고 메시지가 콘솔에 인쇄됩니다.
+NOTE: ONIE의 발견은 계속되고 메시지는 콘솔에 인쇄됩니다.
 
 +
 [listing]
@@ -459,19 +455,19 @@ discover: installer mode detected.
 Stopping: discover... done.
 ONIE:/ #
 ----
-. 이더넷 인터페이스를 구성하고 'ifconfig eth0 <IPAddress> netmask <netmask> up' 및 'route add default GW <gatewayAddress>'를 사용하여 라우트를 추가합니다
+. 이더넷 인터페이스를 구성하고 다음을 사용하여 경로를 추가합니다. `ifconfig eth0 <ipAddress> netmask <netmask> up` 그리고 `route add default gw <gatewayAddress>`
 +
 [listing]
 ----
 ONIE:/ # ifconfig eth0 10.10.10.10 netmask 255.255.255.0 up
 ONIE:/ # route add default gw 10.10.10.1
 ----
-. ONIE 설치 파일을 호스팅하는 서버에 연결할 수 있는지 확인합니다.
+. ONIE 설치 파일을 호스팅하는 서버에 접속 가능한지 확인하세요.
 +
 `ping`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing]
@@ -488,12 +484,12 @@ round-trip min/avg/max = 0.369/0.464/0.595 ms
 ONIE:/ #
 ----
 ====
-. 새 스위치 소프트웨어를 설치합니다.
+. 새로운 스위치 소프트웨어를 설치하세요:
 +
 `ONIE:/ # onie-nos-install http://50.50.50.50/Software/onie-installer-x86_64`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing]
@@ -510,14 +506,14 @@ Preparing image archive ... OK.
 ----
 ====
 +
-소프트웨어가 스위치를 설치한 다음 재부팅합니다. 스위치가 새 EFOS 버전으로 정상적으로 재부팅되도록 합니다.
+소프트웨어가 설치된 후 스위치가 재부팅됩니다.  스위치가 새로운 EFOS 버전으로 정상적으로 재부팅되도록 하세요.
 
-. 새 스위치 소프트웨어가 설치되었는지 확인합니다.
+. 새로운 스위치 소프트웨어가 설치되었는지 확인하세요.
 +
-'How bootvar'입니다
+`show bootvar`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -534,29 +530,29 @@ unit 	active 	    backup   current-active  next-active
 (cs2) #
 ----
 ====
-. 설치를 완료합니다. 스위치는 구성이 적용되지 않은 상태로 재부팅되고 공장 기본값으로 재설정됩니다. 스위치를 다시 구성하려면 다음 단계를 수행하십시오.
+. 설치를 완료합니다.  스위치는 아무런 구성도 적용하지 않고 재부팅되고 공장 기본값으로 재설정됩니다.  스위치를 재구성하려면 다음 단계를 완료하세요.
 +
-.. link:configure-licenses.html["라이센스를 설치합니다"]
-.. link:configure-install-rcf.html["RCF를 설치합니다"]
-.. link:configure-ssh.html["SSH를 활성화합니다"]
-.. link:CSHM_log_collection.html["로그 수집을 활성화합니다"]
-.. link:CSHM_snmpv3.html["모니터링을 위한 SNMPv3을 구성합니다"]
+.. link:configure-licenses.html["라이센스 설치"]
+.. link:configure-install-rcf.html["RCF 설치"]
+.. link:configure-ssh.html["SSH 활성화"]
+.. link:CSHM_log_collection.html["로그 수집 활성화"]
+.. link:CSHM_snmpv3.html["모니터링을 위해 SNMPv3 구성"]
 
 
-. 스위치 CS1에서 2 ~ 8단계를 반복합니다.
-. 클러스터 LIF에서 자동 되돌리기 기능을 설정합니다.
+. 스위치 cs1에서 2~8단계를 반복합니다.
+. 클러스터 LIF에서 자동 되돌리기를 활성화합니다.
 +
 [source, cli]
 ----
 network interface modify -vserver Cluster -lif * -auto-revert true
 ----
-. 클러스터 LIF가 홈 포트로 되돌려졌는지 확인합니다.
+. 클러스터 LIF가 홈 포트로 되돌아갔는지 확인하세요.
 +
 [source, cli]
 ----
 network interface show -role Cluster
 ----
 +
-자세한 내용은 을 참조하십시오 link:https://docs.netapp.com/us-en/ontap/networking/revert_a_lif_to_its_home_port.html["LIF를 홈 포트로 되돌립니다"].
+자세한 내용은 다음을 참조하세요.link:https://docs.netapp.com/us-en/ontap/networking/revert_a_lif_to_its_home_port.html["LIF를 홈 포트로 되돌리기"] .
 
 

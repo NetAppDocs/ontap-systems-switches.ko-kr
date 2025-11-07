@@ -14,33 +14,33 @@ summary:
 
 
 [role="lead"]
-2개의 새 공유 스위치를 추가하여 직접 연결 스토리지를 사용하는 스위치 구성에서 마이그레이션할 수 있습니다.
+두 개의 새로운 공유 스위치를 추가하여 직접 연결 스토리지를 사용하는 스위치 구성에서 마이그레이션할 수 있습니다.
 
 .지원되는 스위치
-지원되는 스위치는 다음과 같습니다.
+다음 스위치가 지원됩니다.
 
-* Nexus 9336C-FX2
-* Nexus 3232C
+* 넥서스 9336C-FX2
+* 넥서스 3232C
 
 
-이 절차에서 지원되는 ONTAP 및 NX-OS 버전은 Cisco 이더넷 스위치 페이지에 있습니다. 을 참조하십시오 https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치"].
+이 절차에서 지원되는 ONTAP 및 NX-OS 버전은 Cisco 이더넷 스위치 페이지에 있습니다. 보다 https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치"] .
 
 .연결 포트
 스위치는 다음 포트를 사용하여 노드에 연결합니다.
 
-* Nexus 9336C-FX2:
+* 넥서스 9336C-FX2:
 +
-** 포트 1-3: 중단모드(4x10G) 클러스터 내 포트, int e1/1/1-4, e1/2/1-4, e1/3/1-4
-** 포트 4-6: 클러스터 내부/HA 포트(4x25G), 내부 e1/4/1-4, e1/5/1-4, e1/6/1-4
-** 포트 7-34:40/100GbE 내부 클러스터/HA 포트, int e1/7-34
+** 포트 1-3: 브레이크아웃 모드(4x10G) 클러스터 내 포트, int e1/1/1-4, e1/2/1-4, e1/3/1-4
+** 포트 4-6: 브레이크아웃 모드(4x25G) 클러스터 내/HA 포트, int e1/4/1-4, e1/5/1-4, e1/6/1-4
+** 포트 7-34: 40/100GbE 클러스터 내/HA 포트, int e1/7-34
 
 
-* Nexus 3232C:
+* 넥서스 3232C:
 +
-** 포트 1 - 30:10/40/100 GbE
+** 포트 1-30: 10/40/100GbE
 
 
-* 스위치는 다음과 같은 ISL(Inter-Switch Link) 포트를 사용합니다.
+* 스위치는 다음의 ISL(Inter-Switch Link) 포트를 사용합니다.
 +
 ** 포트 int e1/35-36: Nexus 9336C-FX2
 ** 포트 e1/31-32: Nexus 3232C
@@ -48,54 +48,54 @@ summary:
 
 
 
-를 클릭합니다 https://hwu.netapp.com["Hardware Universe"] 모든 클러스터 스위치에 대해 지원되는 케이블 연결에 대한 정보를 제공합니다.
+그만큼 https://hwu.netapp.com["Hardware Universe"] 모든 클러스터 스위치에 지원되는 케이블에 대한 정보가 포함되어 있습니다.
 
 .필요한 것
-* 다음 작업을 완료했는지 확인합니다.
+* 다음 작업을 완료했는지 확인하세요.
 +
-** Nexus 9336C-FX2 스위치의 일부 포트가 100GbE에서 실행되도록 구성했습니다.
-** 노드에서 Nexus 9336C-FX2 스위치로의 계획된/마이그레이션/문서화된 100GbE 연결
-** ONTAP 클러스터에서 Cisco Nexus 9336C-FX2 네트워크 스위치로 중단 없이 다른 Cisco 클러스터 스위치를 마이그레이션했습니다.
+** Nexus 9336C-FX2 스위치의 일부 포트를 100GbE로 실행하도록 구성했습니다.
+** 노드에서 Nexus 9336C-FX2 스위치로 100GbE 연결을 계획, 마이그레이션 및 문서화했습니다.
+** ONTAP 클러스터에서 Cisco Nexus 9336C-FX2 네트워크 스위치로 다른 Cisco 클러스터 스위치를 중단 없이 마이그레이션했습니다.
 
 
-* 기존 스위치 네트워크가 올바르게 설정되고 작동합니다.
-* 모든 포트가 * Up * 상태에 있어 무중단 운영이 보장됩니다.
-* Nexus 9336C-FX2 스위치는 적절한 버전의 NX-OS 설치 및 RCF(Reference Configuration File)를 통해 구성 및 작동합니다.
+* 기존 스위치 네트워크가 제대로 설정되어 작동하고 있습니다.
+* 모든 포트는 중단 없는 운영을 보장하기 위해 *작동* 상태입니다.
+* Nexus 9336C-FX2 스위치는 적절한 버전의 NX-OS가 설치되고 참조 구성 파일(RCF)이 적용되어 구성 및 작동합니다.
 * 기존 네트워크 구성은 다음과 같습니다.
 +
-** 구형 Cisco 스위치를 사용하는 완전히 기능이 정상 작동하는 중복 NetApp 클러스터입니다.
-** 이전 Cisco 스위치와 새 스위치 모두에 대한 관리 연결 및 콘솔 액세스
-** 클러스터 LIF를 사용하는 * UP * 상태의 모든 클러스터 LIF는 홈 포트에 있습니다.
-** 다른 Cisco 스위치 간에 또는 새 스위치 간에 연결되고 연결된 ISL 포트
+** 두 가지 이전 Cisco 스위치를 모두 사용하는 중복되고 완벽한 기능을 갖춘 NetApp 클러스터입니다.
+** 기존 Cisco 스위치와 새로운 스위치 모두에 대한 관리 연결 및 콘솔 액세스가 가능합니다.
+** 클러스터 LIF가 있는 *up* 상태의 모든 클러스터 LIF는 홈 포트에 있습니다.
+** ISL 포트가 활성화되어 다른 Cisco 스위치와 새 스위치 간에 케이블이 연결되었습니다.
 
 
 
 
-.예를 참조하십시오
+.예시에 관하여
 이 절차의 예에서는 다음 스위치 및 노드 명명법을 사용합니다.
 
-* 기존 Cisco Nexus 3232C 클러스터 스위치는 _C1_과 _C2_입니다.
-* 새로운 Nexus 9336C-FX2 스위치는 _SH1_와 _SH2_입니다.
-* 노드는 _node1_ 및 _node2_입니다.
+* 기존의 Cisco Nexus 3232C 클러스터 스위치는 _c1_과 _c2_입니다.
+* 새로운 Nexus 9336C-FX2 스위치는 _sh1_과 _sh2_입니다.
+* 노드는 _node1_과 _node2_입니다.
 * 클러스터 LIF는 각각 노드 1의 _node1_clus1_과 _node1_clus2_이고, 노드 2의 _node2_clus1_과 _node2_clus2_입니다.
-* 스위치 C2가 먼저 스위치 SH2로 대체된 다음 스위치 C1이 스위치 SH1로 대체됩니다.
+* 스위치 c2는 먼저 스위치 sh2로 교체되고, 그 다음 스위치 c1은 스위치 sh1로 교체됩니다.
 
 
 .단계
-. 이 클러스터에서 AutoSupport가 활성화되어 있는 경우 AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다.
+. 이 클러스터에서 AutoSupport 활성화된 경우 AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다.
 +
 `system node autosupport invoke -node * -type all -message MAINT=x h`
 
 +
-여기서 x는 유지 보수 기간(시간)입니다.
+여기서 x는 유지 관리 기간(시간)입니다.
 
 . 각 클러스터 포트의 관리 및 운영 상태를 확인합니다.
-. 모든 클러스터 포트가 정상 상태인지 확인합니다.
+. 모든 클러스터 포트가 정상 상태로 작동하는지 확인하세요.
 +
 `network port show –role cluster`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -122,12 +122,12 @@ cluster1::*>
 ====
 
 
-. [[step4]] 모든 클러스터 인터페이스(LIF)가 홈 포트에 있는지 확인합니다.
+. [[4단계]]모든 클러스터 인터페이스(LIF)가 홈 포트에 있는지 확인합니다.
 +
-네트워크 인터페이스 show-role cluster
+`network interface show -role cluster`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -147,12 +147,12 @@ cluster1::*>
 ====
 
 
-. [[5단계] 클러스터가 두 클러스터 스위치에 대한 정보를 표시하는지 확인합니다.
+. [[step5]]클러스터가 두 클러스터 스위치에 대한 정보를 모두 표시하는지 확인합니다.
 +
-'system cluster-switch show-is-monitoring-enabled-operational true'
+`system cluster-switch show -is-monitoring-enabled-operational true`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -179,9 +179,9 @@ cluster1::*>
 ====
 
 
-. [[step6]] 클러스터 LIF에서 자동 복원을 사용하지 않도록 설정합니다.
+. [[step6]]클러스터 LIF에서 자동 복귀를 비활성화합니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -191,9 +191,9 @@ cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert fals
 ====
 
 
-. [[7단계]] C2 스위치를 종료합니다.
+. [[step7]]c2 스위치를 종료합니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -206,15 +206,15 @@ c2(config)# *shutdown*
 ====
 
 
-. [[step8]] 클러스터 LIF가 클러스터 스위치 SH1에 호스팅된 포트로 마이그레이션되었는지 확인:
+. [[step8]]클러스터 LIF가 클러스터 스위치 sh1에 호스팅된 포트로 마이그레이션되었는지 확인합니다.
 +
-네트워크 인터페이스 show-role cluster
+`network interface show -role cluster`
 
 +
-이 작업은 몇 초 정도 걸릴 수 있습니다.
+몇 초 정도 걸릴 수 있습니다.
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -234,11 +234,11 @@ cluster1::*>
 ====
 
 
-. [[9단계]] 스위치 C2를 새 스위치 SH2로 교체하고 새 스위치를 다시 연결합니다.
-. 포트가 SH2에 백업되어 있는지 확인합니다. * LIF는 아직 스위치 C1에 있습니다.
-. C1 스위치를 종료합니다.
+. [[step9]]스위치 c2를 새 스위치 sh2로 교체하고 새 스위치에 다시 케이블을 연결합니다.
+. sh2에서 포트가 백업되었는지 확인하세요.  *참고* LIF는 여전히 스위치 c1에 있습니다.
+. c1 스위치를 끕니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -251,9 +251,9 @@ c1(config)# *shutdown*
 ====
 
 
-. [[step12]] 클러스터 LIF가 클러스터 스위치 SH2에 호스팅된 포트로 마이그레이션되었는지 확인합니다. 이 작업은 몇 초 정도 걸릴 수 있습니다.
+. [[step12]]클러스터 LIF가 클러스터 스위치 sh2에 호스팅된 포트로 마이그레이션되었는지 확인합니다. 몇 초 정도 걸릴 수 있습니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -273,11 +273,11 @@ cluster1::*>
 ====
 
 
-. [[13단계]] 스위치 C1을 새 스위치 SH1로 교체하고 새 스위치를 다시 연결합니다.
-. 포트가 SH1에 백업되어 있는지 확인합니다. * LIF는 아직 스위치 C2에 있습니다.
-. 클러스터 LIF에서 자동 되돌리기 사용:
+. [[step13]]스위치 c1을 새로운 스위치 sh1로 교체하고 새로운 스위치에 다시 케이블을 연결합니다.
+. sh1에서 포트가 다시 활성화되었는지 확인하세요.  *참고* LIF는 여전히 스위치 c2에 있습니다.
+. 클러스터 LIF에서 자동 되돌리기를 활성화합니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -287,12 +287,12 @@ cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert True
 ====
 
 
-. [[step16]] 클러스터가 정상인지 확인:
+. [[step16]]클러스터가 정상인지 확인하세요.
 +
-'클러스터 쇼'
+`cluster show`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -308,5 +308,5 @@ cluster1::*>
 ====
 
 
-.다음 단계
+.다음은 무엇인가요?
 스위치를 마이그레이션한 후에는 다음을 수행할 수 있습니다. link:../switch-cshm/config-overview.html["스위치 상태 모니터링 구성"].

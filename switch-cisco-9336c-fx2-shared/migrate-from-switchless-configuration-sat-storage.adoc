@@ -4,7 +4,7 @@ permalink: switch-cisco-9336c-fx2-shared/migrate-from-switchless-configuration-s
 keywords:  
 summary:  
 ---
-= 스토리지 스위치를 재사용하여 스위치 연결 스토리지를 사용하는 스위치가 없는 구성에서 마이그레이션합니다
+= 스위치 연결 스토리지를 사용하여 스위치 없는 구성에서 스토리지 스위치를 재사용하여 마이그레이션합니다.
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,19 +14,19 @@ summary:
 
 
 [role="lead"]
-스토리지 스위치를 재사용하여 스위치 연결 스토리지를 사용하는 스위치가 없는 구성에서 마이그레이션할 수 있습니다.
+스토리지 스위치를 재사용하여 스위치 연결 스토리지가 있는 스위치리스 구성에서 마이그레이션할 수 있습니다.
 
-스토리지 스위치를 재사용하면 다음 그림과 같이 HA 쌍 1의 스토리지 스위치가 공유 스위치가 됩니다.
+스토리지 스위치를 재사용함으로써 HA 쌍 1의 스토리지 스위치는 다음 그림과 같이 공유 스위치가 됩니다.
 
-image:9336c_image1.jpg["스위치 연결"]
+image:9336c_image1.jpg["스위치 부착"]
 
 .단계
-. HA 쌍 1(및 HA 쌍 2)의 스토리지 구성이 올바르고 오류가 없는지 확인합니다.
+. HA 쌍 1(및 HA 쌍 2)의 스토리지 구성이 올바르고 오류가 없는지 확인하세요.
 +
 `system switch ethernet show`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -57,12 +57,12 @@ storage::*>
 ====
 
 
-. [[2단계]] 노드 포트가 정상 작동 중인지 확인:
+. [[step2]]노드 포트가 정상적이고 작동하는지 확인합니다.
 +
-'Storage port show-port-type ENET'입니다
+`storage port show -port-type ENET`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -86,15 +86,15 @@ node2
 ====
 
 
-. [[step3] HA 쌍 1, NSM224 경로 A 케이블을 스토리지 스위치 A에서 HA 쌍 1의 공유 NS224 스토리지 포트, 스토리지 스위치 A의 경로 A로 이동합니다
-. HA 쌍 1, 노드 A, 경로 A에서 스토리지 스위치 A의 노드 A에 대한 공유 스토리지 포트로 케이블을 이동합니다
-. HA 쌍 1, 노드 B, 경로 A에서 스토리지 스위치 A의 노드 B에 대한 공유 스토리지 포트로 케이블을 이동합니다
-. HA 쌍 1에 연결된 스토리지, 스토리지 스위치 A가 정상인지 확인합니다.
+. [[step3]]HA 쌍 1, NSM224 경로 A 케이블을 스토리지 스위치 A에서 스토리지 스위치 A의 HA 쌍 1, 경로 A에 대한 공유 NS224 스토리지 포트로 이동합니다.
+. HA 쌍 1, 노드 A, 경로 A에서 스토리지 스위치 A의 HA 쌍 1, 노드 A에 대한 공유 스토리지 포트로 케이블을 이동합니다.
+. HA 쌍 1, 노드 B, 경로 A에서 스토리지 스위치 A의 HA 쌍 1, 노드 B에 대한 공유 스토리지 포트로 케이블을 이동합니다.
+. HA 쌍 1, 스토리지 스위치 A에 연결된 스토리지가 정상인지 확인하세요.
 +
 `system health alert show -instance`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -105,13 +105,13 @@ There are no entries matching your query.
 ====
 
 
-. [[step7]] 공유 스위치 A의 스토리지 RCF를 공유 RCF 파일로 교체합니다. 을 참조하십시오 link:install-nxos-rcf-9336c-shared.html["Cisco Nexus 9336C-FX2 공유 스위치에 RCF를 설치합니다"] 를 참조하십시오.
-. HA 쌍 1에 연결된 스토리지, 스토리지 스위치 B가 정상인지 확인합니다.
+. [[step7]]공유 스위치 A의 스토리지 RCF를 공유 RCF 파일로 교체합니다.  보다link:install-nxos-rcf-9336c-shared.html["Cisco Nexus 9336C-FX2 공유 스위치에 RCF 설치"] 자세한 내용은.
+. HA 쌍 1, 스토리지 스위치 B에 연결된 스토리지가 정상인지 확인하세요.
 +
 `system health alert show -instance`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -122,15 +122,15 @@ There are no entries matching your query.
 ====
 
 
-. [[9단계] HA 쌍 1, NSM224 경로 B 케이블을 스토리지 스위치 B에서 HA 쌍 1, 경로 B에서 스토리지 스위치 B로 공유 NS224 스토리지 포트로 이동합니다
-. HA 쌍 1, 노드 A, 경로 B에서 스토리지 스위치 B의 HA 쌍 1, 노드 A, 경로 B에 대한 공유 스토리지 포트로 케이블을 이동합니다
-. HA 쌍 1, 노드 B, 경로 B에서 스토리지 스위치 B의 경로 B에 대한 공유 스토리지 포트로 케이블을 이동합니다
-. HA 쌍 1에 연결된 스토리지, 스토리지 스위치 B가 정상인지 확인합니다.
+. [[step9]]HA 쌍 1, NSM224 경로 B 케이블을 스토리지 스위치 B에서 HA 쌍 1, 경로 B에서 스토리지 스위치 B로의 공유 NS224 스토리지 포트로 이동합니다.
+. HA 쌍 1, 노드 A, 경로 B에서 스토리지 스위치 B의 HA 쌍 1, 노드 A, 경로 B에 대한 공유 스토리지 포트로 케이블을 이동합니다.
+. HA 쌍 1, 노드 B, 경로 B에서 스토리지 스위치 B의 HA 쌍 1, 노드 B, 경로 B에 대한 공유 스토리지 포트로 케이블을 이동합니다.
+. HA 쌍 1, 스토리지 스위치 B에 연결된 스토리지가 정상인지 확인하세요.
 +
 `system health alert show -instance`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -141,13 +141,13 @@ There are no entries matching your query.
 ====
 
 
-. [[단계 13]] 공유 스위치 B의 스토리지 RCF 파일을 공유 RCF 파일로 교체합니다. 을 참조하십시오 link:install-nxos-rcf-9336c-shared.html["Cisco Nexus 9336C-FX2 공유 스위치에 RCF를 설치합니다"] 를 참조하십시오.
-. HA 쌍 1에 연결된 스토리지, 스토리지 스위치 B가 정상인지 확인합니다.
+. [[step13]]공유 스위치 B의 스토리지 RCF 파일을 공유 RCF 파일로 교체합니다.  보다link:install-nxos-rcf-9336c-shared.html["Cisco Nexus 9336C-FX2 공유 스위치에 RCF 설치"] 자세한 내용은.
+. HA 쌍 1, 스토리지 스위치 B에 연결된 스토리지가 정상인지 확인하세요.
 +
 `system health alert show -instance`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -158,9 +158,9 @@ There are no entries matching your query.
 ====
 
 
-. [[step15]] 공유 스위치 A와 공유 스위치 B 사이에 ISL 설치:
+. [[step15]]공유 스위치 A와 공유 스위치 B 사이에 ISL을 설치합니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -183,12 +183,12 @@ sh1 (config)# *exit*
 ====
 
 
-. [[step16]]스위치가 없는 클러스터에서 스위치 없는 클러스터로 HA 쌍 1을 변환합니다. 공유 RCF에 의해 정의된 클러스터 포트 할당을 사용합니다. 을 참조하십시오 link:prepare-nxos-rcf-9336c-shared.html["NX-OS 소프트웨어 및 참조 구성 파일(RCFs) 설치"]를 참조하십시오.
-. 전환된 네트워킹 구성이 올바른지 확인합니다.
+. [[step16]]스위치 없는 클러스터에서 스위치가 있는 클러스터로 HA 쌍 1을 변환합니다.  공유 RCF에서 정의한 클러스터 포트 할당을 사용합니다.  보다link:prepare-nxos-rcf-9336c-shared.html["NX-OS 소프트웨어 및 참조 구성 파일(RCF) 설치"] 자세한 내용은 다음을 참조하세요.
+. 스위치드 네트워킹 구성이 유효한지 확인하세요.
 +
-네트워크 포트 쇼
+`network port show`
 
 
 
-.다음 단계
+.다음은 무엇인가요?
 스위치를 마이그레이션한 후에는 다음을 수행할 수 있습니다. link:../switch-cshm/config-overview.html["스위치 상태 모니터링 구성"].

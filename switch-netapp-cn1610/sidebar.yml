@@ -2,35 +2,35 @@
 section: switch-netapp-cn1610
 title: NetApp CN1610
 entries:
-- title: 시작하십시오
-  pdf-filename: 개요_cn1610
+- title: 시작하기
+  pdf-filename: Overview_cn1610
   url: "/switch-netapp-cn1610/switch-overview-cn1610.html"
-- title: 설치 및 구성 워크플로우
+- title: 설치 및 구성 워크플로
   url: "/switch-netapp-cn1610/install-overview-cn1610.html"
-- title: 필수 문서
+- title: 필수 서류
   url: "/switch-netapp-cn1610/required-documentation-cn1610.html"
 - title: 설치 및 구성
-  pdf-filename: install_configure_cn1610을 참조하십시오
+  pdf-filename: Install_configure_cn1610
   entries:
-  - title: 하드웨어를 설치합니다
+  - title: 하드웨어 설치
     url: "/switch-netapp-cn1610/install-hardware-cn1610.html"
-  - title: FASTPATH 소프트웨어를 설치합니다
+  - title: FASTPATH 소프트웨어 설치
     url: "/switch-netapp-cn1610/install-fastpath-software.html"
-  - title: RCF를 설치합니다
+  - title: RCF 설치
     url: "/switch-netapp-cn1610/install-rcf-file.html"
-  - title: ONTAP 8.3.1 이상에 FASTPATH 및 RCF를 설치합니다
+  - title: ONTAP 8.3.1 이상에 FASTPATH ​​및 RCF 설치
     url: "/switch-netapp-cn1610/install-fastpath-rcf-831.html"
-  - title: 스위치를 구성합니다
+  - title: 스위치 구성
     url: "/switch-netapp-cn1610/configure-hardware-cn1610.html"
 - title: 스위치 마이그레이션
-  pdf-filename: migrate_switches_cn1610 을 참조하십시오
+  pdf-filename: Migrate_switches_cn1610
   entries:
-  - title: 스위치가 없는 클러스터에서 스위치 없는 클러스터로 마이그레이션
+  - title: 스위치리스 클러스터에서 스위치드 클러스터로 마이그레이션
     url: "/switch-netapp-cn1610/migrate-switched-netapp-cn1610.html"
-- title: 스위치를 교체합니다
-  pdf-filename: 스위치_cn1610을 교체하십시오
+- title: 스위치 교체
+  pdf-filename: Replace_switches_cn1610
   entries:
-  - title: NetApp CN1610 클러스터 스위치를 교체합니다
+  - title: NetApp CN1610 클러스터 스위치 교체
     url: "/switch-netapp-cn1610/replace-cn1610-switch.html"
-  - title: 클러스터 스위치를 스위치가 없는 연결로 대체
+  - title: 클러스터 스위치를 스위치리스 연결로 교체
     url: "/switch-netapp-cn1610/migrate-to-switchless-cluster-interconnect.html"

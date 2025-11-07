@@ -1,53 +1,53 @@
 ---
 section: switch-cisco-9336c-fx2-storage
-title: Cisco Nexus 9336C-FX2 또는 9336C-FX2-T
+title: Cisco 넥서스 9336C-FX2 또는 9336C-FX2-T
 entries:
-- title: 시작하십시오
+- title: 시작하기
   entries:
   - title: 빠른 시작
     url: "/switch-cisco-9336c-fx2-storage/configure-switch-overview-9336c-storage.html"
   - title: 구성 요구 사항
     url: "/switch-cisco-9336c-fx2-storage/configure-reqs-9336c-storage.html"
-  - title: 부품 및 부품 번호
+  - title: 구성 요소 및 부품 번호
     url: "/switch-cisco-9336c-fx2-storage/components-9336c-storage.html"
-  - title: 필수 문서
+  - title: 필수 서류
     url: "/switch-cisco-9336c-fx2-storage/required-documentation-9336c-storage.html"
-  - title: Smart Call Home 요구 사항
+  - title: 스마트 콜 홈 요구 사항
     url: "/switch-cisco-9336c-fx2-storage/smart-call-9336c-storage.html"
-- title: 하드웨어를 설치합니다
-  pdf-filename: install_hardware_9336c-FX2-storage 를 참조하십시오
+- title: 하드웨어 설치
+  pdf-filename: Install_hardware_9336c-fx2-storage
   entries:
   - title: 하드웨어 설치 워크플로
     url: "/switch-cisco-9336c-fx2-storage/install-hardware-workflow.html"
-  - title: 케이블 연결 워크시트를 작성합니다
+  - title: 완전한 케이블링 워크시트
     url: "/switch-cisco-9336c-fx2-storage/setup-worksheet-9336c-storage.html"
-  - title: 스위치를 장착하십시오
+  - title: 스위치를 설치하세요
     url: "/switch-cisco-9336c-fx2-storage/install-9336c-storage.html"
   - title: NetApp 캐비닛에 스위치 설치
     url: "/switch-cisco-9336c-fx2-storage/install-switch-and-passthrough-panel-9336c-storage.html"
 - title: 소프트웨어 구성
-  pdf-filename: configure_software_9336c-fX2-storage 를 참조하십시오
+  pdf-filename: Configure_software_9336c-fx2-스토리지
   entries:
-  - title: 소프트웨어 설치 워크플로우
+  - title: 소프트웨어 설치 워크플로
     url: "/switch-cisco-9336c-fx2-storage/configure-software-overview-9336c-storage.html"
-  - title: 스위치를 구성합니다
+  - title: 스위치 구성
     url: "/switch-cisco-9336c-fx2-storage/setup-switch-9336c-storage.html"
   - title: NX-OS 및 RCF 설치 준비
     url: "/switch-cisco-9336c-fx2-storage/install-nxos-overview-9336c-storage.html"
-  - title: NX-OS 소프트웨어를 설치 또는 업그레이드합니다
+  - title: NX-OS 소프트웨어 설치 또는 업그레이드
     url: "/switch-cisco-9336c-fx2-storage/install-nxos-software-9336c-storage.html"
-  - title: RCF를 설치하거나 업그레이드합니다
-    pdf-filename: install_upgrade_rcf 를 참조하십시오
+  - title: RCF 설치 또는 업그레이드
+    pdf-filename: 설치_업그레이드_rcf
     entries:
     - title: RCF 설치 또는 업그레이드 개요
       url: "/switch-cisco-9336c-fx2-storage/install-upgrade-rcf-overview-9336c-storage.html"
-    - title: RCF를 설치합니다
+    - title: RCF 설치
       url: "/switch-cisco-9336c-fx2-storage/install-rcf-software-9336c-storage.html"
-    - title: RCF 버전을 업그레이드하십시오
+    - title: RCF 버전을 업그레이드하세요
       url: "/switch-cisco-9336c-fx2-storage/upgrade-rcf-software-9336c-storage.html"
     url: "/switch-cisco-9336c-fx2-storage/configure-ssh-keys.html"
   - title: 스위치를 공장 기본값으로 재설정합니다
     url: "/switch-cisco-9336c-fx2-storage/reset-switch-9336c-storage.html"
 - title: 저장 스위치 교체
-  pdf-filename: REPLACE_SWITCH_9336c-FX2-STORAGE
+  pdf-filename: Replace_switch_9336c-fx2-storage
   url: "/switch-cisco-9336c-fx2-storage/replace-storage-switch-9336c-storage.html"

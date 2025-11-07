@@ -2,7 +2,7 @@
 permalink: switch-cisco-9336c-fx2/configure-switch-overview-9336c-cluster.html 
 sidebar: sidebar 
 keywords: switches, initial installation, configure switch-cisco-9336c-fx2 switch 
-summary: Cisco Nexus 9336C-FX2 클러스터 스위치의 설치 및 구성 개요 
+summary: Cisco Nexus 9336C-FX2 클러스터 스위치 설치 및 구성 개요 
 ---
 = Cisco Nexus 9336C-FX2 및 9336C-FX2-T 클러스터 스위치 설치 및 설정 워크플로
 :allow-uri-read: 
@@ -17,15 +17,15 @@ Cisco Nexus 9336C-FX2(36포트)는 고포트 밀도 클러스터/스토리지/�
 
 Cisco 9336C-FX2 및 9336C-FX2-T 스위치를 설치하고 설정하려면 다음 워크플로 단계를 따르세요.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1개"]link:configure-reqs-9336c-cluster.html["구성 요구 사항을 검토하세요"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["하나"]link:configure-reqs-9336c-cluster.html["구성 요구 사항을 검토하세요"]
 [role="quick-margin-para"]
 9336C-FX2 및 9336C-FX2-T 클러스터 스위치에 대한 구성 요구 사항을 검토하세요.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["2개"]link:components-9336c-cluster.html["구성 요소와 부품 번호를 검토하세요"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["둘"]link:components-9336c-cluster.html["구성 요소와 부품 번호를 검토하세요"]
 [role="quick-margin-para"]
 9336C-FX2 및 9336C-FX2-T 클러스터 스위치의 구성 요소와 부품 번호를 검토하세요.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["세 가지"]link:required-documentation-9336c-cluster.html["필수 서류를 검토하세요"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["삼"]link:required-documentation-9336c-cluster.html["필수 서류를 검토하세요"]
 [role="quick-margin-para"]
 9336C-FX2 및 9336C-FX2-T 스위치와 ONTAP 클러스터를 설정하려면 특정 스위치 및 컨트롤러 설명서를 검토하세요.
 
@@ -33,10 +33,10 @@ Cisco 9336C-FX2 및 9336C-FX2-T 스위치를 설치하고 설정하려면 다음
 [role="quick-margin-para"]
 네트워크의 하드웨어 및 소프트웨어 구성 요소를 모니터링하는 데 사용되는 Cisco Smart Call Home 기능에 대한 요구 사항을 검토하세요.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["다섯"]link:install-hardware-workflow.html["하드웨어를 설치합니다"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["다섯"]link:install-hardware-workflow.html["하드웨어 설치"]
 [role="quick-margin-para"]
 스위치 하드웨어를 설치합니다.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["6개"]link:configure-software-overview-9336c-cluster.html["소프트웨어 구성"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["육"]link:configure-software-overview-9336c-cluster.html["소프트웨어 구성"]
 [role="quick-margin-para"]
 스위치 소프트웨어를 구성합니다.

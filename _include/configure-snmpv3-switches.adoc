@@ -8,34 +8,34 @@
 * ONTAP 9.13.1P12, 9.14.1P9, 9.15.1P5, 9.16.1 및 이후 버전은 다음 두 가지 문제를 해결합니다.
 +
 ** link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-Issues/CONTAP-82891["Cisco 스위치의 ONTAP 상태 모니터링의 경우 모니터링을 위해 SNMPv3으로 전환한 후에도 SNMPv2 트래픽이 계속 표시될 수 있습니다."^]
-** link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-Issues/CONTAP-119131["SNMP 장애 발생 시 거짓 양성 스위치 팬 및 전원 경고"^]
+** link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-Issues/CONTAP-119131["SNMP 실패 발생 시 거짓 양성 스위치 팬 및 전원 경고"^]
 
 
 
 
 ====
-.이 작업에 대해
-다음 명령은 * Broadcom *, * Cisco * 및 * NVIDIA * 스위치에서 SNMPv3 사용자 이름을 구성하는 데 사용됩니다.
+.이 작업에 관하여
+다음 명령은 *Broadcom*, * Cisco*, * NVIDIA* 스위치에서 SNMPv3 사용자 이름을 구성하는 데 사용됩니다.
 
 [role="tabbed-block"]
 ====
-.Broadcom 스위치
+.브로드컴 스위치
 --
-Broadcom BES-53248 스위치에서 SNMPv3 사용자 이름 네트워크 운영자를 구성합니다.
+Broadcom BES-53248 스위치에서 SNMPv3 사용자 이름 NETWORK-OPERATOR를 구성합니다.
 
-* 인증 없음 * 의 경우:
+* *인증 없음*의 경우:
 +
 [source, cli]
 ----
 snmp-server user SNMPv3UserNoAuth NETWORK-OPERATOR noauth
 ----
-* MD5/SHA 인증 * 의 경우:
+* *MD5/SHA 인증*의 경우:
 +
 [source, cli]
 ----
 snmp-server user SNMPv3UserAuth NETWORK-OPERATOR [auth-md5|auth-sha]
 ----
-* AES/DES 암호화를 사용하는 * MD5/SHA 인증 *:
+* *AES/DES 암호화를 사용한 MD5/SHA 인증*의 경우:
 +
 [source, cli]
 ----
@@ -43,20 +43,20 @@ snmp-server user SNMPv3UserAuthEncrypt NETWORK-OPERATOR [auth-md5|auth-sha] [pri
 ----
 
 
-다음 명령을 실행하면 ONTAP 측에서 SNMPv3 사용자 이름이 구성됩니다.
+다음 명령은 ONTAP 측에서 SNMPv3 사용자 이름을 구성합니다.
 
 [source, cli]
 ----
 security login create -user-or-group-name SNMPv3_USER -application snmp -authentication-method usm -remote-switch-ipaddress ADDRESS
 ----
-다음 명령을 실행하면 CSHM에서 SNMPv3 사용자 이름이 설정됩니다.
+다음 명령은 CSHM을 사용하여 SNMPv3 사용자 이름을 설정합니다.
 
 [source, cli]
 ----
 cluster1::*> system switch ethernet modify -device DEVICE -snmp-version SNMPv3 -community-or-username SNMPv3_USER
 ----
 .단계
-. 인증 및 암호화를 사용하도록 스위치에서 SNMPv3 사용자를 설정합니다.
+. 스위치에서 SNMPv3 사용자를 설정하여 인증 및 암호화를 사용합니다.
 +
 [source, cli]
 ----
@@ -99,7 +99,7 @@ Which privacy protocol do you want to choose (none, des, aes128) [none]: *aes128
 Enter privacy protocol password (minimum 8 characters long):
 Enter privacy protocol password again:
 ----
-. 새로운 SNMPv3 사용자와 함께 모니터링하도록 CSHM을 구성합니다.
+. 새로운 SNMPv3 사용자로 모니터링하도록 CSHM을 구성합니다.
 +
 [source, cli]
 ----
@@ -161,21 +161,21 @@ DEPRECATED-Community String or SNMPv3 Username: -
 --
 .Cisco 스위치
 --
-Cisco 9336C-FX2 스위치에서 SNMPv3 사용자 이름 SNMPv3_user 구성:
+Cisco 9336C-FX2 스위치에서 SNMPv3 사용자 이름 SNMPv3_USER를 구성합니다.
 
-* 인증 없음 * 의 경우:
+* *인증 없음*의 경우:
 +
 [source, cli]
 ----
 snmp-server user SNMPv3_USER NoAuth
 ----
-* MD5/SHA 인증 * 의 경우:
+* *MD5/SHA 인증*의 경우:
 +
 [source, cli]
 ----
 snmp-server user SNMPv3_USER auth [md5|sha] AUTH-PASSWORD
 ----
-* AES/DES 암호화를 사용하는 * MD5/SHA 인증 *:
+* *AES/DES 암호화를 사용한 MD5/SHA 인증*의 경우:
 +
 [source, cli]
 ----
@@ -183,20 +183,20 @@ snmp-server user SNMPv3_USER AuthEncrypt  auth [md5|sha] AUTH-PASSWORD priv aes-
 ----
 
 
-다음 명령을 실행하면 ONTAP 측에서 SNMPv3 사용자 이름이 구성됩니다.
+다음 명령은 ONTAP 측에서 SNMPv3 사용자 이름을 구성합니다.
 
 [source, cli]
 ----
 security login create -user-or-group-name SNMPv3_USER -application snmp -authentication-method usm -remote-switch-ipaddress ADDRESS
 ----
-다음 명령을 실행하면 CSHM에서 SNMPv3 사용자 이름이 설정됩니다.
+다음 명령은 CSHM을 사용하여 SNMPv3 사용자 이름을 설정합니다.
 
 [source, cli]
 ----
 system switch ethernet modify -device DEVICE -snmp-version SNMPv3 -community-or-username SNMPv3_USER
 ----
 .단계
-. 인증 및 암호화를 사용하도록 스위치에서 SNMPv3 사용자를 설정합니다.
+. 스위치에서 SNMPv3 사용자를 설정하여 인증 및 암호화를 사용합니다.
 +
 [source, cli]
 ----
@@ -254,7 +254,7 @@ Which privacy protocol do you want to choose (none, des, aes128) [none]: *aes128
 Enter privacy protocol password (minimum 8 characters long):
 Enter privacy protocol password again:
 ----
-. 새로운 SNMPv3 사용자와 함께 모니터링하도록 CSHM을 구성합니다.
+. 새로운 SNMPv3 사용자로 모니터링하도록 CSHM을 구성합니다.
 +
 [source, cli]
 ----
@@ -283,7 +283,7 @@ cluster1::*>
 cluster1::*> *system switch ethernet modify -device "sw1" -snmp-version SNMPv3 -community-or-username <username>*
 cluster1::*>
 ----
-. 새로 생성된 SNMPv3 사용자로 쿼리할 일련 번호가 CSHM 폴링 기간이 완료된 후 이전 단계에서 자세히 설명한 일련 번호와 동일한지 확인합니다.
+. CSHM 폴링 기간이 완료된 후 새로 생성된 SNMPv3 사용자에게 쿼리할 일련 번호가 이전 단계에서 자세히 설명한 것과 동일한지 확인합니다.
 +
 [source, cli]
 ----
@@ -316,23 +316,23 @@ cluster1::*>
 
 
 --
-.엔비디아 - CL 5.4.0
+.NVIDIA - CL 5.4.0
 --
 CLI 5.4.0을 실행하는 NVIDIA SN2100 스위치에서 SNMPv3 사용자 이름 SNMPv3_USER를 구성합니다.
 
-* 인증 없음 * 의 경우:
+* *인증 없음*의 경우:
 +
 [source, cli]
 ----
 nv set service snmp-server username SNMPv3_USER auth-none
 ----
-* MD5/SHA 인증 * 의 경우:
+* *MD5/SHA 인증*의 경우:
 +
 [source, cli]
 ----
 nv set service snmp-server username SNMPv3_USER [auth-md5|auth-sha] AUTH-PASSWORD
 ----
-* AES/DES 암호화를 사용하는 * MD5/SHA 인증 *:
+* *AES/DES 암호화를 사용한 MD5/SHA 인증*의 경우:
 +
 [source, cli]
 ----
@@ -340,20 +340,20 @@ nv set service snmp-server username SNMPv3_USER [auth-md5|auth-sha] AUTH-PASSWOR
 ----
 
 
-다음 명령을 실행하면 ONTAP 측에서 SNMPv3 사용자 이름이 구성됩니다.
+다음 명령은 ONTAP 측에서 SNMPv3 사용자 이름을 구성합니다.
 
 [source, cli]
 ----
 security login create -user-or-group-name SNMPv3_USER -application snmp -authentication-method usm -remote-switch-ipaddress ADDRESS
 ----
-다음 명령을 실행하면 CSHM에서 SNMPv3 사용자 이름이 설정됩니다.
+다음 명령은 CSHM을 사용하여 SNMPv3 사용자 이름을 설정합니다.
 
 [source, cli]
 ----
 system switch ethernet modify -device DEVICE -snmp-version SNMPv3 -community-or-username SNMPv3_USER
 ----
 .단계
-. 인증 및 암호화를 사용하도록 스위치에서 SNMPv3 사용자를 설정합니다.
+. 스위치에서 SNMPv3 사용자를 설정하여 인증 및 암호화를 사용합니다.
 +
 [source, cli]
 ----
@@ -453,7 +453,7 @@ Which privacy protocol do you want to choose (none, des, aes128) [none]: *aes128
 Enter privacy protocol password (minimum 8 characters long):
 Enter privacy protocol password again:
 ----
-. 새로운 SNMPv3 사용자와 함께 모니터링하도록 CSHM을 구성합니다.
+. 새로운 SNMPv3 사용자로 모니터링하도록 CSHM을 구성합니다.
 +
 [source, cli]
 ----
@@ -481,7 +481,7 @@ DEPRECATED-Community String or SNMPv3 Username: -
 cluster1::*>
 cluster1::*> *system switch ethernet modify -device "sw1 (b8:59:9f:09:7c:22)" -snmp-version SNMPv3 -community-or-username SNMPv3User*
 ----
-. 새로 생성된 SNMPv3 사용자로 쿼리할 일련 번호가 CSHM 폴링 기간이 완료된 후 이전 단계에서 자세히 설명한 일련 번호와 동일한지 확인합니다.
+. CSHM 폴링 기간이 완료된 후 새로 생성된 SNMPv3 사용자에게 쿼리할 일련 번호가 이전 단계에서 자세히 설명한 것과 동일한지 확인합니다.
 +
 [source, cli]
 ----
@@ -512,23 +512,23 @@ DEPRECATED-Community String or SNMPv3 Username: -
 
 
 --
-.엔비디아 - CL 5.11.0
+.NVIDIA - CL 5.11.0
 --
 CLI 5.11.0을 실행하는 NVIDIA SN2100 스위치에서 SNMPv3 사용자 이름 SNMPv3_USER를 구성합니다.
 
-* 인증 없음 * 의 경우:
+* *인증 없음*의 경우:
 +
 [source, cli]
 ----
 nv set system snmp-server username SNMPv3_USER auth-none
 ----
-* MD5/SHA 인증 * 의 경우:
+* *MD5/SHA 인증*의 경우:
 +
 [source, cli]
 ----
 nv set system snmp-server username SNMPv3_USER [auth-md5|auth-sha] AUTH-PASSWORD
 ----
-* AES/DES 암호화를 사용하는 * MD5/SHA 인증 *:
+* *AES/DES 암호화를 사용한 MD5/SHA 인증*의 경우:
 +
 [source, cli]
 ----
@@ -536,20 +536,20 @@ nv set system snmp-server username SNMPv3_USER [auth-md5|auth-sha] AUTH-PASSWORD
 ----
 
 
-다음 명령을 실행하면 ONTAP 측에서 SNMPv3 사용자 이름이 구성됩니다.
+다음 명령은 ONTAP 측에서 SNMPv3 사용자 이름을 구성합니다.
 
 [source, cli]
 ----
 security login create -user-or-group-name SNMPv3_USER -application snmp -authentication-method usm -remote-switch-ipaddress ADDRESS
 ----
-다음 명령을 실행하면 CSHM에서 SNMPv3 사용자 이름이 설정됩니다.
+다음 명령은 CSHM을 사용하여 SNMPv3 사용자 이름을 설정합니다.
 
 [source, cli]
 ----
 system switch ethernet modify -device DEVICE -snmp-version SNMPv3 -community-or-username SNMPv3_USER
 ----
 .단계
-. 인증 및 암호화를 사용하도록 스위치에서 SNMPv3 사용자를 설정합니다.
+. 스위치에서 SNMPv3 사용자를 설정하여 인증 및 암호화를 사용합니다.
 +
 [source, cli]
 ----
@@ -600,7 +600,7 @@ Which privacy protocol do you want to choose (none, des, aes128) [none]: *aes128
 Enter privacy protocol password (minimum 8 characters long):
 Enter privacy protocol password again:
 ----
-. 새로운 SNMPv3 사용자와 함께 모니터링하도록 CSHM을 구성합니다.
+. 새로운 SNMPv3 사용자로 모니터링하도록 CSHM을 구성합니다.
 +
 [source, cli]
 ----
@@ -628,7 +628,7 @@ DEPRECATED-Community String or SNMPv3 Username: -
 cluster1::*>
 cluster1::*> *system switch ethernet modify -device "sw1 (b8:59:9f:09:7c:22)" -snmp-version SNMPv3 -community-or-username SNMPv3User*
 ----
-. 새로 생성된 SNMPv3 사용자로 쿼리할 일련 번호가 CSHM 폴링 기간이 완료된 후 이전 단계에서 자세히 설명한 일련 번호와 동일한지 확인합니다.
+. CSHM 폴링 기간이 완료된 후 새로 생성된 SNMPv3 사용자에게 쿼리할 일련 번호가 이전 단계에서 자세히 설명한 것과 동일한지 확인합니다.
 +
 [source, cli]
 ----

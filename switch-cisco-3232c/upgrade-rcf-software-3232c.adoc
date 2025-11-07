@@ -4,32 +4,32 @@ sidebar: sidebar
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 3232c 
 summary: '클러스터 스위치 상태 모니터(CSHM) 및 로그 수집 기능을 사용하려면 SSH가 필요합니다. Cisco 3232c 클러스터 스위치에서 SSH를 활성화하려면 먼저 SSH 키를 생성한 다음 SSH를 활성화합니다.' 
 ---
-= RCF(Reference Configuration File) 업그레이드
+= 참조 구성 파일(RCF) 업그레이드
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-운영 스위치에 기존 버전의 RCF 파일이 설치되어 있는 경우 RCF 버전을 업그레이드합니다.
+운영 스위치에 기존 RCF 파일 버전이 설치되어 있는 경우 RCF 버전을 업그레이드합니다.
 
 .시작하기 전에
-다음 사항을 확인하십시오.
+다음 사항이 있는지 확인하세요.
 
-* 스위치 구성의 현재 백업
-* 완전히 작동하는 클러스터(로그에 오류 또는 유사한 문제 없음)
-* 현재 RCF입니다.
-* RCF 버전을 업데이트하는 경우 원하는 부팅 이미지를 반영하는 RCF의 부팅 구성이 필요합니다.
+* 스위치 구성의 현재 백업입니다.
+* 완벽하게 작동하는 클러스터(로그에 오류나 유사한 문제가 없음).
+* 현재의 RCF.
+* RCF 버전을 업데이트하는 경우 원하는 부트 이미지를 반영하는 RCF의 부트 구성이 필요합니다.
 +
-현재 부팅 이미지를 반영하도록 부팅 구성을 변경해야 하는 경우, 나중에 재부팅할 때 올바른 버전이 인스턴스화되도록 RCF를 다시 적용하기 전에 이 구성을 변경해야 합니다.
+현재 부트 이미지를 반영하도록 부트 구성을 변경해야 하는 경우 RCF를 다시 적용하기 전에 변경해야 합니다. 이렇게 하면 향후 재부팅 시 올바른 버전이 인스턴스화됩니다.
 
 
 
 
-NOTE: 이 절차 중에는 작동 중인 ISL(Inter-Switch Link)이 필요하지 않습니다. RCF 버전 변경이 ISL 연결에 일시적으로 영향을 미칠 수 있기 때문에 이는 설계상 가능합니다. 무중단 클러스터 운영을 보장하기 위해 다음 절차를 수행하면 타겟 스위치에 대한 단계를 수행하는 동안 모든 클러스터 LIF가 운영 파트너 스위치로 마이그레이션됩니다.
+NOTE: 이 절차 중에는 작동 중인 ISL(스위치 간 링크)이 필요하지 않습니다. 이는 RCF 버전 변경으로 인해 ISL 연결에 일시적으로 영향을 미칠 수 있기 때문에 설계된 기능입니다. 중단 없는 클러스터 운영을 보장하기 위해 다음 절차에서는 대상 스위치에서 단계를 수행하는 동안 모든 클러스터 LIF를 운영 파트너 스위치로 마이그레이션합니다.
 
 
-CAUTION: 새 스위치 소프트웨어 버전과 RCFs를 설치하기 전에 스위치 설정을 지우고 기본 구성을 수행해야 합니다. 스위치 설정을 지우기 전에 직렬 콘솔을 사용하여 스위치에 연결되거나 기본 구성 정보가 보존되어 있어야 합니다.
+CAUTION: 새로운 스위치 소프트웨어 버전과 RCF를 설치하기 전에 스위치 설정을 지우고 기본 구성을 수행해야 합니다.  스위치 설정을 지우려면 직렬 콘솔을 사용하여 스위치에 연결해야 하거나 기본 구성 정보를 보존해야 합니다.
 
 
 
@@ -37,10 +37,10 @@ CAUTION: 새 스위치 소프트웨어 버전과 RCFs를 설치하기 전에 스
 
 . 클러스터 스위치에 연결된 각 노드의 클러스터 포트를 표시합니다.
 +
-네트워크 디바이스 발견 쇼
+`network device-discovery show`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -66,12 +66,12 @@ cluster1::*>
 ====
 . 각 클러스터 포트의 관리 및 운영 상태를 확인합니다.
 +
-.. 모든 클러스터 포트가 정상 상태인지 확인합니다.
+.. 모든 클러스터 포트가 정상 상태로 작동하는지 확인하세요.
 +
 `network port show –role cluster`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -109,12 +109,12 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 cluster1::*>
 ----
 ====
-.. 모든 클러스터 인터페이스(LIF)가 홈 포트에 있는지 확인합니다.
+.. 모든 클러스터 인터페이스(LIF)가 홈 포트에 있는지 확인하세요.
 +
-네트워크 인터페이스 show-role cluster
+`network interface show -role cluster`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -136,12 +136,12 @@ Cluster
 cluster1::*>
 ----
 ====
-.. 클러스터가 두 클러스터 스위치에 대한 정보를 표시하는지 확인합니다.
+.. 클러스터가 두 클러스터 스위치에 대한 정보를 모두 표시하는지 확인합니다.
 +
-'system cluster-switch show-is-monitoring-enabled-operational true'
+`system cluster-switch show -is-monitoring-enabled-operational true`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -168,7 +168,7 @@ cs2                         cluster-network    10.233.205.93    NX3232C
 ====
 
 
-. 클러스터 LIF에서 자동 되돌리기 기능을 해제합니다.
+. 클러스터 LIF에서 자동 되돌리기를 비활성화합니다.
 +
 [listing, subs="+quotes"]
 ----
@@ -180,7 +180,7 @@ cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert fals
 
 == 2단계: 포트 구성
 
-. 클러스터 스위치 CS2에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.
+. 클러스터 스위치 cs2에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.
 +
 [listing, subs="+quotes"]
 ----
@@ -193,14 +193,14 @@ cs2# *exit*
 ----
 +
 
-CAUTION: 네트워크 연결 문제를 방지하려면 * 연결된 클러스터 포트 * 를 모두 종료해야 합니다.  https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Node_out_of_quorum_when_migrating_cluster_lif_during_switch_OS_upgrade["스위치 OS 업그레이드 중에 클러스터 LIF를 마이그레이션할 때 노드가 쿼럼 밖입니다"^]자세한 내용은 기술 자료 문서를 참조하십시오.
+CAUTION: 네트워크 연결 문제를 방지하려면 연결된 모든 클러스터 포트를 반드시 종료하세요.  지식 기반 문서를 참조하세요 https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Node_out_of_quorum_when_migrating_cluster_lif_during_switch_OS_upgrade["스위치 OS 업그레이드 중 클러스터 LIF를 마이그레이션할 때 노드가 쿼럼을 벗어났습니다."^] 자세한 내용은.
 
 . 클러스터 포트가 클러스터 스위치 cs1에 호스팅된 포트로 장애 조치되었는지 확인합니다. 몇 초 정도 걸릴 수 있습니다.
 +
-네트워크 인터페이스 show-role cluster
+`network interface show -role cluster`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -222,12 +222,12 @@ Cluster
 cluster1::*>
 ----
 ====
-. 클러스터가 정상 상태인지 확인합니다.
+. 클러스터가 정상인지 확인하세요.
 +
-'클러스터 쇼'
+`cluster show`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -243,9 +243,9 @@ cluster1-04          true    true          false
 cluster1::*>
 ----
 ====
-. 아직 저장하지 않은 경우 다음 명령의 출력을 텍스트 파일로 복사하여 현재 스위치 구성의 복사본을 저장합니다.
+. 아직 저장하지 않았다면 다음 명령의 출력을 텍스트 파일에 복사하여 현재 스위치 구성의 사본을 저장하세요.
 +
-'show running-config'를 선택합니다
+`show running-config`
 
 . 현재 사이의 사용자 정의 추가 사항을 기록합니다. `running-config` 그리고 사용 중인 RCF 파일(예: 조직의 SNMP 구성)
 . 기본 구성 세부 정보를 저장합니다. `write_erase.cfg` 부트플래시에 있는 파일입니다.
@@ -294,7 +294,7 @@ cluster1::*>
 +
 `Do you wish to proceed anyway? (y/n)  [n] *y*`
 
-. 이전에 저장한 기본 구성을 시작 구성에 복사합니다.
+. 이전에 저장된 기본 구성을 시작 구성에 복사합니다.
 +
 `cs2# *copy bootflash:write_erase.cfg startup-config*`
 
@@ -305,16 +305,16 @@ cluster1::*>
 +
 `This command will reboot the system. (y/n)?  [n] *y*`
 
-. 관리 IP 주소에 다시 연결한 후 SSH를 통해 스위치에 로그인합니다.
+. 관리 IP 주소에 다시 접근할 수 있게 되면 SSH를 통해 스위치에 로그인합니다.
 +
-SSH 키와 관련된 호스트 파일 항목을 업데이트해야 할 수 있습니다.
+SSH 키와 관련된 호스트 파일 항목을 업데이트해야 할 수도 있습니다.
 
-. FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 cs2의 부트플래시에 복사합니다.  Cisco 명령에 대한 자세한 내용은 해당 가이드를 참조하세요. https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Cisco Nexus 3000 Series NX-OS 명령 참조"^] 가이드.
+. FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 cs2의 부트플래시에 복사합니다. Cisco 명령에 대한 자세한 내용은 해당 가이드를 참조하세요. https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^] 가이드.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-이 예에서는 스위치 CS2에서 RCF를 부트 플래시에 복사하는 데 사용되는 TFTP를 보여 줍니다.
+이 예에서는 TFTP를 사용하여 RCF를 스위치 cs2의 부트플래시에 복사하는 방법을 보여줍니다.
 
 [listing, subs="+quotes"]
 ----
@@ -326,15 +326,15 @@ TFTP get operation was successful
 Copy complete, now saving to disk (please wait)...
 ----
 ====
-. 이전에 다운로드한 RCF를 bootflash에 적용합니다.
+. 이전에 다운로드한 RCF를 부트플래시에 적용합니다.
 +
-Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Cisco Nexus 3000 Series NX-OS 명령 참조"^] 안내선.
+Cisco 명령에 대한 자세한 내용은 해당 가이드를 참조하세요. https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^] 가이드.
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-이 예에서는 RCF 파일 "Nexus_3232C_RCF_v1.6-Cluster-HA-Breakout.txt"가 스위치 CS2에 설치되어 있음을 보여 줍니다.
+이 예에서는 RCF 파일을 보여줍니다. `Nexus_3232C_RCF_v1.6-Cluster-HA-Breakout.txt` 스위치 cs2에 설치 중:
 
 [listing, subs="+quotes"]
 ----
@@ -344,50 +344,50 @@ cs2# *copy Nexus_3232C_RCF_v1.6-Cluster-HA-Breakout.txt running-config echo-comm
 +
 [CAUTION]
 ====
-RCF의 *설치 참고사항*, *중요 참고사항* 및 *배너* 섹션을 자세히 읽으세요.  스위치의 올바른 구성과 작동을 보장하려면 이 지침을 읽고 따라야 합니다.
+RCF의 *설치 참고사항*, *중요 참고사항* 및 *배너* 섹션을 자세히 읽으세요. 스위치의 올바른 구성과 작동을 보장하려면 이 지침을 읽고 따라야 합니다.
 
 ====
-. RCF 파일이 올바른 최신 버전인지 확인합니다.
+. RCF 파일이 올바른 최신 버전인지 확인하세요.
 +
-'show running-config'를 선택합니다
+`show running-config`
 
 +
-출력을 점검하여 올바른 RCF가 있는지 확인할 때 다음 정보가 올바른지 확인하십시오.
+올바른 RCF가 있는지 확인하기 위해 출력을 확인할 때 다음 정보가 올바른지 확인하세요.
 
 +
 ** RCF 배너
-** 노드 및 포트 설정입니다
-** 사용자 지정
+** 노드 및 포트 설정
+** 사용자 정의
 +
-출력은 사이트 구성에 따라 달라집니다. 포트 설정을 확인하고 설치된 RCF에 대한 변경 사항은 릴리스 노트를 참조하십시오.
+출력은 사이트 구성에 따라 달라집니다.  포트 설정을 확인하고 설치한 RCF에 대한 특정 변경 사항이 있는지 릴리스 노트를 참조하세요.
 
 
 
-. 이전에 사용자 지정한 내용을 스위치 구성에 다시 적용합니다. link:cabling-considerations-3232c.html["케이블 연결 및 구성 고려 사항을 검토합니다"]필요한 추가 변경에 대한 자세한 내용은 을 참조하십시오.
-. RCF 버전 및 스위치 설정이 올바른지 확인한 후 running-config 파일을 startup-config 파일에 복사합니다.
+. 스위치 구성에 이전의 사용자 정의를 다시 적용합니다.  참조하다link:cabling-considerations-3232c.html["케이블링 및 구성 고려 사항 검토"] 추가로 필요한 변경 사항에 대한 자세한 내용은 문의하세요.
+. RCF 버전과 스위치 설정이 올바른지 확인한 후 running-config 파일을 startup-config 파일에 복사합니다.
 +
-Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Cisco Nexus 3000 Series NX-OS 명령 참조"^] 안내선.
+Cisco 명령에 대한 자세한 내용은 해당 가이드를 참조하세요. https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^] 가이드.
 
 +
 [listing]
 ----
 cs2# copy running-config startup-config [########################################] 100% Copy complete
 ----
-. 스위치 CS2를 재부팅합니다. 스위치가 재부팅되는 동안 노드에 보고된 "클러스터 포트 다운" 이벤트를 무시할 수 있습니다.
+. 스위치 cs2를 재부팅합니다.  스위치가 재부팅되는 동안 노드에서 보고된 "클러스터 포트 다운" 이벤트는 무시할 수 있습니다.
 +
 [listing, subs="+quotes"]
 ----
 cs2# *reload*
 This command will reboot the system. (y/n)?  [n] *y*
 ----
-. 클러스터에서 클러스터 포트의 상태를 확인합니다.
+. 클러스터의 클러스터 포트 상태를 확인합니다.
 +
-.. e0d 포트가 클러스터의 모든 노드에서 정상 작동 중인지 확인합니다.
+.. 클러스터의 모든 노드에서 e0d 포트가 작동 중이고 정상인지 확인하세요.
 +
-네트워크 포트 show-role cluster
+`network port show -role cluster`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -424,9 +424,9 @@ e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
 8 entries were displayed.
 ----
 ====
-.. 클러스터에서 스위치 상태를 확인합니다. LIF가 e0d에 홈링되지 않으므로 스위치 CS2가 표시되지 않을 수 있습니다.
+.. 클러스터에서 스위치 상태를 확인합니다(LIF가 e0d에 위치하지 않으므로 스위치 cs2가 표시되지 않을 수 있음).
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -470,18 +470,18 @@ cs2                         cluster-network    10.233.205.91    N3K-C3232C
 +
 [NOTE]
 ====
-이전에 스위치에 로드된 RCF 버전에 따라 cs1 스위치 콘솔에서 다음 출력을 볼 수 있습니다. 2020년 11월 17일 16:07:18 cs1 %$ VDC-1 %$ %STP-2-UNBLOCK_CONSIST_PORT: VLAN0092에서 포트 port-channel1 차단 해제.  포트 일관성이 복구되었습니다.  2020년 11월 17일 16:07:23 cs1 %$ VDC-1 %$ %STP-2-BLOCK_PVID_PEER: VLAN0001에서 port-channel1을 차단합니다.  피어 VLAN이 일관되지 않습니다.  2020년 11월 17일 16:07:23 cs1 %$ VDC-1 %$ %STP-2-BLOCK_PVID_LOCAL: VLAN0092에서 port-channel1을 차단합니다.  로컬 VLAN이 일관되지 않습니다.
+이전에 스위치에 로드된 RCF 버전에 따라 cs1 스위치 콘솔에서 다음 출력을 볼 수 있습니다. 2020년 11월 17일 16:07:18 cs1 %$ VDC-1 %$ %STP-2-UNBLOCK_CONSIST_PORT: VLAN0092에서 포트 port-channel1 차단 해제. 포트 일관성이 복구되었습니다. 2020년 11월 17일 16:07:23 cs1 %$ VDC-1 %$ %STP-2-BLOCK_PVID_PEER: VLAN0001에서 port-channel1을 차단합니다. 피어 VLAN이 일관되지 않습니다. 2020년 11월 17일 16:07:23 cs1 %$ VDC-1 %$ %STP-2-BLOCK_PVID_LOCAL: VLAN0092에서 port-channel1을 차단합니다. 로컬 VLAN이 일관되지 않습니다.
 
 ====
 
 
 +
 
-NOTE: 클러스터 노드가 정상 상태로 보고되려면 최대 5분이 걸릴 수 있습니다.
+NOTE: 클러스터 노드가 정상으로 보고되기까지 최대 5분이 걸릴 수 있습니다.
 
-. 클러스터 스위치 CS1에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.
+. 클러스터 스위치 cs1에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 다음 예제에서는 1단계의 인터페이스 예제 출력을 사용합니다.
@@ -492,12 +492,12 @@ cs1(config)# *interface eth1/1/1-2,eth1/7-8*
 cs1(config-if-range)# *shutdown*
 ----
 ====
-. 클러스터 LIF가 스위치 CS2에 호스팅된 포트로 마이그레이션되었는지 확인합니다. 이 작업은 몇 초 정도 걸릴 수 있습니다.
+. 클러스터 LIF가 스위치 cs2에 호스팅된 포트로 마이그레이션되었는지 확인합니다. 몇 초 정도 걸릴 수 있습니다.
 +
-네트워크 인터페이스 show-role cluster
+`network interface show -role cluster`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -519,12 +519,12 @@ Cluster
 cluster1::*>
 ----
 ====
-. 클러스터가 정상 상태인지 확인합니다.
+. 클러스터가 정상인지 확인하세요.
 +
-'클러스터 쇼'
+`cluster show`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -541,7 +541,7 @@ cluster1::*>
 ----
 ====
 . 스위치 cs1에서 4~19단계를 반복합니다.
-. 클러스터 LIF에서 자동 되돌리기 기능을 설정합니다.
+. 클러스터 LIF에서 자동 되돌리기를 활성화합니다.
 +
 [listing, subs="+quotes"]
 ----
@@ -553,12 +553,12 @@ cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert true
 
 == 3단계: 클러스터 네트워크 구성 및 클러스터 상태 확인
 
-. 클러스터 포트에 연결된 스위치 포트가 * 업 * 인지 확인합니다.
+. 클러스터 포트에 연결된 스위치 포트가 *작동*하는지 확인하세요.
 +
 `show interface brief | grep up`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -574,12 +574,12 @@ Eth1/8        1       eth  trunk  up      none                   100G(D) --
 .
 ----
 ====
-. CS1과 CS2 사이의 ISL이 작동하는지 확인합니다.
+. cs1과 cs2 사이의 ISL이 작동하는지 확인하세요.
 +
-'포트-채널 요약
+`show port-channel summary`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -601,12 +601,12 @@ Group Port-       Type     Protocol  Member Ports
 cs1#
 ----
 ====
-. 클러스터 LIF가 홈 포트로 되돌려졌는지 확인합니다.
+. 클러스터 LIF가 홈 포트로 되돌아갔는지 확인하세요.
 +
-네트워크 인터페이스 show-role cluster
+`network interface show -role cluster`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -629,15 +629,15 @@ cluster1::*>
 ----
 ====
 +
-클러스터 LIF가 홈 포트로 돌아오지 않은 경우 수동으로 되돌리십시오.
+클러스터 LIFS가 홈 포트로 돌아오지 않은 경우 수동으로 되돌리세요.
 `network interface revert -vserver _vserver_name_ -lif _lif_name_`
 
-. 클러스터가 정상 상태인지 확인합니다.
+. 클러스터가 정상인지 확인하세요.
 +
-'클러스터 쇼'
+`cluster show`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -653,7 +653,7 @@ cluster1-04          true    true          false
 cluster1::*>
 ----
 ====
-. 원격 클러스터 인터페이스의 연결을 확인합니다.
+. 원격 클러스터 인터페이스의 연결성을 확인하세요.
 
 
 [role="tabbed-block"]
@@ -667,7 +667,7 @@ cluster1::*>
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-* 참고: * 몇 초 동안 기다린 후 `show` 명령을 실행하여 세부 정보를 표시합니다.
+*참고:* 실행하기 전에 몇 초 동안 기다리십시오. `show` 세부 정보를 표시하는 명령입니다.
 
 [listing, subs="+quotes"]
 ----
@@ -744,5 +744,5 @@ RPC status:
 ----
 --
 ====
-.다음 단계
+.다음은 무엇인가요?
 RCF를 업그레이드한 후에는link:configure-ssh-keys.html["SSH 구성을 확인하세요"] .

@@ -2,43 +2,43 @@
 permalink: switch-cisco-9336c-fx2-shared/install-nxos-rcf-9336c-shared.html 
 sidebar: sidebar 
 keywords: install rcf, cisco switches 
-summary: Nexus 9336C-FX2 스위치를 처음 설정한 후 RCF를 설치할 수 있으며, 이 절차를 사용하여 RCF 버전을 업그레이드할 수도 있습니다. 
+summary: Nexus 9336C-FX2 스위치를 처음 설정한 후 RCF를 설치할 수 있습니다. 이 절차를 사용하여 RCF 버전을 업그레이드할 수도 있습니다. 
 ---
-= RCF(Reference Configuration File) 설치
+= 참조 구성 파일(RCF) 설치
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Nexus 9336C-FX2 스위치를 처음 설정한 후 RCF(Reference Configuration File)를 설치할 수 있습니다.
+Nexus 9336C-FX2 스위치를 처음 설정한 후 참조 구성 파일(RCF)을 설치할 수 있습니다.
 
-시작하기 전에 의 절차를 완료하십시오 link:prepare-nxos-rcf-9336c-shared.html["NX-OS 및 RCF 설치 준비"].
+시작하기 전에 다음 절차를 완료하세요.link:prepare-nxos-rcf-9336c-shared.html["NX-OS 및 RCF 설치 준비"] .
 
 .시작하기 전에
-다음 설치 및 연결을 확인합니다.
+다음 설치 및 연결을 확인하세요.
 
-* 스위치에 콘솔 연결 스위치에 원격으로 액세스할 수 있는 경우 콘솔 연결은 선택 사항입니다.
-* 스위치 CS1 및 스위치 CS2의 전원이 켜지고 초기 스위치 설정이 완료됩니다(관리 IP 주소 및 SSH가 설정됨).
+* 스위치에 대한 콘솔 연결.  스위치에 원격으로 접속할 수 있는 경우 콘솔 연결은 선택 사항입니다.
+* 스위치 cs1과 스위치 cs2에 전원이 공급되고 초기 스위치 설정이 완료되었습니다(관리 IP 주소와 SSH가 설정됨).
 * 원하는 NX-OS 버전이 설치되었습니다.
-* 스위치 간 ISL(Inter-Switch Link) 연결이 연결되어 있습니다.
-* ONTAP 노드 클러스터 포트가 연결되어 있지 않습니다.
+* 스위치 간의 ISL(Inter-Switch Link) 연결이 연결됩니다.
+* ONTAP 노드 클러스터 포트가 연결되지 않았습니다.
 
 
 
 
-== 1단계: 스위치에 RCF를 설치합니다
+== 1단계: 스위치에 RCF 설치
 
-. SSH를 사용하거나 시리얼 콘솔을 사용하여 스위치 CS1에 로그인합니다.
-. FTP, TFTP, SFTP 또는 SCP 전송 프로토콜 중 하나를 사용하여 RCF를 스위치 CS1의 bootflash에 복사합니다.
+. SSH나 직렬 콘솔을 사용하여 Switch cs1에 로그인합니다.
+. FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 cs1의 부트플래시에 복사합니다.
 +
-Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Cisco Nexus 9000 Series NX-OS 명령 참조"^].
+Cisco 명령에 대한 자세한 내용은 해당 가이드를 참조하세요. https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Cisco Nexus 9000 시리즈 NX-OS 명령 참조"^] .
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-이 예에서는 스위치 CS1의 bootflash에 RCF를 복제하는 데 사용되는 TFTP를 보여 줍니다.
+이 예에서는 TFTP를 사용하여 RCF를 스위치 cs1의 부트플래시에 복사하는 방법을 보여줍니다.
 
 [listing, subs="+quotes"]
 ----
@@ -50,24 +50,24 @@ TFTP get operation was successful
 Copy complete, now saving to disk (please wait)...
 ----
 ====
-. 이전에 다운로드한 RCF를 bootflash에 적용합니다.
+. 이전에 다운로드한 RCF를 부트플래시에 적용합니다.
 +
-Cisco 명령에 대한 자세한 내용은 에서 해당 설명서를 참조하십시오 https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Cisco Nexus 9000 Series NX-OS 명령 참조"^].
+Cisco 명령에 대한 자세한 내용은 해당 가이드를 참조하세요. https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Cisco Nexus 9000 시리즈 NX-OS 명령 참조"^] .
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-이 예에서는 RCF 파일을 보여 줍니다 `Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt` 스위치 CS1에 설치 중:
+이 예에서는 RCF 파일을 보여줍니다. `Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt` 스위치 cs1에 설치 중:
 
 [listing]
 ----
 cs1# copy Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt running-config echo-commands
 ----
 ====
-. 'show banner mott' 명령어의 배너 출력을 조사한다. 스위치의 올바른 구성과 작동을 위해 이 지침을 읽고 따라야 합니다.
+. 배너 출력을 검사합니다. `show banner motd` 명령. 스위치의 올바른 구성과 작동을 보장하려면 이 지침을 읽고 따라야 합니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing]
@@ -107,19 +107,19 @@ g mode:
 ******************************************************************************
 ----
 ====
-. RCF 파일이 올바른 최신 버전인지 확인합니다.
+. RCF 파일이 올바른 최신 버전인지 확인하세요.
 +
-'show running-config'를 선택합니다
+`show running-config`
 
 +
-출력을 점검하여 올바른 RCF가 있는지 확인할 때 다음 정보가 올바른지 확인하십시오.
+올바른 RCF가 있는지 확인하기 위해 출력을 확인할 때 다음 정보가 올바른지 확인하세요.
 
 +
 ** RCF 배너
-** 노드 및 포트 설정입니다
-** 사용자 지정
+** 노드 및 포트 설정
+** 사용자 정의
 +
-출력은 사이트 구성에 따라 달라집니다. 포트 설정을 확인하고 설치된 RCF에 대한 변경 사항은 릴리스 노트를 참조하십시오.
+출력은 사이트 구성에 따라 달라집니다.  포트 설정을 확인하고 설치한 RCF에 대한 특정 변경 사항이 있는지 릴리스 노트를 참조하세요.
 
 
 
@@ -160,7 +160,7 @@ cs1# copy running-config startup-config [#######################################
 +
 `show file bootflash:write_erase.cfg`
 
-. 현재 저장된 구성을 지우려면 쓰기 지우기 명령을 실행합니다.
+. 현재 저장된 구성을 지우려면 write erase 명령을 실행합니다.
 +
 `cs1# *write erase*`
 
@@ -170,11 +170,11 @@ cs1# copy running-config startup-config [#######################################
 +
 `Do you wish to proceed anyway? (y/n)  [n] *y*`
 
-. 이전에 저장한 기본 구성을 시작 구성에 복사합니다.
+. 이전에 저장된 기본 구성을 시작 구성에 복사합니다.
 +
 `cs1# *copy bootflash:write_erase.cfg startup-config*`
 
-. 스위치 CS1을 재부팅합니다.
+. 스위치 cs1을 재부팅합니다.
 +
 `cs1# *reload*`
 
@@ -182,19 +182,19 @@ cs1# copy running-config startup-config [#######################################
 `This command will reboot the system. (y/n)?  [n] *y*`
 
 . 스위치 cs2에서 1~13단계를 반복합니다.
-. ONTAP 클러스터에 있는 모든 노드의 클러스터 포트를 스위치 CS1 및 CS2에 연결합니다.
+. ONTAP 클러스터의 모든 노드의 클러스터 포트를 스위치 cs1 및 cs2에 연결합니다.
 
 
 
 
-== 2단계: 스위치 연결을 확인합니다
+== 2단계: 스위치 연결 확인
 
-. 클러스터 포트에 연결된 스위치 포트가 * 업 * 인지 확인합니다.
+. 클러스터 포트에 연결된 스위치 포트가 *작동*하는지 확인하세요.
 +
 `show interface brief`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -210,7 +210,7 @@ Eth1/8        1       eth  trunk  up      none                   100G(D) --
 .
 ----
 ====
-. 다음 명령을 사용하여 클러스터 노드가 올바른 클러스터 VLAN에 있는지 확인합니다.
+. 다음 명령을 사용하여 클러스터 노드가 올바른 클러스터 VLAN에 있는지 확인하세요.
 +
 `show vlan brief`
 
@@ -218,7 +218,7 @@ Eth1/8        1       eth  trunk  up      none                   100G(D) --
 `show interface trunk`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -365,14 +365,14 @@ Po1           1
 ====
 +
 
-NOTE: 특정 포트 및 VLAN 사용에 대한 자세한 내용은 RCF의 배너 및 중요 참고 사항 섹션을 참조하십시오.
+NOTE: 특정 포트 및 VLAN 사용에 대한 자세한 내용은 RCF의 배너 및 중요 참고 사항 섹션을 참조하세요.
 
-. CS1과 CS2 사이의 ISL이 작동하는지 확인합니다.
+. cs1과 cs2 사이의 ISL이 작동하는지 확인하세요.
 +
-'포트-채널 요약
+`show port-channel summary`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -399,11 +399,11 @@ cs1#
 
 == 3단계: ONTAP 클러스터 설정
 
-NetApp은 System Manager를 사용하여 새 클러스터를 설정할 것을 권장합니다.
+NetApp System Manager를 사용하여 새 클러스터를 설정할 것을 권장합니다.
 
-System Manager에서는 노드 관리 IP 주소 할당, 클러스터 초기화, 로컬 계층 생성, 프로토콜 구성, 초기 스토리지 프로비저닝 등 클러스터 설정 및 구성을 위한 간단하고 쉬운 워크플로를 제공합니다.
+System Manager는 노드 관리 IP 주소 할당, 클러스터 초기화, 로컬 계층 생성, 프로토콜 구성, 초기 스토리지 프로비저닝을 포함하여 클러스터 설정 및 구성을 위한 간단하고 쉬운 워크플로를 제공합니다.
 
-로 이동합니다 https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["System Manager를 사용하여 새 클러스터에서 ONTAP를 구성합니다"] 를 참조하십시오.
+로 가다 https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["System Manager를 사용하여 새 클러스터에 ONTAP 구성"] 설정 지침은 여기를 참조하세요.
 
-.다음 단계
+.다음은 무엇인가요?
 RCF를 설치한 후에는 다음을 수행할 수 있습니다. link:../switch-cshm/config-overview.html["스위치 상태 모니터링 구성"].

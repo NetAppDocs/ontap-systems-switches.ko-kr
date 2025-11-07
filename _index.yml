@@ -1,19 +1,18 @@
 ---
 indexpage:
   title: ONTAP 하드웨어 시스템에 대한 스위치 설명서
-  summary: 이 사이트의 문서를 사용하여 클러스터, 공유 스토리지 및 MetroCluster 스위치를 설치, 업그레이드 및 유지 관리할 수
-    있습니다.
+  summary: 이 사이트의 문서를 사용하여 클러스터, 공유 스토리지 및 MetroCluster 스위치를 설치, 업그레이드 및 유지 관리하세요.
   keywords: switches
-  lead: NetApp에서는 클러스터, 스토리지, 공유 스위치를 제공하여 호스트 스토리지와 2개 이상의 NetApp 컨트롤러 간에 연결을 제공함으로써
-    스토리지 인프라 전체에서 데이터와 네트워크 인터페이스를 중단 없이 이동할 수 있도록 지원합니다.
+  lead: NetApp 호스트 스토리지와 두 개 이상의 NetApp 컨트롤러 간의 연결을 제공하기 위해 클러스터, 스토리지 및 공유 스위치를 제공하므로
+    스토리지 인프라 전반에서 데이터와 네트워크 인터페이스를 중단 없이 이동할 수 있습니다.
   tiles:
-  - title: 시작하십시오
+  - title: 시작하기
     links:
     - title: 새로운 소식
       url: whats-new.html
     - title: 빠른 시작
       url: "/get-started/get-up-and-running.html"
-    - title: ONTAP 릴리즈 노트
+    - title: ONTAP 릴리스 노트
       url: https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508
   - title: 지원되는 스위치
     links:
@@ -25,9 +24,9 @@ indexpage:
       url: "/storage/index.html"
     - title: 공유 스위치
       url: "/shared/index.html"
-  - title: 사용 종료 스위치
+  - title: 사용 가능 종료 스위치
     links:
-    - title: 클러스터 스위치 - Cisco Nexus 32c
+    - title: 클러스터 스위치 - Cisco Nexus 3232c
       url: "/switch-cisco-3232c/install-overview-cisco-3232c.html"
     - title: 클러스터 스위치 - Cisco Nexus 3132Q-V
       url: "/switch-cisco-3132q-v/install-overview-cisco-3132qv.html"
@@ -37,11 +36,11 @@ indexpage:
       url: "/switch-netapp-cn1610/switch-overview-cn1610.html"
   - title: 이더넷 스위치 상태 모니터링
     links:
-    - title: 스위치 상태 모니터링을 구성합니다
+    - title: 스위치 상태 모니터링 구성
       url: "/switch-cshm/config-overview.html"
-    - title: 스위치 상태 모니터링을 확인합니다
+    - title: 스위치 상태 모니터링 확인
       url: "/switch-cshm/monitor-overview.html"
-    - title: 스위치 상태 모니터링을 위한 로그를 수집합니다
+    - title: 스위치 상태 모니터링을 위한 로그 수집
       url: "/switch-cshm/log-collection-overview.html"
   - title: 관련 ONTAP 문서
     links:
@@ -49,13 +48,13 @@ indexpage:
       url: https://docs.netapp.com/us-en/ontap-systems/index.html
     - title: ONTAP 소프트웨어
       url: https://docs.netapp.com/us-en/ontap/index.html
-  - title: 도구 지원
+  - title: 도구 및 지원
     links:
     - title: NetApp 상호 운용성 매트릭스
       url: http://mysupport.netapp.com/matrix/
-    - title: NetApp Hardware Universe를 참조하십시오
+    - title: NetApp Hardware Universe
       url: https://hwu.netapp.com/
-    - title: NetApp 기술 자료
+    - title: NetApp 지식 기반
       url: https://kb.netapp.com/
-    - title: Active IQ(로그인 필요)
+    - title: Active IQ (로그인 필요)
       url: https://activeiq.netapp.com/?source=aiqnsspages

@@ -2,29 +2,29 @@
 permalink: switch-cisco-3132q-v/cn1610-migrate-workflow.html 
 sidebar: sidebar 
 keywords: 3132q-v cabling setup, 3132q-v switches configuration, nx-os 
-summary: Cisco 3132q-v 스위치를 구성하기 전에 다음 정보를 검토하십시오. 
+summary: Cisco 3132q-v 스위치를 구성하기 전에 다음 정보를 검토하세요. 
 ---
-= CN1610 스위치에서 Nexus 3132Q-V 스위치 워크플로우로 마이그레이션
+= CN1610 스위치에서 Nexus 3132Q-V 스위치로 마이그레이션 워크플로
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-다음 워크플로우 단계에 따라 CN1610 스위치를 Cisco Nexus 3132Q-V 스위치로 마이그레이션하십시오.
+CN1610 스위치를 Cisco Nexus 3132Q-V 스위치로 마이그레이션하려면 다음 워크플로 단계를 따르세요.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1개"]link:cn1610-migrate-requirements.html["마이그레이션 요구 사항"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["하나"]link:cn1610-migrate-requirements.html["이주 요구 사항"]
 [role="quick-margin-para"]
-마이그레이션 프로세스에 대한 요구 사항 및 예제 스위치 정보를 검토합니다.
+마이그레이션 프로세스에 대한 요구 사항과 예시 스위치 정보를 검토하세요.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["2개"]link:cn1610-prepare-to-migrate.html["마이그레이션을 준비합니다"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["둘"]link:cn1610-prepare-to-migrate.html["이주 준비"]
 [role="quick-margin-para"]
-Nexus 3132Q-V 스위치로의 마이그레이션을 위해 CN1610 스위치를 준비합니다.
+CN1610 스위치를 Nexus 3132Q-V 스위치로 마이그레이션할 준비를 하세요.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["세 가지"]link:cn1610-configure-ports.html["포트를 구성합니다"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["삼"]link:cn1610-configure-ports.html["포트 구성"]
 [role="quick-margin-para"]
-새 Nexus 3132Q-V 스위치로 마이그레이션하도록 포트를 구성합니다.
+새로운 Nexus 3132Q-V 스위치로 마이그레이션하기 위해 포트를 구성하세요.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["네"]link:cn1610-complete-migration.html["마이그레이션을 완료하십시오"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["네"]link:cn1610-complete-migration.html["마이그레이션을 완료하세요"]
 [role="quick-margin-para"]
-새 Nexus 3132Q-V 스위치로의 마이그레이션을 완료합니다.
+새로운 Nexus 3132Q-V 스위치로의 마이그레이션을 완료하세요.

@@ -2,7 +2,7 @@
 permalink: switch-cisco-9336c-fx2-shared/configure-switch-overview-9336c-shared.html 
 sidebar: sidebar 
 keywords: BES-53248 switches, initial installation, configure switch-cisco-9336c-fx2 switch 
-summary: Cisco Nexus 9336C-FX2 공유 스위치의 설치 및 구성 개요 
+summary: Cisco Nexus 9336C-FX2 공유 스위치 설치 및 구성 개요 
 ---
 = Cisco Nexus 9336C-FX2 공유 스위치 설치 및 설정 워크플로
 :allow-uri-read: 
@@ -11,18 +11,18 @@ summary: Cisco Nexus 9336C-FX2 공유 스위치의 설치 및 구성 개요
 
 
 [role="lead"]
-Cisco Nexus 9336C-FX2 공유 스위치는 Cisco Nexus 9000 플랫폼의 일부이며 NetApp 시스템 캐비닛에 설치할 수 있습니다. 공유 스위치를 사용하면 공유 클러스터 및 스토리지 참조 구성 파일 사용을 지원하여 클러스터 및 스토리지 기능을 공유 스위치 구성으로 결합할 수 있습니다.
+Cisco Nexus 9336C-FX2 공유 스위치는 Cisco Nexus 9000 플랫폼의 일부이며 NetApp 시스템 캐비닛에 설치할 수 있습니다.  공유 스위치를 사용하면 공유 클러스터 및 스토리지 참조 구성 파일의 사용을 지원하여 클러스터 및 스토리지 기능을 공유 스위치 구성으로 결합할 수 있습니다.
 
 Cisco 9336C-FX2 스위치를 설치하고 설정하려면 다음 워크플로 단계를 따르세요.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1개"]link:configure-reqs-9336c-shared.html["구성 요구 사항을 검토하세요"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["하나"]link:configure-reqs-9336c-shared.html["구성 요구 사항을 검토하세요"]
 [role="quick-margin-para"]
 9336C-FX2 공유 스위치에 대한 구성 요구 사항을 검토하세요.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["2개"]link:components-9336c-shared.html["구성 요소와 부품 번호를 검토하세요"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["둘"]link:components-9336c-shared.html["구성 요소와 부품 번호를 검토하세요"]
 [role="quick-margin-para"]
 9336C-FX2 공유 스위치의 구성 요소와 부품 번호를 검토하세요.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["세 가지"]link:required-documentation-9336c-shared.html["필수 서류를 검토하세요"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["삼"]link:required-documentation-9336c-shared.html["필수 서류를 검토하세요"]
 [role="quick-margin-para"]
 9336C-FX2 스위치와 ONTAP 클러스터를 설정하려면 특정 스위치 및 컨트롤러 설명서를 검토하세요.

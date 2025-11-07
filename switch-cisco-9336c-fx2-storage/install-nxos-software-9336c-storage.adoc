@@ -2,9 +2,9 @@
 permalink: switch-cisco-9336c-fx2-storage/install-nxos-software-9336c-storage.html 
 sidebar: sidebar 
 keywords: procedure, install, nx-os, software, nexus, cluster, switch, install the nx-os software - cisco nexus 9336c-fx2 
-summary: 이 절차를 사용하여 Nexus 9336C-FX2 클러스터 스위치에 NX-OS 소프트웨어를 설치할 수 있습니다. 
+summary: 다음 절차를 사용하여 Nexus 9336C-FX2 클러스터 스위치에 NX-OS 소프트웨어를 설치할 수 있습니다. 
 ---
-= NX-OS 소프트웨어를 설치 또는 업그레이드합니다
+= NX-OS 소프트웨어 설치 또는 업그레이드
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,61 +13,60 @@ summary: 이 절차를 사용하여 Nexus 9336C-FX2 클러스터 스위치에 NX
 [role="lead"]
 Nexus 9336C-FX2 및 9336C-FX2-T 스위치에 NX-OS 소프트웨어를 설치하려면 다음 절차를 따르세요.
 
-시작하기 전에 의 절차를 완료하십시오 link:install-nxos-overview-9336c-storage.html["NX-OS 및 RCF 설치 준비"].
+시작하기 전에 다음 절차를 완료하세요.link:install-nxos-overview-9336c-storage.html["NX-OS 및 RCF 설치 준비"] .
 
 
 
-== 요구사항 검토
+== 검토 요구 사항
 
 .시작하기 전에
-다음 사항을 확인하십시오.
+다음 사항이 있는지 확인하세요.
 
-* 스위치 구성의 현재 백업
-* 완전히 작동하는 클러스터(로그에 오류 또는 유사한 문제 없음)
+* 스위치 구성의 현재 백업입니다.
+* 완벽하게 작동하는 클러스터(로그에 오류나 유사한 문제가 없음).
 
 
-.추천 문서
+.제안된 문서
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치 페이지"^]
 +
-지원되는 ONTAP 및 NX-OS 버전은 스위치 호환성 표를 참조하십시오.
+지원되는 ONTAP 및 NX-OS 버전에 대한 스위치 호환성 표를 참조하세요.
 
-* link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-installation-guides-list.html["소프트웨어 업그레이드 및 다운그레이드 설명서"^]
+* link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-installation-guides-list.html["소프트웨어 업그레이드 및 다운그레이드 가이드"^]
 +
-Cisco 스위치 업그레이드 및 다운그레이드 절차에 대한 자세한 내용은 Cisco 웹 사이트에 있는 해당 소프트웨어 및 업그레이드 가이드를 참조하십시오.
+Cisco 스위치 업그레이드 및 다운그레이드 절차에 대한 전체 문서는 Cisco 웹사이트에서 제공하는 해당 소프트웨어 및 업그레이드 가이드를 참조하세요.
 
 * link:https://www.cisco.com/c/dam/en/us/td/docs/dcn/tools/nexus-9k3k-issu-matrix/index.html["Cisco Nexus 9000 및 3000 업그레이드 및 ISSU 매트릭스"^]
 +
-Nexus 9000 시리즈 스위치의 Cisco NX-OS 소프트웨어의 중단 업그레이드/다운그레이드에 대한 정보를 제공합니다
-현재 릴리스 및 대상 릴리스 기준.
+현재 및 대상 릴리스를 기반으로 Nexus 9000 시리즈 스위치의 Cisco NX-OS 소프트웨어에 대한 중단적 업그레이드/다운그레이드에 대한 정보를 제공합니다.
 
 +
-페이지에서 * Disruptive Upgrade * 를 선택하고 드롭다운 목록에서 현재 릴리스 및 대상 릴리스를 선택합니다.
+해당 페이지에서 *중단 업그레이드*를 선택하고 드롭다운 목록에서 현재 릴리스와 대상 릴리스를 선택합니다.
 
 
 
-.예를 참조하십시오
+.예시에 관하여
 이 절차의 예에서는 다음 스위치 및 노드 명명법을 사용합니다.
 
-* 두 Cisco 스위치의 이름은 CS1과 CS2입니다.
-* 노드 이름은 cluster1-01, cluster1-02, cluster1-03 및 cluster1-04입니다.
-* 클러스터 LIF 이름은 cluster1-01_clus1, cluster1-01_clus2, cluster1-02_clus1, cluster1-02_clus2, cluster1-03_clus1, cluster1-03_clus2, cluster1-04_clus1 및 cluster1-04_clus2.
-* 'cluster1:: *>' 프롬프트는 클러스터의 이름을 나타냅니다.
+* 두 Cisco 스위치의 이름은 cs1과 cs2입니다.
+* 노드 이름은 cluster1-01, cluster1-02, cluster1-03, cluster1-04입니다.
+* 클러스터 LIF 이름은 cluster1-01_clus1, cluster1-01_clus2, cluster1-02_clus1, cluster1-02_clus2, cluster1-03_clus1, cluster1-03_clus2, cluster1-04_clus1 및 cluster1-04_clus2입니다.
+* 그만큼 `cluster1::*>` 프롬프트는 클러스터의 이름을 나타냅니다.
 
 
 
 
-== 소프트웨어를 설치합니다
+== 소프트웨어를 설치하세요
 
-이 절차를 수행하려면 ONTAP 명령과 Cisco Nexus 9000 시리즈 스위치 명령을 모두 사용해야 합니다. 달리 표시되지 않는 한 ONTAP 명령이 사용됩니다.
+이 절차에서는 ONTAP 명령과 Cisco Nexus 9000 시리즈 스위치 명령을 모두 사용해야 합니다. 달리 지정되지 않는 한 ONTAP 명령을 사용합니다.
 
 .단계
 . 클러스터 스위치를 관리 네트워크에 연결합니다.
-. ping 명령을 사용하여 NX-OS 소프트웨어 및 RCF를 호스팅하는 서버에 대한 연결을 확인하십시오.
+. ping 명령을 사용하여 NX-OS 소프트웨어와 RCF를 호스팅하는 서버에 대한 연결을 확인합니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-이 예에서는 스위치가 IP 주소 172.19.2.1로 서버에 연결할 수 있는지 확인합니다.
+이 예제에서는 스위치가 IP 주소 172.19.2.1의 서버에 도달할 수 있는지 확인합니다.
 
 [listing, subs="+quotes"]
 ----
@@ -79,10 +78,10 @@ Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
 ====
 . 클러스터 스위치에 연결된 각 노드의 클러스터 포트를 표시합니다.
 +
-네트워크 디바이스 발견 쇼
+`network device-discovery show`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -108,12 +107,12 @@ cluster1::*>
 ====
 . 각 클러스터 포트의 관리 및 운영 상태를 확인합니다.
 +
-.. 모든 클러스터 포트가 * UP * 이고 정상 상태인지 확인합니다.
+.. 모든 클러스터 포트가 정상 상태로 *작동*되어 있는지 확인하세요.
 +
-네트워크 포트 show-role cluster
+`network port show -role cluster`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -156,12 +155,12 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 cluster1::*>
 ----
 ====
-.. 모든 클러스터 인터페이스(LIF)가 홈 포트에 있는지 확인합니다.
+.. 모든 클러스터 인터페이스(LIF)가 홈 포트에 있는지 확인하세요.
 +
-네트워크 인터페이스 show-role cluster
+`network interface show -role cluster`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -183,12 +182,12 @@ Cluster
 cluster1::*>
 ----
 ====
-.. 클러스터가 두 클러스터 스위치에 대한 정보를 표시하는지 확인합니다.
+.. 클러스터가 두 클러스터 스위치에 대한 정보를 모두 표시하는지 확인합니다.
 +
-'system cluster-switch show-is-monitoring-enabled-operational true'
+`system cluster-switch show -is-monitoring-enabled-operational true`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -216,13 +215,13 @@ cluster1::*>
 ====
 
 
-. 클러스터 LIF에서 자동 되돌리기 기능을 해제합니다. 클러스터 LIF는 파트너 클러스터 스위치로 페일오버하고 타겟 스위치에서 업그레이드 절차를 수행할 때 그대로 유지됩니다.
+. 클러스터 LIF에서 자동 되돌리기를 비활성화합니다.  클러스터 LIF는 파트너 클러스터 스위치로 장애 조치되고 대상 스위치에서 업그레이드 절차를 수행하는 동안 해당 위치에 남아 있습니다.
 +
-'network interface modify -vserver Cluster-lif * -auto-revert false'
+`network interface modify -vserver Cluster -lif * -auto-revert false`
 
-. NX-OS 소프트웨어 및 EPLD 이미지를 Nexus 9336C-FX2 스위치에 복사합니다.
+. NX-OS 소프트웨어와 EPLD 이미지를 Nexus 9336C-FX2 스위치에 복사합니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -261,12 +260,12 @@ Copy complete, now saving to disk (please wait)...
 Copy complete.
 ----
 ====
-. 실행 중인 NX-OS 소프트웨어 버전을 확인합니다.
+. NX-OS 소프트웨어의 실행 버전을 확인하세요.
 +
-'How version'입니다
+`show version`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -329,7 +328,7 @@ cs2#
 이미지 파일을 설치하면 스위치를 재부팅할 때마다 이미지 파일이 로드됩니다.
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -396,12 +395,12 @@ Warning: please do not remove or power off the module at this time.
 Finishing the upgrade, switch will reboot in 10 seconds.
 ----
 ====
-. 스위치를 재부팅한 후 새로운 버전의 NX-OS 소프트웨어를 확인합니다.
+. 스위치가 재부팅된 후 NX-OS 소프트웨어의 새 버전을 확인하세요.
 +
-'How version'입니다
+`show version`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -456,9 +455,9 @@ plugin
 Active Package(s):
 ----
 ====
-. EPLD 이미지를 업그레이드하고 스위치를 reboot한다.
+. EPLD 이미지를 업그레이드하고 스위치를 재부팅합니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -507,9 +506,9 @@ EPLDs upgraded.
 Module 1 EPLD upgrade is successful.
 ----
 ====
-. 스위치 재부팅 후 다시 로그인하여 새 버전의 EPLD가 성공적으로 로드되었는지 확인합니다.
+. 스위치를 재부팅한 후 다시 로그인하여 새로운 버전의 EPLD가 성공적으로 로드되었는지 확인하세요.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -527,14 +526,14 @@ GEM  FPGA                        0x2
 GEM  FPGA                        0x2
 ----
 ====
-. 클러스터에서 클러스터 포트의 상태를 확인합니다.
+. 클러스터의 클러스터 포트 상태를 확인합니다.
 +
-.. 클러스터 포트가 클러스터의 모든 노드에서 정상 작동하는지 확인합니다.
+.. 클러스터의 모든 노드에서 클러스터 포트가 작동 중이고 정상인지 확인하세요.
 +
-네트워크 포트 show-role cluster
+`network port show -role cluster`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -577,10 +576,10 @@ e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
 ====
 .. 클러스터에서 스위치 상태를 확인합니다.
 +
-네트워크 디바이스 검색 표시 프로토콜 CDP
+`network device-discovery show -protocol cdp`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -623,7 +622,7 @@ cs2                         cluster-network    10.233.205.91    N9K-C9336C-FX2
 
 2 entries were displayed.
 ----
-이전에 스위치에 로드된 RCF 버전에 따라 CS1 스위치 콘솔에서 다음 출력을 관찰할 수 있습니다.
+스위치에 이전에 로드된 RCF 버전에 따라 cs1 스위치 콘솔에서 다음과 같은 출력이 표시될 수 있습니다.
 
 [listing]
 ----
@@ -634,12 +633,12 @@ cs2                         cluster-network    10.233.205.91    N9K-C9336C-FX2
 ====
 
 
-. 클러스터가 정상 상태인지 확인합니다.
+. 클러스터가 정상인지 확인하세요.
 +
-'클러스터 쇼'
+`cluster show`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -655,17 +654,17 @@ cluster1-04          true     true          false
 cluster1::*>
 ----
 ====
-. 6-13단계를 반복하여 스위치 CS1에 NX-OS 소프트웨어를 설치합니다.
-. 클러스터 LIF에서 자동 되돌리기 기능을 설정합니다.
+. 스위치 cs1에 NX-OS 소프트웨어를 설치하려면 6~13단계를 반복합니다.
+. 클러스터 LIF에서 자동 되돌리기를 활성화합니다.
 +
-'network interface modify -vserver Cluster-lif * -auto-revert true'
+`network interface modify -vserver Cluster -lif * -auto-revert true`
 
-. 클러스터 LIF가 홈 포트로 되돌려졌는지 확인합니다.
+. 클러스터 LIF가 홈 포트로 되돌아갔는지 확인하세요.
 +
-네트워크 인터페이스 show-role cluster
+`network interface show -role cluster`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -688,12 +687,12 @@ cluster1::*>
 ----
 ====
 +
-클러스터 LIF가 홈 포트로 반환되지 않은 경우 로컬 노드에서 수동으로 되돌립니다.
+클러스터 LIF가 홈 포트로 돌아오지 않은 경우 로컬 노드에서 수동으로 되돌립니다.
 
 +
 `network interface revert -vserver Cluster -lif <lif_name>`
 
 
 
-.다음 단계
+.다음은 무엇인가요?
 NX-OS 소프트웨어를 설치하거나 업그레이드한 후에는 다음을 수행할 수 있습니다.link:install-rcf-software-9336c-storage.html["RCF 설치 또는 업그레이드"] .

@@ -2,22 +2,22 @@
 permalink: switch-netapp-cn1610/install-overview-cn1610.html 
 sidebar: sidebar 
 keywords: install, fastpath, software, rcfs 
-summary: NetApp CN1610 스위치를 구성하기 전에 절차 개요를 검토하십시오. 
+summary: NetApp CN1610 스위치를 구성하기 전에 절차 개요를 검토하세요. 
 ---
-= NetApp CN1610 스위치에 대한 워크플로우를 설치하고 구성합니다
+= NetApp CN1610 스위치에 대한 워크플로 설치 및 구성
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-ONTAP를 실행하는 시스템에서 NetApp CN1610 스위치를 설치 및 구성하려면 다음 단계를 수행하십시오.
+ONTAP 실행하는 시스템에 NetApp CN1610 스위치를 설치하고 구성하려면 다음 단계를 따르세요.
 
-. link:install-hardware-cn1610.html["하드웨어를 설치합니다"]
-. link:install-fastpath-software.html["FASTPATH 소프트웨어를 설치합니다"]
-. link:install-rcf-file.html["참조 구성 파일을 설치합니다"]
+. link:install-hardware-cn1610.html["하드웨어 설치"]
+. link:install-fastpath-software.html["FASTPATH 소프트웨어 설치"]
+. link:install-rcf-file.html["참조 구성 파일 설치"]
 +
-스위치에서 ONTAP 8.3.1 이상을 실행 중인 경우 의 지침을 따릅니다 link:install-fastpath-rcf-831.html["ONTAP 8.3.1 이상을 실행하는 스위치에 FASTPATH 및 RCF를 설치합니다."]
+스위치가 ONTAP 8.3.1 이상을 실행하는 경우 다음 지침을 따르세요.link:install-fastpath-rcf-831.html["ONTAP 8.3.1 이상을 실행하는 스위치에 FASTPATH ​​및 RCF를 설치합니다."]
 
-. link:configure-hardware-cn1610.html["스위치를 구성합니다"]
+. link:configure-hardware-cn1610.html["스위치 구성"]
 

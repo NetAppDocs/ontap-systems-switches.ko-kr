@@ -9,7 +9,7 @@ summary: Cisco Nexus 9364D-GX2A 스위치의 포트 세부 정보입니다.
 
 
 [role="lead"]
-Cisco Nexus 9364D-GX2A 스위치는 Cisco Nexus 9000 플랫폼의 일부이며 NetApp 시스템 캐비닛에 설치할 수 있습니다.  9364D-GX2A 스위치를 사용하면 두 개 이상의 노드로 ONTAP 클러스터를 구축할 수 있습니다.
+Cisco Nexus 9364D-GX2A 스위치는 Cisco Nexus 9000 플랫폼의 일부이며 NetApp 시스템 캐비닛에 설치할 수 있습니다. 9364D-GX2A 스위치를 사용하면 두 개 이상의 노드로 ONTAP 클러스터를 구축할 수 있습니다.
 
 
 

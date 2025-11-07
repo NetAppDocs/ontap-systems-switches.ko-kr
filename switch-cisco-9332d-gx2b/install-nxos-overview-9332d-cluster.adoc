@@ -9,12 +9,12 @@ summary: 'Cisco NX-OS 소프트웨어와 참조 구성 파일(RCF)은 Cisco Nexu
 
 
 [role="lead"]
-NX-OS 소프트웨어 및 RCF(Reference Configuration File)를 설치하기 전에 다음 절차를 따르십시오.
+NX-OS 소프트웨어와 참조 구성 파일(RCF)을 설치하기 전에 다음 절차를 따르세요.
 
-.예를 참조하십시오
+.예시에 관하여
 이 절차의 예에서는 다음 스위치 및 노드 명명법을 사용합니다.
 
-* 두 Cisco 스위치의 이름은 CS1과 CS2입니다.
+* 두 Cisco 스위치의 이름은 cs1과 cs2입니다.
 * 노드 이름은 node1-01, node1-02, node1-03, node1-04입니다.
 * 클러스터 LIF 이름은 다음과 같습니다.
 +
@@ -24,29 +24,29 @@ NX-OS 소프트웨어 및 RCF(Reference Configuration File)를 설치하기 전�
 ** node1-04에 대한 node1-04_clus1 및 node1-04_clus2
 
 
-* 'cluster1:: *>' 프롬프트는 클러스터의 이름을 나타냅니다.
+* 그만큼 `cluster1::*>` 프롬프트는 클러스터의 이름을 나타냅니다.
 
 
-.이 작업에 대해
-이 절차를 수행하려면 ONTAP 명령과 Cisco Nexus 9000 시리즈 스위치 명령을 모두 사용해야 합니다. 달리 표시되지 않는 한 ONTAP 명령이 사용됩니다.
+.이 작업에 관하여
+이 절차에서는 ONTAP 명령과 Cisco Nexus 9000 시리즈 스위치 명령을 모두 사용해야 합니다. 달리 지정되지 않는 한 ONTAP 명령을 사용합니다.
 
 .단계
-. 이 클러스터에서 AutoSupport가 활성화되어 있으면 'system node AutoSupport invoke -node * -type all-message MAINT=x h' AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다
+. 이 클러스터에서 AutoSupport 활성화된 경우 AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다. `system node autosupport invoke -node * -type all -message MAINT=x h`
 +
-여기서 x는 유지 보수 기간(시간)입니다.
+여기서 x는 유지 관리 기간(시간)입니다.
 
 +
 
-NOTE: AutoSupport 메시지는 유지보수 기간 동안 자동 케이스 생성이 억제되도록 이 유지보수 작업의 기술 지원에 알립니다.
+NOTE: AutoSupport 메시지는 기술 지원팀에 이 유지 관리 작업을 알려 유지 관리 기간 동안 자동 케이스 생성이 억제되도록 합니다.
 
-. 권한 수준을 고급으로 변경하고 계속할 것인지 묻는 메시지가 표시되면 * y * 를 입력합니다.
+. 계속할지 묻는 메시지가 나타나면 *y*를 입력하여 권한 수준을 고급으로 변경합니다.
 +
 [source, cli]
 ----
 set -privilege advanced
 ----
 +
-고급 프롬프트('*>')가 나타납니다.
+고급 프롬프트(`*>` )이 나타납니다.
 
 . 각 항구의 행정 및 운영 상태를 확인하세요.
 +
@@ -59,7 +59,7 @@ set -privilege advanced
 network device-discovery show -protocol cdp
 ----
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -105,7 +105,7 @@ node1-02/cdp
 network port show -ipspace Cluster
 ----
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -157,7 +157,7 @@ e7b       Cluster      Cluster          up   9000  auto/100000 healthy false
 network interface show -vserver Cluster
 ----
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -189,7 +189,7 @@ Cluster
 `ha interconnect status show -node <node-name>`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -257,7 +257,7 @@ Interconnect Port 1 :
 storage port show -port-type ENET
 ----
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -300,7 +300,7 @@ node1-04
 storage shelf port show
 ----
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -337,7 +337,7 @@ Shelf ID Module State        Internal?
 storage shelf port show -fields remote-device,remote-port,connector-state
 ----
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -379,7 +379,7 @@ shelf id connector-state remote-port    remote-device
 network interface check cluster-connectivity show
 ----
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -407,7 +407,7 @@ node1-02
 `cluster ping-cluster -node <node-name>`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -459,7 +459,7 @@ RPC status:
 network interface show -vserver Cluster -fields auto-revert
 ----
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -482,5 +482,5 @@ Cluster node1-04_clus2     true
 ====
 
 
-.다음 단계
-NX-OS 소프트웨어와 RCF를 설치할 준비가 되면link:install-nxos-software-9332d-cluster.html["NX-OS 소프트웨어를 설치하거나 업그레이드하세요"] .
+.다음은 무엇인가요?
+NX-OS 소프트웨어와 RCF를 설치할 준비가 되면 link:install-nxos-software-9332d-cluster.html["NX-OS 소프트웨어를 설치하거나 업그레이드하세요"].

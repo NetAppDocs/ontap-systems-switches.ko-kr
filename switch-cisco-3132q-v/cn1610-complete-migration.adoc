@@ -4,25 +4,25 @@ sidebar: sidebar
 keywords: cisco 3132q-v, cluster switches 
 summary: Cisco Nexus 3132q-v 스위치를 AFF 또는 FAS 클러스터에서 클러스터 스위치로 사용할 수 있습니다. 
 ---
-= CN1610 스위치에서 Nexus 3132Q-V 스위치로 마이그레이션을 완료합니다
+= CN1610 스위치에서 Nexus 3132Q-V 스위치로 마이그레이션을 완료하세요.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-다음 단계를 완료하여 Nexus 3132Q-V 스위치로의 CN1610 스위치 마이그레이션을 마칩니다.
+CN1610 스위치를 Nexus 3132Q-V 스위치로 마이그레이션하려면 다음 단계를 완료하세요.
 
 .단계
-. ISL 연결이 올바른지 확인합니다 `up` 3132Q-V 스위치 C2에서:
+. ISL 연결이 올바른지 확인하십시오. `up` 3132Q-V 스위치 C2에서:
 +
-'포트-채널 요약
+`show port-channel summary`
 
 +
-포트 Eth1/31과 Eth1/32는 포트 채널에서 ISL 포트가 모두 "위쪽"으로 표시되어야 합니다.
+포트 Eth1/31 및 Eth1/32는 다음을 표시해야 합니다. `(P)` 즉, 두 ISL 포트 모두 `up` 항구 수로에서.
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing]
@@ -42,15 +42,15 @@ Group Port-       Type     Protocol  Member Ports
 1     Po1(SU)     Eth      LACP      Eth1/31(P)   Eth1/32(P)
 ----
 ====
-. 모든 노드에서 새 3132Q-V 스위치 C1에 연결된 모든 클러스터 인터커넥트 포트를 불러옵니다.
+. 모든 노드에서 새로운 3132Q-V 스위치 C1에 연결된 모든 클러스터 상호 연결 포트를 불러옵니다.
 +
-네트워크 포트 수정
+`network port modify`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 새 3132Q-V 스위치 C1에 연결된 모든 클러스터 인터커넥트 포트를 표시하는 방법을 보여줍니다.
+다음 예제에서는 새로운 3132Q-V 스위치 C1에 연결된 모든 클러스터 상호 연결 포트를 불러오는 방법을 보여줍니다.
 
 [listing]
 ----
@@ -60,15 +60,15 @@ cluster::*> network port modify -node n2 -port e0a -up-admin true
 cluster::*> network port modify -node n2 -port e0d -up-admin true
 ----
 ====
-. 클러스터 노드 포트의 상태를 확인합니다.
+. 클러스터 노드 포트의 상태를 확인하세요.
 +
-네트워크 포트 쇼
+`network port show`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 새 3132Q-V 스위치 C1의 n1과 n2에 있는 모든 클러스터 인터커넥트 포트가 "UP"인지 확인합니다.
+다음 예제에서는 새로운 3132Q-V 스위치 C1의 n1 및 n2에 있는 모든 클러스터 상호 연결 포트가 있는지 확인합니다. `up` :
 
 [listing]
 ----
@@ -96,15 +96,15 @@ e0d   cluster   cluster    up    9000  auto/10000     -        -
 8 entries were displayed.
 ----
 ====
-. 마이그레이션된 모든 클러스터 인터커넥트 LIF를 모든 노드에서 C1에 원래 연결된 다음과 같이 되돌리기:
+. 모든 노드에서 원래 C1에 연결되어 있던 모든 마이그레이션된 클러스터 상호 연결 LIF를 되돌립니다.
 +
-네트워크 인터페이스 복원
+`network interface revert`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 마이그레이션된 클러스터 LIF를 홈 포트로 되돌리는 방법을 보여 줍니다.
+다음 예제에서는 마이그레이션된 클러스터 LIF를 홈 포트로 되돌리는 방법을 보여줍니다.
 
 [listing]
 ----
@@ -114,15 +114,15 @@ cluster::*> network interface revert -vserver Cluster -lif n2_clus1
 cluster::*> network interface revert -vserver Cluster -lif n2_clus4
 ----
 ====
-. 인터페이스가 현재 홈 인터페이스인지 확인합니다.
+. 인터페이스가 이제 홈인지 확인하세요.
 +
-네트워크 인터페이스 쇼
+`network interface show`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 n1과 n2에 대해 클러스터 인터커넥트 인터페이스의 상태가 'UP'이고 'is home'으로 표시되어 있습니다.
+다음 예에서는 클러스터 상호 연결 인터페이스의 상태를 보여줍니다. `up` 그리고 `Is home` n1 및 n2의 경우:
 
 [listing]
 ----
@@ -145,22 +145,22 @@ Cluster
 8 entries were displayed.
 ----
 ====
-. 원격 클러스터 인터페이스의 연결을 확인합니다.
+. 원격 클러스터 인터페이스의 연결성을 확인하세요.
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.9.1 이상
 --
-를 사용할 수 있습니다 `network interface check cluster-connectivity` 클러스터 연결에 대한 접근성 검사를 시작한 다음 세부 정보를 표시하는 명령입니다.
+당신은 사용할 수 있습니다 `network interface check cluster-connectivity` 클러스터 연결에 대한 접근성 검사를 시작한 다음 세부 정보를 표시하는 명령:
 
-`network interface check cluster-connectivity start` 및 `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`그리고 `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-* 참고: * show 명령을 실행하기 전에 몇 초 동안 기다린 후 세부 정보를 표시합니다.
+*참고:* show 명령을 실행하기 전에 몇 초 동안 기다려 세부 정보를 표시하세요.
 
 [listing, subs="+quotes"]
 ----
@@ -179,7 +179,7 @@ n2
 --
 .모든 ONTAP 릴리스
 --
-모든 ONTAP 릴리스에 대해 을 사용할 수도 있습니다 `cluster ping-cluster -node <name>` 연결 상태를 확인하는 명령:
+모든 ONTAP 릴리스의 경우 다음을 사용할 수도 있습니다. `cluster ping-cluster -node <name>` 연결성을 확인하는 명령:
 
 `cluster ping-cluster -node <name>`
 
@@ -229,18 +229,18 @@ RPC status:
 ----
 --
 ====
-. [[step7]] Nexus 3132Q-V 클러스터 스위치에 노드를 추가하여 클러스터를 확장합니다.
+. [[step7]]Nexus 3132Q-V 클러스터 스위치에 노드를 추가하여 클러스터를 확장합니다.
 . 구성에 있는 장치에 대한 정보를 표시합니다.
 +
-** 네트워크 디바이스 발견 쇼
-** 네트워크 포트 show-role cluster
-** 네트워크 인터페이스 show-role cluster
-** 'system cluster-switch show'
+** `network device-discovery show`
+** `network port show -role cluster`
+** `network interface show -role cluster`
+** `system cluster-switch show`
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 Nexus 3132Q-V 클러스터 스위치 양쪽 모두에서 포트 e1/7 및 e1/8에 연결된 40GbE 클러스터 포트가 있는 노드 n3 및 n4를 보여 주고 두 노드가 클러스터에 결합되었습니다. 사용되는 40GbE 클러스터 인터커넥트 포트는 e4a 및 e4e입니다.
+다음 예에서는 40GbE 클러스터 포트가 있는 노드 n3과 n4가 Nexus 3132Q-V 클러스터 스위치 모두에서 포트 e1/7과 e1/8에 각각 연결되어 있으며, 두 노드 모두 클러스터에 가입되어 있는 것을 보여줍니다.  사용되는 40GbE 클러스터 상호 연결 포트는 e4a와 e4e입니다.
 
 [listing]
 ----
@@ -372,15 +372,15 @@ CL2                         cluster-network  10.10.1.102    CN1610
 ====
 
 
-. 교체된 CN1610 스위치가 자동으로 제거되지 않은 경우 제거합니다.
+. 자동으로 제거되지 않으면 교체된 CN1610 스위치를 제거하세요.
 +
-'system cluster-switch delete
+`system cluster-switch delete`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 CN1610 스위치를 제거하는 방법을 보여 줍니다.
+다음 예에서는 CN1610 스위치를 제거하는 방법을 보여줍니다.
 
 [listing]
 ----
@@ -389,9 +389,9 @@ cluster::> system cluster-switch delete -device CL1
 cluster::> system cluster-switch delete -device CL2
 ----
 ====
-. 각 노드에서 클러스터 clus1 및 clus4를 '-auto-revert'로 구성하고 다음을 확인합니다.
+. 클러스터 clus1 및 clus4를 구성합니다. `-auto-revert` 각 노드에서 다음을 확인하세요.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing]
@@ -402,12 +402,12 @@ cluster::*> network interface modify -vserver node2 -lif clus1 -auto-revert true
 cluster::*> network interface modify -vserver node2 -lif clus4 -auto-revert true
 ----
 ====
-. 적절한 클러스터 스위치가 모니터링되는지 확인합니다.
+. 적절한 클러스터 스위치가 모니터링되는지 확인하세요.
 +
-'system cluster-switch show'
+`system cluster-switch show`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing]
@@ -435,11 +435,11 @@ C2                          cluster-network    10.10.1.104      NX3132V
 2 entries were displayed.
 ----
 ====
-. [[step43_pacchecn1610]] 자동 케이스 생성을 억제한 경우 AutoSupport 메시지를 호출하여 다시 활성화합니다.
+. [[step43_replacecn1610]]자동 케이스 생성을 억제한 경우 AutoSupport 메시지를 호출하여 다시 활성화하세요.
 +
-'System node AutoSupport invoke-node * -type all-message maINT=end'
+`system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 
-.다음 단계
-link:../switch-cshm/config-overview.html["스위치 상태 모니터링을 구성합니다"]..
+.다음은 무엇인가요?
+link:../switch-cshm/config-overview.html["스위치 상태 모니터링 구성"].

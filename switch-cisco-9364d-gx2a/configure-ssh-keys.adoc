@@ -2,9 +2,9 @@
 permalink: switch-cisco-9364d-gx2a/configure-ssh-keys.html 
 sidebar: sidebar 
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 9332d-gx2b 
-summary: '클러스터 스위치 상태 모니터(CSHM) 및 로그 수집 기능을 사용하려면 SSH가 필요합니다.  Cisco 9364d-gx2a 클러스터 스위치에서 SSH를 활성화하려면 먼저 SSH 키를 생성한 다음 SSH를 활성화합니다.' 
+summary: '클러스터 스위치 상태 모니터(CSHM) 및 로그 수집 기능을 사용하려면 SSH가 필요합니다. Cisco 9364d-gx2a 클러스터 스위치에서 SSH를 활성화하려면 먼저 SSH 키를 생성한 다음 SSH를 활성화합니다.' 
 ---
-= SSH 구성을 확인합니다
+= SSH 구성을 확인하세요
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -14,19 +14,19 @@ summary: '클러스터 스위치 상태 모니터(CSHM) 및 로그 수집 기능
 CSHM(Ethernet Switch Health Monitor) 및 로그 수집 기능을 사용하는 경우 스위치에서 SSH 및 SSH 키가 활성화되어 있는지 확인하세요.
 
 .단계
-. SSH가 활성화되었는지 확인합니다.
+. SSH가 활성화되어 있는지 확인하세요.
 +
 [listing, subs="+quotes"]
 ----
 (switch) *show ssh server*
 ssh version 2 is enabled
 ----
-. SSH 키가 활성화되어 있는지 확인합니다.
+. SSH 키가 활성화되어 있는지 확인하세요.
 +
 `show ssh key`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -66,5 +66,5 @@ sshServer              1          enabled
 ====
 
 
-.다음 단계
+.다음은 무엇인가요?
 SSH 구성을 확인한 후link:../switch-cshm/config-overview.html["스위치 상태 모니터링 구성"] .

@@ -2,7 +2,7 @@
 permalink: switch-bes-53248/components-bes53248.html 
 sidebar: sidebar 
 keywords: cluster-mode,supported versions,switches supported,cluster network,efos 
-summary: BES-53248 스위치 설치 및 유지 보수의 경우 구성 요소 및 부품 번호 목록을 검토하십시오. 
+summary: BES-53248 스위치 설치 및 유지관리를 위해서는 구성 요소 및 부품 번호 목록을 반드시 검토하세요. 
 ---
 = BES-53248 클러스터 스위치의 구성 요소 및 부품 번호
 :allow-uri-read: 
@@ -11,22 +11,22 @@ summary: BES-53248 스위치 설치 및 유지 보수의 경우 구성 요소 �
 
 
 [role="lead"]
-BES-53248 스위치 설치 및 유지 보수의 경우 구성 요소 및 부품 번호 목록을 검토하십시오.
+BES-53248 스위치 설치 및 유지관리를 위해서는 구성 요소 및 부품 번호 목록을 반드시 검토하세요.
 
-다음 표에는 랙 마운트 레일 키트 세부 정보를 비롯하여 BES-53248 클러스터 스위치 구성 요소에 대한 부품 번호, 설명 및 최소 EFOS 버전과 ONTAP 버전이 나와 있습니다.
+다음 표에는 랙 마운트 레일 키트 세부 정보를 포함하여 BES-53248 클러스터 스위치 구성 요소의 부품 번호, 설명, 최소 EFOS 및 ONTAP 버전이 나열되어 있습니다.
 
 
-NOTE: 부품 번호 * X190005-B * 및 * X190005R-B * 에는 최소 EFOS 버전 * 3.10.0.3 * 이 필요합니다.
+NOTE: 부품 번호 *X190005-B* 및 *X190005R-B*에는 최소 *3.10.0.3*의 EFOS 버전이 필요합니다.
 
 [cols="20,40,20,20"]
 |===
-| 부품 번호 | 설명 | 최소 EFOS 버전입니다 | 최소 ONTAP 버전 
+| 부품 번호 | 설명 | 최소 EFOS 버전 | 최소 ONTAP 버전 
 
 
  a| 
 X190005-B
  a| 
-BES-53248-B/IX8, CLSW, 16PT10/25GB, PTSX(PTSX = 포트 쪽 배기관)
+BES-53248-B/IX8, CLSW, 16PT10/25GB, PTSX(PTSX = 포트 사이드 배기)
  a| 
 3.10.0.3
  a| 
@@ -37,7 +37,7 @@ BES-53248-B/IX8, CLSW, 16PT10/25GB, PTSX(PTSX = 포트 쪽 배기관)
  a| 
 X190005R-B
  a| 
-BES-53248-B/IX8, CLSW, 16PT10/25GB, PSIN(PSIN=포트쪽 입수)
+BES-53248-B/IX8, CLSW, 16PT10/25GB, PSIN(PSIN = 포트측 흡기)
  a| 
 3.10.0.3
  a| 
@@ -48,7 +48,7 @@ BES-53248-B/IX8, CLSW, 16PT10/25GB, PSIN(PSIN=포트쪽 입수)
  a| 
 X190005
  a| 
-BES-53248, CLSW, 16Pt10/25GB, PTSX, BRDCM SUPP
+BES-53248, CLSW, 16Pt10/25GB, PTSX, BRDCM 지원
  a| 
 3.4.4.6
  a| 
@@ -59,7 +59,7 @@ BES-53248, CLSW, 16Pt10/25GB, PTSX, BRDCM SUPP
  a| 
 X190005R
  a| 
-BES-53248, CLSW, 16Pt10/25GB, PSIN, BRDCM SUPP
+BES-53248, CLSW, 16Pt10/25GB, PSIN, BRDCM 지원
  a| 
 3.4.4.6
  a| 
@@ -68,9 +68,9 @@ BES-53248, CLSW, 16Pt10/25GB, PSIN, BRDCM SUPP
 
 
  a| 
-X-레일-4POST-190005
+X-RAIL-4POST-190005
  a| 
-랙 마운트 레일 키트 Ozeki 4 포스트 19"
+랙 마운트 레일 키트 오제키 4포스트 19인치
  a| 
 해당 없음
  a| 
@@ -78,11 +78,11 @@ X-레일-4POST-190005
 
 |===
 
-IMPORTANT: 기계 유형에 관한 다음 정보를 참고하십시오.
+IMPORTANT: 다음 정보는 기계 유형과 관련이 있습니다.
 
 [cols="50,50"]
 |===
-| 기계 유형 | 최소 EFOS 버전입니다 
+| 기계 유형 | 최소 EFOS 버전 
 
 
  a| 
@@ -99,9 +99,9 @@ BES-53248A2
 BES-53248A3
 | 3.10.0.3 
 |===
-다음 명령을 사용하여 특정 컴퓨터 유형을 확인할 수 있습니다. `show version`
+다음 명령을 사용하여 특정 기계 유형을 확인할 수 있습니다. `show version`
 
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]

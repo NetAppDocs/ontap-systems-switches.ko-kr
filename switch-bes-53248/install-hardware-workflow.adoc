@@ -2,7 +2,7 @@
 permalink: switch-bes-53248/install-hardware-workflow.html 
 sidebar: sidebar 
 keywords: BES-53248 switches, initial installation, configure new bes-53248 switch 
-summary: BES-53248 클러스터 스위치를 구성하기 전에 구성 개요를 검토하십시오. 
+summary: BES-53248 클러스터 스위치를 구성하기 전에 구성 개요를 검토하세요. 
 ---
 = BES-53248 스위치용 하드웨어 설치 워크플로
 :allow-uri-read: 
@@ -13,10 +13,10 @@ summary: BES-53248 클러스터 스위치를 구성하기 전에 구성 개요�
 [role="lead"]
 BES-53248 클러스터 스위치의 하드웨어를 설치하고 구성하려면 다음 단계를 따르세요.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1개"]link:install-hardware-bes53248.html["스위치 하드웨어 설치"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["하나"]link:install-hardware-bes53248.html["스위치 하드웨어 설치"]
 [role="quick-margin-para"]
 BES-53248 스위치 하드웨어를 설치하고 구성합니다.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["2개"]link:cabling-considerations-bes-53248.html["케이블 연결 및 구성을 검토합니다"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["둘"]link:cabling-considerations-bes-53248.html["케이블링 및 구성 검토"]
 [role="quick-margin-para"]
 BES-53248 클러스터 스위치의 케이블링 및 구성 고려 사항을 검토하세요.

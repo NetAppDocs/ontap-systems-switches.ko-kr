@@ -1,32 +1,32 @@
 ---
 section: switch-cshm
-title: 스위치 상태를 모니터링합니다
+title: 스위치 상태 모니터링
 entries:
 - title: 스위치 상태 모니터링 개요
   url: "/switch-cshm/cshm-overview.html"
-  pdf-filename: Switch_health_cshm 을 선택합니다
-- title: 스위치 상태 모니터링을 구성합니다
-  pdf-filename: configure_switch_health 를 참조하십시오
+  pdf-filename: 스위치_헬스_cshm
+- title: 스위치 상태 모니터링 구성
+  pdf-filename: 스위치 상태 구성
   entries:
   - title: 구성 개요
     url: "/switch-cshm/config-overview.html"
-  - title: 로그 수집을 구성합니다
+  - title: 로그 수집 구성
     url: "/switch-cshm/config-log-collection.html"
   - title: SNMPv3 구성(선택 사항)
     url: "/switch-cshm/config-snmpv3.html"
-- title: 스위치 상태를 확인합니다
-  pdf-filename: monitor_switch_health 를 참조하십시오
+- title: 스위치 상태 확인
+  pdf-filename: 모니터_스위치_상태
   entries:
-  - title: 상태 점검 개요
+  - title: 건강 검진 개요
     url: "/switch-cshm/monitor-overview.html"
-  - title: 스위치 모니터링을 관리합니다
+  - title: 스위치 모니터링 관리
     url: "/switch-cshm/monitor-manage.html"
-  - title: 스위치 모니터링을 확인합니다
+  - title: 스위치 모니터링 확인
     url: "/switch-cshm/monitor-verify.html"
   - title: 알림 문제 해결
     url: "/switch-cshm/monitor-troubleshoot.html"
 - title: 로그 수집
-  pdf-filename: log_collection_switch_health 를 참조하십시오
+  pdf-filename: 로그_수집_스위치_상태
   entries:
   - title: 로그 수집 개요
     url: "/switch-cshm/log-collection-overview.html"

@@ -2,7 +2,7 @@
 permalink: switch-cisco-92300/components-92300.html 
 sidebar: sidebar 
 keywords: cisco nexus 92300YC 
-summary: 2개 이상의 노드로 ONTAP 클러스터를 구축하려면 두 개의 지원되는 클러스터 네트워크 스위치가 필요합니다. 선택 사항인 관리 스위치를 추가로 사용할 수 있습니다. 
+summary: 두 개 이상의 노드가 있는 ONTAP 클러스터를 구축하려면 지원되는 클러스터 네트워크 스위치가 두 개 필요합니다.  선택 사항인 추가 관리 스위치를 사용할 수 있습니다. 
 ---
 = Cisco Nexus 92300YC 스위치의 구성 요소 및 부품 번호
 :allow-uri-read: 
@@ -11,9 +11,9 @@ summary: 2개 이상의 노드로 ONTAP 클러스터를 구축하려면 두 개�
 
 
 [role="lead"]
-Cisco Nexus 92300YC 스위치 설치 및 유지 보수의 경우 모든 스위치 구성 요소와 부품 번호를 검토하십시오. 를 참조하십시오 https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] 를 참조하십시오.
+Cisco Nexus 92300YC 스위치 설치 및 유지관리를 위해서는 모든 스위치 구성 요소와 부품 번호를 검토하세요. 를 참조하십시오 https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] 자세한 내용은.
 
-다음 표에는 92300YC 스위치, 팬 및 전원 공급 장치에 대한 부품 번호 및 설명이 나와 있습니다.
+다음 표에는 92300YC 스위치, 팬, 전원 공급 장치의 부품 번호와 설명이 나와 있습니다.
 
 [cols="1,2"]
 |===
@@ -23,21 +23,21 @@ Cisco Nexus 92300YC 스위치 설치 및 유지 보수의 경우 모든 스위�
  a| 
 190003
  a| 
-Cisco 92300YC, CLSW, 48Pt10/25GB, 18Pt100G, PTSX(PTSX = Port Side Exhaust)
+Cisco 92300YC, CLSW, 48Pt10/25GB, 18Pt100G, PTSX(PTSX = 포트 측 배기)
 
 
 
  a| 
 190003R
  a| 
-Cisco 92300YC, CLSW, 48Pt10/25GB, 18Pt100G, PSIN(PSIN = 포트쪽 입수)
+Cisco 92300YC, CLSW, 48Pt10/25GB, 18Pt100G, PSIN(PSIN = 포트 측 흡입구)
 
 
 
  a| 
 X-NXA-FAN-35CFM-B
  a| 
-팬, Cisco N9K 포트 쪽 흡입 공기 흐름
+팬, Cisco N9K 포트 측 흡입 공기 흐름
 
 
 
@@ -51,21 +51,21 @@ X-NXA-FAN-35CFM-F
  a| 
 X-NXA-PAC-650W-B
  a| 
-전원 공급 장치, Cisco 650W 포트 측면 흡입구
+전원 공급 장치, Cisco 650W - 포트 측 흡입구
 
 
 
  a| 
 X-NXA-PAC-650W-F
  a| 
-전원 공급 장치, Cisco 650W 포트 측면 배기
+전원 공급 장치, Cisco 650W - 포트 측 배기
 
 |===
 Cisco Nexus 92300YC 스위치 공기 흐름 세부 정보:
 
-* 포트 쪽 배기 공기 흐름(표준 공기) - 차가운 공기는 차가운 통로에 있는 팬 및 전원 공급 장치 모듈을 통해 섀시에 들어가고 뜨거운 통로에 있는 섀시의 포트 끝을 통해 배출됩니다. 파란색 색상이 있는 포트 쪽 배기구 공기 흐름
-* 포트 쪽 흡입 공기 흐름(역풍) -- 차가운 공기는 차가운 통로의 포트 끝을 통해 섀시에 유입되고 뜨거운 통로의 팬 및 전원 공급 장치 모듈을 통해 배출됩니다. 버건디 색상의 포트 쪽 흡입 공기 흐름
+* 포트 측 배기 공기 흐름(표준 공기) -- 차가운 공기는 냉각 통로의 팬과 전원 공급 모듈을 통해 섀시로 들어오고 뜨거운 통로의 섀시 포트 쪽을 통해 배출됩니다.  파란색으로 표시된 좌현 측 배기 공기 흐름입니다.
+* 포트 측 흡입 공기 흐름(역방향 공기) -- 차가운 공기가 차가운 통로의 포트 끝을 통해 섀시로 들어오고 뜨거운 통로의 팬과 전원 공급 장치를 통해 배출됩니다.  부르고뉴 색상의 좌현 흡입구 공기 흐름.
 
 
 .다음은 무엇입니까?
-link:required-documentation-92300.html["필수 문서"] .
+link:required-documentation-92300.html["필수 서류"].

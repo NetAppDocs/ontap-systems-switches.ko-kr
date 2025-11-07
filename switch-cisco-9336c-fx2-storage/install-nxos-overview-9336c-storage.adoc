@@ -2,53 +2,53 @@
 permalink: switch-cisco-9336c-fx2-storage/install-nxos-overview-9336c-storage.html 
 sidebar: sidebar 
 keywords: cisco, nx-os, software, reference, configuration, file, rcf, install, fx2, cluster, switch, install nx-os software and rcfs on cisco nexus 9336-fx2 cluster switches - cisco nexus 9336x-fx2 
-summary: 'Cisco NX-OS 소프트웨어 및 참조 구성 파일\(RCFs\)은 Cisco Nexus 9336C-FX2 클러스터 스위치에 설치해야 합니다.' 
+summary: 'Cisco NX-OS 소프트웨어와 참조 구성 파일(RCF)은 Cisco Nexus 9336C-FX2 클러스터 스위치에 설치되어야 합니다.' 
 ---
-= NX-OS 소프트웨어 및 RCF의 설치 또는 업그레이드를 준비합니다
+= NX-OS 소프트웨어 및 RCF 설치 또는 업그레이드 준비
 :allow-uri-read: 
 
 
 [role="lead"]
-NX-OS 소프트웨어 및 RCF(Reference Configuration File)를 설치하기 전에 다음 절차를 따르십시오.
+NX-OS 소프트웨어와 참조 구성 파일(RCF)을 설치하기 전에 다음 절차를 따르세요.
 
-.예를 참조하십시오
+.예시에 관하여
 이 절차의 예에서는 다음 스위치 및 노드 명명법을 사용합니다.
 
-* 두 Cisco 스위치의 이름은 CS1과 CS2입니다.
-* 노드 이름은 cluster1-01 및 cluster1-02입니다.
-* 클러스터 LIF 이름은 cluster1-01_clus1 및 cluster1-01 및 cluster1-02_clus1 및 cluster1-02_clus2 에 대한 cluster1-02_clus2 입니다.
-* 'cluster1:: *>' 프롬프트는 클러스터의 이름을 나타냅니다.
+* 두 Cisco 스위치의 이름은 cs1과 cs2입니다.
+* 노드 이름은 cluster1-01과 cluster1-02입니다.
+* 클러스터 LIF 이름은 cluster1-01의 경우 cluster1-01_clus1과 cluster1-01_clus2이고, cluster1-02의 경우 cluster1-02_clus1과 cluster1-02_clus2입니다.
+* 그만큼 `cluster1::*>` 프롬프트는 클러스터의 이름을 나타냅니다.
 
 
-.이 작업에 대해
-이 절차를 수행하려면 ONTAP 명령과 Cisco Nexus 9000 시리즈 스위치 명령을 모두 사용해야 합니다. 달리 표시되지 않는 한 ONTAP 명령이 사용됩니다.
+.이 작업에 관하여
+이 절차에서는 ONTAP 명령과 Cisco Nexus 9000 시리즈 스위치 명령을 모두 사용해야 합니다. 달리 지정되지 않는 한 ONTAP 명령을 사용합니다.
 
 .단계
-. 이 클러스터에서 AutoSupport가 활성화되어 있으면 'system node AutoSupport invoke -node * -type all-message MAINT=x h' AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다
+. 이 클러스터에서 AutoSupport 활성화된 경우 AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다. `system node autosupport invoke -node * -type all -message MAINT=x h`
 +
-여기서 x는 유지 보수 기간(시간)입니다.
+여기서 x는 유지 관리 기간(시간)입니다.
 
 +
 
-NOTE: AutoSupport 메시지는 유지보수 기간 동안 자동 케이스 생성이 억제되도록 이 유지보수 작업의 기술 지원에 알립니다.
+NOTE: AutoSupport 메시지는 기술 지원팀에 이 유지 관리 작업을 알려 유지 관리 기간 동안 자동 케이스 생성이 억제되도록 합니다.
 
-. 권한 수준을 고급으로 변경하고 계속할 것인지 묻는 메시지가 표시되면 * y * 를 입력합니다.
+. 계속할지 묻는 메시지가 나타나면 *y*를 입력하여 권한 수준을 고급으로 변경합니다.
 +
 [source, cli]
 ----
 set -privilege advanced
 ----
 +
-고급 프롬프트('*>')가 나타납니다.
+고급 프롬프트(`*>` )이 나타납니다.
 
-. 각 클러스터 인터커넥트 스위치에 대해 각 노드에 구성된 클러스터 인터커넥트 인터페이스 수를 표시합니다.
+. 각 클러스터 상호 연결 스위치에 대해 각 노드에 구성된 클러스터 상호 연결 인터페이스 수를 표시합니다.
 +
 [source, cli]
 ----
 network device-discovery show -protocol lldp
 ----
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -77,7 +77,7 @@ cluster1-01/lldp
 network port show -ipspace Cluster
 ----
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -103,14 +103,14 @@ e0b       Cluster      Cluster          up   9000  auto/100000 healthy false
 4 entries were displayed.
 ----
 ====
-.. LIF 정보 표시:
+.. LIF에 대한 정보를 표시합니다.
 +
 [source, cli]
 ----
 network interface show -vserver Cluster
 ----
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -131,22 +131,22 @@ Cluster
 ====
 
 
-. 원격 클러스터 인터페이스의 연결을 확인합니다.
+. 원격 클러스터 인터페이스의 연결성을 확인하세요.
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.9.1 이상
 --
-를 사용할 수 있습니다 `network interface check cluster-connectivity` 클러스터 연결에 대한 접근성 검사를 시작한 다음 세부 정보를 표시하는 명령입니다.
+당신은 사용할 수 있습니다 `network interface check cluster-connectivity` 클러스터 연결에 대한 접근성 검사를 시작한 다음 세부 정보를 표시하는 명령:
 
-`network interface check cluster-connectivity start` 및 `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`그리고 `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-* 참고: * 몇 초 동안 기다린 후 `show` 명령을 실행하여 세부 정보를 표시합니다.
+*참고:* 실행하기 전에 몇 초 동안 기다리십시오. `show` 세부 정보를 표시하는 명령입니다.
 
 [listing, subs="+quotes"]
 ----
@@ -164,7 +164,7 @@ node2
 --
 .모든 ONTAP 릴리스
 --
-모든 ONTAP 릴리스에 대해 을 사용할 수도 있습니다 `cluster ping-cluster -node <name>` 연결 상태를 확인하는 명령:
+모든 ONTAP 릴리스의 경우 다음을 사용할 수도 있습니다. `cluster ping-cluster -node <name>` 연결성을 확인하는 명령:
 
 `cluster ping-cluster -node <name>`
 
@@ -197,14 +197,14 @@ RPC status:
 ----
 --
 ====
-. [[step6]] 모든 클러스터 LIF에 자동 되돌리기 명령이 설정되었는지 확인:
+. [[step6]] 모든 클러스터 LIF에서 자동 복귀 명령이 활성화되어 있는지 확인하세요.
 +
 [source, cli]
 ----
 network interface show -vserver Cluster -fields auto-revert
 ----
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -224,5 +224,5 @@ Cluster
 ====
 
 
-.다음 단계
+.다음은 무엇인가요?
 NX-OS 소프트웨어와 RCF를 설치할 준비가 되면 다음을 수행할 수 있습니다. link:install-nxos-software-9336c-storage.html["NX-OS 소프트웨어를 설치하거나 업그레이드하세요"].

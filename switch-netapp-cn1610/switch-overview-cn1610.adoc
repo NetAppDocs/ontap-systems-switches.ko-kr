@@ -2,7 +2,7 @@
 permalink: switch-netapp-cn1610/switch-overview-cn1610.html 
 sidebar: sidebar 
 keywords: install, fastpath, software, rcfs 
-summary: NetApp CN1610 스위치를 구성하기 전에 절차 개요를 검토하십시오. 
+summary: NetApp CN1610 스위치를 구성하기 전에 절차 개요를 검토하세요. 
 ---
 = NetApp CN1610 스위치 설치 및 구성 개요
 :allow-uri-read: 
@@ -11,8 +11,8 @@ summary: NetApp CN1610 스위치를 구성하기 전에 절차 개요를 검토�
 
 
 [role="lead"]
-CN1610은 16개의 10기가비트 SFP+(Small Form-Factor Pluggable Plus) 포트를 제공하는 고대역폭 관리 레이어 2 스위치입니다.
+CN1610은 16개의 10기가비트 SFP+(Small Form-Factor Pluggable Plus) 포트를 제공하는 고대역폭 관리형 레이어 2 스위치입니다.
 
-이 스위치에는 고가용성을 위한 핫 스왑을 지원하는 중복 전원 공급 장치 및 팬 트레이가 포함되어 있습니다. 이 1U 스위치는 표준 19인치 NetApp 42U 시스템 캐비닛 또는 타사 캐비닛에 설치할 수 있습니다.
+스위치에는 높은 가용성을 위한 핫 스와핑을 지원하는 중복 전원 공급 장치와 팬 트레이가 포함되어 있습니다.  이 1U 스위치는 표준 19인치 NetApp 42U 시스템 캐비닛이나 타사 캐비닛에 설치할 수 있습니다.
 
-스위치는 네트워크 연결을 통해 Telnet 또는 SSH를 사용하여 콘솔 포트 또는 원격 관리를 통한 로컬 관리를 지원합니다. CN1610에는 대역 외 스위치 관리를 위한 전용 1기가비트 이더넷 RJ45 관리 포트가 포함되어 있습니다. CLI(Command-Line Interface)에 명령을 입력하거나 NMS(SNMP 기반 네트워크 관리 시스템)를 사용하여 스위치를 관리할 수 있습니다.
+스위치는 콘솔 포트를 통한 로컬 관리나 네트워크 연결을 통한 Telnet 또는 SSH를 사용한 원격 관리를 지원합니다.  CN1610에는 대역 외 스위치 관리를 위한 전용 1기가비트 이더넷 RJ45 관리 포트가 포함되어 있습니다.  명령줄 인터페이스(CLI)에 명령을 입력하거나 SNMP 기반 네트워크 관리 시스템(NMS)을 사용하여 스위치를 관리할 수 있습니다.

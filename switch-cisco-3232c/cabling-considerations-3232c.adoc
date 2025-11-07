@@ -2,22 +2,22 @@
 permalink: switch-cisco-3232c/cabling-considerations-3232c.html 
 sidebar: sidebar 
 keywords: 3232c cabling setup, 3232c switches configuration, nx-os 
-summary: Cisco 3232C 스위치를 구성하기 전에 다음 정보를 검토하십시오. 
+summary: Cisco 3232C 스위치를 구성하기 전에 다음 정보를 검토하세요. 
 ---
-= 케이블 연결 및 구성 고려 사항을 검토합니다
+= 케이블링 및 구성 고려 사항 검토
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Cisco 3232C 스위치를 구성하기 전에 다음 사항을 검토하십시오.
+Cisco 3232C 스위치를 구성하기 전에 다음 고려 사항을 검토하세요.
 
 
 
 == NVIDIA CX6, CX6-DX 및 CX7 이더넷 포트 지원
 
-NVIDIA ConnectX-6(CX6), ConnectX-6 DX(CX6-DX) 또는 ConnectX-7(CX7) NIC 포트를 사용하여 스위치 포트를 ONTAP 컨트롤러에 연결하는 경우 스위치 포트 속도를 하드 코딩해야 합니다.
+NVIDIA ConnectX-6(CX6), ConnectX-6 Dx(CX6-DX) 또는 ConnectX-7(CX7) NIC 포트를 사용하여 스위치 포트를 ONTAP 컨트롤러에 연결하는 경우 스위치 포트 속도를 하드코딩해야 합니다.
 
 [listing, subs="+quotes"]
 ----
@@ -32,4 +32,4 @@ NVIDIA ConnectX-6(CX6), ConnectX-6 DX(CX6-DX) 또는 ConnectX-7(CX7) NIC 포트�
 *Save the changes:*
 (cs1)# *copy running-config startup-config*
 ----
-를 참조하십시오 https://hwu.netapp.com/Switch/Index["Hardware Universe"^] 스위치 포트에 대한 자세한 내용은 을 참조하십시오.
+를 참조하십시오 https://hwu.netapp.com/Switch/Index["Hardware Universe"^] 스위치 포트에 대한 자세한 내용은 다음을 참조하세요.

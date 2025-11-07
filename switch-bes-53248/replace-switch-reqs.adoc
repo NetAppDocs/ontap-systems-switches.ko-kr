@@ -2,7 +2,7 @@
 permalink: switch-bes-53248/replace-switch-reqs.html 
 sidebar: sidebar 
 keywords: replace, replacing, defective, broadcom-supported, bes, cluster, switch, network, nondisruptive, procedure, ndu, replace a broadcom-supported bes-53428 cluster switch - bes-53428 switches 
-summary: '클러스터 네트워크에서 결함이 있는 Broadcom 지원 BES-53248 클러스터 스위치를 교체하는 것은 무중단 절차\(NDU\)입니다.' 
+summary: '클러스터 네트워크에서 결함이 있는 Broadcom 지원 BES-53248 클러스터 스위치를 교체하는 것은 중단 없는 절차(NDU)입니다.' 
 ---
 = 교체 요구 사항
 :allow-uri-read: 
@@ -11,51 +11,51 @@ summary: '클러스터 네트워크에서 결함이 있는 Broadcom 지원 BES-5
 
 
 [role="lead"]
-스위치를 교체하기 전에 현재 환경 및 교체 스위치에서 다음 조건이 충족되는지 확인하십시오.
+스위치를 교체하기 전에 현재 환경과 교체 스위치에서 다음 조건이 충족되는지 확인하세요.
 
 
 
 == 기존 클러스터 및 네트워크 인프라
 
-다음을 확인합니다.
+다음 사항을 확인하세요.
 
-* 기존 클러스터가 완전히 연결된 클러스터 스위치를 한 개 이상 사용하여 완전하게 작동하는 것으로 확인되었습니다.
-* 모든 클러스터 포트는 * UP * 입니다.
-* 모든 클러스터 논리 인터페이스(LIF)는 관리 및 운영 * 증가 * 및 홈 포트로 이루어집니다.
-* ONTAP `cluster ping-cluster -node node1` 명령은 설정이, `basic connectivity` 및 `larger than PMTU communication`, 모든 경로에서 성공합니다.
+* 기존 클러스터는 적어도 하나의 완전히 연결된 클러스터 스위치를 갖추고 완벽하게 작동하는 것으로 검증되었습니다.
+* 모든 클러스터 포트가 *작동* 중입니다.
+* 모든 클러스터 논리 인터페이스(LIF)는 관리 및 운영상 *작동* 중이며 홈 포트에 있습니다.
+* ONTAP `cluster ping-cluster -node node1` 명령은 설정을 나타내야 합니다. `basic connectivity` 그리고 `larger than PMTU communication` , 모든 경로에서 성공합니다.
 
 
 
 
 == BES-53248 교체 클러스터 스위치
 
-다음을 확인합니다.
+다음 사항을 확인하세요.
 
 * 교체 스위치의 관리 네트워크 연결이 작동합니다.
-* 교체 스위치에 대한 콘솔 액세스가 있습니다.
-* 노드 접속은 기본 라이센스를 가진 포트 0/1 - 0/16 이다.
+* 교체 스위치에 대한 콘솔 접근이 가능합니다.
+* 노드 연결은 기본 라이선스가 적용된 포트 0/1~0/16입니다.
 * 모든 ISL(Inter-Switch Link) 포트는 포트 0/55 및 0/56에서 비활성화됩니다.
-* 원하는 RCF(Reference Configuration File) 및 EFOS 운영 체제 스위치 이미지가 스위치에 로드됩니다.
-* 에 설명된 대로 스위치의 초기 사용자 정의가 완료됩니다 link:configure-install-initial.html["BES-53248 클러스터 스위치를 구성합니다"].
+* 원하는 참조 구성 파일(RCF)과 EFOS 운영 체제 스위치 이미지가 스위치에 로드됩니다.
+* 스위치의 초기 사용자 정의가 완료되었습니다.link:configure-install-initial.html["BES-53248 클러스터 스위치 구성"] .
 
 
-STP, SNMP, SSH 등의 이전 사이트 사용자 지정이 새 스위치에 복사됩니다.
-
-
-
-== 콘솔 로깅을 활성화합니다
-
-NetApp은 사용 중인 장치에서 콘솔 로깅을 사용하도록 설정하고 스위치를 교체할 때 다음 작업을 수행할 것을 적극 권장합니다.
-
-* 유지 관리 중에는 AutoSupport를 활성화된 상태로 둡니다.
-* 유지 관리 전후에 유지 관리 AutoSupport를 트리거하여 유지 보수 기간 동안 케이스 생성을 비활성화합니다. 이 기술 자료 문서를 참조하십시오 https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: 예약된 유지 관리 기간 동안 자동 케이스 생성을 억제하는 방법"^] 를 참조하십시오.
-* 모든 CLI 세션에 대해 세션 로깅을 설정합니다. 세션 로깅을 활성화하는 방법에 대한 지침은 이 기술 자료 문서의 "로깅 세션 출력" 섹션을 참조하십시오 https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["ONTAP 시스템에 대한 최적의 연결을 위해 PuTTY를 구성하는 방법"^].
+STP, SNMP, SSH 등 이전 사이트 사용자 정의는 새 스위치에 복사됩니다.
 
 
 
+== 콘솔 로깅 활성화
 
-== 를 참조하십시오
+NetApp 사용 중인 장치에서 콘솔 로깅을 활성화하고 스위치를 교체할 때 다음 작업을 수행할 것을 강력히 권장합니다.
 
-* https://mysupport.netapp.com/["NetApp Support 사이트"^]
-* https://hwu.netapp.com/Home/Index["NetApp Hardware Universe를 참조하십시오"^]
+* 유지관리 중에는 AutoSupport 활성화해 두세요.
+* 유지 관리 기간 동안 케이스 생성을 비활성화하려면 유지 관리 전후에 유지 관리 AutoSupport 트리거합니다.  이 지식 기반 문서를 참조하세요. https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: 예약된 유지 관리 기간 동안 자동 케이스 생성을 억제하는 방법"^] 자세한 내용은.
+* 모든 CLI 세션에 대한 세션 로깅을 활성화합니다.  세션 로깅을 활성화하는 방법에 대한 지침은 이 기술 자료 문서의 "세션 출력 로깅" 섹션을 검토하세요. https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["ONTAP 시스템에 대한 최적의 연결을 위해 PuTTY를 구성하는 방법"^] .
+
+
+
+
+== 더 많은 정보를 원하시면
+
+* https://mysupport.netapp.com/["NetApp 지원 사이트"^]
+* https://hwu.netapp.com/Home/Index["NetApp Hardware Universe"^]
 

@@ -2,119 +2,119 @@
 permalink: switch-cisco-92300/migrate-to-92300yc.html 
 sidebar: sidebar 
 keywords: migration steps for cisco nexus 92300yc cluster switch 
-summary: ONTAP 클러스터의 이전 Cisco 클러스터 스위치를 Cisco Nexus 92300YC 클러스터 네트워크 스위치로 중단 없이 마이그레이션할 수 있습니다. 
+summary: ONTAP 클러스터용 기존 Cisco 클러스터 스위치를 중단 없이 Cisco Nexus 92300YC 클러스터 네트워크 스위치로 마이그레이션할 수 있습니다. 
 ---
-= Cisco 스위치에서 Cisco Nexus 92300YC 스위치로 마이그레이션합니다
+= Cisco 스위치에서 Cisco Nexus 92300YC 스위치로 마이그레이션
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-ONTAP 클러스터의 이전 Cisco 클러스터 스위치를 Cisco Nexus 92300YC 클러스터 네트워크 스위치로 중단 없이 마이그레이션할 수 있습니다.
+ONTAP 클러스터용 기존 Cisco 클러스터 스위치를 중단 없이 Cisco Nexus 92300YC 클러스터 네트워크 스위치로 마이그레이션할 수 있습니다.
 
 
-NOTE: 마이그레이션이 완료된 후 92300YC 클러스터 스위치에 대한 CSHM(Cluster Switch Health Monitor)을 지원하는 데 필요한 구성 파일을 설치해야 할 수도 있습니다. 보다 link:../switch-cshm/cshm-overview.html["스위치 상태 모니터링(CSHM)"] .
+NOTE: 마이그레이션이 완료된 후 92300YC 클러스터 스위치에 대한 CSHM(Cluster Switch Health Monitor)을 지원하는 데 필요한 구성 파일을 설치해야 할 수도 있습니다. 보다link:../switch-cshm/cshm-overview.html["스위치 상태 모니터링(CSHM)"] .
 
 
 
-== 요구사항 검토
+== 검토 요구 사항
 
 .시작하기 전에
-다음 사항을 확인하십시오.
+다음 사항이 있는지 확인하세요.
 
-* 기존 클러스터가 완전히 작동합니다.
+* 완벽하게 기능하는 기존 클러스터입니다.
 * 노드에서 Nexus 92300YC 클러스터 스위치로의 10GbE 및 40GbE 연결.
-* 모든 클러스터 포트가 가동 상태에 있어 무중단 운영이 보장됩니다.
-* Nexus 92300YC 클러스터 스위치에 설치된 NX-OS 및 참조 구성 파일(RCF)의 올바른 버전입니다.
-* 구형 Cisco 스위치를 사용하는 완전히 기능이 정상 작동하는 중복 NetApp 클러스터입니다.
-* 이전 Cisco 스위치와 새 스위치 모두에 대한 관리 연결 및 콘솔 액세스
-* 클러스터 LIF를 사용하는 모든 클러스터 LIF는 홈 포트에 있습니다.
-* 이전 Cisco 스위치 간에 또는 새 스위치 간에 연결되고 연결된 ISL 포트
+* 모든 클러스터 포트는 중단 없는 운영을 보장하기 위해 작동 상태입니다.
+* Nexus 92300YC 클러스터 스위치에 적절한 NX-OS 버전과 참조 구성 파일(RCF)이 설치되었습니다.
+* 두 가지 이전 Cisco 스위치를 모두 사용하는 중복되고 완벽한 기능을 갖춘 NetApp 클러스터입니다.
+* 기존 Cisco 스위치와 새로운 스위치 모두에 대한 관리 연결 및 콘솔 액세스가 가능합니다.
+* 클러스터 LIF가 있는 업 상태의 모든 클러스터 LIF는 홈 포트에 있습니다.
+* 기존 Cisco 스위치와 새로운 스위치 사이에 ISL 포트가 활성화되어 있고 케이블로 연결되어 있습니다.
 
 
 
 
-== 스위치를 마이그레이션합니다
+== 스위치 마이그레이션
 
-.예를 참조하십시오
+.예시에 관하여
 이 절차의 예에서는 다음 스위치 및 노드 명명법을 사용합니다.
 
-* 기존 Cisco Nexus 5596UP 클러스터 스위치는 C1 및 C2입니다.
-* 새로운 Nexus 92300YC 클러스터 스위치는 CS1 및 CS2입니다.
-* 노드는 노드 1과 노드 2입니다.
-* 클러스터 LIF는 노드 1의 node1_clus1 및 node1_clus2이고, 노드 2의 node2_clus1 및 node2_clus2입니다.
-* 스위치 C2가 먼저 스위치 CS2로 대체된 다음 스위치 C1이 스위치 CS1로 대체됩니다.
+* 기존 Cisco Nexus 5596UP 클러스터 스위치는 c1과 c2입니다.
+* 새로운 Nexus 92300YC 클러스터 스위치는 cs1과 cs2입니다.
+* 노드는 node1과 node2입니다.
+* 클러스터 LIF는 각각 노드 1의 node1_clus1과 node1_clus2이고, 노드 2의 node2_clus1과 node2_clus2입니다.
+* 스위치 c2는 먼저 스위치 cs2로 교체되고, 그 다음 스위치 c1은 스위치 cs1로 교체됩니다.
 +
-** 임시 ISL은 C1을 CS1에 연결하는 CS1에 구축됩니다.
-** 그런 다음 노드와 C2 사이의 케이블 연결을 C2에서 분리하고 CS2에 다시 연결합니다.
-** 그런 다음, 노드와 C1 사이의 케이블 연결을 C1에서 분리하고 CS1에 다시 연결합니다.
-** 그런 다음 C1과 CS1 사이의 임시 ISL이 제거됩니다.
+** c1을 cs1에 연결하는 임시 ISL이 cs1에 구축되었습니다.
+** 그런 다음 노드와 c2 사이의 케이블이 c2에서 분리되고 cs2에 다시 연결됩니다.
+** 그런 다음 노드와 c1 사이의 케이블이 c1에서 분리되고 cs1에 다시 연결됩니다.
+** 그런 다음 c1과 cs1 사이의 임시 ISL이 제거됩니다.
 
 
 
 
 .연결에 사용되는 포트
-* 일부 포트는 10GbE 또는 40GbE에서 실행되도록 Nexus 92300YC 스위치에 구성되어 있습니다.
-* 클러스터 스위치는 노드 연결에 다음 포트를 사용합니다.
+* 일부 포트는 Nexus 92300YC 스위치에서 10GbE 또는 40GbE로 실행되도록 구성되어 있습니다.
+* 클러스터 스위치는 노드에 연결하기 위해 다음 포트를 사용합니다.
 +
-** 포트 e1/1-48 (10/25 GbE), e1/49-64 (40/100 GbE): Nexus 92300YC
+** 포트 e1/1-48(10/25GbE), e1/49-64(40/100GbE): Nexus 92300YC
 ** 포트 e1/1-40(10GbE): Nexus 5596UP
 ** 포트 e1/1-32(10GbE): Nexus 5020
 ** 포트 e1/1-12, e2/1-6(10GbE): 확장 모듈이 있는 Nexus 5010
 
 
-* 클러스터 스위치는 다음과 같은 ISL(Inter-Switch Link) 포트를 사용합니다.
+* 클러스터 스위치는 다음의 ISL(Inter-Switch Link) 포트를 사용합니다.
 +
-** 포트 e1/65-66 (100GbE): Nexus 92300YC
+** 포트 e1/65-66(100GbE): Nexus 92300YC
 ** 포트 e1/41-48(10GbE): Nexus 5596UP
-** 포트 e1/33-40 (10GbE): Nexus 5020
-** 포트 e1/13-20 (10GbE): Nexus 5010
+** 포트 e1/33-40(10GbE): Nexus 5020
+** 포트 e1/13-20(10GbE): Nexus 5010
 
 
-* https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - 스위치"^] 모든 클러스터 스위치에 대해 지원되는 케이블 연결에 대한 정보를 제공합니다.
-* 이 절차에서 지원되는 ONTAP 및 NX-OS 버전은 에 나와 있습니다 https://support.netapp.com/NOW/download/software/cm_switches/["Cisco 이더넷 스위치"^] 페이지.
+* https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - 스위치"^]모든 클러스터 스위치에 지원되는 케이블에 대한 정보가 포함되어 있습니다.
+* 이 절차에서 지원되는 ONTAP 및 NX-OS 버전은 다음과 같습니다. https://support.netapp.com/NOW/download/software/cm_switches/["Cisco 이더넷 스위치"^] 페이지.
 
 
 
 
 === 1단계: 마이그레이션 준비
 
-. 권한 수준을 고급으로 변경하고 계속할 것인지 묻는 메시지가 표시되면 * y * 를 입력합니다.
+. 계속할지 묻는 메시지가 나타나면 *y*를 입력하여 권한 수준을 고급으로 변경합니다.
 +
-세트 프리빌리지 고급
+`set -privilege advanced`
 
 +
 고급 프롬프트(*>)가 나타납니다.
 
-. 이 클러스터에서 AutoSupport가 활성화되어 있는 경우 AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다.
+. 이 클러스터에서 AutoSupport 활성화된 경우 AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다.
 +
-'System node AutoSupport invoke-node * -type all-message maINT=xh'
+`system node autosupport invoke -node * -type all -message MAINT=xh`
 
 +
-여기서 x는 유지 보수 기간(시간)입니다.
+여기서 x는 유지 관리 기간(시간)입니다.
 
 +
 
-NOTE: AutoSupport 메시지는 유지보수 기간 동안 자동 케이스 생성이 억제되도록 이 유지보수 작업의 기술 지원에 알립니다.
+NOTE: AutoSupport 메시지는 기술 지원팀에 이 유지 관리 작업을 알려 유지 관리 기간 동안 자동 케이스 생성이 억제되도록 합니다.
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 명령을 실행하면 2시간 동안 자동 케이스가 생성되지 않습니다.
+다음 명령은 2시간 동안 자동 케이스 생성을 억제합니다.
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *system node autosupport invoke -node * -type all -message MAINT=2h*
 ----
 ====
-. 모든 클러스터 LIF에서 자동 복구가 설정되었는지 확인합니다.
+. 모든 클러스터 LIF에서 자동 되돌리기가 활성화되어 있는지 확인하세요.
 +
-'network interface show-vserver Cluster-fields auto-revert'
+`network interface show -vserver Cluster -fields auto-revert`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -133,17 +133,17 @@ Cluster
 4 entries were displayed.
 ----
 ====
-. 각 클러스터 인터페이스의 관리 또는 운영 상태 확인:
+. 각 클러스터 인터페이스의 관리 또는 운영 상태를 확인합니다.
 +
-각 포트는 Link에, Health Status에 대해서는 Healthy로 표시되어야 합니다.
+각 포트는 다음과 같이 표시되어야 합니다. `Link` 그리고 건강하다 `Health Status` .
 
 +
 .. 네트워크 포트 속성을 표시합니다.
 +
-네트워크 포트 표시 - IPSpace 클러스터
+`network port show -ipspace Cluster`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -169,15 +169,15 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 4 entries were displayed.
 ----
 ====
-.. 논리 인터페이스 및 지정된 홈 노드에 대한 정보를 표시합니다.
+.. 논리적 인터페이스와 지정된 홈 노드에 대한 정보를 표시합니다.
 +
-'network interface show-vserver cluster'
+`network interface show -vserver Cluster`
 
 +
-각 LIF는 '상태 관리/작업'에 대해 위/위로 표시되고 '홈'에 대해서는 true로 표시되어야 합니다.
+각 LIF는 다음을 위해 위로/위로 표시되어야 합니다. `Status Admin/Oper` 그리고 사실 `Is Home` .
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -198,12 +198,12 @@ Cluster
 ====
 
 
-. 명령을 사용하여 각 노드의 클러스터 포트가 노드의 관점에서 기존 클러스터 스위치에 다음과 같은 방법으로 연결되어 있는지 확인합니다.
+. 다음 명령을 사용하여 각 노드의 클러스터 포트가 기존 클러스터 스위치에 다음과 같은 방식으로 연결되었는지 확인합니다(노드 관점에서):
 +
-네트워크 디바이스 검색 표시 프로토콜 CDP
+`network device-discovery show -protocol cdp`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -222,12 +222,12 @@ node1      /cdp
 4 entries were displayed.
 ----
 ====
-. 명령을 사용하여 클러스터 포트 및 스위치가 스위치의 관점에서 다음과 같은 방식으로 연결되었는지 확인합니다.
+. 다음 명령을 사용하여 클러스터 포트와 스위치가 (스위치 관점에서) 다음과 같은 방식으로 연결되었는지 확인합니다.
 +
-CDP 이웃의 성전
+`show cdp neighbors`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -290,22 +290,22 @@ c1(FOX2025GEEX)     Eth1/47        176    S I s     N5K-C5596UP        Eth1/47
 c1(FOX2025GEEX)     Eth1/48        176    S I s     N5K-C5596UP        Eth1/48
 ----
 ====
-. 원격 클러스터 인터페이스의 연결을 확인합니다.
+. 원격 클러스터 인터페이스의 연결성을 확인하세요.
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.9.1 이상
 --
-를 사용할 수 있습니다 `network interface check cluster-connectivity` 클러스터 연결에 대한 접근성 검사를 시작한 다음 세부 정보를 표시하는 명령입니다.
+당신은 사용할 수 있습니다 `network interface check cluster-connectivity` 클러스터 연결에 대한 접근성 검사를 시작한 다음 세부 정보를 표시하는 명령:
 
-`network interface check cluster-connectivity start` 및 `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`그리고 `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-* 참고: * 몇 초 동안 기다린 후 `show` 명령을 실행하여 세부 정보를 표시합니다.
+*참고:* 실행하기 전에 몇 초 동안 기다리십시오. `show` 세부 정보를 표시하는 명령입니다.
 
 [listing, subs="+quotes"]
 ----
@@ -323,7 +323,7 @@ node2
 --
 .모든 ONTAP 릴리스
 --
-모든 ONTAP 릴리스에 대해 을 사용할 수도 있습니다 `cluster ping-cluster -node <name>` 연결 상태를 확인하는 명령:
+모든 ONTAP 릴리스의 경우 다음을 사용할 수도 있습니다. `cluster ping-cluster -node <name>` 연결성을 확인하는 명령:
 
 `cluster ping-cluster -node <name>`
 
@@ -360,12 +360,12 @@ RPC status:
 
 === 2단계: 케이블 및 포트 구성
 
-. C1 및 CS1 사이에 있는 포트 e1/41-48의 cs1에 임시 ISL을 구성합니다.
+. c1과 cs1 사이의 포트 e1/41-48에 임시 ISL을 구성합니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 새 ISL이 C1 및 CS1에 어떻게 구성되어 있는지 보여 줍니다.
+다음 예에서는 c1과 cs1에서 새로운 ISL이 어떻게 구성되는지 보여줍니다.
 
 [listing, subs="+quotes"]
 ----
@@ -386,16 +386,16 @@ cs1(config-if)# *exit*
 cs1(config)# *exit*
 ----
 ====
-. 포트 1/41-48에서 ISL 케이블을 C2에서 분리하고 케이블을 CS1의 포트 1/41-48에 연결합니다.
-. ISL 포트와 포트 채널이 C1 및 CS1을 연결하는 작동 중인지 확인합니다.
+. c2의 e1/41-48 포트에서 ISL 케이블을 제거하고 해당 케이블을 cs1의 e1/41-48 포트에 연결합니다.
+. ISL 포트와 포트 채널이 c1과 cs1을 연결하여 작동하는지 확인합니다.
 +
-'포트-채널 요약
+`show port-channel summary`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 ISL 포트가 C1 및 CS1에서 작동하는지 확인하는 데 사용되는 Cisco show port-channel summary 명령을 보여 줍니다.
+다음 예에서는 Cisco show port-channel summary 명령을 사용하여 c1 및 cs1에서 ISL 포트가 작동하는지 확인하는 방법을 보여줍니다.
 
 [listing, subs="+quotes"]
 ----
@@ -436,14 +436,14 @@ Group Port-       Type     Protocol  Member Ports
                                      Eth1/47(P)   Eth1/48(P)
 ----
 ====
-. 노드 1의 경우 C2의 e1/1에서 케이블을 분리한 다음 Nexus 92300YC에서 지원하는 적절한 케이블을 사용하여 CS2의 e1/1에 케이블을 연결합니다.
-. 노드 2의 경우 C2의 e1/2에서 케이블을 분리한 다음 Nexus 92300YC에서 지원하는 적절한 케이블을 사용하여 CS2의 e1/2에 케이블을 연결합니다.
-. 이제 각 노드의 클러스터 포트가 노드의 관점에서 클러스터 스위치에 다음과 같은 방식으로 연결됩니다.
+. 노드 1의 경우, c2의 e1/1에서 케이블을 분리한 다음, Nexus 92300YC에서 지원하는 적절한 케이블을 사용하여 케이블을 cs2의 e1/1에 연결합니다.
+. 노드 2의 경우, c2의 e1/2에서 케이블을 분리한 다음, Nexus 92300YC에서 지원하는 적절한 케이블을 사용하여 케이블을 cs2의 e1/2에 연결합니다.
+. 각 노드의 클러스터 포트는 이제 노드 관점에서 다음과 같은 방식으로 클러스터 스위치에 연결됩니다.
 +
-네트워크 디바이스 검색 표시 프로토콜 CDP
+`network device-discovery show -protocol cdp`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -463,14 +463,14 @@ node1      /cdp
 4 entries were displayed.
 ----
 ====
-. 노드 1의 경우, 1C1의 e1/1에서 케이블을 분리한 다음 Nexus 92300YC에서 지원하는 적절한 케이블을 사용하여 CS1의 e1/1에 케이블을 연결합니다.
-. 노드 2의 경우, C1의 e1/2에서 케이블을 분리한 다음 Nexus 92300YC에서 지원하는 적절한 케이블을 사용하여 CS1의 e1/2에 케이블을 연결합니다.
-. 이제 각 노드의 클러스터 포트가 노드의 관점에서 클러스터 스위치에 다음과 같은 방식으로 연결됩니다.
+. 노드 1의 경우, c1의 e1/1에서 케이블을 분리한 다음, Nexus 92300YC에서 지원하는 적절한 케이블을 사용하여 케이블을 cs1의 e1/1에 연결합니다.
+. 노드 2의 경우, c1의 e1/2에서 케이블을 분리한 다음 Nexus 92300YC에서 지원하는 적절한 케이블을 사용하여 케이블을 cs1의 e1/2에 연결합니다.
+. 각 노드의 클러스터 포트는 이제 노드 관점에서 다음과 같은 방식으로 클러스터 스위치에 연결됩니다.
 +
-네트워크 디바이스 검색 표시 프로토콜 CDP
+`network device-discovery show -protocol cdp`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -488,9 +488,9 @@ node1      /cdp
 4 entries were displayed.
 ----
 ====
-. CS1과 C1 사이의 임시 ISL을 삭제합니다.
+. cs1과 c1 사이의 임시 ISL을 삭제합니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -511,17 +511,17 @@ cs1(config)# *exit*
 
 
 
-=== 3단계: 마이그레이션을 완료합니다
+=== 3단계: 마이그레이션 완료
 
-. 클러스터의 최종 구성을 확인합니다.
+. 클러스터의 최종 구성을 확인하세요.
 +
-네트워크 포트 표시 - IPSpace 클러스터
-
-+
-각 포트는 Link에, Health Status에 대해서는 Healthy로 표시되어야 합니다.
+`network port show -ipspace Cluster`
 
 +
-.예제 보기
+각 포트는 다음과 같이 표시되어야 합니다. `Link` 그리고 건강하다 `Health Status` .
+
++
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -608,22 +608,22 @@ cs1(FDO220329KU)
 Total entries displayed: 4
 ----
 ====
-. 원격 클러스터 인터페이스의 연결을 확인합니다.
+. 원격 클러스터 인터페이스의 연결성을 확인하세요.
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.9.1 이상
 --
-를 사용할 수 있습니다 `network interface check cluster-connectivity` 클러스터 연결에 대한 접근성 검사를 시작한 다음 세부 정보를 표시하는 명령입니다.
+당신은 사용할 수 있습니다 `network interface check cluster-connectivity` 클러스터 연결에 대한 접근성 검사를 시작한 다음 세부 정보를 표시하는 명령:
 
-`network interface check cluster-connectivity start` 및 `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`그리고 `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-* 참고: * 몇 초 동안 기다린 후 `show` 명령을 실행하여 세부 정보를 표시합니다.
+*참고:* 실행하기 전에 몇 초 동안 기다리십시오. `show` 세부 정보를 표시하는 명령입니다.
 
 [listing, subs="+quotes"]
 ----
@@ -641,7 +641,7 @@ node2
 --
 .모든 ONTAP 릴리스
 --
-모든 ONTAP 릴리스에 대해 을 사용할 수도 있습니다 `cluster ping-cluster -node <name>` 연결 상태를 확인하는 명령:
+모든 ONTAP 릴리스의 경우 다음을 사용할 수도 있습니다. `cluster ping-cluster -node <name>` 연결성을 확인하는 명령:
 
 `cluster ping-cluster -node <name>`
 
@@ -674,12 +674,12 @@ RPC status:
 ----
 --
 ====
-. [[step3]] 자동 케이스 생성을 억제한 경우 AutoSupport 메시지를 호출하여 다시 활성화합니다.
+. [[3단계]] 자동 케이스 생성을 억제한 경우 AutoSupport 메시지를 호출하여 다시 활성화하세요.
 +
-'System node AutoSupport invoke-node * -type all-message maINT=end'
+`system node autosupport invoke -node * -type all -message MAINT=END`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -687,11 +687,11 @@ RPC status:
 cluster1::*> *system node autosupport invoke -node * -type all -message MAINT=END*
 ----
 ====
-. 권한 수준을 admin으로 다시 변경합니다.
+. 권한 수준을 다시 관리자로 변경합니다.
 +
-'Set-Privilege admin'입니다
+`set -privilege admin`
 
 
 
-.다음 단계
-link:../switch-cshm/config-overview.html["스위치 상태 모니터링을 구성합니다"]..
+.다음은 무엇인가요?
+link:../switch-cshm/config-overview.html["스위치 상태 모니터링 구성"].

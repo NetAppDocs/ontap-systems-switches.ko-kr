@@ -2,64 +2,64 @@
 permalink: switch-cisco-92300/install-nxos-software.html 
 sidebar: sidebar 
 keywords: install nx-os,nx-os configure 
-summary: 이 절차를 사용하여 Nexus 92300YC 스위치에 NX-OS 소프트웨어를 설치할 수 있습니다. 
+summary: 다음 절차를 사용하여 Nexus 92300YC 스위치에 NX-OS 소프트웨어를 설치할 수 있습니다. 
 ---
-= NX-OS 소프트웨어를 설치합니다
+= NX-OS 소프트웨어 설치
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-다음 절차에 따라 Nexus 92300YC 스위치에 NX-OS 소프트웨어를 설치합니다.
+Nexus 92300YC 스위치에 NX-OS 소프트웨어를 설치하려면 다음 절차를 따르세요.
 
-NX-OS는 Cisco Systems에서 제공하는 Nexus 시리즈 이더넷 스위치 및 MDS 시리즈 FC(Fibre Channel) 스토리지 영역 네트워크 스위치용 네트워크 운영 체제입니다.
+NX-OS는 Cisco Systems에서 제공하는 Nexus 시리즈 이더넷 스위치와 MDS 시리즈 파이버 채널(FC) 스토리지 영역 네트워크 스위치용 네트워크 운영 체제입니다.
 
 
 
-== 요구사항 검토
+== 검토 요구 사항
 
 .지원되는 포트 및 노드 연결
-* Nexus 92300YC 스위치에 지원되는 ISL(Inter-Switch Link)은 포트 1/65 및 1/66입니다.
-* Nexus 92300YC 스위치에서 지원되는 노드 연결은 포트 1/1 ~ 1/66입니다.
+* Nexus 92300YC 스위치에서 지원되는 ISL(Inter-Switch Links)은 포트 1/65와 1/66입니다.
+* Nexus 92300YC 스위치에서 지원되는 노드 연결은 포트 1/1~1/66입니다.
 
 
 .시작하기 전에
-다음 사항을 확인하십시오.
+다음 사항이 있는지 확인하세요.
 
-* 해당 NetApp Cisco NX-OS 소프트웨어가 의 NetApp Support 사이트 스위치에 적용됩니다 http://mysupport.netapp.com/["mysupport.netapp.com"]
-* 완전히 작동하는 클러스터(로그에 오류 또는 유사한 문제 없음)
-* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치 페이지"^]. 지원되는 ONTAP 및 NX-OS 버전은 스위치 호환성 표를 참조하십시오.
-
-
+* NetApp 지원 사이트에서 스위치에 적용 가능한 NetApp Cisco NX-OS 소프트웨어를 확인하세요. http://mysupport.netapp.com/["mysupport.netapp.com"]
+* 완벽하게 작동하는 클러스터(로그에 오류나 유사한 문제가 없음).
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치 페이지"^]. 지원되는 ONTAP 및 NX-OS 버전에 대한 스위치 호환성 표를 참조하세요.
 
 
-== 소프트웨어를 설치합니다
 
-이 절차의 예에서는 2개의 노드를 사용하지만 하나의 클러스터에 최대 24개의 노드를 포함할 수 있습니다.
 
-.예를 참조하십시오
+== 소프트웨어를 설치하세요
+
+이 절차의 예에서는 두 개의 노드를 사용하지만 클러스터에는 최대 24개의 노드가 있을 수 있습니다.
+
+.예시에 관하여
 이 절차의 예에서는 다음 스위치 및 노드 명명법을 사용합니다.
 
-* Nexus 92300YC 스위치 이름은 CS1, CS2입니다.
-* 이 절차에 사용된 예는 두 번째 스위치 _ * CS2 *._에서 업그레이드를 시작합니다
-* 클러스터 LIF 이름은 node1의 node1_clus1 및 node1_clus2, node2의 node2_clus1 및 node2_clus2 입니다.
-* IPspace 이름은 Cluster입니다.
-* 'cluster1:: *>' 프롬프트는 클러스터의 이름을 나타냅니다.
-* 각 노드의 클러스터 포트 이름은 e0a, e0b 입니다.
+* Nexus 92300YC 스위치 이름은 다음과 같습니다. `cs1` 그리고 `cs2` .
+* 이 절차에서 사용된 예는 두 번째 스위치인 _*cs2*._에서 업그레이드를 시작합니다.
+* 클러스터 LIF 이름은 다음과 같습니다. `node1_clus1` 그리고 `node1_clus2` node1의 경우 `node2_clus1` 그리고 `node2_clus2` 노드2의 경우.
+* IPspace 이름은 `Cluster` .
+* 그만큼 `cluster1::*>` 프롬프트는 클러스터의 이름을 나타냅니다.
+* 각 노드의 클러스터 포트는 다음과 같이 명명됩니다. `e0a` 그리고 `e0b` .
 +
-를 참조하십시오 link:https://hwu.netapp.com/Home/Index["_Hardware Universe^_"] 플랫폼에 지원되는 실제 클러스터 포트의 경우
+를 참조하십시오link:https://hwu.netapp.com/Home/Index["_하드웨어 유니버스^_"] 플랫폼에서 지원되는 실제 클러스터 포트에 대한 정보입니다.
 
 
 
 .단계
 . 클러스터 스위치를 관리 네트워크에 연결합니다.
-. "ping" 명령을 사용하여 NX-OS 소프트웨어 및 RCF를 호스팅하는 서버에 대한 연결을 확인합니다.
+. 사용하다 `ping` NX-OS 소프트웨어와 RCF를 호스팅하는 서버에 대한 연결을 확인하는 명령입니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-이 예에서는 스위치가 IP 주소 172.19.2.1로 서버에 연결할 수 있는지 확인합니다.
+이 예제에서는 스위치가 IP 주소 172.19.2.1의 서버에 도달할 수 있는지 확인합니다.
 
 [listing, subs="+quotes"]
 ----
@@ -69,9 +69,9 @@ Pinging 172.19.2.1 with 0 bytes of data:
 Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
 ----
 ====
-. NX-OS 소프트웨어 및 EPLD 이미지를 Nexus 92300YC 스위치에 복사합니다.
+. NX-OS 소프트웨어와 EPLD 이미지를 Nexus 92300YC 스위치에 복사합니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -110,12 +110,12 @@ Copy complete, now saving to disk (please wait)...
 Copy complete.
 ----
 ====
-. 실행 중인 NX-OS 소프트웨어 버전을 확인합니다.
+. NX-OS 소프트웨어의 실행 버전을 확인하세요.
 +
-'How version'입니다
+`show version`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -176,7 +176,7 @@ cs2#
 이미지 파일을 설치하면 스위치를 재부팅할 때마다 이미지 파일이 로드됩니다.
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -244,12 +244,12 @@ Warning: please do not remove or power off the module at this time.
 Finishing the upgrade, switch will reboot in 10 seconds.
 ----
 ====
-. 스위치를 재부팅한 후 새로운 버전의 NX-OS 소프트웨어를 확인합니다.
+. 스위치가 재부팅된 후 NX-OS 소프트웨어의 새 버전을 확인하세요.
 +
-'How version'입니다
+`show version`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -304,9 +304,9 @@ plugin
 Active Package(s):
 ----
 ====
-. EPLD 이미지를 업그레이드하고 스위치를 reboot한다.
+. EPLD 이미지를 업그레이드하고 스위치를 재부팅합니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -356,9 +356,9 @@ EPLDs upgraded.
 Module 1 EPLD upgrade is successful.
 ----
 ====
-. 스위치 재부팅 후 다시 로그인하여 새 버전의 EPLD가 성공적으로 로드되었는지 확인합니다.
+. 스위치를 재부팅한 후 다시 로그인하여 새로운 버전의 EPLD가 성공적으로 로드되었는지 확인하세요.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing]
@@ -378,5 +378,5 @@ GEM FPGA                         0x2
 ====
 
 
-.다음 단계
-link:install-the-rcf-file.html["참조 구성 파일을 설치합니다"]
+.다음은 무엇인가요?
+link:install-the-rcf-file.html["참조 구성 파일 설치"]

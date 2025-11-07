@@ -13,14 +13,14 @@ summary: NVIDIA SN2100 클러스터 스위치를 구성하기 전에 구성 개�
 [role="lead"]
 SN2100 클러스터 스위치의 하드웨어를 설치하고 구성하려면 다음 단계를 따르세요.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1개"]link:install-hardware-sn2100-cluster.html["하드웨어를 설치합니다"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["하나"]link:install-hardware-sn2100-cluster.html["하드웨어 설치"]
 [role="quick-margin-para"]
 스위치 하드웨어를 설치합니다.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["2개"]link:cabling-considerations-sn2100-cluster.html["케이블 연결 및 구성 고려 사항을 검토합니다"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["둘"]link:cabling-considerations-sn2100-cluster.html["케이블링 및 구성 고려 사항 검토"]
 [role="quick-margin-para"]
-광 연결, QSA 어댑터 및 스위치 포트 속도에 대한 요구 사항을 검토합니다.
+광 연결, QSA 어댑터 및 스위치포트 속도에 대한 요구 사항을 검토합니다.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["세 가지"]link:install-cable-shelves-sn2100-cluster.html["NS224 선반에 케이블을 연결합니다"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["삼"]link:install-cable-shelves-sn2100-cluster.html["NS224 선반에 케이블 연결"]
 [role="quick-margin-para"]
-NS224 드라이브 쉘프를 스위치 연결 스토리지(직접 연결 스토리지 아님)로 케이블로 연결해야 하는 시스템이 있는 경우 케이블 연결 절차를 따르십시오.
+NS224 드라이브 선반을 스위치 연결 스토리지(직접 연결 스토리지 아님)로 케이블로 연결해야 하는 시스템이 있는 경우 케이블 연결 절차를 따르세요.

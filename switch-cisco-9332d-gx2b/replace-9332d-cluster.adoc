@@ -15,64 +15,64 @@ summary: '클러스터 네트워크에서 결함이 있는 Nexus 9332D-GX2B 스�
 
 
 
-== 요구사항 검토
+== 검토 요구 사항
 
-스위치 교체를 수행하기 전에 다음 사항을 확인하십시오.
+스위치 교체를 수행하기 전에 다음 사항을 확인하세요.
 
-* 올바른 스위치가 교체되었는지 확인하기 위해 스위치 일련 번호를 확인했습니다.
-* 기존 클러스터 및 네트워크 인프라:
+* 올바른 스위치로 교체되었는지 확인하기 위해 스위치 일련번호를 확인했습니다.
+* 기존 클러스터 및 네트워크 인프라에서:
 +
-** 기존 클러스터가 완전히 연결된 클러스터 스위치를 한 개 이상 사용하여 완전하게 작동하는 것으로 확인되었습니다.
+** 기존 클러스터는 적어도 하나의 완전히 연결된 클러스터 스위치를 갖추고 완벽하게 작동하는 것으로 검증되었습니다.
 ** 모든 클러스터 포트가 작동 중입니다.
-** 모든 클러스터 논리 인터페이스(LIF)가 홈 포트에 있습니다.
+** 모든 클러스터 논리 인터페이스(LIF)가 작동 중이며 홈 포트에 있습니다.
 ** ONTAP `cluster ping-cluster -node <node-name>` 명령은 기본 연결과 PMTU보다 큰 통신이 모든 경로에서 성공적임을 나타내야 합니다.
 
 
-* Nexus 9332D-GX2B 교체 스위치의 경우:
+* Nexus 9332D-GX2B 교체 스위치:
 +
 ** 교체 스위치의 관리 네트워크 연결이 작동합니다.
-** 교체 스위치에 대한 콘솔 액세스가 있습니다.
+** 교체 스위치에 대한 콘솔 접근이 가능합니다.
 ** 노드 연결은 포트 1/1부터 1/30까지입니다.
 ** 모든 ISL(Inter-Switch Link) 포트는 포트 1/31 및 1/32에서 비활성화됩니다.
-** 원하는 RCF(Reference Configuration File) 및 NX-OS 운영 체제 이미지 스위치가 스위치에 로드됩니다.
+** 원하는 참조 구성 파일(RCF)과 NX-OS 운영 체제 이미지 스위치가 스위치에 로드됩니다.
 ** 스위치의 초기 사용자 정의가 완료되었습니다.link:setup-switch-9332d-cluster.html["9332D-GX2B 클러스터 스위치 구성"] .
 +
-STP, SNMP, SSH 등의 이전 사이트 사용자 지정이 새 스위치에 복사됩니다.
+STP, SNMP, SSH 등 이전 사이트 사용자 정의는 새 스위치에 복사됩니다.
 
 
 
-* 클러스터 LIF가 호스팅된 노드에서 클러스터 LIF를 마이그레이션하기 위한 명령을 실행했습니다.
-
-
-
-
-== 콘솔 로깅을 활성화합니다
-
-NetApp은 사용 중인 장치에서 콘솔 로깅을 사용하도록 설정하고 스위치를 교체할 때 다음 작업을 수행할 것을 적극 권장합니다.
-
-* 유지 관리 중에는 AutoSupport를 활성화된 상태로 둡니다.
-* 유지 관리 전후에 유지 관리 AutoSupport를 트리거하여 유지 보수 기간 동안 케이스 생성을 비활성화합니다. 이 기술 자료 문서를 참조하십시오 https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: 예약된 유지 관리 기간 동안 자동 케이스 생성을 억제하는 방법"^] 를 참조하십시오.
-* 모든 CLI 세션에 대해 세션 로깅을 설정합니다. 세션 로깅을 활성화하는 방법에 대한 지침은 이 기술 자료 문서의 "로깅 세션 출력" 섹션을 참조하십시오 https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["ONTAP 시스템에 대한 최적의 연결을 위해 PuTTY를 구성하는 방법"^].
+* 클러스터 LIF가 호스팅되는 노드에서 클러스터 LIF를 마이그레이션하기 위한 명령을 실행했습니다.
 
 
 
 
-== 스위치를 교체합니다
+== 콘솔 로깅 활성화
 
-.예를 참조하십시오
+NetApp 사용 중인 장치에서 콘솔 로깅을 활성화하고 스위치를 교체할 때 다음 작업을 수행할 것을 강력히 권장합니다.
+
+* 유지관리 중에는 AutoSupport 활성화해 두세요.
+* 유지 관리 기간 동안 케이스 생성을 비활성화하려면 유지 관리 전후에 유지 관리 AutoSupport 트리거합니다.  이 지식 기반 문서를 참조하세요. https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: 예약된 유지 관리 기간 동안 자동 케이스 생성을 억제하는 방법"^] 자세한 내용은.
+* 모든 CLI 세션에 대한 세션 로깅을 활성화합니다.  세션 로깅을 활성화하는 방법에 대한 지침은 이 기술 자료 문서의 "세션 출력 로깅" 섹션을 검토하세요. https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["ONTAP 시스템에 대한 최적의 연결을 위해 PuTTY를 구성하는 방법"^] .
+
+
+
+
+== 스위치를 교체하세요
+
+.예시에 관하여
 이 절차의 예에서는 다음 스위치 및 노드 명명법을 사용합니다.
 
 * 기존 Nexus 9332D-GX2B 스위치의 이름은 cs1과 cs2입니다.
 * 새로운 Nexus 9332D-GX2B 스위치의 이름은 newcs2입니다.
 * 노드 이름은 node1-01, node1-02, node1-03, node1-04입니다.
 * 클러스터 LIF 이름은 node1-01의 경우 node1-01_clus1과 node1-01_clus2, node1-02의 경우 node1-02_clus1과 node1-02_clus2, node1-03의 경우 node1-03_clus1과 node1-03_clus2, node1-04의 경우 node1-04_clus1과 node1-04_clus2입니다.
-* 모든 클러스터 노드에 대한 변경 프롬프트는 cluster1:: *>입니다
+* 모든 클러스터 노드에 대한 변경 사항에 대한 프롬프트는 cluster1::*>입니다.
 
 
-.이 작업에 대해
-다음 절차는 클러스터 네트워크 토폴로지를 기준으로 합니다.
+.이 작업에 관하여
+다음 절차는 다음 클러스터 네트워크 토폴로지를 기반으로 합니다.
 
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -216,34 +216,34 @@ Total entries displayed: 18
 
 === 1단계: 교체 준비
 
-. 이 클러스터에서 AutoSupport가 활성화되어 있는 경우 AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다.
+. 이 클러스터에서 AutoSupport 활성화된 경우 AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다.
 +
-'System node AutoSupport invoke-node * -type all-message maINT=xh'
+`system node autosupport invoke -node * -type all -message MAINT=xh`
 
 +
-여기서 x는 유지 보수 기간(시간)입니다.
+여기서 x는 유지 관리 기간(시간)입니다.
 
 +
 
-NOTE: AutoSupport 메시지는 유지보수 기간 동안 자동 케이스 생성이 억제되도록 이 유지보수 작업의 기술 지원에 알립니다.
+NOTE: AutoSupport 메시지는 기술 지원팀에 이 유지 관리 작업을 알려 유지 관리 기간 동안 자동 케이스 생성이 억제되도록 합니다.
 
-. 스위치에 적절한 RCF 및 이미지를 설치하고 newcs2를 설치한 후 필요한 현장 준비를 합니다.
+. 스위치 newcs2에 적절한 RCF와 이미지를 설치하고, 필요한 사이트 준비를 합니다.
 +
-필요한 경우 새 스위치에 적합한 버전의 RCF 및 NX-OS 소프트웨어를 확인, 다운로드 및 설치합니다. 새 스위치가 올바르게 설정되어 있고 RCF 및 NX-OS 소프트웨어 업데이트가 필요하지 않은 경우 2단계를 계속 진행하십시오.
+필요한 경우 새 스위치에 적합한 RCF 및 NX-OS 소프트웨어 버전을 확인하고 다운로드하고 설치하세요.  새 스위치가 올바르게 설정되었고 RCF 및 NX-OS 소프트웨어를 업데이트할 필요가 없는지 확인한 경우 2단계로 진행합니다.
 
 +
-.. NetApp Support 사이트에서 _NetApp 클러스터 및 관리 네트워크 스위치 참조 구성 파일 설명 페이지_로 이동하십시오.
-.. 클러스터 네트워크 및 관리 네트워크 호환성 매트릭스 _ 에 대한 링크를 클릭한 다음 필요한 스위치 소프트웨어 버전을 확인합니다.
-.. 브라우저의 뒤로 화살표를 클릭하여 설명 페이지로 돌아가 * 계속 * 을 클릭하고 사용권 계약에 동의한 다음 다운로드 페이지로 이동합니다.
-.. 다운로드 페이지의 단계에 따라 설치할 ONTAP 소프트웨어 버전에 맞는 올바른 RCF 및 NX-OS 파일을 다운로드하십시오.
+.. NetApp 지원 사이트의 _NetApp 클러스터 및 관리 네트워크 스위치 참조 구성 파일 설명 페이지_로 이동하세요.
+.. _클러스터 네트워크 및 관리 네트워크 호환성 매트릭스_ 링크를 클릭한 다음, 필요한 스위치 소프트웨어 버전을 확인하세요.
+.. 브라우저의 뒤로 화살표를 클릭하여 설명 페이지로 돌아간 후, *계속*을 클릭하고 라이선스 계약에 동의한 다음 다운로드 페이지로 이동합니다.
+.. 다운로드 페이지의 단계에 따라 설치하려는 ONTAP 소프트웨어 버전에 맞는 RCF 및 NX-OS 파일을 다운로드하세요.
 
 
 . 새 스위치에서 관리자로 로그인하고 노드 클러스터 인터페이스에 연결될 모든 포트(포트 1/1~1/30)를 종료합니다.
 +
-교체 중인 스위치가 작동하지 않고 전원이 꺼진 경우 4단계로 이동합니다. 클러스터 노드의 LIF는 각 노드의 다른 클러스터 포트로 페일오버했어야 합니다.
+교체하려는 스위치가 작동하지 않고 전원이 꺼진 경우 4단계로 이동하세요.  클러스터 노드의 LIF는 이미 각 노드의 다른 클러스터 포트로 장애 조치되었어야 합니다.
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -261,14 +261,14 @@ newcs2(config-if-range)# exit
 newcs2(config)# exit
 ----
 ====
-. 모든 클러스터 LIF에서 자동 되돌리기 기능이 설정되어 있는지 확인합니다.
+. 모든 클러스터 LIF에 자동 되돌리기가 활성화되어 있는지 확인하세요.
 +
 [source, cli]
 ----
 network interface show -vserver Cluster -fields auto-revert
 ----
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -286,7 +286,7 @@ Cluster      node1-04_clus2   true
 4 entries were displayed.
 ----
 ====
-. 원격 클러스터 인터페이스의 연결을 확인합니다.
+. 원격 클러스터 인터페이스의 연결성을 확인하세요.
 +
 .. 당신은 사용할 수 있습니다 `network interface check cluster-connectivity show` 클러스터 연결에 대한 접근성 검사 세부 정보를 표시하는 명령:
 +
@@ -295,7 +295,7 @@ Cluster      node1-04_clus2   true
 network interface check cluster-connectivity show
 ----
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -320,7 +320,7 @@ node1-02
 `cluster ping-cluster -node <node-name>`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -376,7 +376,7 @@ cs1(config)# exit
 포트 채널은 Po1(SU)를 표시해야 하고, 멤버 포트는 Eth1/31(P) 및 Eth1/32(P)를 표시해야 합니다.
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 이 예제에서는 ISL 포트 Eth1/31 및 Eth1/32를 활성화하고 스위치 cs1의 포트 채널 요약을 표시합니다.
@@ -414,10 +414,10 @@ Group Port-       Type     Protocol  Member Ports
 network port show ipspace Cluster
 ----
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-출력은 다음과 비슷해야 합니다.
+출력은 다음과 유사해야 합니다.
 
 [listing, subs="+quotes"]
 ----
@@ -461,9 +461,9 @@ e7b       Cluster      Cluster          up   9000  auto/100000 healthy false
 8 entries were displayed.
 ----
 ====
-. 이전 단계에서 사용한 것과 동일한 노드에서 네트워크 인터페이스 되돌리기 명령을 사용하여 이전 단계의 포트에 연결된 클러스터 LIF를 되돌립니다.
+. 이전 단계에서 사용한 동일한 노드에서 네트워크 인터페이스 되돌리기 명령을 사용하여 이전 단계의 포트와 연결된 클러스터 LIF를 되돌립니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 이 예에서 Home 값이 true이고 포트가 e7b이면 node1-01의 LIF node1-01_clus2가 성공적으로 되돌려집니다.
@@ -489,13 +489,13 @@ Cluster
 ====
 . 클러스터의 노드에 대한 정보를 표시합니다.
 +
-'클러스터 쇼'
+`cluster show`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-이 예제에서는 이 클러스터의 노드 1과 노드 2에 대한 노드 상태가 true인 것을 보여 줍니다.
+이 예에서는 이 클러스터의 node1과 node2에 대한 노드 상태가 참임을 보여줍니다.
 
 [listing, subs="+quotes"]
 ----
@@ -509,14 +509,14 @@ node1-03       true    true
 node1-04       true    true
 ----
 ====
-. 모든 물리적 클러스터 포트가 작동하는지 확인합니다.
+. 모든 물리적 클러스터 포트가 작동 중인지 확인하세요.
 +
 [source, cli]
 ----
 network port show ipspace Cluster
 ----
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -544,7 +544,7 @@ e7b       Cluster      Cluster          up   9000  auto/100000 healthy false
 .
 ----
 ====
-. 원격 클러스터 인터페이스의 연결을 확인합니다.
+. 원격 클러스터 인터페이스의 연결성을 확인하세요.
 +
 .. 당신은 사용할 수 있습니다 `network interface check cluster-connectivity` 클러스터 연결에 대한 접근성 검사 세부 정보를 표시하는 명령:
 +
@@ -553,7 +553,7 @@ e7b       Cluster      Cluster          up   9000  auto/100000 healthy false
 network interface check cluster-connectivity start
 ----
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -578,7 +578,7 @@ node1-02
 `cluster ping-cluster -node <node-name>`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -615,13 +615,13 @@ RPC status:
 
 
 
-=== 3단계: 구성을 확인합니다
+=== 3단계: 구성 확인
 
 . 클러스터의 모든 포트 상태를 확인합니다.
 +
 .. *클러스터 포트*
 +
-... 클러스터 포트가 클러스터의 모든 노드에서 정상 작동하는지 확인합니다.
+... 클러스터의 모든 노드에서 클러스터 포트가 작동 중이고 정상인지 확인하세요.
 +
 [source, cli]
 ----
@@ -643,7 +643,7 @@ network device-discovery show -protocol cdp
 show cdp neighbors
 ----
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -793,7 +793,7 @@ Total entries displayed: 18
 `ha interconnect status show -node <node-name>`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -861,7 +861,7 @@ Interconnect Port 1 :
 storage port show -port-type ENET
 ----
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -905,7 +905,7 @@ node1-04
 storage shelf port show
 ----
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -942,7 +942,7 @@ Shelf ID Module State        Internal?
 storage shelf port show -fields remote-device,remote-port,connector-state
 ----
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -975,11 +975,11 @@ shelf id connector-state remote-port    remote-device
 
 
 
-. 자동 케이스 생성을 억제한 경우 AutoSupport 메시지를 호출하여 다시 활성화합니다.
+. 자동 케이스 생성을 억제한 경우 AutoSupport 메시지를 호출하여 다시 활성화하세요.
 +
-'System node AutoSupport invoke-node * -type all-message maINT=end'
+`system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 
-.다음 단계
+.다음은 무엇인가요?
 스위치를 교체한 후에는link:../switch-cshm/config-overview.html["스위치 상태 모니터링 구성"] .

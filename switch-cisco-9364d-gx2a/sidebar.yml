@@ -2,39 +2,39 @@
 section: switch-cisco-9364d-gx2a
 title: Cisco 넥서스 9364D-GX2A
 entries:
-- title: 시작하십시오
+- title: 시작하기
   pdf-filename: Overview_9364d-gx2a
   entries:
   - title: 빠른 시작
     url: "/switch-cisco-9364d-gx2a/configure-switch-overview-9364d-cluster.html"
   - title: 스위치 포트 세부 정보
     url: "/switch-cisco-9364d-gx2a/configure-setup-ports-9364d.html"
-  - title: 필수 문서
+  - title: 필수 서류
     url: "/switch-cisco-9364d-gx2a/required-documentation-9364d-cluster.html"
-  - title: Smart Call Home 요구 사항
+  - title: 스마트 콜 홈 요구 사항
     url: "/switch-cisco-9364d-gx2a/smart-call-9364d-cluster.html"
-- title: 하드웨어를 설치합니다
+- title: 하드웨어 설치
   url: "/switch-cisco-9364d-gx2a/install-hardware.html"
   pdf-filename: Install_hardware_9364d-gx2a
-- title: 소프트웨어를 구성합니다
+- title: 소프트웨어 구성
   pdf-filename: Configure_software_9364d-gx2a
   entries:
   - title: 소프트웨어 워크플로 구성
     url: "/switch-cisco-9364d-gx2a/configure-software-overview-9364d-cluster.html"
-  - title: 스위치를 구성합니다
+  - title: 스위치 구성
     url: "/switch-cisco-9364d-gx2a/setup-switch-9364d-cluster.html"
   - title: NX-OS 및 RCF 설치 준비
     url: "/switch-cisco-9364d-gx2a/install-nxos-overview-9364d-cluster.html"
-  - title: NX-OS 소프트웨어를 설치 또는 업그레이드합니다
+  - title: NX-OS 소프트웨어 설치 또는 업그레이드
     url: "/switch-cisco-9364d-gx2a/install-nxos-software-9364d-cluster.html"
-  - title: RCF를 설치하거나 업그레이드합니다
-    pdf-filename: install_upgrade_rcf 를 참조하십시오
+  - title: RCF 설치 또는 업그레이드
+    pdf-filename: 설치_업그레이드_rcf
     entries:
     - title: RCF 설치 또는 업그레이드 개요
       url: "/switch-cisco-9364d-gx2a/install-upgrade-rcf-overview-cluster.html"
-    - title: RCF를 설치합니다
+    - title: RCF 설치
       url: "/switch-cisco-9364d-gx2a/install-rcf-software-9364d-cluster.html"
-    - title: RCF 버전을 업그레이드하십시오
+    - title: RCF 버전을 업그레이드하세요
       url: "/switch-cisco-9364d-gx2a/upgrade-rcf-software-9364d-cluster.html"
   - title: SSH가 활성화되어 있는지 확인하세요
     url: "/switch-cisco-9364d-gx2a/configure-ssh-keys.html"

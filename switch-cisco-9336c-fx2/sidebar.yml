@@ -1,69 +1,69 @@
 ---
 section: switch-cisco-9336c-fx2
-title: Cisco Nexus 9336C-FX2 또는 9336C-FX2-T
+title: Cisco 넥서스 9336C-FX2 또는 9336C-FX2-T
 entries:
-- title: 시작하십시오
+- title: 시작하기
   entries:
   - title: 빠른 시작
     url: "/switch-cisco-9336c-fx2/configure-switch-overview-9336c-cluster.html"
   - title: 구성 요구 사항
     url: "/switch-cisco-9336c-fx2/configure-reqs-9336c-cluster.html"
-  - title: 부품 및 부품 번호
+  - title: 구성 요소 및 부품 번호
     url: "/switch-cisco-9336c-fx2/components-9336c-cluster.html"
-  - title: 필수 문서
+  - title: 필수 서류
     url: "/switch-cisco-9336c-fx2/required-documentation-9336c-cluster.html"
-  - title: Smart Call Home 요구 사항
+  - title: 스마트 콜 홈 요구 사항
     url: "/switch-cisco-9336c-fx2/smart-call-9336c-cluster.html"
-- title: 하드웨어를 설치합니다
-  pdf-filename: install_hardware_9336c-FX2를 참조하십시오
+- title: 하드웨어 설치
+  pdf-filename: Install_hardware_9336c-fx2
   entries:
   - title: 하드웨어 설치 워크플로
     url: "/switch-cisco-9336c-fx2/install-hardware-workflow.html"
-  - title: 케이블 연결 워크시트를 작성합니다
+  - title: 완전한 케이블링 워크시트
     url: "/switch-cisco-9336c-fx2/setup-worksheet-9336c-cluster.html"
-  - title: 스위치를 장착하십시오
+  - title: 스위치를 설치하세요
     url: "/switch-cisco-9336c-fx2/install-switch-9336c-cluster.html"
   - title: NetApp 캐비닛에 스위치 설치
     url: "/switch-cisco-9336c-fx2/install-switch-and-passthrough-panel-9336c-cluster.html"
-  - title: 케이블 연결 및 구성을 검토합니다
+  - title: 케이블링 및 구성 검토
     url: "/switch-cisco-9336c-fx2/cabling-considerations-9336c-fx2.html"
 - title: 소프트웨어 구성
-  pdf-filename: configure_software_9336c-FX2
+  pdf-filename: Configure_software_9336c-fx2
   entries:
-  - title: 소프트웨어 설치 워크플로우
+  - title: 소프트웨어 설치 워크플로
     url: "/switch-cisco-9336c-fx2/configure-software-overview-9336c-cluster.html"
-  - title: 스위치를 구성합니다
+  - title: 스위치 구성
     url: "/switch-cisco-9336c-fx2/setup-switch-9336c-cluster.html"
   - title: NX-OS 및 RCF 설치 준비
     url: "/switch-cisco-9336c-fx2/install-nxos-overview-9336c-cluster.html"
-  - title: NX-OS 소프트웨어를 설치 또는 업그레이드합니다
+  - title: NX-OS 소프트웨어 설치 또는 업그레이드
     url: "/switch-cisco-9336c-fx2/install-nxos-software-9336c-cluster.html"
-  - title: RCF를 설치하거나 업그레이드합니다
-    pdf-filename: install_upgrade_rcf 를 참조하십시오
+  - title: RCF 설치 또는 업그레이드
+    pdf-filename: 설치_업그레이드_rcf
     entries:
     - title: RCF 설치 또는 업그레이드 개요
       url: "/switch-cisco-9336c-fx2/install-upgrade-rcf-overview-cluster.html"
-    - title: RCF를 설치합니다
+    - title: RCF 설치
       url: "/switch-cisco-9336c-fx2/install-rcf-software-9336c-cluster.html"
-    - title: RCF 버전을 업그레이드하십시오
+    - title: RCF 버전을 업그레이드하세요
       url: "/switch-cisco-9336c-fx2/upgrade-rcf-software-9336c-cluster.html"
-  - title: SSH 구성을 확인합니다
+  - title: SSH 구성 확인
     url: "/switch-cisco-9336c-fx2/configure-ssh-keys.html"
   - title: 스위치를 공장 기본값으로 재설정합니다
     url: "/switch-cisco-9336c-fx2/reset-switch-9336c.html"
-- title: 스위치를 마이그레이션합니다
-  pdf-filename: Migrate_switches_9336c-FX2
+- title: 스위치 마이그레이션
+  pdf-filename: Migrate_switches_9336c-fx2
   entries:
   - title: CN1610 클러스터 스위치에서 마이그레이션
     url: "/switch-cisco-9336c-fx2/migrate-cn1610-9336c-cluster.html"
-  - title: 이전 Cisco 스위치에서 마이그레이션합니다
+  - title: 이전 Cisco 스위치에서 마이그레이션
     url: "/switch-cisco-9336c-fx2/migrate-to-9336-cluster.html"
-  - title: 스위치가 있는 2노드 클러스터로 마이그레이션
+  - title: 2노드 스위치 클러스터로 마이그레이션
     url: "/switch-cisco-9336c-fx2/migrate-to-2n-switched-9336-cluster.html"
 - title: 스위치를 교체하세요
-  pdf-filename: REPLACE_SWITCs_9336c-FX2를 참조하십시오
+  pdf-filename: Replace_switches_9336c-fx2
   entries:
-  - title: 클러스터 스위치를 교체합니다
+  - title: 클러스터 스위치 교체
     url: "/switch-cisco-9336c-fx2/replace-9336c-cluster.html"
-  - title: 클러스터 스위치를 스위치가 없는 연결로 대체
+  - title: 클러스터 스위치를 스위치리스 연결로 교체
     url: "/switch-cisco-9336c-fx2/migrate-to-switchless-interconnect-9336-cluster.html"

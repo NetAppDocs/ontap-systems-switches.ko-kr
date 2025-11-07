@@ -2,7 +2,7 @@
 permalink: switch-bes-53248/reset-switch-bes-53248.html 
 sidebar: sidebar 
 keywords: BES-53248 reset switch to factory defaults, BES-53248 switches configuration, efos 
-summary: Broadcom BES-53248 스위치를 구성하기 전에 다음 정보를 검토하십시오. 
+summary: Broadcom BES-53248 스위치를 구성하기 전에 다음 정보를 검토하세요. 
 ---
 = BES-53248 클러스터 스위치를 공장 기본값으로 재설정합니다.
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Broadcom BES-53248 스위치를 구성하기 전에 다음 정보를 �
 [role="lead"]
 BES-53248 클러스터 스위치를 공장 기본값으로 재설정하려면 BES-53248 스위치 설정을 지워야 합니다.
 
-.이 작업에 대해
+.이 작업에 관하여
 * 직렬 콘솔을 사용하여 스위치에 연결해야 합니다.
 * 이 작업은 관리 네트워크의 구성을 재설정합니다.
 
@@ -45,11 +45,11 @@ Are you sure you would like to reset the system? (y/n) *y*
 
 
 
-NOTE: 스위치를 다시 로드하기 전에 저장되지 않은 구성이나 변경된 구성을 저장할지 묻는 메시지가 나타나면 * No * 를 선택합니다.
+NOTE: 스위치를 다시 로드하기 전에 시스템에서 저장되지 않았거나 변경된 구성을 저장할지 묻는 경우 *아니요*를 선택하세요.
 
 . [[step4]] 스위치가 다시 로드될 때까지 기다린 후 스위치에 로그인하세요.
 +
-기본 사용자는 "admin"이고 비밀번호는 설정되어 있지 않습니다. 다음과 유사한 프롬프트가 표시됩니다.
+기본 사용자는 "admin"이고 비밀번호는 설정되어 있지 않습니다.  다음과 유사한 메시지가 표시됩니다.
 
 +
 [listing]

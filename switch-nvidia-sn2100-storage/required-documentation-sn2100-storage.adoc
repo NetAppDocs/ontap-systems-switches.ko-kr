@@ -2,7 +2,7 @@
 permalink: switch-nvidia-sn2100-storage/required-documentation-sn2100-storage.html 
 sidebar: sidebar 
 keywords: nvidia SN2100 switches 
-summary: NVIDIA SN2100 스위치 설치 및 유지 보수에 대해서는 모든 권장 설명서를 참조하십시오. 
+summary: NVIDIA SN2100 스위치 설치 및 유지관리에 대해서는 권장 문서를 모두 검토하세요. 
 ---
 = NVIDIA SN2100 스위치에 대한 문서 요구 사항
 :allow-uri-read: 
@@ -11,9 +11,9 @@ summary: NVIDIA SN2100 스위치 설치 및 유지 보수에 대해서는 모든
 
 
 [role="lead"]
-NVIDIA SN2100 스위치 설치 및 유지 보수에 대해서는 모든 권장 설명서를 참조하십시오.
+NVIDIA SN2100 스위치 설치 및 유지관리에 대해서는 권장 문서를 모두 검토하세요.
 
-다음 표에는 NVIDIA SN2100 스위치에 사용할 수 있는 설명서가 나열되어 있습니다.
+다음 표에는 NVIDIA SN2100 스위치에 대해 제공되는 설명서가 나열되어 있습니다.
 
 [cols="1,2"]
 |===
@@ -21,9 +21,9 @@ NVIDIA SN2100 스위치 설치 및 유지 보수에 대해서는 모든 권장 �
 
 
  a| 
-link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/install-hardware-sn2100-cluster.html["_NVIDIA SN2100 스위치를 설정하고 구성하십시오 _"^]
+link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/install-hardware-sn2100-cluster.html["NVIDIA SN2100 스위치 설정 및 구성_"^]
  a| 
-에서는 Cumulus Linux 및 해당 RCFs 설치를 포함하여 NVIDIA SN2100 스위치를 설정하고 구성하는 방법을 설명합니다.
+Cumulus Linux 및 해당 RCF를 설치하는 것을 포함하여 NVIDIA SN2100 스위치를 설정하고 구성하는 방법을 설명합니다.
 
 
 
@@ -35,15 +35,15 @@ Cisco 스토리지 스위치를 사용하는 환경에서 NVIDIA SN2100 스토�
 
 
  a| 
-link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/migrate-2n-switched-sn2100-cluster.html["_NVIDIA SN2100 클러스터 스위치를 사용하여 2노드 스위치 클러스터로 마이그레이션 _"^]
+link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/migrate-2n-switched-sn2100-cluster.html["NVIDIA SN2100 클러스터 스위치를 사용하여 2노드 스위치 클러스터로 마이그레이션_"^]
  a| 
-에서는 NVIDIA SN2100 클러스터 스위치를 사용하여 2노드 스위치 환경으로 마이그레이션하는 방법을 설명합니다.
+NVIDIA SN2100 클러스터 스위치를 사용하여 2노드 스위치 환경으로 마이그레이션하는 방법을 설명합니다.
 
 
 
  a| 
-link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100-storage/replace-sn2100-switch-storage.html["_NVIDIA SN2100 스토리지 스위치 _ 를 교체합니다"^]
+link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100-storage/replace-sn2100-switch-storage.html["NVIDIA SN2100 스토리지 스위치 교체_"^]
  a| 
-결함 있는 NVIDIA SN2100 스토리지 스위치를 교체하고 Cumulus Linux 및 참조 구성 파일을 다운로드하는 절차를 설명합니다.
+결함이 있는 NVIDIA SN2100 스토리지 스위치를 교체하고 Cumulus Linux 및 참조 구성 파일을 다운로드하는 절차를 설명합니다.
 
 |===

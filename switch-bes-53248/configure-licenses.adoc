@@ -2,35 +2,35 @@
 permalink: switch-bes-53248/configure-licenses.html 
 sidebar: sidebar 
 keywords: bes, cluster, switch, base, model, license, 10gbe, 25gbe, 100gbe, port, add, purchasing, purchase, install licenses for bes-53248 cluster switches - bes-53248 switches 
-summary: BES-53248 클러스터 스위치 기본 모델은 10GbE 또는 25GbE 포트 16개와 100GbE 포트 2개에 대해 라이센스가 부여됩니다. 라이센스를 더 구매하여 새 포트를 추가할 수 있습니다. 
+summary: BES-53248 클러스터 스위치 기본 모델은 16개의 10GbE 또는 25GbE 포트와 2개의 100GbE 포트에 대한 라이선스를 받았습니다.  더 많은 라이선스를 구매하면 새로운 포트를 추가할 수 있습니다. 
 ---
-= BES-53248 클러스터 스위치용 라이센스를 설치합니다
+= BES-53248 클러스터 스위치에 대한 라이센스 설치
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-BES-53248 클러스터 스위치 기본 모델은 10GbE 또는 25GbE 포트 16개와 100GbE 포트 2개에 대해 라이센스가 부여됩니다. 라이센스를 더 구매하여 새 포트를 추가할 수 있습니다.
+BES-53248 클러스터 스위치 기본 모델은 16개의 10GbE 또는 25GbE 포트와 2개의 100GbE 포트에 대한 라이선스를 받았습니다.  추가 라이선스를 구매하면 새로운 포트를 추가할 수 있습니다.
 
 
-CAUTION: EFOS 3.12 이상의 경우 의 설치 단계를 link:efos-install-rcf-license-file.html["RCF(Reference Configuration File) 및 라이센스 파일을 설치합니다"]따릅니다.
+CAUTION: EFOS 3.12 이상의 경우 다음 설치 단계를 따르세요.link:efos-install-rcf-license-file.html["참조 구성 파일(RCF) 및 라이센스 파일을 설치합니다."] .
 
 
 
-== 사용 가능한 라이센스를 검토합니다
+== 사용 가능한 라이센스 검토
 
-BES-53248 클러스터 스위치에서 다음 라이센스를 사용할 수 있습니다.
+다음 라이센스는 BES-53248 클러스터 스위치에서 사용할 수 있습니다.
 
 [cols="1,2,3"]
 |===
-| 사용권 유형 | 라이센스 세부 정보 | 지원되는 펌웨어 버전입니다 
+| 라이센스 유형 | 라이센스 세부 정보 | 지원되는 펌웨어 버전 
 
 
  a| 
 SW-BES-53248A2-8P-2P
  a| 
-Broadcom 8PT-10G25G+2pt-40G100G 라이센스 키, X190005/R
+Broadcom 8PT-10G25G + 2PT-40G100G 라이센스 키, X190005/R
  a| 
 EFOS 3.4.4.6 이상
 
@@ -39,7 +39,7 @@ EFOS 3.4.4.6 이상
  a| 
 SW-BES-53248A2-8P-1025G
  a| 
-Broadcom 8 포트 10G25G 라이센스 키, X190005/R
+Broadcom 8포트 10G25G 라이선스 키, X190005/R
  a| 
 EFOS 3.4.4.6 이상
 
@@ -48,26 +48,26 @@ EFOS 3.4.4.6 이상
  a| 
 SW-BES53248A2-6P-40-100G
  a| 
-Broadcom 6 포트 40G100G 라이센스 키, X190005/R
+Broadcom 6포트 40G100G 라이센스 키, X190005/R
  a| 
 EFOS 3.4.4.6 이상
 
 |===
 
 
-== 기존 라이센스
+== 레거시 라이센스
 
-다음 표에는 BES-53248 클러스터 스위치에서 사용할 수 있는 레거시 라이센스가 나열되어 있습니다.
+다음 표에는 BES-53248 클러스터 스위치에서 사용할 수 있는 레거시 라이선스가 나열되어 있습니다.
 
 [cols="1,2,3"]
 |===
-| 사용권 유형 | 라이센스 세부 정보 | 지원되는 펌웨어 버전입니다 
+| 라이센스 유형 | 라이센스 세부 정보 | 지원되는 펌웨어 버전 
 
 
  a| 
 SW-BES-53248A1-G1-8P-LIC
  a| 
-Broadcom 8P 10-25,2P40-100 라이센스 키, X190005/R
+Broadcom 8P 10-25,2P40-100 라이선스 키, X190005/R
  a| 
 EFOS 3.4.3.3 이상
 
@@ -76,7 +76,7 @@ EFOS 3.4.3.3 이상
  a| 
 SW-BES-53248A1-G1-16P-LIC
  a| 
-Broadcom 16P 10-25,4P40-100 라이센스 키, X190005/R
+Broadcom 16P 10-25,4P40-100 라이선스 키, X190005/R
  a| 
 EFOS 3.4.3.3 이상
 
@@ -85,7 +85,7 @@ EFOS 3.4.3.3 이상
  a| 
 SW-BES-53248A1-G1-24P-LIC
  a| 
-Broadcom 24P 10-25,6P40-100 라이센스 키, X190005/R
+Broadcom 24P 10-25,6P40-100 라이선스 키, X190005/R
  a| 
 EFOS 3.4.3.3 이상
 
@@ -94,7 +94,7 @@ EFOS 3.4.3.3 이상
  a| 
 SW-BES54248-40-100G-LIC
  a| 
-Broadcom 6포트 40G100G 라이센스 키, X190005/R
+Broadcom 6Port 40G100G 라이센스 키, X190005/R
  a| 
 EFOS 3.4.4.6 이상
 
@@ -103,7 +103,7 @@ EFOS 3.4.4.6 이상
  a| 
 SW-BES53248-8P-10G25G-LIC
  a| 
-Broadcom 8PORT 10G25G 라이센스 키, X190005/R
+Broadcom 8Port 10G25G 라이선스 키, X190005/R
  a| 
 EFOS 3.4.4.6 이상
 
@@ -112,7 +112,7 @@ EFOS 3.4.4.6 이상
  a| 
 SW-BES53248-16P-1025G-LIC
  a| 
-Broadcom 16Port 10G25G 라이센스 키, X190005/R
+Broadcom 16포트 10G25G 라이선스 키, X190005/R
  a| 
 EFOS 3.4.4.6 이상
 
@@ -121,7 +121,7 @@ EFOS 3.4.4.6 이상
  a| 
 SW-BES53248-24P-1025G-LIC
  a| 
-Broadcom 24Port 10G25G 라이센스 키, X190005/R
+Broadcom 24Port 10G25G 라이선스 키, X190005/R
  a| 
 EFOS 3.4.4.6 이상
 
@@ -131,18 +131,18 @@ NOTE: 기본 구성에는 라이센스가 필요하지 않습니다.
 
 
 
-== 라이센스 파일을 설치합니다
+== 라이센스 파일 설치
 
-다음 단계에 따라 BES-53248 클러스터 스위치에 대한 라이센스를 설치합니다.
+BES-53248 클러스터 스위치에 대한 라이선스를 설치하려면 다음 단계를 따르세요.
 
 .단계
 . 클러스터 스위치를 관리 네트워크에 연결합니다.
-. "ping" 명령을 사용하여 EFOS, 라이센스 및 RCF 파일을 호스팅하는 서버에 대한 연결을 확인합니다.
+. 사용하다 `ping` EFOS, 라이선스 및 RCF 파일을 호스팅하는 서버에 대한 연결을 확인하는 명령입니다.
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-이 예에서는 스위치가 IP 주소 172.19.2.1로 서버에 연결되어 있는지 확인합니다.
+이 예제에서는 스위치가 IP 주소 172.19.2.1의 서버에 연결되어 있는지 확인합니다.
 
 [listing, subs="+quotes"]
 ----
@@ -152,12 +152,12 @@ Pinging 172.19.2.1 with 0 bytes of data:
 Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
 ----
 ====
-. 스위치 CS2에서 현재 라이센스 사용을 확인합니다.
+. Switch CS2에서 현재 라이센스 사용량을 확인하세요:
 +
-'How license'입니다
+`show license`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -174,13 +174,13 @@ No license file found.
 ====
 . 라이센스 파일을 설치합니다.
 +
-이 단계를 반복하여 더 많은 라이선스를 로드하고 다른 키 인덱스 번호를 사용합니다.
+더 많은 라이선스를 로드하고 다른 키 인덱스 번호를 사용하려면 이 단계를 반복합니다.
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예에서는 SFTP를 사용하여 라이센스 파일을 키 인덱스 1에 복사합니다.
+다음 예제에서는 SFTP를 사용하여 라이선스 파일을 키 인덱스 1로 복사합니다.
 
 [listing, subs="+quotes"]
 ----
@@ -202,12 +202,12 @@ File transfer in progress. Management access will be blocked for the duration of
 License Key transfer operation completed successfully. System reboot is required.
 ----
 ====
-. 현재 라이센스 정보를 모두 표시하고 스위치 CS2가 재부팅되기 전에 라이센스 상태를 확인합니다.
+. switch cs2를 재부팅하기 전에 모든 현재 라이센스 정보를 표시하고 라이센스 상태를 기록합니다.
 +
-'How license'입니다
+`show license`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -223,15 +223,15 @@ License Index  License Type      Status
 1              Port              License valid but not applied
 ----
 ====
-. 라이센스가 있는 모든 포트 표시:
+. 모든 라이센스 포트 표시:
 +
-'모두 포트 보기|분리 제외'
+`show port all | exclude Detach`
 
 +
-스위치가 재부팅될 때까지 추가 라이센스 파일의 포트는 표시되지 않습니다.
+추가 라이선스 파일의 포트는 스위치를 재부팅한 후에야 표시됩니다.
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -261,12 +261,12 @@ Intf      Type   Mode      Mode       Status     Status Trap    Mode   Timeout
 0/56             Disable   Auto                  Down   Enable  Enable long
 ----
 ====
-. 스위치를 재부팅합니다.
+. 스위치를 재부팅하세요:
 +
-다시 로드
+`reload`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -282,12 +282,12 @@ Configuration Saved!
 Are you sure you would like to reset the system? (y/n) *y*
 ----
 ====
-. 새 라이센스가 활성화되어 있는지 확인하고 라이센스가 적용되었는지 확인합니다.
+. 새 라이선스가 활성화되어 있는지 확인하고 라이선스가 적용되었는지 확인하세요.
 +
-'How license'입니다
+`show license`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -304,12 +304,12 @@ License Index  License Type              Status
 1              Port                      License applied
 ----
 ====
-. 모든 새 포트를 사용할 수 있는지 확인합니다.
+. 모든 새 포트를 사용할 수 있는지 확인하세요.
 +
-'모두 포트 보기|분리 제외'
+`show port all | exclude Detach`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -348,17 +348,17 @@ Intf      Type   Mode      Mode       Status     Status Trap    Mode   Timeout
 
 
 
-CAUTION: 추가 라이센스를 설치할 때는 새 인터페이스를 수동으로 구성해야 합니다. RCF를 기존의 작동 중인 프로덕션 스위치에 다시 적용하지 마십시오.
+CAUTION: 추가 라이선스를 설치할 때는 새 인터페이스를 수동으로 구성해야 합니다.  기존의 작동 중인 생산 스위치에 RCF를 다시 적용하지 마세요.
 
 
 
-== 설치 문제를 해결합니다
+== 설치 문제 해결
 
-라이센스를 설치할 때 문제가 발생하면 를 실행하기 전에 다음 디버그 명령을 실행하십시오 `copy` 다시 명령을 내립니다.
+라이센스 설치 시 문제가 발생하는 경우 실행하기 전에 다음 디버그 명령을 실행하십시오. `copy` 다시 명령을 내리세요.
 
-debug transfer와 debug license를 사용하기 위한 debug 명령어
+사용할 디버그 명령: `debug transfer` 그리고 `debug license`
 
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -369,9 +369,9 @@ Debug transfer output is enabled.
 Enabled capability licensing debugging.
 ----
 ====
-를 실행할 때 `copy` 명령과 함께 `debug transfer` 및 `debug license` 옵션을 활성화하면 로그 출력이 반환됩니다.
+당신이 실행할 때 `copy` 명령으로 `debug transfer` 그리고 `debug license` 옵션이 활성화되면 로그 출력이 반환됩니다.
 
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing]
@@ -399,34 +399,34 @@ CAPABILITY LICENSING : Fri Sep 11 13:41:32 2020: Feature not found in license fi
 CAPABILITY LICENSING : Fri Sep 11 13:41:32 2020: Applying license file 1.
 ----
 ====
-디버그 출력에서 다음을 확인합니다.
+디버그 출력에서 다음 사항을 확인하세요.
 
-* 일련 번호가 '일련 번호 QTFCU38290012가 일치하는지 확인하십시오.
-* 스위치 모델이 일치하는지 확인합니다. model BES-53248 일치함
-* 지정된 라이센스 인덱스가 이전에 사용되지 않았는지 확인합니다. 사용권 인덱스가 이미 사용된 경우 'License file /mnt/download//license.dat.1이 이미 있습니다.'라는 오류가 반환됩니다
-* 포트 라이센스는 기능 라이센스가 아닙니다. 따라서 다음 문장이 예상됩니다. index=1을 가진 사용권 파일에서 기능을 찾을 수 없습니다
+* 일련 번호가 일치하는지 확인하세요. `Serial number QTFCU38290012 matched.`
+* 스위치 모델이 다음과 일치하는지 확인하세요. `Model BES-53248 matched.`
+* 지정된 라이선스 인덱스가 이전에 사용되지 않았는지 확인하세요.  라이센스 인덱스가 이미 사용된 경우 다음 오류가 반환됩니다. `License file /mnt/download//license.dat.1 already exists.`
+* 포트 라이센스는 기능 라이센스가 아닙니다.  따라서 다음과 같은 진술이 예상됩니다. `Feature not found in license file with index = 1.`
 
 
-를 사용합니다 `copy` 서버에 포트 라이센스를 백업하는 명령:
+사용하다 `copy` 포트 라이선스를 서버에 백업하는 명령:
 
 [listing, subs="+quotes"]
 ----
 (cs2)# *copy nvram:license-key 1 scp://<UserName>@<IP_address>/saved_license_1.dat*
 ----
 
-CAUTION: 스위치 소프트웨어를 버전 3.4.4.6에서 다운그레이드해야 하는 경우 라이센스가 제거됩니다. 이는 예상된 동작입니다.
+CAUTION: 스위치 소프트웨어를 3.4.4.6 버전에서 다운그레이드해야 하는 경우 라이선스가 제거됩니다.  이는 예상되는 동작입니다.
 
-이전 버전의 소프트웨어로 되돌리기 전에 적절한 이전 라이센스를 설치해야 합니다.
+이전 버전의 소프트웨어로 되돌리려면 먼저 적절한 이전 라이선스를 설치해야 합니다.
 
 
 
-== 새로 라이센스가 부여된 포트를 활성화합니다
+== 새로 라이센스된 포트 활성화
 
-새로 라이센스가 부여된 포트를 활성화하려면 최신 버전의 RCF를 편집하고 해당 포트 세부 정보의 주석을 해제해야 합니다.
+새로 허가된 포트를 활성화하려면 RCF의 최신 버전을 편집하고 해당 포트 세부 정보의 주석 처리를 제거해야 합니다.
 
-기본 라이센스는 포트 0/1 - 0/16 및 0/55 - 0/56 을 활성화하며, 새로 라이센스가 부여된 포트는 사용 가능한 라이센스의 유형과 수에 따라 포트 0/17 - 0/54 사이에 있게 됩니다. 예를 들어, SW-BES54248-40-100G-LIC 라이센스를 활성화하려면 RCF에서 다음 섹션의 주석을 해제해야 합니다.
+기본 라이선스는 포트 0/1~0/16과 0/55~0/56을 활성화하는 반면, 새로 라이선스가 부여된 포트는 사용 가능한 라이선스의 유형과 수에 따라 포트 0/17~0/54 사이에 위치하게 됩니다.  예를 들어, SW-BES54248-40-100G-LIC 라이선스를 활성화하려면 RCF에서 다음 섹션의 주석 처리를 제거해야 합니다.
 
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing]
@@ -531,7 +531,7 @@ exit
 ----
 ====
 
-NOTE: 0/49에서 0/54까지의 고속 포트의 경우 각 포트의 주석을 해제하고 각 포트의 RCF에 대해 하나의 * 속도 * 라인만 주석으로 표시합니다. 이 예에서 볼 수 있듯이 * 속도 100G 전이중 * 또는 * 속도 40G 전이중 * 입니다. 17/0/48 사이의 저속 포트의 경우, 적절한 라이센스가 활성화된 경우 전체 8포트 섹션의 설명을 해제하십시오.
+NOTE: 0/49에서 0/54까지의 고속 포트의 경우, 각 포트의 주석 처리를 제거하지만, 각 포트에 대해 RCF에서 *speed* 줄 하나만 주석 처리를 제거합니다. 예에서 볼 수 있듯이 *speed 100G full-duplex* 또는 *speed 40G full-duplex*입니다.  0/17에서 0/48까지의 저속 포트의 경우, 해당 라이선스가 활성화되면 8포트 섹션 전체의 주석 처리를 제거합니다.
 
-.다음 단계
+.다음은 무엇인가요?
 라이센스를 설치한 후에는 다음을 수행할 수 있습니다. link:configure-install-rcf.html["참조 구성 파일(RCF) 설치"] 또는 link:upgrade-rcf.html["RCF 업그레이드"].

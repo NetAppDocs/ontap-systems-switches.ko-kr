@@ -2,7 +2,7 @@
 permalink: switch-bes-53248/configure-new-switch-overview.html 
 sidebar: sidebar 
 keywords: BES-53248 switches, initial installation, configure new bes-53248 switch 
-summary: BES-53248 클러스터 스위치를 구성하기 전에 구성 개요를 검토하십시오. 
+summary: BES-53248 클러스터 스위치를 구성하기 전에 구성 개요를 검토하세요. 
 ---
 = BES-53248 스위치 설치 및 설정 워크플로
 :allow-uri-read: 
@@ -11,23 +11,23 @@ summary: BES-53248 클러스터 스위치를 구성하기 전에 구성 개요�
 
 
 [role="lead"]
-BES-53248은 2개~24개 노드에 이르는 ONTAP 클러스터에서 작동하도록 설계된 베어 메탈 스위치입니다.
+BES-53248은 2~24개 노드 범위의 ONTAP 클러스터에서 작동하도록 설계된 베어 메탈 스위치입니다.
 
 BES-53248 스위치를 설치하고 설정하려면 다음 워크플로 단계를 따르세요.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1개"]link:configure-reqs-bes53248.html["구성 요구 사항을 검토하세요"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["하나"]link:configure-reqs-bes53248.html["구성 요구 사항을 검토하세요"]
 [role="quick-margin-para"]
 BES-53248 클러스터 스위치의 구성 요구 사항을 검토하세요.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["2개"]link:components-bes53248.html["구성 요소와 부품 번호를 검토하세요"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["둘"]link:components-bes53248.html["구성 요소와 부품 번호를 검토하세요"]
 [role="quick-margin-para"]
 BES-53248 클러스터 스위치의 구성 요소와 부품 번호를 검토하세요.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["세 가지"]link:required-documentation-bes53248.html["필수 서류를 검토하세요"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["삼"]link:required-documentation-bes53248.html["필수 서류를 검토하세요"]
 [role="quick-margin-para"]
 BES-53248 스위치와 ONTAP 클러스터를 설정하려면 특정 스위치 및 컨트롤러 설명서를 검토하세요.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["네"]link:install-hardware-workflow.html["하드웨어를 설치합니다"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["네"]link:install-hardware-workflow.html["하드웨어 설치"]
 [role="quick-margin-para"]
 스위치 하드웨어를 설치합니다.
 

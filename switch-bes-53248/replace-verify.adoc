@@ -2,32 +2,32 @@
 permalink: switch-bes-53248/replace-verify.html 
 sidebar: sidebar 
 keywords: command, verify, operational, bes, cluster, switch, upgrade, verify the configuration after a cluster switch upgrade - bes-53428 switches 
-summary: 여기에 제공된 명령을 사용하여 BES-53248 클러스터 스위치 업그레이드 후 모든 것이 작동하는지 확인할 수 있습니다. 
+summary: 여기에 제공된 명령을 사용하면 BES-53248 클러스터 스위치 업그레이드 후 모든 것이 제대로 작동하는지 확인할 수 있습니다. 
 ---
-= EFOS 소프트웨어 또는 BES-53248 클러스터 스위치의 RCF 업그레이드 후 ONTAP 클러스터 네트워크를 확인합니다
+= BES-53248 클러스터 스위치의 EFOS 소프트웨어 또는 RCF 업그레이드 후 ONTAP 클러스터 네트워크를 확인합니다.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-EFOS 소프트웨어를 업그레이드한 후, 다음 명령을 사용하여 ONTAP 클러스터 네트워크의 상태를 확인할 수 있으며, BES-53248 클러스터 스위치용 RCF를 사용할 수 있습니다.
+BES-53248 클러스터 스위치의 EFOS 소프트웨어 또는 RCF를 업그레이드한 후 다음 명령을 사용하여 ONTAP 클러스터 네트워크의 상태를 확인할 수 있습니다.
 
 .단계
-. 명령을 사용하여 클러스터의 네트워크 포트에 대한 정보를 표시합니다.
+. 다음 명령을 사용하여 클러스터의 네트워크 포트에 대한 정보를 표시합니다.
 +
 [source, cli]
 ----
 network port show -ipspace Cluster
 ----
 +
-링크 값은 '업'이어야 하고 건강상태는 '건강'이어야 합니다.
+`Link`가치가 있어야 합니다 `up` 그리고 `Health Status` 반드시 있어야 한다 `healthy` .
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
-다음 예제는 명령의 출력을 보여 줍니다.
+다음 예에서는 명령의 출력을 보여줍니다.
 
 [listing, subs="+quotes"]
 ----
@@ -50,14 +50,14 @@ e0a    Cluster      Cluster          up   9000  auto/10000 healthy  false
 e0b    Cluster      Cluster          up   9000  auto/10000 healthy  false
 ----
 ====
-. 각 LIF에 대해 를 확인합니다 `Is Home` 있습니다 `true` 및 `Status Admin/Oper` 있습니다 `up` 두 노드에서 다음 명령을 사용합니다.
+. 각 LIF에 대해 다음을 확인하십시오. `Is Home` ~이다 `true` 그리고 `Status Admin/Oper` ~이다 `up` 두 노드 모두에서 다음 명령을 사용합니다.
 +
 [source, cli]
 ----
 network interface show -vserver Cluster
 ----
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -74,12 +74,12 @@ Cluster
             node2_clus2  up/up    169.254.110.131/16 node2         e0b     true
 ----
 ====
-. 를 확인합니다 `Health Status` 각 노드의 는 입니다 `true` 명령 사용:
+. 다음을 확인하십시오. `Health Status` 각 노드의 `true` 다음 명령을 사용합니다:
 +
-'클러스터 쇼'
+`cluster show`
 
 +
-.예제 보기
+.예를 보여주세요
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -94,5 +94,5 @@ node2                true    true          false
 ====
 
 
-.다음 단계
+.다음은 무엇인가요?
 EFOS 소프트웨어 또는 RCF 업그레이드를 확인한 후에는 다음을 수행할 수 있습니다. link:../switch-cshm/config-overview.html["스위치 상태 모니터링 구성"].

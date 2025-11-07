@@ -2,42 +2,42 @@
 permalink: switch-nvidia-sn2100/install-onie-mode-sn2100-cluster.html 
 sidebar: sidebar 
 keywords: install cumulus onie mode, sn2100 SN2100 switches setup, cumulus linux, onie mode 
-summary: 'Cumulus Linux(CL) OS는 스위치에서 Cumulus Linux 또는 ONIE를 실행할 때 설치할 수 있습니다.' 
+summary: 'Cumulus Linux(CL) OS는 스위치가 Cumulus Linux 또는 ONIE를 실행하는 경우 설치할 수 있습니다.' 
 ---
-= ONIE 모드에서 Cumulus Linux를 설치합니다
+= ONIE 모드로 Cumulus Linux 설치
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-스위치가 ONIE 모드에서 실행 중일 때 Cumulus Linux(CL) OS를 설치하려면 다음 절차를 따르십시오.
+스위치가 ONIE 모드에서 실행 중일 때 Cumulus Linux(CL) OS를 설치하려면 다음 절차를 따르세요.
 
 
-NOTE: 스위치가 ONIE 또는 Cumulus Linux를 실행 중일 때 Cumulus Linux(CL) OS를 설치할 수 있습니다(참조) link:install-cumulus-mode-sn2100-cluster.html["Cumulus 모드로 설치합니다"])를 클릭합니다.
+NOTE: Cumulus Linux(CL) OS는 스위치가 ONIE 또는 Cumulus Linux를 실행할 때 설치할 수 있습니다(참조).link:install-cumulus-mode-sn2100-cluster.html["Cumulus 모드로 설치"] ).
 
-.이 작업에 대해
-네트워크 설치 프로그램 이미지를 자동으로 검색할 수 있도록 ONIE(Open Network Install Environment)를 사용하여 Cumulus Linux를 설치할 수 있습니다. 이를 통해 Cumulus Linux와 같은 운영 체제 선택을 하는 스위치 보안 모델의 시스템 모델을 용이하게 할 수 있습니다. ONIE를 사용하여 Cumulus Linux를 설치하는 가장 쉬운 방법은 로컬 HTTP 검색을 사용하는 것입니다.
+.이 작업에 관하여
+ONIE(Open Network Install Environment)를 사용하면 네트워크 설치 프로그램 이미지를 자동으로 검색할 수 있어 Cumulus Linux를 설치할 수 있습니다.  이를 통해 Cumulus Linux와 같은 운영 체제를 선택하여 스위치를 보호하는 시스템 모델이 용이해집니다.  ONIE를 사용하여 Cumulus Linux를 설치하는 가장 쉬운 방법은 로컬 HTTP 검색을 사용하는 것입니다.
 
 
-NOTE: 호스트가 IPv6를 사용하는 경우 웹 서버가 실행되고 있는지 확인합니다. 호스트가 IPv4를 사용하는 경우 웹 서버 외에 DHCP를 실행 중인지 확인합니다.
+NOTE: 호스트가 IPv6를 지원하는 경우 웹 서버를 실행 중인지 확인하세요.  호스트가 IPv4를 지원하는 경우 웹 서버 외에도 DHCP를 실행하고 있는지 확인하세요.
 
-이 절차에서는 ONIE에서 관리자가 부팅된 후 Cumulus Linux를 업그레이드하는 방법을 보여 줍니다.
+이 절차는 관리자가 ONIE에서 부팅한 후 Cumulus Linux를 업그레이드하는 방법을 보여줍니다.
 
 .단계
 [role="tabbed-block"]
 ====
-.Cumulus Linux 4.4.3
+.큐물러스 리눅스 4.4.3
 --
-. 웹 서버의 루트 디렉터리에 Cumulus Linux 설치 파일을 다운로드합니다. 이 파일 이름 바꾸기: `onie-installer`.
+. 웹 서버의 루트 디렉토리에 Cumulus Linux 설치 파일을 다운로드합니다.  이 파일의 이름을 다음으로 변경하세요: `onie-installer` .
 . 이더넷 케이블을 사용하여 호스트를 스위치의 관리 이더넷 포트에 연결합니다.
-. 스위치의 전원을 켭니다.
+. 스위치를 켜세요.
 +
-스위치가 ONIE 이미지 설치 프로그램을 다운로드하고 부팅합니다. 설치가 완료되면 터미널 창에 Cumulus Linux 로그인 프롬프트가 나타납니다.
+스위치는 ONIE 이미지 설치 프로그램을 다운로드하고 부팅합니다.  설치가 완료되면 Cumulus Linux 로그인 프롬프트가 터미널 창에 나타납니다.
 
 +
 
-NOTE: Cumulus Linux를 설치할 때마다 전체 파일 시스템 구조가 지워지고 다시 구축됩니다.
+NOTE: Cumulus Linux를 설치할 때마다 전체 파일 시스템 구조가 지워지고 다시 빌드됩니다.
 
 . SN2100 스위치를 재부팅합니다.
 +
@@ -45,9 +45,9 @@ NOTE: Cumulus Linux를 설치할 때마다 전체 파일 시스템 구조가 지
 ----
 cumulus@cumulus:mgmt:~$ *sudo reboot*
 ----
-. GNU GRUB 화면에서 * Esc * 키를 눌러 일반 부팅 프로세스를 중단하고 * ONIE * 를 선택한 다음 * Enter * 를 누릅니다.
-. 다음 화면에서 * ONIE:OS 설치 * 를 선택합니다.
-. ONIE 설치 관리자 검색 프로세스가 자동 설치 검색을 실행합니다. Enter * 를 눌러 프로세스를 일시적으로 중지합니다.
+. GNU GRUB 화면에서 *Esc* 키를 눌러 일반 부팅 프로세스를 중단하고 *ONIE*를 선택한 다음 *Enter* 키를 누릅니다.
+. 다음 화면에서 *ONIE: OS 설치*를 선택하세요.
+. ONIE 설치 프로그램 검색 프로세스는 자동 설치를 검색하여 실행됩니다.  *Enter*를 눌러 프로세스를 일시적으로 중지하세요.
 . 검색 프로세스가 중지된 경우:
 +
 [listing, subs="+quotes"]
@@ -57,7 +57,7 @@ discover: installer mode detected.
 Stopping: discover...start-stop-daemon: warning: killing process 427:
 No such process done.
 ----
-. DHCP 서비스가 네트워크에서 실행 중인 경우 IP 주소, 서브넷 마스크 및 기본 게이트웨이가 올바르게 할당되었는지 확인합니다.
+. 네트워크에서 DHCP 서비스가 실행 중인 경우 IP 주소, 서브넷 마스크 및 기본 게이트웨이가 올바르게 할당되었는지 확인하세요.
 +
 `ifconfig eth0`
 
@@ -82,7 +82,7 @@ Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 default         10.233.204.1    0.0.0.0         UG    0      0      0   eth0
 10.233.204.0    *               255.255.254.0   U     0      0      0   eth0
 ----
-. IP 주소 지정 체계가 수동으로 정의된 경우 다음을 수행합니다.
+. IP 주소 지정 체계가 수동으로 정의된 경우 다음을 수행하세요.
 +
 [listing, subs="+quotes"]
 ----
@@ -112,7 +112,7 @@ ONIE:/ # *route*
   ...
   ...
 ----
-. 설치가 완료되면 스위치에 로그인합니다.
+. 설치가 완료되면 스위치에 로그인하세요.
 +
 [listing, subs="+quotes"]
 ----
@@ -124,7 +124,7 @@ Current password: *cumulus*
 New password: *<new_password>*
 Retype new password: *<new_password>*
 ----
-. Cumulus Linux 버전 확인: `net show version`
+. Cumulus Linux 버전을 확인하세요: `net show version`
 +
 [listing, subs="+quotes"]
 ----
@@ -137,17 +137,17 @@ DISTRIB_DESCRIPTION=*"Cumulus Linux 4.4.3”*
 
 
 --
-.Cumulus Linux 5.x를 의미합니다
+.큐물러스 리눅스 5.x
 --
-. 웹 서버의 루트 디렉터리에 Cumulus Linux 설치 파일을 다운로드합니다. 이 파일 이름 바꾸기: `onie-installer`.
+. 웹 서버의 루트 디렉토리에 Cumulus Linux 설치 파일을 다운로드합니다.  이 파일의 이름을 다음으로 변경하세요: `onie-installer` .
 . 이더넷 케이블을 사용하여 호스트를 스위치의 관리 이더넷 포트에 연결합니다.
-. 스위치의 전원을 켭니다.
+. 스위치를 켜세요.
 +
-스위치가 ONIE 이미지 설치 프로그램을 다운로드하고 부팅합니다. 설치가 완료되면 터미널 창에 Cumulus Linux 로그인 프롬프트가 나타납니다.
+스위치는 ONIE 이미지 설치 프로그램을 다운로드하고 부팅합니다.  설치가 완료되면 Cumulus Linux 로그인 프롬프트가 터미널 창에 나타납니다.
 
 +
 
-NOTE: Cumulus Linux를 설치할 때마다 전체 파일 시스템 구조가 지워지고 다시 구축됩니다.
+NOTE: Cumulus Linux를 설치할 때마다 전체 파일 시스템 구조가 지워지고 다시 빌드됩니다.
 
 . SN2100 스위치를 재부팅합니다.
 +
@@ -171,7 +171,7 @@ GNU GRUB version 2.06-3
 |                                                                         |
 +-------------------------------------------------------------------------+
 ----
-. GNU GRUB 화면에서 Esc 키를 눌러 일반 부팅 프로세스를 중단하고 ONIE를 선택한 다음 Enter 키를 누릅니다.
+. GNU GRUB 화면에서 Esc 키를 눌러 일반 부팅 프로세스를 중단하고 ONIE를 선택한 후 Enter를 누릅니다.
 +
 [listing]
 ----
@@ -194,9 +194,9 @@ GNU GRUB version 2.02
 +-------------------------------------------------------------------------+
 ----
 +
-ONIE: * OS 설치 * 를 선택합니다
+ONIE 선택: *OS 설치*
 
-. ONIE 설치 관리자 검색 프로세스가 자동 설치 검색을 실행합니다. Enter * 를 눌러 프로세스를 일시적으로 중지합니다.
+. ONIE 설치 프로그램 검색 프로세스는 자동 설치를 검색하여 실행됩니다.  *Enter*를 눌러 프로세스를 일시적으로 중지하세요.
 . 검색 프로세스가 중지된 경우:
 +
 [listing, subs="+quotes"]
@@ -206,7 +206,7 @@ discover: installer mode detected.
 Stopping: discover...start-stop-daemon: warning: killing process 427:
 No such process done.
 ----
-. IP 주소, 서브넷 마스크 및 기본 게이트웨이를 구성합니다.
+. IP 주소, 서브넷 마스크, 기본 게이트웨이를 구성합니다.
 +
 `ifconfig eth0`
 
@@ -264,7 +264,7 @@ ONIE:/ # *route*
   ...
   ...
 ----
-. 설치가 완료되면 스위치에 로그인합니다.
+. 설치가 완료되면 스위치에 로그인하세요.
 +
 [listing, subs="+quotes"]
 ----
@@ -276,7 +276,7 @@ Current password: *cumulus*
 New password: *<new_password>*
 Retype new password: *<new_password>*
 ----
-. Cumulus Linux 버전 확인: `nv show system`
+. Cumulus Linux 버전을 확인하세요: `nv show system`
 +
 [listing, subs="+quotes"]
 ----
@@ -288,7 +288,7 @@ build               Cumulus Linux 5.4.0  system build version
 uptime              6 days, 13:37:36     system uptime
 timezone            Etc/UTC              system time zone
 ----
-. 새 사용자를 만들고 이 사용자를 에 추가합니다 `sudo` 그룹. 이 사용자는 콘솔/SSH 세션을 다시 시작한 후에만 유효합니다.
+. 새 사용자를 만들고 이 사용자를 다음에 추가합니다. `sudo` 그룹.  이 사용자는 콘솔/SSH 세션을 다시 시작한 후에만 유효합니다.
 +
 `sudo adduser --ingroup netedit admin`
 
@@ -333,7 +333,7 @@ http://www.cumulusnetworks.com/support
 The registered trademark Linux (R) is used pursuant to a sublicense from LMI, the exclusive licensee of Linus Torvalds, owner of the mark on a world-wide basis.
 admin@sw1:mgmt:~$
 ----
-. 관리자 사용자가 액세스할 수 있도록 사용자 그룹을 추가합니다 `nv` 명령:
+. 관리자 사용자가 액세스할 수 있는 추가 사용자 그룹을 추가합니다. `nv` 명령:
 +
 [listing, subs="+quotes"]
 ----
@@ -344,11 +344,11 @@ cumulus@cumulus:mgmt:~$ *sudo adduser admin nvshow*
      Done.
 ----
 +
-을 참조하십시오 https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-54/System-Configuration/Authentication-Authorization-and-Accounting/User-Accounts/["NVIDIA 사용자 계정"^] 를 참조하십시오.
+보다 https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-54/System-Configuration/Authentication-Authorization-and-Accounting/User-Accounts/["NVIDIA 사용자 계정"^] 자세한 내용은.
 
 
 
 --
 ====
-.다음 단계
+.다음은 무엇인가요?
 ONIE 모드에서 Cumulus Linux를 설치한 후에는 다음을 수행할 수 있습니다.link:install-rcf-sn2100-cluster.html["참조 구성 파일(RCF) 스크립트 설치"] .

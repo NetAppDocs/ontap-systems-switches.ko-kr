@@ -2,20 +2,20 @@
 sidebar: sidebar 
 permalink: overview-eod.html 
 keywords: switches, fas, aff systems, end of availability, EOD 
-summary: FAS 및 AFF 시스템용 EOD 스위치 
+summary: FAS 및 AFF 시스템용 EOD 스위치. 
 ---
-= 이용 종료
+= 사용 가능 종료
 :allow-uri-read: 
 :icons: font
 :imagesdir: ./media/
 
 
 [role="lead"]
-다음 스위치는 더 이상 구매할 수 없지만 계속 지원됩니다.
+다음 스위치는 더 이상 구매할 수 없지만 여전히 지원됩니다.
 
-* link:./switch-cisco-3232c/install-overview-cisco-3232c.html["Cisco Nexus 3232C"]
-* link:./switch-cisco-3132q-v/install-overview-cisco-3132qv.html["Cisco Nexus 3132Q-V"]
-* link:./switch-cisco-92300/install-overview-cisco-92300.html["Cisco Nexus 92300YC"]
+* link:./switch-cisco-3232c/install-overview-cisco-3232c.html["Cisco 넥서스 3232C"]
+* link:./switch-cisco-3132q-v/install-overview-cisco-3132qv.html["Cisco 넥서스 3132Q-V"]
+* link:./switch-cisco-92300/install-overview-cisco-92300.html["Cisco 넥서스 92300YC"]
 * link:./switch-netapp-cn1610/install-overview-cn1610.html["NetApp CN1610"]
 
 
@@ -23,9 +23,9 @@ summary: FAS 및 AFF 시스템용 EOD 스위치
 
 == 판매 종료 및 수명 종료 발표
 
-* link:https://www.cisco.com/c/en/us/products/collateral/switches/nexus-3000-series-switches/n3k-c3232c-eol.html["Cisco Nexus 3232C의 판매 종료 및 수명 종료 발표"]
-* link:https://www.cisco.com/c/en/us/products/collateral/switches/nexus-3000-series-switches/nexus-31108pc-v-31108tc-v-nexus-3132q-v-eol.html["Cisco Nexus 31108PC-V, 31108TC-V 및 Nexus 3132Q-V의 판매 종료 및 단종 공지"]
-* link:https://www.cisco.com/c/en/us/products/collateral/switches/nexus-9000-series-switches/eos-eol-notice-c51-742776.html["Cisco N9K-C93120TX, N9K-C92300YC의 판매 종료 및 단종 공지"]
-* link:https://www.cisco.com/c/en/us/products/collateral/switches/nexus-5000-series-switches/eos-eol-notice-c51-740720.html["Cisco Nexus 5500 시리즈 스위치의 판매 종료 및 수명 종료 공지"]
-* link:https://mysupport.netapp.com/info/communications/ECMLP2859128.html["공급 중지:NetApp CN1610 클러스터 인터커넥트 SKU"]
+* link:https://www.cisco.com/c/en/us/products/collateral/switches/nexus-3000-series-switches/n3k-c3232c-eol.html["Cisco Nexus 3232C 판매 종료 및 수명 종료 발표"]
+* link:https://www.cisco.com/c/en/us/products/collateral/switches/nexus-3000-series-switches/nexus-31108pc-v-31108tc-v-nexus-3132q-v-eol.html["Cisco Nexus 31108PC-V, 31108TC-V 및 Nexus 3132Q-V에 대한 판매 종료 및 수명 종료 발표"]
+* link:https://www.cisco.com/c/en/us/products/collateral/switches/nexus-9000-series-switches/eos-eol-notice-c51-742776.html["Cisco N9K-C93120TX, N9K-C92300YC 판매 종료 및 수명 종료 발표"]
+* link:https://www.cisco.com/c/en/us/products/collateral/switches/nexus-5000-series-switches/eos-eol-notice-c51-740720.html["Cisco Nexus 5500 시리즈 스위치 판매 종료 및 수명 종료 발표"]
+* link:https://mysupport.netapp.com/info/communications/ECMLP2859128.html["NetApp CN1610 클러스터 상호 연결 SKU의 사용 가능 종료"]
 

@@ -4,52 +4,52 @@ sidebar: sidebar
 keywords: switches initial setup,initial setup,efos download 
 summary: 이 절차를 사용하여 BES-53248 클러스터 스위치의 초기 설치를 수행할 수 있습니다. 
 ---
-= BES-53248 클러스터 스위치를 구성합니다
+= BES-53248 클러스터 스위치 구성
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-BES-53248 클러스터 스위치의 초기 설정을 수행하려면 다음 단계를 수행하십시오.
+BES-53248 클러스터 스위치의 초기 설정을 수행하려면 다음 단계를 따르세요.
 
 .시작하기 전에
-* 에 설명된 대로 하드웨어가 설치됩니다 link:install-hardware-bes53248.html["하드웨어를 설치합니다"].
-* 다음을 검토했습니다.
+* 하드웨어는 다음에 설명된 대로 설치되었습니다.link:install-hardware-bes53248.html["하드웨어 설치"] .
+* 다음 내용을 검토했습니다.
 +
 ** link:configure-reqs-bes53248.html["구성 요구 사항"]
-** link:components-bes53248.html["부품 및 부품 번호"]
-** link:required-documentation-bes53248.html["문서화 요구 사항"]
+** link:components-bes53248.html["구성 요소 및 부품 번호"]
+** link:required-documentation-bes53248.html["문서 요구 사항"]
 
 
 
 
-.예를 참조하십시오
-구성 절차의 예에서는 다음과 같은 스위치 및 노드 명명법을 사용합니다.
+.예시에 관하여
+구성 절차의 예에서는 다음 스위치 및 노드 명명법을 사용합니다.
 
-* NetApp 스위치 이름은 입니다 `cs1` 및 `cs2`. 두 번째 스위치인 _CS2._에서 업그레이드가 시작됩니다
-* 클러스터 LIF 이름은 node1의 node1_clus1 및 node1_clus2, node2의 node2_clus1 및 node2_clus2 입니다.
-* IPspace 이름이 Cluster입니다.
-* 'cluster1::>' 프롬프트는 클러스터의 이름을 나타냅니다.
-* 각 노드의 클러스터 포트 이름은 입니다 `e0a` 및 `e0b`. 를 참조하십시오 https://hwu.netapp.com/Home/Index["NetApp Hardware Universe를 참조하십시오"^] 플랫폼에 지원되는 실제 클러스터 포트의 경우
-* NetApp 스위치에 지원되는 ISL(Inter-Switch Link)은 포트 0/55 및 0/56입니다.
-* NetApp 스위치에 지원되는 노드 연결은 기본 라이센스로 포트 0/1~0/16 입니다.
-* 이 예에서는 2개의 노드를 사용하지만 클러스터에 최대 24개의 노드를 포함할 수 있습니다.
+* NetApp 스위치 이름은 다음과 같습니다. `cs1` 그리고 `cs2` .  업그레이드는 두 번째 스위치인 _cs2._에서 시작됩니다.
+* 클러스터 LIF 이름은 다음과 같습니다. `node1_clus1` 그리고 `node1_clus2` node1의 경우 `node2_clus1` 그리고 `node2_clus2` 노드2의 경우.
+* IPspace 이름은 Cluster입니다.
+* 그만큼 `cluster1::>` 프롬프트는 클러스터의 이름을 나타냅니다.
+* 각 노드의 클러스터 포트는 다음과 같이 명명됩니다. `e0a` 그리고 `e0b` .  를 참조하십시오 https://hwu.netapp.com/Home/Index["NetApp Hardware Universe"^] 플랫폼에서 지원되는 실제 클러스터 포트에 대한 정보입니다.
+* NetApp 스위치에서 지원되는 ISL(Inter-Switch Links)은 포트 0/55와 0/56입니다.
+* NetApp 스위치에서 지원되는 노드 연결은 기본 라이선스가 적용된 포트 0/1~0/16입니다.
+* 이 예제에서는 두 개의 노드를 사용했지만 클러스터에는 최대 24개의 노드가 있을 수 있습니다.
 
 
 .단계
-. 직렬 포트를 호스트 또는 직렬 포트에 연결합니다.
+. 직렬 포트를 호스트나 직렬 포트에 연결합니다.
 . 관리 포트(스위치 왼쪽에 있는 RJ-45 렌치 포트)를 TFTP 서버가 있는 동일한 네트워크에 연결합니다.
-. 콘솔에서 호스트측 직렬 설정을 지정합니다.
+. 콘솔에서 호스트 측 직렬 설정을 지정합니다.
 +
-** 115200 보드
-** 8 데이터 비트
+** 115200보드
+** 8개의 데이터 비트
 ** 1 정지 비트
 ** 패리티: 없음
 ** 흐름 제어: 없음
 
 
-. 스위치에 로 로그인합니다 `admin` 암호를 묻는 메시지가 나타나면 * Enter * 를 누릅니다. 기본 스위치 이름은 * routing * 입니다. 프롬프트에서 를 입력합니다 `enable`. 이렇게 하면 스위치 구성을 위한 관리자 EXEC 모드에 액세스할 수 있습니다.
+. 스위치에 로그인하세요 `admin` 비밀번호를 입력하라는 메시지가 나타나면 *Enter*를 누르세요.  기본 스위치 이름은 *routing*입니다.  프롬프트에서 다음을 입력하세요. `enable` .  이를 통해 스위치 구성을 위한 Privileged EXEC 모드에 액세스할 수 있습니다.
 +
 [listing, subs="+quotes"]
 ----
@@ -59,7 +59,7 @@ Password:
 Password:
 (Routing)#
 ----
-. 스위치 이름을 * CS2 * 로 변경합니다.
+. 스위치 이름을 *cs2*로 변경합니다.
 +
 [listing, subs="+quotes"]
 ----
@@ -71,9 +71,9 @@ Password:
 
 [role="tabbed-block"]
 ====
-.IPv4를 참조하십시오
+.IPv4
 --
-serviceport는 기본적으로 DHCP를 사용하도록 설정됩니다. IP 주소, 서브넷 마스크 및 기본 게이트웨이 주소는 자동으로 할당됩니다.
+서비스 포트는 기본적으로 DHCP를 사용하도록 설정되어 있습니다.  IP 주소, 서브넷 마스크, 기본 게이트웨이 주소는 자동으로 할당됩니다.
 
 [listing, subs="+quotes"]
 ----
@@ -82,9 +82,9 @@ serviceport는 기본적으로 DHCP를 사용하도록 설정됩니다. IP 주�
 (cs2)# *serviceport ip <ip-address> <netmask> <gateway>*
 ----
 --
-.IPv6를 참조하십시오
+.IPv6
 --
-serviceport는 기본적으로 DHCP를 사용하도록 설정됩니다. IP 주소, 서브넷 마스크 및 기본 게이트웨이 주소는 자동으로 할당됩니다.
+서비스 포트는 기본적으로 DHCP를 사용하도록 설정되어 있습니다.  IP 주소, 서브넷 마스크, 기본 게이트웨이 주소는 자동으로 할당됩니다.
 
 [listing, subs="+quotes"]
 ----
@@ -97,7 +97,7 @@ serviceport는 기본적으로 DHCP를 사용하도록 설정됩니다. IP 주�
 ====
 . [[step7]]다음 명령을 사용하여 결과를 확인하세요.
 +
-서비스서비스
+`show serviceport`
 
 +
 [listing, subs="+quotes"]
@@ -115,7 +115,7 @@ Configured IPv6 Protocol....................... None
 IPv6 AutoConfig Mode........................... Disabled
 Burned In MAC Address.......................... D8:C4:97:71:12:3C
 ----
-. 도메인 및 이름 서버 구성:
+. 도메인과 네임 서버를 구성하세요.
 +
 [source, cli]
 ----
@@ -138,7 +138,7 @@ ip name server <server_name>
 ====
 .EFOS 3.10.0.3 이상
 --
-시간대 및 시간 동기화(NTP)를 구성합니다.
+표준 시간대 및 시간 동기화(NTP)를 구성합니다.
 
 [source, cli]
 ----
@@ -154,9 +154,9 @@ clock
 (cs2)#
 ----
 --
-.EFOS 3.9.0.2 이하
+.EFOS 3.9.0.2 및 이전 버전
 --
-시간대 및 시간 동기화(SNTP) 구성:
+표준 시간대 및 시간 동기화(SNTP)를 구성합니다.
 
 [source, cli]
 ----
@@ -175,16 +175,16 @@ clock
 ----
 --
 ====
-. [[step10]] 이전 단계에서 NTP 서버를 구성하지 않은 경우 시간을 수동으로 구성합니다.
+. [[step10]]이전 단계에서 NTP 서버를 구성하지 않은 경우 수동으로 시간을 구성합니다.
 
 
 [role="tabbed-block"]
 ====
 .EFOS 3.10.0.3 이상
 --
-시간을 수동으로 구성합니다.
+시간을 수동으로 구성하세요.
 
-시계
+`clock`
 
 [listing, subs="+quotes"]
 ----
@@ -203,11 +203,11 @@ No time source
 (cs2)#
 ----
 --
-.EFOS 3.9.0.2 이하
+.EFOS 3.9.0.2 및 이전 버전
 --
-시간을 수동으로 구성합니다.
+시간을 수동으로 구성하세요.
 
-시계
+`clock`
 
 [listing, subs="+quotes"]
 ----
@@ -228,9 +228,9 @@ No time source
 ----
 --
 ====
-. [[step11]] 실행 중인 구성을 시작 구성에 저장합니다.
+. [[step11]]실행 구성을 시작 구성에 저장합니다.
 +
-쓰기 메모리
+`write memory`
 
 +
 [listing, subs="+quotes"]
@@ -248,5 +248,5 @@ Configuration Saved!
 ----
 
 
-.다음 단계
+.다음은 무엇인가요?
 스위치를 구성한 후에는 다음을 수행할 수 있습니다. link:configure-efos-software.html["EFOS 소프트웨어를 설치하세요"].
