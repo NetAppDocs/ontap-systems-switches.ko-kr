@@ -227,4 +227,4 @@ Cluster
 
 
 .다음은 무엇인가요?
-link:install-nxos-software.html["NX-OS 소프트웨어 설치"].
+NX-OS 소프트웨어와 RCF를 설치할 준비가 되면 다음을 수행할 수 있습니다. link:install-nxos-software.html["NX-OS 소프트웨어를 설치하세요"].

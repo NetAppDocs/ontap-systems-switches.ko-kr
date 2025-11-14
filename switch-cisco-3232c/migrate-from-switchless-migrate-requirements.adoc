@@ -68,4 +68,4 @@ summary: Cisco Nexus 3232c 스위치를 구성하기 전에 프로세스 개요�
 
 ====
 .다음은 무엇인가요?
-link:migrate-from-switchless-prepare-to-migrate.html["이주 준비"].
+마이그레이션 요구 사항을 검토한 후에는 다음을 수행할 수 있습니다.link:migrate-from-switchless-prepare-to-migrate.html["스위치 마이그레이션을 준비하세요"] .

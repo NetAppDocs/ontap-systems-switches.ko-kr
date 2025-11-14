@@ -54,6 +54,9 @@ EFOS 3.4.4.6 이상
 
 |===
 
+NOTE: 포트 라이선스 키 파일에 대한 거래 키를 사용하려면 다음으로 이동하세요.link:https://support.broadcom.com/web/csg/license-generation["Broadcom 지원 이더넷 스위치용 라이선스 포털"^] 페이지. 지식 기반 문서를 참조하세요link:https://kb.netapp.com/on-prem/Switches/Broadcom-KBs/How_to_add_Additional_Port_Licensing_for_the_Broadcom_BES_53248_Switch["Broadcom BES-53248 스위치에 추가 포트 라이선싱을 추가하는 방법"^] 자세한 내용은.
+
+
 
 == 레거시 라이센스
 
