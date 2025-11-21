@@ -301,7 +301,7 @@ RPC status:
 ----
 --
 ====
-. [[5단계]] 스위치 c2에서 클러스터 LIF를 장애 조치하기 위해 노드의 클러스터 포트에 연결된 포트를 종료합니다.
+. [[step5]]스위치 c2에서 클러스터 LIF를 장애 조치하기 위해 노드의 클러스터 포트에 연결된 포트를 종료합니다.
 +
 [listing, subs="+quotes"]
 ----
@@ -529,28 +529,56 @@ swp16      100G   BondMember  sw1                 swp16
 +
 `cluster1::*> network interface modify -vserver Cluster -lif * -auto-revert true`
 
-. 모든 클러스터 네트워크 LIF가 홈 포트로 돌아왔는지 확인하세요.
-+
-`network interface show`
+. 스위치 sw2에서 모든 클러스터 포트를 종료하고 다시 시작하여 홈 포트에 없는 모든 클러스터 LIF의 자동 복귀를 트리거합니다.
 
-+
-.예를 보여주세요
-[%collapsible]
+
+[role="tabbed-block"]
 ====
+.적운 4.4.3
+--
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network interface show -vserver Cluster*
+cumulus@sw2:mgmt:~$ *net add interface swp1-14 link down*
+cumulus@sw2:mgmt:~$ *net pending*
+cumulus@sw2:mgmt:~$ *net commit*
 
-            Logical    Status     Network            Current       Current Is
-Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
------------ ---------- ---------- ------------------ ------------- ------- ----
-Cluster
-            node1_clus1  up/up    169.254.209.69/16  node1         e3a     true
-            node1_clus2  up/up    169.254.49.125/16  node1         e3b     true
-            node2_clus1  up/up    169.254.47.194/16  node2         e3a     true
-            node2_clus2  up/up    169.254.19.183/16  node2         e3b     true
+(Wait for 5-10 seconds before re-enabling the ports)
+
+cumulus@sw2:mgmt:~$ *net add interface swp1-14 link up*
+cumulus@sw2:mgmt:~$ *net pending*
+cumulus@sw2:mgmt:~$ *net commit*
+
+(After executing the link state up command, the nodes detect the change and begin to auto-revert the cluster LIFs to their home ports)
 ----
+--
+.큐물러스 5.x
+--
+[listing, subs="+quotes"]
+----
+cumulus@sw2:mgmt:~$ *nv set interface swp1-14 link state down*
+cumulus@sw2:mgmt:~$ *nv config apply*
+cumulus@sw2:mgmt:~$ *nv show interface*
+
+(Wait for 5-10 seconds before re-enabling the ports)
+
+cumulus@sw2:mgmt:~$ *nv set interface swp1-14 link state up*
+cumulus@sw2:mgmt:~$ *nv config apply*
+cumulus@sw2:mgmt:~$ *nv show interface*
+
+(After executing the link state up command, the nodes detect the change and begin to auto-revert the cluster LIFs to their home ports)
+----
+--
 ====
+. [[step3]]클러스터 LIF가 홈 포트로 되돌아갔는지 확인합니다(1분 정도 걸릴 수 있음):
++
+`network interface show -vserver Cluster`
+
++
+클러스터 LIF 중 홈 포트로 복귀되지 않은 것이 있으면 수동으로 복귀시킵니다. LIF를 소유한 로컬 노드의 각 노드 관리 LIF 또는 SP/ BMC 시스템 콘솔에 연결해야 합니다.
+
++
+`network interface revert -vserver Cluster -lif *`
+
 . 권한 수준을 다시 관리자로 변경합니다.
 +
 `set -privilege admin`

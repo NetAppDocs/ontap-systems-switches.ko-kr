@@ -694,6 +694,56 @@ Cluster
           node2_clus2   true
 ----
 ====
+. 스위치 sw2에서 모든 클러스터 포트를 종료하고 다시 시작하여 홈 포트에 없는 모든 클러스터 LIF의 자동 복귀를 트리거합니다.
+
+
+[role="tabbed-block"]
+====
+.적운 4.4.3
+--
+[listing, subs="+quotes"]
+----
+cumulus@sw2:mgmt:~$ *net add interface swp1-14 link down*
+cumulus@sw2:mgmt:~$ *net pending*
+cumulus@sw2:mgmt:~$ *net commit*
+
+(Wait for 5-10 seconds before re-enabling the ports)
+
+cumulus@sw2:mgmt:~$ *net add interface swp1-14 link up*
+cumulus@sw2:mgmt:~$ *net pending*
+cumulus@sw2:mgmt:~$ *net commit*
+
+(After executing the link state up command, the nodes detect the change and begin to auto-revert the cluster LIFs to their home ports)
+----
+--
+.큐물러스 5.x
+--
+[listing, subs="+quotes"]
+----
+cumulus@sw2:mgmt:~$ *nv set interface swp1-14 link state down*
+cumulus@sw2:mgmt:~$ *nv config apply*
+cumulus@sw2:mgmt:~$ *nv show interface*
+
+(Wait for 5-10 seconds before re-enabling the ports)
+
+cumulus@sw2:mgmt:~$ *nv set interface swp1-14 link state up*
+cumulus@sw2:mgmt:~$ *nv config apply*
+cumulus@sw2:mgmt:~$ *nv show interface*
+
+(After executing the link state up command, the nodes detect the change and begin to auto-revert the cluster LIFs to their home ports)
+----
+--
+====
+. [[step3]]클러스터 LIF가 홈 포트로 되돌아갔는지 확인합니다(1분 정도 걸릴 수 있음):
++
+`network interface show -vserver Cluster`
+
++
+클러스터 LIF 중 홈 포트로 복귀되지 않은 것이 있으면 수동으로 복귀시킵니다. LIF를 소유한 로컬 노드의 각 노드 관리 LIF 또는 SP/ BMC 시스템 콘솔에 연결해야 합니다.
+
++
+`network interface revert -vserver Cluster -lif *`
+
 . 모든 인터페이스가 표시되는지 확인하세요 `true` ~을 위한 `Is Home` :
 +
 `net interface show -vserver Cluster`
@@ -728,17 +778,14 @@ Cluster
 `network options switchless-cluster show`
 
 +
-.예를 보여주세요
-[%collapsible]
-====
 다음 예제의 잘못된 출력은 구성 설정이 비활성화되었음을 보여줍니다.
 
++
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network options switchless-cluster show*
+cluster1::*> network options switchless-cluster show
 Enable Switchless Cluster: *false*
 ----
-====
 . 클러스터의 노드 멤버 상태를 확인하세요.
 +
 `cluster show`
@@ -825,7 +872,7 @@ RPC status:
 ----
 --
 ====
-. [[step6]] 권한 수준을 다시 관리자로 변경합니다.
+. [[step8]]권한 수준을 다시 관리자로 변경합니다.
 +
 `set -privilege admin`
 
