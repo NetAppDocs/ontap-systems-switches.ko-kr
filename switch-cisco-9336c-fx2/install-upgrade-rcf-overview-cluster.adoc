@@ -16,13 +16,13 @@ Nexus 9336C-FX2 및 9336C-FX2-T 스위치를 처음 설정한 후 참조 구성 
 지식 기반 문서를 참조하세요link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["원격 연결을 유지하면서 Cisco 상호 연결 스위치의 구성을 지우는 방법"^] RCF를 설치하거나 업그레이드할 때 자세한 내용을 알아보세요.
 
 .사용 가능한 RCF 구성
-다음 표에서는 다양한 구성에 사용할 수 있는 RCF를 설명합니다.  귀하의 구성에 적용 가능한 RCF를 선택하세요.
+다음 표에서는 다양한 구성에 사용할 수 있는 RCF를 설명합니다. 귀하의 구성에 적용 가능한 RCF를 선택하세요. 보다link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치"^] 자세한 내용은.
 
 특정 포트 및 VLAN 사용에 대한 자세한 내용은 RCF의 배너 및 중요 참고 사항 섹션을 참조하세요.
 
 [cols="1,2"]
 |===
-| RCF 이름 | 설명 
+| RCF 구성 | 설명 
 
 
  a| 
@@ -73,12 +73,39 @@ Nexus 9336C-FX2 및 9336C-FX2-T 스위치를 처음 설정한 후 참조 구성 
 모든 포트는 100GbE NVMe 스토리지 연결에 맞게 구성되어 있습니다.
 
 |===
+.사용 가능한 RCF
+다음 표에는 9336C-FX2 및 9336C-FX2-T 스위치에 사용 가능한 RCF가 나열되어 있습니다.  구성에 맞는 RCF 버전을 선택하세요. 보다link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치"^] 자세한 내용은.
+
+[cols="1"]
+|===
+| RCF 이름 
+
+
+ a| 
+클러스터-HA-브레이크아웃 RCF 1._xx_
+
+
+
+ a| 
+클러스터-HA-스토리지 RCF 1._xx_
+
+
+
+ a| 
+저장 RCF 1._xx_
+
+
+
+ a| 
+멀티클러스터-HA RCF 1._xx_
+
+|===
 .제안된 문서
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치(NSS)"^]
 +
 NetApp 지원 사이트에서 지원되는 ONTAP 및 RCF 버전에 대한 스위치 호환성 표를 참조하세요.  RCF의 명령 구문과 특정 NX-OS 버전의 구문 사이에는 명령 종속성이 있을 수 있습니다.
 
-* link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Cisco Nexus 3000 시리즈 스위치"^]
+* link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-installation-guides-list.html["Cisco Nexus 9000 시리즈 스위치"^]
 +
 Cisco 스위치 업그레이드 및 다운그레이드 절차에 대한 전체 문서는 Cisco 웹사이트에서 제공하는 해당 소프트웨어 및 업그레이드 가이드를 참조하세요.
 

@@ -73,6 +73,33 @@ Nexus 3232C 스위치를 처음 설정한 후 참조 구성 파일(RCF)을 설�
 모든 포트는 100GbE NVMe 스토리지 연결에 맞게 구성되어 있습니다.
 
 |===
+.사용 가능한 RCF
+다음 표는 3232C 스위치에 사용 가능한 RCF를 나열한 것입니다.  구성에 맞는 RCF 버전을 선택하세요. 보다link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치"^] 자세한 내용은.
+
+[cols="1"]
+|===
+| RCF 이름 
+
+
+ a| 
+클러스터-HA-브레이크아웃 RCF v1._xx_
+
+
+
+ a| 
+클러스터-HA RCF v1._xx_
+
+
+
+ a| 
+저장소 RCF v1._xx_
+
+
+
+ a| 
+클러스터 RCF 1._xx_
+
+|===
 .제안된 문서
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치(NSS)"^]
 +

@@ -25,6 +25,10 @@ Nexus 9336C-FX2 스위치를 처음 설정한 후 참조 구성 파일(RCF)을 �
 * ONTAP 노드 클러스터 포트가 연결되지 않았습니다.
 
 
+.사용 가능한 RCF 구성
+* *ClusterStorageRCF* - 스위치에서 분할된 클러스터와 두 개의 스토리지 영역을 지원합니다(Cluster-Storage RCF 1._xx_).
+
+
 
 
 == 1단계: 스위치에 RCF 설치

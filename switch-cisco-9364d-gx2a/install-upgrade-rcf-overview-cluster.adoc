@@ -16,10 +16,10 @@ Nexus 9364D-GX2A 스위치를 처음 설정한 후 참조 구성 파일(RCF)을 
 지식 기반 문서를 참조하세요link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["원격 연결을 유지하면서 Cisco 상호 연결 스위치의 구성을 지우는 방법"^] RCF를 설치하거나 업그레이드할 때 자세한 내용을 알아보세요.
 
 .사용 가능한 RCF 구성
-* *클러스터-HA-스토리지* - 포트(NX9364D-GX2A-RCF-v10.0-Shared.txt)에서 공유 클러스터/HA/스토리지 트래픽을 지원합니다.
+* *클러스터-HA-스토리지 AFX* - 모든 포트는 AFX 노드 클러스터, HA, 스토리지 포트, NX224 스토리지 셸프 포트를 보편적으로 지원하는 4x100GbE 브레이크아웃 모드로 구성됩니다.  스위치 간 400GbE ISL.  (_클러스터-HA-스토리지 AFX RCF_vxx.x_).
 
 
-특정 포트 및 VLAN 사용에 대한 자세한 내용은 RCF의 배너 및 중요 참고 사항 섹션을 참조하세요.
+특정 포트 및 VLAN 사용에 대한 자세한 내용은 RCF의 배너 및 중요 참고 사항 섹션을 참조하세요. 보다link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치"^] 자세한 내용은.
 
 .제안된 문서
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치(NSS)"^]
