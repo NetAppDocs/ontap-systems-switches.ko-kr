@@ -53,32 +53,6 @@ entries:
 - title: 스위치 마이그레이션
   pdf-filename: 마이그레이션_스위치_3132q-v
   entries:
-  - title: CN1610 스위치 마이그레이션
-    pdf-filename: CN1610_switch_migration
-    entries:
-    - title: CN1610 스위치 마이그레이션 워크플로
-      url: "/switch-cisco-3132q-v/cn1610-migrate-workflow.html"
-    - title: 이주 요구 사항
-      url: "/switch-cisco-3132q-v/cn1610-migrate-requirements.html"
-    - title: 이주 준비
-      url: "/switch-cisco-3132q-v/cn1610-prepare-to-migrate.html"
-    - title: 포트 구성
-      url: "/switch-cisco-3132q-v/cn1610-configure-ports.html"
-    - title: 마이그레이션을 완료하세요
-      url: "/switch-cisco-3132q-v/cn1610-complete-migration.html"
-  - title: Cisco Nexus 5596 스위치 마이그레이션
-    pdf-filename: CN5596_switch_migration
-    entries:
-    - title: Cisco Nexus 5596 스위치 마이그레이션 워크플로
-      url: "/switch-cisco-3132q-v/cn5596-migrate-workflow.html"
-    - title: 이주 요구 사항
-      url: "/switch-cisco-3132q-v/cn5596-migrate-requirements.html"
-    - title: 이주 준비
-      url: "/switch-cisco-3132q-v/cn5596-prepare-to-migrate.html"
-    - title: 포트 구성
-      url: "/switch-cisco-3132q-v/cn5596-configure-ports.html"
-    - title: 마이그레이션을 완료하세요
-      url: "/switch-cisco-3132q-v/cn5596-complete-migration.html"
   - title: 스위치리스 클러스터에서 2노드 스위치 클러스터로 마이그레이션
     pdf-filename: 스위치리스에서 스위치드 클러스터로 마이그레이션
     entries:
