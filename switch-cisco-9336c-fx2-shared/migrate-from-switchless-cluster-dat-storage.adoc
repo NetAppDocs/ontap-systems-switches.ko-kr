@@ -283,7 +283,7 @@ Cluster
 
 . [[step9]]노드1의 클러스터 포트 e3a에서 케이블을 분리한 다음 9336C-FX2 스위치에서 지원하는 적절한 케이블을 사용하여 e3a를 클러스터 스위치 cs1의 포트 1에 연결합니다.
 +
-NetApp https://hwu.netapp.com["Hardware Universe"] 케이블링에 대한 자세한 정보가 포함되어 있습니다.
+NetApp https://hwu.netapp.com["Hardware Universe"] 케이블링에 대한 자세한 정보가 포함되어 있습니다. 보다 link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["HWU에 없는 추가 정보 중 장비를 설치하는 데 필요한 정보는 무엇입니까?"^] 스위치 설치 요구 사항에 대한 자세한 내용은 다음을 참조하십시오.
 
 . 노드2의 클러스터 포트 e3a에서 케이블을 분리한 다음, 9336C-FX2 스위치에서 지원하는 적절한 케이블을 사용하여 e3a를 클러스터 스위치 cs1의 포트 2에 연결합니다.
 . 클러스터 스위치 cs1에서 모든 노드 연결 포트를 활성화합니다.

@@ -22,7 +22,7 @@ Nexus 92300YC 스위치를 처음 설정한 후 RCF를 설치할 수 있습니�
 * 그만큼 `cluster1::*>` 프롬프트는 클러스터의 이름을 나타냅니다.
 * 각 노드의 클러스터 포트는 다음과 같이 명명됩니다. `e0a` 그리고 `e0b` .
 +
-를 참조하십시오link:https://hwu.netapp.com/Home/Index["_하드웨어 유니버스^_"] 플랫폼에서 지원되는 실제 클러스터 포트에 대한 정보입니다.
+를 참조하십시오link:https://hwu.netapp.com/Home/Index["_하드웨어 유니버스^_"] 플랫폼에서 지원되는 실제 클러스터 포트에 대한 정보입니다. 보다 link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["HWU에 없는 추가 정보 중 장비를 설치하는 데 필요한 정보는 무엇입니까?"^] 스위치 설치 요구 사항에 대한 자세한 내용은 다음을 참조하십시오.
 
 
 

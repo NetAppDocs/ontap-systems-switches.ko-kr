@@ -22,11 +22,10 @@
 ** 두 스위치 모두 관리 네트워크 연결 기능을 갖추고 있습니다.
 ** 클러스터 스위치에 콘솔로 접근할 수 있습니다.
 ** Nexus 9336C-FX2 노드 간 스위치와 스위치 간 연결에는 Twinax 또는 파이버 케이블을 사용합니다.
-+
-보다 https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - 스위치"^] 케이블링에 대한 자세한 내용은 여기를 참조하세요.
 
 
-
+* 보다 link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - 스위치"^] 케이블링에 대한 자세한 내용은 다음을 참조하십시오.
+* 보다 link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["HWU에 없는 추가 정보 중 장비를 설치하는 데 필요한 정보는 무엇입니까?"^] 스위치 설치 요구 사항에 대한 자세한 내용은 다음을 참조하십시오.
 * ISL(Inter-Switch Link) 케이블은 두 9336C-FX2 스위치의 포트 1/35와 1/36에 연결됩니다.
 * 두 9336C-FX2 스위치의 초기 사용자 정의가 완료되어 다음과 같은 결과가 나왔습니다.
 +

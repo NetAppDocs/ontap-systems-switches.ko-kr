@@ -29,4 +29,4 @@ NVIDIA ConnectX-6 Dx(CX6-DX) NIC 포트(부품 번호 X50130B)를 사용하여 �
 (cs1)(config)# *exit*
 (cs1)# *copy running-config startup-config*
 ----
-를 참조하십시오 https://hwu.netapp.com/Switch/Index["Hardware Universe"^] 스위치 포트에 대한 자세한 내용은 다음을 참조하세요.
+를 참조하십시오 https://hwu.netapp.com/Switch/Index["Hardware Universe"^] 스위치 포트에 대한 자세한 내용은 다음을 참조하세요. 보다 link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["HWU에 없는 추가 정보 중 장비를 설치하는 데 필요한 정보는 무엇입니까?"^] 스위치 설치 요구 사항에 대한 자세한 내용은 다음을 참조하십시오.

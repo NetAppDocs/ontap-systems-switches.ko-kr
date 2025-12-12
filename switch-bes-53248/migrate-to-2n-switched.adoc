@@ -38,7 +38,7 @@ summary: 2노드 스위치리스 클러스터가 있는 경우 중단 없이 Bro
 ** 클러스터 스위치에 콘솔로 접근할 수 있습니다.
 ** BES-53248 노드 간 스위치와 스위치 간 연결은 Twinax 또는 파이버 케이블을 사용합니다.
 +
-그만큼 https://hwu.netapp.com/Home/Index["_NetApp 하드웨어 유니버스_"^] ONTAP 호환성, 지원되는 EFOS 펌웨어, BES-53248 스위치에 대한 케이블링에 대한 정보가 포함되어 있습니다.
+그만큼 link:https://hwu.netapp.com/Home/Index["_NetApp 하드웨어 유니버스_"^] 이 문서에는 ONTAP 호환성, 지원되는 EFOS 펌웨어 및 BES-53248 스위치와의 케이블 연결에 대한 정보가 포함되어 있습니다. 보다 link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["HWU에 없는 추가 정보 중 장비를 설치하는 데 필요한 정보는 무엇입니까?"^] 스위치 설치 요구 사항에 대한 자세한 내용은 다음을 참조하십시오.
 
 
 

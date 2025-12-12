@@ -27,6 +27,7 @@ NOTE: 이 절차에서는 ONTAP 명령과 Cisco Nexus 3000 시리즈 스위치 �
 * link:https://mysupport.netapp.com/site/products/all/details/netapp-cluster-switches/docs-tab["NetApp CN1601 및 CN1610"^]
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치"^]
 * link:http://hwu.netapp.com["Hardware Universe"^]
+* link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["HWU에 없는 추가 정보 중 장비를 설치하는 데 필요한 정보는 무엇입니까?"^]
 
 
 
@@ -34,7 +35,7 @@ NOTE: 이 절차에서는 ONTAP 명령과 Cisco Nexus 3000 시리즈 스위치 �
 == 스위치 마이그레이션
 
 .예시에 관하여
-이 절차의 예에서는 4개의 노드를 사용합니다. 두 개의 노드는 4개의 10GbE 클러스터 상호 연결 포트(e0a, e0b, e0c, e0d)를 사용합니다.  나머지 두 노드는 두 개의 40GbE 클러스터 상호 연결 파이버 케이블(e4a 및 e4e)을 사용합니다.  그만큼link:https://hwu.netapp.com/["_하드웨어 유니버스_"^] 플랫폼의 클러스터 파이버 케이블에 대한 정보가 있습니다.
+이 절차의 예에서는 4개의 노드를 사용합니다. 두 개의 노드는 4개의 10GbE 클러스터 상호 연결 포트(e0a, e0b, e0c, e0d)를 사용합니다. 나머지 두 노드는 두 개의 40GbE 클러스터 상호 연결 파이버 케이블(e4a 및 e4e)을 사용합니다. 그만큼link:https://hwu.netapp.com/["_하드웨어 유니버스_"^] 플랫폼의 클러스터 파이버 케이블에 대한 정보가 있습니다. 보다 link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["HWU에 없는 추가 정보 중 장비를 설치하는 데 필요한 정보는 무엇입니까?"^] 스위치 설치 요구 사항에 대한 자세한 내용은 다음을 참조하십시오.
 
 이 절차의 예에서는 다음 스위치 및 노드 명명법을 사용합니다.
 

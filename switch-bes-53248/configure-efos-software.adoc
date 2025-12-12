@@ -238,13 +238,12 @@ Additional Packages............................ BGP-4
 ............................................... Prototype Open API
 ----
 ====
-. 설치를 완료합니다.  스위치를 재구성하려면 다음 5단계를 따르세요.
+. 설치를 완료합니다. 스위치를 재구성하려면 다음 네 단계를 따르십시오.
 +
 .. link:configure-licenses.html["라이센스 설치"]
 .. link:configure-install-rcf.html["RCF 파일을 설치하세요"]
 .. link:configure-ssh.html["SSH 활성화"]
-.. link:CSHM_log_collection.html["로그 수집 활성화"]
-.. link:CSHM_snmpv3.html["모니터링을 위해 SNMPv3 구성"]
+.. link:../switch-cshm/config-overview.html["스위치 상태 모니터링 구성"]
 
 
 . 파트너 스위치에서 1~7단계를 반복합니다.
@@ -410,14 +409,13 @@ unit 	active 	    backup   current-active  next-active
 (cs2) #
 ----
 ====
-. 설치를 완료합니다.  스위치는 아무런 구성도 적용하지 않고 재부팅되고 공장 기본값으로 재설정됩니다.  스위치를 재구성하려면 다음 6단계를 따르세요.
+. 설치를 완료합니다. 스위치는 아무런 구성도 적용하지 않고 재부팅되고 공장 기본값으로 재설정됩니다. 스위치를 재구성하려면 다음 5단계를 따르세요.
 +
 .. link:configure-install-initial.html["스위치 구성"]
 .. link:configure-licenses.html["라이센스 설치"]
 .. link:configure-install-rcf.html["RCF 파일을 설치하세요"]
 .. link:configure-ssh.html["SSH 활성화"]
-.. link:CSHM_log_collection.html["로그 수집 활성화"]
-.. link:CSHM_snmpv3.html["모니터링을 위해 SNMPv3 구성"]
+.. link:../switch-cshm/config-overview.html["스위치 상태 모니터링 구성"]
 
 
 . 파트너 스위치에서 1~8단계를 반복합니다.

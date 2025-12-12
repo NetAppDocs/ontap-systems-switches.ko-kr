@@ -50,7 +50,7 @@ swp2s0-3
 100GbE ISL(Inter-Switch Link) 포트
 
 |===
-를 참조하십시오 https://hwu.netapp.com/Switch/Index["Hardware Universe"^] 스위치 포트에 대한 자세한 내용은 다음을 참조하세요.
+보세요 link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] 스위치 포트에 대한 자세한 내용은 다음을 참조하십시오.
 
 
 
@@ -190,7 +190,7 @@ UP     swp4      100G  9216   Trunk/L2                     Master: bridge(UP)
 
 --
 ====
-지식 기반 문서를 참조하세요 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric_Interconnect_and_Management_Switches/NVIDIA_SN2100_switch_fails_to_connect_using_40_100GbE_copper_cable["SN2100 스위치가 40/100GbE 구리 케이블을 사용하여 연결에 실패합니다."^] 자세한 내용은.
+지식 기반 문서를 참조하세요link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric_Interconnect_and_Management_Switches/NVIDIA_SN2100_switch_fails_to_connect_using_40_100GbE_copper_cable["SN2100 스위치가 40/100GbE 구리 케이블을 사용하여 연결에 실패합니다."^] 자세한 내용은.
 
 Cumulus Linux 4.4.2에서는 X1151A NIC, X1146A NIC 또는 온보드 100GbE 포트가 있는 SN2100 스위치에서 구리 연결이 지원되지 않습니다. 예를 들어:
 
@@ -200,24 +200,23 @@ Cumulus Linux 4.4.2에서는 X1151A NIC, X1146A NIC 또는 온보드 100GbE 포�
 
 
 
-== QSA 어댑터
+== QSA 모듈
 
-QSA 어댑터를 사용하여 플랫폼의 10GbE/25GbE 클러스터 포트에 연결하는 경우 링크가 생성되지 않을 수 있습니다.
+QSFP+ (40GbE)-SFP+ (10GbE) 어댑터 또는 QSFP28 (100GbE)-SFP28 (25GbE) 어댑터(QSA)를 사용할 때는 비분리형 40GbE/100GbE 스위치 포트(swp3-swp14)에 삽입하십시오. 브레이크아웃용으로 구성된 포트에 QSA 모듈을 삽입하지 마십시오.
+
+QSA 모듈을 사용하여 플랫폼의 10GbE/25GbE 클러스터 포트에 연결할 때 링크가 설정되지 않을 수 있습니다.
 
 이 문제를 해결하려면 다음을 수행하세요.
 
-* 10GbE의 경우 swp1s0-3 링크 속도를 수동으로 10000으로 설정하고 자동 협상을 끄기로 설정합니다.
-* 25GbE의 경우 swp2s0-3 링크 속도를 수동으로 25000으로 설정하고 자동 협상을 끄기로 설정합니다.
+* 10GbE의 경우 링크 속도를 수동으로 10000으로 설정하고 자동 협상을 끄십시오.
+* 25GbE의 경우 링크 속도를 수동으로 25000으로 설정하고 자동 협상을 끄십시오.
 
-
-
-NOTE: 10GbE/25GbE QSA 어댑터를 사용하는 경우, 브레이크아웃되지 않은 40GbE/100GbE 포트(swp3-swp14)에 삽입하세요.  브레이크아웃을 위해 구성된 포트에 QSA 어댑터를 삽입하지 마세요.
 
 
 
 == 브레이크아웃 포트에서 인터페이스 속도 설정
 
-스위치 포트의 트랜시버에 따라 스위치 인터페이스의 속도를 고정 속도로 설정해야 할 수도 있습니다.  10GbE 및 25GbE 브레이크아웃 포트를 사용하는 경우 자동 협상이 꺼져 있는지 확인하고 스위치에서 인터페이스 속도를 설정하세요.
+스위치 포트의 트랜시버에 따라 스위치 인터페이스의 속도를 고정 속도로 설정해야 할 수도 있습니다. 10GbE 및 25GbE 브레이크아웃 포트 또는 QSA 모듈을 사용하는 경우 자동 협상이 꺼져 있는지 확인하고 스위치에서 인터페이스 속도를 설정하십시오.
 
 [role="tabbed-block"]
 ====
@@ -332,5 +331,7 @@ UP     swp16      100G  9216   BondMember  cs01 (swp16)     Master: cl
 ----
 --
 ====
+보세요 link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^]그리고 기술 자료 문서 link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["HWU에 나와 있지 않은 추가 정보는 무엇이며, 장비를 설치하는 데 필요한 정보는 무엇입니까?"^] 더 자세한 정보를 원하시면.
+
 .다음은 무엇인가요?
 케이블링 및 구성 요구 사항을 검토한 후에는 다음을 수행할 수 있습니다.link:install-cable-shelves-sn2100-cluster.html["NS224 선반을 스위치 연결 스토리지로 케이블 연결"] .
