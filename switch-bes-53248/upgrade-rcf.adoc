@@ -445,7 +445,7 @@ Are you sure you would like to reset the system? (y/n) *y*
 
 . 다음 사항에 유의하세요.
 +
-.. 스위치에 추가 포트 라이선스가 설치된 경우, 추가 라이선스 포트를 구성하려면 RCF를 수정해야 합니다. 보다link:configure-licenses.html#activate-newly-licensed-ports["새로 라이센스된 포트 활성화"] 자세한 내용은.
+.. 스위치에 추가 포트 라이선스가 설치된 경우, 추가 라이선스 포트를 구성하려면 RCF를 수정해야 합니다. 보다 link:configure-licenses.html#activate-newly-licensed-ports["새로 라이센스된 포트 활성화"] 자세한 내용은 다음을 참조하세요. 그러나 RCF 1.12 이상으로 업그레이드하면 모든 인터페이스가 사전 구성되어 있으므로 더 이상 수정할 필요가 없습니다.
 .. 이전 RCF에서 적용된 모든 사용자 정의 사항을 기록하고 이를 새로운 RCF에 적용합니다.  예를 들어, 포트 속도 설정이나 FEC 모드 하드코딩 등이 있습니다.
 
 

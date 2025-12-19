@@ -5694,4 +5694,5 @@
   <block id="b863fc58b633b41e58cc8a5b99e7043b" category="inline-link-macro">HWU에 나와 있지 않은 추가 정보는 무엇이며, 장비를 설치하는 데 필요한 정보는 무엇입니까?</block>
   <block id="ab9a0b8fd43af09ec7cd6f43a3cafa97" category="paragraph">보세요 <block ref="c845c6ffda77bc94ba897d84583cb923" category="inline-link-macro-rx"></block>그리고 기술 자료 문서 <block ref="eaa81338373f6673f7bec757b105ef25" category="inline-link-macro-rx"></block> 더 자세한 정보를 원하시면.</block>
   <block id="a1fe5f79e41b7a07061c6e55eb0e9030" category="sidebar">스토리지 스위치를 사용하면 두 개 이상의 노드로 ONTAP 클러스터를 구축할 수 있습니다. 이러한 이더넷 스토리지 스위치는 NetApp ONTAP 환경에서 확장 가능한 클러스터 상호 연결 솔루션을 위한 기반을 제공합니다.</block>
+  <block id="76980345fd6e2954226ddad45b3120c8" category="list-text">스위치에 추가 포트 라이선스가 설치된 경우, 추가 라이선스 포트를 구성하려면 RCF를 수정해야 합니다. 보다 <block ref="029ce138066352981401c2da3f4be7ea" category="inline-link-macro-rx"></block> 자세한 내용은 다음을 참조하세요. 그러나 RCF 1.12 이상으로 업그레이드하면 모든 인터페이스가 사전 구성되어 있으므로 더 이상 수정할 필요가 없습니다.</block>
 </blocks>
