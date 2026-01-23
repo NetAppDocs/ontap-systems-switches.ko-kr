@@ -25,9 +25,9 @@ Cisco NX-OS 소프트웨어와 RCF는 Cisco 3132Q-V 클러스터 스위치에 �
 [role="quick-margin-para"]
 Cisco 3132Q-V 클러스터 스위치에 NX-OS 소프트웨어를 다운로드하여 설치하거나 업그레이드합니다.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["네"]link:install-rcf-3132q-v.html["RCF 설치"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["네"]link:install-upgrade-rcf-overview-3132q-v.html["RCF 설치 또는 업그레이드"]
 [role="quick-margin-para"]
-Cisco 3132Q-V 스위치를 처음 설정한 후 RCF를 설치합니다.
+Cisco 3132Q-V 스위치를 설정한 후 RCF를 설치하거나 업그레이드하십시오.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["다섯"]link:configure-ssh-keys.html["SSH 구성 확인"]
 [role="quick-margin-para"]

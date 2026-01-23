@@ -44,7 +44,7 @@ image:9336c_image2.jpg["직접 부착"]
 
 각 스위치 쌍의 샘플 포트 정의는 다음과 같습니다.
 
-image:cabling_worksheet.jpg["케이블링 워크시트"]
+image:cabling-worksheet.jpg["케이블링 워크시트"]
 
 어디:
 
@@ -60,7 +60,7 @@ image:cabling_worksheet.jpg["케이블링 워크시트"]
 
 빈 케이블링 워크시트를 사용하여 클러스터에서 노드로 지원되는 플랫폼을 문서화할 수 있습니다.  Hardware Universe 의 지원되는 클러스터 연결 표는 플랫폼에서 사용되는 클러스터 포트를 정의합니다.
 
-image:blank_cabling_worksheet.jpg["빈 케이블링 워크시트"]
+image:blank-cabling-worksheet.jpg["빈 케이블링 워크시트"]
 
 어디:
 
