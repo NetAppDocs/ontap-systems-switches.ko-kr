@@ -73,3 +73,10 @@ entries:
     url: "/switch-cisco-3232c/replace-cluster-switch.html"
   - title: 클러스터 스위치를 스위치리스 연결로 교체
     url: "/switch-cisco-3232c/migrate-to-switchless-cluster-interconnect.html"
+- title: Cisco 3232C 스토리지 스위치
+  pdf-filename: 3232C_storage_switches
+  entries:
+  - title: 3232C 스토리지 스위치 업그레이드
+    url: "/switch-cisco-3232c/upgrade-3232c-storage-switches.html"
+  - title: 3232C 스토리지 스위치 교체
+    url: "/switch-cisco-3232c/replace-storage-switch.html"

@@ -10,26 +10,36 @@ indexpage:
     links:
     - title: Cisco 넥서스 9336C-FX2 및 9336C-FX2-T
       url: "../switch-cisco-9336c-fx2-storage/configure-switch-overview-9336c-storage.html"
+    - title: Cisco 넥서스 3232C
+      url: "../switch-cisco-3232c-storage/configure-switch-overview-3232c-storage.html"
     - title: NVIDIA SN2100
       url: "../switch-nvidia-sn2100-storage/configure-overview-sn2100-storage.html"
   - title: 스토리지 스위치 설치 및 구성
     links:
     - title: 9336C-FX2 및 9336C-FX2-T 스위치 하드웨어 설치
       url: "../switch-cisco-9336c-fx2-storage/install-hardware-workflow.html"
+    - title: 3232C 스위치 하드웨어 설치
+      url: "../switch-cisco-3232c-storage/install-hardware-workflow.html"
     - title: NVIDIA SN2100 스위치 하드웨어 설치
       url: "../switch-nvidia-sn2100-storage/install-hardware-workflow.html"
     - title: 9336C-FX2 및 9336C-FX2-T 스위치 소프트웨어 구성
       url: "../switch-cisco-9336c-fx2-storage/configure-software-overview-9336c-storage.html"
+    - title: 3232C 스위치 소프트웨어를 구성합니다
+      url: "../switch-cisco-3232c-storage/configure-switch-overview-3232c-storage.html"
     - title: NVIDIA SN2100 스위치 소프트웨어 구성
       url: "../switch-nvidia-sn2100-storage/configure-software-sn2100-storage.html"
   - title: 스토리지 스위치 유지 관리
     links:
     - title: 9336C-FX2 및 9336C-FX2-T 스위치 교체
       url: "../switch-cisco-9336c-fx2-storage/replace-storage-switch-9336c-storage.html"
+    - title: 3232C 스위치 교체
+      url: "../switch-cisco-3232c-storage/replace-storage-switch.html"
     - title: NVIDIA SN2100 스위치 교체
       url: "../switch-nvidia-sn2100-storage/replace-sn2100-switch-storage.html"
     - title: 9336C-FX2 및 9336C-FX2-T 스위치를 공장 기본값으로 재설정합니다.
       url: "../switch-cisco-9336c-fx2-storage/reset-switch-9336c-storage.html"
+    - title: 3232C 스위치를 공장 출하 시 기본값으로 재설정
+      url: "../switch-cisco-3232c-storage/reset-switch-3232c-storage.html"
     - title: NVIDIA SN2100 스위치를 공장 기본값으로 재설정
       url: "../switch-nvidia-sn2100-storage/reset-switch-sn2100-storage.html"
   - title: 관련 문서

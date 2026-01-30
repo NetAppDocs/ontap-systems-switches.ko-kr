@@ -1,0 +1,29 @@
+---
+permalink: switch-cisco-3232c-storage/smart-call-home-3232c-storage.html 
+sidebar: sidebar 
+keywords: cisco 3232c, storage switches 
+summary: AFF 또는 FAS 클러스터의 스위치로 Cisco Nexus 3232C 스위치를 사용할 수 있습니다. 
+---
+= 스마트 콜 홈 요구 사항
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Smart Call Home을 사용하려면 이메일을 사용하여 Smart Call Home 시스템과 통신할 수 있도록 클러스터 네트워크 스위치를 구성해야 합니다. 또한, 선택적으로 클러스터 네트워크 스위치를 설정하여 Cisco의 내장형 Smart Call Home 지원 기능을 활용할 수 있습니다.
+
+Smart Call Home은 네트워크의 하드웨어 및 소프트웨어 구성 요소를 모니터링합니다. 중요한 시스템 구성이 발생하면 이메일 기반 알림이 생성되고 대상 프로필에 구성된 모든 수신자에게 경고가 발생합니다.
+
+Smart Call Home은 네트워크의 하드웨어 및 소프트웨어 구성 요소를 모니터링합니다. 중요한 시스템 구성이 발생하면 이메일 기반 알림이 생성되고 대상 프로필에 구성된 모든 수신자에게 경고가 발생합니다.
+
+Smart Call Home을 사용하기 전에 다음 요구 사항을 확인하세요.
+
+* 이메일 서버가 있어야 합니다.
+* 스위치는 이메일 서버에 IP로 연결되어 있어야 합니다.
+* 연락처 이름(SNMP 서버 연락처), 전화번호, 주소 정보를 구성해야 합니다.  이는 수신된 메시지의 출처를 확인하는 데 필요합니다.
+* CCO ID는 회사의 적절한 Cisco SMARTnet 서비스 계약과 연결되어야 합니다.
+* 장치를 등록하려면 Cisco SMARTnet 서비스가 있어야 합니다.
+
+
+그만큼 http://www.cisco.com/c/en/us/products/switches/index.html["Cisco 지원 사이트"^] Smart Call Home을 구성하는 명령에 대한 정보가 포함되어 있습니다.

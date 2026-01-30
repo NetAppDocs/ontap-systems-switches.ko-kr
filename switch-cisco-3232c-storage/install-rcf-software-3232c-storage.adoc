@@ -1,0 +1,271 @@
+---
+permalink: switch-cisco-3232c-storage/install-rcf-software-3232c-storage.html 
+sidebar: sidebar 
+keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 3232c 
+summary: '클러스터 스위치 상태 모니터(CSHM) 및 로그 수집 기능을 사용하려면 SSH가 필요합니다. Cisco 3232c 클러스터 스위치에서 SSH를 활성화하려면 먼저 SSH 키를 생성한 다음 SSH를 활성화합니다.' 
+---
+= 참조 구성 파일(RCF) 설치
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Nexus 3232C 스위치를 처음 설정한 후 참조 구성 파일(RCF)을 설치합니다.
+
+.시작하기 전에
+다음 설치 및 연결을 확인하세요.
+
+* 스위치 구성의 현재 백업입니다.
+* 완벽하게 작동하는 클러스터(로그에 오류나 유사한 문제가 없음).
+* 현재의 RCF.
+* 스위치에 대한 콘솔 연결. RCF를 설치할 때 필요합니다.
+
+
+.이 작업에 관하여
+이 절차에서는 ONTAP 명령과 Cisco Nexus 3000 시리즈 스위치 명령을 모두 사용해야 합니다. 달리 지정되지 않는 한 ONTAP 명령을 사용합니다.
+
+이 절차 중에는 작동 중인 ISL(스위치 간 링크)이 필요하지 않습니다. 이는 RCF 버전 변경으로 인해 ISL 연결에 일시적으로 영향을 미칠 수 있기 때문에 설계된 기능입니다. 중단 없는 클러스터 작업을 가능하게 하기 위해 다음 절차에서는 대상 스위치에서 단계를 수행하는 동안 모든 클러스터 LIF를 운영 파트너 스위치로 마이그레이션합니다.
+
+link:prepare-install-cisco-nexus-3232c-storage.html["NX-OS 및 RCF 설치 준비"]에서 절차를 완료한 후 아래 단계를 따르십시오.
+
+
+
+== 1단계: 스위치에 RCF 설치
+
+. SSH나 직렬 콘솔을 사용하여 Switch cs2에 로그인합니다.
+. FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 cs2의 부트플래시에 복사합니다. Cisco 명령에 대한 자세한 내용은 해당 가이드를 참조하세요. https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^] .
++
+.예를 보여주세요
+[%collapsible]
+====
+이 예에서는 TFTP를 사용하여 RCF를 스위치 cs2의 부트플래시에 복사하는 방법을 보여줍니다.
+
+[listing, subs="+quotes"]
+----
+cs2# *copy tftp: bootflash: vrf management*
+Enter source filename: *Nexus_3232C_RCF_v1.6-Cluster-HA-Breakout.txt*
+Enter hostname for the tftp server: *172.22.201.50*
+Trying to connect to tftp server......Connection to Server Established.
+TFTP get operation was successful
+Copy complete, now saving to disk (please wait)...
+----
+====
+. 이전에 다운로드한 RCF를 부트플래시에 적용합니다.
++
+Cisco 명령에 대한 자세한 내용은 해당 가이드를 참조하세요. https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^] .
+
++
+.예를 보여주세요
+[%collapsible]
+====
+이 예에서는 RCF 파일을 보여줍니다. `Nexus_3232C_RCF_v1.6-Cluster-HA-Breakout.txt` 스위치 cs2에 설치 중:
+
+[listing, subs="+quotes"]
+----
+cs2# *copy Nexus_3232C_RCF_v1.6-Cluster-HA-Breakout.txt running-config echo-commands*
+----
+====
++
+[NOTE]
+====
+RCF의 *Installation notes*, *Important Notes* 및 *banner* 섹션을 철저히 읽어야 합니다. 스위치의 올바른 구성 및 작동을 확인하려면 이러한 지침을 읽고 따라야 합니다.
+
+====
+. 배너 출력을 검사합니다. `show banner motd` 명령.  스위치의 올바른 구성과 작동을 확인하려면 *중요 참고 사항* 아래의 지침을 읽고 따라야 합니다.
+. RCF가 올바른 최신 버전인지 확인하세요.
++
+`show running-config`
+
++
+올바른 RCF가 있는지 확인하기 위해 출력을 확인할 때 다음 정보가 올바른지 확인하세요.
+
++
+** RCF 배너
+** 노드 및 포트 설정
+** 사용자 정의
++
+출력은 사이트 구성에 따라 달라집니다.  포트 설정을 확인하고 설치한 RCF에 대한 특정 변경 사항이 있는지 릴리스 노트를 참조하세요.
+
+
+
+. 스위치 구성에 이전의 사용자 정의를 다시 적용합니다.
+. 기본 구성 세부 정보를 저장합니다. `write_erase.cfg` 부트플래시에 있는 파일입니다.
++
+[NOTE]
+====
+다음을 구성해야 합니다. * 사용자 이름 및 비밀번호 * 관리 IP 주소 * 기본 게이트웨이 * 스위치 이름
+
+====
++
+`cs2# show run | section "switchname" > bootflash:write_erase.cfg`
+
++
+`cs2# show run | section "hostname" >> bootflash:write_erase.cfg`
+
++
+`cs2# show run | i "username admin password" >> bootflash:write_erase.cfg`
+
++
+`cs2# show run | section "vrf context management" >> bootflash:write_erase.cfg`
+
++
+`cs2# show run | section "interface mgmt0" >> bootflash:write_erase.cfg`
+
+. RCF 버전 1.12 이상을 설치하는 경우 다음 명령을 실행하세요.
++
+`cs2# echo "hardware access-list tcam region racl-lite 512" >> bootflash:write_erase.cfg`
+
++
+`cs2# echo "hardware access-list tcam region qos 256" >> bootflash:write_erase.cfg`
+
++
+지식 기반 문서를 참조하세요 https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["원격 연결을 유지하면서 Cisco 상호 연결 스위치의 구성을 지우는 방법"^] 자세한 내용은.
+
+. 다음을 확인하십시오. `write_erase.cfg` 예상대로 파일이 채워졌습니다.
++
+`show file bootflash:write_erase.cfg`
+
+. 발행하다 `write erase` 현재 저장된 구성을 지우는 명령:
++
+`cs2# *write erase*`
+
++
+`Warning: This command will erase the startup-configuration.`
+
++
+`Do you wish to proceed anyway? (y/n)  [n] *y*`
+
+. 이전에 저장된 기본 구성을 시작 구성에 복사합니다.
++
+`cs2# *copy bootflash:write_erase.cfg startup-config*`
+
+. 스위치 cs2를 재부팅하세요:
++
+`cs2# *reload*`
+
++
+`This command will reboot the system. (y/n)?  [n] *y*`
+
+. 스위치 cs1에서 1~12단계를 반복합니다.
+. ONTAP 클러스터의 모든 노드의 클러스터 포트를 스위치 cs1 및 cs2에 연결합니다.
+
+
+
+
+== 2단계: 스위치 연결 확인
+
+. 클러스터 포트에 연결된 스위치 포트가 *작동*하는지 확인하세요.
++
+`show interface brief | grep up`
+
++
+.예를 보여주세요
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs1# *show interface brief | grep up*
+.
+.
+Eth1/1/1      1       eth  access up      none                    10G(D) --
+Eth1/1/2      1       eth  access up      none                    10G(D) --
+Eth1/7        1       eth  trunk  up      none                   100G(D) --
+Eth1/8        1       eth  trunk  up      none                   100G(D) --
+.
+.
+----
+====
+. cs1과 cs2 사이의 ISL이 작동하는지 확인하세요.
++
+`show port-channel summary`
+
++
+.예를 보여주세요
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs1# *show port-channel summary*
+Flags:  D - Down        P - Up in port-channel (members)
+        I - Individual  H - Hot-standby (LACP only)
+        s - Suspended   r - Module-removed
+        b - BFD Session Wait
+        S - Switched    R - Routed
+        U - Up (port-channel)
+        p - Up in delay-lacp mode (member)
+        M - Not in use. Min-links not met
+--------------------------------------------------------------------------------
+Group Port-       Type     Protocol  Member Ports
+      Channel
+--------------------------------------------------------------------------------
+1     Po1(SU)     Eth      LACP      Eth1/31(P)   Eth1/32(P)
+cs1#
+----
+====
+. 클러스터 LIF가 홈 포트로 되돌아갔는지 확인하세요.
++
+`network interface show -role cluster`
+
++
+.예를 보여주세요
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -role cluster*
+            Logical            Status     Network            Current             Current Is
+Vserver     Interface          Admin/Oper Address/Mask       Node                Port    Home
+----------- ------------------ ---------- ------------------ ------------------- ------- ----
+Cluster
+            cluster1-01_clus1  up/up      169.254.3.4/23     cluster1-01         e0d     true
+            cluster1-01_clus2  up/up      169.254.3.5/23     cluster1-01         e0d     true
+            cluster1-02_clus1  up/up      169.254.3.8/23     cluster1-02         e0d     true
+            cluster1-02_clus2  up/up      169.254.3.9/23     cluster1-02         e0d     true
+            cluster1-03_clus1  up/up      169.254.1.3/23     cluster1-03         e0b     true
+            cluster1-03_clus2  up/up      169.254.1.1/23     cluster1-03         e0b     true
+            cluster1-04_clus1  up/up      169.254.1.6/23     cluster1-04         e0b     true
+            cluster1-04_clus2  up/up      169.254.1.7/23     cluster1-04         e0b     true
+8 entries were displayed.
+cluster1::*>
+----
+====
++
+클러스터 LIFS가 홈 포트로 돌아오지 않은 경우 수동으로 되돌리세요.
+`network interface revert -vserver <vserver_name> -lif <lif_name>`
+
+. 클러스터가 정상인지 확인하세요.
++
+`cluster show`
+
++
+.예를 보여주세요
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster show*
+Node                 Health  Eligibility   Epsilon
+-------------------- ------- ------------- -------
+cluster1-01          true    true          false
+cluster1-02          true    true          false
+cluster1-03          true    true          true
+cluster1-04          true    true          false
+4 entries were displayed.
+cluster1::*>
+----
+====
+
+
+
+
+== 3단계: ONTAP 클러스터 설정
+
+NetApp System Manager를 사용하여 새 클러스터를 설정할 것을 권장합니다.
+
+System Manager는 노드 관리 IP 주소 할당, 클러스터 초기화, 로컬 계층 생성, 프로토콜 구성, 초기 스토리지 프로비저닝을 포함하여 클러스터 설정 및 구성을 위한 간단하고 쉬운 워크플로를 제공합니다.
+
+참조하다 https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["System Manager를 사용하여 새 클러스터에 ONTAP 구성"] 설정 지침은 여기를 참조하세요.
+
+.다음은 무엇인가요?
+RCF를 설치한 후에는 다음을 수행할 수 있습니다. link:configure-ssh-keys.html["SSH 구성을 확인하세요"].
