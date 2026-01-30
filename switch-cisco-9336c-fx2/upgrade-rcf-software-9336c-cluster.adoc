@@ -68,7 +68,7 @@ cluster1::*>
 +
 .. 모든 클러스터 포트가 정상 상태로 *작동*되어 있는지 확인하세요.
 +
-`network port show -role cluster`
+`network port show -ipspace cluster`
 
 +
 .예를 보여주세요
@@ -76,7 +76,7 @@ cluster1::*>
 ====
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network port show -role cluster*
+cluster1::*> *network port show -ipspace cluster*
 
 Node: cluster1-01
                                                                        Ignore
@@ -116,7 +116,7 @@ cluster1::*>
 ====
 .. 모든 클러스터 인터페이스(LIF)가 홈 포트에 있는지 확인하세요.
 +
-`network interface show -role cluster`
+`network interface show -vserver cluster`
 
 +
 .예를 보여주세요
@@ -124,7 +124,7 @@ cluster1::*>
 ====
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network interface show -role cluster*
+cluster1::*> *network interface show -vserver cluster*
             Logical            Status     Network           Current      Current Is
 Vserver     Interface          Admin/Oper Address/Mask      Node         Port    Home
 ----------- ------------------ ---------- ----------------- ------------ ------- ----
@@ -209,7 +209,7 @@ CAUTION: 네트워크 연결 문제를 방지하려면 연결된 모든 클러�
 
 . 클러스터 LIF가 클러스터 스위치 cs1에 호스팅된 포트로 장애 조치되었는지 확인합니다. 몇 초 정도 걸릴 수 있습니다.
 +
-`network interface show -role cluster`
+`network interface show -vserver cluster`
 
 +
 .예를 보여주세요
@@ -217,7 +217,7 @@ CAUTION: 네트워크 연결 문제를 방지하려면 연결된 모든 클러�
 ====
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network interface show -role cluster*
+cluster1::*> *network interface show -vserver cluster*
             Logical           Status     Network            Current       Current Is
 Vserver     Interface         Admin/Oper Address/Mask       Node          Port    Home
 ----------- ----------------- ---------- ------------------ ------------- ------- ----
@@ -404,7 +404,7 @@ Cisco 명령에 대한 자세한 내용은 해당 가이드를 참조하세요.l
 +
 .. 클러스터의 모든 노드에서 클러스터 포트가 작동 중이고 정상인지 확인하세요.
 +
-`network port show -role cluster`
+`network port show -ipspace cluster`
 
 +
 .예를 보여주세요
@@ -412,7 +412,7 @@ Cisco 명령에 대한 자세한 내용은 해당 가이드를 참조하세요.l
 ====
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network port show -role cluster*
+cluster1::*> *network port show -ipspace cluster*
 
 Node: cluster1-01
                                                                        Ignore
@@ -532,6 +532,13 @@ cluster1::*>
 . 클러스터 LIF에서 자동 되돌리기를 활성화합니다.
 +
 `cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert True*`
+
+. 스위치 cs2를 재부팅하십시오.
++
+`cs2# *reload*`
+
++
+`This command will reboot the system. (y/n)?  [n] *y*`
 
 
 
@@ -771,7 +778,7 @@ cs1#
 ====
 . 클러스터 LIF가 홈 포트로 되돌아갔는지 확인하세요.
 +
-`network interface show -role cluster`
+`network interface show -vserver cluster`
 
 +
 .예를 보여주세요
@@ -779,7 +786,7 @@ cs1#
 ====
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network interface show -role cluster*
+cluster1::*> *network interface show -vserver cluster*
             Logical            Status     Network            Current             Current Is
 Vserver     Interface          Admin/Oper Address/Mask       Node                Port    Home
 ----------- ------------------ ---------- ------------------ ------------------- ------- ----

@@ -167,28 +167,7 @@ cs1# copy running-config startup-config [#######################################
 +
 `*show file bootflash:write_erase.cfg*`
 
-. 발행하다 `write erase` 현재 저장된 구성을 지우는 명령:
-+
-`cs1# *write erase*`
-
-+
-`Warning: This command will erase the startup-configuration.`
-
-+
-`Do you wish to proceed anyway? (y/n)  [n] *y*`
-
-. 이전에 저장된 기본 구성을 시작 구성에 복사합니다.
-+
-`cs1# *copy bootflash:write_erase.cfg startup-config*.`
-
-. 스위치 cs1을 재부팅합니다.
-+
-`cs1# *reload*`
-
-+
-`This command will reboot the system. (y/n)?  [n] *y*`
-
-. 스위치 cs2에서 1~13단계를 반복합니다.
+. 스위치 cs2에서 1~10단계를 반복합니다.
 . ONTAP 클러스터의 모든 노드의 클러스터 포트를 스위치 cs1 및 cs2에 연결합니다.
 
 
