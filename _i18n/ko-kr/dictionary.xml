@@ -5762,4 +5762,5 @@
   <block id="efc5205a1684eea7ad72b62e5417e2ce" category="sidebar">Configure_software_3232C_storage</block>
   <block id="6754d52ab3aba634c1d3868f6ff1173b" category="paragraph"><block ref="4b5c6435698a249ed2ca19ecf903991f" prefix="" category="inline-code"></block></block>
   <block id="eff487118c44b434c2174aab2b3a4e1c" category="list-text">스위치 cs2를 재부팅하십시오.</block>
+  <block id="fb14b077ecd3df929fa7f98e0e505f8c" category="admonition">RCF를 업그레이드하거나 새 RCF를 적용할 때는 스위치 설정을 지우고 기본 구성을 수행해야 합니다.</block>
 </blocks>

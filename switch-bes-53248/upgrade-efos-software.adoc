@@ -360,7 +360,7 @@ network interface modify -vserver Cluster -lif * -auto-revert true
 +
 [source, cli]
 ----
-network interface show -role Cluster
+network interface show -vserver Cluster
 ----
 +
 자세한 내용은 다음을 참조하세요.link:https://docs.netapp.com/us-en/ontap/networking/revert_a_lif_to_its_home_port.html["LIF를 홈 포트로 되돌리기"] .
@@ -550,7 +550,7 @@ network interface modify -vserver Cluster -lif * -auto-revert true
 +
 [source, cli]
 ----
-network interface show -role Cluster
+network interface show -vserver Cluster
 ----
 +
 자세한 내용은 다음을 참조하세요.link:https://docs.netapp.com/us-en/ontap/networking/revert_a_lif_to_its_home_port.html["LIF를 홈 포트로 되돌리기"] .
