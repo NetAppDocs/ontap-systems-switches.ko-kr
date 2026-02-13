@@ -5763,4 +5763,9 @@
   <block id="6754d52ab3aba634c1d3868f6ff1173b" category="paragraph"><block ref="4b5c6435698a249ed2ca19ecf903991f" prefix="" category="inline-code"></block></block>
   <block id="eff487118c44b434c2174aab2b3a4e1c" category="list-text">스위치 cs2를 재부팅하십시오.</block>
   <block id="fb14b077ecd3df929fa7f98e0e505f8c" category="admonition">RCF를 업그레이드하거나 새 RCF를 적용할 때는 스위치 설정을 지우고 기본 구성을 수행해야 합니다.</block>
+  <block id="ece376b7acc25f86ff2e09f80d38755c" category="paragraph">다음을 수행해야 합니다:</block>
+  <block id="9a9e15bbbf81b37074eb3677448baf70" category="list-text">스위치에서 <block ref="856e0a903a301d6d44f55e6eb5b82200" prefix=" " category="inline-code"></block> 명령을 실행하여 새 NX-OS 소프트웨어 이미지 설치 또는 업그레이드의 영향을 검토하십시오. 이미지 무결성을 확인하고, 필요한 재부팅을 점검하며, 하드웨어 호환성을 평가하고, 충분한 공간이 있는지 확인합니다.</block>
+  <block id="1ce0015d97074c710fb18a71c0facacd" category="list-text">대상 NX-OS 소프트웨어 버전의 릴리스 노트를 검토하여 특정 요구 사항이 있는지 확인하십시오.</block>
+  <block id="07e8467e284d5ad4e9a20246ae001803" category="list-text">스위치 구성의 현재 백업이 있는지 확인합니다.</block>
+  <block id="0280c61cdd286c198feabf97c27f4988" category="list-text">완전히 작동하는 클러스터가 있는지 확인하십시오(로그에 오류가 없거나 유사한 문제가 없는지 확인).</block>
 </blocks>
