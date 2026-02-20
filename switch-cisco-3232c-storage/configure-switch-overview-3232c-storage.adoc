@@ -11,7 +11,7 @@ summary: Cisco Nexus 3232C 스토리지 스위치의 설치 및 구성 개요
 
 
 [role="lead"]
-Cisco Nexus 3232C 스위치는 Cisco Nexus 9000 플랫폼의 일부이며 NetApp 시스템 캐비닛에 설치할 수 있습니다.
+Cisco Nexus 3232C 스위치는 Cisco Nexus 3000 플랫폼의 일부이며 NetApp 시스템 캐비닛에 설치할 수 있습니다.
 
 Cisco 3232C 스위치를 설치하고 설정하려면 다음 워크플로 단계를 따르십시오.
 

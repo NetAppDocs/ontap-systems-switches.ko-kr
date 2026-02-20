@@ -24,3 +24,7 @@ summary: Cisco Nexus 9336C-FX2 클러스터 스위치를 구성하기 전에 구
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["삼"]link:install-switch-and-passthrough-panel-9336c-storage.html["NetApp 캐비닛에 스위치 설치"]
 [role="quick-margin-para"]
 필요에 따라 NetApp 캐비닛에 9336C-FX2 및 9336C-FX2-T 스위치와 패스스루 패널을 설치합니다.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["네"]link:cabling-considerations-9336c-storage.html["케이블링 및 구성 고려 사항 검토"]
+[role="quick-margin-para"]
+9336C-FX2 및 9336C-FX2-T 스위치를 구성하기 전에 케이블 연결 및 구성 고려 사항을 검토하십시오.

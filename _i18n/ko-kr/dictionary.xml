@@ -2770,8 +2770,6 @@
   <block id="03a91969e86532bb4f05bf3c37f625c8" category="list-text">NX-OS만 설치하고 현재 RCF 버전을 유지하는 경우, 원하는 부트 이미지를 반영하도록 RCF에서 원하는 부트 변수를 확인하거나 설정해야 합니다.</block>
   <block id="14fbade2b67035c34eec7534fb6c6b2c" category="paragraph">현재 부트 이미지를 반영하도록 부트 변수를 변경해야 하는 경우 RCF를 다시 적용하기 전에 변경해야 합니다. 이렇게 하면 향후 재부팅 시 올바른 버전이 인스턴스화됩니다.</block>
   <block id="a299e5855e22f0798ca0d44513e7d8b1" category="inline-link">Cisco® 이더넷 스위치</block>
-  <block id="4fd3c39884768128b1709971be9c57ab" category="list-text">두 개의 저장 스위치의 이름은 S1과 S2입니다.</block>
-  <block id="79779dc1801a58ad11dd3078fff93f81" category="list-text">노드는 node1과 node2입니다.</block>
   <block id="db366391da91f981116eae4b0abd56c4" category="admonition">이 절차에서는 ONTAP 명령과 Cisco Nexus 3000 시리즈 스위치 명령을 모두 사용해야 합니다. 달리 지정되지 않는 한 ONTAP 명령을 사용합니다.  명령 출력은 ONTAP 릴리스에 따라 달라질 수 있습니다.</block>
   <block id="77bd959484f1a1073326c408194dc65e" category="section-title">1단계: 스위치 및 포트의 상태 확인</block>
   <block id="e3e32349be8562dbe95d6af1fcba4bbe" category="list-text">AutoSupport 가 활성화된 경우 AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다.<block ref="80cae18d0d871afff6b1bcabf727d6da" prefix=" " category="inline-code"></block></block>
@@ -2780,17 +2778,10 @@
   <block id="3d568d6f5d7b3672d27ed346c7fddac2" category="list-text">노드 포트가 정상적이고 작동하는지 확인하세요.</block>
   <block id="abd1e059b59ee3b3be9267c9c1319923" category="list-text">스토리지 스위치나 케이블 문제가 없는지 확인하세요.</block>
   <block id="c3bfcfece35a023a525f70b3955fa94d" category="paragraph"><block ref="f45218c1373cff36899b29f6a1585823" prefix="" category="inline-code"></block></block>
-  <block id="a05448735c103df38c48e8b66cbfb7cd" category="section-title">2단계: RCF를 Cisco 스위치 S2로 복사</block>
-  <block id="a192bf261fd5da8051545bcfae60c0bd" category="list-text">FTP, HTTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 스위치 S2의 RCF를 스위치 부트플래시에 복사합니다.</block>
-  <block id="8aa0e5d5e9711d48a4320245feb83102" category="paragraph">다음 예에서는 HTTP를 사용하여 RCF를 스위치 S2의 부트플래시에 복사하는 방법을 보여줍니다.</block>
   <block id="dde4a3ac33ed91bb6fb8322ef5fe1a3d" category="list-text">이전에 다운로드한 RCF를 부트플래시에 적용합니다.</block>
   <block id="ae93751a93d78c7a46cb2fb14c4ee8b7" category="paragraph"><block ref="37012567363af00fe31747157af69b42" prefix="" category="inline-code"></block></block>
-  <block id="eb0f91bea031339757f2f65848ab56af" category="paragraph">다음 예에서는 RCF 파일을 보여줍니다.<block ref="b62271cc82d2a1b3e26d2157f183041f" prefix=" " category="inline-code"></block> 스위치 S2에 설치 중:</block>
   <block id="9678824a283295181839404bacab6aec" category="paragraph">배너 출력에서<block ref="6d53824b9996e36fd31937e922967215" prefix=" " category="inline-code"></block> 명령을 실행하려면 *중요 참고 사항* 섹션의 지침을 읽고 따라 스위치의 적절한 구성과 작동을 확인해야 합니다.</block>
-  <block id="5691cd5298e545e7d1addfde1db9b5b8" category="list-text">소프트웨어 버전과 스위치 설정이 올바른지 확인한 후 복사하세요.<block ref="092a495b03acdb0bf155d8ff2997a8d6" prefix=" " category="inline-code"></block> 파일을<block ref="35b7dd24bfd716b0553d5e558b8afe97" prefix=" " category="inline-code"></block> 스위치 S2의 파일입니다.</block>
   <block id="2b5da61174f57535e5ac41ebce733b08" category="paragraph">다음 예는 다음을 보여줍니다.<block ref="092a495b03acdb0bf155d8ff2997a8d6" prefix=" " category="inline-code"></block> 파일이 성공적으로 복사되었습니다<block ref="35b7dd24bfd716b0553d5e558b8afe97" prefix=" " category="inline-code"></block> 파일:</block>
-  <block id="c95ced7468e70606897322014b89e5b3" category="section-title">3단계: NX-OS 이미지를 Cisco 스위치 S2에 복사하고 재부팅합니다.</block>
-  <block id="04677d95852adc11088eca251913d172" category="list-text">NX-OS 이미지를 스위치 S2에 복사합니다.</block>
   <block id="98c505a2e107ba9ff89b6f7487d2bcbf" category="list-text">다음에 스위치 S2를 재부팅할 때 새 버전이 로드되도록 시스템 이미지를 설치하세요.</block>
   <block id="33db1cd1139c8db223a5884820840411" category="paragraph">다음 출력에 표시된 대로 스위치는 10초 후에 새 이미지로 재부팅됩니다.</block>
   <block id="25812ed1432cfe46632186b5957ebe26" category="list-text">구성을 저장합니다.</block>
@@ -2800,7 +2791,6 @@
   <block id="cc4668ea483152a8c3b841b60a9a3199" category="list-text">재부팅 후 스토리지 스위치를 사용할 수 있는지 다시 확인하세요.</block>
   <block id="5655241624f11355f5911ce18ad8e847" category="list-text">재부팅 후 스위치 포트가 정상적이고 작동하는지 확인하세요.</block>
   <block id="c75fb03f38414ef60d8a0ffe8c2f06d8" category="list-text">클러스터에 스토리지 스위치나 케이블 문제가 없는지 다시 확인하세요.</block>
-  <block id="f543ce97fb14fdd83e102f7c07cb1098" category="list-text">스위치 S1에서 NX-OS 소프트웨어와 RCF를 업그레이드하려면 절차를 반복합니다.</block>
   <block id="bdbcf1c0d7f9cba19eb12819b953fbf1" category="inline-link">스위치 OS 업그레이드 중 클러스터 LIF를 마이그레이션할 때 노드가 쿼럼을 벗어났습니다.</block>
   <block id="e6ab3c0f7886a69b4cd4dc70d1d4afa9" category="admonition">네트워크 연결 문제를 방지하려면 연결된 모든 클러스터 포트를 반드시 종료하세요.  지식 기반 문서를 참조하세요<block ref="c9b140831402716d03d51afcd09ff177" category="inline-link-rx"></block> 자세한 내용은.</block>
   <block id="5c9a17fb96e20e993877a6c20e3979df" category="list-text">현재 사이의 사용자 정의 추가 사항을 기록합니다.<block ref="092a495b03acdb0bf155d8ff2997a8d6" prefix=" " category="inline-code"></block> 그리고 사용 중인 RCF 파일(예: 조직의 SNMP 구성)</block>
@@ -3503,7 +3493,6 @@
   <block id="b978a3c040fa352cf3eb469eb092efd7" category="list-text">RCF 버전과 스위치 설정이 올바른지 확인한 후 복사하세요.<block ref="092a495b03acdb0bf155d8ff2997a8d6" prefix=" " category="inline-code"></block> 파일을<block ref="35b7dd24bfd716b0553d5e558b8afe97" prefix=" " category="inline-code"></block> 파일.</block>
   <block id="92a263f83655527a8570ddfd3130dcf6" category="paragraph"><block ref="141e63272914863fc9c959b427fdacd7" prefix="" category="inline-code"></block></block>
   <block id="758d64d19fd5c7f49ed73e0b94a6f13f" category="list-text">스위치 cs1을 재부팅합니다.</block>
-  <block id="c360869741dd5844f76506c53b837af4" category="list-text">스위치 cs2에서 1~13단계를 반복합니다.</block>
   <block id="7abb8bc9df6ce2c7758d9b3973b94f9a" category="summary">Cisco Nexus 9336C-FX2 스위치를 설치하려면 다음 절차를 따르세요.</block>
   <block id="53ed59a2b084d14def6a7fb55cc8229d" category="doc">9336C-FX2 및 9336C-FX2-T 클러스터 스위치 설치</block>
   <block id="34b3dac12b8f309a5cba136b3536b354" category="paragraph">Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스위치를 설정하고 구성하려면 다음 절차를 따르세요.</block>
@@ -4004,11 +3993,8 @@
   <block id="9129459f5b5477d59e1fbb13abc9bbd4" category="admonition">새로운 스위치 소프트웨어 버전과 RCF를 설치하기 전에 스위치 설정을 지우고 기본 구성을 수행해야 합니다.  스위치 설정을 지우려면 직렬 콘솔을 사용하여 스위치에 연결해야 하거나 기본 구성 정보를 보존해야 합니다.</block>
   <block id="b77c6d3e350c043b8f790e806e7bc521" category="list-text">현재 실행 중인 구성과 사용 중인 RCF 파일 사이에 있는 사용자 정의 추가 사항(예: 조직의 SNMP 구성)을 기록합니다.</block>
   <block id="4c4876d5d981da2e6943a052d93bb189" category="list-text">NX-OS 10.2 이상의 경우 다음을 사용하세요.<block ref="9c370f72db0e0d920841657ac5268365" prefix=" " category="inline-code"></block> 부트플래시에 저장된 RCF 파일과 비교하는 명령입니다. 그렇지 않은 경우, 타사의 diff 또는 비교 도구를 사용하세요.</block>
-  <block id="7a1b725f171ccc55c2b6a943c968b20f" category="list-text">기본 구성 세부 정보를 부트플래시의 write_erase.cfg 파일에 저장합니다.</block>
-  <block id="255946ce0bdffe025ba4bdaa710146e6" category="list-text">write_erase.cfg 파일이 예상대로 채워졌는지 확인하세요.</block>
   <block id="bc19795a1e2342c4b6ced06c4d40bf1f" category="paragraph"><block ref="06ea8c0ad9680ca72f21fb9acf4190a7" prefix="" category="inline-code"></block></block>
   <block id="0a306731a6993e7a08026ab2d7ca2d97" category="paragraph">SSH 키와 관련된 호스트 파일 항목을 업데이트해야 할 수도 있습니다.</block>
-  <block id="90b56b330f7736518fea2723b6853482" category="list-text">스위치 cs2에서 1~20단계를 반복합니다.</block>
   <block id="3db6619adb39cede96d0fac5db0dc834" category="paragraph">RCF를 업그레이드한 후에는 다음을 수행할 수 있습니다. <block ref="9c3be868eca09e30ec03c7542e485ba6" category="inline-link-macro-rx"></block>.</block>
   <block id="bbcb5718db64a8649c57a997d2183a81" category="doc">Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스토리지 스위치의 구성 요소 및 부품 번호</block>
   <block id="666618fc10fce8f3b4f820a79b261925" category="paragraph">Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스토리지 스위치 설치 및 유지관리를 위해서는 구성 요소 및 부품 번호 목록을 반드시 검토하세요.</block>
@@ -4060,14 +4046,12 @@
   <block id="0aece77864e401ea696f4af5f4c2400c" category="paragraph">필요에 따라 NetApp 캐비닛에 9336C-FX2 및 9336C-FX2-T 스위치와 패스스루 패널을 설치합니다.</block>
   <block id="0da3cc28f42ccf09143f2cd285547a2a" category="doc">NX-OS 소프트웨어 및 RCF 설치 또는 업그레이드 준비</block>
   <block id="88225f1c375ed36ece935c872d1fb4d9" category="paragraph">NX-OS 소프트웨어와 RCF를 설치할 준비가 되면 다음을 수행할 수 있습니다. <block ref="3344c060e83f2395d70c5fc1776e5497" category="inline-link-macro-rx"></block>.</block>
-  <block id="0399e2e67ad24e3896fc54df77685320" category="paragraph">Nexus 9336C-FX2 및 9336C-FX2-T 스위치에 NX-OS 소프트웨어를 설치하려면 다음 절차를 따르세요.</block>
   <block id="61c7408c0e623b660a741b6b2c143251" category="paragraph">시작하기 전에 다음 절차를 완료하세요.<block ref="16a9a5fa8979bab3106e7aad0dfd20d9" category="inline-link-macro-rx"></block> .</block>
   <block id="f0cf67e2ac311b9ab91b420f0644cb83" category="inline-link-macro">RCF 설치 또는 업그레이드</block>
   <block id="06f8321f45bda8cdd2fe178c765742ca" category="paragraph">NX-OS 소프트웨어를 설치하거나 업그레이드한 후에는 다음을 수행할 수 있습니다.<block ref="7ffcba0482753b1f6ae93308b4e57219" category="inline-link-macro-rx"></block> .</block>
   <block id="ea6719e8ba4a5a7aea0b4185afc5408b" category="summary">Nexus 9336C-FX2 스토리지 스위치를 처음 설정한 후 RCF를 설치할 수 있습니다. 이 절차를 사용하여 RCF 버전을 업그레이드할 수도 있습니다.</block>
   <block id="a4af8e244603f507e79d0e5e42756fd0" category="paragraph">Nexus 9336C-FX2 및 9336C-FX2-T 스토리지 스위치를 처음 설정한 후 참조 구성 파일(RCF)을 설치합니다.</block>
   <block id="26552c2532e5b34c96d8cef5f736c6ff" category="paragraph">지식 기반 문서를 참조하세요<block ref="862bab57a4acfb616afcae48c16f2cfe" category="inline-link-macro-rx"></block> RCF 설치 시 자세한 내용을 확인하세요.</block>
-  <block id="f1de50ac922202c9581e806906499ae8" category="paragraph">이 예에서는 RCF를 보여줍니다.<block ref="fcd688c0fb8c0256c7fc0b5ca2fd673d" prefix=" " category="inline-code"></block> 스위치 cs1에 설치 중:</block>
   <block id="a697c9a980376d3a62210b2b53d5b0b8" category="list-text">배너 출력을 검사합니다.<block ref="6d53824b9996e36fd31937e922967215" prefix=" " category="inline-code"></block> 명령.  스위치의 올바른 구성과 작동을 보장하려면 이 지침을 읽고 따라야 합니다.</block>
   <block id="b0d1465a243b273a8f71d6084fd2c12c" category="list-text">RCF가 올바른 최신 버전인지 확인하세요.</block>
   <block id="f7b017d791fb57f4bbb1b2ce01659ed8" category="paragraph">System Manager는 노드 관리 IP 주소 할당, 클러스터 초기화, 로컬 계층 생성, 프로토콜 구성, 초기 스토리지 프로비저닝을 포함하여 클러스터 설정 및 구성을 위한 간단하고 쉬운 워크플로를 제공합니다.</block>
@@ -4076,8 +4060,6 @@
   <block id="8335bad0d130ba0c631cf01fe0fbd9c5" category="paragraph">NetApp 캐비닛에 스위치를 설치한 후에는 다음을 수행할 수 있습니다.<block ref="cd8ba9a916eba0640468a7d563330303" category="inline-link-macro-rx"></block> .</block>
   <block id="0e20b420112310f5c09a775e13d5ec63" category="summary">Nexus 9336C-FX2 스위치를 처음 설정한 후 RCF를 설치할 수 있습니다. 이 절차를 사용하여 RCF 버전을 업그레이드할 수도 있습니다.</block>
   <block id="9fbd2c2a1c6faa13eae851caa7d33ad2" category="paragraph">Nexus 9336C-FX2 스토리지 스위치를 처음 설정한 후 참조 구성 파일(RCF)을 설치합니다. 스위치에 기존 RCF 파일 버전이 설치되어 있는 경우 RCF 버전을 업그레이드합니다.</block>
-  <block id="4be048282f782e8a846872f71f451fc2" category="paragraph">포트는 클러스터+HA의 경우 40/100GbE, 클러스터의 경우 4x10GbE 브레이크아웃, 클러스터+HA의 경우 4x25GbE 브레이크아웃, 각 스토리지 HA 쌍의 경우 100GbE로 구성됩니다.</block>
-  <block id="a6f7ce910d3dd7c5a5ef8b867451277f" category="paragraph">4x10GbE 포트(브레이크아웃)와 40/100GbE 포트를 다르게 할당한 두 가지 RCF 유형입니다. AFF A320, AFF A250, FAS500f 시스템을 제외한 모든 FAS 및 AFF 노드가 지원됩니다.</block>
   <block id="856674c3de1f4bcf2e5ea5493575c451" category="paragraph">RCF 설치 또는 RCF 업그레이드 절차를 검토한 후 다음을 수행할 수 있습니다.<block ref="b8f42f23e92e2416c2fcc479cb623e08" category="inline-link-macro-rx"></block> 또는<block ref="e1e20e7ec447be8460e088f54ae82b68" category="inline-link-macro-rx"></block> 필요에 따라.</block>
   <block id="5b1bedb3dd2208af0449bbbfcc022136" category="paragraph">기존의 2노드 _스위치리스_ 클러스터 환경이 있는 경우 Cisco Nexus 9336C-FX2 스위치를 사용하여 2노드 _스위치_ 클러스터 환경으로 마이그레이션하면 클러스터에서 두 개 이상의 노드를 확장할 수 있습니다.</block>
   <block id="daba0abed2f861ff72b586dd0bd226bf" category="paragraph">ONTAP 클러스터의 기존 Cisco 스위치를 Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스토리지 네트워크 스위치로 마이그레이션할 수 있습니다. 이는 방해가 되지 않는 절차입니다.</block>
@@ -4087,11 +4069,9 @@
   <block id="24785d31e32b1e803a8b6a5d4d156e04" category="list-text">귀하의 시스템은 Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스토리지 스위치를 지원할 수 있습니다.</block>
   <block id="52254d9e98d791278e52f39723dbdb4a" category="list-text">지원되는 ONTAP , NX-OS 및 RCF 버전에 대한 Cisco 이더넷 스위치 페이지의 스위치 호환성 표를 참조했습니다.</block>
   <block id="1a2ce2f05b3c6e18de8cabbd6c01b74d" category="list-text">Cisco 웹 사이트에서 제공되는 적절한 소프트웨어 및 업그레이드 가이드를 참조했습니다.</block>
-  <block id="169e19c741cd11f6b6e85a04404e32fd" category="paragraph">Cisco Nexus 3000 시리즈 스위치:</block>
   <block id="cb2fd89bae4cacf9ac0469f8dcf9f63b" category="list-text">해당 RCF를 다운로드했습니다.</block>
   <block id="339640ed23bf08a37b85256207ce1658" category="list-text">기존 네트워크 구성은 다음과 같은 특징을 가지고 있습니다.</block>
   <block id="757c68d458ffb557df906574529c7526" category="list-text">교체용 Cisco Nexus 9336C-FX2 스위치는 다음과 같은 특징을 가지고 있습니다.</block>
-  <block id="f4f83985a1389235ce7dba05a78dded0" category="list-text">스위치의 초기 구성이 완료되었습니다.</block>
   <block id="e97cb4c2821391e2b44b00b15712d932" category="doc">Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스토리지 스위치에 대한 문서 요구 사항</block>
   <block id="0179cd2b4af562415dcfecf21fede120" category="paragraph">Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스위치 설치 및 유지관리를 위해 Cisco 9336-FX2 스위치와 ONTAP 클러스터를 설정하기 위해 특정 스위치 및 컨트롤러 설명서를 검토하세요.</block>
   <block id="db75850a06b1d065268461f70235d0f6" category="paragraph">Cisco Nexus 9336C-FX2 스위치를 설정하려면 다음 문서가 필요합니다.<block ref="f4fbe3bed062fba5aa150f0db2ededbd" category="inline-link-rx"></block> 페이지:</block>
@@ -4144,10 +4124,6 @@
   <block id="6c7072958775e2716da05784c2834f65" category="paragraph">케이블링 워크시트를 완료한 후에는 다음을 수행할 수 있습니다. <block ref="d9d3d8dae0a36eea938e144b4f81717e" category="inline-link-macro-rx"></block>.</block>
   <block id="3e1208bc4bf9384a3afbda89e7d0cb5a" category="paragraph">여기서 _x_는 유지 관리 기간(시간)입니다.</block>
   <block id="22e5bcc55974e1667f105918832f4dea" category="list-text">NX-OS 10.2 이상의 경우 다음을 사용하세요.<block ref="9c370f72db0e0d920841657ac5268365" prefix=" " category="inline-code"></block> 부트플래시에 저장된 RCF 파일과 비교하는 명령입니다. 그렇지 않은 경우 타사의 diff 또는 비교 도구를 사용하세요.</block>
-  <block id="545690f880b0659f4099413677e4a382" category="list-text">RCF 버전 1.12 이상으로 업그레이드하는 경우 다음 명령을 실행하세요.<block ref="c43d8f1df82823c11979a10dcc012390" prefix=" " category="inline-code"></block></block>
-  <block id="ebb31683cbe594d17c15073b14f55cf6" category="paragraph"><block ref="71d6cd1eac422fe68a9920549c567f16" prefix="" category="inline-code"></block></block>
-  <block id="7d7e314330aff9e7013f44b93a26b6d5" category="paragraph">이 예에서는 RCF 파일을 보여줍니다.<block ref="f40a54f2bc400ed707f0cc267c8ad07a" prefix=" " category="inline-code"></block> 스위치 cs1에 설치 중:</block>
-  <block id="9594f79ec7c1b5381a4d66f8bdec8cb3" category="list-text">스위치 cs2에서 4~19단계를 반복합니다.</block>
   <block id="9c6c3f61af7dff11347a9a97366c4acb" category="summary">Cisco 9364d-gx2a 스위치를 구성하기 전에 다음 정보를 검토하세요.</block>
   <block id="b771416dbd66215d66c0fd3bf739e5a2" category="paragraph">Cisco 9364D-GX2A 스위치를 구성하기 전에 다음 고려 사항을 검토하세요.</block>
   <block id="98d47bae71b2dc1d79d4c85b4018180a" category="paragraph">NVIDIA ConnectX-6 Dx(CX6-DX) NIC 포트(부품 번호 X50130B)를 사용하여 스위치 포트를 ONTAP 컨트롤러에 연결하는 경우 스위치 포트 속도를 하드코딩해야 합니다.</block>
@@ -5655,7 +5631,6 @@
   <block id="78f85905b5f52a0e5726f2c1d78882b9" category="paragraph">를 참조하십시오<block ref="34774b6dc875898cd8aa59f7081c068c" category="inline-link-macro-rx"></block> 플랫폼에서 올바른 클러스터 포트를 확인하세요. 보다 <block ref="93586a8f49408f483b5b0ac7e6bc3bac" category="inline-link-macro-rx"></block> 스위치 설치 요구 사항에 대한 자세한 내용은 다음을 참조하십시오.</block>
   <block id="93586a8f49408f483b5b0ac7e6bc3bac" category="list-text"><block ref="93586a8f49408f483b5b0ac7e6bc3bac" category="inline-link-macro-rx"></block></block>
   <block id="fff3dd334cd553c8e4ec9c505edf49b3" category="paragraph">이 절차의 예에서는 4개의 노드를 사용합니다. 두 개의 노드는 4개의 10GbE 클러스터 상호 연결 포트(e0a, e0b, e0c, e0d)를 사용합니다. 나머지 두 노드는 두 개의 40GbE 클러스터 상호 연결 파이버 케이블(e4a 및 e4e)을 사용합니다. 그만큼<block ref="ed925a5605a5afba7260684d8fd47590" category="inline-link-macro-rx"></block> 플랫폼의 클러스터 파이버 케이블에 대한 정보가 있습니다. 보다 <block ref="93586a8f49408f483b5b0ac7e6bc3bac" category="inline-link-macro-rx"></block> 스위치 설치 요구 사항에 대한 자세한 내용은 다음을 참조하십시오.</block>
-  <block id="4b5c62962abd78b2f1d7b46e2acefac2" category="paragraph">이 절차의 예에서는 두 개의 노드를 사용합니다. 두 개의 저장 포트가 있는 노드1과 두 개의 저장 포트가 있는 노드2입니다. 를 참조하십시오<block ref="34774b6dc875898cd8aa59f7081c068c" category="inline-link-macro-rx"></block> 플랫폼에서 올바른 저장 포트를 확인하세요. 보다 <block ref="93586a8f49408f483b5b0ac7e6bc3bac" category="inline-link-macro-rx"></block> 스위치 설치 요구 사항에 대한 자세한 내용은 다음을 참조하십시오.</block>
   <block id="70cdfafbbfc658158225450a1d735b53" category="paragraph">Cisco Nexus 92300YC 스위치 설치 및 유지관리를 위해서는 모든 스위치 구성 요소와 부품 번호를 검토하세요. 를 참조하십시오<block ref="cd25cbe53f0a314145c84729c6ce2c78" category="inline-link-rx"></block> 자세한 내용은. 보다 <block ref="93586a8f49408f483b5b0ac7e6bc3bac" category="inline-link-macro-rx"></block> 스위치 설치 요구 사항에 대한 자세한 내용은 다음을 참조하십시오.</block>
   <block id="e32282aeafd66288d3d17a82f0b26898" category="paragraph">를 참조하십시오<block ref="2e30f42bb79c7c9fe477a9d63d7f110d" category="inline-link-macro-rx"></block> 플랫폼에서 지원되는 실제 클러스터 포트에 대한 정보입니다. 보다 <block ref="93586a8f49408f483b5b0ac7e6bc3bac" category="inline-link-macro-rx"></block> 스위치 설치 요구 사항에 대한 자세한 내용은 다음을 참조하십시오.</block>
   <block id="56d0c52f84ae87247377186dcd760614" category="list-text">클러스터의 모든 LIF에서 자동 되돌리기 기능을 비활성화합니다.</block>
@@ -5692,15 +5667,12 @@
   <block id="8768b698a7ad01028fd5f7665c522d92" category="paragraph">3232C 스토리지 스위치를 구성합니다.</block>
   <block id="e364784ef63e5aaf282eec6b148178ec" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="517191c1c7c31b7ef594262b71ada027" category="inline-link-macro-rx"></block></block>
   <block id="f640735796f6ce4ddcce4b82fbf6aeea" category="paragraph">Cisco NX-OS 소프트웨어 및 RCF(Reference Configuration File)는 Cisco 3232C 스토리지 스위치에 설치해야 합니다.</block>
-  <block id="c14e333544c9443204c51780fea9e136" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="a285c717b6393bead903c98fcbe30022" category="inline-link-macro-rx"></block></block>
   <block id="b8f7a4c738278123d85fffd10fa2a467" category="paragraph">Cisco 3232C 스토리지 스위치에 NX-OS 소프트웨어를 다운로드하여 설치하거나 업그레이드하십시오.</block>
   <block id="c6d0dca6ce709ec3037c12ce665e1d73" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="587f86a7e8e3c4227a4ab76892548515" category="inline-link-macro-rx"></block></block>
   <block id="3b35dec56eba70b9b8df023e06028e2d" category="paragraph">Cisco 3232C 스토리지 스위치를 처음 설정한 후 RCF를 설치하십시오.</block>
-  <block id="90cef7f4abd12b720aa9831aa8ff1a2b" category="paragraph-title"><block ref="ef78558f80439832e0f51cc22cee8b8c" category="inline-image-macro-rx" type="image"></block><block ref="210ba28fb3230dfd3413686e3a1b1df4" category="inline-link-macro-rx"></block></block>
   <block id="18685b134f72eb49ab65bdafb8edba7d" category="paragraph">3232C 스토리지 스위치 설정을 지웁니다.</block>
   <block id="8618d738587e805e0480e36e2e58d8ce" category="summary">Cisco Nexus 3232C 스토리지 스위치의 설치 및 구성 개요</block>
   <block id="5b21fb300b66354ec1c46f9c7ac254ad" category="doc">Cisco Nexus 3232C 스토리지 스위치의 설치 및 설정 워크플로</block>
-  <block id="2e750c24e9ce28a91d0f8e137313ad85" category="paragraph">Cisco Nexus 3232C 스위치는 Cisco Nexus 9000 플랫폼의 일부이며 NetApp 시스템 캐비닛에 설치할 수 있습니다.</block>
   <block id="82c113a0e61023e3323c8ef76ede528a" category="paragraph">Cisco 3232C 스위치를 설치하고 설정하려면 다음 워크플로 단계를 따르십시오.</block>
   <block id="e71da02584d1bd074079559fc3703346" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="86563788f2d1652b1dc80bc02b0e35d2" category="inline-link-macro-rx"></block></block>
   <block id="6a90de77da6518f6a96c117f1459a477" category="paragraph">3232C 스토리지 스위치의 구성 요구 사항을 검토하십시오.</block>
@@ -5720,7 +5692,6 @@
   <block id="afae30e17dbe966034a9393f39dd1e47" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="d665afab6e1afe1369a1aba08de155e9" category="inline-link-macro-rx"></block></block>
   <block id="d19d028248f4f96d11f8b50ecb04f870" category="paragraph">필요에 따라 NetApp 캐비닛에 3232C 스토리지 스위치와 패스스루 패널을 설치하십시오.</block>
   <block id="894aaaaa87234939304667b89e118803" category="summary">이 절차를 사용하여 Nexus 3232C 스토리지 스위치에 NX-OS 소프트웨어를 설치할 수 있습니다.</block>
-  <block id="75ec6a0c21e68db4a05d186638bf06b8" category="paragraph">다음 사항을 확인하십시오. * 스위치 구성의 현재 백업. * 완전히 작동하는 클러스터(로그에 오류나 유사한 문제가 없음). * <block ref="f29158c7335be7b7fe0a46dd82de6ed4" category="inline-link-macro-rx"></block>. 지원되는 ONTAP 및 NX-OS 버전은 스위치 호환성 표를 참조하십시오. * <block ref="ad0d19783ccfa19f931108b838e4b7e4" category="inline-link-macro-rx"></block>. Cisco 스위치 업그레이드 및 다운그레이드 절차에 대한 전체 문서는 Cisco 웹 사이트에서 제공되는 해당 소프트웨어 및 업그레이드 가이드를 참조하십시오.</block>
   <block id="2cef7fce55e0de5cf44abcd44c7ab260" category="paragraph"><block ref="2aa57174599b1b56785fe57540877310" category="inline-link-macro-rx"></block>에서 절차를 완료한 후 아래 단계를 따르십시오.</block>
   <block id="1c27c38bac9a25572e6ba2acc4d485c8" category="paragraph">NX-OS 소프트웨어를 설치한 후 <block ref="f925453c7ab7d4e5b07986b4df9dd89a" category="inline-link-macro-rx"></block>할 수 있습니다.</block>
   <block id="2cccef4bbe97b25935d4cf78da1c415a" category="list-text">스위치에 대한 콘솔 연결. RCF를 설치할 때 필요합니다.</block>
@@ -5742,7 +5713,6 @@
   <block id="54008da51e28f9ba702bd14f8c52fc24" category="doc">3232C 스토리지 스위치 구성</block>
   <block id="b9cb0e7c3e4aaa701fe9a8dba9bba547" category="paragraph">자세한 내용은 <block ref="0e11ca331695ddbc443773df5dd19d70" category="inline-link-macro-rx"></block>을 참조하십시오.</block>
   <block id="05b22658a16371ac97cf6b7aa3db3009" category="paragraph">NetApp 캐비닛에 Cisco Nexus 3232C 스위치 및 패스스루 패널 설치_ 가이드에서 NetApp 캐비닛에 스위치를 설치하는 방법에 대한 지침을 참조하십시오.</block>
-  <block id="66efd157b9c5ea0a2c7173241f89d974" category="list-text">클러스터 네트워크 스위치의 버전을 확인하고, 필요한 경우 <block ref="f823faeecc1cbb37f2d732cc29c07d86" category="inline-link-rx"></block> 페이지에서 NetApp에서 지원하는 소프트웨어 버전을 스위치에 다운로드하십시오.</block>
   <block id="60ae3edf6d4c0e90e96bfdf1f7e48358" category="paragraph">스위치를 구성한 후 <block ref="d1e6509476f31fcb3085aa2d5f68bf19" category="inline-link-macro-rx"></block>할 수 있습니다.</block>
   <block id="22b2aaac085da9ad2fe6e40506e29ba1" category="summary">AFF 또는 FAS 클러스터의 스위치로 Cisco Nexus 3232C 스위치를 사용할 수 있습니다.</block>
   <block id="5fd0d8a0d6ef3f5a537957b44606d2b5" category="list-text"><block ref="62e0b65b4ce6c39360339b91963257d9" category="inline-link-macro-rx"></block> 페이지에서 제공되는 적절한 소프트웨어 및 업그레이드 가이드를 참조하여 Cisco 스토리지 업그레이드 및 다운그레이드 절차에 대한 전체 문서를 확인했습니다.</block>
@@ -5768,4 +5738,141 @@
   <block id="1ce0015d97074c710fb18a71c0facacd" category="list-text">대상 NX-OS 소프트웨어 버전의 릴리스 노트를 검토하여 특정 요구 사항이 있는지 확인하십시오.</block>
   <block id="07e8467e284d5ad4e9a20246ae001803" category="list-text">스위치 구성의 현재 백업이 있는지 확인합니다.</block>
   <block id="0280c61cdd286c198feabf97c27f4988" category="list-text">완전히 작동하는 클러스터가 있는지 확인하십시오(로그에 오류가 없거나 유사한 문제가 없는지 확인).</block>
+  <block id="0f2a1b59f80acc80b3229da942acd92c" category="paragraph">3232C 스위치를 구성하기 전에 케이블 연결 및 구성 요구 사항을 검토하십시오.</block>
+  <block id="baed2af64e4cfafff76d7c1c641699e8" category="paragraph">NVIDIA ConnectX-6(CX6), ConnectX-6 Dx(CX6-DX) 또는 ConnectX-7(CX7) NIC 포트를 사용하여 스위치 포트를 ONTAP 컨트롤러에 연결하는 경우 스위치 포트 속도를 하드코딩해야 합니다.</block>
+  <block id="a3730a1f284dd57f1f09ed7924d523b0" category="list-text">스위치 포트에 대한 자세한 내용은 <block ref="c043e01cdc55399f824e6d1e4eb8a5b5" category="inline-link-rx"></block>을(를) 참조하십시오.</block>
+  <block id="376cb2a56b16bac010a7ff9f53bb0228" category="list-text"><block ref="359142ce32d011e98a9769217d3e654d" category="inline-link-rx"></block>스위치 설치 요구 사항에 대한 자세한 내용은 를 참조하십시오.</block>
+  <block id="e4028c55a6adfbfb1c697645343b22b3" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="2c9a236e199b651a1a8a9bd662d655f1" category="inline-link-macro-rx"></block></block>
+  <block id="d5c56d6c3abbb7dd20246c17ec16d101" category="inline-link-macro">RCF 업그레이드</block>
+  <block id="72917267c911ae36e03fb63fc42dd01d" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block><block ref="fce065a17fb039ba33c88cb97cbe827d" category="inline-link-macro-rx"></block></block>
+  <block id="1b42cdac88a717164f0385f92d3e0296" category="paragraph">필요에 따라 기존 RCF 버전을 업그레이드하십시오.</block>
+  <block id="c1703aace69301824471ed12f8a7ff6e" category="paragraph-title"><block ref="ef78558f80439832e0f51cc22cee8b8c" category="inline-image-macro-rx" type="image"></block><block ref="4767a0bcf3ab94aeda87c79dd4096ef4" category="inline-link-macro-rx"></block></block>
+  <block id="9a57c19562f772aa73e6c3b979c3bd73" category="paragraph-title"><block ref="36915574c413876eaa75cbd48f69fd00" category="inline-image-macro-rx" type="image"></block><block ref="210ba28fb3230dfd3413686e3a1b1df4" category="inline-link-macro-rx"></block></block>
+  <block id="637ee628c01afe1b42ba7486967296a0" category="paragraph">Cisco Nexus 3232C 스위치는 Cisco Nexus 3000 플랫폼의 일부이며 NetApp 시스템 캐비닛에 설치할 수 있습니다.</block>
+  <block id="773b54543dc17ff7e9905cbea2e1c4ed" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="be6903c2b43267a0b7a84dc4be6035c6" category="inline-link-macro-rx"></block></block>
+  <block id="a7d90dd179b60baf210fe1fa4ba8d484" category="paragraph">3232C 스토리지 스위치의 케이블 연결 및 구성 고려 사항을 검토하십시오.</block>
+  <block id="5c6eb76888706dd13ec584075c0080ca" category="paragraph">다음 사항을 확인하십시오.</block>
+  <block id="5f1c3eb3a276ec23520579d0ac7c35bf" category="section-title">소프트웨어를 설치하거나 업그레이드합니다</block>
+  <block id="64016321732fe4c681449233b99ab9e5" category="list-text">스위치를 처음 설정하는 경우 5단계로 건너뛰십시오. 스위치를 업그레이드하는 경우 다음 단계로 진행하십시오.</block>
+  <block id="c6e761691e18704a427ed1710ecab03f" category="list-text">각 노드 스토리지 포트 및 스토리지 쉘프 포트의 관리 또는 운영 상태를 확인하십시오.</block>
+  <block id="8ae111df4b40043aad064611ab9ed81b" category="list-text">노드 스토리지 포트 속성을 표시합니다.</block>
+  <block id="f89d9b84256d89e7944ea0e10acdbc1e" category="list-text">스토리지 셸프 포트 속성 표시: +<block ref="e8db761632b7ff4634d761c524ad53d0" prefix=" " category="inline-code"></block></block>
+  <block id="e052376257a6ea271d623a33e2145f02" category="list-text">스위치가 모니터링되도록 스위치 상태 모니터링(CSHM)이 활성화되어 있는지 확인하십시오.</block>
+  <block id="7c0829f0d577e9297b8074da0003d1fb" category="list-text">SSH를 사용하거나 시리얼 콘솔을 사용하여 스위치에 로그인합니다.</block>
+  <block id="f5ea4ae040cca27e1867ae3e48f50441" category="list-text">스위치를 처음 설정하는 경우 15단계로 건너뛰십시오. 스위치를 업그레이드하는 경우 다음 단계로 진행하십시오.</block>
+  <block id="91275bbdd18c3fdb85a74d8389edfcbd" category="list-text">각 노드 스토리지 포트와 스토리지 쉘프 포트의 상태를 확인하십시오.</block>
+  <block id="aa993c90a7f8903cbc6924e764bccf0c" category="list-text">5단계부터 13단계까지 반복하여 스위치 s1에 NX-OS 소프트웨어를 설치하십시오.</block>
+  <block id="5fa673298f15e2e1b9fba3e0b8e76f3c" category="list-text">SSH 또는 시리얼 콘솔을 사용하여 스위치 s2에 로그인하십시오.</block>
+  <block id="c76001ed4d68a160f9fbbf23991a504a" category="list-text">FTP, TFTP, SFTP 또는 SCP와 같은 전송 프로토콜 중 하나를 사용하여 RCF를 스위치 s2의 bootflash에 복사하십시오. Cisco 명령에 대한 자세한 내용은<block ref="f93981dab484b88c422e924c27565997" category="inline-link-rx"></block>에서 해당 가이드를 참조하십시오.</block>
+  <block id="fae0b7c9287a055199b0dc5eb3a8458b" category="paragraph">이 예에서는 TFTP를 사용하여 스위치 s2의 bootflash에 RCF를 복사하는 방법을 보여줍니다.</block>
+  <block id="3a8f5a4a83e53760186dc76435d3ba79" category="paragraph">이 예시는 스위치 s2에 RCF 파일<block ref="f40a54f2bc400ed707f0cc267c8ad07a" prefix=" " category="inline-code"></block>이 설치되는 과정을 보여줍니다.</block>
+  <block id="22dacb04eee9f5938e935e7104c275e8" category="paragraph"><block ref="e73456cd6382e8bf212684a52ee4dfdb" prefix="" category="inline-code"></block></block>
+  <block id="309420dba39f38d664d2021c61dccfc0" category="list-text">스위치 s2를 재부팅합니다.</block>
+  <block id="73cfc7cf2451dfeb45a4ccaf2e73bbba" category="paragraph"><block ref="83b7cdb8633465b54a4bafb7fff34042" prefix="" category="inline-code"></block></block>
+  <block id="05d10a2123e553d4a82f23ae4e872fee" category="list-text">스위치 s1에서 1단계부터 8단계까지 반복합니다.</block>
+  <block id="3a5bf4829fe6f10e55d8521a47e2ba5a" category="list-text">ONTAP 클러스터의 모든 노드의 노드 스토리지 포트와 스토리지 셸프 포트를 스위치 s1 및 s2에 연결합니다.</block>
+  <block id="b4ef6149918790b270146c863885f907" category="list-text">스위치 포트가 *up* 상태인지 확인하십시오.</block>
+  <block id="4928f48bdad77418841ed689562e83bd" category="list-text">다음 명령을 사용하여 노드 스토리지 포트와 스토리지 쉘프 포트가 올바른 VLAN에 있는지 확인합니다.</block>
+  <block id="7a99b48f780a085206e92303bab5eee5" category="list-text">두 Cisco 스위치의 이름은 s1과 s2입니다.</block>
+  <block id="d73ee6bf7f0bc16d00e0519573744b8e" category="paragraph">플랫폼의 올바른 네트워크 포트를 확인하려면 <block ref="34774b6dc875898cd8aa59f7081c068c" category="inline-link-macro-rx"></block>을(를) 참조하십시오. 스위치 설치 요구 사항에 대한 자세한 내용은 <block ref="93586a8f49408f483b5b0ac7e6bc3bac" category="inline-link-macro-rx"></block>을(를) 참조하십시오.</block>
+  <block id="e96ad336f72b89f09e9a519bbd35b2c5" category="list-text">각 스위치의 각 노드에 구성된 인터페이스 수를 표시합니다.</block>
+  <block id="fe6d54ed527f55412a73a2bff3780ab0" category="paragraph">이 절차는 두 번째 Nexus 3232C 스토리지 스위치 s2를 새 3232C 스위치 ns2로 교체합니다. 두 노드는 cluster1-01과 cluster1-02입니다.</block>
+  <block id="1ef4012a3b4f8ad7e6451a1261a2506b" category="section-title">1단계: 교체할 스위치가 s2인지 확인합니다</block>
+  <block id="e84f9dc384d2fe77eb6104d44f7d6c77" category="list-text">스토리지 노드 포트의 상태를 확인하여 스토리지 스위치 s1에 연결되어 있는지 확인하십시오.</block>
+  <block id="8bb7ba98c46ef5c58f46b80a1a6dafe0" category="list-text">스토리지 스위치 s1을 사용할 수 있는지 확인합니다.</block>
+  <block id="2d75540c321bded58e1b711b468cd352" category="list-text">스토리지 스위치 s2에 연결된 모든 케이블을 제거하십시오.</block>
+  <block id="b25b3ba469ada3d5620d0e57fcc253b2" category="list-text">교체용 스위치 ns2에 모든 케이블을 다시 연결하십시오.</block>
+  <block id="7c4810aa18f567bf44920d42ffa6f363" category="section-title">3단계: 스위치 ns2의 모든 디바이스 구성을 확인합니다</block>
+  <block id="46d772191684dc9d062dd965d29610d6" category="list-text">필수 네트워크 및 관리 네트워크 스위치 문서.</block>
+  <block id="f5adf0f0459ae84caf9fc0ebd704e6d6" category="list-text">수령하신 스위치에 대해 NetApp 지원 사이트<block ref="28649c93049a329043d206ec7fa0c6f8" category="inline-link-rx"></block>에서 다운로드한 해당 NetApp 스토리지 네트워크 및 관리 네트워크 RCF. 모든 Cisco 스토리지 네트워크 및 관리 네트워크 스위치는 표준 Cisco 공장 기본 구성으로 제공됩니다. 이러한 스위치에는 최신 버전의 NX-OS 소프트웨어도 있지만 RCF가 로드되어 있지 않습니다.</block>
+  <block id="d9a1b8276d9b1bb12db706362db8ab1e" category="list-text">스토리지 네트워크와 관리 네트워크 스위치 및 컨트롤러를 랙에 설치하십시오.</block>
+  <block id="07dee03740864e95a75a931849507c00" category="list-text">완료된 케이블링 워크시트를 사용하여 스토리지 네트워크 및 관리 네트워크 스위치를 컨트롤러에 케이블로 연결하십시오.</block>
+  <block id="c42cfd2acdf4a413250f7465641d2287" category="list-text">스토리지 네트워크 및 관리 네트워크 스위치와 컨트롤러의 전원을 켭니다.</block>
+  <block id="a0b63f323aba8c4b7ce08c3c76f9e3cd" category="list-text">스토리지 네트워크 스위치의 초기 구성을 수행합니다.</block>
+  <block id="44fada417b1c4277d4edf0fe1408e408" category="list-text">네트워크 스위치의 버전을 확인하고 필요한 경우<block ref="f823faeecc1cbb37f2d732cc29c07d86" category="inline-link-rx"></block> 페이지에서 NetApp에서 지원하는 버전의 소프트웨어를 스위치에 다운로드하십시오.</block>
+  <block id="eda1fcdab9b87e9e9ccc3d501a1aee0c" category="list-text">두 스토리지 스위치의 이름은 s1과 s2입니다.</block>
+  <block id="fc795997725eb034df3021ffc7195aa6" category="list-text">노드는 cluster1-01과 cluster1-02입니다.</block>
+  <block id="9acf4bedfaa15335720937270e33e37c" category="paragraph">이 절차의 예제에서는 두 개의 노드, 즉 스토리지 포트가 두 개인 cluster1-01과 스토리지 포트가 두 개인 cluster1-02를 사용합니다. <block ref="34774b6dc875898cd8aa59f7081c068c" category="inline-link-macro-rx"></block>를 참조하여 사용 중인 플랫폼에서 올바른 스토리지 포트를 확인하십시오. 스위치 설치 요구 사항에 대한 자세한 내용은 <block ref="93586a8f49408f483b5b0ac7e6bc3bac" category="inline-link-macro-rx"></block>를 참조하십시오.</block>
+  <block id="dc414e2065202c4711d44ae38ca17f83" category="section-title">2단계: RCF를 Cisco 스위치 s2로 복사합니다</block>
+  <block id="28b776ee903094c42e9b3914f8a08e12" category="list-text">다음 전송 프로토콜 중 하나를 사용하여 스위치 s2의 RCF를 스위치 bootflash로 복사합니다. FTP, HTTP, TFTP, SFTP 또는 SCP</block>
+  <block id="9c8dc54e3f18e88bb06404c6a92beabf" category="paragraph">다음 예는 HTTP를 사용하여 스위치 s2의 bootflash에 RCF를 복사하는 방법을 보여줍니다.</block>
+  <block id="5d88822b5ebbb3be7883217a53523289" category="paragraph">다음 예시는 스위치 s2에 RCF 파일<block ref="b62271cc82d2a1b3e26d2157f183041f" prefix=" " category="inline-code"></block>이 설치되는 과정을 보여줍니다.</block>
+  <block id="a6e18f88ceb12e10a883527be5131406" category="list-text">소프트웨어 버전과 스위치 설정이 올바른지 확인한 후<block ref="092a495b03acdb0bf155d8ff2997a8d6" prefix=" " category="inline-code"></block> 파일을 스위치 s2의<block ref="35b7dd24bfd716b0553d5e558b8afe97" prefix=" " category="inline-code"></block> 파일로 복사하십시오.</block>
+  <block id="2b24c7c0c466902dfbfe9215d358b35e" category="section-title">3단계: NX-OS 이미지를 Cisco 스위치 s2에 복사하고 재부팅합니다</block>
+  <block id="8be4e2a90f7e7703fff2f670607d684c" category="list-text">NX-OS 이미지를 스위치 s2에 복사합니다.</block>
+  <block id="c3ec52c890b7782a875e91b4835c61b6" category="list-text">스위치 s1에서 NX-OS 소프트웨어 및 RCF를 업그레이드하는 절차를 반복하십시오.</block>
+  <block id="9302befabfd486e0d1a41bdf9f002fcf" category="paragraph">현재 부팅 이미지를 반영하도록 부팅 구성을 변경해야 하는 경우, RCF를 다시 적용하기 전에 변경해야 향후 재부팅 시 올바른 버전이 포함됩니다.</block>
+  <block id="39dbb2304fff50016221ce5665a0ac69" category="list-text">모든 노드 스토리지 포트가 정상 상태로 작동 중인지 확인하십시오.</block>
+  <block id="07071484c86ebbe7091b2f9902c3440b" category="list-text">스위치가 모니터링되고 있는지 확인합니다.</block>
+  <block id="9fd0abd5557135736ed98ae69ba14239" category="section-title">2단계: RCF 업그레이드</block>
+  <block id="84b85d6cadd7e51de43fffcaad0e2fb8" category="list-text">SSH 또는 시리얼 콘솔을 사용하여 스위치 s2에 로그인하십시오.</block>
+  <block id="3c0de8fcac105f514f995ced8761ad2b" category="list-text">노드의 모든 포트에 연결된 포트를 종료합니다.</block>
+  <block id="013513757b9e961bb45719d62eb7945d" category="paragraph"><block ref="15dad2d00ac5c36f3c5183f953cb2100" prefix="" category="inline-code"></block></block>
+  <block id="d31ae7a0c27ce3d82540383a0fc903b3" category="paragraph"><block ref="1e54584d11175ceb0e47af752c1c7587" prefix="" category="inline-code"></block></block>
+  <block id="8e8ea9a5a109cd02b9c2dc7bfd15b755" category="paragraph"><block ref="0dcf73db22b0edfbefb6bd20fbaae42f" prefix="" category="inline-code"></block></block>
+  <block id="ace4bcb4ebf70119a5b819670290fec7" category="paragraph"><block ref="ba6c152def3e39825eb63a022d084d2d" prefix="" category="inline-code"></block></block>
+  <block id="0f4fe1b24d630946f8019ac82bde62ff" category="paragraph"><block ref="7638365ccc4978c453a68d8afcc36956" prefix="" category="inline-code"></block></block>
+  <block id="99d9807409576fb0898ac2a7cddd307c" category="paragraph"><block ref="f90f4489b5e86780292a8711f6c5df19" prefix="" category="inline-code"></block></block>
+  <block id="c26afbc6e149f561583f808d27ca314f" category="paragraph"><block ref="69544cd65884cae8e7bf1dda2ed7e8cb" prefix="" category="inline-code"></block></block>
+  <block id="ef69ace8b501de8f0ea55df01d4624cf" category="list-text">FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 s2의 bootflash에 복사하십시오.</block>
+  <block id="05252a66f885ff98d084b4d004be374d" category="inline-link">Cisco Nexus 3000 시리즈 NX-OS 문서</block>
+  <block id="ec79334235c0a3571f37ac16a5186b03" category="paragraph">Cisco 명령에 대한 자세한 내용은 <block ref="8bcc5540996ea8c38872248a16eaa971" category="inline-link-rx"></block>의 해당 가이드를 참조하십시오.</block>
+  <block id="38934db91afee2a81d8de75655ab7dc4" category="inline-link">Cisco Nexus 3000 시리즈 설명서</block>
+  <block id="c73fd4086a5c2f2493a5e4acb48a689a" category="paragraph">Cisco 명령에 대한 자세한 내용은<block ref="a32091a2e921af3101d992ed74f7a2ac" category="inline-link-rx"></block>의 해당 가이드를 참조하십시오.</block>
+  <block id="586f0547f2a6d2830efbcbc299115cea" category="paragraph">이 예시는 스위치 s2에 설치되는 RCF 파일<block ref="c29c56085bdbe35073e624a4f557dc44" prefix=" " category="inline-code"></block>을 보여줍니다:</block>
+  <block id="c28836c43eb45dd9768445207e11b3eb" category="inline-link">Cisco Nexus 9000 시리즈 설명서</block>
+  <block id="a5111d51b945b4a8ecc2a368efae1149" category="paragraph">Cisco 명령에 대한 자세한 내용은<block ref="61d438905ad919076049617fb16870a8" category="inline-link-rx"></block>의 해당 가이드를 참조하십시오.</block>
+  <block id="df7c0972a1536147d72a682b254815b1" category="paragraph"><block ref="58d6367cf5d07d7e8b8c35e964e9b11b" prefix="" category="inline-code"></block></block>
+  <block id="6d073feb2025496f1c29d59dd5c40dd1" category="list-text">스위치 s2를 재부팅하십시오. 스위치가 재부팅되는 동안 노드에서 보고되는 "`cluster switch health monitor`" 경고 및 "`cluster ports down`" 이벤트는 무시해도 됩니다.</block>
+  <block id="038c323c8232a35b7a1c256cfa28c8b3" category="list-text">스위치가 모니터링되고 있는지 확인합니다.</block>
+  <block id="1a7f577167c9d4c1b94ac77887325a98" category="list-text">스위치 s1에서 1단계부터 16단계까지 반복합니다.</block>
+  <block id="c7c7af0984c2d883ce65769d3401fecd" category="section-title">3단계: 스토리지 네트워크 확인</block>
+  <block id="fae77d837550e3dc9424d470b10c3826" category="paragraph">RCF 업그레이드 후 스토리지 네트워크가 제대로 작동하는지 확인하려면 각 스토리지 스위치에서 다음 단계를 완료하십시오.</block>
+  <block id="3d5cbcc6ca1d118ee36701676a8cb243" category="list-text">예상되는 노드 스토리지 포트가 여전히 연결되어 있는지 확인하십시오.</block>
+  <block id="f53ac7b19bf8e0bcfb1566b88fbbd033" category="list-text">예상되는 스토리지 셸프 포트가 여전히 연결되어 있는지 확인하십시오.</block>
+  <block id="ed8991cae6b93ff2c284f5e59ba6cf53" category="paragraph">9336C-FX2 및 9336C-FX2-T 스위치를 구성하기 전에 케이블 연결 및 구성 요구 사항을 검토하십시오.</block>
+  <block id="544cf5fa3f777d417d7d1bbba43ad7d0" category="paragraph">FAS2820 e0a 및 e0b 포트는 9336C-FX2 및 9336C-FX2-T 스위치 포트와 연결하기 위해 FEC 구성 변경이 필요합니다. 스위치 포트 e0a 및 e0b의 경우<block ref="68e129acd99d4b65789a3c9e07fcbfc0" prefix=" " category="inline-code"></block> 설정은<block ref="49bb002a2d60e4cc69c3dc5b31861c1e" prefix=" " category="inline-code"></block>로 설정됩니다.</block>
+  <block id="f0080d8ad801f395ca0df70e70741bf7" category="list-text">TCAM 문제 해결 방법에 대한 자세한 내용은 기술 자료 문서<block ref="882efca0483fcef9d53236590b1d74e9" category="inline-link-rx"></block>를 참조하십시오.</block>
+  <block id="e5683eb8afcfc64783670932954ce576" category="list-text">스위치 cs2에서 1단계부터 8단계까지 반복합니다.</block>
+  <block id="571481f22c6418628840a4c563c027a5" category="list-text">각 클러스터 포트, 노드 스토리지 포트 및 스토리지 쉘프 포트의 관리 및 운영 상태를 확인하십시오.</block>
+  <block id="86763a75b4c16adc234b4dba527913e3" category="paragraph"><block ref="e8db761632b7ff4634d761c524ad53d0" prefix="" category="inline-code"></block></block>
+  <block id="9090fcce916e78c5e5527bb63d5a9613" category="list-text">클러스터의 모든 포트 상태를 확인합니다.</block>
+  <block id="51403f34f2f0cc050226e65241460028" category="list-text">각 클러스터 인터페이스와 각 노드 스토리지 포트 및 스토리지 쉘프 포트의 관리 또는 운영 상태를 확인하십시오.</block>
+  <block id="2cb2bcd768824e45f827c1d14cf6a6f5" category="list-text">자세한 내용은 <block ref="9a0b6825ea724c59aed55080f28154e6" category="inline-link-macro-rx"></block>를 참조하십시오.</block>
+  <block id="4a4e439e7b73f4bbe6ef1a3d6cfb8342" category="list-text">스위치 cs2에서 1단계부터 21단계까지 반복합니다.</block>
+  <block id="c32fa9372c391cb0304984cdf58fbfe7" category="summary">필요한 구성 정보와 문서가 아직 없는 경우 스토리지 및 관리 네트워크 스위치를 설정하기 전에 해당 정보를 수집해야 합니다.</block>
+  <block id="76d06128df9f1b8d236bfb398918ef8c" category="list-text">해당 NetApp 스토리지 네트워크 및 관리 네트워크 RCF는 NetApp Support Site에서 다운로드할 수 있습니다<block ref="28649c93049a329043d206ec7fa0c6f8" category="inline-link-rx"></block>.</block>
+  <block id="6915876b61b11170a0df6bfa166b9c6b" category="paragraph">모든 Cisco 스토리지 네트워크 및 관리 네트워크 스위치는 표준 Cisco 공장 기본 구성과 함께 제공됩니다. 이러한 스위치에는 최신 버전의 NX-OS 소프트웨어가 설치되어 있지만 RCF는 로드되어 있지 않습니다.</block>
+  <block id="0a6ae11b17b6dbebb5d16e5542382fa7" category="list-text">네트워크 및 관리 네트워크 스위치와 컨트롤러를 랙에 설치하십시오.</block>
+  <block id="16131fd9f5998db5cbf83321d1c7846a" category="list-text">작성된 케이블링 워크시트를 사용하여 네트워크 및 관리 네트워크 스위치를 컨트롤러에 케이블로 연결합니다.</block>
+  <block id="3a3af581da5d37a3735bc60b7480ffd2" category="list-text">네트워크 및 관리 네트워크 스위치와 컨트롤러의 전원을 켭니다.</block>
+  <block id="01111e21fb1d79627555aebf9ebe209a" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="f2aac1726dd943b9572fda265eb8659c" category="inline-link-macro-rx"></block></block>
+  <block id="4253792f96b8976ef40b7922bcd28921" category="paragraph">9336C-FX2 및 9336C-FX2-T 스위치를 구성하기 전에 케이블 연결 및 구성 고려 사항을 검토하십시오.</block>
+  <block id="4e7a83da96739a6c51f20930a3c125eb" category="list-text">AutoSupport가 활성화된 경우 AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제하십시오.<block ref="d7d5bc427f3e862624cebf3c133a6ae0" prefix=" " category="inline-code"></block></block>
+  <block id="ae85202383b71ab5e4507c5580e86eba" category="list-text">스토리지 셸프 포트 속성을 표시합니다.</block>
+  <block id="021ae0485e360df516753cfa37241207" category="list-text">스위치가 모니터링되도록 스위치에 대해 스위치 상태 모니터링(CSHM)이 활성화되어 있는지 확인하십시오.</block>
+  <block id="5491e4fbeeaf7a87f793e4e691796c70" category="paragraph">Nexus 9336C-FX2 및 9336C-FX2-T 스위치에 NX-OS 소프트웨어를 설치하거나 업그레이드하려면 다음 절차를 따르십시오.</block>
+  <block id="bf5552351130a09ac846a8041a66c164" category="list-text">스위치가 재부팅된 후 다시 로그인하여 새 버전의 EPLD가 성공적으로 로드되었는지 확인하십시오.</block>
+  <block id="f4f349e24972b7a763158998e94be078" category="list-text">스위치를 처음 설정하는 경우 14단계로 건너뛰십시오. 스위치를 업그레이드하는 경우 다음 단계로 진행하십시오.</block>
+  <block id="4ccb994d1a7d7d29ff45049a945ae930" category="list-text">스위치 s1과 스위치 s2의 전원이 켜졌고 초기 스위치 설정이 완료되었습니다(관리 IP 주소 및 SSH가 설정됨).</block>
+  <block id="2552f6fb5c529b065d987564c6e64417" category="list-text">ONTAP 노드 스토리지 포트와 스토리지 쉘프 포트가 연결되어 있지 않습니다.</block>
+  <block id="3b93261c4d695e49986815d153d72f1e" category="paragraph">이 예에서는 스위치 s2에 RCF<block ref="f40a54f2bc400ed707f0cc267c8ad07a" prefix=" " category="inline-code"></block>가 설치되는 것을 보여줍니다.</block>
+  <block id="6c4eff4dd7f332d950bdd70a2a27296d" category="list-text">스위치 s2를 재부팅합니다.</block>
+  <block id="03924902e909023c5a43994d0635aba4" category="list-text">스위치 s1에서 1단계부터 8단계까지 반복합니다.</block>
+  <block id="542d8c507d791ad9254cf938727a9574" category="list-text">ONTAP 클러스터의 모든 노드의 노드 스토리지 포트와 스토리지 쉘프 포트를 스위치 s1과 s2에 연결합니다.</block>
+  <block id="3e43709f8e4975611a383027e0952b62" category="paragraph">스토리지 - (스토리지 RCF 1._xx_)는 모든 포트가 100GbE NVMe 스토리지 연결용으로 구성된 사용 가능한 RCF 구성입니다.</block>
+  <block id="fd2b8ec62bce69c9ee650dee20c39595" category="list-text">스위치의 초기 구성이 완료되었습니다.</block>
+  <block id="2b0e07bd0b2b5604df5ac1033ac00a91" category="paragraph">이 절차는 두 번째 Nexus 9336C-FX2 스토리지 스위치 s2를 새 9336C-FX 스위치 ns2로 교체합니다. 두 노드는 cluster1-01과 cluster1-02입니다.</block>
+  <block id="369e95015aca186e3d9aa5f940889171" category="list-text">교체할 스위치가 s2인지 확인하십시오.</block>
+  <block id="a6b83e7ca084f8ff4b37e4c74014d13a" category="list-text">스위치 s2에서 케이블을 분리하십시오.</block>
+  <block id="fb307cd09acaf20e054464c5a5c7086d" category="list-text">ns2 스위치에 케이블을 다시 연결합니다.</block>
+  <block id="0296e2cb1cdfd384b3b0f2153232f350" category="list-text">스위치 ns2의 모든 디바이스 구성을 확인하십시오.</block>
+  <block id="947d27125c3237a386bcf9f3e3a1ce92" category="list-text">스토리지 시스템의 스토리지 쉘프 포트를 확인합니다.</block>
+  <block id="8721fcb92ec0a590a0c522d75ac2cec3" category="list-text">NetApp 네트워크 및 관리 네트워크 RCF는 NetApp 지원 사이트<block ref="28649c93049a329043d206ec7fa0c6f8" category="inline-link-rx"></block>에서 다운로드할 수 있습니다. 모든 Cisco 네트워크 및 관리 네트워크 스위치는 표준 Cisco 공장 기본 구성으로 제공됩니다. 이러한 스위치에는 최신 버전의 NX-OS 소프트웨어도 있지만 RCF는 로드되어 있지 않습니다.</block>
+  <block id="1198e179d7bab6f263eef5426a533636" category="list-text">네트워크 스위치의 초기 구성을 수행하십시오.</block>
+  <block id="f233dc3cac0f9fb1f6d73f5d05bbc8f6" category="list-text">SSH 또는 시리얼 콘솔을 사용하여 스위치 s2에 로그인하십시오.</block>
+  <block id="46542707463c42329cdbd79448307a22" category="list-text">노드의 모든 포트에 연결된 포트를 종료합니다.</block>
+  <block id="888d27af1c8bead4bc090f7b57fe47dc" category="paragraph"><block ref="03642bd9ef2a92e7a683427a90d69064" prefix="" category="inline-code"></block></block>
+  <block id="9c16d25919d69afd920c43d400da0ea8" category="paragraph"><block ref="e374209cc99be20be59ee159164d8226" prefix="" category="inline-code"></block></block>
+  <block id="ab72b57a9a9f0e3ccd70b04752a4b2dc" category="list-text">노드 스토리지 포트와 스토리지 셸프 포트에 연결된 스위치 포트가 *up* 상태인지 확인하십시오.</block>
 </blocks>
