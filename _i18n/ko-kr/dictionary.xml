@@ -4707,7 +4707,6 @@
   <block id="80ba4b0b3a217933f761ba1440471dee" category="paragraph">X-MTEF-키트-E</block>
   <block id="65adcaebf2b7d6b4197e6a8aff31717f" category="paragraph">레일 키트, NVIDIA 싱글 스위치 짧은 깊이</block>
   <block id="8a6e8b822a02f19c1d150c230a03bf69" category="inline-link">SN2100 스위치 및 레일 키트 설치</block>
-  <block id="865b448eabcf17df6b422f9231393d1a" category="admonition">자세한 내용은 NVIDIA 설명서를 참조하세요.<block ref="39747b316e7d3df3f73757faf591c2d2" category="inline-link-rx"></block> .</block>
   <block id="4ecfcea68abfc6c5e768c0c05c979d4c" category="paragraph">구성 요소와 부품 번호를 확인한 후 다음을 검토할 수 있습니다. <block ref="49a5e49bddaeabf84f2ee5cfa4f2c2f8" category="inline-link-macro-rx"></block>.</block>
   <block id="2e48063923d7005a1d5b4c086c0a902a" category="summary">NVIDIA SN2100 스위치는 Cumulus Linux를 실행하는 10/25/40/100 GbE 이더넷 스위치입니다.  SN2100 스위치는 다양한 스위치 쌍을 통해 ONTAP 9.10.1의 클러스터 및 스토리지 애플리케이션을 지원합니다.</block>
   <block id="4e66bc15577ca34b137ec086186da6aa" category="doc">NVIDIA SN2100 스위치 설치 및 설정 워크플로</block>
@@ -4842,7 +4841,6 @@
   <block id="ed3b40beeb91dc0a99c4580cb378b4b6" category="paragraph">Cumulus 모드로 Cumulus Linux를 설치한 후 <block ref="83ca9f457d58548616bdf5d734a73df4" category="inline-link-macro-rx"></block>.</block>
   <block id="c5e47af2eefc12b7d3685bd941d8a3d9" category="doc">NVIDIA SN2100 스위치용 하드웨어 설치</block>
   <block id="17229d37b35d8241550712be833af4b9" category="inline-link">NVIDIA 스위치 설치 가이드</block>
-  <block id="0a24c8e3b4ea2ca8a30ceee3856e7638" category="list-text">지침을 따르세요<block ref="f3871f65af7ce4ce4161567e6adce2a8" category="inline-link-rx"></block> .</block>
   <block id="15f4bb46c2f563d794f12c95f7363bc3" category="paragraph">하드웨어를 설치한 후에는 다음을 수행할 수 있습니다.<block ref="b80562321e7105a297052828d3712cf7" category="inline-link-macro-rx"></block> 요구사항.</block>
   <block id="c7a001e5237d88fee0ed6a186bf5042e" category="summary">NVIDIA SN2100 클러스터 스위치를 구성하기 전에 구성 개요를 검토하세요.</block>
   <block id="19613dba5f729ac14e1b40a3e61a1ab9" category="doc">NVIDIA SN2100 스위치용 하드웨어 설치 워크플로</block>
@@ -5875,4 +5873,10 @@
   <block id="888d27af1c8bead4bc090f7b57fe47dc" category="paragraph"><block ref="03642bd9ef2a92e7a683427a90d69064" prefix="" category="inline-code"></block></block>
   <block id="9c16d25919d69afd920c43d400da0ea8" category="paragraph"><block ref="e374209cc99be20be59ee159164d8226" prefix="" category="inline-code"></block></block>
   <block id="ab72b57a9a9f0e3ccd70b04752a4b2dc" category="list-text">노드 스토리지 포트와 스토리지 셸프 포트에 연결된 스위치 포트가 *up* 상태인지 확인하십시오.</block>
+  <block id="3050ed36cf7b28894b3ecbbbe2742aa2" category="list-text">EPLD 이미지를 업그레이드하고 스위치를 재부팅합니다. NX-OS 10.5(3)F 이상을 사용하는 경우 EPLD 이미지가 NX-OS 이미지에 포함되어 있으므로 별도의 EPLD 이미지 업그레이드를 수행할 필요가 없습니다. 이 단계를 건너뛰고 클러스터 포트 상태 확인을 계속하십시오.</block>
+  <block id="6ff0796068f0d678948e289319a2aa28" category="admonition"><block ref="2e91dc3447d8fccbe6ba718f9aaf0270" category="inline-link-macro-rx"></block>에 대한 자세한 내용은 NVIDIA 설명서를 참조하십시오.</block>
+  <block id="8b1e9b3cc32c2a1cf644a1cfe3dab553" category="summary">SN2100 하드웨어를 설치하려면 NVIDIA 설명서를 참조하십시오.</block>
+  <block id="c10fbc8cfb6421490d3e923dc2ea002a" category="paragraph">NVIDIA SN2100 스위치 하드웨어를 설치하는 것은 데이터 보호, 복제 및 관리 워크플로우를 지원하는 안정적이고 확장 가능한 네트워크 인프라를 구축하는 데 있어 매우 중요한 첫 단계입니다.</block>
+  <block id="1fcad359e819ec24939bbd1dc0e8cb54" category="paragraph">SN2100 스위치를 설정하고 구성하려면 다음 단계를 따르십시오. 자세한 지침은 NVIDIA 설명서를 참조하십시오.</block>
+  <block id="e14e8d7df79579d38cad8a73b8f91767" category="list-text"><block ref="a88c9397b5cfa4ad77a6fd0eed261f5e" category="inline-link-macro-rx"></block>의 지침을 따르십시오.</block>
 </blocks>
