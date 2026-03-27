@@ -256,7 +256,7 @@ system switch ethernet log show
 --
 ====
 
-CAUTION: 로그 수집 기능에서 오류 상태가 보고되는 경우(출력에서 확인 가능) `system switch ethernet log show` ), 보다link:log-collection-troubleshoot.html["로그 수집 문제 해결"] 자세한 내용은.
+CAUTION: 로그 수집 기능에서 오류 상태가 보고되는 경우( `system switch ethernet log show`의 출력에 표시됨) 자세한 내용은 link:log-collection-troubleshoot.html["로그 수집 문제 해결"]을(를) 참조하십시오.
 
 .다음은 무엇인가요?
 link:config-snmpv3.html["SNMPv3 구성(선택 사항)"].

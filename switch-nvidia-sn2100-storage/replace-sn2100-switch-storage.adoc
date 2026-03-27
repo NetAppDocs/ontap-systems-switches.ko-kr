@@ -20,7 +20,7 @@ NVIDIA SN2100 스토리지 스위치에 Cumulus 소프트웨어와 RCF를 설치
 * 해당 RCF를 다운로드했습니다.
 
 
-그만큼 http://hwu.netapp.com["Hardware Universe"^] 지원되는 포트와 해당 구성에 대한 전체 세부 정보를 제공합니다.
+link:http://hwu.netapp.com["Hardware Universe"^]에서는 지원되는 포트 및 해당 구성에 대한 자세한 정보를 제공합니다.
 
 기존 네트워크 구성에는 다음과 같은 특성이 있어야 합니다.
 

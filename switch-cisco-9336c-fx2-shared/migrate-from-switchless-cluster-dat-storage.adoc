@@ -18,7 +18,7 @@ summary:
 
 사용하는 절차는 각 컨트롤러에 전용 클러스터 네트워크 포트가 두 개 있는지, 아니면 각 컨트롤러에 단일 클러스터 포트가 있는지에 따라 달라집니다.  문서화된 프로세스는 광 포트나 Twinax 포트를 사용하는 모든 노드에서 작동하지만, 노드가 클러스터 네트워크 포트에 온보드 10Gb BASE-T RJ45 포트를 사용하는 경우 이 스위치에서는 지원되지 않습니다.
 
-대부분의 시스템에는 각 컨트롤러에 전용 클러스터 네트워크 포트가 두 개 필요합니다. 보다 https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치"] 자세한 내용은.
+대부분의 시스템은 각 컨트롤러에 두 개의 전용 클러스터 네트워크 포트가 필요합니다. 자세한 내용은 link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치"^]를 참조하십시오.
 
 기존에 2노드 스위치리스 클러스터 환경이 있는 경우 Cisco Nexus 9336C-FX2 스위치를 사용하여 2노드 스위치 클러스터 환경으로 마이그레이션하면 클러스터에서 노드를 두 개 이상으로 확장할 수 있습니다.
 
@@ -41,7 +41,7 @@ summary:
 ** 두 스위치 모두 관리 네트워크 연결 기능을 갖추고 있습니다.
 ** 클러스터 스위치에 콘솔로 접근할 수 있습니다.
 ** Nexus 9336C-FX2 노드 간 스위치와 스위치 간 연결에는 Twinax 또는 파이버 케이블을 사용합니다.
-** NetApp https://hwu.netapp.com["Hardware Universe"] 케이블링에 대한 자세한 정보가 포함되어 있습니다.
+** link:https://hwu.netapp.com["Hardware Universe"^]에는 케이블 연결에 대한 자세한 정보가 포함되어 있습니다.
 ** ISL(Inter-Switch Link) 케이블은 두 9336C-FX2 스위치의 포트 1/35와 1/36에 연결됩니다.
 
 
@@ -65,7 +65,7 @@ summary:
 * 클러스터 SVM의 이름은 _node1_과 _node2_입니다.
 * LIF의 이름은 노드 1에서는 각각 _node1_clus1_과 _node1_clus2_이고, 노드 2에서는 각각 _node2_clus1_과 _node2_clus2_입니다.
 * cluster1::*> 프롬프트는 클러스터의 이름을 나타냅니다.
-* 이 절차에서 사용되는 클러스터 포트는 AFF A400 컨트롤러에 따라 _e3a_와 _e3b_입니다.  그만큼 https://hwu.netapp.com["Hardware Universe"] 플랫폼의 실제 클러스터 포트에 대한 최신 정보가 포함되어 있습니다.
+* 이 절차에서 사용되는 클러스터 포트는 AFF A400 컨트롤러에 따라 _e3a_ 및 _e3b_입니다. link:https://hwu.netapp.com["Hardware Universe"^]에는 사용 중인 플랫폼의 실제 클러스터 포트에 대한 최신 정보가 포함되어 있습니다.
 
 
 
@@ -283,7 +283,7 @@ Cluster
 
 . [[step9]]노드1의 클러스터 포트 e3a에서 케이블을 분리한 다음 9336C-FX2 스위치에서 지원하는 적절한 케이블을 사용하여 e3a를 클러스터 스위치 cs1의 포트 1에 연결합니다.
 +
-NetApp https://hwu.netapp.com["Hardware Universe"] 케이블링에 대한 자세한 정보가 포함되어 있습니다. 보다 link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["HWU에 없는 추가 정보 중 장비를 설치하는 데 필요한 정보는 무엇입니까?"^] 스위치 설치 요구 사항에 대한 자세한 내용은 다음을 참조하십시오.
+link:https://hwu.netapp.com["Hardware Universe"^]에는 케이블 연결에 대한 자세한 내용이 포함되어 있습니다. 스위치 설치 요구 사항에 대한 자세한 내용은 link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["HWU에 없는 추가 정보 중 장비를 설치하는 데 필요한 정보는 무엇입니까?"^]를 참조하십시오.
 
 . 노드2의 클러스터 포트 e3a에서 케이블을 분리한 다음, 9336C-FX2 스위치에서 지원하는 적절한 케이블을 사용하여 e3a를 클러스터 스위치 cs1의 포트 2에 연결합니다.
 . 클러스터 스위치 cs1에서 모든 노드 연결 포트를 활성화합니다.

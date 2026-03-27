@@ -11,7 +11,7 @@ summary: FAS 및 AFF 시스템을 위한 새로운 스위치에 대해 알아보
 
 
 [role="lead"]
-FAS 및 AFF 시스템을 위한 새로운 스위치에 대해 알아보세요.  추가 스위치 정보는 다음을 참조하세요. https://hwu.netapp.com/Switch/Index["NetApp Hardware Universe"^] .
+ONTAP 스토리지 시스템용 새 스위치에 대해 알아보십시오. 스위치에 대한 자세한 내용은 link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^]을 참조하십시오.
 
 
 

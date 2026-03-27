@@ -54,7 +54,7 @@ NOTE: RCF 버전 1.2에서는 보안 문제로 인해 Telnet 지원이 명시적
 * 그만큼 `cluster1::*>` 프롬프트는 클러스터의 이름을 나타냅니다.
 * 각 노드의 클러스터 포트는 e0a와 e0b로 명명됩니다.
 +
-https://hwu.netapp.com/["Hardware Universe"^]플랫폼에서 지원되는 실제 클러스터 포트에 대한 자세한 정보가 있습니다.
+link:https://hwu.netapp.com/["Hardware Universe"^]에는 플랫폼에서 지원되는 실제 클러스터 포트에 대한 자세한 정보가 있습니다.
 
 * 지원되는 ISL(Inter-Switch Links)은 포트 0/13부터 0/16까지입니다.
 * 지원되는 노드 연결은 포트 0/1~0/12입니다.

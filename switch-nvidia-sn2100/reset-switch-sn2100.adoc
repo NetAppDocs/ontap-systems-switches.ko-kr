@@ -21,7 +21,7 @@ SN2100 클러스터 스위치를 공장 기본값으로 재설정하려면:
 
 
 
-NOTE: Cumulus Linux 설치에 대한 자세한 내용은 다음을 참조하세요.link:configure-software-overview-sn2100-cluster.html["NVIDIA SN2100 스위치용 소프트웨어 설치 워크플로"] .
+NOTE: Cumulus Linux 설치에 대한 자세한 내용은 link:configure-software-overview-sn2100-cluster.html["NVIDIA SN2100 스위치용 소프트웨어 설치 워크플로"]을 참조하십시오.
 
 .단계
 [role="tabbed-block"]
@@ -72,7 +72,7 @@ Do you want to continue? [y/n] *y*
 ----
 
 
-NVIDIA 확인하세요 https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-511/Installation-Management/Factory-Reset/["공장 초기화"^] 자세한 내용은 문서를 참조하세요.
+자세한 내용은 NVIDIA link:https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-511/Installation-Management/Factory-Reset/["공장 초기화"^] 설명서를 참조하십시오.
 
 --
 ====

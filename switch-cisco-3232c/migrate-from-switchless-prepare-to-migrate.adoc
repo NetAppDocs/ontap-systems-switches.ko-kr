@@ -121,7 +121,7 @@ link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storag
 . *설명* 페이지에서 *계속*을 선택하고 라이선스 계약에 동의한 다음, *다운로드* 페이지의 지침에 따라 RCF를 다운로드합니다.
 . Nexus 3232C 스위치 C1 및 C2에서 모든 노드 연결 포트 C1 및 C2를 비활성화하지만 ISL 포트 e1/31-32는 비활성화하지 마세요.
 +
-Cisco 명령에 대한 자세한 내용은 다음 목록을 참조하세요. https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^] .
+Cisco 명령에 대한 자세한 내용은 link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^]의 다음 목록을 참조하십시오.
 
 +
 .예를 보여주세요
@@ -153,7 +153,7 @@ C2(config)# exit
 `show port-channel summary`
 
 +
-Cisco 명령에 대한 자세한 내용은 다음 목록을 참조하세요. https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^] .
+Cisco 명령에 대한 자세한 내용은 link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^]의 다음 목록을 참조하십시오.
 
 +
 .예를 보여주세요
@@ -191,7 +191,7 @@ Group Port-        Type   Protocol  Member Ports
 ====
 . 스위치에 있는 인접 장치 목록을 표시합니다.
 +
-Cisco 명령에 대한 자세한 내용은 다음 목록을 참조하세요. https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^] .
+Cisco 명령에 대한 자세한 내용은 link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^]의 다음 목록을 참조하십시오.
 
 +
 .예를 보여주세요

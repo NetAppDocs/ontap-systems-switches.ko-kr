@@ -21,7 +21,7 @@ Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스위치를 구성하려면 다음 절차
 * 적용 가능한 라이센스, 네트워크 및 구성 정보, 케이블.
 * 완전한link:setup-worksheet-9336c-storage.html["케이블링 워크시트"] .
 * NetApp 네트워크 및 관리 네트워크 RCF는 NetApp 지원 사이트 http://mysupport.netapp.com/["mysupport.netapp.com"^]에서 다운로드할 수 있습니다. 모든 Cisco 네트워크 및 관리 네트워크 스위치는 표준 Cisco 공장 기본 구성으로 제공됩니다. 이러한 스위치에는 최신 버전의 NX-OS 소프트웨어도 있지만 RCF는 로드되어 있지 않습니다.
-* 필수 스위치 문서. 보다link:required-documentation-9336c-storage.html["필수 서류"] 자세한 내용은.
+* 필수 스위치 문서입니다. 자세한 내용은 link:required-documentation-9336c-storage.html["필수 서류"]를 참조하십시오.
 
 
 .단계

@@ -4,7 +4,7 @@ permalink: overview-eod.html
 keywords: switches, fas, aff systems, end of availability, EOD 
 summary: FAS 및 AFF 시스템용 EOD 스위치. 
 ---
-= 사용 가능 종료
+= 사용 가능 종료 스위치
 :allow-uri-read: 
 :icons: font
 :imagesdir: ./media/

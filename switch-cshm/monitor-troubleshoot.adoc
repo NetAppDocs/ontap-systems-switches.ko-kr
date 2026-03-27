@@ -17,4 +17,4 @@ summary: 다음 명령을 사용할 수 있습니다.....
 
 사용 가능한 이더넷 스위치 상태 모니터 알림을 보려면 다음 명령을 실행하세요. `system health alert definition show -monitor ethernet-switch`
 
-지식 기반 문서를 참조하세요 https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Cluster_Switch_Health_Monitor_CSHM_Alert_Resolution_Guide["스위치 상태 모니터 경고 해결 가이드"^] 알림에 대한 고급 해결 세부 정보를 확인하세요.
+경고에 대한 고급 해결 방법은 기술 자료 문서 https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Cluster_Switch_Health_Monitor_CSHM_Alert_Resolution_Guide["스위치 상태 모니터 경고 해결 가이드"^]를 참조하십시오.

@@ -11,7 +11,7 @@ summary: NVIDIA SN2100 스위치 설치 및 유지관리에 대해서는 권장 
 
 
 [role="lead"]
-NVIDIA SN2100 스위치 설치 및 유지관리에 대해서는 권장 문서를 모두 검토하세요.
+NVIDIA SN2100 스위치 설치 시에는 권장되는 모든 문서를 반드시 검토하십시오.
 
 다음 표에는 NVIDIA SN2100 스위치에 대해 제공되는 설명서가 나열되어 있습니다.
 
@@ -21,29 +21,60 @@ NVIDIA SN2100 스위치 설치 및 유지관리에 대해서는 권장 문서를
 
 
  a| 
-link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/install-hardware-sn2100-cluster.html["NVIDIA SN2100 스위치 설정 및 구성_"^]
+link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/install-hardware-sn2100-cluster.html["NVIDIA SN2100 스위치 설정 및 구성"^]
  a| 
 Cumulus Linux 및 해당 RCF를 설치하는 것을 포함하여 NVIDIA SN2100 스위치를 설정하고 구성하는 방법을 설명합니다.
 
 
 
  a| 
-link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100-storage/migrate-cisco-storage-switch-sn2100-storage.html["Cisco 스토리지 스위치에서 NVIDIA SN2100 스토리지 스위치로 마이그레이션_"^]
+link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100-storage/migrate-cisco-storage-switch-sn2100-storage.html["Cisco 스토리지 스위치에서 NVIDIA SN2100 스토리지 스위치로 마이그레이션"^]
  a| 
 Cisco 스토리지 스위치를 사용하는 환경에서 NVIDIA SN2100 스토리지 스위치를 사용하는 환경으로 마이그레이션하는 방법을 설명합니다.
 
 
 
  a| 
-link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/migrate-2n-switched-sn2100-cluster.html["NVIDIA SN2100 클러스터 스위치를 사용하여 2노드 스위치 클러스터로 마이그레이션_"^]
+link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/migrate-2n-switched-sn2100-cluster.html["2노드 스위치 클러스터로 마이그레이션"^]
  a| 
-NVIDIA SN2100 클러스터 스위치를 사용하여 2노드 스위치 환경으로 마이그레이션하는 방법을 설명합니다.
+NVIDIA SN2100 스위치를 사용하여 2노드 스위치 환경으로 마이그레이션하는 방법을 설명합니다.
 
 
 
  a| 
-link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100-storage/replace-sn2100-switch-storage.html["NVIDIA SN2100 스토리지 스위치 교체_"^]
+link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100-storage/replace-sn2100-switch-storage.html["NVIDIA SN2100 스토리지 스위치 교체"^]
  a| 
 결함이 있는 NVIDIA SN2100 스토리지 스위치를 교체하고 Cumulus Linux 및 참조 구성 파일을 다운로드하는 절차를 설명합니다.
+
+|===
+
+
+== ONTAP 시스템 문서
+
+ONTAP 시스템을 설정하려면 사용 중인 운영 체제 버전에 맞는 다음 문서가 필요합니다.
+
+[cols="1,2"]
+|===
+| 이름 | 설명 
+
+
+ a| 
+컨트롤러별 _설치 및 설정 지침_
+ a| 
+NetApp 하드웨어를 설치하는 방법을 설명합니다.
+
+
+
+ a| 
+link:https://docs.netapp.com/ontap-9/index.jsp["ONTAP 9"^]
+ a| 
+ONTAP 릴리스의 모든 측면에 대한 자세한 정보를 제공합니다.
+
+
+
+ a| 
+link:https://hwu.netapp.com/["Hardware Universe"^]
+ a| 
+플랫폼 모델에 지원되는 하드웨어(예: 스토리지 스위치 및 케이블)를 확인할 수 있습니다.
 
 |===

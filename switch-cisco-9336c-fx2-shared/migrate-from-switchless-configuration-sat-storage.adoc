@@ -105,7 +105,7 @@ There are no entries matching your query.
 ====
 
 
-. [[step7]]공유 스위치 A의 스토리지 RCF를 공유 RCF 파일로 교체합니다.  보다link:install-nxos-rcf-9336c-shared.html["Cisco Nexus 9336C-FX2 공유 스위치에 RCF 설치"] 자세한 내용은.
+. [[step7]]공유 스위치 A의 스토리지 RCF를 공유 RCF 파일로 교체합니다. 자세한 내용은 link:install-nxos-rcf-9336c-shared.html["Cisco Nexus 9336C-FX2 공유 스위치에 RCF 설치"]를 참조하십시오.
 . HA 쌍 1, 스토리지 스위치 B에 연결된 스토리지가 정상인지 확인하세요.
 +
 `system health alert show -instance`
@@ -141,7 +141,7 @@ There are no entries matching your query.
 ====
 
 
-. [[step13]]공유 스위치 B의 스토리지 RCF 파일을 공유 RCF 파일로 교체합니다.  보다link:install-nxos-rcf-9336c-shared.html["Cisco Nexus 9336C-FX2 공유 스위치에 RCF 설치"] 자세한 내용은.
+. [[step13]]공유 스위치 B의 스토리지 RCF 파일을 공유 RCF 파일로 교체합니다. 자세한 내용은 link:install-nxos-rcf-9336c-shared.html["Cisco Nexus 9336C-FX2 공유 스위치에 RCF 설치"]을 참조하십시오.
 . HA 쌍 1, 스토리지 스위치 B에 연결된 스토리지가 정상인지 확인하세요.
 +
 `system health alert show -instance`
@@ -183,7 +183,7 @@ sh1 (config)# *exit*
 ====
 
 
-. [[step16]]스위치 없는 클러스터에서 스위치가 있는 클러스터로 HA 쌍 1을 변환합니다.  공유 RCF에서 정의한 클러스터 포트 할당을 사용합니다.  보다link:prepare-nxos-rcf-9336c-shared.html["NX-OS 소프트웨어 및 참조 구성 파일(RCF) 설치"] 자세한 내용은 다음을 참조하세요.
+. [[step16]]HA 쌍 1을 스위치가 없는 클러스터에서 스위치 클러스터로 변환합니다. 공유 RCF에서 정의한 클러스터 포트 할당을 사용합니다. 자세한 내용은 link:prepare-nxos-rcf-9336c-shared.html["NX-OS 소프트웨어 및 RCF(Reference Configuration Files) 설치"]를 참조하십시오.
 . 스위치드 네트워킹 구성이 유효한지 확인하세요.
 +
 `network port show`

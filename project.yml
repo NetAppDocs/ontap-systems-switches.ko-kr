@@ -12,7 +12,7 @@ settings:
   langs: ko-kr,us-en,de-de,es-es,fr-fr,it-it,pt-br,ja-jp,zh-cn,zh-tw
 sidebar:
   entries:
-  - title: ONTAP 하드웨어 시스템에 대한 스위치 문서
+  - title: ONTAP 스토리지 시스템용 스위치 문서
     url: "/index.html"
   - title: 시작하기
     entries:

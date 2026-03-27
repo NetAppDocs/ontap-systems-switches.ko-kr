@@ -41,8 +41,8 @@ entries:
     url: "/switch-cisco-3232c-storage/upgrade-rcf-software-3232c-storage.html"
   - title: SSH 구성을 확인하세요
     url: "/switch-cisco-3232c-storage/configure-ssh-keys.html"
-  - title: 스위치를 공장 기본값으로 재설정합니다
-    url: "/switch-cisco-3232c-storage/reset-switch-3232c-storage.html"
+- title: 스위치를 공장 기본값으로 재설정합니다
+  url: "/switch-cisco-3232c-storage/reset-switch-3232c-storage.html"
 - title: 3232C 스토리지 스위치 교체
   url: "/switch-cisco-3232c-storage/replace-storage-switch.html"
 - title: 3232C 스토리지 스위치 업그레이드

@@ -147,7 +147,7 @@ Larger than PMTU communication succeeds on 4 path(s) RPC status:
 
 . C1에서 모든 노드 연결 포트를 활성화합니다.
 +
-Cisco 명령에 대한 자세한 내용은 다음 가이드를 참조하세요. https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^] .
+Cisco 명령에 대한 자세한 내용은 link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^]에 나열된 가이드를 참조하십시오.
 
 +
 .예를 보여주세요

@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords: install rcf, cisco switches 
 summary: Nexus 9364d-gx2a 스위치를 처음 설정한 후 RCF를 설치할 수 있습니다. 
 ---
-= 참조 구성 파일(RCF) 설치
+= RCF 설치
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Nexus 9364D-GX2A 스위치를 처음 설정한 후 참조 구성 파일(RCF)을 설치합니다.
+Nexus 9364D-GX2A 스위치를 처음 설정한 후 RCF를 설치합니다.
 
 .시작하기 전에
 다음 설치 및 연결을 확인하세요.
@@ -30,7 +30,7 @@ Nexus 9364D-GX2A 스위치를 처음 설정한 후 참조 구성 파일(RCF)을 
 . SSH나 직렬 콘솔을 사용하여 Switch cs1에 로그인합니다.
 . FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 cs1의 부트플래시에 복사합니다.
 +
-Cisco 명령에 대한 자세한 내용은 해당 가이드를 참조하세요. https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Cisco Nexus 9000 시리즈 NX-OS 명령 참조"^] 가이드.
+Cisco 명령에 대한 자세한 내용은 link:https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Cisco Nexus 9000 시리즈 NX-OS 명령 참조"^]의 해당 가이드를 참조하십시오.
 
 +
 .예를 보여주세요
@@ -50,7 +50,7 @@ Copy complete, now saving to disk (please wait)...
 ====
 . 이전에 다운로드한 RCF를 부트플래시에 적용합니다.
 +
-Cisco 명령에 대한 자세한 내용은 해당 가이드를 참조하세요. https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Cisco Nexus 9000 시리즈 NX-OS 명령 참조"^] 가이드.
+Cisco 명령에 대한 자세한 내용은 link:https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Cisco Nexus 9000 시리즈 NX-OS 명령 참조"^]의 해당 가이드를 참조하십시오.
 
 +
 .예를 보여주세요
@@ -140,7 +140,7 @@ cs1# show banner motd
 `cs1# echo "hardware access-list tcam region ing-l2-qos 1536" >> bootflash:write_erase.cfg`
 
 +
-지식 기반 문서를 참조하세요link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["원격 연결을 유지하면서 Cisco 상호 연결 스위치의 구성을 지우는 방법"^] 자세한 내용은.
+자세한 내용은 기술 자료 문서 link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["원격 연결을 유지하면서 Cisco 상호 연결 스위치의 구성을 지우는 방법"^]를 참조하십시오.
 
 . 다음을 확인하십시오. `write_erase.cfg` 예상대로 파일이 채워졌습니다.
 +

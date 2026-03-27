@@ -1,6 +1,6 @@
 ---
 indexpage:
-  title: ONTAP 하드웨어 시스템에 대한 스위치 설명서
+  title: ONTAP 스토리지 시스템용 스위치 설명서
   summary: 이 사이트의 문서를 사용하여 클러스터, 공유 스토리지 및 MetroCluster 스위치를 설치, 업그레이드 및 유지 관리하세요.
   keywords: switches
   lead: NetApp 호스트 스토리지와 두 개 이상의 NetApp 컨트롤러 간의 연결을 제공하기 위해 클러스터, 스토리지 및 공유 스위치를 제공하므로

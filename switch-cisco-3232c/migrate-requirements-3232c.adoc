@@ -87,7 +87,7 @@ CN1610~3232C(QSFP~SFP+)
 * 포트 e1/41-48(10GbE): Nexus 5596
 * 포트 e1/31-32(40/100GbE): Nexus 3232C
 +
-** 그만큼link:https://hwu.netapp.com/["_하드웨어 유니버스_"^] Nexus 3232C 스위치에 지원되는 케이블에 대한 정보가 포함되어 있습니다.
+** link:https://hwu.netapp.com/["Hardware Universe"^]에는 Nexus 3232C 스위치에서 지원되는 케이블에 대한 정보가 포함되어 있습니다.
 
 
 * 10GbE 클러스터 연결이 있는 노드에는 QSFP-SFP+ 광섬유 분기 케이블이나 QSFP-SFP+ 구리 분기 케이블이 필요합니다.

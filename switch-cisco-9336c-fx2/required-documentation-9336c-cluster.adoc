@@ -14,13 +14,13 @@ summary: Cisco Nexus 9336C-FX2 스위치 설치 및 유지관리를 위해서는
 
 
 [role="lead"]
-Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스위치를 설치하고 유지 관리하려면 Cisco 9336-FX2 스위치와 ONTAP 클러스터를 설정하기 위해 특정 스위치 및 컨트롤러 설명서를 검토하세요.
+Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스위치 설치의 경우 특정 스위치 및 컨트롤러 설명서를 검토하여 Cisco 9336-FX2 스위치 및 ONTAP 클러스터를 설정하십시오.
 
 
 
 == 스위치 문서
 
-Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스위치를 설정하려면 다음 문서가 필요합니다. https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Cisco Nexus 9000 시리즈 스위치 지원"^] 페이지:
+Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스위치를 설정하려면 link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Cisco Nexus 9000 시리즈 스위치 지원"^]의 다음 문서가 필요합니다.
 
 [cols="1,2"]
 |===
@@ -86,7 +86,7 @@ Nexus 9000 시리즈 스위치에 대한 국제 기관 규정 준수, 안전 및
 
 == ONTAP 시스템 문서
 
-ONTAP 시스템을 설정하려면 운영 체제 버전에 대한 다음 문서가 필요합니다. https://docs.netapp.com/ontap-9/index.jsp["ONTAP 9"^] .
+ONTAP 시스템을 설정하려면 사용 중인 운영 체제 버전에 맞는 다음 문서가 필요합니다.
 
 [cols="1,2"]
 |===
@@ -101,14 +101,14 @@ NetApp 하드웨어를 설치하는 방법을 설명합니다.
 
 
  a| 
-ONTAP 문서
+link:https://docs.netapp.com/ontap-9/index.jsp["ONTAP 9"^]
  a| 
 ONTAP 릴리스의 모든 측면에 대한 자세한 정보를 제공합니다.
 
 
 
  a| 
-https://hwu.netapp.com["Hardware Universe"^]
+link:https://hwu.netapp.com["Hardware Universe"^]
  a| 
 NetApp 하드웨어 구성 및 호환성 정보를 제공합니다.
 
@@ -117,7 +117,7 @@ NetApp 하드웨어 구성 및 호환성 정보를 제공합니다.
 
 == 레일 키트 및 캐비닛 설명서
 
-NetApp 캐비닛에 Cisco 9336-FX2 스위치를 설치하려면 다음 하드웨어 설명서를 참조하세요.
+NetApp 캐비닛에 Cisco 9336-FX2 스위치를 설치하려면 다음 하드웨어 문서를 참조하십시오.
 
 [cols="1,2"]
 |===
@@ -125,7 +125,7 @@ NetApp 캐비닛에 Cisco 9336-FX2 스위치를 설치하려면 다음 하드웨
 
 
  a| 
-https://library.netapp.com/ecm/ecm_download_file/ECMM1280394["42U 시스템 캐비닛, 딥 가이드"^]
+link:https://library.netapp.com/ecm/ecm_download_file/ECMM1280394["42U 시스템 캐비닛, 딥 가이드"^]
  a| 
 42U 시스템 캐비닛과 관련된 FRU를 설명하고, 유지 관리 및 FRU 교체 지침을 제공합니다.
 

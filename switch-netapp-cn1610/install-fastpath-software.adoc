@@ -49,7 +49,7 @@ RCF 버전과 FASTPATH 버전의 명령 구문 사이에 명령 종속성이 있
 * 그만큼 `cluster::*>` 프롬프트는 클러스터의 이름을 나타냅니다.
 * 각 노드의 클러스터 포트는 e1a와 e2a로 명명됩니다.
 +
-https://hwu.netapp.com/["Hardware Universe"^]플랫폼에서 지원되는 실제 클러스터 포트에 대한 자세한 정보가 있습니다.
+link:https://hwu.netapp.com/["Hardware Universe"^]에는 플랫폼에서 지원되는 실제 클러스터 포트에 대한 자세한 정보가 있습니다.
 
 * 지원되는 ISL(Inter-Switch Links)은 포트 0/13부터 0/16까지입니다.
 * 지원되는 노드 연결은 포트 0/1~0/12입니다.

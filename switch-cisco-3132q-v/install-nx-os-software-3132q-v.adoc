@@ -194,7 +194,7 @@ cluster1::*>
 +
 `network interface modify -vserver Cluster -lif * -auto-revert false`
 
-. FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 NX-OS 소프트웨어를 Nexus 3132Q-V 스위치에 복사합니다.  Cisco 명령에 대한 자세한 내용은 해당 가이드를 참조하세요. https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Cisco Nexus 3000 시리즈 NX-OS 명령 참조 가이드"^] .
+. FTP, TFTP, SFTP 또는 SCP와 같은 전송 프로토콜 중 하나를 사용하여 NX-OS 소프트웨어를 Nexus 3132Q-V 스위치에 복사하십시오. Cisco 명령에 대한 자세한 내용은 link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Cisco Nexus 3000 시리즈 NX-OS 명령 참조"^]의 해당 가이드를 참조하십시오.
 +
 .예를 보여주세요
 [%collapsible]

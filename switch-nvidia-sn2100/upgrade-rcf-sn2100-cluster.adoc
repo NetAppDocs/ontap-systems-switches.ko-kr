@@ -16,7 +16,7 @@ RCF 스크립트를 업그레이드하려면 다음 절차를 따르세요.
 .시작하기 전에
 RCF 스크립트를 업그레이드하기 전에 스위치에서 다음 사항을 사용할 수 있는지 확인하세요.
 
-* Cumulus Linux가 설치되었습니다.  를 참조하십시오 https://hwu.netapp.com/Switch/Index["Hardware Universe"^] 지원되는 버전에 대해서는.
+* Cumulus Linux가 설치되었습니다. 지원되는 버전은 link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^]를 참조하십시오.
 * IP 주소, 서브넷 마스크, 기본 게이트웨이는 DHCP를 통해 정의되거나 수동으로 구성됩니다.
 
 

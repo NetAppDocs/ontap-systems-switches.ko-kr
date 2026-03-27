@@ -33,4 +33,4 @@ Cisco Nexus 9364D-GX2A 스위치는 Cisco Nexus 9000 플랫폼의 일부이며 N
 400GbE ISL
 
 |===
-를 참조하십시오 https://hwu.netapp.com["Hardware Universe"^] 플랫폼에서 사용하는 포트에 대한 자세한 내용은 다음을 참조하세요.
+플랫폼에서 사용하는 포트에 대한 자세한 내용은 link:https://hwu.netapp.com["Hardware Universe"^]을(를) 참조하십시오.
