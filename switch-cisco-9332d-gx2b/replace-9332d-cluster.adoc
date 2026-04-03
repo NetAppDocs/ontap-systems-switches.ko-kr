@@ -253,12 +253,12 @@ newcs2(config)# *interface e1/1/1-4,e1/2/1-4,e1/3/1-4,e1/4/1-4,e1/5/1-4,e1/6/1-4
 newcs2(config-if-range)# *shutdown*
 newcs2(config)# *interface e1/9/1-4,e1/10/1-4,e1/11/1-4,e1/12/1-4,e1/13/1-4,e1/14/1-4,e1/15/1-4,e1/16/1-4*
 newcs2(config-if-range)# *shutdown*
-newcs2(config)# *interface e1/17/1-4,e1/18/1-4,e1/19/1-4,e1/20/1-4,e1/21/1-4,e1/22/1-44,e1/23/1-4*
+newcs2(config)# *interface e1/17/1-4,e1/18/1-4,e1/19/1-4,e1/20/1-4,e1/21/1-4,e1/22/1-4,e1/23/1-4*
 newcs2(config-if-range)# *shutdown*
-newcs2(config)# *interface e1/24/1-,e1/25/1-4,e1/26/1-4,e1/27/1-4,e1/28/1-4,e1/29/1-4,e1/30/1-44*
+newcs2(config)# *interface e1/24/1-4,e1/25/1-4,e1/26/1-4,e1/27/1-4,e1/28/1-4,e1/29/1-4,e1/30/1-4*
 newcs2(config-if-range)# *shutdown*
-newcs2(config-if-range)# exit
-newcs2(config)# exit
+newcs2(config-if-range)# *exit*
+newcs2(config)# *exit*
 ----
 ====
 . 모든 클러스터 LIF에 자동 되돌리기가 활성화되어 있는지 확인하세요.
@@ -367,8 +367,8 @@ cs1# *config*
 Enter configuration commands, one per line. End with CNTL/Z.
 cs1(config)# *interface e1/31-32*
 cs1(config-if-range)# *shutdown*
-cs1(config-if-range)# exit
-cs1(config)# exit
+cs1(config-if-range)# *exit*
+cs1(config)# *exit*
 ----
 . Nexus 9332D-GX2B cs2 스위치에서 모든 케이블을 제거한 다음, 이를 9332D-GX2B newcs2 스위치의 동일한 포트에 연결합니다.
 . cs1과 newcs2 스위치 사이에서 ISL 포트 Eth1/31과 Eth1/32를 가동한 후 포트 채널 작동 상태를 확인합니다.
@@ -405,6 +405,26 @@ Group Port-       Type     Protocol  Member Ports
 --------------------------------------------------------------------------------
 1     Po1(SU)     Eth      LACP      Eth1/31(P)   Eth1/32(P)
 999   Po999(SD)   Eth      NONE      --
+----
+====
+. newcs2 스위치의 모든 포트(Eth1/1부터 Eth1/30까지)를 활성화하십시오.
++
+.예를 보여주세요
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+newcs2# *config*
+newcs2(config)# *interface e1/1/1-4,e1/2/1-4,e1/3/1-4,e1/4/1-4,e1/5/1-4,e1/6/1-4,e1/7/1-4,e1/8/1-4*
+newcs2(config-if-range)# *no shutdown*
+newcs2(config)# *interface e1/9/1-4,e1/10/1-4,e1/11/1-4,e1/12/1-4,e1/13/1-4,e1/14/1-4,e1/15/1-4,e1/16/1-4*
+newcs2(config-if-range)# *no shutdown*
+newcs2(config)# *interface e1/17/1-4,e1/18/1-4,e1/19/1-4,e1/20/1-4,e1/21/1-4,e1/22/1-4,e1/23/1-4*
+newcs2(config-if-range)# *no shutdown*
+newcs2(config)# *interface e1/24/1-4,e1/25/1-4,e1/26/1-4,e1/27/1-4,e1/28/1-4,e1/29/1-4,e1/30/1-4*
+newcs2(config-if-range)# *no shutdown*
+newcs2(config-if-range)# *exit*
+newcs2(config)# *exit*
 ----
 ====
 . 모든 노드에서 포트 e7b가 작동하는지 확인하세요.

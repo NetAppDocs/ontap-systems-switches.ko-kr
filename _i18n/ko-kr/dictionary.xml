@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <blocks>
   <block id="135b308ed83c53f1516b7c754566d1c4" category="doc">시작하기 전에</block>
-  <block id="8ac20e3719b6b58e94e5a4385e87b52e" category="paragraph">이더넷 스위치 상태 모니터(CSHM)는 클러스터 및 스토리지 네트워크 스위치의 작동 상태를 보장하고 디버깅 목적으로 스위치 로그를 수집하는 역할을 합니다.  이 절차에서는 AutoSupport 에서 수집하는 *주기적* 데이터의 매시간 수집을 활성화하고, 자세한 *지원* 로그를 요청하고, 수집을 설정하는 과정을 안내합니다.</block>
   <block id="2ded3ff3862adfc6f54d2a2f3ebf1147" category="paragraph">*참고:* FIPS 모드를 활성화하는 경우 다음을 완료해야 합니다.</block>
   <block id="81f0d5b127adfd87f50ce10bc85e1e65" category="list-text">공급업체의 지침을 사용하여 스위치에서 SSH 키를 다시 생성합니다.</block>
   <block id="a60a00967db7342947b326a8f7618f52" category="list-text">ONTAP 에서 SSH 키를 재생성하려면 다음을 사용하세요.<block ref="c079360670e0f4f9441a54ac1d262788" prefix=" " category="inline-code"></block></block>
@@ -3019,17 +3018,7 @@
   <block id="71a881be92e62256287d6347bd624fad" category="paragraph">ISL이 A 포트 65를 전환합니다.</block>
   <block id="eda024fd7d2291c043817bf86d68da64" category="paragraph">ISL에서 B 포트 66으로 전환</block>
   <block id="fbfe4b7728646e201fb34cdd5d08935c" category="paragraph">ISL이 A 포트 66을 전환합니다.</block>
-  <block id="f5e9ec33bbd550cafe73fcb03480f889" category="summary">Cisco 9332D-GX2B 스위치를 구성하기 전에 다음 정보를 검토하세요.</block>
-  <block id="7fb930ad6a0d234e53294ed9bec42b34" category="paragraph">Cisco 9332D-GX2B 스위치를 구성하기 전에 다음 고려 사항을 검토하세요.</block>
-  <block id="a1d07f6c5f2382a1e6db9b0444491cb4" category="section-title">NVIDIA CX6-DX 이더넷 포트 지원</block>
-  <block id="a32d4cc05beee2bf611dd754f323b14b" category="paragraph">NVIDIA ConnectX-6 Dx(CX6-DX) NIC 포트(부품 번호 X50130B)를 사용하여 스위치 포트를 ONTAP 컨트롤러에 연결하는 경우 스위치 포트 속도를 하드코딩해야 합니다.</block>
-  <block id="43ca6c0708b86c2e3ba5a4b20f4bc474" category="summary">ONTAP 9.9.1부터 Cisco Nexus 9332D-GX2B 스위치를 사용하여 스토리지와 클러스터 기능을 공유 스위치 시나리오로 결합할 수 있습니다.</block>
-  <block id="fd416e48095036f67db7c479cfef73c0" category="doc">Cisco Nexus 9332D-GX2B 스위치의 네트워크 요구 사항</block>
-  <block id="83142a06d593700b2ff333694496012b" category="paragraph">Cisco Nexus 9332D-GX2B 스위치 설치 및 유지관리를 위해서는 케이블 및 네트워크 요구 사항을 검토하세요.</block>
   <block id="3eb36d6d74c43353c4b5b101aa777feb" category="paragraph">모든 스위치 구성에는 다음 네트워크 정보가 필요합니다.</block>
-  <block id="0c8374c87ef91b0dd751ef764fd68300" category="list-text">대부분의 스토리지 시스템 컨트롤러는 이더넷 서비스 포트(렌치 아이콘)에 연결하여 e0M 인터페이스를 통해 관리됩니다.</block>
-  <block id="541fb7ba8b8b8df9c175d1695f706597" category="list-text">를 참조하세요<block ref="16a6d09025d51cb8dd3516798b3fee8a" category="inline-link-rx"></block> 최신 정보를 확인하세요.</block>
-  <block id="118d935cca54466f59122caecfde09ad" category="section-title">케이블링 요구 사항</block>
   <block id="922e0472f9731d915fa1e9d3a596e9cf" category="list-text">처음 구성하는 스위치 유형에 따라 포함된 콘솔 케이블을 사용하여 스위치 콘솔 포트에 연결해야 합니다.</block>
   <block id="209b62e0549113b11f345f2ebaf69962" category="summary">Cisco Nexus 9332D-GX2B 스위치의 포트 세부 정보</block>
   <block id="143e5769c5c85e56dffd181ed3e493aa" category="paragraph">Cisco Nexus 9332D-GX2B 스위치는 Cisco Nexus 9000 플랫폼의 일부입니다. AFX 시스템 스위치를 사용하면 두 개 이상의 노드로 ONTAP 클러스터를 구축할 수 있습니다.</block>
@@ -3156,26 +3145,9 @@
   <block id="906296921ce498fa9500d86133cb4a2b" category="list-title">사용 가능한 RCF 구성</block>
   <block id="fdb500ee5ab5f21c1b5bc773c9113780" category="list-text"><block ref="fdb500ee5ab5f21c1b5bc773c9113780" category="inline-link-macro-rx"></block></block>
   <block id="fdd1967bcc4179d15ff49af9f4eb5d7e" category="paragraph">RCF 설치 또는 RCF 업그레이드 절차를 검토한 후<block ref="804caa6e47e068ee420004b49576cb27" category="inline-link-macro-rx"></block> 또는<block ref="34eb350590adb58b30d7d2c85b3e73cb" category="inline-link-macro-rx"></block> 필요에 따라.</block>
-  <block id="337fc22f6db10f996d56acc741118e32" category="summary">기존에 2노드 스위치리스 클러스터 환경이 있는 경우 Cisco Nexus 9332D-GX2B 스위치를 사용하여 2노드 스위치 클러스터 환경으로 마이그레이션하면 클러스터에서 노드를 두 개 이상으로 확장할 수 있습니다.</block>
   <block id="a2d07f4e7a36ed872e60c08cdcc73771" category="doc">2노드 스위치 클러스터로 마이그레이션</block>
-  <block id="4ae5628e23c2f96ffb061d8de0b69375" category="paragraph">기존의 2노드 _스위치리스_ 클러스터 환경이 있는 경우 Cisco Nexus 9332D-GX2B 스위치를 사용하여 2노드 _스위치_ 클러스터 환경으로 마이그레이션할 수 있습니다.</block>
   <block id="a693fd2056f9dc0037e9baefb9fbe3bb" category="paragraph">마이그레이션 프로세스는 광 포트나 Twinax 포트를 사용하는 모든 노드에서 작동하지만, 노드가 클러스터 네트워크 포트에 온보드 10Gb BASE-T RJ45 포트를 사용하는 경우 이 스위치에서는 지원되지 않습니다.</block>
-  <block id="5f082cebdf9c4696324c2ba72f77318c" category="list-text">Cisco Nexus 9332D-GX2B 스위치 구성의 경우:</block>
-  <block id="bfbf5a65ca6d5888e91891feffc4d5da" category="list-text">Nexus 9332D-GX2B 노드 간 스위치와 스위치 간 연결에는 Twinax 또는 파이버 케이블을 사용합니다.</block>
-  <block id="440642316e621e445b65a0fd788fc12f" category="list-text">ISL(Inter-Switch Link) 케이블은 두 9332D-GX2B 스위치의 포트 1/35와 1/36에 연결됩니다.</block>
-  <block id="a104a175c4457280b283fe9d2234f257" category="list-text">두 9332D-GX2B 스위치의 초기 사용자 정의가 완료되어 다음과 같은 결과가 나왔습니다.</block>
-  <block id="3e3222e2b508ac0b462bb536509dfcaf" category="list-text">9332D-GX2B 스위치는 최신 버전의 소프트웨어를 실행하고 있습니다.</block>
-  <block id="52a3cee6e7f049fa10ea4376974cb6ad" category="list-text">9332D-GX2B2 스위치의 이름은 cs1과 cs2입니다.</block>
-  <block id="d96c4aa580b8ee9c1402e467c01d9385" category="list-text">두 9332D-GX2B 스위치 cs1과 cs2 사이의 ISL과 ISL의 물리적 포트가 포트 1/35와 1/36에서 작동하는지 확인하세요.</block>
   <block id="ebcf71eb39f7510f62abf6ea769fb245" category="paragraph">각 클러스터 LIF는 다음을 표시해야 합니다.<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block> ~을 위한<block ref="53db3ce0fe0e71f06b3beb0b676b806c" prefix=" " category="inline-code"></block> 그리고 가지고있다<block ref="4f21ee5a18672b60f4c01e94e6be9c79" prefix=" " category="inline-code"></block> 위로/위로.</block>
-  <block id="bdbadd6072a9b09a1ccb52d61a3980cf" category="list-text">노드 1의 클러스터 포트 e0a에서 케이블을 분리한 다음, 9332D-GX2B 스위치에서 지원하는 적절한 케이블을 사용하여 e0a를 클러스터 스위치 cs1의 포트 1에 연결합니다.</block>
-  <block id="9e8d0650f943d18a4d35bc0a06a58c13" category="list-text">노드2의 클러스터 포트 e0a에서 케이블을 분리한 다음, 9332D-GX2B 스위치에서 지원하는 적절한 케이블을 사용하여 e0a를 클러스터 스위치 cs1의 포트 2에 연결합니다.</block>
-  <block id="8d88ef7edb7cad807b1289a0f782c2d2" category="list-text">노드 1의 클러스터 포트 e0b에서 케이블을 분리한 다음, 9332D-GX2B 스위치에서 지원하는 적절한 케이블을 사용하여 e0b를 클러스터 스위치 cs2의 포트 1에 연결합니다.</block>
-  <block id="4197a5ab4b9f3de6c2c1790cb558ad3c" category="list-text">노드2의 클러스터 포트 e0b에서 케이블을 분리한 다음, 9332D-GX2B 스위치에서 지원하는 적절한 케이블을 사용하여 e0b를 클러스터 스위치 cs2의 포트 2에 연결합니다.</block>
-  <block id="2524de6afa6b1569b9b31ebacac83f4a" category="summary">ONTAP 클러스터용 기존 Cisco 클러스터 스위치를 중단 없이 Cisco Nexus 9332D-GX2B 클러스터 네트워크 스위치로 마이그레이션할 수 있습니다.</block>
-  <block id="a1958649e196dc12917fa23c795fbbe5" category="doc">이전 Cisco 스위치에서 Cisco Nexus 9332D-GX2B 스위치로 마이그레이션</block>
-  <block id="e7d4a6009585d24053e959f7b9c72b8c" category="paragraph">이전 Cisco 클러스터 스위치에서 Cisco Nexus 9332D-GX2B 클러스터 네트워크 스위치로 중단 없는 마이그레이션을 수행할 수 있습니다.</block>
-  <block id="cfccb2504d60cade90d43b59059ab531" category="doc">Cisco Nexus 9332D-GX2B2 클러스터 스위치를 스위치리스 연결로 교체</block>
   <block id="034b2ca4f8708065c8d2bc270a8065be" category="summary">클러스터 네트워크에서 결함이 있는 Nexus 9332D-GX2B 스위치를 교체하는 것은 중단 없는 절차(NDU)입니다.</block>
   <block id="de26480add46f245a8d5542ad9cca42b" category="doc">Cisco Nexus 9332D-GX2B 스위치 교체</block>
   <block id="d791e14d35f87ca6e28ae6a4b9bc0379" category="paragraph">공유 네트워크에서 결함이 있는 Nexus 9332D-GX2B 스위치를 교체하려면 다음 단계를 따르세요. 이는 중단 없는 절차(NDU)입니다.</block>
@@ -3944,12 +3916,6 @@
   <block id="6c7072958775e2716da05784c2834f65" category="paragraph">케이블링 워크시트를 완료한 후에는 다음을 수행할 수 있습니다. <block ref="d9d3d8dae0a36eea938e144b4f81717e" category="inline-link-macro-rx"></block>.</block>
   <block id="3e1208bc4bf9384a3afbda89e7d0cb5a" category="paragraph">여기서 _x_는 유지 관리 기간(시간)입니다.</block>
   <block id="22e5bcc55974e1667f105918832f4dea" category="list-text">NX-OS 10.2 이상의 경우 다음을 사용하세요.<block ref="9c370f72db0e0d920841657ac5268365" prefix=" " category="inline-code"></block> 부트플래시에 저장된 RCF 파일과 비교하는 명령입니다. 그렇지 않은 경우 타사의 diff 또는 비교 도구를 사용하세요.</block>
-  <block id="9c6c3f61af7dff11347a9a97366c4acb" category="summary">Cisco 9364d-gx2a 스위치를 구성하기 전에 다음 정보를 검토하세요.</block>
-  <block id="b771416dbd66215d66c0fd3bf739e5a2" category="paragraph">Cisco 9364D-GX2A 스위치를 구성하기 전에 다음 고려 사항을 검토하세요.</block>
-  <block id="98d47bae71b2dc1d79d4c85b4018180a" category="paragraph">NVIDIA ConnectX-6 Dx(CX6-DX) NIC 포트(부품 번호 X50130B)를 사용하여 스위치 포트를 ONTAP 컨트롤러에 연결하는 경우 스위치 포트 속도를 하드코딩해야 합니다.</block>
-  <block id="c0c8f19e1caa03ae66089f6734ad6427" category="summary">ONTAP 9.9.1부터 Cisco Nexus 9364d-gx2a 스위치를 사용하여 스토리지와 클러스터 기능을 공유 스위치 시나리오로 결합할 수 있습니다.</block>
-  <block id="f8ea0b6a6d5331dd41671be79eba8b80" category="doc">Cisco Nexus 9364D-GX2A 스위치의 네트워크 요구 사항</block>
-  <block id="d815f83c6610cf53f479e1ff013e05bd" category="paragraph">Cisco Nexus 9364D-GX2A 스위치 설치 및 유지관리를 위해서는 케이블 및 네트워크 요구 사항을 검토하세요.</block>
   <block id="693bb1d6da1a4a39adcbdfb78152a10d" category="summary">Cisco Nexus 9364D-GX2A 스위치의 포트 세부 정보입니다.</block>
   <block id="75b76d5b0a7f4d1316caaabb8edbbd71" category="doc">Cisco Nexus 9364D-GX2A 스위치의 포트 세부 정보</block>
   <block id="4cd7313cf8af783e1ff5c03134602ed8" category="paragraph">Cisco Nexus 9364D-GX2A 스위치는 Cisco Nexus 9000 플랫폼의 일부이며 NetApp 시스템 캐비닛에 설치할 수 있습니다. 9364D-GX2A 스위치를 사용하면 두 개 이상의 노드로 ONTAP 클러스터를 구축할 수 있습니다.</block>
@@ -3996,12 +3962,6 @@
   <block id="4ddbf9913cf137f28df7ad8a4a25d0f5" category="paragraph">이 예에서는 RCF 파일을 보여줍니다.<block ref="1b86452473f90818e41227cf4b4157de" prefix=" " category="inline-code"></block> 스위치 cs1에 설치 중:</block>
   <block id="7ea042ac2614a0600db9c4b93b98f977" category="summary">Nexus 9364d-gx2a 스위치를 처음 설정한 후 RCF를 설치할 수 있습니다. 이 절차를 사용하여 RCF를 업그레이드할 수도 있습니다.</block>
   <block id="e78d946d685c3dda4f9e3b88a2f0bba2" category="paragraph">RCF 설치 또는 RCF 업그레이드 절차를 검토한 후<block ref="aa26a14f1bc2d7d8cc0e72e6b978adf7" category="inline-link-macro-rx"></block> 또는<block ref="4e313e617a2ef8fc435b0fa38938a5e3" category="inline-link-macro-rx"></block> 필요에 따라.</block>
-  <block id="0ca59852803eb076c0ee9c67538053fe" category="summary">기존에 2노드 스위치리스 클러스터 환경이 있는 경우 Cisco Nexus 9364d-gx2a 스위치를 사용하여 2노드 스위치 클러스터 환경으로 마이그레이션하면 클러스터에서 노드를 두 개 이상으로 확장할 수 있습니다.</block>
-  <block id="7f01c134f69e6ae852c99e15adbc1e2b" category="paragraph">기존의 2노드 _스위치리스_ 클러스터 환경이 있는 경우 Cisco Nexus 9364D-GX2A 스위치를 사용하여 2노드 _스위치_ 클러스터 환경으로 마이그레이션할 수 있습니다.</block>
-  <block id="b6fcfead0738ea09f2b691474609a29e" category="summary">ONTAP 클러스터용 기존 Cisco 클러스터 스위치를 중단 없이 Cisco Nexus 9364d-gx2a 클러스터 네트워크 스위치로 마이그레이션할 수 있습니다.</block>
-  <block id="db8835a05da545df84b45b247adea01f" category="doc">이전 Cisco 스위치에서 Cisco Nexus 9364D-GX2A 스위치로 마이그레이션</block>
-  <block id="c1a2ea599205b8771310b00480bede1d" category="paragraph">이전 Cisco 클러스터 스위치에서 Cisco Nexus 9364D-GX2A 클러스터 네트워크 스위치로 중단 없는 마이그레이션을 수행할 수 있습니다.</block>
-  <block id="5767008faeeaaa4fc001088d92fd2271" category="doc">Cisco Nexus 9364D-GX2A 스위치를 스위치리스 연결로 교체</block>
   <block id="9171c26a27d3f56eb4e1f4b69582413f" category="summary">클러스터 네트워크에서 결함이 있는 Nexus 9364d-gx2a 스위치를 교체하는 것은 중단 없는 절차(NDU)입니다.</block>
   <block id="06e8a8675fac36562a21ef023e9cd2f4" category="doc">Cisco Nexus 9364D-GX2A 스위치 교체</block>
   <block id="f5aff46ac4603cb35601dc593b6fc9f9" category="paragraph">클러스터 네트워크에서 결함이 있는 Nexus 9364D-GX2A 스위치를 교체하려면 다음 단계를 따르세요. 이는 중단 없는 절차(NDU)입니다.</block>
@@ -4044,7 +4004,6 @@
   <block id="5b62a4b03175f138ff64effec2560ed7" category="summary">이 절차를 사용하면 이더넷 스위치 상태 모니터링(CSHM)을 지원하는 특정 스위치에 맞게 SNMPv3를 구성할 수 있습니다.</block>
   <block id="62f22218ea7fb3cf6669cdfdb6c908e0" category="doc">스위치에 SNMPv3 구성(선택 사항)</block>
   <block id="1c10f160ae9b8c4d78cec8e05f3c3a4e" category="paragraph">SNMP는 스위치를 모니터링하는 데 사용됩니다.  SNMPv3에 의한 모니터링은 다음 절차에 따라 구성됩니다.</block>
-  <block id="b243d3b653e3e0bac6ab3be1bf2318bf" category="paragraph">이더넷 스위치 상태 모니터(CSHM)는 SNMP를 활용하여 클러스터 및 스토리지 스위치의 상태와 성능을 모니터링합니다.  기본적으로 SNMPv2c는 참조 구성 파일(RCF)을 통해 자동으로 구성됩니다.  SNMPv3는 인증, 암호화, 메시지 무결성과 같은 강력한 보안 기능을 도입하여 무단 접근을 방지하고 전송 중 데이터의 기밀성과 무결성을 보장하므로 SNMPv2보다 보안성이 더 높습니다.</block>
   <block id="1c76d98a8c6bdaf19a0c6e69ecd5d74b" category="doc">스위치 상태 모니터 개요</block>
   <block id="5c1a7fd59da01d98a9fa4672044477e2" category="summary">제공된 명령을 사용할 수 있습니다....</block>
   <block id="28498a71a5aca6b62e077f2dc8cf0ccb" category="doc">로그 수집 개요</block>
@@ -4071,7 +4030,6 @@
   <block id="b16485fd5118936281137dbf7e67a0d1" category="inline-link">스위치 상태 모니터 경고 해결 가이드</block>
   <block id="586ef722188ebd1147c5005705cba276" category="summary">이더넷 스위치 모니터링이 제대로 작동하는지 확인하는 방법을 알아보세요.</block>
   <block id="73938029de1874ad71500c396fa836b1" category="doc">이더넷 스위치 모니터링 확인</block>
-  <block id="7d446387be9f1d7a1583327a693c81a1" category="paragraph">이더넷 스위치 상태 모니터(CSHM)는 발견된 스위치를 자동으로 모니터링하려고 시도합니다. 그러나 스위치가 올바르게 구성되지 않은 경우 모니터링이 자동으로 이루어지지 않을 수 있습니다.  스위치를 모니터링하기 위해 상태 모니터가 올바르게 구성되었는지 확인해야 합니다.</block>
   <block id="61c6496b7fc6acc388aea0c4121ad73d" category="summary">NetApp CN1610 하드웨어를 설치하려면 NetApp 설명서를 참조하세요.</block>
   <block id="56d51248b29d38d6d0101b911261169f" category="doc">NetApp CN1610 스위치에 대한 하드웨어 구성</block>
   <block id="52663e973f6b6ab69073964e0b15c245" category="inline-link">CN1601 및 CN1610 스위치 설정 및 구성 가이드</block>
@@ -5732,7 +5690,6 @@
   <block id="fa563af13977c8fa13c2f34c249aa75c" category="paragraph">Cisco Nexus 92300YC 스위치 설치 시에는 권장되는 모든 문서를 반드시 검토하십시오.</block>
   <block id="e97d1cb66bb893f96299c0b61bd825ae" category="paragraph">Cisco Nexus 92300YC 스위치를 설정하려면 <block ref="93ab07c13dccf0df4a51c609a56ba87d" category="inline-link-macro-rx"></block>의 다음 문서가 필요합니다.</block>
   <block id="747757e1552d37c7acbcac8c2bc74c2e" category="paragraph">NetApp 캐비닛에 Cisco Nexus 92300YC 스위치를 설치하려면 다음 하드웨어 문서를 참조하십시오.</block>
-  <block id="ed4348314b5e585f58fb10e3eb23786d" category="list-text">스위치에 필요한 케이블과 케이블 커넥터의 수량 및 종류를 모두 갖추고 있습니다. <block ref="9c839fcdfb8699a63c787254d7b1ae03" category="inline-link-macro-rx"></block>을 참조하십시오.</block>
   <block id="b1b0ac0987476d318ebcba8cc0527236" category="list-text">스위치 포트에 대한 자세한 내용은 <block ref="16a6d09025d51cb8dd3516798b3fee8a" category="inline-link-rx"></block>을(를) 참조하십시오.</block>
   <block id="9de25c87f0b605a29bb38c79425d12e3" category="paragraph">Nexus 9336C-FX2 스위치를 처음 설정한 후 RCF를 설치합니다.</block>
   <block id="c0e57b1bc17b0c8e1aa595a81e7affad" category="paragraph">Cisco 명령에 대한 자세한 내용은<block ref="dba0e49fdfeab9433bb71da6c505aa34" category="inline-link-rx"></block> 가이드의 해당 가이드를 참조하십시오.</block>
@@ -5740,9 +5697,6 @@
   <block id="48b7dcfee85b5f887d81c4d02d77b17b" category="paragraph">Nexus 9332D-GX2B 스위치를 처음 설정한 후 참조 구성 파일(RCF)을 설치합니다. 스위치에 RCF 파일의 기존 버전이 설치되어 있는 경우 RCF 버전을 업그레이드합니다.</block>
   <block id="12b2b90a2df5c424aae239994f423fae" category="paragraph">특정 포트 및 VLAN 사용에 대한 자세한 내용은 RCF의 배너 및 중요 참고 사항 섹션을 참조하십시오. 자세한 내용은 <block ref="3f6421172f80f8047523f4f7c07d2e71" category="inline-link-macro-rx"></block>를 참조하십시오.</block>
   <block id="484285d34e9a7e1700787d621f274175" category="paragraph">플랫폼의 올바른 포트를 확인하려면 <block ref="cd25cbe53f0a314145c84729c6ce2c78" category="inline-link-rx"></block>을(를) 참조하십시오.</block>
-  <block id="944f6c95118c610c7ab840375bc2c61a" category="list-text">지원되는 모든 ONTAP 버전은 <block ref="16a6d09025d51cb8dd3516798b3fee8a" category="inline-link-rx"></block>를 참조하십시오.</block>
-  <block id="c33ff637e82e9abbd67d3e88e8c5fac3" category="paragraph">케이블 연결에 대한 자세한 내용은<block ref="16a6d09025d51cb8dd3516798b3fee8a" category="inline-link-rx"></block>를 참조하십시오.</block>
-  <block id="66ccc6f13163db8c9bb3408859a7da1c" category="paragraph">사용 중인 플랫폼의 클러스터 포트에 대한 정보는 <block ref="16a6d09025d51cb8dd3516798b3fee8a" category="inline-link-rx"></block>을(를) 참조하십시오. 스위치 설치 요구 사항에 대한 자세한 내용은 <block ref="93586a8f49408f483b5b0ac7e6bc3bac" category="inline-link-macro-rx"></block>을(를) 참조하십시오.</block>
   <block id="f8dde6b6e79246450ecfad64e72cf021" category="list-text">유지보수 전후에 유지보수 AutoSupport를 실행하여 유지보수 기간 동안 케이스 생성을 비활성화하십시오. 자세한 내용은 이 기술 자료 문서<block ref="9889375293ffeecac54c58b8cad125b2" category="inline-link-rx"></block>를 참조하십시오.</block>
   <block id="556f9fe16abc11dd3473671f8a35913b" category="paragraph">Cisco Nexus 9332D-GX2B 스위치 설치의 경우 9332D-GX2B 스위치 및 ONTAP 클러스터를 설정하려면 특정 스위치 및 컨트롤러 설명서를 검토해야 합니다.</block>
   <block id="741c229d1d6d0aa9dd2206a8074c4ca0" category="paragraph">Cisco Nexus 9332D-GX2B 스위치를 설정하려면 <block ref="95a6ab609479cb4b4a9170501544c15c" category="inline-link-macro-rx"></block>의 다음 문서가 필요합니다.</block>
@@ -5807,7 +5761,6 @@
   <block id="52cc1f7a5479f0af3d0ec56f1317fe22" category="paragraph">Nexus 9364D-GX2A 스위치를 처음 설정한 후 RCF를 설치합니다.</block>
   <block id="fd68007e61003ecb66b52644065d0aa1" category="paragraph">Nexus 9364D-GX2A 스위치를 처음 설정한 후 RCF를 설치합니다. 스위치에 RCF 파일의 기존 버전이 설치되어 있는 경우 RCF 버전을 업그레이드합니다.</block>
   <block id="63aba13a0110773692f41b0d956d67f0" category="paragraph">플랫폼에서 올바른 클러스터 포트를 확인하려면 <block ref="34774b6dc875898cd8aa59f7081c068c" category="inline-link-macro-rx"></block>을(를) 참조하십시오.</block>
-  <block id="125154abfa6df743751bb0098e41a7ea" category="paragraph">사용 중인 플랫폼의 클러스터 포트에 대한 자세한 내용은 <block ref="9c839fcdfb8699a63c787254d7b1ae03" category="inline-link-macro-rx"></block>를 참조하십시오.</block>
   <block id="857d8dfe60bae8fddfe3a2a67889c3b4" category="paragraph">Cisco Nexus 9364D-GX2A 스위치 설치의 경우 특정 스위치 및 컨트롤러 설명서를 검토하여 Cisco 9364D-GX2A 스위치 및 ONTAP 클러스터를 설정하십시오.</block>
   <block id="045f5ff0d012cdec85ca3e1fc396abde" category="paragraph">Cisco Nexus 9364D-GX2A 스위치를 설정하려면 <block ref="95a6ab609479cb4b4a9170501544c15c" category="inline-link-macro-rx"></block>의 다음 문서가 필요합니다.</block>
   <block id="705dfa9a6d00cf092dad8dee79dbcde8" category="admonition">로그 수집 기능에서 오류 상태가 보고되는 경우(<block ref="88354d538ba5d4e1746193ec5949ab4b" prefix=" " category="inline-code"></block>의 출력에 표시됨) 자세한 내용은 <block ref="2504f84f3fef22e482d1d3a35d9305fe" category="inline-link-macro-rx"></block>을(를) 참조하십시오.</block>
@@ -5876,4 +5829,15 @@
   <block id="950f0e6f812ad0de9038690a88e004cf" category="paragraph">ONTAP 스토리지 시스템용 새 스위치에 대해 알아보십시오. 스위치에 대한 자세한 내용은 <block ref="c845c6ffda77bc94ba897d84583cb923" category="inline-link-macro-rx"></block>을 참조하십시오.</block>
   <block id="3accd457092182b65b303cc399a3e3ff" category="sidebar">ONTAP 스토리지 시스템용 스위치 설명서</block>
   <block id="a5fcc63010ab0a7a26e68d8f04554576" category="sidebar">ONTAP 스토리지 시스템용 스위치 문서</block>
+  <block id="316fa55db721e45107647fc0de79704f" category="paragraph">이더넷 스위치 상태 모니터링(CSHM)은 네트워크 스위치의 작동 상태를 확인하고 디버깅을 위해 스위치 로그를 수집하는 역할을 합니다. 이 절차에서는 수집 설정, 상세 *Support* 로그 요청, 그리고 AutoSupport에서 수집하는 *Periodic* 데이터의 시간별 수집을 활성화하는 프로세스를 안내합니다.</block>
+  <block id="6dbdcd2922ea90d8d9d85b7b2e3f5014" category="inline-link-macro">CSHM 구성</block>
+  <block id="78d07d5b1f80434001bf7ee6902e0e55" category="paragraph-title"><block ref="ef78558f80439832e0f51cc22cee8b8c" category="inline-image-macro-rx" type="image"></block><block ref="89d77223eae1e7b1cf009f838e8ed4ea" category="inline-link-macro-rx"></block></block>
+  <block id="766725015e499832f29c4e8b91bef6ef" category="paragraph">스위치 상태 모니터링을 구성합니다.</block>
+  <block id="1556da421b0bfb50cc7135468542d3b7" category="list-text">newcs2 스위치의 모든 포트(Eth1/1부터 Eth1/30까지)를 활성화하십시오.</block>
+  <block id="12e67aac3e7f9227cc35f8f047d7dc74" category="inline-image-macro">일곱</block>
+  <block id="2a70e5cd7fe1206c11949b9c83f67c59" category="paragraph-title"><block ref="36915574c413876eaa75cbd48f69fd00" category="inline-image-macro-rx" type="image"></block><block ref="89d77223eae1e7b1cf009f838e8ed4ea" category="inline-link-macro-rx"></block></block>
+  <block id="3223a18f0d91b37f89ddc5db7054cd87" category="list-text">newcs2 스위치의 모든 포트를 활성화하십시오.</block>
+  <block id="4900377d6745b8a03e6c9a542b3fe2f0" category="paragraph">이더넷 스위치 상태 모니터링(CSHM)은 네트워크 스위치의 작동 상태를 확인하고 디버깅을 위해 스위치 로그를 수집하는 역할을 합니다.</block>
+  <block id="bc2dfd2fdf95de6b810acf0fa5c67356" category="paragraph">이더넷 스위치 상태 모니터(CSHM)는 SNMP를 사용하여 네트워크 스위치의 상태와 성능을 모니터링합니다. 기본적으로 참조 구성 파일(RCF)을 통해 SNMPv2c가 자동으로 구성됩니다. SNMPv3은 인증, 암호화 및 메시지 무결성과 같은 강력한 보안 기능을 도입하여 SNMPv2보다 보안성이 높습니다. 이러한 기능은 무단 접근을 방지하고 전송 중 데이터의 기밀성과 무결성을 보장합니다.</block>
+  <block id="7cb74dd4a33dec5dc1811198729f1a3d" category="paragraph">이더넷 스위치 상태 모니터링(CSHM)는 검색된 네트워크 스위치를 자동으로 모니터링하려고 시도합니다. 그러나 스위치가 올바르게 구성되지 않은 경우 자동 모니터링이 이루어지지 않을 수 있습니다. 상태 모니터링이 스위치를 모니터링하도록 올바르게 구성되어 있는지 확인해야 합니다.</block>
 </blocks>
