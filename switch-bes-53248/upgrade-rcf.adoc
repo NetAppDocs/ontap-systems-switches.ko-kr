@@ -283,7 +283,8 @@ show isdp neighbor
 (cs2)(Config)# *interface 0/1-0/16*
 (cs2)(Interface 0/1-0/16)# *shutdown*
 (cs2)(Interface 0/1-0/16)# *exit*
-(cs2)(Config)#
+(cs2)(Config)# *exit*
+(cs2)#
 ----
 . 클러스터 LIF가 클러스터 스위치 cs1에 호스팅된 포트로 마이그레이션되었는지 확인합니다. 몇 초 정도 걸릴 수 있습니다.
 +
@@ -356,7 +357,7 @@ NOTE: 구성을 지워도 라이센스는 삭제되지 않습니다.
 +
 [listing]
 ----
-(cs2)> enable
+(cs2)> *enable*
 (cs2)#
 ----
 .. 이전 RCF 구성을 제거하려면 다음 명령을 복사하여 붙여넣습니다(사용한 이전 RCF 버전에 따라 특정 설정이 없으면 일부 명령에서 오류가 발생할 수 있음).
@@ -454,7 +455,10 @@ Are you sure you would like to reset the system? (y/n) *y*
 ====
 .EFOS 버전 3.12.x 이상
 --
-. HTTP, HTTPS, FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 cs2의 부트플래시에 복사합니다.
+
+CAUTION: RCF 파일을 업로드하고 적용할 때 파일 이름을 `reference-config.scr`로 지정해야 합니다. 그렇지 않으면 스크립트 적용 단계가 실패합니다.
+
+. HTTP, HTTPS, FTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 cs2로 복사하십시오.
 +
 이 예에서는 SFTP를 사용하여 RCF를 스위치 cs2의 부트플래시에 복사하는 방법을 보여줍니다.
 
@@ -462,9 +466,9 @@ Are you sure you would like to reset the system? (y/n) *y*
 
 [listing, subs="+quotes"]
 ----
-(cs2)# *copy sftp://172.19.2.1/BES-53248-RCF-v1.9-Cluster-HA.txt nvram:reference-config*
+(cs2)# *copy sftp://172.19.2.1/BES-53248_RCF_v1.9-Cluster-HA.txt nvram:reference-config.scr*
 Remote Password:**
-Mode........................................... TFTP
+Mode........................................... SFTP
 Set Server IP.................................. 172.19.2.1
 Path........................................... /
 Filename....................................... BES-53248_RCF_v1.9-Cluster-HA.txt
@@ -472,7 +476,7 @@ Data Type...................................... Config Script
 Destination Filename........................... reference-config.scr
 Management access will be blocked for the duration of the transfer
 Are you sure you want to start? (y/n) *y*
-TFTP Code transfer starting...
+SFTP Code transfer starting...
 File transfer operation completed successfully.
 ----
 . 스크립트가 다운로드되어 지정한 파일 이름으로 저장되었는지 확인하세요.
@@ -513,7 +517,7 @@ Configuration script 'reference-config.scr' applied.
 --
 .다른 모든 EFOS 버전
 --
-. HTTP, HTTPS, FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 cs2의 부트플래시에 복사합니다.
+. HTTP, HTTPS, FTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 cs2로 복사하십시오.
 +
 이 예에서는 SFTP를 사용하여 RCF를 스위치 cs2의 부트플래시에 복사하는 방법을 보여줍니다.
 

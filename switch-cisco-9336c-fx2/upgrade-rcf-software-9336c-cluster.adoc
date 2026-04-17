@@ -130,7 +130,7 @@ cluster1::*>
 ====
 .. 모든 클러스터 인터페이스(LIF)가 홈 포트에 있는지 확인하세요.
 +
-`network interface show -vserver cluster`
+`network interface show -vserver Cluster`
 
 +
 .예를 보여주세요
@@ -138,7 +138,7 @@ cluster1::*>
 ====
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network interface show -vserver cluster*
+cluster1::*> *network interface show -vserver Cluster*
             Logical            Status     Network           Current      Current Is
 Vserver     Interface          Admin/Oper Address/Mask      Node         Port    Home
 ----------- ------------------ ---------- ----------------- ------------ ------- ----
@@ -223,7 +223,7 @@ CAUTION: 네트워크 연결 문제를 방지하려면 연결된 *모든* 클러
 
 . 클러스터 LIF가 클러스터 스위치 cs1에 호스팅된 포트로 장애 조치되었는지 확인합니다. 몇 초 정도 걸릴 수 있습니다.
 +
-`network interface show -vserver cluster`
+`network interface show -vserver Cluster`
 
 +
 .예를 보여주세요
@@ -231,7 +231,7 @@ CAUTION: 네트워크 연결 문제를 방지하려면 연결된 *모든* 클러
 ====
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network interface show -vserver cluster*
+cluster1::*> *network interface show -vserver Cluster*
             Logical           Status     Network            Current       Current Is
 Vserver     Interface         Admin/Oper Address/Mask       Node          Port    Home
 ----------- ----------------- ---------- ------------------ ------------- ------- ----
@@ -345,21 +345,22 @@ cluster1::*>
 +
 SSH 키와 관련된 호스트 파일 항목을 업데이트해야 할 수도 있습니다.
 
-. FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 cs1의 부트플래시에 복사합니다.
+. FTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 cs1의 bootflash에 복사하십시오.
 +
 Cisco 명령에 대한 자세한 내용은 link:https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Cisco Nexus 9000 시리즈 NX-OS 명령 참조"^]의 해당 가이드를 참조하십시오.
 
 +
-이 예에서는 TFTP를 사용하여 RCF를 스위치 cs1의 부트플래시에 복사하는 방법을 보여줍니다.
+이 예에서는 SFTP를 사용하여 스위치 cs1의 bootflash에 RCF를 복사하는 방법을 보여줍니다.
 
 +
 [listing, subs="+quotes"]
 ----
-cs1# *copy tftp: bootflash: vrf management*
+cs1# *copy sftp: bootflash: vrf management*
 Enter source filename: *Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt*
-Enter hostname for the tftp server: *172.22.201.50*
-Trying to connect to tftp server......Connection to Server Established.
-TFTP get operation was successful
+Enter hostname for the sftp server: *172.22.201.50*
+Enter username: *user1*
+Trying to connect to sftp server......Connection to Server Established.
+SFTP get operation was successful
 Copy complete, now saving to disk (please wait)...
 ----
 . 이전에 다운로드한 RCF를 부트플래시에 적용합니다.
@@ -555,6 +556,9 @@ cluster1::*>
 `This command will reboot the system. (y/n)?  [n] *y*`
 
 
+
+
+CAUTION: RCF 업그레이드 후 9336C-FX2 스위치가 부팅되지 않으면 NetApp 기술 자료 문서 link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Cisco_9336C-FX2_Switch_Fails_to_Boot_After_RCF_Install_%E2%80%93_Boot_Variable_Cleared["RCF 설치 후 Cisco 9336C-FX2 스위치 부팅 실패 – 부팅 변수 지워짐"^]를 참조하여 다음 단계를 진행하십시오.
 
 
 
@@ -792,7 +796,7 @@ cs1#
 ====
 . 클러스터 LIF가 홈 포트로 되돌아갔는지 확인하세요.
 +
-`network interface show -vserver cluster`
+`network interface show -vserver Cluster`
 
 +
 .예를 보여주세요
@@ -800,7 +804,7 @@ cs1#
 ====
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network interface show -vserver cluster*
+cluster1::*> *network interface show -vserver Cluster*
             Logical            Status     Network            Current             Current Is
 Vserver     Interface          Admin/Oper Address/Mask       Node                Port    Home
 ----------- ------------------ ---------- ------------------ ------------------- ------- ----

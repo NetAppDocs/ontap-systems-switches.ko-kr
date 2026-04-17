@@ -2,7 +2,7 @@
 permalink: switch-cisco-9332d-gx2b/install-nxos-overview-9332d-cluster.html 
 sidebar: sidebar 
 keywords: cisco, nx-os, software, reference, configuration, file, rcf, install, fx2, cluster, switch, install nx-os software and rcfs on cisco nexus 9336-fx2 cluster switches - cisco nexus 9336x-fx2 
-summary: 'Cisco NX-OS 소프트웨어와 참조 구성 파일(RCF)은 Cisco Nexus 9332D-GX2B 클러스터 스위치에 설치되어야 합니다.' 
+summary: 'Cisco NX-OS 소프트웨어와 RCF(Reference Configuration File)는 Cisco Nexus 9332D-GX2B 클러스터 스위치에 설치해야 합니다.' 
 ---
 = NX-OS 소프트웨어 및 RCF 설치 준비
 :allow-uri-read: 
