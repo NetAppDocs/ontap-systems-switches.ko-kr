@@ -2,7 +2,7 @@
 permalink: switch-cisco-3132q-v/upgrade-rcf-3132q-v.html 
 sidebar: sidebar 
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 3132q-v 
-summary: '클러스터 스위치 상태 모니터(CSHM) 및 로그 수집 기능을 사용하려면 SSH가 필수적입니다. Cisco 3132q-v 클러스터 스위치에서 SSH를 활성화하려면 먼저 SSH 키를 생성한 다음 SSH를 활성화해야 합니다.' 
+summary: 클러스터 스위치 상태 모니터링 및 로그 수집 기능을 사용하려면 SSH가 필수적입니다. Cisco 3132q-v 클러스터 스위치에서 SSH를 활성화하려면 먼저 SSH 키를 생성한 다음 SSH를 활성화해야 합니다. 
 ---
 = 참조 구성 파일(RCF) 업그레이드
 :allow-uri-read: 

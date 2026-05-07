@@ -2,7 +2,7 @@
 permalink: switch-cshm/config-log-collection.html 
 sidebar: sidebar 
 keywords: log collection feature,collect switch-related log files,SSh key,crypto key generation 
-summary: '이더넷 스위치 상태 모니터(CSHM) 로그 수집 기능은 ONTAP 의 클러스터 또는 스토리지 네트워크 스위치에서 로그를 수집하는 데 사용됩니다.' 
+summary: 이더넷 스위치 상태 모니터링 CSHM 로그 수집 기능은 ONTAP의 클러스터 또는 스토리지 네트워크 스위치에서 로그를 수집하는 데 사용됩니다. 
 ---
 = 로그 수집 구성
 :allow-uri-read: 

@@ -596,7 +596,6 @@
   <block id="9a5f500ffaccd0b3009efe64697ec210" category="list-text"><block ref="9a5f500ffaccd0b3009efe64697ec210" category="inline-link-macro-rx"></block></block>
   <block id="b28b35ae2bb0ba008baa07b20e30cb9b" category="inline-link-macro">NetApp CN1610 클러스터 상호 연결 SKU의 사용 가능 종료</block>
   <block id="3f802670007b812ad08c750c46d02d46" category="list-text"><block ref="3f802670007b812ad08c750c46d02d46" category="inline-link-macro-rx"></block></block>
-  <block id="b61075ba30803dc13c18190d95bb660c" category="summary">이더넷 스위치 상태 모니터(CSHM) 로그 수집 기능은 ONTAP 의 클러스터 또는 스토리지 네트워크 스위치에서 로그를 수집하는 데 사용됩니다.</block>
   <block id="cc96021e22980976473658b2f1ba6e98" category="doc">이더넷 스위치 상태 모니터링 로그 수집</block>
   <block id="bf4e0c74d0d64f033de371084e1f1021" category="paragraph">이더넷 스위치 상태 모니터(CSHM)는 클러스터 및 스토리지 네트워크 스위치의 작동 상태를 보장하고 디버깅 목적으로 스위치 로그를 수집하는 역할을 합니다.  이 절차에서는 스위치에서 자세한 *지원* 로그 수집을 설정하고 시작하는 과정을 안내하고 AutoSupport 에서 수집하는 *주기적* 데이터의 매시간 수집을 시작합니다.</block>
   <block id="43822bbc5cba6f539b9e148db3e66253" category="list-text">로그 수집 기능을 사용하려면 ONTAP 버전 9.10.1P15, 9.11.1P12 또는 9.12.1 이상과 EFOS 3.8.0.2 이상을 실행해야 합니다.</block>
@@ -619,7 +618,6 @@
   <block id="ad20b6964df2e6ea3df2b394efc811ed" category="paragraph">스위치에서 이전 로그 수집 파일을 제거합니다.</block>
   <block id="20c7a250c756306872ccbb15d529b664" category="paragraph">*스위치 덤프 로그 오류*</block>
   <block id="282efbd3d7380f8a34d8579ad5d9c11f" category="paragraph">스위치 사용자에게 로그 수집 권한이 있는지 확인하세요.  위의 전제 조건을 참조하세요.</block>
-  <block id="b8731468035c2cab5635961a32d46c38" category="summary">SNMPv3는 이더넷 스위치 상태 모니터(CSHM)와 함께 사용할 수 있습니다.</block>
   <block id="079555d3c02274a2f31c4ed0065d657e" category="doc">SNMPv3 구성</block>
   <block id="86da6292895a71bdd61d82bd76a5649d" category="paragraph">이더넷 스위치 상태 모니터링(CSHM)을 지원하는 SNMPv3를 구성하려면 다음 절차를 따르세요.</block>
   <block id="f00216e423dd65c7a8b4a0768c1cf2bc" category="paragraph">다음 명령은 Broadcom BES-53248 스위치에서 SNMPv3 사용자 이름을 구성합니다.</block>
@@ -820,7 +818,6 @@
   <block id="05811097becdf827e7905c7085aac958" category="paragraph"><block ref="2dddacc5e6efaad8de6eb5a7e2c10d11" prefix="" category="inline-code"></block></block>
   <block id="8ec519db7b497274ec49e47d1d5805aa" category="inline-link-macro">EFOS 소프트웨어를 설치하세요</block>
   <block id="1cdfb67cf1efdfc117156b73520a6202" category="paragraph">스위치를 구성한 후에는 다음을 수행할 수 있습니다. <block ref="5f8c635ef985b849c8790b2e319cc3c1" category="inline-link-macro-rx"></block>.</block>
-  <block id="245b6d4f01047a24b306b9ff15a6f528" category="summary">BES-53248 클러스터 스위치를 구성하고 새로운 라이선스를 적용한 후에 참조 구성 파일(RCF)을 설치할 수 있습니다.</block>
   <block id="2ad05b5c21ff6c71199a379622544a42" category="doc">참조 구성 파일(RCF) 설치</block>
   <block id="d217db6e5c9fe01778df762ef953150e" category="inline-link-macro">참조 구성 파일(RCF) 및 라이센스 파일을 설치합니다.</block>
   <block id="6503ea0189c5cfc2f7fbdef509813892" category="admonition">EFOS 3.12 이상의 경우 다음 설치 단계를 따르세요.<block ref="2875012234c5bc616da894d0cc04d2b5" category="inline-link-macro-rx"></block> .</block>
@@ -1273,7 +1270,6 @@
   <block id="671537f32d06de75a977dc3008daeff5" category="admonition">스위치를 다시 로드하기 전에 시스템에서 저장되지 않았거나 변경된 구성을 저장할지 묻는 경우 *아니요*를 선택하세요.</block>
   <block id="01abea5f71122f7491f5d67a54692187" category="list-text">[[step4]] 스위치가 다시 로드될 때까지 기다린 후 스위치에 로그인하세요.</block>
   <block id="3298c6d813bb0262584ca3882273ff2a" category="paragraph">기본 사용자는 "admin"이고 비밀번호는 설정되어 있지 않습니다.  다음과 유사한 메시지가 표시됩니다.</block>
-  <block id="83125f7f126ff0a8e1d1c0a2e18662a8" category="summary">BES-53248 클러스터 스위치에서 EFOS(Ethernet Fabric OS) 소프트웨어를 업그레이드하려면 다음 단계를 따르세요.</block>
   <block id="8693d3f8c9b18790ed498b6f024a5669" category="doc">EFOS 소프트웨어 업그레이드</block>
   <block id="9aae29728e49aa150331311d8f2d4df9" category="paragraph">BES-53248 클러스터 스위치에서 EFOS 소프트웨어를 업그레이드하려면 다음 단계를 따르세요.</block>
   <block id="81f6f81478c921fde89ee0a4441fbf63" category="section-title">업그레이드 준비</block>
@@ -1891,7 +1887,6 @@
   <block id="de7ffa00f75520afd4312c03db0da03c" category="list-text"><block ref="de7ffa00f75520afd4312c03db0da03c" category="inline-link-macro-rx"></block></block>
   <block id="c409f8a3c1a31991297c71a6ef92dff2" category="inline-link-macro">스위치드 클러스터에서 스위치리스 클러스터로 마이그레이션 후 노드 패닉 발생</block>
   <block id="55f49c71e99a86d3514c015252eee468" category="list-text"><block ref="55f49c71e99a86d3514c015252eee468" category="inline-link-macro-rx"></block></block>
-  <block id="dd7ac721959b4aaa170786e82881ae7b" category="summary">Cisco NX-OS 소프트웨어와 참조 구성 파일(RCF)은 Cisco Nexus 3132Q-V 클러스터 스위치에 설치해야 합니다.</block>
   <block id="ccdb01c4cd8e253f3a70d7d150d9bc95" category="paragraph">NX-OS 소프트웨어와 참조 구성 파일(RCF)을 설치하기 전에 다음 절차를 따르세요.</block>
   <block id="29b5c9f7c3e370b92a6acd04f777cd76" category="paragraph">이 절차의 예에서는 두 개의 노드를 사용합니다.  이 노드는 두 개의 10GbE 클러스터 상호 연결 포트를 사용합니다.<block ref="922c556baf6272bffc4fa28b2e9a0bbc" prefix=" " category="inline-code"></block> 그리고<block ref="22fe67c2e87caff18249cf1804bbeaad" prefix=" " category="inline-code"></block> .</block>
   <block id="eaa553a851c0d94118e84937225d82b3" category="list-text">노드 이름은 다음과 같습니다.<block ref="b33422d3fbf7a4ba3b02e2bfcd37f46f" prefix=" " category="inline-code"></block> 그리고<block ref="8fc15469c933cd7fd8db166bddedfd77" prefix=" " category="inline-code"></block> .</block>
@@ -1900,7 +1895,6 @@
   <block id="8b7a1c5ca569b4edf87d12744a873c02" category="list-text">[[step6]]확인하세요<block ref="9f1b7141f09f19c4e33409646aef43cf" prefix=" " category="inline-code"></block> 명령은 모든 클러스터 LIF에서 활성화됩니다.</block>
   <block id="9c7e872eafa4ce3bafe48b85e4dccabc" category="inline-link-macro">NX-OS 소프트웨어를 설치하세요</block>
   <block id="a83444c24e0333a8d2c26d5a4a4cb369" category="paragraph">NX-OS 소프트웨어와 RCF를 설치할 준비가 되면 <block ref="d75ac7de135fb381613e594c611e5a43" category="inline-link-macro-rx"></block>.</block>
-  <block id="185abab67865bc469a6da739830734e2" category="summary">클러스터 네트워크에서 결함이 있는 Cisco Nexus 3132Q-V 스위치를 교체하는 것은 중단 없는 절차(NDO)이며, 특정 작업 순서를 수행해야 합니다.</block>
   <block id="f50bf609e9ecf04112d0a60d1efc13c9" category="doc">Cisco Nexus 3132Q-V 클러스터 스위치 교체</block>
   <block id="a96967612c6864aa22be45f265f4c533" category="paragraph">클러스터 네트워크에서 결함이 있는 Cisco Nexus 3132Q-V 스위치를 교체하려면 다음 절차를 따르세요.  교체 절차는 중단 없는 절차(NDO)입니다.</block>
   <block id="f3f6fdd1ea886344c6b4f8b4ee91d661" category="paragraph-title">스위치 요구 사항</block>
@@ -2533,7 +2527,6 @@
   <block id="ff40315daa8444e010ab8f52f7dc5503" category="list-text">포트 e1/31-32(40/100GbE): Nexus 3232C</block>
   <block id="b8b92463e1121f4fb733de40b6f53dc6" category="paragraph">기본적으로 40/100 기가비트 이더넷 모드에는 32개의 포트가 있습니다.  이 40개의 기가비트 이더넷 포트는 2-튜플 명명 규칙에 따라 번호가 매겨집니다.  예를 들어, 두 번째 40기가비트 이더넷 포트는 1/2로 번호가 매겨집니다.  40기가비트 이더넷에서 10기가비트 이더넷으로 구성을 변경하는 과정을 _breakout_이라고 하고, 10기가비트 이더넷에서 40기가비트 이더넷으로 구성을 변경하는 과정을 _breakin_이라고 합니다.  40/100 기가비트 이더넷 포트를 10 기가비트 이더넷 포트로 분리하면, 생성된 포트는 3-튜플 명명 규칙을 사용하여 번호가 지정됩니다.  예를 들어, 두 번째 40/100 기가비트 이더넷 포트의 브레이크아웃 포트는 1/2/1, 1/2/2, 1/2/3, 1/2/4로 번호가 매겨집니다.</block>
   <block id="6772e4d59dd062c5a9260242b751786f" category="doc">Cisco Nexus 3232C 클러스터 스위치를 스위치리스 연결로 교체</block>
-  <block id="f435abab4c17d94cf8603815dbd871f9" category="summary">Cisco NX-OS 소프트웨어와 참조 구성 파일(RCF)은 Cisco Nexus 3232C 클러스터 스위치에 설치해야 합니다.</block>
   <block id="8cf2672ea5c13bbf0de6052b20c338ef" category="doc">NX-OS 소프트웨어 및 참조 구성 파일(RCF) 설치를 준비합니다.</block>
   <block id="8df6d09a602fca4aa18fe9e0b5e94fd4" category="list-text">이 클러스터에서 AutoSupport 활성화된 경우 AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다.<block ref="d4f081f8f7b730c426160bfa9617a56a" prefix=" " category="inline-code"></block></block>
   <block id="4abcd2a6fe57e9f246dd326cae0ddb1b" category="list-text">LIF에 대한 정보를 표시합니다.<block ref="7af866342cc7e87972580d7b709d8820" prefix=" " category="inline-code"></block></block>
@@ -2657,7 +2650,6 @@
   <block id="202f974033cf1161982db034d23ab80c" category="paragraph">스위치 A 포트 31에 100GbE ISL 연결</block>
   <block id="0e799942e6eaaf5fb0e0990b9cff01d0" category="paragraph">스위치 B 포트 32에 대한 100GbE ISL</block>
   <block id="ef3ddd21da594e200a83e463425ee831" category="paragraph">스위치 A 포트 32에 100GbE ISL 연결</block>
-  <block id="5a9c1ae57a80076b39ad53020fd29eed" category="summary">Cisco NX-OS 소프트웨어와 참조 구성 파일(RCF)은 Cisco Nexus 3232C 스토리지 스위치에서 업그레이드할 수 있습니다.</block>
   <block id="29165d4eb3f784e35d52698213cb1586" category="doc">Cisco Nexus 3232C 스토리지 스위치 업그레이드</block>
   <block id="aaee942f01ab7b858b2f2b63c62fe972" category="paragraph">Cisco Nexus 3232C 스위치에서 Cisco NX-OS 소프트웨어와 참조 구성 파일(RCF)을 업그레이드하려면 다음 단계를 따르세요.</block>
   <block id="ee01b78d6cadb3e6f6a563b8d4eb8dee" category="paragraph">스토리지 스위치에서 NX-OS 소프트웨어와 RCF를 업그레이드하기 전에 다음 조건이 충족되는지 확인하세요.</block>
@@ -3029,7 +3021,6 @@
   <block id="91a0516fc9c7301309b79a97012571d5" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="3e13f22757b8047fc4e7842e563aeab4" category="inline-link-macro-rx"></block></block>
   <block id="8aa0164f6bb664ee2a1a0b46d6a91f38" category="paragraph">Cisco 9332D-GX2B 스위치에 NX-OS 소프트웨어를 다운로드하여 설치하거나 업그레이드합니다.</block>
   <block id="11106314fe1d4dd5bee639afb348b915" category="inline-link-macro">RCF 설치 또는 업그레이드</block>
-  <block id="422c274743fd52a13b84466925d9ae14" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="e1c53d78ceb09f1d765f98cd902707bb" category="inline-link-macro-rx"></block></block>
   <block id="e3f39cacd8425f4e760364f787b5c09d" category="paragraph">Cisco 9332D-GX2B 스위치를 처음 설정한 후 RCF를 설치하거나 업그레이드하세요. 이 절차를 사용하여 RCF 버전을 업그레이드할 수도 있습니다.</block>
   <block id="28eef302549a5d0d625be1084076abb2" category="inline-link-macro">Cisco 9332D-GX2B 스위치에서 SSH가 활성화되어 있는지 확인하세요.</block>
   <block id="e48e15c8bda315a471c31c26f64b5d6b" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block><block ref="18afa73aedf40d16a12decea9355d4bb" category="inline-link-macro-rx"></block></block>
@@ -3097,7 +3088,6 @@
   <block id="8d2204dbe11911cd9868ab4a33a8ef52" category="list-text">클러스터의 모든 포트 상태를 확인합니다.</block>
   <block id="637a8c78ac727e9cc53c21eac9229e42" category="list-text">스위치 cs1에 NX-OS 소프트웨어와 EPLD 이미지를 설치하려면 6~13단계를 반복합니다.</block>
   <block id="4a7de73e27154c91b20bfab9924e4aef" category="paragraph"><block ref="e9ad0d8b982112c28ec03f1b3a17f92e" prefix="" category="inline-code"></block></block>
-  <block id="ad599980e8b337c42970271e9b84f0ee" category="paragraph">NX-OS 소프트웨어를 설치하거나 업그레이드한 후에는<block ref="d510068a163bd661380221025541f5da" category="inline-link-macro-rx"></block> .</block>
   <block id="da290344a59f842ad67373838535bbf4" category="summary">Nexus 9332D-GX2B 스위치를 처음 설정한 후 RCF를 설치할 수 있습니다.</block>
   <block id="88c6fb51a79a63370991d585551ed93a" category="list-text">스위치에 대한 콘솔 연결.  스위치에 원격으로 접속할 수 있는 경우 콘솔 연결은 선택 사항입니다.</block>
   <block id="1ececed2a569720ced41e9cd50d7b238" category="list-text">스위치 cs1과 스위치 cs2에 전원이 공급되고 초기 스위치 설정이 완료되었습니다(관리 IP 주소와 SSH가 설정됨).</block>
@@ -3306,7 +3296,6 @@
   <block id="bbb9faab95e3e9af13430c6529221602" category="summary">다음 절차를 사용하여 Nexus 9336C-FX2 클러스터 스위치에 NX-OS 소프트웨어를 설치할 수 있습니다.</block>
   <block id="9eb0d2dee744ca5726b57d78636445af" category="paragraph">Nexus 9336C-FX2 및 9336C-FX2-T 클러스터 스위치에 NX-OS 소프트웨어를 설치하거나 업그레이드하려면 다음 절차를 따르세요.</block>
   <block id="242de61cd0710bcf5f8d68190d392f95" category="paragraph">시작하기 전에 다음 절차를 완료하세요.<block ref="7be1885a02922674638042ed6280ba6b" category="inline-link-macro-rx"></block> .</block>
-  <block id="f81ef217d2c8bc05e0d4e6f1aad50a66" category="paragraph">NX-OS 소프트웨어를 설치하거나 업그레이드한 후에는 다음을 수행할 수 있습니다.<block ref="d510068a163bd661380221025541f5da" category="inline-link-macro-rx"></block> .</block>
   <block id="d002eea8f83f99bafbbc5f36440edd41" category="summary">Nexus 9336C-FX2 스위치를 처음 설정한 후 RCF를 설치할 수 있습니다. 이 절차를 사용하여 RCF 버전을 업그레이드할 수도 있습니다.</block>
   <block id="5dbda9223b42a1433b17c045beba0f1b" category="paragraph">Nexus 9336C-FX2 및 9336C-FX2-T 스위치를 처음 설정한 후 참조 구성 파일(RCF)을 설치합니다.</block>
   <block id="4f9d99e1896d0aa94a4ea56a61e0b5d7" category="list-text">ONTAP 노드 클러스터 포트가 연결되지 않았습니다.</block>
@@ -3979,11 +3968,9 @@
   <block id="da28641e557d1527788801659dc81fd5" category="inline-link-macro">로그 수집 문제 해결</block>
   <block id="d9566e63378c0ff8504c903128e5c6f6" category="inline-link-macro">SNMPv3 구성(선택 사항)</block>
   <block id="e2101619626dc7b8ea25749787797515" category="paragraph"><block ref="a294afff18b68f8c1e4f78aeef5ef294" category="inline-link-macro-rx"></block>.</block>
-  <block id="8ae4eeaa7baed19106cc30ea02483c5e" category="summary">이더넷 스위치 상태 모니터(CSHM)는 클러스터 및 스토리지 네트워크 스위치의 작동 상태를 보장하고 디버깅 목적으로 스위치 로그를 수집하는 역할을 합니다.</block>
   <block id="282155126a94a0702cfd80daf38d4362" category="doc">구성 개요</block>
   <block id="c4bf003fc396e9ee7d60812f1da24cfe" category="list-text"><block ref="c4bf003fc396e9ee7d60812f1da24cfe" category="inline-link-macro-rx"></block></block>
   <block id="a294afff18b68f8c1e4f78aeef5ef294" category="list-text"><block ref="a294afff18b68f8c1e4f78aeef5ef294" category="inline-link-macro-rx"></block></block>
-  <block id="5b62a4b03175f138ff64effec2560ed7" category="summary">이 절차를 사용하면 이더넷 스위치 상태 모니터링(CSHM)을 지원하는 특정 스위치에 맞게 SNMPv3를 구성할 수 있습니다.</block>
   <block id="62f22218ea7fb3cf6669cdfdb6c908e0" category="doc">스위치에 SNMPv3 구성(선택 사항)</block>
   <block id="1c10f160ae9b8c4d78cec8e05f3c3a4e" category="paragraph">SNMP는 스위치를 모니터링하는 데 사용됩니다.  SNMPv3에 의한 모니터링은 다음 절차에 따라 구성됩니다.</block>
   <block id="1c76d98a8c6bdaf19a0c6e69ecd5d74b" category="doc">스위치 상태 모니터 개요</block>
@@ -4129,7 +4116,6 @@
   <block id="085e32a02cb4ebf3ac87c8b1791d407a" category="inline-link-macro">ONTAP 8.3.1 이상을 실행하는 스위치에 FASTPATH ​​및 RCF를 설치합니다.</block>
   <block id="fa46630a0f02f3a3e380fcfce6961441" category="paragraph">스위치가 ONTAP 8.3.1 이상을 실행하는 경우 다음 지침을 따르세요.<block ref="b8d373212331c2dcd588cc85c06ecfce" category="inline-link-macro-rx"></block></block>
   <block id="a4cc27f030d5855528a867889ecb752b" category="list-text"><block ref="a4cc27f030d5855528a867889ecb752b" category="inline-link-macro-rx"></block></block>
-  <block id="daf20f967e014d2ca0616935fab019db" category="summary">참조 구성 파일(RCF)을 설치하는 경우 먼저 클러스터 LIF를 스위치 cs2에서 마이그레이션해야 합니다.  RCF가 설치되고 검증된 후 LIF를 다시 마이그레이션할 수 있습니다.</block>
   <block id="86a663d3b96e07c5a852301b9bd3b075" category="doc">CN1610 스위치에 참조 구성 파일 설치</block>
   <block id="449106779f0029695a2b0e663fb8fc0b" category="paragraph">참조 구성 파일(RCF)을 설치하려면 다음 절차를 따르세요.</block>
   <block id="088aef58f346bbf6485e3c2b1292369d" category="paragraph">RCF를 설치하기 전에 먼저 클러스터 LIF를 스위치 cs2에서 마이그레이션해야 합니다.  RCF가 설치되고 검증된 후 LIF를 다시 마이그레이션할 수 있습니다.</block>
@@ -4503,7 +4489,6 @@
   <block id="69fe2bd920008d1b6c35f9baad74d4f1" category="inline-link">스위치 부착 NS224 드라이브 선반 케이블링</block>
   <block id="1d60ae449462450e67f46eb89e1c693c" category="paragraph"><block ref="1d60ae449462450e67f46eb89e1c693c" category="inline-link-rx"></block></block>
   <block id="aa690319dc0361fc52f6d6941197617e" category="paragraph">선반에 케이블을 연결한 후에는 다음을 수행할 수 있습니다.<block ref="a5a547b7e695aa3612b72d881f169519" category="inline-link-macro-rx"></block> .</block>
-  <block id="4e4a4a02911e122627365a67b690270e" category="summary">Cumulus Linux(CL) OS는 스위치가 Cumulus Linux 또는 ONIE를 실행하는 경우 설치할 수 있습니다.</block>
   <block id="c1bbeec855d76242340c5bdf0a270fb1" category="paragraph">스위치가 Cumulus 모드에서 실행 중일 때 Cumulus Linux(CL) OS를 설치하려면 다음 절차를 따르세요.</block>
   <block id="eaeaa3cbb68f870319145c61053e1d67" category="inline-link-macro">ONIE 모드로 설치</block>
   <block id="a11df88b8e5a715c451bd8fd231b9b06" category="list-text">중급 수준의 Linux 지식.</block>
@@ -5355,7 +5340,6 @@
   <block id="06f98fb7dabad121f0a305f634bbd3d9" category="list-text"><block ref="2f0c8beed0944d74f65fe6f338a45004" category="inline-link-macro-rx"></block>.</block>
   <block id="b93535b0bc8b7e60ab4fbdfe5a4542d1" category="inline-link-macro">NetApp 캐비닛에 스위치 설치</block>
   <block id="970547de0b1297e6e40fd3ffa36745f2" category="paragraph">3232C 스토리지 스위치를 설치한 후 <block ref="998eeccb90ed60d04433c9a9a151ef26" category="inline-link-macro-rx"></block>할 수 있습니다.</block>
-  <block id="678e13be1f1f5630381c676c3babc72d" category="summary">Cisco NX-OS 소프트웨어 및 RCF(Reference Configuration File)는 Cisco Nexus 3232C 스토리지 스위치에 설치해야 합니다.</block>
   <block id="65459cc6f0f81aa31bfc775f15ed6bc4" category="paragraph">NX-OS 소프트웨어와 RCF를 설치할 준비가 완료되면 <block ref="a2bf6a57e594c94642b3fd5d310037a1" category="inline-link-macro-rx"></block>할 수 있습니다.</block>
   <block id="312661d0f59054d715a9246594bd18e4" category="paragraph">스위치를 교체한 후 <block ref="9c3be868eca09e30ec03c7542e485ba6" category="inline-link-macro-rx"></block>할 수 있습니다.</block>
   <block id="ba142a42b9904c0d02cec8569ea8cf6f" category="doc">Cisco Nexus 3232C 스토리지 스위치에 대한 문서 요구 사항</block>
@@ -5817,32 +5801,58 @@
   <block id="4900377d6745b8a03e6c9a542b3fe2f0" category="paragraph">이더넷 스위치 상태 모니터링(CSHM)은 네트워크 스위치의 작동 상태를 확인하고 디버깅을 위해 스위치 로그를 수집하는 역할을 합니다.</block>
   <block id="bc2dfd2fdf95de6b810acf0fa5c67356" category="paragraph">이더넷 스위치 상태 모니터(CSHM)는 SNMP를 사용하여 네트워크 스위치의 상태와 성능을 모니터링합니다. 기본적으로 참조 구성 파일(RCF)을 통해 SNMPv2c가 자동으로 구성됩니다. SNMPv3은 인증, 암호화 및 메시지 무결성과 같은 강력한 보안 기능을 도입하여 SNMPv2보다 보안성이 높습니다. 이러한 기능은 무단 접근을 방지하고 전송 중 데이터의 기밀성과 무결성을 보장합니다.</block>
   <block id="7cb74dd4a33dec5dc1811198729f1a3d" category="paragraph">이더넷 스위치 상태 모니터링(CSHM)는 검색된 네트워크 스위치를 자동으로 모니터링하려고 시도합니다. 그러나 스위치가 올바르게 구성되지 않은 경우 자동 모니터링이 이루어지지 않을 수 있습니다. 상태 모니터링이 스위치를 모니터링하도록 올바르게 구성되어 있는지 확인해야 합니다.</block>
-  <block id="2cc0a4e03235f6214d4b5fa369958e9f" category="summary">SSH는 Cluster Switch Health Monitor(CSHM) 및 로그 수집 기능을 사용할 때 필수 요구 사항입니다. BES-53248 클러스터 스위치에서 SSH를 활성화하려면 먼저 SSH 키를 생성한 다음 SSH를 활성화합니다.</block>
-  <block id="57ce4745993a2cb21c9606f06974d3c9" category="summary">클러스터 네트워크에서 결함이 있는 Broadcom 지원 BES-53248 클러스터 스위치를 교체하는 것은 무중단 절차(NDU)입니다.</block>
   <block id="9bb9d88110e7f202f1952ebcc9fefc08" category="admonition">RCF 파일을 업로드하고 적용할 때 파일 이름을<block ref="a890eeb375a613e0acf945129af8cad4" prefix=" " category="inline-code"></block>로 지정해야 합니다. 그렇지 않으면 스크립트 적용 단계가 실패합니다.</block>
   <block id="153aa60e53e376e3c47bb9de3f41cd5c" category="list-text">HTTP, HTTPS, FTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 cs2로 복사하십시오.</block>
-  <block id="c8db8b64b02e5a6e924b13e7a1c3d54f" category="summary">SSH는 Cluster Switch Health Monitor(CSHM) 및 로그 수집 기능을 사용하는 데 필수적입니다. Cisco 3132Q-V 클러스터 스위치에서 SSH를 활성화하려면 먼저 SSH 키를 생성한 다음 SSH를 활성화해야 합니다.</block>
-  <block id="7ab09ec5429db2527654e19eec7bb2bd" category="summary">클러스터 스위치 상태 모니터(CSHM) 및 로그 수집 기능을 사용하려면 SSH가 필수적입니다. Cisco 3132q-v 클러스터 스위치에서 SSH를 활성화하려면 먼저 SSH 키를 생성한 다음 SSH를 활성화해야 합니다.</block>
-  <block id="832605a2d3ad68151e1f47c56cdfb281" category="summary">SSH는 Cluster Switch Health Monitor(CSHM) 및 로그 수집 기능을 사용하는 데 필수적입니다. Cisco 3232C 클러스터 스위치에서 SSH를 활성화하려면 먼저 SSH 키를 생성한 다음 SSH를 활성화해야 합니다.</block>
-  <block id="04a72e0b6098b241a07346d12dc79fdd" category="summary">SSH는 Cluster Switch Health Monitor(CSHM) 및 로그 수집 기능을 사용할 때 필수 요구 사항입니다. Cisco 3232c 클러스터 스위치에서 SSH를 활성화하려면 먼저 SSH 키를 생성한 다음 SSH를 활성화합니다.</block>
-  <block id="de12ff3a93a3d0a5df28bdea267617ac" category="summary">SSH는 Cluster Switch Health Monitor(CSHM) 및 로그 수집 기능을 사용하는 데 필수적입니다. Cisco 92300YC 클러스터 스위치에서 SSH를 활성화하려면 먼저 SSH 키를 생성한 다음 SSH를 활성화해야 합니다.</block>
-  <block id="bd0c2a5487db101df9e69519dbe7db55" category="summary">Cisco NX-OS 소프트웨어와 RCF(Reference Configuration Files)는 Cisco Nexus 92300YC 클러스터 스위치에 설치해야 합니다.</block>
   <block id="4bcfba45804fbbbd6422a9b0dea12c5f" category="summary">클러스터 네트워크에서 결함이 있는 Nexus 92300YC 스위치를 교체하는 것은 무중단 절차입니다.</block>
-  <block id="763d50f75a0946cdabf7614582b13354" category="summary">SSH는 Cluster Switch Health Monitor(CSHM) 및 로그 수집 기능을 사용하는 데 필수적입니다. Cisco 9332d-gx2b 클러스터 스위치에서 SSH를 활성화하려면 먼저 SSH 키를 생성한 다음 SSH를 활성화해야 합니다.</block>
-  <block id="7e67dabdf4e4228280d37eb5bc37c3d9" category="summary">Cisco NX-OS 소프트웨어와 RCF(Reference Configuration File)는 Cisco Nexus 9332D-GX2B 클러스터 스위치에 설치해야 합니다.</block>
-  <block id="2beefb4d1a7bb9c61f30e6c0adad3ad5" category="summary">클러스터 네트워크에서 결함이 있는 Nexus 9332D-GX2B 스위치를 교체하는 것은 무중단 절차(NDU)입니다.</block>
-  <block id="c1975d8a3808282d8337678030b4a81a" category="summary">SSH는 Cluster Switch Health Monitor(CSHM) 및 로그 수집 기능을 사용하는 데 필수적입니다. Cisco 9336c-fx2 클러스터 스위치에서 SSH를 활성화하려면 먼저 SSH 키를 생성한 다음 SSH를 활성화해야 합니다.</block>
-  <block id="9b32aa934f364be9aa6cdf3bf05d15ee" category="summary">Cisco NX-OS 소프트웨어 및 참조 구성 파일(RCF)을 Cisco Nexus 9336C-FX2 클러스터 스위치에 설치해야 합니다.</block>
   <block id="c506cb52e11779e41b9479bb442eec6e" category="list-text">FTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 cs1의 bootflash에 복사하십시오.</block>
   <block id="b3cbf28e617c9f4b35cbc237024a2fbb" category="paragraph">이 예에서는 SFTP를 사용하여 스위치 cs1의 bootflash에 RCF를 복사하는 방법을 보여줍니다.</block>
-  <block id="456a5c90687a021221cc54821a27d7f4" category="summary">클러스터 네트워크에서 결함이 있는 Nexus 9336C-FX2 스위치를 교체하는 것은 무중단 절차(NDU)입니다.</block>
   <block id="9daa5d42be0756d3784e9f178a3295c6" category="list-text">FTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 cs1의 bootflash에 복사하십시오.</block>
   <block id="64678126dc02aa542e8431224df8565f" category="inline-link-macro">RCF 설치 후 Cisco 9336C-FX2 스위치 부팅 실패 – 부팅 변수 지워짐</block>
   <block id="34b6891d558f2193167ecd55dac3e6cd" category="admonition">RCF 업그레이드 후 9336C-FX2 스위치가 부팅되지 않으면 NetApp 기술 자료 문서 <block ref="e42cc9ef430c6ea42d7a305356970328" category="inline-link-macro-rx"></block>를 참조하여 다음 단계를 진행하십시오.</block>
-  <block id="c2bfedfcb69ad2176d378523a1a938f1" category="summary">SSH는 Cluster Switch Health Monitor(CSHM) 및 로그 수집 기능을 사용하는 데 필수적입니다. Cisco 9364d-gx2a 클러스터 스위치에서 SSH를 활성화하려면 먼저 SSH 키를 생성한 다음 SSH를 활성화해야 합니다.</block>
-  <block id="7da9fcbfb01147ad61851b7542efd343" category="summary">클러스터 네트워크에서 결함이 있는 Nexus 9364D-GX2A 스위치를 교체하는 것은 무중단 절차(NDU)입니다.</block>
-  <block id="087a0cdfa40d1253f83403998d37833d" category="summary">클러스터 네트워크에서 결함이 있는 NVIDIA SN2100 스위치를 교체하는 것은 무중단 절차(NDU)입니다.</block>
-  <block id="dcb14dbcf0c3e9fd91e172f33a9223b5" category="summary">이 절차를 사용하여 NVIDIA SN2100 스위치의 스위치 상태 모니터링에 적용 가능한 구성 파일을 설치할 수 있습니다.</block>
-  <block id="4010049d40fdd6031ad12cfe5da5d25b" category="summary">무중단 절차(NDU)에서 결함이 있는 NVIDIA SN2100 스토리지 스위치 교체.</block>
-  <block id="5dc8d4198fd0d6a1ba6b728a23ca8894" category="summary">이 절차를 사용하여 NVIDIA SN2100 스토리지 스위치의 스위치 상태 모니터링에 적용 가능한 구성 파일을 설치할 수 있습니다.</block>
+  <block id="2a4ac3c5ad5a0411c3db6c64ca660c29" category="summary">이더넷 스위치 상태 모니터링 CSHM 로그 수집 기능은 ONTAP의 클러스터 또는 스토리지 네트워크 스위치에서 로그를 수집하는 데 사용됩니다.</block>
+  <block id="129ca6886e7c0aa292a0013f8d01e0f6" category="summary">SNMPv3는 이더넷 스위치 상태 모니터링 CSHM과 함께 사용할 수 있습니다.</block>
+  <block id="608e93af8c1a89638bf70bcf9e5d130a" category="summary">BES-53248 클러스터 스위치에 Ethernet Fabric OS EFOS 소프트웨어를 설치하려면 다음 단계를 따르십시오.</block>
+  <block id="b41a7dd691d25d05d775d9bf2c85110a" category="summary">BES-53248 클러스터 스위치를 구성하고 새 라이센스를 적용한 후 RCF(Reference Configuration File)를 설치할 수 있습니다.</block>
+  <block id="9a81fc8ba4a01863f004ec2b7d1ab49c" category="summary">Cluster Switch Health Monitor CSHM 및 로그 수집 기능을 사용할 때 SSH가 필요합니다. BES-53248 클러스터 스위치에서 SSH를 활성화하려면 먼저 SSH 키를 생성한 다음 SSH를 활성화합니다.</block>
+  <block id="23e833242a47cc3ee42321b95a0175bb" category="summary">클러스터 네트워크에서 결함이 있는 Broadcom 지원 BES-53248 클러스터 스위치를 교체하는 것은 무중단 절차 NDU입니다.</block>
+  <block id="1864f8368cbdcbae0aa7b449880a377c" category="summary">클러스터 네트워크에서 결함이 있는 Broadcom 지원 BES-53248 클러스터 스위치를 교체하는 것은 무중단 절차입니다.</block>
+  <block id="906ad6b73cd9e6d65edfd0e214a3cb4a" category="summary">BES-53248 클러스터 스위치에서 Ethernet Fabric OS EFOS 소프트웨어를 업그레이드하려면 다음 단계를 수행하십시오.</block>
+  <block id="3fa586c6782d8d9ed13fb2fd8a208cdb" category="summary">클러스터 스위치 상태 모니터링 및 로그 수집 기능을 사용하려면 SSH가 필수적입니다. Cisco 3132Q-V 클러스터 스위치에서 SSH를 활성화하려면 먼저 SSH 키를 생성한 다음 SSH를 활성화해야 합니다.</block>
+  <block id="de4458ab7f6068dbff99813d3363f245" category="summary">클러스터 스위치 상태 모니터링 및 로그 수집 기능을 사용하려면 SSH가 필수적입니다. Cisco 3132q-v 클러스터 스위치에서 SSH를 활성화하려면 먼저 SSH 키를 생성한 다음 SSH를 활성화해야 합니다.</block>
+  <block id="6620a701d123a0933a3f3b6b1e92f2ba" category="summary">Cisco NX-OS 소프트웨어 및 참조 구성 파일 RCF는 Cisco Nexus 3132Q-V 클러스터 스위치에 설치해야 합니다.</block>
+  <block id="43368b8a0180033f1f25f94e41cd82df" category="summary">클러스터 네트워크에서 결함이 있는 Cisco Nexus 3132Q-V 스위치를 교체하는 것은 무중단 절차(NDU)이며 특정 작업 순서를 수행해야 합니다.</block>
+  <block id="35ef08fe84ca82c2b11faa13a5552cb0" category="summary">Cluster Switch Health Monitor 및 로그 수집 기능을 사용할 때 SSH가 필요합니다. Cisco 3232C 클러스터 스위치에서 SSH를 활성화하려면 먼저 SSH 키를 생성한 다음 SSH를 활성화합니다.</block>
+  <block id="2b22c95ad212ab2e51274a33e7e8030b" category="summary">클러스터 스위치 상태 모니터링 및 로그 수집 기능을 사용하려면 SSH가 필수적입니다. Cisco 3232c 클러스터 스위치에서 SSH를 활성화하려면 먼저 SSH 키를 생성한 다음 SSH를 활성화해야 합니다.</block>
+  <block id="0b80f818b0c8c26997674d1b94de13f3" category="summary">Cisco NX-OS 소프트웨어 및 참조 구성 파일 RCF는 Cisco Nexus 3232C 클러스터 스위치에 설치해야 합니다.</block>
+  <block id="c08a9a43f502117405e3e146fb027e85" category="summary">Cisco NX-OS 소프트웨어 및 참조 구성 파일 RCF는 Cisco Nexus 3232C 스토리지 스위치에 설치해야 합니다.</block>
+  <block id="f0cbba63fe0485d0d6d69738a9a669e5" category="summary">Cisco NX-OS 소프트웨어 및 참조 구성 파일 RCF는 Cisco Nexus 3232C 스토리지 스위치에서 업그레이드할 수 있습니다.</block>
+  <block id="b2b0edf39628780ce45366ba4ca84392" category="summary">클러스터 스위치 상태 모니터링 및 로그 수집 기능을 사용하려면 SSH가 필수적입니다. Cisco 92300YC 클러스터 스위치에서 SSH를 활성화하려면 먼저 SSH 키를 생성한 다음 SSH를 활성화해야 합니다.</block>
+  <block id="fd20c46fa12288caab1fa9d5f7469c1b" category="summary">Cisco NX-OS 소프트웨어와 참조 구성 파일은 Cisco Nexus 92300YC 클러스터 스위치에 설치해야 합니다.</block>
+  <block id="7e587b528f4dcedbc4db78e2545596d6" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="90b9b11f8fd7abc3066a0d7b316e24f5" category="inline-link-macro-rx"></block></block>
+  <block id="841654e405f9a0bb8ffdfb75aaad42c0" category="summary">클러스터 스위치 상태 모니터링 및 로그 수집 기능을 사용하려면 SSH가 필수적입니다. Cisco 9332d-gx2b 클러스터 스위치에서 SSH를 활성화하려면 먼저 SSH 키를 생성한 다음 SSH를 활성화해야 합니다.</block>
+  <block id="29421325c2106b4e9184082880e5ea66" category="summary">Cisco NX-OS 소프트웨어와 참조 구성 파일은 Cisco Nexus 9332D-GX2B 클러스터 스위치에 설치해야 합니다.</block>
+  <block id="91d06f8500a917551a5440217dba89f3" category="paragraph">NX-OS 소프트웨어를 설치 또는 업그레이드한 후 <block ref="76eb954053197b30d476192c7465b363" category="inline-link-macro-rx"></block>할 수 있습니다.</block>
+  <block id="bf28e42bbd76ac9d7c542101b3ee3931" category="summary">클러스터 네트워크에서 결함이 있는 Nexus 9332D-GX2B 스위치를 교체하는 것은 무중단 절차입니다.</block>
+  <block id="ebfb47cb0fd72f1145b1474f4040d33d" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="38e656bc27945f705cd928ab2c93fb83" category="inline-link-macro-rx"></block></block>
+  <block id="5b31ee755e00a5a3cc23df4c5ee2f324" category="summary">Cluster Switch Health Monitor 및 로그 수집 기능을 사용할 때는 SSH가 필요합니다. Cisco 9336c-fx2 클러스터 스위치에서 SSH를 설정하려면 먼저 SSH 키를 생성한 다음 SSH를 설정합니다.</block>
+  <block id="b8c7869aab83ffb3be4bcfbfa10b23c8" category="summary">Cisco NX-OS 소프트웨어와 참조 구성 파일은 Cisco Nexus 9336C-FX2 클러스터 스위치에 설치해야 합니다.</block>
+  <block id="77fdb74564edcab439c72e7d9af00226" category="paragraph">NX-OS 소프트웨어를 설치 또는 업그레이드한 후 <block ref="bbc21a229d2bff7afb71f10e5c3e230d" category="inline-link-macro-rx"></block>할 수 있습니다.</block>
+  <block id="04c2bb368c7888ea31fed0b6b4658ee9" category="summary">클러스터 네트워크에서 결함이 있는 Nexus 9336C-FX2 스위치를 교체하는 것은 무중단 절차입니다.</block>
+  <block id="fd857595d7d7f811e80cfba0df8f98f8" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="983651a9466a12634a7a3a5579436f67" category="inline-link-macro-rx"></block></block>
+  <block id="79abd5b2dda97ff24898e9572daee12d" category="summary">Cluster Switch Health Monitor 및 로그 수집 기능을 사용하려면 SSH가 필수적입니다. Cisco 9364d-gx2a 클러스터 스위치에서 SSH를 활성화하려면 먼저 SSH 키를 생성한 다음 SSH를 활성화해야 합니다.</block>
+  <block id="b6263f0eddfdd6ac4174e6b4c415fb75" category="paragraph">NX-OS 소프트웨어를 설치 또는 업그레이드한 후 <block ref="a9cd1b97b9eb02a0952efff71db2d3ed" category="inline-link-macro-rx"></block>할 수 있습니다.</block>
+  <block id="e7a1b78c8c0771f97e46e9dde5c20396" category="summary">클러스터 네트워크에서 결함이 있는 Nexus 9364d-gx2a 스위치를 교체하는 것은 무중단 절차입니다.</block>
+  <block id="72a1a76a5a6faf3202dd4efd34bbd310" category="summary">이더넷 스위치 상태 모니터링 CSHM은 클러스터 및 스토리지 네트워크 스위치의 작동 상태를 확인하고 디버깅을 위해 스위치 로그를 수집하는 역할을 합니다.</block>
+  <block id="a014d3ed1e1d7c4665a32e412de7933b" category="summary">이 절차를 사용하여 이더넷 스위치 상태 모니터링 CSHM을 지원하는 특정 스위치에 대해 SNMPv3을 구성할 수 있습니다.</block>
+  <block id="d9154b8d70bef610bba96e93b97edebf" category="summary">참조 구성 파일 RCF를 설치할 때는 먼저 클러스터 LIF를 스위치 cs2에서 다른 곳으로 마이그레이션해야 합니다. RCF 설치 및 유효성 검사가 완료되면 LIF를 다시 마이그레이션할 수 있습니다.</block>
+  <block id="a4c33d2e291f81ac30023413d5151ed1" category="summary">NetApp CN1610 클러스터 스위치에 FASTPATH 소프트웨어와 참조 구성 파일(RCF)을 설치해야 합니다.</block>
+  <block id="9988282f2b81b66b1776de70c0017d2c" category="summary">NS224 드라이브 셸프를 직접 연결 스토리지가 아닌 스위치 연결 스토리지로 케이블 연결해야 하는 시스템이 있는 경우 여기에 제공된 정보를 사용하십시오.</block>
+  <block id="d269d1fe2d9ae994906f5b0f95492726" category="summary">Cumulus Linux CL OS는 스위치가 Cumulus Linux 또는 ONIE를 실행 중일 때 설치할 수 있습니다.</block>
+  <block id="16609666d5b3f254c71fec8f6a799b6c" category="summary">클러스터 네트워크에서 결함이 있는 NVIDIA SN2100 스위치를 교체하는 것은 무중단 절차입니다.</block>
+  <block id="c2f363b557f11042735dbadbfbd534d3" category="summary">이 절차를 사용하여 NVIDIA SN2100 클러스터 스위치의 클러스터 스위치 상태 모니터링에 적용 가능한 구성 파일을 설치할 수 있습니다.</block>
+  <block id="8c65b4d97114f35bc25f259da3c81bd4" category="summary">결함이 있는 NVIDIA SN2100 스토리지 스위치를 교체하는 것은 무중단 절차입니다.</block>
+  <block id="2cd1b70f79d5acd7ffb2c204f4069175" category="summary">이 절차를 사용하여 NVIDIA SN2100 스토리지 스위치의 클러스터 스위치 상태 모니터링에 필요한 구성 파일을 설치할 수 있습니다.</block>
+  <block id="c58eb22b1f3d0163cbb375622152a522" category="sidebar">Install_upgrade_rcf_9332d-gx2b</block>
+  <block id="f4928eb25627cf90ea59457efbdeff2e" category="sidebar">설치_업그레이드_rcf_9336c-fx2</block>
+  <block id="0cd336fd1f7f13a9e5729ff446719dda" category="sidebar">Install_upgrade_rcf_9364d-gx2a</block>
 </blocks>

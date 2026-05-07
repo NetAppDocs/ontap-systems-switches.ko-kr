@@ -2,7 +2,7 @@
 permalink: switch-bes-53248/CSHM_snmpv3.html 
 sidebar: sidebar 
 keywords: SNMP,SNMPv3,SNMPv3 setup,BES-53248 Broadcom setup,BES-3248 switches configuration,EFOS 
-summary: 'SNMPv3는 이더넷 스위치 상태 모니터(CSHM)와 함께 사용할 수 있습니다.' 
+summary: SNMPv3는 이더넷 스위치 상태 모니터링 CSHM과 함께 사용할 수 있습니다. 
 ---
 = SNMPv3 구성
 :allow-uri-read: 

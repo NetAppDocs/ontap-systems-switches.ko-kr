@@ -28,10 +28,10 @@ entries:
   - title: NX-OS 소프트웨어 설치 또는 업그레이드
     url: "/switch-cisco-9364d-gx2a/install-nxos-software-9364d-cluster.html"
   - title: RCF 설치 또는 업그레이드
-    pdf-filename: 설치_업그레이드_rcf
+    pdf-filename: Install_upgrade_rcf_9364d-gx2a
     entries:
     - title: RCF 설치 또는 업그레이드 개요
-      url: "/switch-cisco-9364d-gx2a/install-upgrade-rcf-overview-cluster.html"
+      url: "/switch-cisco-9364d-gx2a/install-upgrade-rcf-overview-cluster-9364d.html"
     - title: RCF 설치
       url: "/switch-cisco-9364d-gx2a/install-rcf-software-9364d-cluster.html"
     - title: RCF 버전을 업그레이드하세요

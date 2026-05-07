@@ -2,7 +2,7 @@
 permalink: switch-nvidia-sn2100-storage/replace-sn2100-switch-storage.html 
 sidebar: sidebar 
 keywords: replacing, replace, defective, nvidia, switch, cluster, network, nondisruptive, procedure, ndu, replace a nvidia sn2100 cluster switch - nvidia SN2100 
-summary: '무중단 절차(NDU)에서 결함이 있는 NVIDIA SN2100 스토리지 스위치 교체.' 
+summary: 결함이 있는 NVIDIA SN2100 스토리지 스위치를 교체하는 것은 무중단 절차입니다. 
 ---
 = NVIDIA SN2100 스토리지 스위치 교체
 :allow-uri-read: 

@@ -2,7 +2,7 @@
 permalink: switch-bes-53248/CSHM_log_collection.html 
 sidebar: sidebar 
 keywords: log collection feature,collect switch-related log files,SSh key,crypto key generation,BES-53248 Broadcom setup,BES-53248 switches configuration,EFOS 
-summary: '이더넷 스위치 상태 모니터(CSHM) 로그 수집 기능은 ONTAP 의 클러스터 또는 스토리지 네트워크 스위치에서 로그를 수집하는 데 사용됩니다.' 
+summary: 이더넷 스위치 상태 모니터링 CSHM 로그 수집 기능은 ONTAP의 클러스터 또는 스토리지 네트워크 스위치에서 로그를 수집하는 데 사용됩니다. 
 ---
 = 이더넷 스위치 상태 모니터링 로그 수집
 :allow-uri-read: 

@@ -2,7 +2,7 @@
 permalink: switch-nvidia-sn2100/install-cumulus-mode-sn2100-cluster.html 
 sidebar: sidebar 
 keywords: install cumulus mode, sn2100 SN2100 switches setup, cumulus linux, cumulus mode 
-summary: 'Cumulus Linux(CL) OS는 스위치가 Cumulus Linux 또는 ONIE를 실행하는 경우 설치할 수 있습니다.' 
+summary: Cumulus Linux CL OS는 스위치가 Cumulus Linux 또는 ONIE를 실행 중일 때 설치할 수 있습니다. 
 ---
 = Cumulus 모드로 Cumulus Linux 설치
 :allow-uri-read: 
