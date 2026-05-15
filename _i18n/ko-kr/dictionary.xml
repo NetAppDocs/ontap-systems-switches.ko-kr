@@ -501,8 +501,6 @@
   <block id="130792cb3edc8d0afffb557e50b218c3" category="paragraph">캐비닛이나 랙에 보관 시스템과 보관 선반을 설치하세요.  플랫폼 모델에 대한 설치 및 설정 지침을 확인하세요.</block>
   <block id="9e1c8cf536b61ced9a099cdc8d9a7ea5" category="inline-link">AFX 시스템</block>
   <block id="087297c83286a300ec53f03f4cd47e27" category="list-text"><block ref="087297c83286a300ec53f03f4cd47e27" category="inline-link-rx"></block></block>
-  <block id="f3585daa539c5917b4fedd0eb7efb3f2" category="inline-link">AFF 시스템</block>
-  <block id="2c7dd80f8eb9ec97988d14d8f239abf4" category="list-text"><block ref="2c7dd80f8eb9ec97988d14d8f239abf4" category="inline-link-rx"></block></block>
   <block id="6476573ba5b973ad8ea01c57f5b30267" category="inline-link">ASA 시스템</block>
   <block id="f0a695bb3bd97a845db6783bb1ad3093" category="list-text"><block ref="f0a695bb3bd97a845db6783bb1ad3093" category="inline-link-rx"></block></block>
   <block id="fde1abb5537b55c34521d414267b3f70" category="inline-link">ASA r2 시스템</block>
@@ -760,7 +758,6 @@
   <block id="8f9711a7318f4700b907c76b986e81c0" category="list-text">ONIE 설치 파일을 호스팅하는 서버에 접속 가능한지 확인하세요.</block>
   <block id="a16e89a0f24e9a42d02bbe4bb573176b" category="paragraph"><block ref="df911f0151f9ef021d410b4be5060972" prefix="" category="inline-code"></block></block>
   <block id="939ed640d7e855bf91c94dd159eec9e9" category="list-text">새로운 스위치 소프트웨어를 설치하세요:</block>
-  <block id="49215cf233256204aa5b6259719da694" category="paragraph"><block ref="6db371c6b710567f9ba5b5a3491f792a" prefix="" category="inline-code"></block></block>
   <block id="fead9f0c9e5b3f33cc2bdfbb331d335c" category="paragraph">소프트웨어가 설치된 후 스위치가 재부팅됩니다.  스위치가 새로운 EFOS 버전으로 정상적으로 재부팅되도록 하세요.</block>
   <block id="204b0f515feca07e238d07748be2b4e3" category="list-text">로그인하여 새로운 스위치 소프트웨어가 설치되었는지 확인하세요.</block>
   <block id="1fc245f373dd47304db35c4ef2df408e" category="inline-link-macro">스위치 구성</block>
@@ -5855,4 +5852,8 @@
   <block id="c58eb22b1f3d0163cbb375622152a522" category="sidebar">Install_upgrade_rcf_9332d-gx2b</block>
   <block id="f4928eb25627cf90ea59457efbdeff2e" category="sidebar">설치_업그레이드_rcf_9336c-fx2</block>
   <block id="0cd336fd1f7f13a9e5729ff446719dda" category="sidebar">Install_upgrade_rcf_9364d-gx2a</block>
+  <block id="cb0dbdc915c2d7efb43c40584dc01c6b" category="inline-link">AFF A 시리즈 시스템</block>
+  <block id="0c7a063463949982227a22dd28d4aeaa" category="list-text"><block ref="0c7a063463949982227a22dd28d4aeaa" category="inline-link-rx"></block></block>
+  <block id="9e748c301d72018f8a8d32dd7056cdbf" category="inline-link">AFF C 시리즈 시스템</block>
+  <block id="0cb340db5eff759a8a571d196a125d36" category="list-text"><block ref="0cb340db5eff759a8a571d196a125d36" category="inline-link-rx"></block></block>
 </blocks>

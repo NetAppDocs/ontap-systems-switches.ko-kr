@@ -365,8 +365,10 @@ ONIE:/ #
 ====
 . 새로운 스위치 소프트웨어를 설치하세요:
 +
-`ONIE:/ # onie-nos-install http://50.50.50.50/Software/onie-installer-x86_64`
-
+[listing]
+----
+ONIE:/ # onie-nos-install http://50.50.50.50/Software/onie-installer-x86_64
+----
 +
 .예를 보여주세요
 [%collapsible]
