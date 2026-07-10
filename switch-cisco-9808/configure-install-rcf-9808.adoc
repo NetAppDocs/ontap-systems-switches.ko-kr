@@ -1,0 +1,150 @@
+---
+permalink: switch-cisco-9808/configure-install-rcf-9808.html 
+sidebar: sidebar 
+keywords: install rcf, cisco switches 
+summary: RCF는 새로운 AFX 2K 시스템 설치 및 설정의 일부로, 결함이 있는 슈퍼바이저 모듈을 교체하거나 스위치를 공장 초기 설정으로 재설정할 때 새 Cisco Nexus 9808 스위치에 설치합니다. 
+---
+= RCF 설치 - Cisco Nexus 9808
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+RCF는 새로운 AFX 2K 시스템 설치, 슈퍼바이저 모듈 교체 또는 스위치를 공장 초기 설정으로 재설정하는 과정의 일부로 새 Cisco Nexus 9808 스위치에 설치합니다.
+
+.시작하기 전에
+* 스위치가 켜져 있어야 하고 link:configure-complete-initial-setup-9808.html["스위치 초기 설정 완료"] 절차를 완료해야 합니다.
+* 지정된 link:configure-install-nxos-9808.html["NX-OS 설치"] 절차에 따라 원하는 NX-OS 버전을 설치해야 합니다.
+* link:configure-install-upgrade-rcf-overview-9808.html["RCF 설치 또는 업그레이드 개요"] 페이지를 읽어야 합니다.
+* 수퍼바이저 모듈 교체 또는 스위치를 공장 초기 설정으로 재설정하는 과정에서 스위치에 RCF를 설치하는 경우, 클러스터가 완전히 작동하는지, 즉 로그에 오류가 없거나 유사한 문제가 없는지 확인하십시오.
++
+새로운 AFX 시스템 설치의 일부로 RCF를 설치하는 경우, AFX 시스템 설치 및 설정 단계에서는 AFX 시스템의 컨트롤러 전원이 켜져 있지 않으므로 이 요구 사항을 건너뛸 수 있습니다.
+
+
+
+.이 작업에 관하여
+* 새로운 AFX 2K 시스템 설치의 일부로 스위치를 설치한 경우, 첫 번째 스위치(cs1)에 참조 구성 파일(RCF)을 설치한 다음 이 절차를 사용하여 두 번째 스위치(cs2)에 대해 동일한 단계를 반복합니다.
+* 이 절차는 Cisco Nexus 9000 Series Switches 명령어만 사용합니다.
+* 이 절차의 예시에서는 첫 번째 스위치를 cs1, 두 번째 스위치를 cs2로 지칭합니다.
+
+
+
+
+[[step-1-prepare-to-install-the-rcf]]
+== 1단계: RCF 설치 준비
+
+스위치에 RCF를 설치하기 전에 필요한 연결이 모두 되어 있는지 확인하고 RCF를 다운로드하십시오.
+
+.단계
+. HTTP, FTP 또는 TFTP 서버에 접속할 수 있어야 합니다. 이러한 서버 중 하나에 접속하면 지원되는 버전의 RCF를 다운로드할 수 있습니다.
+. NetApp 지원 사이트(link:http://mysupport.netapp.com/["mysupport.netapp.com"^])에서 사용 중인 AFX 시스템 유형에 맞는 RCF를 다운로드하십시오.
++
+
+NOTE: 새 스위치에는 RCF가 설치되어 있지 않습니다. 스위치에 RCF를 설치해야 합니다.
+
+. 각 스위치는 콘솔에 연결되어 있거나 각 스위치에 원격으로 액세스할 수 있어야 합니다.
+. 스위치에 시리얼 콘솔로 연결되어 있거나 기본 구성 정보를 저장해 두어야 합니다. RCF 업그레이드 절차에서는 스위치 설정을 삭제하고 기본 구성을 수행해야 하기 때문입니다.
+
+
+
+
+[[step-2-install-the-rcf]]
+== 2단계: RCF 설치
+
+첫 번째 스위치(cs1)에 RCF를 설치하려면 RCF 파일을 부트플래시에 복사하여 적용하고, 배너 출력을 확인하고, RCF 버전이 올바른지 확인하고, 사용자 지정 추가 사항을 기록하고, 기본 구성 세부 정보를 저장하고,  `write_erase.cfg` 파일에 내용이 채워졌는지 확인하고, 현재 저장된 구성을 지우고, 이전에 저장한 기본 구성을 시작 구성에 복사한 다음 스위치를 재부팅합니다. 새 AFX 시스템 설치의 일부로 RCF를 설치하는 경우 두 번째 스위치(cs2)에서도 이 단계를 반복합니다.
+
+. SSH 또는 시리얼 콘솔을 사용하여 스위치 cs1에 로그인하십시오.
+. FTP, TFTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 cs1의 부트플래시에 복사합니다.
++
+Cisco 명령에 대한 자세한 내용은 https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Cisco Nexus 9000 시리즈 NX-OS 명령 참조"^] 가이드의 해당 가이드를 참조하십시오.
+
++
+`copy <protocol>: bootflash: vrf management`
+
++
+.예를 보여주세요
+[%collapsible]
+====
+이 예에서는 TFTP를 사용하여 RCF를 스위치 cs1의 부트플래시에 복사하는 방법을 보여줍니다.
+
+[listing, subs="+quotes"]
+----
+cs1# *copy tftp: bootflash: vrf management*
+Enter source filename: *RCF-v10.1-NX9808-CL1-ST1.txt*
+Enter hostname for the tftp server: *172.22.201.50*
+Trying to connect to tftp server......Connection to Server Established.
+TFTP get operation was successful
+Copy complete, now saving to disk (please wait)...
+----
+====
+. 이전에 부트플래시에 복사한 RCF를 적용합니다.
++
+Cisco 명령에 대한 자세한 내용은 https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Cisco Nexus 9000 시리즈 NX-OS 명령 참조"^] 가이드의 해당 가이드를 참조하십시오.
+
++
+이 예시는 스위치 cs1에 설치되는 RCF 파일 `RCF-v10.1-NX9808-CL1-ST1.txt`을 보여줍니다:
+
++
+[listing, subs="+quotes"]
+----
+cs1# *copy RCF-v10.1-NX9808-CL1-ST1.txt running-config echo-commands*
+----
+. 배너 출력을 검사합니다. `show banner motd` 명령. 스위치의 올바른 구성과 작동을 보장하려면 이 지침을 읽고 따라야 합니다.
++
+.예를 보여주세요
+[%collapsible]
+====
+[listing]
+----
+cs1# show banner motd
+
+******************************************************************************
+* NetApp Reference Configuration File (RCF)
+*
+* Switch   : NX9808
+* Filename : RCF-v10.1-NX9808-CL1-ST1.txt
+* Date     : 06-15-2026
+* Version  : v10.1
+* Port Usage:
+* Ports   1-18 (LC1-LC8) : 400GbE Cluster/Storage/HA ports.
+* Ports   19-35 (LC1-LC8): 4 * 100 GbE Storage shelf ports, int e1-e8/{19-35}/1-4
+* Port    36 (LC1-LC8)   : Intra-Cluster ISL Ports, int e1-e8/36
+* IMPORTANT NOTES
+* Interface port-channel998/9 is reserved to identify the version of this file.
+
+******************************************************************************
+----
+====
+. RCF 파일이 올바른 버전인지 확인하십시오.
++
+`show running-config`
+
++
+올바른 RCF가 있는지 확인하기 위해 출력을 확인할 때 다음 정보가 올바른지 확인하세요.
+
++
+** RCF 배너
+** 노드 및 포트 설정
+** 사용자 정의
++
+출력은 사이트 구성에 따라 달라집니다.  포트 설정을 확인하고 설치한 RCF에 대한 특정 변경 사항이 있는지 릴리스 노트를 참조하세요.
+
+
+
+. 현재 실행 중인 구성을 시작 구성에 복사하여 영구적으로 적용합니다.
++
+`cs1# *copy bootflash:write_erase.cfg startup-config*`
+
+. 스위치를 재부팅하세요:
++
+`cs1# *reload*`
+
++
+`This command will reboot the system. (y/n)?  [n] *y*`
+
+. 스위치 cs2에서도 이 단계를 반복하십시오.
+
+
+.다음은 무엇인가요?
+스위치에 RCF를 설치한 후에는 link:configure-verify-ssh-9808.html["로그 수집을 위한 SSH 확인"].

@@ -15,6 +15,7 @@ summary: 기존에 2노드 스위치리스 클러스터 환경이 있는 경우 
 
 
 
+[[review-requirements]]
 == 검토 요구 사항
 
 .시작하기 전에
@@ -53,6 +54,7 @@ SMTP, SNMP, SSH 등 이전 사이트 사용자 정의 내용은 새 스위치에
 
 
 
+[[migrate-the-switches]]
 == 스위치 마이그레이션
 
 .예시에 관하여
@@ -70,6 +72,7 @@ SMTP, SNMP, SSH 등 이전 사이트 사용자 정의 내용은 새 스위치에
 
 
 
+[[step-1-prepare-for-migration]]
 === 1단계: 마이그레이션 준비
 
 . 권한 수준을 고급으로 변경하려면 다음을 입력하세요. `y` 계속하라는 메시지가 표시되면:
@@ -105,6 +108,7 @@ cluster::*> system node autosupport invoke -node * -type all -message MAINT=2h
 
 
 
+[[step-2-configure-ports]]
 === 2단계: 포트 구성
 
 . 새로운 클러스터 스위치 cs1과 cs2에서 노드에 연결된 모든 포트(ISL 포트 제외)를 비활성화합니다.
@@ -865,6 +869,7 @@ NOTE: 릴리스 8.3 이상에서는 명령이 다음과 같습니다.
 
 
 
+[[step-3-complete-the-configuration]]
 === 3단계: 구성 완료
 
 . 모든 인터페이스가 표시되는지 확인하세요. `true` "집" 열에서:

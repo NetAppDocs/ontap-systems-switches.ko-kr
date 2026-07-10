@@ -15,6 +15,7 @@ Nexus 3232C 클러스터 스위치가 있는 클러스터에서 기존 Cisco Nex
 
 
 
+[[review-requirements]]
 == 검토 요구 사항
 
 이전하기 전에 반드시 검토하세요link:migrate-requirements-3232c.html["이주 요구 사항"] .
@@ -33,6 +34,7 @@ Nexus 3232C 클러스터 스위치가 있는 클러스터에서 기존 Cisco Nex
 
 
 
+[[migrate-the-switch]]
 == 스위치 마이그레이션
 
 .예시에 관하여
@@ -82,6 +84,7 @@ Nexus 3232C 클러스터 스위치가 있는 클러스터에서 기존 Cisco Nex
 
 
 
+[[step-1-prepare-for-migration]]
 === 1단계: 마이그레이션 준비
 
 . 이 클러스터에서 AutoSupport 활성화된 경우 AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다.
@@ -311,6 +314,7 @@ Cluster
 
 
 
+[[step-2-configure-ports]]
 === 2단계: 포트 구성
 
 . 스위치 CL2에 물리적으로 연결된 클러스터 상호 연결 포트를 종료합니다.
@@ -1230,6 +1234,7 @@ cluster::> system cluster-switch delete –device CL2
 
 
 
+[[step-3-complete-the-procedure]]
 === 3단계: 절차 완료
 
 . 적절한 클러스터 스위치가 모니터링되는지 확인하세요.

@@ -15,6 +15,7 @@ BES-53248 스위치 설치 시에는 해당 스위치 및 컨트롤러 설명서
 
 
 
+[[broadcom-documentation]]
 == Broadcom 문서
 
 BES-53248 클러스터 스위치를 설정하려면 Broadcom 지원 사이트에서 제공되는 다음 문서가 필요합니다link:https://www.broadcom.com/support/bes-switch["Broadcom 이더넷 스위치 제품군"^].
@@ -81,6 +82,7 @@ _클러스터 네트워크 및 관리 네트워크 호환성 매트릭스_
 |===
 
 
+[[ontap-systems-documentation-and-kb-articles]]
 == ONTAP 시스템 문서 및 KB 문서
 
 ONTAP 시스템을 설정하려면 link:http://mysupport.netapp.com/["mysupport.netapp.com"^]의 NetApp 지원 사이트 또는 link:https://kb.netapp.com/["kb.netapp.com"^]의 기술 자료(KB) 사이트에서 다음 문서가 필요합니다.

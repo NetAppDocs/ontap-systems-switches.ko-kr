@@ -1,0 +1,39 @@
+---
+permalink: switch-cisco-9808/maintain-replace-frus-9808.html 
+sidebar: sidebar 
+keywords: switches, hardware installation, Cisco Nexus, 9808 switches 
+summary: 'Cisco Nexus 9808 스위치에는 고장 발생 시 교체할 수 있는 현장 교체 가능 부품(FRU)이 있습니다.' 
+---
+= FRU 교체 - Cisco Nexus 9808
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cisco Nexus 9808 스위치에는 고장 발생 시 교체할 수 있는 현장 교체 가능 부품(FRU)이 있습니다.
+
+.이 작업에 관하여
+Cisco Nexus 9808 스위치에는 다음과 같은 FRU가 있습니다.
+
+* *섀시 도어용 폼 에어 필터* (총 2개): 도어에는 에어 필터가 미리 설치되어 있습니다. 에어 필터는 3개월마다 점검하고 필요에 따라 교체해야 합니다.
+* *슈퍼바이저 모듈*(스위치 주문 방식에 따라 총 1개 또는 2개): 스위치에 슈퍼바이저 모듈이 두 개 설치된 경우, 하나는 활성 모듈로, 다른 하나는 대기 모듈로 작동합니다. 활성 슈퍼바이저 모듈이 제거되면 스위치는 자동으로 대기 슈퍼바이저 모듈을 활성 모듈로 전환합니다. 스위치에 슈퍼바이저 모듈이 하나만 설치된 경우, 작동 중에 비어 있는 슈퍼바이저 슬롯에 새 슈퍼바이저 모듈을 설치할 수 있습니다.
+* *라인 카드*(총 8개, 각 카드에는 16개의 고정 400GbE 포트 포함): 스위치는 섀시에 설치된 하나 이상의 라인 카드로 작동합니다.
+* *팬 트레이* (총 2개)
+* *Fabric module* (총 2개)
+* *전원 공급 부품* (총 2개)
+* *팬 모듈* (총 6개)
+* *OSFP/QSFP 트랜시버 모듈* (32개의 고정형 400GbE 포트)
+
+
+.단계
+. Cisco 사이트로 이동하십시오. link:https://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/hw/9800/9808/nx-os/cisco-nexus-9808-nx-os-mode-switch-hardware-installation-guide.html["Cisco Nexus 9808 NX-OS 모드 스위치 하드웨어 설치 가이드"^]
+. link:https://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/hw/9800/9808/nx-os/cisco-nexus-9808-nx-os-mode-switch-hardware-installation-guide/m-8000-replace-chassis-components.html["섀시 구성품 교체"^] 섹션으로 이동하여 FRU 절차를 확인하십시오.
+. 결함이 있는 FRU를 교체하려면 해당 절차를 따르십시오.
++
+NetApp 하드웨어 구성 및 호환성 정보는 link:https://hwu.netapp.com["NetApp Hardware Universe"^]을(를) 참조하십시오.
+
+
+
+.다음은 무엇인가요?
+Cisco 사이트에서 해당 FRU 절차를 완료한 후에는 정상적인 작업을 재개할 수 있습니다.

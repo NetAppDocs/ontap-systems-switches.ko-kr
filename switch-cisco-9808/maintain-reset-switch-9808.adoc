@@ -1,0 +1,59 @@
+---
+sidebar: sidebar 
+permalink: switch-cisco-9808/maintain-reset-switch-9808.html 
+keywords: reset switch factory defaults 
+summary: Cisco Nexus 9808 스위치를 폐기하거나 스위치에 오류가 발생하여 복구할 수 없는 경우, 수동으로 재구성해야 할 때 스위치를 초기 공장 기본 설정으로 재설정할 수 있습니다. 
+---
+= 스위치를 공장 기본 설정으로 재설정 - Cisco Nexus 9808
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cisco Nexus 9808 스위치를 폐기하거나 스위치에 오류가 발생하여 복구할 수 없는 경우, 수동으로 재구성해야 할 때 스위치를 초기 공장 기본 설정으로 재설정할 수 있습니다.
+
+.시작하기 전에
+직렬 콘솔을 사용하여 스위치에 연결해야 합니다.
+
+.이 작업에 관하여
+* 이 작업은 관리 네트워크의 구성을 재설정합니다.
+* 이 절차에서 사용되는 `reload` 명령은 스위치를 재부팅하여 스위치를 통과하는 모든 네트워크 트래픽을 차단합니다. (스위치가 사용되지 않는 유지보수 윈도우 동안 이 절차를 수행해야 합니다.)
+
+
+.단계
+. 기존 시작 구성을 지웁니다:
++
+`write erase`
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *write erase*
+
+Warning: This command will erase the startup-configuration.
+Do you wish to proceed anyway? (y/n) [n] *y*
+----
+. NX-OS를 다시 로드합니다:
++
+`reload`
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *reload*
+
+This command will reboot the system. (y/n)? [n] *y*
+----
++
+시스템이 재부팅되고 구성 마법사가 실행됩니다.
+
++
+
+NOTE: 재부팅 중에 "Abort Auto Provisioning and continue with normal setup? (yes/no)[n]"라는 메시지가 표시되면 *yes*를 선택하여 진행하십시오.
+
+. 스위치를 폐기하는 경우 이 절차는 완료됩니다. 그렇지 않으면 link:configure-switch-workflow-9808.html["스위치 워크플로 구성"]을 사용하여 스위치를 구성해야 합니다.
+

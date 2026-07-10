@@ -1,0 +1,76 @@
+---
+permalink: switch-cisco-9364d-gx2a/install-configure-switches-in-afx-workflow-9364d.html 
+sidebar: sidebar 
+keywords: switches, initial installation, configure 9364d-gx2ab switch 
+summary: 새로운 AFX 1K 또는 AFX 2K 시스템의 일부로 Cisco Nexus 9364D-GX2A 스위치를 설치하고 구성하려면 이 스위치 사이트와 AFX 시스템 사이트의 문서를 함께 사용해야 합니다. 문서에는 필요한 위치로 연결되는 링크가 포함되어 있습니다. 
+---
+= AFX 시스템 워크플로우에서 스위치 설치 및 구성 - Cisco Nexus 9364D-GX2A
+:allow-uri-read: 
+
+
+[role="lead"]
+새로운 AFX 1K 또는 AFX 2K 시스템의 일부로 Cisco Nexus 9364D-GX2A 스위치를 설치하고 구성하려면 이 스위치 사이트와 AFX 시스템 사이트의 문서를 함께 사용해야 합니다. 문서에는 필요한 위치로 연결되는 링크가 포함되어 있습니다.
+
+
+
+[[install-switches]]
+=== 스위치 설치
+
+스위치를 설치하려면 먼저 설치 준비를 한 다음, 스위치(AFX 시스템 하드웨어 포함)를 설치해야 합니다. 여기에는 케이블 연결 및 스위치 전원 공급이 포함됩니다.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["하나"]link:install-prepare-9364d.html["설치 준비"]
+[role="quick-margin-para"]
+Cisco 및 ONTAP 시스템 설명서를 검토하고, 설치 현장을 준비하며, AFX 시스템에서 지원하는 RCF 버전에 맞는 스위치 포트의 사전 설정 구성을 이해하여 스위치 설치 및 설정을 준비하십시오.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["둘"]link:install-switches-9364d.html["스위치를 설치합니다"]
+[role="quick-margin-para"]
+스위치를 설치(및 AFX 시스템 하드웨어 설치)하고, 케이블을 연결하고, 전원을 켜려면 AFX 1K 또는 AFX 2K 시스템 설치 및 설정 워크플로로 안내됩니다. 그런 다음 스위치를 구성하기 위해 다시 이 워크플로로 안내됩니다.
+
+
+
+[[configure-switches]]
+=== 스위치 구성
+
+스위치를 구성하려면 초기 스위치 설정을 완료하고, 케이블 및 구성 요구 사항을 검토하고, NX-OS를 설치하고, RCF를 설치하고, 로그 수집을 위한 SSH를 확인하고, 이더넷 스위치 상태 모니터링(CSHM)을 구성하고, Smart Call Home(선택 사항)을 구성해야 합니다.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["하나"]link:configure-complete-initial-setup-9364d.html["스위치 초기 설정 완료"]
+[role="quick-margin-para"]
+스위치 전원을 켜면 스위치가 부팅을 시작하고 구성 마법사가 나타납니다. 일련의 질문에 답하여 스위치의 초기(시작) 구성을 수행해야 합니다.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["둘"]link:configure-review-cabling-config-requirements-9364d.html["케이블 및 구성 요구 사항을 검토하십시오."]
+[role="quick-margin-para"]
+케이블 연결 및 구성 요구 사항을 검토하십시오.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["삼"]link:configure-install-nxos-9364d.html["NX-OS 설치"]
+[role="quick-margin-para"]
+AFX 1K 또는 AFX 2K 시스템을 지원하는 스위치에 NX-OS의 최신 버전을 설치하십시오.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["네"]link:configure-install-upgrade-rcf-overview-9364d.html["RCF 설치"]
+[role="quick-margin-para"]
+AFX 1K 또는 AFX 2K 시스템을 지원하는 스위치에 최신 버전의 RCF를 설치하십시오. 링크를 클릭하면 RCF 설치 또는 업그레이드 개요 페이지로 이동하며, 여기에는 RCF를 설치하기 전에 알아야 할 정보가 있습니다.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["다섯"]link:configure-verify-ssh-9364d.html["로그 수집을 위한 SSH 확인"]
+[role="quick-margin-para"]
+SSH가 활성화되어 있는지 확인하여 이더넷 스위치 상태 모니터링(CSHM) 로그 수집 기능을 사용할 수 있도록 하십시오.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["육"]link:../switch-cshm/cshm-overview.html["이더넷 스위치 상태 모니터링 구성"]
+[role="quick-margin-para"]
+스위치의 작동 상태를 확인하고 디버깅 및 문제 해결을 위해 스위치 로그를 수집하려면 이더넷 스위치 상태 모니터링(CSHM)을 구성하십시오.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["일곱"]link:configure-smart-call-9364d.html["Smart Call Home 구성(선택 사항)"]
+[role="quick-margin-para"]
+ONTAP AFX 클러스터 스위치를 모니터링하기 위한 이더넷 스위치 상태 모니터링(CSHM)을 지원하며, 스위치 진단 로그를 수집하는 기능도 제공합니다. Cisco의 Smart Call Home은 스위치에서 발생할 수 있는 문제를 사전에 파악하고 해결하는 데 도움을 주는 옵션입니다.
+
+
+
+[[complete-afx-system-setup]]
+=== AFX 시스템 설치 완료
+
+AFX 1K 또는 AFX 2K 시스템 설정을 완료하려면 AFX 시스템 구성 요소의 전원을 켜고 시스템 설정 절차를 완료해야 합니다.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["하나"]link:install-complete-afx-setup-9364d.html["AFX 시스템 설정 완료"]
+[role="quick-margin-para"]
+AFX 1K 또는 AFX 2K 시스템 설정을 완료하려면 AFX 시스템 설명서를 참조하십시오. 설명서에는 스토리지 셸프와 컨트롤러의 전원을 켜고, 스위치 연결을 확인한 후 시스템 설정 절차를 완료하는 내용이 포함되어 있습니다.
+
+.다음은 무엇인가요?
+AFX 시스템 설정을 완료하면 AFX 시스템을 사용할 수 있습니다. 또한 link:https://docs.netapp.com/us-en/ontap-afx/index.html["AFX 시스템에 대해 자세히 알아보고 사용 방법을 확인하세요."^]할 수도 있습니다.

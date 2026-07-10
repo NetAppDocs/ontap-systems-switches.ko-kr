@@ -2,44 +2,60 @@
 section: switch-cisco-9332d-gx2b
 title: Cisco 넥서스 9332D-GX2B
 entries:
-- title: 시작하기
-  pdf-filename: Overview_9332d-gx2b
+- title: 참조 문서
+  pdf-filename: Reference_documents_9332d-gx2b
+  url: "/switch-cisco-9332d-gx2b/reference-documentation-9332d.html"
+- title: AFX 시스템에 스위치 설치 및 구성
+  pdf-filename: AFX 시스템에서 스위치 설치 및 구성 9332d-gx2b
   entries:
-  - title: 빠른 시작
-    url: "/switch-cisco-9332d-gx2b/configure-switch-overview-9332d-cluster.html"
-  - title: 스위치 포트 세부 정보
-    url: "/switch-cisco-9332d-gx2b/configure-setup-ports-9332d.html"
-  - title: 필수 서류
-    url: "/switch-cisco-9332d-gx2b/required-documentation-9332d-cluster.html"
-  - title: 스마트 콜 홈 요구 사항
-    url: "/switch-cisco-9332d-gx2b/smart-call-9332d-cluster.html"
-- title: 하드웨어 설치
-  url: "/switch-cisco-9332d-gx2b/install-hardware.html"
-  pdf-filename: Install_hardware_9332d-gx2b
-- title: 소프트웨어 구성
-  pdf-filename: Configure_software_9332d-gx2b
+  - title: 스위치 설치 및 구성 워크플로
+    url: "/switch-cisco-9332d-gx2b/install-configure-switches-in-afx-workflow-9332d.html"
+  - title: 설치 준비
+    url: "/switch-cisco-9332d-gx2b/install-prepare-9332d.html"
+  - title: 스위치 설치
+    url: "/switch-cisco-9332d-gx2b/install-switches-9332d.html"
+    pdf-filename: Install_hardware_9332d-gx2b
+  - title: AFX 시스템 설치 완료
+    url: "/switch-cisco-9332d-gx2b/install-complete-afx-setup-9332d.html"
+- title: 스위치 구성
+  pdf-filename: configure_switch_9332d-gx2b
   entries:
-  - title: 소프트웨어 워크플로 구성
-    url: "/switch-cisco-9332d-gx2b/configure-software-overview-9332d-cluster.html"
-  - title: 스위치 구성
-    url: "/switch-cisco-9332d-gx2b/setup-switch-9332d-cluster.html"
-  - title: NX-OS 및 RCF 설치 준비
-    url: "/switch-cisco-9332d-gx2b/install-nxos-overview-9332d-cluster.html"
-  - title: NX-OS 소프트웨어 설치 또는 업그레이드
-    url: "/switch-cisco-9332d-gx2b/install-nxos-software-9332d-cluster.html"
+  - title: 스위치 워크플로 구성
+    url: "/switch-cisco-9332d-gx2b/configure-switch-workflow-9332d.html"
+  - title: 스위치 초기 설정 완료
+    url: "/switch-cisco-9332d-gx2b/configure-complete-initial-setup-9332d.html"
+  - title: 케이블 및 구성 요구 사항을 검토하십시오.
+    url: "/switch-cisco-9332d-gx2b/configure-review-cabling-config-requirements-9332d.html"
+  - title: NX-OS 설치 또는 업그레이드
+    pdf-filename: Install_upgrade_nx-os
+    entries:
+    - title: NX-OS 설치 또는 업그레이드 개요
+      url: "/switch-cisco-9332d-gx2b/configure-install-upgrade-nxos-overview-9332d.html"
+    - title: NX-OS 설치
+      url: "/switch-cisco-9332d-gx2b/configure-install-nxos-9332d.html"
+    - title: NX-OS 업그레이드
+      url: "/switch-cisco-9332d-gx2b/configure-upgrade-nxos-9332d.html"
   - title: RCF 설치 또는 업그레이드
-    pdf-filename: Install_upgrade_rcf_9332d-gx2b
+    pdf-filename: 설치_업그레이드_rcf
     entries:
     - title: RCF 설치 또는 업그레이드 개요
-      url: "/switch-cisco-9332d-gx2b/install-upgrade-rcf-overview-cluster-9332d.html"
+      url: "/switch-cisco-9332d-gx2b/configure-install-upgrade-rcf-overview-9332d.html"
     - title: RCF 설치
-      url: "/switch-cisco-9332d-gx2b/install-rcf-software-9332d-cluster.html"
-    - title: RCF 버전을 업그레이드하세요
-      url: "/switch-cisco-9332d-gx2b/upgrade-rcf-software-9332d-cluster.html"
-  - title: SSH가 활성화되어 있는지 확인하세요
-    url: "/switch-cisco-9332d-gx2b/configure-ssh-keys.html"
-- title: 스위치를 공장 기본값으로 재설정합니다
-  url: "/switch-cisco-9332d-gx2b/reset-switch-9332d.html"
-- title: 9332D-GX2B 스위치 교체
-  pdf-filename: Replace_switches_9332d-gx2b
-  url: "/switch-cisco-9332d-gx2b/replace-9332d-cluster.html"
+      url: "/switch-cisco-9332d-gx2b/configure-install-rcf-9332d.html"
+    - title: RCF 업그레이드
+      url: "/switch-cisco-9332d-gx2b/configure-upgrade-rcf-9332d.html"
+  - title: 로그 수집을 위한 SSH 확인
+    url: "/switch-cisco-9332d-gx2b/configure-verify-ssh-9332d.html"
+  - title: Smart Call Home 구성
+    url: "/switch-cisco-9332d-gx2b/configure-smart-call-9332d.html"
+- title: 유지 관리
+  pdf-filename: Maintain_switches_9332d-gx2b
+  entries:
+  - title: 개요 유지
+    url: "/switch-cisco-9332d-gx2b/maintain-overview-9332d.html"
+  - title: 스위치 교체
+    url: "/switch-cisco-9332d-gx2b/replace-9332d-cluster.html"
+  - title: FRU 교체
+    url: "/switch-cisco-9332d-gx2b/maintain-replace-frus-9332d.html"
+  - title: 스위치를 공장 기본값으로 재설정
+    url: "/switch-cisco-9332d-gx2b/maintain-reset-switch-9332d.html"

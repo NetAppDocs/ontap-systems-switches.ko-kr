@@ -1,0 +1,110 @@
+---
+sidebar: sidebar 
+permalink: switch-cisco-9808/install-prepare-9808.html 
+keywords: shared storage cluster switch 
+summary: 새로운 AFX 2K 시스템 설치의 일환으로 Cisco Nexus 9808 스위치를 설치하기 전에 Cisco 스위치 설명서 및 ONTAP 시스템 설명서를 검토하여 스위치 및 설치 관련 사항을 이해하고, AFX 시스템에서 지원되는 RCF 버전을 파악하고, Smart Call Home 사용 여부를 고려해야 합니다. 
+---
+= 스위치 설치 준비 - Cisco Nexus 9808
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+새로운 AFX 2K 시스템 설치의 일환으로 Cisco Nexus 9808 스위치를 설치하기 전에 해당 Cisco 스위치 설명서 및 ONTAP 시스템 설명서를 검토하여 스위치 및 설치 관련 사항을 이해하고, AFX 시스템에서 지원되는 참조 구성 파일(RCF) 버전을 숙지하며, Smart Call Home 기능 사용 여부를 고려해야 합니다.
+
+
+
+[[step-1-review-the-cisco-switch-documentation]]
+=== 1단계: Cisco 스위치 설명서를 검토합니다.
+
+다음 Cisco 설치 및 설정 문서를 검토하여 스위치 릴리스 노트, 안전 정보, 설치 옵션, 초기 소프트웨어 구성 및 명령 참조에 익숙해지십시오.
+
+모든 Cisco 문서는 해당 link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Cisco Nexus 9000 시리즈 스위치 지원"^] 페이지에서 확인할 수 있습니다.
+
+* link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-release-notes-list.html["Cisco Nexus 9000 시리즈 NX-OS 릴리스 노트"^] (스위치에 설치된 NX-OS 릴리스에 대한 릴리스 노트를 선택하십시오.)
+* link:https://www.cisco.com/c/en/us/td/docs/switches/datacenter/mds9000/hw/regulatory/compliance/RCSI.html?dtid=osscdc000283&linkclickid=srch["Cisco Nexus 9000 시리즈에 대한 규정 준수 및 안전 정보"^]
+* link:https://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/hw/9800/9808/nx-os/cisco-nexus-9808-nx-os-mode-switch-hardware-installation-guide/m-8000-modular-overview-ph2.html?linkclickid=aisrch["Cisco Nexus 9808 NX-OS 모드 스위치 하드웨어 설치 가이드"^]
+* link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-installation-and-configuration-guides-list.html["Cisco Nexus 9000 시리즈 스위치 소프트웨어 구성 가이드"^](스위치에 설치된 NX-OS 릴리스에 대한 가이드를 선택하세요)
+* link:https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/102x/command-reference/config/b_n9k_config_commands_1021.html["Cisco Nexus 9000 시리즈 NX-OS 명령 참조"^] Cisco에서 제공하는 다양한 명령 참조에 대한 링크를 제공합니다.
+
+
+
+
+[[step-2-review-the-netapp-systems-documentation]]
+=== 2단계: NetApp 시스템 설명서를 검토합니다.
+
+NetApp 시스템 설명서를 검토하여 AFX 2K 시스템 설치, ONTAP 릴리스 정보, 하드웨어 구성 및 호환성 요구 사항을 숙지하십시오.
+
+* link:https://docs.netapp.com/us-en/ontap-afx/index.html["AFX 시스템 문서"^] NetApp 하드웨어 설치 방법을 설명합니다.
+* link:https://docs.netapp.com/us-en/ontap-family/["ONTAP 문서"^] ONTAP 릴리스의 모든 측면에 대한 자세한 정보를 제공합니다.
+* link:https://hwu.netapp.com["NetApp Hardware Universe"^] NetApp 하드웨어 구성 및 호환성 정보를 제공합니다.
+* link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["HWU에 없는 추가 정보 중 장비를 설치하는 데 필요한 정보는 무엇입니까?"^] 스토리지 시스템 설치 요구 사항에 대한 자세한 정보를 제공합니다.
+
+
+
+
+[[step-3-understand-the-supported-rcf-versions]]
+=== 3단계: 지원되는 RCF 버전을 파악합니다.
+
+ONTAP AFX 시스템에서 실행되는 ONTAP 버전과 스위치의 NX-OS 버전에 따라 스위치에서 지원하는 RCF 버전이 결정됩니다. RCF 버전에는 포트 속도 구성이 미리 설정되어 있으며, 이 구성에 따라 브레이크아웃 모드(4x100GbE)와 비브레이크아웃 모드에서 작동하는 스위치 포트 수가 결정됩니다.
+
+[NOTE]
+====
+지원되는 RCF 버전의 최신 목록은 link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["NetApp Cisco 이더넷 스위치"^] 페이지를 참조하십시오.
+
+스위치 포트 정보는 link:https://hwu.netapp.com["NetApp Hardware Universe"^]에서도 확인할 수 있습니다.
+
+====
+AFX 2K 시스템의 경우 RCF 10.1 이상 버전이 지원됩니다.
+
+예를 들어, 다음 표는 RCF 버전 10.1을 기준으로 스위치 포트의 사전 설정 그룹, 포트 속도 및 사용량을 보여줍니다.
+
+[cols="1,2"]
+|===
+| 스위치 포트 그룹 | 포트 속도 및 사용량 
+
+
+ a| 
+이더넷1/1/1-4에서 이더넷1/14/1-4로
+ a| 
+클러스터 내, HA 및 스토리지 셸프 연결을 위한 4x100GbE 모드
+
+
+
+ a| 
+Ethernet1/15~Ethernet1/30
+ a| 
+클러스터 내 연결, 고가용성(HA) 및 스토리지 연결을 위한 400GbE 모드
+
+
+
+ a| 
+이더넷1/31, 이더넷1/32
+ a| 
+400GbE 클러스터 내 ISL 연결
+
+|===
+[NOTE]
+====
+사전 설정 그룹을 변경하여 AFX 시스템에 다른 포트 속도 구성을 수용해야 할 때 브레이크아웃 모드(4x100GbE)와 400GbE 모드에서 스위치 포트 수를 조정할 수 있습니다.
+
+이 작업은 나중에 RCF 설치 절차의 일부로 수행합니다.
+
+====
+
+
+[[step-4-consider-using-smart-call-home]]
+=== 4단계: Smart Call Home 사용 여부 고려
+
+ONTAP는 AFX 클러스터 스위치를 모니터링하기 위한 이더넷 스위치 상태 모니터링(CSHM)을 지원하며, 스위치 진단 로그를 수집하는 기능도 제공합니다.
+
+Cisco의 Smart Call Home은 스위치에서 발생할 수 있는 문제를 사전에 지원하고 해결하는 데 도움을 주는 옵션입니다.
+
+Smart Call Home에 대한 자세한 정보는 link:configure-smart-call-9808.html["Smart Call Home 구성"] 설명서를 참조하십시오.
+
+.다음은 무엇인가요?
+스위치 설치 준비가 완료되면 link:install-switches-9808.html["스위치를 설치합니다"].

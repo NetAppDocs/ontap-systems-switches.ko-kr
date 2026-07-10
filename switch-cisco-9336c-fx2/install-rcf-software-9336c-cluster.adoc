@@ -25,6 +25,7 @@ Nexus 9336C-FX2 및 9336C-FX2-T 스위치를 처음 설정한 후 참조 구성 
 
 
 
+[[step-1-install-the-rcf-on-the-switches]]
 == 1단계: 스위치에 RCF 설치
 
 . SSH나 직렬 콘솔을 사용하여 Switch cs1에 로그인합니다.
@@ -174,6 +175,7 @@ cs1# copy running-config startup-config [#######################################
 
 
 
+[[step-2-verify-the-switch-connections]]
 == 2단계: 스위치 연결 확인
 
 . 클러스터 포트에 연결된 스위치 포트가 *작동*하는지 확인하세요.
@@ -384,6 +386,7 @@ cs1#
 
 
 
+[[step-3-set-up-your-ontap-cluster]]
 == 3단계: ONTAP 클러스터 설정
 
 NetApp System Manager를 사용하여 새 클러스터를 설정할 것을 권장합니다.

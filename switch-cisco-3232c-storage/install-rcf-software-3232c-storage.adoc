@@ -29,6 +29,7 @@ link:prepare-install-cisco-nexus-3232c-storage.html["NX-OS 및 RCF 설치 준비
 
 
 
+[[step-1-install-the-rcf-on-the-switches]]
 == 1단계: 스위치에 RCF 설치
 
 . SSH 또는 시리얼 콘솔을 사용하여 스위치 s2에 로그인하십시오.
@@ -105,6 +106,7 @@ RCF의 *Installation notes*, *Important Notes* 및 *banner* 섹션을 철저히 
 
 
 
+[[step-2-verify-the-switch-connections]]
 == 2단계: 스위치 연결 확인
 
 . 스위치 포트가 *up* 상태인지 확인하십시오.
@@ -122,6 +124,7 @@ RCF의 *Installation notes*, *Important Notes* 및 *banner* 섹션을 철저히 
 
 
 
+[[step-3-set-up-your-ontap-cluster]]
 == 3단계: ONTAP 클러스터 설정
 
 NetApp System Manager를 사용하여 새 클러스터를 설정할 것을 권장합니다.

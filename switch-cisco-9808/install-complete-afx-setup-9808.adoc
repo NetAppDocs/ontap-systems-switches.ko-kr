@@ -1,0 +1,26 @@
+---
+permalink: switch-cisco-9808/install-complete-afx-setup-9808.html 
+sidebar: sidebar 
+keywords: switches, complete system setup, Cisco Nexus, 9808 switches, AFX 
+summary: Cisco Nexus 9808 스위치 구성 절차를 완료한 후에는 AFX 시스템 설명서 사이트로 이동하여 AFX 2K 시스템의 스토리지 셸프와 컨트롤러 전원을 켜고, 스위치 연결을 확인하고, AFX 시스템 설정을 완료하십시오. 
+---
+= AFX 시스템 설정 완료 - Cisco Nexus 9808
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cisco Nexus 9808 스위치 구성 절차를 완료한 후에는 AFX 시스템 설명서 사이트로 이동하여 AFX 2K 시스템의 스토리지 셸프와 컨트롤러 전원을 켜고, 스위치 연결을 확인하고, AFX 시스템 설정을 완료하십시오.
+
+.시작하기 전에
+* 스위치 구성 절차를 완료했어야 합니다 link:configure-switch-workflow-9808.html["스위치 워크플로 구성"].
+* 각 스위치는 콘솔에 연결되어 있거나 각 스위치에 원격으로 액세스할 수 있어야 합니다.
+
+
+.단계
+. link:https://docs.netapp.com/us-en/ontap-afx/install-afx-2k/power-on-hardware.html["AFX 2K 스토리지 시스템 전원 켜기"^] 절차를 사용하여 AFX 2K 시스템의 전원 켜기 및 설정 단계를 완료하십시오.
+
+
+.다음은 무엇인가요?
+스토리지 셸프와 컨트롤러의 전원을 켜고 AFX 2K 시스템 설정을 완료하면 AFX 시스템을 사용할 준비가 됩니다.

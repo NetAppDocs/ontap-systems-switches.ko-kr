@@ -15,6 +15,7 @@ summary: 2노드 스위치리스 클러스터가 있는 경우 Cisco Nexus 3232C
 
 
 
+[[review-requirements]]
 == 검토 요구 사항
 
 .시작하기 전에
@@ -70,6 +71,7 @@ summary: 2노드 스위치리스 클러스터가 있는 경우 Cisco Nexus 3232C
 ====
 
 
+[[step-1-display-and-migrate-physical-and-logical-ports]]
 == 1단계: 물리적 및 논리적 포트 표시 및 마이그레이션
 
 . 이 클러스터에서 AutoSupport 활성화된 경우 AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다.
@@ -323,6 +325,7 @@ cluster::*> *network interface migrate -vserver cluster -lif n2_clus1 -source-no
 
 
 
+[[step-2-shut-down-the-reassigned-lifs-and-disconnect-the-cables]]
 == 2단계: 재할당된 LIF를 종료하고 케이블 연결을 끊습니다.
 
 . 클러스터 인터페이스가 성공적으로 마이그레이션되었는지 확인하세요.
@@ -438,6 +441,7 @@ Larger than PMTU communication succeeds on 4 path(s) RPC status:
 
 
 
+[[step-3-enable-the-cluster-ports]]
 == 3단계: 클러스터 포트 활성화
 
 . 노드 n2의 e4a에서 케이블을 분리합니다.
@@ -554,6 +558,7 @@ Cluster
 
 
 
+[[step-4-enable-the-reassigned-lifs]]
 == 4단계: 재할당된 LIF 활성화
 
 . 각 노드의 클러스터 포트 연결을 표시합니다.

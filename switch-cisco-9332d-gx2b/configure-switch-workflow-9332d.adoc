@@ -1,0 +1,49 @@
+---
+permalink: switch-cisco-9332d-gx2b/configure-switch-workflow-9332d.html 
+sidebar: sidebar 
+keywords: switches, initial installation, configure switch-cisco-9332d-gx2b switch 
+summary: Cisco 9332D-GX2B 스위치는 새로운 AFX 1K 또는 AFX 2K 시스템 설치, 스위치 교체 또는 스위치를 공장 초기 설정으로 재설정하는 과정에서 구성합니다. 
+---
+= 스위치 워크플로 구성 - Cisco Nexus 9332D-GX2B
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cisco 9332D-GX2B 스위치는 새로운 AFX 1K 또는 AFX 2K 시스템 설치, 스위치 교체 또는 스위치를 공장 초기 설정으로 재설정하는 과정에서 구성합니다.
+
+특정 절차에 따라 이 워크플로 또는 이 워크플로 내의 개별 항목으로 안내될 수 있습니다(link:install-configure-switches-in-afx-workflow-9332d.html["새로운 AFX 1K 또는 AFX 2K 시스템 설치 및 설정"], link:replace-9332d-cluster.html["스위치 교체"], 또는 link:maintain-reset-switch-9332d.html["스위치를 공장 기본 설정으로 재설정"]).
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["하나"]link:configure-complete-initial-setup-9332d.html["초기 스위치 설정을 완료합니다"]
+[role="quick-margin-para"]
+스위치 전원을 켜면 스위치가 부팅을 시작하고 구성 마법사가 나타납니다. 일련의 질문에 답하여 스위치의 초기(시작) 구성을 수행해야 합니다.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["둘"]link:configure-review-cabling-config-requirements-9332d.html["케이블 및 구성 요구 사항을 검토하십시오."]
+[role="quick-margin-para"]
+케이블 연결 및 구성 요구 사항을 검토하십시오.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["삼"]link:configure-install-nxos-9332d.html["NX-OS 설치"]
+[role="quick-margin-para"]
+AFX 1K 또는 AFX 2K 시스템을 지원하는 스위치에 NX-OS의 최신 버전을 설치하십시오.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["네"]link:configure-install-upgrade-rcf-overview-9332d.html["RCF 설치"]
+[role="quick-margin-para"]
+AFX 1K 또는 AFX 2K 시스템을 지원하는 스위치에 최신 버전의 RCF를 설치하십시오. 링크를 클릭하면 RCF 설치 또는 업그레이드 개요 페이지로 이동하며, 여기에는 RCF를 설치하기 전에 알아야 할 정보가 있습니다.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["다섯"]link:configure-verify-ssh-9332d.html["로그 수집을 위한 SSH 확인"]
+[role="quick-margin-para"]
+SSH가 활성화되어 있는지 확인하여 이더넷 스위치 상태 모니터링(CSHM) 로그 수집 기능을 사용할 수 있도록 하십시오.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["육"]link:../switch-cshm/cshm-overview.html["이더넷 스위치 상태 모니터링 구성"]
+[role="quick-margin-para"]
+스위치의 작동 상태를 확인하고 디버깅 및 문제 해결을 위해 스위치 로그를 수집하려면 이더넷 스위치 상태 모니터링(CSHM)을 구성하십시오.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["일곱"]link:configure-smart-call-9332d.html["Smart Call Home 구성(선택 사항)"]
+[role="quick-margin-para"]
+ONTAP AFX 클러스터 스위치를 모니터링하기 위한 이더넷 스위치 상태 모니터링(CSHM)을 지원하며, 스위치 진단 로그를 수집하는 기능도 제공합니다. Cisco의 Smart Call Home은 스위치에서 발생할 수 있는 문제를 사전에 파악하고 해결하는 데 도움을 주는 옵션입니다.
+
+.다음은 무엇인가요?
+* 새로운 AFX 1K 또는 AFX 2K 시스템 설치의 일부로 스위치를 구성한 경우, link:install-complete-afx-setup-9332d.html["AFX 시스템 설정을 완료합니다"]해야 합니다.
+* 스위치를 교체하는 과정에서 스위치를 구성했거나 스위치를 공장 초기 설정으로 재설정한 경우, 스위치는 정상적으로 작동해야 합니다.
+

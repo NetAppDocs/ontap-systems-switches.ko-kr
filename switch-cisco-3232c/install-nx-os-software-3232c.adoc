@@ -15,6 +15,7 @@ summary: 다음 절차를 사용하여 Nexus 3232C 클러스터 스위치에 NX-
 
 
 
+[[review-requirements]]
 == 검토 요구 사항
 
 .시작하기 전에
@@ -26,6 +27,7 @@ summary: 다음 절차를 사용하여 Nexus 3232C 클러스터 스위치에 NX-
 
 
 
+[[install-the-software]]
 == 소프트웨어를 설치하세요
 
 이 절차에서는 ONTAP 명령과 Cisco Nexus 3000 시리즈 스위치 명령을 모두 사용해야 합니다. 달리 지정되지 않는 한 ONTAP 명령을 사용합니다.

@@ -2,44 +2,60 @@
 section: switch-cisco-9364d-gx2a
 title: Cisco 넥서스 9364D-GX2A
 entries:
-- title: 시작하기
-  pdf-filename: Overview_9364d-gx2a
+- title: 참조 문서
+  pdf-filename: Reference_documents_9364d-gx2a
+  url: "/switch-cisco-9364d-gx2a/reference-documentation-9364d.html"
+- title: AFX 시스템에 스위치 설치 및 구성
+  pdf-filename: install_and_configure_switches_in_AFX_systems_9364d-gx2a
   entries:
-  - title: 빠른 시작
-    url: "/switch-cisco-9364d-gx2a/configure-switch-overview-9364d-cluster.html"
-  - title: 스위치 포트 세부 정보
-    url: "/switch-cisco-9364d-gx2a/configure-setup-ports-9364d.html"
-  - title: 필수 서류
-    url: "/switch-cisco-9364d-gx2a/required-documentation-9364d-cluster.html"
-  - title: 스마트 콜 홈 요구 사항
-    url: "/switch-cisco-9364d-gx2a/smart-call-9364d-cluster.html"
-- title: 하드웨어 설치
-  url: "/switch-cisco-9364d-gx2a/install-hardware.html"
-  pdf-filename: Install_hardware_9364d-gx2a
-- title: 소프트웨어 구성
-  pdf-filename: Configure_software_9364d-gx2a
+  - title: 스위치 설치 및 구성 워크플로
+    url: "/switch-cisco-9364d-gx2a/install-configure-switches-in-afx-workflow-9364d.html"
+  - title: 설치 준비
+    url: "/switch-cisco-9364d-gx2a/install-prepare-9364d.html"
+  - title: 스위치 설치
+    url: "/switch-cisco-9364d-gx2a/install-switches-9364d.html"
+    pdf-filename: Install_hardware_9364d-gx2a
+  - title: AFX 시스템 설치 완료
+    url: "/switch-cisco-9364d-gx2a/install-complete-afx-setup-9364d.html"
+- title: 스위치 구성
+  pdf-filename: configure_switch_9364d-gx2a
   entries:
-  - title: 소프트웨어 워크플로 구성
-    url: "/switch-cisco-9364d-gx2a/configure-software-overview-9364d-cluster.html"
-  - title: 스위치 구성
-    url: "/switch-cisco-9364d-gx2a/setup-switch-9364d-cluster.html"
-  - title: NX-OS 및 RCF 설치 준비
-    url: "/switch-cisco-9364d-gx2a/install-nxos-overview-9364d-cluster.html"
-  - title: NX-OS 소프트웨어 설치 또는 업그레이드
-    url: "/switch-cisco-9364d-gx2a/install-nxos-software-9364d-cluster.html"
+  - title: 스위치 워크플로 구성
+    url: "/switch-cisco-9364d-gx2a/configure-switch-workflow-9364d.html"
+  - title: 스위치 초기 설정 완료
+    url: "/switch-cisco-9364d-gx2a/configure-complete-initial-setup-9364d.html"
+  - title: 케이블 및 구성 요구 사항을 검토하십시오.
+    url: "/switch-cisco-9364d-gx2a/configure-review-cabling-config-requirements-9364d.html"
+  - title: NX-OS 설치 또는 업그레이드
+    pdf-filename: Install_upgrade_nx-os_9364d-gx2a
+    entries:
+    - title: NX-OS 설치 또는 업그레이드 개요
+      url: "/switch-cisco-9364d-gx2a/configure-install-upgrade-nxos-overview-9364d.html"
+    - title: NX-OS 설치
+      url: "/switch-cisco-9364d-gx2a/configure-install-nxos-9364d.html"
+    - title: NX-OS 업그레이드
+      url: "/switch-cisco-9364d-gx2a/configure-upgrade-nxos-9364d.html"
   - title: RCF 설치 또는 업그레이드
     pdf-filename: Install_upgrade_rcf_9364d-gx2a
     entries:
     - title: RCF 설치 또는 업그레이드 개요
-      url: "/switch-cisco-9364d-gx2a/install-upgrade-rcf-overview-cluster-9364d.html"
+      url: "/switch-cisco-9364d-gx2a/configure-install-upgrade-rcf-overview-9364d.html"
     - title: RCF 설치
-      url: "/switch-cisco-9364d-gx2a/install-rcf-software-9364d-cluster.html"
-    - title: RCF 버전을 업그레이드하세요
-      url: "/switch-cisco-9364d-gx2a/upgrade-rcf-software-9364d-cluster.html"
-  - title: SSH가 활성화되어 있는지 확인하세요
-    url: "/switch-cisco-9364d-gx2a/configure-ssh-keys.html"
-- title: 스위치를 공장 기본값으로 재설정합니다
-  url: "/switch-cisco-9364d-gx2a/reset-switch-9364d.html"
-- title: 9364D-GX2A 스위치 교체
-  url: "/switch-cisco-9364d-gx2a/replace-9364d-cluster.html"
-  pdf-filename: Replace_switches_9364d-gx2a
+      url: "/switch-cisco-9364d-gx2a/configure-install-rcf-9364d.html"
+    - title: RCF 업그레이드
+      url: "/switch-cisco-9364d-gx2a/configure-upgrade-rcf-9364d.html"
+  - title: 로그 수집을 위한 SSH 확인
+    url: "/switch-cisco-9364d-gx2a/configure-verify-ssh-9364d.html"
+  - title: Smart Call Home 구성
+    url: "/switch-cisco-9364d-gx2a/configure-smart-call-9364d.html"
+- title: 유지 관리
+  pdf-filename: Maintain_switches_9364d-gx2a
+  entries:
+  - title: 개요 유지
+    url: "/switch-cisco-9364d-gx2a/maintain-overview-9364d.html"
+  - title: 스위치 교체
+    url: "/switch-cisco-9364d-gx2a/replace-9364d-cluster.html"
+  - title: FRU 교체
+    url: "/switch-cisco-9364d-gx2a/maintain-replace-frus-9364d.html"
+  - title: 스위치를 공장 기본값으로 재설정
+    url: "/switch-cisco-9364d-gx2a/maintain-reset-switch-9364d.html"

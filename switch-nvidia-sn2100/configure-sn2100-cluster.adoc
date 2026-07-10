@@ -15,7 +15,7 @@ SN2100 스위치를 구성하려면 NVIDIA 설명서를 참조하세요.
 
 .단계
 . 검토하다link:configure-reqs-sn2100-cluster.html["구성 요구 사항"] .
-. 지침을 따르세요 https://docs.nvidia.com/networking/display/sn2000pub/System+Bring-Up["NVIDIA 시스템 브링업."^] .
+. 의 지시사항을 따르십시오. https://networking-docs.nvidia.com/sn2000hw/latest/system-bring-up["NVIDIA 시스템 브링업."^]
 
 
 .다음은 무엇인가요?

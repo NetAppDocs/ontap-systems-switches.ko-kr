@@ -15,6 +15,7 @@ summary: 특정 작업 순서를 수행하면 결함이 있는 NetApp CN1610 클
 
 
 
+[[review-requirements]]
 == 검토 요구 사항
 
 .시작하기 전에
@@ -28,6 +29,7 @@ summary: 특정 작업 순서를 수행하면 결함이 있는 NetApp CN1610 클
 
 
 
+[[enable-console-logging]]
 == 콘솔 로깅 활성화
 
 NetApp 사용 중인 장치에서 콘솔 로깅을 활성화하고 스위치를 교체할 때 다음 작업을 수행할 것을 강력히 권장합니다.
@@ -39,6 +41,7 @@ NetApp 사용 중인 장치에서 콘솔 로깅을 활성화하고 스위치를 
 
 
 
+[[replace-the-switch]]
 == 스위치를 교체하세요
 
 .이 작업에 관하여

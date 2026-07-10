@@ -22,7 +22,7 @@ Cisco Nexus 3232C 스위치를 설정하고 구성하려면 다음 절차를 따
 
 * 필수 컨트롤러 문서와 ONTAP 문서.
 +
-link:https://netapp.com/us/documenation/index.aspx["NetApp 문서"^]
+link:https://docs.netapp.com/us-en/ontap/index.html["ONTAP 9 문서"^]
 
 * 적용 가능한 라이센스, 네트워크 및 구성 정보, 케이블.
 * 케이블링 워크시트를 완성했습니다.

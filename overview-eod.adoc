@@ -21,6 +21,7 @@ summary: FAS 및 AFF 시스템용 EOD 스위치.
 
 
 
+[[end-of-sale-and-end-of-life-announcements]]
 == 판매 종료 및 수명 종료 발표
 
 * link:https://www.cisco.com/c/en/us/products/collateral/switches/nexus-3000-series-switches/n3k-c3232c-eol.html["Cisco Nexus 3232C 판매 종료 및 수명 종료 발표"]

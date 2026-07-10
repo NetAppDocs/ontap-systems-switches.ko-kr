@@ -1,0 +1,35 @@
+---
+permalink: switch-cisco-9364d-gx2a/configure-review-cabling-config-requirements-9364d.html 
+sidebar: sidebar 
+keywords: 9364d-gx2a cabling setup, 9364d-gx2a switches configuration, nx-os 
+summary: 새로운 AFX 1K 또는 AFX 2K 시스템 설치의 일환으로 새 Cisco Nexus 9364D-GX2A 스위치를 설치하거나, 스위치를 교체하거나, 스위치를 공장 기본 설정으로 재설정하는 경우 다음 케이블 연결 및 구성 요구 사항을 검토해야 합니다. 
+---
+= 케이블 연결 및 구성 요구 사항 검토 - Cisco Nexus 9364D-GX2A
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+새로운 AFX 1K 또는 AFX 2K 시스템 설치의 일부로 Cisco Nexus 9364D-GX2A 스위치를 설치하거나, 스위치를 교체하거나, 스위치를 공장 기본 설정으로 재설정하는 경우 다음 케이블 연결 및 구성 요구 사항을 검토해야 합니다.
+
+
+
+[[hard-code-the-speed-on-breakout-ports]]
+== 브레이크아웃 포트의 속도를 하드코딩합니다
+
+스위치의 브레이크아웃 포트(4x100GbE)는 100GbE 속도로 하드코딩해야 합니다. 속도를 하드코딩하지 않으면 포트가 활성화되지 않고 오류 비활성화 상태가 됩니다.
+
+예를 들어, 브레이크아웃 포트 1~13에 100GbE를 하드코딩하려면 구성 모드에서 다음 명령을 실행하십시오. 예시에서는 첫 번째 스위치(cs1)에 명령을 적용하는 방법을 보여줍니다. 두 번째 스위치에도 동일한 명령을 반복해서 실행하십시오.
+
+[listing, subs="+quotes"]
+----
+(cs1)(config)# *interface e1/1/1-4, e1/2/1-4, e1/3/1-4, e1/4/1-4, e1/5/1-4, e1/6/1-4, e1/7/1-4, e1/8/1-4, e1/9/1-4, e1/10/1-4, e1/11/1-4, e1/12/1-4, e1/13/1-4*
+(cs1)(config-if)# *speed 100000*
+(cs1)(config-if)# *no negotiate auto*
+(cs1)(config-if)# *exit*
+(cs1)(config)# *exit*
+(cs1)# *copy running-config startup-config*
+----
+.다음은 무엇인가요?
+케이블 연결 및 구성 요구 사항을 충족한 후에는 link:configure-install-nxos-9364d.html["NX-OS를 설치합니다"].

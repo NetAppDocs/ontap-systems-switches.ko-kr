@@ -1,0 +1,20 @@
+---
+permalink: switch-cisco-9808/maintain-overview-9808.html 
+sidebar: sidebar 
+keywords: maintain overview, frus, replace switch, reset to factory defaults, cisco 9808 
+summary: 'Cisco Nexus 9808 스위치를 유지 관리하여 장기적인 안정성과 최적의 성능을 보장하십시오. 고장난 스위치 구성 요소(FRU) 교체, 결함이 있는 스위치 교체, 스위치를 공장 초기 설정으로 재설정하는 등의 유지 관리 작업을 수행할 수 있습니다.' 
+---
+= 유지 관리 개요 - Cisco Nexus 9808
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cisco Nexus 9808 스위치를 장기간 안정적으로 유지하고 최적의 성능을 확보하십시오. 고장난 스위치 구성 요소(FRU) 교체, 고장난 스위치 교체, 스위치를 공장 초기 설정으로 재설정하는 등의 유지 관리 작업을 수행할 수 있습니다.
+
+스위치에서 다음과 같은 유지 관리 작업을 수행할 수 있습니다.
+
+* link:maintain-replace-frus-9808.html["FRU 교체"]
+* link:maintain-reset-switch-9808.html["스위치를 공장 기본 설정으로 재설정"]
+

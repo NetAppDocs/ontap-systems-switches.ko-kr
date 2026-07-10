@@ -17,6 +17,7 @@ NX-OS는 Cisco Systems에서 제공하는 Nexus 시리즈 이더넷 스위치와
 
 
 
+[[review-requirements]]
 == 검토 요구 사항
 
 .지원되는 포트 및 노드 연결
@@ -34,6 +35,7 @@ NX-OS는 Cisco Systems에서 제공하는 Nexus 시리즈 이더넷 스위치와
 
 
 
+[[install-the-software]]
 == 소프트웨어를 설치하세요
 
 이 절차의 예에서는 두 개의 노드를 사용하지만 클러스터에는 최대 24개의 노드가 있을 수 있습니다.

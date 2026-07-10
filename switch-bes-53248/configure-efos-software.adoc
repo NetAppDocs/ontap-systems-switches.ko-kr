@@ -17,6 +17,7 @@ EFOS 소프트웨어에는 이더넷 및 IP 인프라 시스템을 개발하기 
 
 
 
+[[prepare-for-installation]]
 == 설치 준비
 
 .시작하기 전에
@@ -27,6 +28,7 @@ EFOS 소프트웨어에는 이더넷 및 IP 인프라 시스템을 개발하기 
 
 
 
+[[install-the-software]]
 == 소프트웨어를 설치하세요
 
 다음 방법 중 하나를 사용하여 EFOS 소프트웨어를 설치하세요.
@@ -37,6 +39,7 @@ EFOS 소프트웨어에는 이더넷 및 IP 인프라 시스템을 개발하기 
 
 
 
+[[method-1-install-efos]]
 === 방법 1: EFOS 설치
 
 EFOS 소프트웨어를 설치하려면 다음 단계를 수행하세요.
@@ -251,6 +254,7 @@ Additional Packages............................ BGP-4
 
 
 
+[[method-2-install-efos-in-onie-mode]]
 === 방법 2: ONIE 모드로 EFOS 설치
 
 한 EFOS 버전이 FIPS 규격을 준수하고 다른 EFOS 버전이 FIPS 규격을 준수하지 않는 경우 다음 단계를 수행할 수 있습니다.  스위치가 부팅에 실패하면 이 단계를 사용하여 ONIE에서 FIPS가 아니거나 FIPS를 준수하는 EFOS 3.7.xx 이미지를 설치할 수 있습니다.

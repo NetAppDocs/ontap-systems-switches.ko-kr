@@ -15,6 +15,7 @@ Cisco 92300YC 스위치를 구성하기 전에 다음 고려 사항을 검토하
 
 
 
+[[support-for-nvidia-cx6-cx6-dx-and-cx7-ethernet-ports]]
 == NVIDIA CX6, CX6-DX 및 CX7 이더넷 포트 지원
 
 NVIDIA ConnectX-6(CX6), ConnectX-6 Dx(CX6-DX) 또는 ConnectX-7(CX7) NIC 포트를 사용하여 스위치 포트를 ONTAP 컨트롤러에 연결하는 경우 스위치 포트 속도를 하드코딩해야 합니다.

@@ -108,6 +108,7 @@ N9K-9336C 65CFM, 좌현 흡입 공기 흐름
 |===
 
 
+[[cisco-smart-licenses-for-9336c-fx2-t-ports-only]]
 == 9336C-FX2-T 포트에만 적용되는 Cisco Smart 라이선스
 
 Cisco Nexus 9336C-FX-T 스토리지 스위치에서 12개 이상의 포트를 활성화하려면 Cisco Smart 라이선스를 구매해야 합니다.  Cisco Smart 라이선스는 Cisco Smart 계정을 통해 관리됩니다.

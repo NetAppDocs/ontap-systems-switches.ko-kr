@@ -1,0 +1,180 @@
+---
+permalink: switch-cisco-9364d-gx2a/configure-install-upgrade-rcf-overview-9364d.html 
+sidebar: sidebar 
+keywords: install, upgrade, cluster, switch, cisco 9364d-gx2a 
+summary: 'Nexus 9364D-GX2A 스위치에 참조 구성 파일(RCF)을 설치하거나 업그레이드할 수 있습니다. 새로운 AFX 1K 또는 AFX 2K 시스템 설치, 스위치 교체 또는 스위치를 공장 기본 설정으로 재설정하는 과정의 일부로 지원되는 버전의 RCF를 스위치에 설치합니다. 새로운 하드웨어, 새로운 ONTAP 버전을 지원하거나 AFX 시스템 구성의 새로운 NX-OS 버전에 맞추기 위해 스위치에서 지원되는 버전의 RCF로 업그레이드합니다.' 
+---
+= RCF 설치 또는 업그레이드 개요 - Cisco Nexus 9364D-GX2A
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Nexus 9364D-GX2A 스위치에 참조 구성 파일(RCF)을 설치하거나 업그레이드할 수 있습니다. 새로운 AFX 1K 또는 AFX 2K 시스템 설치, 스위치 교체 또는 스위치를 공장 기본 설정으로 재설정하는 과정의 일부로 지원되는 버전의 RCF를 스위치에 설치합니다. 새로운 하드웨어, 새로운 ONTAP 버전을 지원하거나 AFX 시스템 구성의 새로운 NX-OS 버전에 맞추기 위해 스위치에서 지원되는 버전의 RCF로 업그레이드합니다.
+
+
+NOTE: RCF 설치 또는 업그레이드는 NX-OS 설치 또는 업그레이드와 별개입니다. NX-OS와 RCF를 모두 설치 또는 업그레이드하는 경우, NX-OS를 먼저 설치 또는 업그레이드하는 것이 좋습니다.
+
+
+
+[[understand-the-supported-rcf-versions]]
+=== 지원되는 RCF 버전 이해
+
+ONTAP AFX 시스템에서 실행되는 ONTAP 버전과 스위치의 NX-OS 버전에 따라 스위치에서 지원하는 RCF 버전이 결정됩니다. RCF 버전에는 포트 속도 구성이 미리 설정되어 있으며, 이 구성에 따라 브레이크아웃 모드(4x100GbE)와 비브레이크아웃 모드에서 작동하는 스위치 포트 수가 결정됩니다.
+
+[NOTE]
+====
+지원되는 RCF 버전의 최신 목록은 link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["NetApp Cisco 이더넷 스위치"^] 페이지를 참조하십시오.
+
+스위치 포트 정보는 https://hwu.netapp.com["NetApp Hardware Universe"^]에서도 확인할 수 있습니다.
+
+====
+* AFX 1K 시스템을 사용하는 경우 RCF 10.0 이상이 지원됩니다.
+* AFX 2K 시스템을 사용하는 경우 RCF 10.1 이상이 지원됩니다.
+* RCF 10.0은 하나의 파일을 가지고 있으며 공유 스위치를 지원합니다 `Cluster-HA-Storage AFX RCF_10.0`.
++
+예를 들어, 다음 표는 이 RCF 파일에 대한 스위치 포트의 사전 설정 그룹화, 포트 속도 및 사용량을 보여줍니다.
+
++
+[cols="1,2"]
+|===
+| 스위치 포트 그룹 | 포트 속도 및 사용량 
+
+
+ a| 
+이더넷1/1/1-4에서 이더넷1/62/1-4로
+ a| 
+클러스터, HA 및 스토리지 연결을 위한 4x100GbE 모드
+
+
+
+ a| 
+이더넷1/63, 이더넷1/64
+ a| 
+400GbE ISL
+
+|===
+* RCF 10.1은 AFX 1K 및 AFX 2K 시스템의 다양한 사용 사례에 맞는 여러 파일을 제공합니다. AFX 1K 또는 AFX 2K 시스템 구성(공유, 스토리지 전용 또는 클러스터 및 HA 전용)에서 스위치를 사용하는 방법에 따라 적절한 RCF 파일을 선택하십시오.
++
+예를 들어, AFX 2K 시스템에서 스위치를 공유 스위치로 사용하는 경우 해당 사용 사례에 적합한 RCF 파일을 사용합니다. 적합한 RCF 파일은  `RCF-v10.1-NX9364D-GX2A-CL1-ST1-100GBR31-400G31.txt`와 유사한 이름일 수 있습니다. 다음 표는 이 RCF 파일에 대한 스위치 포트의 사전 설정 그룹, 포트 속도 및 사용 용도를 보여줍니다.
+
++
+[cols="1,2"]
+|===
+| 스위치 포트 그룹 | 포트 속도 및 사용량 
+
+
+ a| 
+이더넷1/1/1-4에서 이더넷1/31/1-4로
+ a| 
+클러스터 내, HA 및 스토리지 셸프 연결을 위한 4x100GbE 모드
+
+
+
+ a| 
+Ethernet1/32~Ethernet1/62
+ a| 
+클러스터 내 연결, 고가용성(HA) 및 스토리지 연결을 위한 400GbE 모드
+
+
+
+ a| 
+이더넷1/63, 이더넷1/64
+ a| 
+400GbE 클러스터 내 ISL 연결
+
+|===
++
+[NOTE]
+====
+사전 설정 그룹을 변경하여 AFX 시스템에 다른 포트 속도 구성을 수용해야 할 때 브레이크아웃 모드(4x100GbE)와 400GbE 모드에서 스위치 포트 수를 조정할 수 있습니다.
+
+이 작업은 나중에 RCF 설치 또는 업그레이드 절차의 일부로 수행합니다.
+
+====
+
+
+
+
+[[change-port-speed-configuration]]
+=== 포트 속도 구성 변경
+
+RCF 10.1 이상 버전의 스위치에서는 AFX 시스템에 필요한 다른 포트 속도 구성을 적용할 때 브레이크아웃 모드(4x100GbE)와 비브레이크아웃 모드(400GbE)의 스위치 포트 수를 조정하기 위해 포트 속도 구성을 변경할 수 있습니다.
+
+이 변경 사항은 RCF 설치 또는 RCF 업그레이드 절차의 일부로 수행합니다. 해당 절차에는 이 페이지로 연결되는 단계가 포함되어 있습니다.
+
+두 스위치 모두에 명령어를 입력합니다.
+
+[cols="1,2"]
+|===
+| 포트 속도 변경 | 단계 
+
+
+ a| 
+비분할 포트를 분할 포트로 변경
+ a| 
+. CLI에서 구성 모드로 전환합니다.
+. 스위치의 포트 속도 및 브레이크아웃 모드를 수정하십시오.
++
+브레이크아웃 포트를 지정하려면  `interface breakout module` 명령어를 사용하십시오.
+
++
+예를 들어, 400GbE 모드 포트 15~19를 브레이크아웃(4x100GbE) 포트로 지정하려면 다음을 사용하십시오.
+
++
+`interface breakout module 1 port 15-19 map 100g-4x`
+
+. 원하는 포트 속도를 위해 포트 프로필을 사용해야 하는 새 포트로 포트 목록을 수정하십시오.
++
+예를 들어, 100G 속도 포트 프로필에 새 포트(15~19)를 추가하여 포트 목록을 수정하려면 다음을 사용하십시오.
+
++
+`interface e1/15/1-4, e1/16/1-4, e1/17/1-4, e1/18/1-4, e1/19/1-4`
+
+. 스위치의 브레이크아웃 포트(4x100GbE)를 100GbE로 하드코딩하십시오. 속도를 하드코딩하지 않으면 포트가 활성화되지 않고 오류 비활성화 상태가 됩니다.
++
+`speed 100000`
+
++
+`no negotiate auto`
+
+
+
+
+
+ a| 
+브레이크아웃 포트를 일반 포트로 되돌리기
+ a| 
+. CLI에서 구성 모드로 전환합니다.
+. 브레이크아웃 포트를 일반 포트로 되돌리려면 구성 모드에서  `no interface breakout` 명령을 사용하십시오.
++
+예를 들어, 포트 15~19를 400GbE 모드로 되돌리려면 다음을 사용하십시오.
+
++
+`no interface breakout module 1 port 15-19`
+
+
+
+|===
+
+
+[[suggested-documentation]]
+=== 제안된 문서
+
+스위치에 RCF를 설치하거나 업그레이드하기 전에 다음 문서를 검토하는 것이 좋습니다.
+
+* NetApp 기술 자료 문서 link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["원격 연결을 유지하면서 Cisco 상호 연결 스위치의 구성을 지우는 방법"^]를 참조하여 RCF를 설치하거나 업그레이드할 때 자세한 내용을 확인하십시오.
+* 플랫폼의 올바른 포트를 확인하려면  https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^]을(를) 참조하십시오.
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치(NSS)"^]
++
+NetApp 지원 사이트에서 지원되는 ONTAP 및 RCF 버전에 대한 스위치 호환성 표를 참조하세요.  RCF의 명령 구문과 특정 NX-OS 버전의 구문 사이에는 명령 종속성이 있을 수 있습니다.
+
+* link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Cisco Nexus 9000 시리즈 스위치"^]
++
+Cisco 스위치 업그레이드 및 다운그레이드 절차에 대한 전체 문서는 Cisco 웹사이트에서 제공하는 해당 소프트웨어 및 업그레이드 가이드를 참조하세요.
+
+
+
+.다음은 무엇인가요?
+RCF 설치 또는 업그레이드 개요를 검토하신 후 필요에 따라 link:configure-install-rcf-9364d.html["RCF를 설치하다"] 또는 link:configure-upgrade-rcf-9364d.html["RCF 업그레이드"] 하십시오.

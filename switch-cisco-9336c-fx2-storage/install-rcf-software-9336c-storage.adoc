@@ -26,6 +26,7 @@ RCF 설치에 대한 자세한 내용은 기술 자료 문서 link:https://kb.ne
 
 
 
+[[step-1-install-the-rcf-on-the-switches]]
 == 1단계: 스위치에 RCF 설치
 
 . SSH 또는 시리얼 콘솔을 사용하여 스위치 s2에 로그인하십시오.
@@ -126,6 +127,7 @@ s2# copy running-config startup-config [########################################
 
 
 
+[[step-2-verify-the-switch-connections]]
 == 2단계: 스위치 연결 확인
 
 . 스위치 포트가 *up* 상태인지 확인하십시오.
@@ -437,6 +439,7 @@ NOTE: 특정 포트 및 VLAN 사용에 대한 자세한 내용은 RCF의 배너 
 
 
 
+[[step-3-set-up-your-ontap-cluster]]
 == 3단계: ONTAP 클러스터 설정
 
 NetApp System Manager를 사용하여 새 클러스터를 설정할 것을 권장합니다.

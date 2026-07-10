@@ -15,6 +15,7 @@ Cisco Nexus 3132Q-V 스위치 설치 시에는 권장되는 모든 문서를 반
 
 
 
+[[switch-documentation]]
 == 스위치 문서
 
 Cisco Nexus 3132Q-V 스위치를 설정하려면 link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/series.html["Cisco Nexus 3000 시리즈 스위치 지원"^]의 다음 문서가 필요합니다.
@@ -81,6 +82,7 @@ Nexus 3000 시리즈 스위치에 대한 국제 기관 규정 준수, 안전 및
 |===
 
 
+[[ontap-systems-documentation]]
 == ONTAP 시스템 문서
 
 ONTAP 시스템을 설정하려면 사용 중인 운영 체제 버전에 맞는 다음 문서가 필요합니다.
@@ -112,6 +114,7 @@ NetApp 하드웨어 구성 및 호환성 정보를 제공합니다.
 |===
 
 
+[[rail-kit-and-cabinet-documentation]]
 == 레일 키트 및 캐비닛 설명서
 
 NetApp 캐비닛에 3132Q-V Cisco 스위치를 설치하려면 다음 하드웨어 문서를 참조하십시오.

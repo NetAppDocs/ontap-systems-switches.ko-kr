@@ -1,0 +1,59 @@
+---
+section: switch-cisco-9808
+title: Cisco Nexus 9808
+entries:
+- title: 참조 문서
+  pdf-filename: Reference_documents_9808
+  url: "/switch-cisco-9808/reference-documentation-9808.html"
+- title: AFX 시스템에 스위치 설치 및 구성
+  pdf-filename: AFX 시스템 9808에 스위치 설치 및 구성
+  entries:
+  - title: 스위치 설치 및 구성 워크플로
+    url: "/switch-cisco-9808/install-configure-switches-in-afx-workflow-9808.html"
+  - title: 설치 준비
+    url: "/switch-cisco-9808/install-prepare-9808.html"
+  - title: 스위치 설치
+    url: "/switch-cisco-9808/install-switches-9808.html"
+    pdf-filename: Install_hardware_9808
+  - title: AFX 시스템 설치 완료
+    url: "/switch-cisco-9808/install-complete-afx-setup-9808.html"
+- title: 스위치 구성
+  pdf-filename: configure_switch_9808
+  entries:
+  - title: 스위치 워크플로 구성
+    url: "/switch-cisco-9808/configure-switch-workflow-9808.html"
+  - title: 스위치 초기 설정 완료
+    url: "/switch-cisco-9808/configure-complete-initial-setup-9808.html"
+  - title: 케이블 및 구성 요구 사항을 검토하십시오.
+    url: "/switch-cisco-9808/configure-review-cabling-config-requirements-9808.html"
+  - title: NX-OS 설치 또는 업그레이드
+    pdf-filename: Install_upgrade_nx-os
+    entries:
+    - title: NX-OS 설치 또는 업그레이드 개요
+      url: "/switch-cisco-9808/configure-install-upgrade-nxos-overview-9808.html"
+    - title: NX-OS 설치
+      url: "/switch-cisco-9808/configure-install-nxos-9808.html"
+    - title: NX-OS 업그레이드
+      url: "/switch-cisco-9808/configure-upgrade-nxos-9808.html"
+  - title: RCF 설치 또는 업그레이드
+    pdf-filename: 설치_업그레이드_rcf
+    entries:
+    - title: RCF 설치 또는 업그레이드 개요
+      url: "/switch-cisco-9808/configure-install-upgrade-rcf-overview-9808.html"
+    - title: RCF 설치
+      url: "/switch-cisco-9808/configure-install-rcf-9808.html"
+    - title: RCF 업그레이드
+      url: "/switch-cisco-9808/configure-upgrade-rcf-9808.html"
+  - title: 로그 수집을 위한 SSH 확인
+    url: "/switch-cisco-9808/configure-verify-ssh-9808.html"
+  - title: Smart Call Home 구성
+    url: "/switch-cisco-9808/configure-smart-call-9808.html"
+- title: 유지 관리
+  pdf-filename: Maintain_switches_9808
+  entries:
+  - title: 개요 유지
+    url: "/switch-cisco-9808/maintain-overview-9808.html"
+  - title: FRU 교체
+    url: "/switch-cisco-9808/maintain-replace-frus-9808.html"
+  - title: 스위치를 공장 기본값으로 재설정합니다
+    url: "/switch-cisco-9808/maintain-reset-switch-9808.html"

@@ -24,6 +24,7 @@ summary:
 
 
 
+[[review-requirements]]
 == 검토 요구 사항
 
 다음 사항을 확인하세요.
@@ -56,6 +57,7 @@ summary:
 
 
 
+[[migrate-the-switches]]
 == 스위치 마이그레이션
 
 .예시에 관하여
@@ -70,6 +72,7 @@ summary:
 
 
 
+[[step-1-migrate-from-a-switchless-cluster-with-direct-attached]]
 === 1단계: 직접 연결된 스위치리스 클러스터에서 마이그레이션
 
 . 이 클러스터에서 AutoSupport 활성화된 경우 AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다. `system node autosupport invoke -node * -type all -message MAINT=xh` .
@@ -649,6 +652,7 @@ RPC status:
 
 
 
+[[step-2-set-up-the-shared-switch]]
 === 2단계: 공유 스위치 설정
 
 이 절차의 예에서는 다음 스위치 및 노드 명명법을 사용합니다.

@@ -4,6 +4,7 @@
 
 
 
+[[new-switch-support]]
 == 새로운 스위치 지원
 
 [cols="25h,~,~"]
