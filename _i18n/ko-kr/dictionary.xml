@@ -749,8 +749,6 @@
   <block id="1fc245f373dd47304db35c4ef2df408e" category="inline-link-macro">스위치 구성</block>
   <block id="163c95e139774086e604f88f7e2f31d3" category="list-text"><block ref="163c95e139774086e604f88f7e2f31d3" category="inline-link-macro-rx"></block></block>
   <block id="04204be9eff305a81c8050c2ee21ed34" category="list-text">파트너 스위치에서 1~8단계를 반복합니다.</block>
-  <block id="74af5112ab6cf8732ffe8eba910e2290" category="inline-link-macro">라이센스를 설치하세요</block>
-  <block id="85290349ee32e9f062a4795f3e1e06bb" category="paragraph">EFOS 소프트웨어를 설치한 후에는 다음을 수행할 수 있습니다. <block ref="172517aa1fa2cd21dd6fb86167c00f86" category="inline-link-macro-rx"></block>.</block>
   <block id="88045e5af7830d69afafc3e6e7a9cf86" category="summary">이 절차를 사용하여 BES-53248 클러스터 스위치의 초기 설치를 수행할 수 있습니다.</block>
   <block id="a804fe3633b3e8edd13e681d83563c08" category="doc">BES-53248 클러스터 스위치 구성</block>
   <block id="67777be64987c8c0fadb924db93389aa" category="paragraph">BES-53248 클러스터 스위치의 초기 설정을 수행하려면 다음 단계를 따르세요.</block>
@@ -1306,18 +1304,13 @@
   <block id="c0d96a8467e1acc3623933447f6f212c" category="inline-link-macro">RCF 설치</block>
   <block id="11c8d833dc677f2da3e3a05f17e029da" category="list-text"><block ref="11c8d833dc677f2da3e3a05f17e029da" category="inline-link-macro-rx"></block></block>
   <block id="b75ec32f89267a27b5a0e0b014097f77" category="list-text">스위치 cs1에서 2~8단계를 반복합니다.</block>
-  <block id="d814617aab418a35a7ebbe46f6db2549" category="list-text">공장 기본 상태에서 RCF를 설치하는 경우 스위치에 대한 콘솔 연결이 필요합니다.  지식 기반 문서를 사용한 경우 이 요구 사항은 선택 사항입니다.<block ref="18b4271d2bf70dbfb01e42cb4850cea6" category="inline-link-rx"></block> 구성을 미리 지워주세요.</block>
   <block id="93933c6ca68705cf2c6eee19987428b0" category="inline-link">브로드컴</block>
-  <block id="20e5ec5f7186bff24f7aeef0c34a7edc" category="admonition">새로운 스위치 소프트웨어 버전과 RCF를 설치하기 전에 기술 자료 문서를 사용하십시오.<block ref="18b4271d2bf70dbfb01e42cb4850cea6" category="inline-link-rx"></block> .  스위치 설정을 완전히 지워야 하는 경우 기본 구성을 다시 수행해야 합니다.  관리 네트워크의 구성을 완전히 지우면 구성이 재설정되므로 직렬 콘솔을 사용하여 스위치에 연결해야 합니다.</block>
   <block id="833aa928a446532020e8ea26e29a32b7" category="section-title">1단계: 업그레이드 준비</block>
   <block id="31e544384f3325abd25b797e025ef614" category="list-text">스위치 cs2에서 노드의 클러스터 포트에 연결된 포트를 종료합니다.  예를 들어, 포트 0/1~0/16이 ONTAP 노드에 연결된 경우:</block>
   <block id="c66ea64be71d87967746ef74fac6ec75" category="list-text">[[step11]] 배너 출력을 검사합니다.<block ref="db837131dc56fab41bddc52d5aff8865" prefix=" " category="inline-code"></block> 명령. 스위치의 올바른 구성과 작동을 보장하려면 이 지침을 읽고 따라야 합니다.</block>
   <block id="05299bd158481c8acf552dc1d004ab41" category="paragraph"><block ref="db837131dc56fab41bddc52d5aff8865" prefix="" category="inline-code"></block></block>
   <block id="4a00b51f01daee860d41dd95bb500266" category="list-text">스위치에서 변경 사항이 적용되었는지 확인하세요.</block>
   <block id="f35806549fff4250f43cb0acde28b920" category="list-text">스위치를 재부팅하고 실행 구성이 올바른지 확인하세요.</block>
-  <block id="111cada5d22121a7e11aef39f4aca355" category="list-text">클러스터 스위치 cs2에서 노드의 클러스터 포트에 연결된 포트를 불러옵니다.</block>
-  <block id="7271f66e0cb527adb71302d7377910b7" category="list-text">[[step21]]스위치 cs1에서 1~20단계를 반복합니다.</block>
-  <block id="9b241cba96d2cafd3c0f5c9f7bf12560" category="list-text">. 클러스터 LIF가 홈 포트로 되돌아갔는지 확인하세요.</block>
   <block id="16d074a2c9c574f7e8d9dbc312b16d88" category="summary">BES-53248 클러스터 스위치를 구성하기 전에 프로세스 개요와 명명법을 살펴보세요.</block>
   <block id="510290e42c307729b66d338637599287" category="doc">BES-53248 클러스터 스위치에 대한 업그레이드 워크플로</block>
   <block id="95731780fd3171c29b73f348e1722fda" category="paragraph">해당되는 경우 Broadcom BES-54328 클러스터 스위치에서 EFOS 소프트웨어와 참조 구성 파일(RCF)을 업그레이드하려면 다음 단계를 따르세요.</block>
@@ -5331,7 +5324,6 @@
   <block id="888d27af1c8bead4bc090f7b57fe47dc" category="paragraph"><block ref="03642bd9ef2a92e7a683427a90d69064" prefix="" category="inline-code"></block></block>
   <block id="9c16d25919d69afd920c43d400da0ea8" category="paragraph"><block ref="e374209cc99be20be59ee159164d8226" prefix="" category="inline-code"></block></block>
   <block id="ab72b57a9a9f0e3ccd70b04752a4b2dc" category="list-text">노드 스토리지 포트와 스토리지 셸프 포트에 연결된 스위치 포트가 *up* 상태인지 확인하십시오.</block>
-  <block id="3050ed36cf7b28894b3ecbbbe2742aa2" category="list-text">EPLD 이미지를 업그레이드하고 스위치를 재부팅합니다. NX-OS 10.5(3)F 이상을 사용하는 경우 EPLD 이미지가 NX-OS 이미지에 포함되어 있으므로 별도의 EPLD 이미지 업그레이드를 수행할 필요가 없습니다. 이 단계를 건너뛰고 클러스터 포트 상태 확인을 계속하십시오.</block>
   <block id="8b1e9b3cc32c2a1cf644a1cfe3dab553" category="summary">SN2100 하드웨어를 설치하려면 NVIDIA 설명서를 참조하십시오.</block>
   <block id="c10fbc8cfb6421490d3e923dc2ea002a" category="paragraph">NVIDIA SN2100 스위치 하드웨어를 설치하는 것은 데이터 보호, 복제 및 관리 워크플로우를 지원하는 안정적이고 확장 가능한 네트워크 인프라를 구축하는 데 있어 매우 중요한 첫 단계입니다.</block>
   <block id="1fcad359e819ec24939bbd1dc0e8cb54" category="paragraph">SN2100 스위치를 설정하고 구성하려면 다음 단계를 따르십시오. 자세한 지침은 NVIDIA 설명서를 참조하십시오.</block>
@@ -5609,7 +5601,6 @@
   <block id="4900377d6745b8a03e6c9a542b3fe2f0" category="paragraph">이더넷 스위치 상태 모니터링(CSHM)은 네트워크 스위치의 작동 상태를 확인하고 디버깅을 위해 스위치 로그를 수집하는 역할을 합니다.</block>
   <block id="bc2dfd2fdf95de6b810acf0fa5c67356" category="paragraph">이더넷 스위치 상태 모니터(CSHM)는 SNMP를 사용하여 네트워크 스위치의 상태와 성능을 모니터링합니다. 기본적으로 참조 구성 파일(RCF)을 통해 SNMPv2c가 자동으로 구성됩니다. SNMPv3은 인증, 암호화 및 메시지 무결성과 같은 강력한 보안 기능을 도입하여 SNMPv2보다 보안성이 높습니다. 이러한 기능은 무단 접근을 방지하고 전송 중 데이터의 기밀성과 무결성을 보장합니다.</block>
   <block id="7cb74dd4a33dec5dc1811198729f1a3d" category="paragraph">이더넷 스위치 상태 모니터링(CSHM)는 검색된 네트워크 스위치를 자동으로 모니터링하려고 시도합니다. 그러나 스위치가 올바르게 구성되지 않은 경우 자동 모니터링이 이루어지지 않을 수 있습니다. 상태 모니터링이 스위치를 모니터링하도록 올바르게 구성되어 있는지 확인해야 합니다.</block>
-  <block id="9bb9d88110e7f202f1952ebcc9fefc08" category="admonition">RCF 파일을 업로드하고 적용할 때 파일 이름을<block ref="a890eeb375a613e0acf945129af8cad4" prefix=" " category="inline-code"></block>로 지정해야 합니다. 그렇지 않으면 스크립트 적용 단계가 실패합니다.</block>
   <block id="153aa60e53e376e3c47bb9de3f41cd5c" category="list-text">HTTP, HTTPS, FTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 cs2로 복사하십시오.</block>
   <block id="4bcfba45804fbbbd6422a9b0dea12c5f" category="summary">클러스터 네트워크에서 결함이 있는 Nexus 92300YC 스위치를 교체하는 것은 무중단 절차입니다.</block>
   <block id="c506cb52e11779e41b9479bb442eec6e" category="list-text">FTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 cs1의 bootflash에 복사하십시오.</block>
@@ -6376,4 +6367,43 @@
   <block id="c14342e34fe3c58a209b86a79b1bb2d0" category="sidebar">Install_hardware_9808</block>
   <block id="4d9fbccb0431ca8e11e51b3dc51e81fb" category="sidebar">configure_switch_9808</block>
   <block id="ff8b1c67dbbb7af6775723d31c9e196a" category="sidebar">Maintain_switches_9808</block>
+  <block id="bbe11fdd91fda58af0bba559cb07294d" category="paragraph">Cisco 소프트웨어 업그레이드 및 다운그레이드 가이드는 Cisco 웹사이트를 참조하십시오.</block>
+  <block id="aa5c6ec45e4c4b6dcc0850deb97f2e44" category="paragraph">이 절차에서는 Cisco Nexus 9000 Series Switch 명령이 지정되지 않은 경우 ONTAP 명령을 사용하십시오.</block>
+  <block id="9fc86f4dabe0859a40dac8d1f8b5531d" category="paragraph"><block ref="b67d565e5390da794178d81e41d9d587" prefix="" category="inline-code"></block></block>
+  <block id="9487ccc182d124ffae84e3326c18b6cf" category="list-text">NX-OS 소프트웨어와 EPLD 이미지를 다운로드하여 설치하십시오. 설치 단계는 현재 사용 중인 NX-OS 버전과 설치 대상 NX-OS 버전에 따라 다를 수 있습니다.</block>
+  <block id="c25086ea467dc08f96b34fa5ddfe6f95" category="paragraph">본인의 상황에 맞는 탭을 선택하십시오.</block>
+  <block id="545f32c102da8b5c806f0a9252f74aa7" category="list-text">10.4(5)(M)으로 업그레이드</block>
+  <block id="6d4c71f053835d50b253965bf9e22247" category="list-text">10.4(5)(M) 이전 버전에서 10.5(3)(F) 이후 버전으로 업그레이드</block>
+  <block id="6a3e1271fda881036b04a9948f12b930" category="list-text">10.5(3)(F)에서 이후 버전으로 업그레이드</block>
+  <block id="22c721af68f3e238337fd6682565a004" category="list-text">[[stepa]] NX-OS 소프트웨어와 EPLD 이미지를 Nexus 9336C-FX2 스위치에 복사합니다.</block>
+  <block id="0a52730597fb4ffa01fc117d9e71e3a9" category="example-title">예</block>
+  <block id="5471ccde54f76964db229481cc1fb109" category="paragraph"><block ref="741d4bb5899dd2abc3bdd986dd32f159" prefix="" category="inline-code"></block></block>
+  <block id="6634794e8c206b378c65c5faa7c4c80b" category="paragraph"><block ref="a121d8672e9b479ad82c8ef2e7e9c717" prefix="" category="inline-code"></block></block>
+  <block id="f005b45baba8377a1ac45612282d2dc7" category="list-text">[[단계]] NX-OS 소프트웨어와 EPLD 이미지를 Nexus 9336C-FX2 스위치에 복사합니다.</block>
+  <block id="5a252ea0dbbfb3da5e794e2acb54d70e" category="list-text">NX-OS 및 EPLD 이미지를 설치합니다.</block>
+  <block id="ee1c8dab6911f396921f8d9c99310d8e" category="paragraph">NX-OS 10.5(3)(F) 이상으로 업그레이드할 때 EPLD 이미지는 자동으로 업데이트되지 않습니다. 업그레이드가 완료되고 스위치가 재부팅된 후에는 동일한 업그레이드<block ref="1f3226f23ea270e1a1024cd0db05413e" prefix=" " category="inline-code"></block> 명령을 다시 실행해야 합니다.</block>
+  <block id="63866b50d1c752b87d0a35424ec78d9f" category="list-text">두 번째 업그레이드 단계에서는 검증만 수행하고 NX-OS 업그레이드는 건너뛰며 EPLD 이미지만 업데이트합니다.</block>
+  <block id="e891366244f7639a1cebce5d7b254878" category="list-text">NX-OS 10.5(3)(F) 이상으로 이미 업그레이드한 경우 두 이미지가 동시에 업데이트됩니다.</block>
+  <block id="7d625d674a5fa1ee8f231bbe934d59c5" category="paragraph">다음 단계는 NX-OS 10.4(5)(M)에서 10.5(3)(F)로의 업그레이드를 보여줍니다. 첫 번째 단계에서는 NX-OS 업그레이드를 수행하고 두 번째 단계에서는 EPLD 이미지 업그레이드를 수행합니다.</block>
+  <block id="49b200eb8820638568f5d815c24fbe04" category="paragraph"><block ref="5ea68978710e999c37e81ef89e1609fb" prefix="" category="inline-code"></block></block>
+  <block id="30c31bba00ddc5f435e1609b696cfc11" category="paragraph">이 예제는 NX-OS 버전 10.5(4)(M)을 사용합니다.</block>
+  <block id="03ff4c3f972d17b8f10bd0edb3043c3a" category="paragraph">이 예제는 EPLD 버전 10.5(4)(M)을 사용합니다.</block>
+  <block id="28ccfd0538434ca8f7c3ed05eb919f9d" category="list-text">[[step7]]클러스터에서 클러스터 포트의 상태를 확인합니다.</block>
+  <block id="7b7c6479e04cac8c2008fe7ca440afea" category="list-text">6단계부터 8단계까지 반복하여 스위치 cs1에 NX-OS 소프트웨어를 설치하십시오.</block>
+  <block id="95a058e5eceffbda103e7cb32bf0371d" category="list-text">[[step11]]클러스터 LIF에서 자동 되돌리기를 활성화합니다.</block>
+  <block id="131977f29895c23a06e7ceb348f34fc9" category="paragraph">클러스터 LIF가 홈 포트로 복귀하지 않은 경우 로컬 노드에서 수동으로 되돌리십시오.</block>
+  <block id="c6d44233ebeaa055e8f937a641fb1053" category="paragraph">케이블 연결 및 구성 요구 사항을 충족한 후 스위치에 <block ref="5f8c635ef985b849c8790b2e319cc3c1" category="inline-link-macro-rx"></block>을(를) 설치합니다.</block>
+  <block id="56195d3edc2ef765239236e19cf9f9d8" category="paragraph">EFOS 소프트웨어를 설치한 후에는 다음 작업을 수행할 수 있습니다.</block>
+  <block id="69a4ab133a7f329e3b6d964412122368" category="inline-link-macro">라이선스를 설치합니다</block>
+  <block id="c22dd3ffbd7eb0da1c9a797307a0e3d8" category="list-text"><block ref="f2a6d573030fd5cb26e30ca5f2de8d3e" category="inline-link-macro-rx"></block>.</block>
+  <block id="30c3e1a7dac3e78e6712ff0d67b9ecd3" category="inline-link-macro">EFOS 3.12.0.1 이상에 대한 RCF 및 라이선스 파일 설치</block>
+  <block id="a20a23e9f22d1c30ea89d18cbe86e2c5" category="list-text"><block ref="313ea9029f73da8a306189cf101a9b89" category="inline-link-macro-rx"></block>, 설정에 해당하는 경우.</block>
+  <block id="a70191390fbf57b5cfe38e5b6a014d4a" category="paragraph">이더넷 스위치 상태 모니터링을 구성합니다.</block>
+  <block id="af2af2f8127907c37bce58e3ce83eff9" category="list-text">RCF를 공장 초기 설정 상태에서 설치할 경우 스위치에 대한 콘솔 연결이 필요합니다.</block>
+  <block id="f0da8e888101343acd4a7e72e76cff36" category="paragraph">포트 구성에는 스위치 CLI와 ONTAP CLI(다음 단계에 설명됨)를 사용합니다. 첫 번째 스위치(cs2)에서 포트를 구성한 다음 두 번째 스위치(cs1)에 대해 동일한 단계를 반복합니다.</block>
+  <block id="c32a2c4a7520ad02a1a78600f2a6b3bd" category="admonition">RCF를 업데이트하거나 새 RCF를 적용할 때는 스위치 설정을 지우고 기본 구성을 수행해야 합니다. 스위치 설정을 지우려면 시리얼 콘솔을 사용하여 스위치에 연결해야 합니다.</block>
+  <block id="7032c38c00e10472c490db066ff31b0f" category="list-text">[[step20]]스위치 cs1에서 1~19단계를 반복합니다.</block>
+  <block id="0e18e00d28d8ccbabfbea2b32f607774" category="list-text">[[step6]] 권한 수준을 다시 관리자로 변경합니다.</block>
+  <block id="68c1d03c0bb262a8147f6acaedfa16af" category="inline-link-macro">로그 수집을 위해 SSH 활성화</block>
+  <block id="3bbb1b891d8356deadf8d546d8aecf27" category="paragraph">RCF를 업그레이드한 후에는 <block ref="00e69d49421223dfe97c48056e7abc6c" category="inline-link-macro-rx"></block>.</block>
 </blocks>

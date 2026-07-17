@@ -20,7 +20,7 @@ BES-53248 클러스터 스위치 EFOS를 업그레이드하고 새 라이센스 
 * 완벽하게 작동하는 클러스터(로그에 오류나 유사한 문제가 없음).
 * 현재 RCF 파일은 다음에서 사용 가능합니다. https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["Broadcom 클러스터 스위치"^] 페이지.
 * EFOS만 설치하고 현재 RCF 버전을 유지하는 경우 필요한 원하는 부트 이미지를 반영하는 RCF의 부트 구성입니다.  현재 부트 이미지를 반영하도록 부트 구성을 변경해야 하는 경우 RCF를 다시 적용하기 전에 변경해야 합니다. 이렇게 하면 향후 재부팅 시 올바른 버전이 인스턴스화됩니다.
-* 공장 기본 상태에서 RCF를 설치하는 경우 스위치에 대한 콘솔 연결이 필요합니다.  지식 기반 문서를 사용한 경우 이 요구 사항은 선택 사항입니다. https://kb.netapp.com/onprem/Switches/Broadcom/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["원격 연결을 유지하면서 Broadcom 상호 연결 스위치의 구성을 지우는 방법"^] 구성을 미리 지워주세요.
+* RCF를 공장 초기 설정 상태에서 설치할 경우 스위치에 대한 콘솔 연결이 필요합니다.
 
 
 .제안된 문서
@@ -47,12 +47,11 @@ NOTE: 명령 출력은 ONTAP 릴리스에 따라 달라질 수 있습니다.
 이 절차 중에는 작동 중인 ISL(스위치 간 링크)이 필요하지 않습니다. 이는 RCF 버전 변경으로 인해 ISL 연결에 일시적으로 영향을 미칠 수 있기 때문에 설계된 기능입니다. 중단 없는 클러스터 운영을 보장하기 위해 다음 절차에서는 대상 스위치에서 단계를 수행하는 동안 모든 클러스터 LIF를 운영 파트너 스위치로 마이그레이션합니다.
 
 
-CAUTION: 새로운 스위치 소프트웨어 버전과 RCF를 설치하기 전에 기술 자료 문서를 사용하십시오. https://kb.netapp.com/onprem/Switches/Broadcom/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["원격 연결을 유지하면서 Broadcom 상호 연결 스위치의 구성을 지우는 방법"^] .  스위치 설정을 완전히 지워야 하는 경우 기본 구성을 다시 수행해야 합니다.  관리 네트워크의 구성을 완전히 지우면 구성이 재설정되므로 직렬 콘솔을 사용하여 스위치에 연결해야 합니다.
-
-
 
 [[step-1-prepare-for-upgrade]]
 == 1단계: 업그레이드 준비
+
+다음 단계에서는 ONTAP CLI를 사용하여 필요에 따라 자동 케이스 생성을 억제하고, 포트의 관리 및 운영 상태를 확인하고, 클러스터 LIF에서 자동 되돌리기를 비활성화하여 RCF 업그레이드를 준비하십시오.
 
 . 이 클러스터에서 AutoSupport 활성화된 경우 AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다.
 +
@@ -270,6 +269,8 @@ network interface modify -vserver Cluster -lif * -auto-revert false
 [[step-2-configure-ports]]
 == 2단계: 포트 구성
 
+포트 구성에는 스위치 CLI와 ONTAP CLI(다음 단계에 설명됨)를 사용합니다. 첫 번째 스위치(cs2)에서 포트를 구성한 다음 두 번째 스위치(cs1)에 대해 동일한 단계를 반복합니다.
+
 . 스위치 cs2에서 클러스터의 노드에 연결된 포트 목록을 확인합니다.
 +
 [source, cli]
@@ -344,7 +345,7 @@ show running-config
 . 스위치 cs2의 구성을 정리하고 기본 설정을 수행합니다.
 +
 
-CAUTION: 새로운 RCF를 업데이트하거나 적용할 때는 스위치 설정을 지우고 기본 구성을 수행해야 합니다.  스위치 설정을 지우려면 직렬 콘솔을 사용하여 스위치에 연결해야 합니다.  지식 기반 문서를 사용한 경우 이 요구 사항은 선택 사항입니다. https://kb.netapp.com/onprem/Switches/Broadcom/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["원격 연결을 유지하면서 Broadcom 상호 연결 스위치의 구성을 지우는 방법"] 구성을 미리 지워주세요.
+CAUTION: RCF를 업데이트하거나 새 RCF를 적용할 때는 스위치 설정을 지우고 기본 구성을 수행해야 합니다. 스위치 설정을 지우려면 시리얼 콘솔을 사용하여 스위치에 연결해야 합니다.
 
 +
 
@@ -457,9 +458,6 @@ Are you sure you would like to reset the system? (y/n) *y*
 ====
 .EFOS 버전 3.12.x 이상
 --
-
-CAUTION: RCF 파일을 업로드하고 적용할 때 파일 이름을 `reference-config.scr`로 지정해야 합니다. 그렇지 않으면 스크립트 적용 단계가 실패합니다.
-
 . HTTP, HTTPS, FTP, SFTP 또는 SCP 중 하나의 전송 프로토콜을 사용하여 RCF를 스위치 cs2로 복사하십시오.
 +
 이 예에서는 SFTP를 사용하여 RCF를 스위치 cs2의 부트플래시에 복사하는 방법을 보여줍니다.
@@ -468,7 +466,7 @@ CAUTION: RCF 파일을 업로드하고 적용할 때 파일 이름을 `reference
 
 [listing, subs="+quotes"]
 ----
-(cs2)# *copy sftp://172.19.2.1/BES-53248_RCF_v1.9-Cluster-HA.txt nvram:reference-config.scr*
+(cs2)# *copy sftp://172.19.2.1/BES-53248_RCF_v1.9-Cluster-HA.txt nvram:reference-config*
 Remote Password:**
 Mode........................................... SFTP
 Set Server IP.................................. 172.19.2.1
@@ -528,7 +526,7 @@ Configuration script 'reference-config.scr' applied.
 [listing, subs="+quotes"]
 ----
 (cs2)# *copy sftp://172.19.2.1/tmp/BES-53248_RCF_v1.9-Cluster-HA.txt
-nvram:script BES-53248_RCF_v1.9-Cluster-HA.scr*
+nvram:script BES-53248_RCF_v1.9-Cluster-HA*
 Remote Password:**
 Mode........................................... SFTP
 Set Server IP.................................. 172.19.2.1
@@ -696,16 +694,6 @@ Configuration Saved!
 (cs2)# *reload*
 Are you sure you would like to reset the system? (y/n) *y*
 System will now restart!
-----
-. 클러스터 스위치 cs2에서 노드의 클러스터 포트에 연결된 포트를 불러옵니다.
-+
-[listing, subs="+quotes"]
-----
-(cs2)> *enable*
-(cs2)# *configure*
-(cs2)(Config)# *interface 0/1-0/16*
-(cs2)(Interface 0/1-0/16)# *no shutdown*
-(cs2)(Config)# *exit*
 ----
 . 실행 구성을 시작 구성에 저장합니다.
 +
@@ -909,14 +897,14 @@ cluster1::*>
 ----
 --
 ====
-. [[step21]]스위치 cs1에서 1~20단계를 반복합니다.
+. [[step20]]스위치 cs1에서 1~19단계를 반복합니다.
 . 클러스터 LIF에서 자동 되돌리기를 활성화합니다.
 +
 [source, cli]
 ----
 network interface modify -vserver Cluster -lif * -auto-revert true
 ----
-. . 클러스터 LIF가 홈 포트로 되돌아갔는지 확인하세요.
+. 클러스터 LIF가 홈 포트로 되돌아갔는지 확인하세요.
 +
 [source, cli]
 ----
@@ -931,6 +919,8 @@ network interface show -vserver Cluster
 
 [[step-3-verify-the-configuration]]
 == 3단계: 구성 확인
+
+두 스위치 모두에서 RCF 업그레이드가 완료되면 클러스터 네트워크 구성과 클러스터 상태를 확인하십시오.
 
 . 스위치 cs1에서 클러스터 포트에 연결된 스위치 포트가 *작동*하는지 확인하세요.
 +
@@ -1124,7 +1114,7 @@ RPC status:
 ----
 --
 ====
-. 권한 수준을 다시 관리자로 변경합니다.
+. [[step6]] 권한 수준을 다시 관리자로 변경합니다.
 +
 [source, cli]
 ----
@@ -1137,3 +1127,6 @@ set -privilege admin
 system node autosupport invoke -node * -type all -message MAINT=END
 ----
 
+
+.다음은 무엇인가요?
+RCF를 업그레이드한 후에는 link:configure-ssh.html["로그 수집을 위해 SSH 활성화"].

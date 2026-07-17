@@ -109,3 +109,6 @@ systemshell -node <node> -command sudo sysctl dev.ice.<X>.requested_fec=<auto/fc
 
 
 
+
+.다음은 무엇인가요?
+케이블 연결 및 구성 요구 사항을 충족한 후 스위치에 link:configure-efos-software.html["EFOS 소프트웨어를 설치하세요"]을(를) 설치합니다.
