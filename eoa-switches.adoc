@@ -1,0 +1,56 @@
+---
+sidebar: sidebar 
+permalink: eoa-switches.html 
+keywords: switches, fas, aff systems, end of support, EOS 
+summary: FAS 및 AFF 시스템에서 더 이상 지원되지 않는 스위치. 
+---
+= 더 이상 지원되지 않는 스위치
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+다음 스위치는 지정된 ONTAP 버전부터 더 이상 지원되지 않습니다.
+
+현재 지원되지 않는 스위치에 대해서는 link:https://hwu.netapp.com["NetApp Hardware Universe"^]을 참조하십시오.
+
+[cols="25h,~"]
+|===
+| 스위치 | 지원이 중단되었습니다... 
+
+
+ a| 
+Cisco 넥서스 3232C
+ a| 
+ONTAP 9.19.1
+
+
+
+ a| 
+Cisco 넥서스 3132Q-V
+ a| 
+ONTAP 9.18.1
+
+
+
+ a| 
+Cisco 넥서스 92300YC
+ a| 
+ONTAP 9.17.1
+
+
+
+ a| 
+NetApp CN1610
+ a| 
+ONTAP 9.13.1
+
+
+
+ a| 
+Cisco Nexus 5596UP/5596T
+ a| 
+ONTAP 9.11.1
+
+|===

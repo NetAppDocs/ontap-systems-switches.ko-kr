@@ -4,7 +4,7 @@ title: NVIDIA SN2100
 entries:
 - title: 시작하기
   entries:
-  - title: 빠른 시작
+  - title: 설치 및 구성 워크플로우
     url: "/switch-nvidia-sn2100/configure-overview-sn2100-cluster.html"
   - title: 구성 요구 사항
     url: "/switch-nvidia-sn2100/configure-reqs-sn2100-cluster.html"

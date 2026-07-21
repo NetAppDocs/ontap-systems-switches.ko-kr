@@ -5,7 +5,7 @@ entries:
 - title: 시작하기
   pdf-filename: Overview_bes53248
   entries:
-  - title: 빠른 시작
+  - title: 설치 및 구성 워크플로우
     url: "/switch-bes-53248/configure-new-switch-overview.html"
   - title: 구성 요구 사항
     url: "/switch-bes-53248/configure-reqs-bes53248.html"

@@ -13,6 +13,9 @@ summary: Cisco Nexus 9332D-GX2B 스위치의 NX-OS를 업그레이드하여 AFX 
 [role="lead"]
 Cisco Nexus 9332D-GX2B 스위치의 NX-OS를 업그레이드하여 AFX 1K 또는 AFX 2K 시스템의 새로운 하드웨어 또는 새로운 ONTAP 버전을 지원할 수 있습니다.
 
+
+NOTE: NetApp은 ONTAP 소프트웨어 업그레이드를 먼저 완료한 다음 스위치 소프트웨어 업그레이드를 수행할 것을 권장합니다.
+
 .시작하기 전에
 * 스위치 구성의 현재 백업이 있는지 확인하십시오.
 * 클러스터가 완전히 정상적으로 작동하는지, 즉 로그에 오류가 없거나 유사한 문제가 없는지 확인하십시오.
@@ -455,7 +458,7 @@ network interface modify -vserver Cluster -lif * -auto-revert false
 [[step-2-install-the-nx-os]]
 == 2단계: NX-OS 설치
 
-NX-OS를 설치하려면 첫 번째 스위치(cs1)에 NX-OS 및 EPLD의 새 버전을 설치하고 검증한 다음 클러스터의 모든 포트 상태를 확인하고 두 번째 스위치(cs2)에서 이 단계를 반복합니다.
+NX-OS를 첫 번째 스위치(cs1)에 설치하려면 NX-OS 및 EPLD의 새 버전을 설치하고 확인한 다음 클러스터의 모든 포트 상태를 확인하고 두 번째 스위치(cs2)에서 이 단계를 반복합니다.
 
 . 스위치 CLI를 사용하여 NX-OS 및 EPLD 이미지를 스위치로 복사합니다.
 +
@@ -904,7 +907,7 @@ node1-01/cdp
 cluster1::*> *system cluster-switch show -is-monitoring-enabled-operational true*
 Switch                      Type               Address          Model
 --------------------------- ------------------ ---------------- ---------------
-cs1(FDOXXXXXXXX)            cluster-network    10.228.137.233   N9K-C9332D-GX2B
+cs2(FDOXXXXXXXX)            cluster-network    10.228.137.233   N9K-C9332D-GX2B
      Serial Number: FDOXXXXXXXX
       Is Monitored: true
             Reason: None

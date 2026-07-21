@@ -3,6 +3,9 @@
 
 
 
+NOTE: NetApp은 ONTAP 소프트웨어 업그레이드를 먼저 완료한 다음 스위치 소프트웨어 업그레이드를 수행할 것을 권장합니다.
+
+
 
 [[review-requirements]]
 == 검토 요구 사항

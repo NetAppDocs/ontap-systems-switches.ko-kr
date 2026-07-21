@@ -11,6 +11,9 @@ summary: Cisco NX-OS 소프트웨어와 참조 구성 파일은 Cisco Nexus 9336
 [role="lead"]
 NX-OS 소프트웨어와 참조 구성 파일(RCF)을 설치하기 전에 다음 절차를 따르세요.
 
+
+NOTE: NetApp은 ONTAP 소프트웨어 업그레이드를 먼저 완료한 다음 스위치 소프트웨어 업그레이드를 수행할 것을 권장합니다.
+
 .제안된 문서
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Cisco 이더넷 스위치 페이지"^]
 +

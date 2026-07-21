@@ -1,0 +1,32 @@
+---
+indexpage:
+  title: 이더넷 스위치 상태 모니터링
+  summary: 이 사이트의 문서를 참조하여 스토리지 스위치용 이더넷 스위치 상태 모니터링을 구성하고 유지 관리하십시오.
+  keywords: Ethernet switch health monitor, storage switches, cisco nexus switches,
+    cluster switches, ontap clusters
+  lead: 이더넷 스위치 상태 모니터링을 사용하면 ONTAP 클러스터의 이더넷 스토리지 스위치 상태를 모니터링할 수 있습니다.
+  tiles:
+  - title: 스위치 상태 모니터링 구성
+    links:
+    - title: 구성 개요
+      url: "../switch-cshm/config-overview.html"
+    - title: 로그 수집 구성
+      url: "../switch-cshm/log-collection-overview.html"
+    - title: SNMPv3 구성 (선택 사항)
+      url: "../switch-cshm/config-snmpv3.html"
+  - title: 스위치 상태 확인
+    links:
+    - title: 스위치 상태를 확인합니다
+      url: "../switch-cshm/monitor-overview.html"
+    - title: 스위치 모니터링 관리
+      url: "../switch-cshm/monitor-manage.html"
+    - title: 스위치 모니터링 확인
+      url: "../switch-cshm/monitor-verify.html"
+    - title: 알림 문제 해결
+      url: "../switch-cshm/monitor-troubleshoot.html"
+  - title: 로그 수집
+    links:
+    - title: 로그 수집
+      url: "../switch-cshm/log-collection-overview.html"
+    - title: 로그 수집 문제 해결
+      url: "../switch-cshm/log-collection-troubleshoot.html"

@@ -1,100 +1,103 @@
-= 새로운 스위치 지원
+= 2026년 7월
 :allow-uri-read: 
 
 
 
 
-[[new-switch-support]]
-== 새로운 스위치 지원
-
-[cols="25h,~,~"]
-|===
-| 스위치 | 설명 | 시작 가능 
-
-
- a| 
-32포트 400GbE 포트 Cisco 스위치(X190300-CS-PI 및 X190300-PE)
- a| 
-Cisco 9332D-GX2B 클러스터 내/HA/스토리지 스위치 지원.
- a| 
-ONTAP 9.17.1
+[[july-2026]]
+== 2026년 7월
 
 
 
- a| 
-64포트 400GbE 포트 Cisco 스위치(X190310-CS-PI)
- a| 
-Cisco 9364D-GX2A 클러스터 내/HA/스토리지 스위치 지원.
- a| 
-ONTAP 9.17.1
+[[new-cisco-nexus-9808-switch-for-afx-2k]]
+=== AFX 2K용 새로운 Cisco Nexus 9808 스위치
+
+새로운 Cisco 9808 스위치는 스토리지 쉘프가 장착된 AFX 2K 컨트롤러 노드에 연결됩니다. 이 새로운 스위치를 사용하면 두 개 이상의 노드로 구성된 ONTAP 클러스터를 구축할 수 있습니다. 고급 프로토콜을 사용하여 성능을 최적화했습니다. 이 설계는 다중 네트워크 경로를 사용하는 VLAN 태깅과 기술 업그레이드 구성을 기반으로 하여 지속적인 운영과 손쉬운 업그레이드를 보장합니다.
+
+이 제품은 1개의 Supervisor 모듈, 7개의 Fabric 모듈, 4개의 전원 공급 장치(PSU)(X-N9K-C9808-B1-A)를 갖춘 36포트 400GbE Cisco 스위치로, ONTAP 9.19.1 이상을 지원합니다.
 
 
 
- a| 
-12포트 10/25/40/100GbE Cisco Nexus 9336C-FX2-T 클러스터 및 스토리지 스위치(X190212-CS-PE 및 X190212-CS-PI)
- a| 
-10/25/40/100GbE 클러스터 구성과 100GbE 스토리지(스위치 연결 스토리지) 구성을 지원합니다.
- a| 
-ONTAP 9.10.1
+[[2025-releases]]
+== 2025 릴리스
+
+.2025년 10월
+[%collapsible]
+====
+.Cisco Nexus 9332D-GX2B 및 9364D-GX2A 스위치(AFX 1K용)
+Cisco 9364D-GX2A 및 Cisco 9332D-GX2B 스위치를 사용하면 2개 이상의 노드로 구성된 ONTAP 클러스터를 구축할 수 있습니다. 고급 프로토콜을 사용하여 성능을 최적화합니다. 이 설계는 VLAN 태깅과 다중 네트워크 경로 및 기술 업데이트 구성을 기반으로 하여 지속적인 운영과 손쉬운 업그레이드를 보장합니다.
+
+이 제품들은 ONTAP 9.17.1 이상을 지원하는 32포트 및 64포트 400GbE Cisco 스위치(X190300-CS-PI, X190300-PE 및 X190310-CS-PI)입니다.
+
+새로운 NetApp AFX 스토리지 시스템은 AI/ML 애플리케이션을 포함한 고성능 NAS 및 S3 워크로드의 까다로운 요구 사항을 충족하도록 설계된 분산형 솔루션을 제공합니다. AFX 시스템은 확장 가능하고 처리량이 높은 파일 및 객체 스토리지가 필요한 고객에게 특화된 기능을 제공합니다.
+
+====
+.2025년 5월
+[%collapsible]
+====
+.Cisco Nexus 9336C-FX2-T 네트워크 스위치
+이 제품들은 ONTAP 9.10.1 이상을 지원하는 12포트 10/25/40/100GbE Cisco 스토리지 스위치(X190212-CS-PE 및 X190212-CS-PI)입니다. 100GbE 스토리지(스위치 연결 스토리지) 구성을 지원합니다.
+
+====
 
 
+[[2023-release]]
+== 2023년 출시
 
- a| 
-12포트 10/25/40/100GbE Cisco Nexus 9336C-FX2-T 클러스터 및 스토리지 스위치(X190212-CS-PE 및 X190212-CS-PI)
- a| 
-10/25/40/100GbE 클러스터 구성과 100GbE 스토리지(스위치 연결 스토리지) 구성을 지원합니다.
- a| 
-ONTAP 9.10.1
+.2023년 5월
+[%collapsible]
+====
+.Cisco Nexus 9336C-FX2-T 클러스터 스위치
+이 제품들은 ONTAP 9.10.1 이상을 지원하는 12포트 10/25/40/100GbE Cisco 클러스터 스위치(X190212-CS-PE 및 X190212-CS-PI)입니다. 10/25/40/100GbE 클러스터 구성을 지원합니다.
 
-
-
- a| 
-16포트 100GbE NVIDIA 스위치(X190006-PE 및 X190006-PI)
- a| 
-NVIDIA SN2100 클러스터 상호 연결 스위치 및 스토리지 스위치 지원( MetroCluster IP 구성 지원 포함)
- a| 
-ONTAP 9.10.1
+====
 
 
+[[2022-release]]
+== 2022년 출시
 
- a| 
-36포트 100GbE Cisco 스위치(X190200-CS-PE 및 X190200-CS-PI)
- a| 
-동일한 Cisco Nexus 9336C-FX2 스위치 쌍에서 공유 인프라(클러스터, HA 및 스위치 연결 스토리지)를 지원하며 MetroCluster IP 구성도 지원합니다.
- a| 
-ONTAP 9.9.1
+.2022년 10월
+[%collapsible]
+====
+.NVIDIA SN2100 스위치
+NVIDIA SN2100은 16포트 100GbE NVIDIA 스위치(X190006-PE 및 X190006-PI)로, ONTAP 9.10.1 이상 버전을 지원하여 2개 이상의 노드로 구성된 ONTAP 클러스터를 구축할 수 있습니다. 이 제품은 NVIDIA SN2100 클러스터 인터커넥트 스위치이자 스토리지 스위치이며, MetroCluster IP 구성도 지원합니다.
 
-
-
- a| 
-36포트 100GbE Cisco 스위치(X190200-CS-PE 및 X190200-CS-PI), (X190210-FE-PE 및 X190210-FE-PI)
- a| 
-Cisco Nexus 9336C-FX2 클러스터 상호 연결 스위치와 스토리지 스위치는 AFF 및 ASA 스토리지 시스템은 물론 프런트엔드 데이터 연결을 지원합니다.
- a| 
-ONTAP 9.8
+====
 
 
+[[2021-release]]
+== 2021년 출시
 
- a| 
-Broadcom BES-53248 스위치(X190005 및 X190005R)
- a| 
-Broadcom BES-53248 클러스터 상호 연결 스위치는 10/25GbE 및 40/100GbE 포트가 있는 AFF/ FAS 컨트롤러를 지원합니다.
- a| 
-ONTAP 9.8
+.2021년 5월
+[%collapsible]
+====
+.Cisco Nexus 9336C-FX2 스위치
+Cisco Nexus 9336C-FX2는 36포트 100GbE Cisco 스위치(X190200-CS-PE 및 X190200-CS-PI)입니다. 동일한 Cisco Nexus 9336C-FX2 스위치 쌍에서 공유 인프라(클러스터, 고가용성 및 스위치 연결 스토리지)를 지원하며, MetroCluster IP 구성 및 ONTAP 9.9.1 이상 버전을 지원합니다.
+
+====
 
 
+[[2019-release]]
+== 2019년 출시
 
- a| 
-36포트 100GbE Cisco 스위치(X190200) 및 32포트 100GbE Cisco 스위치(X190100 및 X190100R)
- a| 
-Cisco Nexus 3232C 스토리지 스위치는 NS224 NVMe 드라이브 선반을 AFF 및 ASA 스토리지 시스템에 연결할 수 있도록 지원합니다.
+.2019년 5월
+[%collapsible]
+====
+.Broadcom BES-53248 스위치
+Broadcom BES-53248 스위치(X190005 및 X190005R)는 10/25GbE 및 40/100GbE 포트를 갖춘 AFF/FAS 컨트롤러를 지원하며 ONTAP 9.8 이상을 지원합니다.
+
+====
+.2019년 3월
+[%collapsible]
+====
+.Cisco Nexus 3232C 클러스터 및 스토리지 스위치
+Cisco Nexus 3232C 스위치는 36포트 100GbE Cisco 스위치(X190200)와 32포트 100GbE Cisco 스위치(X190100 및 X190100R)입니다. Cisco Nexus 3232C 스토리지 네트워크 스위치는 다음과 같은 NS224 NVMe 드라이브 쉘프, AFF 및 ASA 스토리지 시스템과의 연결을 지원합니다.
 
 * AFF A800/ AFF ASA A800
 * AFF A700/ AFF ASA A700
 * AFF A400/ AFF ASA A400
-* AFF A320
 
- a| 
-ONTAP 9.8
 
-|===
+ONTAP 9.8 이상을 지원합니다.
+
+====

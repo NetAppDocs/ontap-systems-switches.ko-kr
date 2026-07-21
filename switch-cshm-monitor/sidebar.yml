@@ -1,0 +1,12 @@
+---
+section: switch-cshm-monitor
+title: 스위치 상태 확인
+entries:
+- title: 건강 검진 개요
+  url: "/switch-cshm/monitor-overview.html"
+- title: 스위치 모니터링 관리
+  url: "/switch-cshm/monitor-manage.html"
+- title: 스위치 모니터링 확인
+  url: "/switch-cshm/monitor-verify.html"
+- title: 알림 문제 해결
+  url: "/switch-cshm/monitor-troubleshoot.html"

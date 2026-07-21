@@ -12,36 +12,26 @@ indexpage:
       url: "../switch-bes-53248/configure-new-switch-overview.html"
     - title: Cisco 넥서스 9336C-FX2 및 9336C-FX2-T
       url: "../switch-cisco-9336c-fx2/configure-switch-overview-9336c-cluster.html"
-    - title: NVIDIA SN2100
-      url: "../switch-nvidia-sn2100/configure-overview-sn2100-cluster.html"
   - title: 클러스터 스위치 설치 및 구성
     links:
     - title: Broadcom BES-53248 스위치 하드웨어 설치
       url: "../switch-bes-53248/install-hardware-workflow.html"
     - title: 9336C-FX2 및 9336C-FX2-T 스위치 하드웨어 설치
       url: "../switch-cisco-9336c-fx2/install-hardware-workflow.html"
-    - title: NVIDIA SN2100 스위치 하드웨어 설치
-      url: "../switch-nvidia-sn2100/install-hardware-workflow.html"
     - title: Broadcom BES-53248 스위치 소프트웨어 구성
       url: "../switch-bes-53248/configure-software-overview-bes53248.html"
     - title: 9336C-FX2 및 9336C-FX2-T 스위치 소프트웨어 구성
       url: "../switch-cisco-9336c-fx2/configure-software-overview-9336c-cluster.html"
-    - title: NVIDIA SN2100 스위치 소프트웨어 구성
-      url: "../switch-nvidia-sn2100/configure-software-overview-sn2100-cluster.html"
   - title: 클러스터 스위치 유지 관리
     links:
     - title: Broadcom BES-53248 스위치 교체
       url: "../switch-bes-53248/replace-switch.html"
     - title: 9336C-FX2 및 9336C-FX2-T 스위치 교체
       url: "../switch-cisco-9336c-fx2/replace-9336c-cluster.html"
-    - title: NVIDIA SN2100 스위치 교체
-      url: "../switch-nvidia-sn2100/replace-sn2100-switch-cluster.html"
     - title: Broadcom BES-53248 스위치를 공장 기본값으로 재설정
       url: "../switch-bes-53248/reset-switch-bes-53248.html"
     - title: 9336C-FX2 및 9336C-FX2-T 스위치를 공장 기본값으로 재설정합니다.
       url: "../switch-cisco-9336c-fx2/reset-switch-9336c.html"
-    - title: NVIDIA SN2100 스위치를 공장 기본값으로 재설정
-      url: "../switch-nvidia-sn2100/reset-switch-sn2100.html"
   - title: 관련 문서
     links:
     - title: ONTAP 하드웨어 시스템

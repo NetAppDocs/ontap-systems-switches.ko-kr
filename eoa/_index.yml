@@ -1,0 +1,36 @@
+---
+indexpage:
+  title: 사용 가능 종료 스위치
+  summary: 이 사이트의 문서를 사용하여 ONTAP 스토리지 시스템용 서비스 종료 스위치를 설치, 구성 및 유지 관리하십시오.
+  keywords: end of availability, NVIDIA SN2100, cluster switches, storage switches,
+    ONTAP
+  lead: 이 스위치는 더 이상 구매할 수 없지만 ONTAP 스토리지 시스템과 함께 사용하기 위한 지원은 계속 제공됩니다.
+  tiles:
+  - title: NVIDIA SN2100 클러스터 스위치
+    links:
+    - title: 시작하기
+      url: "../switch-nvidia-sn2100/configure-overview-sn2100-cluster.html"
+    - title: 하드웨어 설치
+      url: "../switch-nvidia-sn2100/install-hardware-workflow.html"
+    - title: 소프트웨어 구성
+      url: "../switch-nvidia-sn2100/configure-software-overview-sn2100-cluster.html"
+    - title: 스위치 마이그레이션
+      url: "../switch-nvidia-sn2100/migrate-cisco-sn2100-cluster-switch.html"
+    - title: 스위치를 교체하세요
+      url: "../switch-nvidia-sn2100/replace-sn2100-switch-cluster.html"
+  - title: NVIDIA SN2100 스토리지 스위치
+    links:
+    - title: 시작하기
+      url: "../switch-nvidia-sn2100-storage/configure-overview-sn2100-storage.html"
+    - title: 하드웨어 설치
+      url: "../switch-nvidia-sn2100-storage/install-hardware-workflow.html"
+    - title: 소프트웨어 구성
+      url: "../switch-nvidia-sn2100-storage/configure-software-sn2100-storage.html"
+    - title: 스위치 마이그레이션
+      url: "../switch-nvidia-sn2100-storage/migrate-cisco-storage-switch-sn2100-storage.html"
+    - title: 스위치를 교체하세요
+      url: "../switch-nvidia-sn2100-storage/replace-sn2100-switch-storage.html"
+  - title: 판매 종료 및 제품 단종 공지
+    links:
+    - title: '판매 종료: NVIDIA SN2100 시리즈'
+      url: https://mysupport.netapp.com/info/communications/CPC-00635.html

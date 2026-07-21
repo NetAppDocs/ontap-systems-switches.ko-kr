@@ -14,13 +14,17 @@ sidebar:
   entries:
   - title: ONTAP 스토리지 시스템용 스위치 문서
     url: "/index.html"
+  - title: 릴리스 노트
+    entries:
+    - title: 스위치에 새로 추가된 기능은 무엇인가요?
+      url: "/whats-new.html"
+    - title: 지원 종료
+      url: "/eoa-switches.html"
   - title: 시작하기
     entries:
-    - title: 새로운 소식
-      url: "/whats-new.html"
     - title: ONTAP 시스템 스위치에 대해 알아보세요
       url: "/get-started/learn-switch-concept.html"
-    - title: 일어나서 실행하세요
+    - title: 빠른 시작
       url: "/get-started/get-up-and-running.html"
   - title: AFX 시스템 스위치
     url: "/afx/index.html"
@@ -33,27 +37,26 @@ sidebar:
     entries:
     - section: switch-bes-53248
     - section: switch-cisco-9336c-fx2
-    - section: switch-nvidia-sn2100
   - title: 스토리지 스위치
     url: "/storage/index.html"
     entries:
     - section: switch-cisco-9336c-fx2-storage
-    - section: switch-cisco-3232c-storage
-    - section: switch-nvidia-sn2100-storage
   - title: 공유 스위치
     url: "/shared/index.html"
     entries:
     - section: switch-cisco-9336c-fx2-shared
       pdf-filename: 스위치-시스코-9336c-fx2-스토리지
-  - section: switch-cshm
-  - title: 사용 가능 종료 스위치
+  - title: 스위치 상태 모니터링
+    url: "/cshm/index.html"
     entries:
-    - title: 개요
-      url: "/overview-eod.html"
-    - section: switch-cisco-3232c
-    - section: switch-cisco-3132q-v
-    - section: switch-cisco-92300
-    - section: switch-netapp-cn1610
+    - section: switch-cshm-configure
+    - section: switch-cshm-monitor
+    - section: switch-cshm-log-collection
+  - title: 사용 가능 종료 스위치
+    url: "/eoa/index.html"
+    entries:
+    - section: switch-nvidia-sn2100
+    - section: switch-nvidia-sn2100-storage
   - title: 법적 고지 사항
     url: "/legal-notices.html"
 product-family:
