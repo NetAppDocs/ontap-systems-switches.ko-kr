@@ -6,6 +6,60 @@ indexpage:
     ONTAP
   lead: 이 스위치는 더 이상 구매할 수 없지만 ONTAP 스토리지 시스템과 함께 사용하기 위한 지원은 계속 제공됩니다.
   tiles:
+  - title: Cisco Nexus 3232C 클러스터 스위치
+    links:
+    - title: 시작하기
+      url: "../switch-cisco-3232c/install-overview-cisco-3232c.html"
+    - title: 하드웨어 설치
+      url: "../switch-cisco-3232c/install-hardware-workflow.html"
+    - title: 소프트웨어 구성
+      url: "../switch-cisco-3232c/configure-software-overview-3232c-cluster.html"
+    - title: 스위치 마이그레이션
+      url: "../switch-cisco-3232c/migrate-from-switchless-workflow.html"
+    - title: 스위치를 교체하세요
+      url: "../switch-cisco-3232c/replace-cluster-switch.html"
+  - title: Cisco Nexus 3232C 네트워크 스위치
+    links:
+    - title: 시작하기
+      url: "../switch-cisco-3232c-storage/configure-switch-overview-3232c-storage.html"
+    - title: 하드웨어 설치
+      url: "../switch-cisco-3232c-storage/install-hardware-workflow.html"
+    - title: 소프트웨어 구성
+      url: "../switch-cisco-3232c-storage/configure-software-overview-3232c-storage.html"
+    - title: 스위치를 교체하세요
+      url: "../switch-cisco-3232c-storage/replace-storage-switch.html"
+  - title: Cisco Nexus 3132Q-V 클러스터 스위치
+    links:
+    - title: 시작하기
+      url: "../switch-cisco-3132q-v/install-overview-cisco-3132qv.html"
+    - title: 하드웨어 설치
+      url: "../switch-cisco-3132q-v/install-hardware-workflow.html"
+    - title: 소프트웨어 구성
+      url: "../switch-cisco-3132q-v/configure-software-overview-3132q-v-cluster.html"
+    - title: 스위치 마이그레이션
+      url: "../switch-cisco-3132q-v/migrate-switchless-to-switched-workflow.html"
+    - title: 스위치를 교체하세요
+      url: "../switch-cisco-3132q-v/replace-cisco-nexus-3132q-v.html"
+  - title: Cisco Nexus 92300YC 클러스터 스위치
+    links:
+    - title: 시작하기
+      url: "../switch-cisco-92300/install-overview-cisco-92300.html"
+    - title: 하드웨어 설치
+      url: "../switch-cisco-92300/install-hardware-workflow.html"
+    - title: 소프트웨어 구성
+      url: "../switch-cisco-92300/configure-software-overview-92300-cluster.html"
+    - title: 스위치 마이그레이션
+      url: "../switch-cisco-92300/migrate-to-2n-switched.html"
+    - title: 스위치를 교체하세요
+      url: "../switch-cisco-92300/replace-92300yc.html"
+  - title: NetApp CN1610 클러스터 스위치
+    links:
+    - title: 시작하기
+      url: "../switch-netapp-cn1610/switch-overview-cn1610.html"
+    - title: 설치 및 구성
+      url: "../switch-netapp-cn1610/install-overview-cn1610.html"
+    - title: 필수 서류
+      url: "../switch-netapp-cn1610/required-documentation-cn1610.html"
   - title: NVIDIA SN2100 클러스터 스위치
     links:
     - title: 시작하기
@@ -32,5 +86,15 @@ indexpage:
       url: "../switch-nvidia-sn2100-storage/replace-sn2100-switch-storage.html"
   - title: 판매 종료 및 제품 단종 공지
     links:
-    - title: '판매 종료: NVIDIA SN2100 시리즈'
+    - title: Cisco 넥서스 3232C
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/nexus-3000-series-switches/n3k-c3232c-eol.html
+    - title: Cisco Nexus 31108PC-V, 31108TC-V 및 Nexus 3132Q-V
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/nexus-3000-series-switches/nexus-31108pc-v-31108tc-v-nexus-3132q-v-eol.html
+    - title: Cisco N9K-C93120TX, N9K-C92300YC
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/nexus-9000-series-switches/eos-eol-notice-c51-742776.html
+    - title: Cisco Nexus 5500 시리즈 스위치
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/nexus-5000-series-switches/eos-eol-notice-c51-740720.html
+    - title: NetApp CN1610 클러스터 인터커넥트 SKU
+      url: https://mysupport.netapp.com/info/communications/ECMLP2859128.html
+    - title: NVIDIA SN2100 시리즈
       url: https://mysupport.netapp.com/info/communications/CPC-00635.html

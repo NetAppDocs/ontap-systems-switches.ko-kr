@@ -19,55 +19,34 @@ AFX 시스템, 클러스터, 스토리지 및 공유 스위치를 사용하고 �
 [role="quick-margin-para"]
 랙 또는 캐비닛에 스위치를 설치합니다. 해당되는 AFX 시스템 또는 스위치 모델에 대한 다음 지침을 참조하십시오.
 
-[cols="11,9,9,9"]
+[cols="1,1,1,1"]
 |===
+| AFX 시스템 스위치 | 클러스터 스위치 | 스토리지 스위치 | 공유 스위치 
 
 
  a| 
-.AFX 시스템 스위치
-[%collapsible]
-====
-* link:../switch-cisco-9332d-gx2b/install-prepare-9332d.html["Cisco Nexus 9332D-GX2B 스위치 설치 준비"^]
-* link:../switch-cisco-9364d-gx2a/install-prepare-9364d.html["Cisco Nexus 9364D-GX2A 스위치 설치 준비"^]
-* link:../switch-cisco-9808/install-prepare-9808.html["Cisco Nexus 9808 스위치 설치 준비"^]
+* link:../switch-cisco-9332d-gx2b/install-prepare-9332d.html["Cisco Nexus 9332D-GX2B 스위치"^]
+* link:../switch-cisco-9364d-gx2a/install-prepare-9364d.html["Cisco Nexus 9364D-GX2A 스위치"^]
+* link:../switch-cisco-9808/install-prepare-9808.html["Cisco Nexus 9808 스위치"^]
+
+ a| 
+* link:../switch-bes-53248/install-hardware-bes53248.html["BES-53248 스위치"^]
+* link:../switch-cisco-9336c-fx2/install-switch-9336c-cluster.html["Cisco Nexus 9336C-FX2 스위치"^]
+* link:../switch-nvidia-sn2100/install-hardware-sn2100-cluster.html["NVIDIA SN2100 스위치"^]
+
+ a| 
+* link:../switch-cisco-9336c-fx2-storage/install-9336c-storage.html["Cisco Nexus 9336C-FX2 스위치"^]
+* link:../switch-nvidia-sn2100-storage/install-hardware-sn2100-storage.html["NVIDIA SN2100 스위치"^]
+
+ a| 
+* link:../switch-cisco-9336c-fx2-shared/install-9336c-shared.html["Cisco Nexus 9336C-FX2 스위치"^]
 
 
-==== a| 
-.클러스터 스위치
-[%collapsible]
-====
-* link:../switch-bes-53248/install-hardware-bes53248.html["BES-53248 스위치 설치"^]
-* link:../switch-cisco-9336c-fx2/install-switch-9336c-cluster.html["Cisco Nexus 9336C-FX2 스위치 설치"^]
-* link:../switch-nvidia-sn2100/install-hardware-sn2100-cluster.html["NVIDIA SN2100 스위치 설치"^]
-
-
-==== a| 
-.스토리지 스위치
-[%collapsible]
-====
-* link:../switch-cisco-9336c-fx2-storage/install-9336c-storage.html["Cisco Nexus 9336C-FX2 스위치 설치"^]
-* link:../switch-nvidia-sn2100-storage/install-hardware-sn2100-storage.html["NVIDIA SN2100 스위치 설치"^]
-
-
-==== a| 
-.공유 스위치
-[%collapsible]
-====
-* link:../switch-cisco-9336c-fx2-shared/install-9336c-shared.html["Cisco Nexus 9336C-FX2 스위치 설치"^]
-
-
-====
 |===
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["둘"]보관 시스템과 보관 선반을 설치하세요
 [role="quick-margin-para"]
 캐비닛이나 랙에 보관 시스템과 보관 선반을 설치하세요.  플랫폼 모델에 대한 설치 및 설정 지침을 확인하세요.
 
-[cols="2,9,9,9"]
-|===
-
-
- a| 
- a| 
 * https://docs.netapp.com/us-en/ontap-afx/index.html["AFX 시스템"^]
 * https://docs.netapp.com/us-en/ontap-systems/aff-aseries/index.html["AFF A 시리즈 시스템"^]
 * https://docs.netapp.com/us-en/ontap-systems/aff-cseries/index.html["AFF C 시리즈 시스템"^]
@@ -75,105 +54,66 @@ AFX 시스템, 클러스터, 스토리지 및 공유 스위치를 사용하고 �
 * https://docs.netapp.com/us-en/asa-r2/index.html["ASA r2 시스템"^]
 * https://docs.netapp.com/us-en/ontap-systems/fas/index.html["FAS 시스템"^]
 
- a| 
- a| 
 
-|===
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["삼"]스위치를 컨트롤러에 케이블로 연결합니다.
 [role="quick-margin-para"]
 ONTAP 시스템 설치 및 설정 지침에는 컨트롤러 포트를 스위치에 연결하는 케이블링 방법이 포함되어 있습니다. 하지만 지원되는 케이블 및 트랜시버 목록과 스위치의 호스트 포트에 대한 자세한 정보가 필요한 경우, 해당 AFX 시스템 또는 스위치 모델에 맞는 다음 지침을 참조하십시오.
 
-[cols="11,9,9,9"]
+[cols="1,1,1,1"]
 |===
+| AFX 시스템 스위치 | 클러스터 스위치 | 스토리지 스위치 | 공유 스위치 
 
 
  a| 
-.AFX 시스템 스위치
-[%collapsible]
-====
-* link:https://docs.netapp.com/us-en/ontap-afx/install-setup/afx-cable-overview.html["AFX 1K 시스템에 Cisco Nexus 스위치 설치"^]
-* link:https://docs.netapp.com/us-en/ontap-afx/install-afx-2k/afx-cable-overview.html["AFX 2K 시스템용 Cisco Nexus 스위치 설치"^]
+* link:https://docs.netapp.com/us-en/ontap-afx/install-setup/afx-cable-overview.html["AFF A1K 시스템용 Cisco Nexus 스위치"^]
+* link:https://docs.netapp.com/us-en/ontap-afx/install-afx-2k/afx-cable-overview.html["AFX 2K 시스템용 Cisco Nexus 스위치"^]
+
+ a| 
+* link:../switch-bes-53248/configure-reqs-bes53248.html#configuration-requirements["BES-53248 스위치"^]
+* link:../switch-cisco-9336c-fx2/setup-worksheet-9336c-cluster.html["Cisco Nexus 9336C-FX2 스위치"^]
+* link:../switch-nvidia-sn2100/cabling-considerations-sn2100-cluster.html["NVIDIA SN2100 스위치"^]
+
+ a| 
+* link:../switch-cisco-9336c-fx2-storage/setup-worksheet-9336c-storage.html["Cisco Nexus 9336C-FX2 스위치"^]
+* link:../switch-nvidia-sn2100-storage/cabling-considerations-sn2100-storage.html["NVIDIA SN2100 스위치"^]
+
+ a| 
+* link:../switch-cisco-9336c-fx2-shared/cable-9336c-shared.html["Cisco Nexus 9336C-FX2 스위치"^]
 
 
-==== a| 
-.클러스터 스위치
-[%collapsible]
-====
-* link:../switch-bes-53248/configure-reqs-bes53248.html#configuration-requirements["BES-53248 스위치에 케이블 연결"^]
-* link:../switch-cisco-9336c-fx2/setup-worksheet-9336c-cluster.html["Cisco Nexus 9336C-FX2 스위치 케이블 연결"^]
-* link:../switch-nvidia-sn2100/cabling-considerations-sn2100-cluster.html["NVIDIA SN2100 스위치 케이블 연결"^]
-
-
-==== a| 
-.스토리지 스위치
-[%collapsible]
-====
-* link:../switch-cisco-9336c-fx2-storage/setup-worksheet-9336c-storage.html["Cisco Nexus 9336C-FX2 스위치 케이블 연결"^]
-* link:../switch-nvidia-sn2100-storage/cabling-considerations-sn2100-storage.html["NVIDIA SN2100 스위치 케이블 연결"^]
-
-
-==== a| 
-.공유 스위치
-[%collapsible]
-====
-* link:../switch-cisco-9336c-fx2-shared/cable-9336c-shared.html["Cisco Nexus 9336C-FX2 스위치 케이블 연결"^]
-
-
-====
 |===
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["네"]스위치 소프트웨어 구성
 [role="quick-margin-para"]
 스위치를 구성하고 소프트웨어를 설치하려면 해당 스위치 모델에 맞는 소프트웨어 설치 워크플로를 따르십시오.
 
-[cols="11,9,9,9"]
+[cols="1,1,1,1"]
 |===
+| AFX 시스템 스위치 | 클러스터 스위치 | 스토리지 스위치 | 공유 스위치 
 
 
  a| 
-.AFX 시스템 스위치
-[%collapsible]
-====
-* link:../switch-cisco-9332d-gx2b/configure-switch-workflow-9332d.html["Cisco Nexus 9332D-GX2B 스위치 구성"^]
-* link:../switch-cisco-9364d-gx2a/configure-switch-workflow-9364d.html["Cisco Nexus 9364D-GX2A 스위치 구성"^]
-* link:../switch-cisco-9808/configure-switch-workflow-9808.html["Cisco Nexus 9808 스위치 구성"^]
+* link:../switch-cisco-9332d-gx2b/configure-switch-workflow-9332d.html["Cisco Nexus 9332D-GX2B 스위치"^]
+* link:../switch-cisco-9364d-gx2a/configure-switch-workflow-9364d.html["Cisco Nexus 9364D-GX2A 스위치"^]
+* link:../switch-cisco-9808/configure-switch-workflow-9808.html["Cisco Nexus 9808 스위치"^]
+
+ a| 
+* link:../switch-bes-53248/configure-software-overview-bes53248.html["BES-53248 스위치"^]
+* link:../switch-cisco-9336c-fx2/configure-software-overview-9336c-cluster.html["Cisco Nexus 9336C-FX2 스위치"^]
+* link:../switch-nvidia-sn2100/configure-software-overview-sn2100-cluster.html["NVIDIA SN2100 스위치"^]
+
+ a| 
+* link:../switch-cisco-9336c-fx2-storage/configure-software-overview-9336c-storage.html["Cisco Nexus 9336C-FX2 스위치"^]
+* link:../switch-nvidia-sn2100-storage/configure-software-sn2100-storage.html["NVIDIA SN2100 스위치"^]
+
+ a| 
+* link:../switch-cisco-9336c-fx2-shared/configure-software-overview-9336c-shared.html["Cisco Nexus 9336C-FX2 스위치"^]
 
 
-==== a| 
-.클러스터 스위치
-[%collapsible]
-====
-* link:../switch-bes-53248/configure-software-overview-bes53248.html["BES-53248 스위치용 소프트웨어 설치"^]
-* link:../switch-cisco-9336c-fx2/configure-software-overview-9336c-cluster.html["Cisco Nexus 9336C-FX2 스위치용 소프트웨어 설치"^]
-* link:../switch-nvidia-sn2100/configure-software-overview-sn2100-cluster.html["NVIDIA SN2100 스위치용 소프트웨어 설치"^]
-
-
-==== a| 
-.스토리지 스위치
-[%collapsible]
-====
-* link:../switch-cisco-9336c-fx2-storage/configure-software-overview-9336c-storage.html["Cisco Nexus 9336C-FX2 스위치용 소프트웨어 설치"^]
-* link:../switch-nvidia-sn2100-storage/configure-software-sn2100-storage.html["NVIDIA SN2100 스위치용 소프트웨어 설치"^]
-
-
-==== a| 
-.공유 스위치
-[%collapsible]
-====
-* link:../switch-cisco-9336c-fx2-shared/configure-software-overview-9336c-shared.html["Cisco Nexus 9336C-FX2 스위치용 소프트웨어 설치"^]
-
-
-====
 |===
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["다섯"]시스템 설정 완료
 [role="quick-margin-para"]
 스위치를 구성하고 필요한 소프트웨어를 설치한 후 ONTAP 시스템 플랫폼 모델에 대한 설치 및 설정 지침에 액세스하여 시스템 설정을 완료하세요.
 
-[cols="2,9,9,9"]
-|===
-
-
- a| 
- a| 
 * https://docs.netapp.com/us-en/ontap-afx/index.html["AFX 시스템"^]
 * https://docs.netapp.com/us-en/ontap-systems/aff-aseries/index.html["AFF A 시리즈 시스템"^]
 * https://docs.netapp.com/us-en/ontap-systems/aff-cseries/index.html["AFF C 시리즈 시스템"^]
@@ -181,10 +121,7 @@ ONTAP 시스템 설치 및 설정 지침에는 컨트롤러 포트를 스위치�
 * https://docs.netapp.com/us-en/asa-r2/index.html["ASA r2 시스템"^]
 * https://docs.netapp.com/us-en/ontap-systems/fas/index.html["FAS 시스템"^]
 
- a| 
- a| 
 
-|===
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["육"]ONTAP 구성 완료
 [role="quick-margin-para"]
 ONTAP 시스템 컨트롤러와 스위치를 설치하고 설정한 후에는 ONTAP 에서 스토리지 구성을 완료해야 합니다.  배포 구성에 따라 다음 지침에 액세스하세요.

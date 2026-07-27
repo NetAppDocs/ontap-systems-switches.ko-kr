@@ -14,7 +14,7 @@ entries:
   - title: 스마트 콜 홈 요구 사항
     url: "/switch-cisco-3132q-v/smart-call-home-3132q.html"
 - title: 하드웨어 설치
-  pdf-filename: 설치_하드웨어_3132q-v
+  pdf-filename: Install_hardware_3132q-v
   entries:
   - title: 하드웨어 설치 워크플로
     url: "/switch-cisco-3132q-v/install-hardware-workflow.html"
@@ -27,7 +27,7 @@ entries:
   - title: 케이블링 및 구성 검토
     url: "/switch-cisco-3132q-v/cabling-considerations-3132q-v.html"
 - title: 소프트웨어 구성
-  pdf-filename: 구성_소프트웨어_3132q-v
+  pdf-filename: 소프트웨어_구성_3132q-v
   entries:
   - title: 소프트웨어 설치 워크플로
     url: "/switch-cisco-3132q-v/configure-software-overview-3132q-v-cluster.html"
@@ -38,7 +38,7 @@ entries:
   - title: NX-OS 소프트웨어 설치
     url: "/switch-cisco-3132q-v/install-nx-os-software-3132q-v.html"
   - title: RCF 설치 또는 업그레이드
-    pdf-filename: 설치_업그레이드_rcf
+    pdf-filename: install_upgrade_rcf
     entries:
     - title: RCF 설치 또는 업그레이드 개요
       url: "/switch-cisco-3132q-v/install-upgrade-rcf-overview-3132q-v.html"
@@ -51,23 +51,23 @@ entries:
 - title: 스위치를 공장 기본값으로 재설정합니다
   url: "/switch-cisco-3132q-v/reset-switch-3132q-v.html"
 - title: 스위치 마이그레이션
-  pdf-filename: 마이그레이션_스위치_3132q-v
+  pdf-filename: Migrate_switches_3132q-v
   entries:
-  - title: 스위치리스 클러스터에서 2노드 스위치 클러스터로 마이그레이션
-    pdf-filename: 스위치리스에서 스위치드 클러스터로 마이그레이션
+  - title: 스위치리스 클러스터에서 2노드 스위치드 클러스터로 마이그레이션
+    pdf-filename: 스위치리스 클러스터에서 스위치드 클러스터로 마이그레이션
     entries:
-    - title: 스위치리스에서 2노드 스위치 워크플로로 마이그레이션
+    - title: 스위치리스 방식에서 2노드 스위치 방식 워크플로로 마이그레이션
       url: "/switch-cisco-3132q-v/migrate-switchless-to-switched-workflow.html"
-    - title: 이주 요구 사항
+    - title: 마이그레이션 요구 사항
       url: "/switch-cisco-3132q-v/migrate-switchless-to-switched-requirements.html"
-    - title: 이주 준비
+    - title: 마이그레이션 준비
       url: "/switch-cisco-3132q-v/migrate-switchless-prepare-to-migrate.html"
-    - title: 포트 구성
+    - title: 포트를 구성합니다
       url: "/switch-cisco-3132q-v/migrate-switchless-configure-ports.html"
-    - title: 마이그레이션을 완료하세요
+    - title: 마이그레이션을 완료합니다
       url: "/switch-cisco-3132q-v/migrate-switchless-complete-migration.html"
 - title: 스위치 교체
-  pdf-filename: 교체_스위치_3132q-v
+  pdf-filename: 3132q-v_스위치_교체
   entries:
   - title: 요구 사항 교체
     url: "/switch-cisco-3132q-v/switch-requirements.html"

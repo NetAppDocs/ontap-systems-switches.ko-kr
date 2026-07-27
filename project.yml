@@ -55,6 +55,11 @@ sidebar:
   - title: 사용 가능 종료 스위치
     url: "/eoa/index.html"
     entries:
+    - section: switch-cisco-3232c
+    - section: switch-cisco-3232c-storage
+    - section: switch-cisco-3132q-v
+    - section: switch-cisco-92300
+    - section: switch-netapp-cn1610
     - section: switch-nvidia-sn2100
     - section: switch-nvidia-sn2100-storage
   - title: 법적 고지 사항
