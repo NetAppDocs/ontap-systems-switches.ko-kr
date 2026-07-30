@@ -2,16 +2,16 @@
 permalink: switch-cisco-9336c-fx2-storage/setup-switch-9336c-storage.html 
 sidebar: sidebar 
 keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 9336c-fx2 
-summary: 아직 필요한 구성 정보와 문서가 없다면 클러스터와 관리 네트워크 스위치를 설정하기 전에 해당 정보를 수집해야 합니다. 
+summary: Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스토리지 스위치를 스토리지 네트워크 운영에 적합하도록 구성하십시오. 
 ---
-= 9336C-FX2 및 9336C-FX2-T 스토리지 스위치 구성
+= Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스토리지 스위치 구성
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스위치를 구성하려면 다음 절차를 따르세요.
+초기 설정 명령을 사용하여 Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스토리지 스위치를 구성하고 스토리지 네트워크 운영을 준비합니다.
 
 .시작하기 전에
 다음 사항이 있는지 확인하세요.

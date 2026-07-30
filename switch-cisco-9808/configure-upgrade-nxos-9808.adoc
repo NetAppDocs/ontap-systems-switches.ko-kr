@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: procedure, install, nx-os, software, nexus, cluster, switch, install the nx-os software - cisco nexus 9808 
 summary: Cisco Nexus 9808 스위치의 NX-OS를 업그레이드하여 AFX 2K 시스템의 새로운 하드웨어 또는 새로운 ONTAP 버전을 지원합니다. 
 ---
-= NX-OS 업그레이드 - Cisco Nexus 9808
+= Cisco Nexus 9808 스위치의 NX-OS 업그레이드
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

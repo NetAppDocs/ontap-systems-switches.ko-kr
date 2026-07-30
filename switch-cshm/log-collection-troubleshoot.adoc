@@ -2,9 +2,9 @@
 permalink: switch-cshm/log-collection-troubleshoot.html 
 sidebar: sidebar 
 keywords: cshm, cluster, storage, switch logs, debugging, collection 
-summary: 여기에 제공된 명령을 사용하여 ......할 수 있습니다. 
+summary: '이더넷 스위치 상태 모니터링(CSHM) 로그 수집 오류 및 실패 문제를 해결합니다.' 
 ---
-= 로그 수집 문제 해결
+= 이더넷 스위치 상태 모니터링을 위한 로그 수집 문제 해결
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

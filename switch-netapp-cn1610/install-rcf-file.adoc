@@ -2,16 +2,16 @@
 permalink: switch-netapp-cn1610/install-rcf-file.html 
 sidebar: sidebar 
 keywords: reference configuration, file ,install, cn1610, switch, install rcf 
-summary: 참조 구성 파일 RCF를 설치할 때는 먼저 클러스터 LIF를 스위치 cs2에서 다른 곳으로 마이그레이션해야 합니다. RCF 설치 및 유효성 검사가 완료되면 LIF를 다시 마이그레이션할 수 있습니다. 
+summary: '포트 할당 및 네트워크 설정을 구성하려면 NetApp CN1610 클러스터 스위치에 참조 구성 파일(RCF)을 설치하십시오.' 
 ---
-= CN1610 스위치에 참조 구성 파일 설치
+= NetApp CN1610 클러스터 스위치에 참조 구성 파일을 설치합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-참조 구성 파일(RCF)을 설치하려면 다음 절차를 따르십시오.
+NetApp CN1610 클러스터 스위치에 참조 구성 파일(RCF)을 설치합니다.
 
 RCF를 설치하기 전에 먼저 클러스터 LIF를 스위치 cs2에서 다른 곳으로 마이그레이션해야 합니다. RCF 설치 및 유효성 검사가 완료되면 LIF를 다시 마이그레이션할 수 있습니다.
 

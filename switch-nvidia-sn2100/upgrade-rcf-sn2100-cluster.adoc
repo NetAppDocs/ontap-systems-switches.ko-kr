@@ -2,16 +2,16 @@
 permalink: switch-nvidia-sn2100/upgrade-rcf-sn2100-cluster.html 
 sidebar: sidebar 
 keywords: upgrade rcf script, python script, sn2100 SN2100 switches, cumulus 
-summary: RCF 스크립트를 설치하기 전에 스위치에서 다음이 사용 가능한지 확인하십시오. 
+summary: 'NVIDIA SN2100 클러스터 스위치에서 새로운 버전의 참조 구성 파일(RCF) 스크립트가 출시되면 해당 스크립트를 업그레이드하십시오.' 
 ---
-= 참조 구성 파일(RCF) 스크립트 업그레이드
+= NVIDIA SN2100 클러스터 스위치의 RCF 스크립트 업그레이드
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-RCF 스크립트를 업그레이드하려면 다음 절차를 따르세요.
+NVIDIA SN2100 클러스터 스위치에서 새로운 버전의 참조 구성 파일(RCF) 스크립트가 출시되면 해당 스크립트를 업그레이드하십시오.
 
 .시작하기 전에
 RCF 스크립트를 업그레이드하기 전에 스위치에서 다음 사항을 사용할 수 있는지 확인하세요.

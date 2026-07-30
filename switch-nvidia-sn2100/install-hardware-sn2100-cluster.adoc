@@ -2,16 +2,16 @@
 permalink: switch-nvidia-sn2100/install-hardware-sn2100-cluster.html 
 sidebar: sidebar 
 keywords: switches hardware installation 
-summary: SN2100 하드웨어를 설치하려면 NVIDIA 설명서를 참조하십시오. 
+summary: NVIDIA의 설명서를 따라 NVIDIA SN2100 클러스터 스위치 하드웨어를 설치하십시오. 
 ---
-= NVIDIA SN2100 스위치용 하드웨어 설치
+= NVIDIA SN2100 클러스터 스위치용 하드웨어 설치
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-NVIDIA SN2100 스위치 하드웨어를 설치하는 것은 데이터 보호, 복제 및 관리 워크플로우를 지원하는 안정적이고 확장 가능한 네트워크 인프라를 구축하는 데 있어 매우 중요한 첫 단계입니다.
+NVIDIA의 설명서에 따라 NVIDIA SN2100 클러스터 스위치 하드웨어를 설치하십시오. 하드웨어 설치는 클러스터 작동을 위해 스위치를 구성하기 전 첫 번째 단계입니다.
 
 SN2100 스위치를 설정하고 구성하려면 다음 단계를 따르십시오. 자세한 지침은 NVIDIA 설명서를 참조하십시오.
 

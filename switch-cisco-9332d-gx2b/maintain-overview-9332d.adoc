@@ -2,16 +2,16 @@
 permalink: switch-cisco-9332d-gx2b/maintain-overview-9332d.html 
 sidebar: sidebar 
 keywords: maintain overview, frus, replace switch, reset to factory defaults, cisco 9332d-gx2b 
-summary: 'Cisco Nexus 9332D-GX2B 스위치를 유지 관리하여 장기적인 안정성과 최적의 성능을 보장하십시오. 고장난 스위치 구성 요소(FRU) 교체, 결함이 있는 스위치 교체, 스위치를 공장 초기 설정으로 재설정하는 등의 유지 관리 작업을 수행할 수 있습니다.' 
+summary: 'Cisco Nexus 9332D-GX2B 스위치의 유지 관리 작업(FRU 교체, 스위치 교체 및 공장 초기 설정 복원 포함)을 검토하십시오.' 
 ---
-= 유지 관리 개요 - Cisco Nexus 9332D-GX2B
+= Cisco Nexus 9332D-GX2B 스위치의 유지 관리 옵션에 대해 알아보십시오.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Cisco Nexus 9332D-GX2B 스위치를 유지 관리하여 장기적인 안정성과 최적의 성능을 보장하십시오. 고장난 스위치 구성 요소(FRU) 교체, 고장난 스위치 교체, 스위치를 공장 초기 설정으로 재설정하는 등의 유지 관리 작업을 수행할 수 있습니다.
+Cisco Nexus 9332D-GX2B 스위치에 사용할 수 있는 유지 관리 작업(결함 있는 스위치 구성 요소(FRU) 교체, 결함 있는 스위치 교체 및 스위치를 공장 초기 설정으로 재설정하는 작업 포함)을 검토하십시오.
 
 스위치에서 다음과 같은 유지 관리 작업을 수행할 수 있습니다.
 

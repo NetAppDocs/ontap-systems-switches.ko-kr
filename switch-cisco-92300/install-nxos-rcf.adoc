@@ -2,16 +2,16 @@
 permalink: switch-cisco-92300/install-nxos-rcf.html 
 sidebar: sidebar 
 keywords: install rcf,rcf configure 
-summary: Nexus 92300YC 스위치를 처음 설정한 후 RCF를 설치할 수 있습니다. 
+summary: '초기 설정 후 Cisco Nexus 92300YC 클러스터 스위치에 참조 구성 파일(RCF)을 설치하십시오.' 
 ---
-= 참조 구성 파일(RCF) 설치
+= Cisco Nexus 92300YC 클러스터 스위치에 RCF 설치
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Nexus 92300YC 스위치를 처음 설정한 후 RCF를 설치할 수 있습니다.
+초기 설정 후 Cisco Nexus 92300YC 클러스터 스위치에 참조 구성 파일(RCF)을 설치하십시오. RCF는 클러스터 작동에 필요한 포트 할당 및 네트워크 설정을 정의합니다.
 
 .스위치 및 노드 명명법
 이 절차의 예에서는 다음 스위치 및 노드 명명법을 사용합니다.

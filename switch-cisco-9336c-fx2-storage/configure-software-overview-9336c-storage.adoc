@@ -2,7 +2,7 @@
 permalink: switch-cisco-9336c-fx2-storage/configure-software-overview-9336c-storage.html 
 sidebar: sidebar 
 keywords: BES-53248 switches, initial installation, configure switch-cisco-9336c-fx2 switch 
-summary: Cisco Nexus 9336C-FX2 스토리지 스위치용 소프트웨어 구성 개요 
+summary: 다음 워크플로를 따라 Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스토리지 스위치에 NX-OS 소프트웨어와 RCF를 설치하십시오. 
 ---
 = Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스토리지 스위치용 소프트웨어 설치 워크플로
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Cisco Nexus 9336C-FX2 스토리지 스위치용 소프트웨어 구성 
 
 
 [role="lead"]
-Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스토리지 스위치용 소프트웨어를 설치하고 구성하려면 다음 단계를 따르세요.
+다음 워크플로를 따라 Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스토리지 스위치에 NX-OS 소프트웨어와 참조 구성 파일(RCF)을 설치하십시오.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["하나"]link:setup-switch-9336c-storage.html["스위치 구성"]
 [role="quick-margin-para"]

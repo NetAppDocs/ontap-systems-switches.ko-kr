@@ -2,16 +2,16 @@
 permalink: switch-bes-53248/configure-licenses.html 
 sidebar: sidebar 
 keywords: bes, cluster, switch, base, model, license, 10gbe, 25gbe, 100gbe, port, add, purchasing, purchase, install licenses for bes-53248 cluster switches - bes-53248 switches 
-summary: BES-53248 클러스터 스위치 기본 모델은 16개의 10GbE 또는 25GbE 포트와 2개의 100GbE 포트에 대한 라이선스를 받았습니다.  더 많은 라이선스를 구매하면 새로운 포트를 추가할 수 있습니다. 
+summary: Broadcom BES-53248 클러스터 스위치 기본 모델은 16개의 10GbE 또는 25GbE 포트와 2개의 100GbE 포트를 지원합니다. 스위치 용량을 확장하려면 추가 포트 라이선스를 설치하십시오. 
 ---
-= BES-53248 클러스터 스위치에 대한 라이센스 설치
+= Broadcom BES-53248 클러스터 스위치용 라이선스 설치
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-BES-53248 클러스터 스위치 기본 모델은 16개의 10GbE 또는 25GbE 포트와 2개의 100GbE 포트에 대한 라이선스를 받았습니다.  추가 라이선스를 구매하면 새로운 포트를 추가할 수 있습니다.
+Broadcom BES-53248 클러스터 스위치 기본 모델은 16개의 10GbE 또는 25GbE 포트와 2개의 100GbE 포트에 대한 라이선스를 제공합니다. 추가 포트 라이선스를 설치하여 스위치를 확장하면 더 많은 10GbE 또는 25GbE 클러스터 포트를 지원할 수 있습니다.
 
 
 CAUTION: EFOS 3.12 이상의 경우 다음 설치 단계를 따르세요.link:efos-install-rcf-license-file.html["참조 구성 파일(RCF) 및 라이센스 파일을 설치합니다."] .

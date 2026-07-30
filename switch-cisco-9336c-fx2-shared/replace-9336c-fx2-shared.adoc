@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: switch-cisco-9336c-fx2-shared/replace-9336c-fx2-shared.html 
 keywords:  
-summary:  
+summary: 고장난 Cisco Nexus 9336C-FX2 공유 스위치를 교체하십시오. 이 작업은 시스템 중단 없이 진행됩니다. 
 ---
 = Cisco Nexus 9336C-FX2 공유 스위치 교체
 :hardbreaks:
@@ -14,7 +14,7 @@ summary:
 
 
 [role="lead"]
-결함이 있는 Nexus 9336C-FX2 공유 스위치를 교체할 수 있습니다. 이는 중단 없는 절차(NDU)입니다.
+클러스터 또는 스토리지 네트워크 운영을 중단하지 않고 결함이 있는 Cisco Nexus 9336C-FX2 공유 스위치를 교체합니다. 이 비중단 절차(NDU)는 교체 스위치를 준비하고 공유 스위치 구성을 복원하는 작업을 포함합니다.
 
 .시작하기 전에
 스위치 교체를 수행하기 전에 다음 사항을 확인하세요.

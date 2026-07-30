@@ -2,16 +2,16 @@
 permalink: switch-cisco-9336c-fx2-storage/migrate-to-2n-switched-9336-storage.html 
 sidebar: sidebar 
 keywords: two-node switchless cluster environments,migrating to a two-node switched 9336C-FX2 cluster environment,switchless cluster environments,9336C-FX2 switches 
-summary: 기존에 2노드 스위치리스 클러스터 환경이 있는 경우 Cisco Nexus 9336C-FX2 스위치를 사용하여 2노드 스위치 클러스터 환경으로 마이그레이션하면 클러스터에서 노드를 두 개 이상으로 확장할 수 있습니다. 
+summary: 기존의 2노드 스위치가 없는 클러스터를 Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스토리지 스위치를 사용하는 스위치 클러스터 환경으로 마이그레이션합니다. 
 ---
-= 2노드 스위치 클러스터로 마이그레이션
+= Cisco Nexus 9336C-FX2 스토리지 스위치를 사용하여 2노드 스위치 클러스터로 마이그레이션
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-기존의 2노드 _스위치리스_ 클러스터 환경이 있는 경우 Cisco Nexus 9336C-FX2 스위치를 사용하여 2노드 _스위치_ 클러스터 환경으로 마이그레이션하면 클러스터에서 두 개 이상의 노드를 확장할 수 있습니다.
+기존의 2노드 스위치가 없는 클러스터를 Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스토리지 스위치를 사용하는 스위치 클러스터 환경으로 마이그레이션합니다. 이 무중단 마이그레이션을 통해 클러스터를 2개 이상의 노드로 확장할 수 있습니다.
 
 마이그레이션 프로세스는 광 포트나 Twinax 포트를 사용하는 모든 노드에서 작동하지만, 노드가 클러스터 네트워크 포트에 온보드 10Gb BASE-T RJ45 포트를 사용하는 경우 이 스위치에서는 지원되지 않습니다.
 

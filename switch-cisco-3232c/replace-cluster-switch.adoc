@@ -2,7 +2,7 @@
 permalink: switch-cisco-3232c/replace-cluster-switch.html 
 sidebar: sidebar 
 keywords: replace, cisco nexus 3232c, cluster switch 
-summary: 클러스터에서 결함이 있는 Cisco Nexus 3232C 스위치를 중단 없이 교체하려면 특정 작업 순서를 수행하면 됩니다. 
+summary: 결함이 있는 Cisco Nexus 3232C 클러스터 스위치를 교체합니다. 이 작업은 시스템 중단 없이 진행됩니다. 
 ---
 = Cisco Nexus 3232C 클러스터 스위치 교체
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 클러스터에서 결함이 있는 Cisco Nexus 3232C 스위치를 중�
 
 
 [role="lead"]
-클러스터에서 고장난 Cisco Nexus 3232C 스위치를 교체하려면 다음 단계를 따르십시오. 이 작업은 시스템 중단 없이 진행됩니다.
+클러스터 운영을 중단하지 않고 결함이 있는 Cisco Nexus 3232C 클러스터 스위치를 교체합니다. 이 비중단 절차는 교체 스위치를 준비하고 결함이 있는 스위치에서 연결을 마이그레이션하는 과정을 포함합니다.
 
 
 

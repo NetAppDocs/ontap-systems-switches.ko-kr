@@ -2,16 +2,16 @@
 permalink: switch-cisco-92300/install-nxos-overview.html 
 sidebar: sidebar 
 keywords: install nx-os rcf cisco nx 92300yc cluster switch 
-summary: Cisco NX-OS 소프트웨어와 참조 구성 파일은 Cisco Nexus 92300YC 클러스터 스위치에 설치해야 합니다. 
+summary: 'NX-OS 소프트웨어 및 참조 구성 파일(RCF)을 설치하기 전에 Cisco Nexus 92300YC 클러스터 스위치를 준비하십시오.' 
 ---
-= NX-OS 소프트웨어 및 참조 구성 파일(RCF) 설치 준비
+= Cisco Nexus 92300YC 클러스터 스위치에 NX-OS 소프트웨어 및 RCF를 설치할 준비를 하십시오.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-NX-OS 소프트웨어와 참조 구성 파일(RCF)을 설치하기 전에 다음 절차를 따르세요.
+NX-OS 소프트웨어와 참조 구성 파일(RCF)을 설치하기 전에 Cisco Nexus 92300YC 클러스터 스위치를 준비하십시오. 스위치가 ONTAP 클러스터에서 작동하려면 NX-OS와 RCF를 설치해야 합니다.
 
 .시작하기 전에
 다음 사항이 있는지 확인하세요.

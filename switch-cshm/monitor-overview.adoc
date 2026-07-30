@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cshm, cluster, storage, switch logs, debugging, collection 
 summary: 이더넷 스위치 상태 모니터링 알림을 사용하여 ONTAP 클러스터의 네트워크 스위치 문제를 식별하고 해결하십시오. 
 ---
-= 건강 검진 개요
+= 이더넷 스위치 상태 모니터링에 대한 알림 알아보기
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

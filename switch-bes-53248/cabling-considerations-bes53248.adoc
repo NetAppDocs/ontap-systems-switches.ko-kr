@@ -2,16 +2,16 @@
 permalink: switch-bes-53248/cabling-considerations-bes53248.html 
 sidebar: sidebar 
 keywords: BES-53248 cabling setup, BES-53248 switches configuration, efos 
-summary: Broadcom BES-53248 스위치를 구성하기 전에 다음 정보를 검토하세요. 
+summary: Broadcom BES-53248 클러스터 스위치를 배포하기 전에 클러스터 포트 할당, 포트 그룹 속도 제한 및 FEC 설정 등 케이블링 및 구성 제약 조건을 이해해야 합니다. 
 ---
-= 케이블링 및 구성 고려 사항 검토
+= Broadcom BES-53248 클러스터 스위치의 케이블 연결 및 구성 고려 사항을 검토하십시오.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Broadcom BES-53248 스위치를 구성하기 전에 다음 고려 사항을 검토하세요.
+Broadcom BES-53248 클러스터 스위치를 배포하기 전에 케이블링 및 구성 제약 조건을 이해해야 합니다. 주요 고려 사항에는 클러스터 포트 할당, 포트 그룹 속도 제약 조건, 25G 구리 및 광섬유 연결에 대한 순방향 오류 수정(FEC) 설정이 포함됩니다.
 
 
 

@@ -2,16 +2,16 @@
 permalink: switch-netapp-cn1610/migrate-fas22xx-systems.html 
 sidebar: sidebar 
 keywords: migrate, two-node switched cluster, fas22xx systems, single, network connection 
-summary: 각 컨트롤러 모듈에 클러스터 연결을 위한 단일 백투백 10GbE 연결이 있는 기존 2노드 스위치가 없는 클러스터에 FAS22xx 시스템이 있는 경우, 스위치가 없는 클러스터 네트워킹 옵션을 사용하여 직접 백투백 연결을 스위치 연결로 대체할 수 있습니다. 
+summary: 단일 클러스터 네트워크 연결을 사용하는 스위치가 없는 클러스터에서 NetApp CN1610 클러스터 스위치를 사용하는 스위치 클러스터로 FAS22xx 시스템을 마이그레이션합니다. 
 ---
-= FAS22xx 시스템에서 단일 클러스터 네트워크 연결을 사용하는 2노드 스위치드 클러스터로 마이그레이션
+= NetApp CN1610 클러스터 스위치를 사용하여 FAS22xx 시스템을 스위치 클러스터로 마이그레이션합니다.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-각 컨트롤러 모듈에 클러스터 연결을 위한 단일 백투백 10GbE 연결이 있는 기존 2노드 스위치가 없는 클러스터에 FAS22xx 시스템이 있는 경우, 스위치가 없는 클러스터 네트워킹 옵션을 사용하여 직접 백투백 연결을 스위치 연결로 대체할 수 있습니다.
+컨트롤러당 단일 10GbE 연결을 사용하는 2노드 스위치가 없는 클러스터에서 NetApp CN1610 클러스터 스위치를 사용하는 스위치 클러스터로 FAS22xx 시스템을 마이그레이션합니다.
 
 
 

@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: switch-cisco-9336c-fx2-shared/cable-9336c-shared.html 
 keywords: shared storage cluster switch cable 
-summary: 케이블 이미지를 사용하여 컨트롤러와 스위치 간의 케이블 연결을 완료합니다. 
+summary: Cisco Nexus 9336C-FX2 공유 스위치의 케이블링 워크시트를 작성하여 컨트롤러와 스위치 간의 포트 연결을 문서화하십시오. 
 ---
-= Cisco Nexus 9336C-FX2 케이블링 워크시트를 완성하세요
+= Cisco Nexus 9336C-FX2 공유 스위치 케이블링 작업표를 작성하십시오.
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: 케이블 이미지를 사용하여 컨트롤러와 스위치 간의 �
 
 
 [role="lead"]
-다음 케이블 이미지를 사용하여 컨트롤러와 스위치 간의 케이블 연결을 완료하세요.
+케이블링 이미지를 사용하여 컨트롤러와 스위치 간의 포트 연결을 문서화함으로써 Cisco Nexus 9336C-FX2 공유 스위치용 케이블링 워크시트를 완성하십시오.
 
 
 

@@ -2,7 +2,7 @@
 permalink: switch-nvidia-sn2100-storage/migrate-cisco-storage-switch-sn2100-storage.html 
 sidebar: sidebar 
 keywords: migrating to a storage switch with NVIDIA SN2100 storage switches, how to migrate 
-summary: ONTAP 클러스터용 기존 Cisco 스위치를 NVIDIA SN2100 스토리지 스위치로 중단 없이 마이그레이션할 수 있습니다. 
+summary: 기존 Cisco 스토리지 스위치에서 NVIDIA SN2100 스토리지 스위치로 스토리지 네트워크 운영을 중단하지 않고 마이그레이션합니다. 
 ---
 = Cisco 스토리지 스위치에서 NVIDIA SN2100 스토리지 스위치로 마이그레이션
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: ONTAP 클러스터용 기존 Cisco 스위치를 NVIDIA SN2100 스토리
 
 
 [role="lead"]
-ONTAP 클러스터용 기존 Cisco 스위치를 NVIDIA SN2100 스토리지 스위치로 마이그레이션할 수 있습니다. 이는 방해가 되지 않는 절차입니다.
+기존 Cisco 스토리지 스위치에서 NVIDIA SN2100 스토리지 스위치로 스토리지 네트워크 운영을 중단하지 않고 마이그레이션합니다.
 
 
 

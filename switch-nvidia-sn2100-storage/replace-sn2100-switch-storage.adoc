@@ -2,7 +2,7 @@
 permalink: switch-nvidia-sn2100-storage/replace-sn2100-switch-storage.html 
 sidebar: sidebar 
 keywords: replacing, replace, defective, nvidia, switch, cluster, network, nondisruptive, procedure, ndu, replace a nvidia sn2100 cluster switch - nvidia SN2100 
-summary: 결함이 있는 NVIDIA SN2100 스토리지 스위치를 교체하는 것은 무중단 절차입니다. 
+summary: 결함이 있는 NVIDIA SN2100 스토리지 스위치를 교체합니다. 이 작업은 시스템 중단 없이 진행됩니다. 
 ---
 = NVIDIA SN2100 스토리지 스위치 교체
 :allow-uri-read: 
@@ -11,10 +11,10 @@ summary: 결함이 있는 NVIDIA SN2100 스토리지 스위치를 교체하는 �
 
 
 [role="lead"]
-결함이 있는 NVIDIA SN2100 스토리지 스위치를 교체할 수 있습니다. 이것은 방해가 되지 않는 절차입니다.
+스토리지 네트워크 작동을 중단하지 않고 결함이 있는 NVIDIA SN2100 스토리지 스위치를 교체합니다. 이 무중단 절차는 교체 스위치를 준비하고 스토리지 네트워크 구성을 복원하는 과정을 포함합니다.
 
 .시작하기 전에
-NVIDIA SN2100 스토리지 스위치에 Cumulus 소프트웨어와 RCF를 설치하기 전에 다음 사항을 확인하세요.
+NVIDIA SN2100 스토리지 스위치에 Cumulus 소프트웨어 및 RCF를 설치하기 전에 다음 사항을 확인하십시오.
 
 * 귀하의 시스템은 NVIDIA SN2100 스토리지 스위치를 지원할 수 있습니다.
 * 해당 RCF를 다운로드했습니다.

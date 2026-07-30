@@ -2,16 +2,16 @@
 permalink: switch-cisco-3132q-v/migrate-switchless-configure-ports.html 
 sidebar: sidebar 
 keywords: cisco 3132q-v, cluster switches 
-summary: Cisco Nexus 3132q-v 스위치는 AFF 또는 FAS 클러스터에서 클러스터 스위치로 사용할 수 있습니다. 
+summary: 2노드 스위치가 없는 클러스터에서 Cisco Nexus 3132Q-V 클러스터 스위치로 마이그레이션하기 위한 포트를 구성합니다. 
 ---
-= 스위치가 없는 클러스터에서 스위치 클러스터로 마이그레이션하기 위한 포트를 구성합니다.
+= 스위치가 없는 클러스터에서 Cisco Nexus 3132Q-V 클러스터 스위치로 마이그레이션하기 위한 포트 구성
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-2노드 스위치가 없는 클러스터에서 2노드 스위치 클러스터로 마이그레이션하기 위한 포트를 구성하려면 다음 단계를 따르십시오.
+Cisco Nexus 3132Q-V 클러스터 스위치를 사용하여 2노드 스위치가 없는 클러스터에서 2노드 스위치 클러스터로 마이그레이션하기 위한 포트를 구성합니다.
 
 .단계
 . Nexus 3132Q-V 스위치 C1 및 C2에서 노드 연결 포트 C1 및 C2를 모두 비활성화하되, ISL 포트는 비활성화하지 마십시오.

@@ -1,17 +1,17 @@
 ---
 permalink: switch-cisco-3232c/install-upgrade-rcf-overview-3232c.html 
 sidebar: sidebar 
-keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 3232c 
-summary: Cluster Switch Health Monitor 및 로그 수집 기능을 사용하려면 SSH가 필수적입니다. Cisco 3232c 클러스터 스위치에서 SSH를 활성화하려면 먼저 SSH 키를 생성한 다음 SSH를 활성화해야 합니다. 
+keywords: rcf, install, upgrade, cluster switch, cisco nexus 3232c 
+summary: 초기 설정 후 또는 새 버전이 출시되면 Cisco Nexus 3232C 클러스터 스위치에 RCF를 설치하거나 업그레이드하십시오. 
 ---
-= 참조 구성 파일(RCF) 개요 설치 또는 업그레이드
+= Cisco Nexus 3232C 클러스터 스위치에 RCF를 설치하거나 업그레이드하는 방법에 대해 알아봅니다.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Nexus 3232C 스위치를 처음 설정한 후 참조 구성 파일(RCF)을 설치합니다. 스위치에 이미 RCF 파일이 설치되어 있는 경우 RCF 버전을 업그레이드할 수 있습니다.
+초기 설정 후 Cisco Nexus 3232C 클러스터 스위치에 참조 구성 파일(RCF)을 설치하거나, 최신 버전이 출시되면 RCF 버전을 업그레이드하십시오.
 
 RCF를 설치하거나 업그레이드할 때 자세한 내용은 기술 자료 문서 link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["원격 연결을 유지하면서 Cisco 상호 연결 스위치의 구성을 지우는 방법"^]를 참조하십시오.
 

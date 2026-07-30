@@ -2,16 +2,16 @@
 permalink: switch-bes-53248/components-bes53248.html 
 sidebar: sidebar 
 keywords: cluster-mode,supported versions,switches supported,cluster network,efos 
-summary: BES-53248 스위치 설치 및 유지관리를 위해서는 구성 요소 및 부품 번호 목록을 반드시 검토하세요. 
+summary: Broadcom BES-53248 클러스터 스위치의 구성 요소와 부품 번호를 파악하여 하드웨어 설치 및 지속적인 유지 관리를 지원합니다. 
 ---
-= BES-53248 클러스터 스위치의 구성 요소 및 부품 번호
+= Broadcom BES-53248 클러스터 스위치의 구성 요소 및 부품 번호에 대해 알아보십시오.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-BES-53248 스위치 설치 및 유지관리를 위해서는 구성 요소 및 부품 번호 목록을 반드시 검토하세요.
+Broadcom BES-53248 클러스터 스위치의 구성 요소와 부품 번호를 파악하여 하드웨어 설치 및 지속적인 유지 관리를 지원합니다.
 
 다음 표에는 랙 마운트 레일 키트 세부 정보를 포함하여 BES-53248 클러스터 스위치 구성 요소의 부품 번호, 설명, 최소 EFOS 및 ONTAP 버전이 나열되어 있습니다.
 

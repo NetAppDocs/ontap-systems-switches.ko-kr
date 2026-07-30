@@ -1,15 +1,15 @@
 ---
 permalink: switch-nvidia-sn2100-storage/reset-switch-sn2100-storage.html 
 sidebar: sidebar 
-keywords: SN2100 reset switch to factory defaults, SN2100 switches configuration, efos 
-summary: Cisco Nexus SN2100 스위치를 구성하기 전에 다음 정보를 검토하세요. 
+keywords: SN2100 reset switch to factory defaults, SN2100 switches configuration, cumulus linux 
+summary: NVIDIA SN2100 스토리지 스위치를 공장 기본값으로 재설정하려면 현재 스위치 구성을 지웁니다. 
 ---
-= SN2100 스토리지 스위치를 공장 기본값으로 재설정합니다.
+= NVIDIA SN2100 스토리지 스위치를 공장 기본값으로 재설정
 :allow-uri-read: 
 
 
 [role="lead"]
-SN2100 저장 스위치를 공장 기본값으로 재설정하려면:
+NVIDIA SN2100 스토리지 스위치를 공장 기본값으로 재설정하려면 현재 스위치 구성을 지우고 스위치를 원래 설정으로 복원하십시오.
 
 * Cumulus Linux 5.10 및 이전 버전의 경우 Cumulus 이미지를 적용합니다.
 * Cumulus Linux 5.11 이상의 경우 다음을 사용합니다. `nv action reset system factory-default` 명령.

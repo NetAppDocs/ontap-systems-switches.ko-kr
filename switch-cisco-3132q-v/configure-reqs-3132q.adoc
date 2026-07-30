@@ -2,16 +2,16 @@
 permalink: switch-cisco-3132q-v/configure-reqs-3132q.html 
 sidebar: sidebar 
 keywords: Cisco, 3132Q-V 
-summary: Cisco Nexus 3132Q-V 스위치 설치 및 유지 관리를 위해서는 네트워크 및 구성 요구 사항을 반드시 검토하십시오. 
+summary: Cisco Nexus 3132Q-V 클러스터 스위치를 설치 또는 업그레이드하기 전에 구성 요구 사항을 검토하십시오. 
 ---
-= Cisco Nexus 3132Q-V 스위치의 구성 요구 사항
+= Cisco Nexus 3132Q-V 클러스터 스위치의 구성 요구 사항을 검토합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Cisco Nexus 3132Q-V 스위치 설치 및 유지 관리를 위해서는 네트워크 및 구성 요구 사항을 반드시 검토하십시오.
+Cisco Nexus 3132Q-V 클러스터 스위치를 설치 또는 업그레이드하기 전에 구성 요구 사항을 검토하십시오.
 
 
 

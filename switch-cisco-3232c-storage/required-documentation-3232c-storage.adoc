@@ -2,16 +2,16 @@
 permalink: switch-cisco-3232c-storage/required-documentation-3232c-storage.html 
 sidebar: sidebar 
 keywords: cisco 3232c, cluster switches 
-summary: Cisco Nexus 3232C 스위치 설치 및 유지 관리에 대해서는 권장되는 모든 문서를 반드시 검토하십시오. 
+summary: Cisco Nexus 3232C 스토리지 스위치를 설치하고 유지 관리하는 데 필요한 문서를 검토하십시오. 
 ---
-= Cisco Nexus 3232C 스토리지 스위치에 대한 문서 요구 사항
+= Cisco Nexus 3232C 스토리지 스위치에 대한 문서 요구 사항 검토
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Cisco Nexus 3232C 스위치 설치 시에는 권장되는 모든 문서를 반드시 검토하십시오.
+Cisco Nexus 3232C 스토리지 스위치를 설정하고 ONTAP 스토리지 네트워크에서 구성하는 데 필요한 스위치 및 컨트롤러 설명서를 검토합니다.
 
 
 

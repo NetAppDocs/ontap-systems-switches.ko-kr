@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: switch-cisco-9332d-gx2b/reference-documentation-9332d.html 
 keywords: shared storage cluster switch 
-summary: 새로운 AFX 1K 또는 AFX 2K 시스템의 일부로 Cisco Nexus 9332D-GX2B 스위치를 설치 및 구성하거나 기존 스위치를 유지 관리하는 경우 해당 Cisco 스위치 설명서 및 NetApp 시스템 설명서를 참조하십시오. 
+summary: Cisco 스위치 및 NetApp 시스템 설명서를 검토하여 AFX 1K 및 AFX 2K 시스템에서 Cisco Nexus 9332D-GX2B 스위치의 설치 및 유지 관리에 대한 정보를 확인하십시오. 
 ---
-= 참조 문서 - Cisco Nexus 9332D-GX2B
+= Cisco Nexus 9332D-GX2B 스위치에 대한 참조 문서를 검토하십시오.
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: 새로운 AFX 1K 또는 AFX 2K 시스템의 일부로 Cisco Nexus 9332D
 
 
 [role="lead"]
-새로운 AFX 1K 또는 AFX 2K 시스템의 일부로 Cisco Nexus 9332D-GX2B 스위치를 설치 및 구성하거나 기존 스위치를 유지 관리하는 경우 해당 Cisco 스위치 설명서 및 NetApp 시스템 설명서를 참조하십시오.
+AFX 1K 및 AFX 2K 시스템에서 Cisco Nexus 9332D-GX2B 스위치의 설치, 구성 및 유지 관리에 대한 관련 Cisco 스위치 설명서와 NetApp 시스템 설명서를 검토하십시오.
 
 
 NOTE: 새로운 AFX 1K 또는 AFX 2K 시스템의 일부로 스위치를 설치하고 구성하는 단계별 지침은 link:install-configure-switches-in-afx-workflow-9332d.html["AFX 시스템 워크플로우에서 스위치 설치 및 구성"]을 참조하십시오.

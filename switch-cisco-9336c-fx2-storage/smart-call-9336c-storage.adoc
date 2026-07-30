@@ -2,16 +2,16 @@
 permalink: switch-cisco-9336c-fx2-storage/smart-call-9336c-storage.html 
 sidebar: sidebar 
 keywords: cisco smart call,small call home 
-summary: Smart Call Home은 네트워크의 하드웨어 및 소프트웨어 구성 요소를 모니터링하여 중요한 시스템 상태에 대한 이메일 기반 알림을 생성합니다.  기기에서 이벤트가 발생하면 Smart Call Home은 대상 프로필에 구성된 모든 수신자에게 알림을 보냅니다. 
+summary: Cisco Nexus 9336C-FX2 스토리지 스위치의 Smart Call Home 요구 사항 및 구성 옵션을 검토하십시오. 
 ---
-= 스마트 콜 홈 요구 사항
+= Cisco Nexus 9336C-FX2 스토리지 스위치의 Smart Call Home 요구 사항을 검토하십시오.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Smart Call Home을 사용하려면 이메일을 사용하여 Smart Call Home 시스템과 통신할 수 있도록 클러스터 네트워크 스위치를 구성해야 합니다. 또한, 선택적으로 클러스터 네트워크 스위치를 설정하여 Cisco의 내장형 Smart Call Home 지원 기능을 활용할 수 있습니다.
+Cisco Nexus 9336C-FX2 스토리지 스위치에서 Smart Call Home을 구성하여 중요 시스템 이벤트에 대한 자동 이메일 알림을 활성화하는 데 필요한 요구 사항을 검토하십시오.
 
 Cisco의 Smart Call Home은 네트워크의 하드웨어 및 소프트웨어 구성 요소를 모니터링합니다. 중요한 시스템 구성이 발생하면 이메일 기반 알림을 생성하고 대상 프로필에 구성된 모든 수신자에게 경고를 보냅니다.
 

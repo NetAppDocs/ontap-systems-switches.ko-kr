@@ -2,7 +2,7 @@
 permalink: switch-cisco-3232c/migrate-from-cisco-nexus-5596.html 
 sidebar: sidebar 
 keywords: migrate, cisco nexus 5596 switch, 3232c 
-summary: 클러스터 내의 기존 Cisco Nexus 5596 클러스터 스위치를 Nexus 3232C 클러스터 스위치로 교체하려면 특정 작업 순서를 수행해야 합니다. 
+summary: 클러스터 운영을 중단하지 않고 Cisco Nexus 5596 클러스터 스위치에서 Cisco Nexus 3232C 클러스터 스위치로 마이그레이션하십시오. 
 ---
 = Cisco Nexus 5596 클러스터 스위치에서 Cisco Nexus 3232C 클러스터 스위치로 마이그레이션
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 클러스터 내의 기존 Cisco Nexus 5596 클러스터 스위치를 N
 
 
 [role="lead"]
-이 절차에 따라 기존 Cisco Nexus 5596 클러스터 스위치를 Nexus 3232C 클러스터 스위치로 마이그레이션하십시오.
+클러스터 운영을 중단하지 않고 기존 Cisco Nexus 5596 클러스터 스위치를 Cisco Nexus 3232C 클러스터 스위치로 마이그레이션합니다.
 
 
 

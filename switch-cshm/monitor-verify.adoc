@@ -2,9 +2,9 @@
 permalink: switch-cshm/monitor-verify.html 
 sidebar: sidebar 
 keywords: verify, monitor, cluster, management, network, switches, heath, monitor 
-summary: 이더넷 스위치 모니터링이 제대로 작동하는지 확인하는 방법을 알아보세요. 
+summary: 이더넷 스위치 상태 모니터링이 스위치에 대해 올바르게 구성되어 있고 작동하는지 확인하십시오. 
 ---
-= 이더넷 스위치 모니터링 확인
+= 이더넷 스위치 상태 모니터링의 구성 확인
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -1,17 +1,17 @@
 ---
 permalink: switch-cisco-3132q-v/install-rcf-software-3132q-v.html 
 sidebar: sidebar 
-keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 3132q-v 
-summary: Cluster Switch Health Monitor 및 로그 수집 기능을 사용하려면 SSH가 필수적입니다. Cisco 3132q-v 클러스터 스위치에서 SSH를 활성화하려면 먼저 SSH 키를 생성한 다음 SSH를 활성화해야 합니다. 
+keywords: rcf, install, cluster switch, cisco nexus 3132q-v 
+summary: '초기 설정 후 Cisco Nexus 3132Q-V 클러스터 스위치에 참조 구성 파일(RCF)을 설치하십시오.' 
 ---
-= 참조 구성 파일(RCF) 설치
+= Cisco Nexus 3132Q-V 클러스터 스위치에 RCF 설치
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Nexus 3132Q-V 스위치를 처음 설정한 후 참조 구성 파일(RCF)을 설치합니다.
+초기 설정 후 Cisco Nexus 3132Q-V 클러스터 스위치에 참조 구성 파일(RCF)을 설치하십시오. RCF는 클러스터 작동에 필요한 포트 할당 및 네트워크 설정을 정의합니다.
 
 .시작하기 전에
 다음 설치 및 연결을 확인하세요.

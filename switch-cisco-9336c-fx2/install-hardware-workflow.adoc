@@ -2,16 +2,16 @@
 permalink: switch-cisco-9336c-fx2/install-hardware-workflow.html 
 sidebar: sidebar 
 keywords: witches, initial installation, configure switch-cisco-9336c-fx2 switch 
-summary: Cisco Nexus 9336C-FX2 클러스터 스위치를 구성하기 전에 구성 개요를 검토하세요. 
+summary: 다음 워크플로를 따라 Cisco Nexus 9336C-FX2 및 9336C-FX2-T 클러스터 스위치용 하드웨어를 설치하십시오. 
 ---
-= Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스위치에 대한 하드웨어 설치 워크플로
+= Cisco Nexus 9336C-FX2 및 9336C-FX2-T 클러스터 스위치의 하드웨어 설치 워크플로
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-9336C-FX2 및 9336C-FX2-T 클러스터 스위치용 하드웨어를 설치하고 구성하려면 다음 단계를 따르세요.
+다음 워크플로를 따라 Cisco Nexus 9336C-FX2 및 9336C-FX2-T 클러스터 스위치의 하드웨어를 설치하고 구성하십시오.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["하나"]link:setup-worksheet-9336c-cluster.html["케이블링 워크시트를 완성하세요"]
 [role="quick-margin-para"]

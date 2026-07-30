@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: switch-cisco-9332d-gx2b/install-prepare-9332d.html 
 keywords: shared storage cluster switch 
-summary: 새로운 AFX 1K 또는 AFX 2K 시스템 설치의 일환으로 Cisco Nexus 9332D-GX2B 스위치를 설치하기 전에 Cisco 스위치 설명서 및 ONTAP 시스템 설명서를 검토하여 스위치 및 설치 관련 사항을 이해하고, AFX 시스템에서 지원되는 RCF 버전을 파악하고, Smart Call Home 사용 여부를 고려해야 합니다. 
+summary: 새로운 AFX 1K 또는 AFX 2K 시스템의 일부로 Cisco Nexus 9332D-GX2B 스위치를 설치하기 전에 스위치 설명서, 지원되는 RCF 버전 및 Smart Call Home 요구 사항을 검토하십시오. 
 ---
-= 스위치 설치 준비 - Cisco Nexus 9332D-GX2B
+= AFX 시스템에 Cisco Nexus 9332D-GX2B 스위치를 설치할 준비를 하십시오.
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: 새로운 AFX 1K 또는 AFX 2K 시스템 설치의 일환으로 Cisco N
 
 
 [role="lead"]
-새로운 AFX 1K 또는 AFX 2K 시스템 설치의 일환으로 Cisco Nexus 9332D-GX2B 스위치를 설치하기 전에 Cisco 스위치 설명서 및 ONTAP 시스템 설명서를 검토하여 스위치 및 설치 관련 사항을 이해하고, AFX 시스템에서 지원되는 RCF 버전을 파악하고, Smart Call Home 사용 여부를 고려해야 합니다.
+새로운 AFX 1K 또는 AFX 2K 시스템의 일부로 Cisco Nexus 9332D-GX2B 스위치를 설치하기 전에 관련 Cisco 스위치 설명서를 검토하고 지원되는 RCF 버전을 이해하며 Smart Call Home 구성을 고려하여 설치를 준비합니다.
 
 
 

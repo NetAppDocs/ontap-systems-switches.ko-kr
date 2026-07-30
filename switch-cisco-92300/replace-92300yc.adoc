@@ -2,16 +2,16 @@
 permalink: switch-cisco-92300/replace-92300yc.html 
 sidebar: sidebar 
 keywords: replace,upgrade cisco nexus 92300yc cluster switch 
-summary: 클러스터 네트워크에서 결함이 있는 Nexus 92300YC 스위치를 교체하는 것은 무중단 절차입니다. 
+summary: 클러스터 네트워크에서 결함이 있는 Cisco Nexus 92300YC 클러스터 스위치를 교체합니다. 이 작업은 무중단 절차입니다. 
 ---
-= Cisco Nexus 92300YC 스위치 교체
+= Cisco Nexus 92300YC 클러스터 스위치 교체
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-클러스터 네트워크에서 결함이 있는 Nexus 92300YC 스위치를 교체하는 것은 무중단 절차(NDU)입니다.
+클러스터 네트워크에서 고장난 Cisco Nexus 92300YC 클러스터 스위치를 클러스터 운영을 중단하지 않고 교체합니다. 이 비중단 교체 절차(NDU)에는 교체 스위치를 준비하고 고장난 스위치에서 연결을 마이그레이션하는 과정이 포함됩니다.
 
 
 

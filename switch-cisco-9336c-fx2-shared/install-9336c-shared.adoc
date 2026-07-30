@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: switch-cisco-9336c-fx2-shared/install-9336c-shared.html 
 keywords:  
-summary:  
+summary: ONTAP 환경에서 클러스터 및 스토리지 기능을 결합하려면 Cisco Nexus 9336C-FX2 공유 스위치를 설치하십시오. 
 ---
 = Cisco Nexus 9336C-FX2 공유 스위치 설치
 :hardbreaks:
@@ -14,7 +14,7 @@ summary:
 
 
 [role="lead"]
-Cisco Nexus 9336C-FX2 공유 스위치를 구성하려면 다음 지침을 따르세요.
+ONTAP 환경에서 클러스터 및 스토리지 기능을 결합하려면 Cisco Nexus 9336C-FX2 공유 스위치를 설치하십시오.
 
 .시작하기 전에
 다음 사항이 있는지 확인하세요.

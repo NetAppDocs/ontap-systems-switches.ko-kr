@@ -2,16 +2,16 @@
 permalink: switch-bes-53248/migrate-cn1610.html 
 sidebar: sidebar 
 keywords: CN1610, CN1610 replacing, migrate from CN1610 
-summary: 클러스터에서 기존 CN1610 클러스터 스위치를 Broadcom 지원 BES-53248 클러스터 스위치로 교체하려면 특정 작업 순서를 수행해야 합니다. 
+summary: 마이그레이션 요구 사항 및 절차에 따라 기존 NetApp CN1610 클러스터 스위치를 Broadcom BES-53248 클러스터 스위치로 마이그레이션하십시오. 
 ---
-= CN1610 클러스터 스위치를 BES-53248 클러스터 스위치로 마이그레이션
+= NetApp CN1610 클러스터 스위치를 Broadcom BES-53248 클러스터 스위치로 마이그레이션
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-클러스터 내의 CN1610 클러스터 스위치를 Broadcom 지원 BES-53248 클러스터 스위치로 마이그레이션하려면 마이그레이션 요구 사항을 검토한 다음 마이그레이션 절차를 따르세요.
+기존 NetApp CN1610 클러스터 스위치를 Broadcom BES-53248 클러스터 스위치로 마이그레이션하십시오. 마이그레이션 요구 사항을 검토한 후 마이그레이션 절차에 따라 클러스터 운영을 중단하지 않고 스위치를 교체하십시오.
 
 다음 클러스터 스위치가 지원됩니다.
 

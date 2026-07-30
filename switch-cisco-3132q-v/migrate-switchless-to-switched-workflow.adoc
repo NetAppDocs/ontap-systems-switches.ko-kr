@@ -2,16 +2,16 @@
 permalink: switch-cisco-3132q-v/migrate-switchless-to-switched-workflow.html 
 sidebar: sidebar 
 keywords: 3132q-v cabling setup, 3132q-v switches configuration, nx-os 
-summary: Cisco 3132q-v 스위치를 구성하기 전에 다음 정보를 검토하십시오. 
+summary: 다음 워크플로를 따라 2노드 스위치가 없는 클러스터에서 Cisco Nexus 3132Q-V 클러스터 스위치를 사용하는 스위치드 클러스터로 마이그레이션하십시오. 
 ---
-= 스위치가 없는 클러스터에서 2노드 스위치 클러스터로 마이그레이션 워크플로
+= Cisco Nexus 3132Q-V 클러스터 스위치 마이그레이션 워크플로
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-다음 워크플로 단계에 따라 2노드 스위치가 없는 클러스터에서 Cisco Nexus 3132Q-V 클러스터 네트워크 스위치가 포함된 2노드 스위치가 있는 클러스터로 마이그레이션하십시오.
+다음 워크플로를 따라 2노드 스위치가 없는 클러스터에서 Cisco Nexus 3132Q-V 클러스터 스위치를 사용하는 스위치드 클러스터로 마이그레이션하십시오.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["하나"]link:migrate-switchless-to-switched-requirements.html["마이그레이션 요구 사항"]
 [role="quick-margin-para"]

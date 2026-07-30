@@ -2,16 +2,16 @@
 permalink: switch-cisco-9364d-gx2a/maintain-replace-frus-9364d.html 
 sidebar: sidebar 
 keywords: switches, hardware installation, Cisco Nexus, 9364D-GX2A switches 
-summary: 'Cisco Nexus 9364D-GX2A 스위치에는 고장 발생 시 교체할 수 있는 현장 교체 가능 부품(FRU)이 있습니다.' 
+summary: 'Cisco Nexus 9364D-GX2A 스위치의 고장난 현장 교체 가능 부품(FRU)을 교체하십시오.' 
 ---
-= FRU 교체 - Cisco Nexus 9364D-GX2A
+= Cisco Nexus 9364D-GX2A 스위치의 FRU 교체
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Cisco Nexus 9364D-GX2A 스위치에는 고장 발생 시 교체할 수 있는 현장 교체 가능 부품(FRU)이 있습니다.
+Cisco Nexus 9364D-GX2A 스위치의 고장난 현장 교체 가능 부품(FRU)을 교체하여 스위치 전체를 교체하지 않고도 스위치 기능을 복원할 수 있습니다.
 
 .이 작업에 관하여
 Cisco Nexus 9364D-GX2A 스위치에는 다음과 같은 FRU가 있습니다.

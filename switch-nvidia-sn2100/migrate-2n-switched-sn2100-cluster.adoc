@@ -2,7 +2,7 @@
 permalink: switch-nvidia-sn2100/migrate-2n-switched-sn2100-cluster.html 
 sidebar: sidebar 
 keywords: two-node switchless cluster environments,migrating to a two-node switched NVIDIA SN2100 cluster environment,switchless cluster environments,NVIDIA SN2100 switches 
-summary: 기존의 2노드 스위치리스 클러스터 환경이 있는 경우 NVIDIA SN2100 스위치를 사용하여 2노드 스위치 클러스터 환경으로 마이그레이션하면 클러스터에서 노드를 두 개 이상으로 확장할 수 있습니다. 
+summary: NVIDIA SN2100 클러스터 스위치를 사용하여 기존의 2노드 스위치가 없는 클러스터를 스위치 클러스터 환경으로 마이그레이션합니다. 
 ---
 = NVIDIA SN2100 클러스터 스위치를 사용하여 2노드 스위치 클러스터로 마이그레이션
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 기존의 2노드 스위치리스 클러스터 환경이 있는 경우 
 
 
 [role="lead"]
-기존의 2노드 스위치리스 클러스터 환경이 있는 경우 NVIDIA SN2100 스위치를 사용하여 2노드 스위치 클러스터 환경으로 마이그레이션하면 클러스터에서 노드를 두 개 이상으로 확장할 수 있습니다.
+NVIDIA SN2100 클러스터 스위치를 사용하여 기존의 2노드 스위치가 없는 클러스터를 스위치드 클러스터 환경으로 마이그레이션하십시오. 이 무중단 마이그레이션을 통해 클러스터를 2개 이상의 노드로 확장할 수 있습니다.
 
 사용하는 절차는 각 컨트롤러에 전용 클러스터 네트워크 포트가 두 개 있는지, 아니면 각 컨트롤러에 단일 클러스터 포트가 있는지에 따라 달라집니다.  문서화된 프로세스는 광 포트나 Twinax 포트를 사용하는 모든 노드에서 작동하지만 노드가 클러스터 네트워크 포트에 온보드 10GBASE-T RJ45 포트를 사용하는 경우 이 스위치에서는 지원되지 않습니다.
 

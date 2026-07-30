@@ -2,9 +2,9 @@
 permalink: switch-nvidia-sn2100/setup-install-cshm-file.html 
 sidebar: sidebar 
 keywords: install, applicable, configuration, file, cluster, switch, health, monitor, ontap, install the cluster switch health monitor configuration file for SN2100 switches 
-summary: 이 절차를 사용하여 NVIDIA SN2100 클러스터 스위치의 클러스터 스위치 상태 모니터링에 적용 가능한 구성 파일을 설치할 수 있습니다. 
+summary: 'NVIDIA SN2100 클러스터 스위치에 대한 Ethernet 스위치 상태 모니터링(CSHM) 구성 파일을 설치하여 ONTAP에서 스위치 상태 모니터링을 활성화합니다.' 
 ---
-= 이더넷 스위치 상태 모니터 구성 파일 설치
+= NVIDIA SN2100 클러스터 스위치용 이더넷 스위치 상태 모니터링 구성 파일을 설치합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

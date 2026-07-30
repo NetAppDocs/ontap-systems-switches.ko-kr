@@ -2,16 +2,16 @@
 permalink: switch-bes-53248/required-documentation-bes53248.html 
 sidebar: sidebar 
 keywords: documentation requirements, BES-53248 switches,cluster switches 
-summary: 클러스터 모드 구성을 설정하려면 특정 스위치 및 컨트롤러 설명서가 필요합니다. 
+summary: Broadcom BES-53248 클러스터 스위치를 설정하고 구성하는 데 필요한 스위치 및 컨트롤러 설명서를 검토하십시오. 
 ---
-= BES-53248 클러스터 스위치에 대한 문서 요구 사항
+= Broadcom BES-53248 클러스터 스위치 설정에 필요한 문서 요구 사항을 검토하십시오.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-BES-53248 스위치 설치 시에는 해당 스위치 및 컨트롤러 설명서를 반드시 참조하십시오.
+Broadcom BES-53248 클러스터 스위치를 설정하고 ONTAP 클러스터로 구성하는 데 필요한 스위치 및 컨트롤러 문서를 검토하십시오.
 
 
 

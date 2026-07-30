@@ -2,16 +2,16 @@
 permalink: switch-netapp-cn1610/install-hardware-cn1610.html 
 sidebar: sidebar 
 keywords: switches hardware installation 
-summary: NetApp CN1610 하드웨어를 설치하려면 NetApp 설명서를 참조하십시오. 
+summary: 해당 설치 가이드를 사용하여 NetApp CN1610 클러스터 스위치 하드웨어를 설치하십시오. 
 ---
-= NetApp CN1610 스위치용 하드웨어를 설치합니다.
+= NetApp CN1610 클러스터 스위치용 하드웨어를 설치합니다.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-NetApp CN1610 스위치 하드웨어를 설치하려면 다음 가이드 중 하나에 있는 지침을 따르십시오.
+다음 가이드 중 하나에 나와 있는 지침을 사용하여 NetApp CN1610 클러스터 스위치 하드웨어를 설치하십시오.
 
 * https://library.netapp.com/ecm/ecm_download_file/ECMP1117853["1G 설치 가이드"^].
 +

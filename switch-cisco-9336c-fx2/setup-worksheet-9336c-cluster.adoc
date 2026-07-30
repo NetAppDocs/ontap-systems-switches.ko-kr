@@ -2,7 +2,7 @@
 permalink: switch-cisco-9336c-fx2/setup-worksheet-9336c-cluster.html 
 sidebar: sidebar 
 keywords: document, support, platform, complete, blank, cabling, worksheet, guide, cisco, nexus, cisco nexus 9336c-fx2 cabling worksheet - cisco nexus 9336-fx2-t 
-summary: 지원되는 플랫폼을 문서화하려면 작성된 샘플 케이블링 워크시트를 가이드로 사용하여 빈 케이블링 워크시트를 작성해야 합니다. 
+summary: Cisco Nexus 9336C-FX2 또는 9336C-FX2-T 클러스터 스위치의 케이블링 워크시트를 작성하여 포트 연결 및 지원되는 플랫폼 구성을 문서화하십시오. 
 ---
 = Cisco Nexus 9336C-FX2 또는 9336C-FX2-T 케이블링 워크시트를 완성하세요.
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 지원되는 플랫폼을 문서화하려면 작성된 샘플 케이블
 
 
 [role="lead"]
-지원되는 플랫폼을 문서화하려면 이 페이지의 PDF를 다운로드하고 케이블링 워크시트를 작성하세요.
+Cisco Nexus 9336C-FX2 또는 9336C-FX2-T 클러스터 스위치의 케이블링 워크시트를 작성하여 포트 연결 및 지원되는 플랫폼 구성을 문서화하십시오.
 
 샘플 케이블링 워크시트는 스위치에서 컨트롤러로 권장되는 포트 할당의 예를 제공합니다.  빈 워크시트에는 클러스터를 설정하는 데 사용할 수 있는 템플릿이 제공됩니다.
 

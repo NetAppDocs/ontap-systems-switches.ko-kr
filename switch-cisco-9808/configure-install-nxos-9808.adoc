@@ -2,16 +2,16 @@
 permalink: switch-cisco-9808/configure-install-nxos-9808.html 
 sidebar: sidebar 
 keywords: procedure, install, nx-os, software, nexus, cluster, switch, install the nx-os software - cisco nexus 9808 
-summary: NX-OS는 새로운 AFX 2K 시스템 설치, 슈퍼바이저 모듈 교체 또는 스위치를 공장 초기 설정으로 재설정하는 과정의 일부로 Cisco Nexus 9808 스위치에 설치합니다. 
+summary: 새로운 AFX 2K 시스템 설치, 슈퍼바이저 모듈 교체 또는 공장 초기화 시 Cisco Nexus 9808 스위치에 NX-OS를 설치합니다. 
 ---
-= NX-OS 설치 - Cisco Nexus 9808
+= Cisco Nexus 9808 스위치에 NX-OS를 설치합니다.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-NX-OS는 새로운 AFX 2K 시스템 설치, 슈퍼바이저 모듈 교체 또는 스위치를 공장 초기 설정으로 재설정하는 과정의 일부로 Cisco Nexus 9808 스위치에 설치합니다.
+새로운 AFX 2K 시스템 설치, 슈퍼바이저 모듈 교체 또는 스위치를 공장 초기 설정으로 재설정할 때 Cisco Nexus 9808 스위치에 NX-OS를 설치하십시오.
 
 .시작하기 전에
 * 스위치가 켜져 있어야 하고 link:configure-complete-initial-setup-9808.html["스위치 초기 설정 완료"] 절차를 완료해야 합니다.

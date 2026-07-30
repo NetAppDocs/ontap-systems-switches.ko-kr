@@ -2,16 +2,16 @@
 permalink: switch-cisco-9336c-fx2-storage/install-9336c-storage.html 
 sidebar: sidebar 
 keywords: require, configuration, information, documentation, storage, management, network, switches, set up the switches - cisco nexus 9336c-fx2 
-summary: 필요한 구성 정보와 문서가 아직 없는 경우 스토리지 및 관리 네트워크 스위치를 설정하기 전에 해당 정보를 수집해야 합니다. 
+summary: ONTAP 시스템에 프런트엔드 스토리지 연결을 제공하기 위해 Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스토리지 스위치를 설치하십시오. 
 ---
-= 9336C-FX2 및 9336C-FX2-T 스토리지 스위치 설치
+= Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스토리지 스위치 설치
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스토리지 스위치를 설치하려면 다음 절차를 따르세요.
+ONTAP 시스템에 프런트엔드 스토리지 연결을 제공하기 위해 Cisco Nexus 9336C-FX2 및 9336C-FX2-T 스토리지 스위치를 설치하십시오.
 
 .시작하기 전에
 다음 사항이 있는지 확인하세요.

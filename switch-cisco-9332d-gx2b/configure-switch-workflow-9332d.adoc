@@ -2,16 +2,16 @@
 permalink: switch-cisco-9332d-gx2b/configure-switch-workflow-9332d.html 
 sidebar: sidebar 
 keywords: switches, initial installation, configure switch-cisco-9332d-gx2b switch 
-summary: Cisco 9332D-GX2B 스위치는 새로운 AFX 1K 또는 AFX 2K 시스템 설치, 스위치 교체 또는 스위치를 공장 초기 설정으로 재설정하는 과정에서 구성합니다. 
+summary: AFX 1K 또는 AFX 2K 시스템 설치, 스위치 교체 또는 공장 기본값 재설정을 위해 Cisco Nexus 9332D-GX2B 스위치를 구성하려면 다음 워크플로를 따르십시오. 
 ---
-= 스위치 워크플로 구성 - Cisco Nexus 9332D-GX2B
+= Cisco Nexus 9332D-GX2B 스위치 구성 워크플로
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Cisco 9332D-GX2B 스위치는 새로운 AFX 1K 또는 AFX 2K 시스템 설치, 스위치 교체 또는 스위치를 공장 초기 설정으로 재설정하는 과정에서 구성합니다.
+Cisco AFX 1K 또는 AFX 2K 시스템 설치, 스위치 교체 또는 스위치를 공장 초기 설정으로 재설정할 때 Cisco Nexus 9332D-GX2B 스위치를 구성하려면 다음 워크플로를 따르십시오.
 
 특정 절차에 따라 이 워크플로 또는 이 워크플로 내의 개별 항목으로 안내될 수 있습니다(link:install-configure-switches-in-afx-workflow-9332d.html["새로운 AFX 1K 또는 AFX 2K 시스템 설치 및 설정"], link:replace-9332d-cluster.html["스위치 교체"], 또는 link:maintain-reset-switch-9332d.html["스위치를 공장 기본 설정으로 재설정"]).
 

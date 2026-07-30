@@ -2,16 +2,16 @@
 permalink: switch-cisco-3132q-v/switch-requirements.html 
 sidebar: sidebar 
 keywords: replace, cisco nexus 3132q-v cluster switches 
-summary: Cisco Nexus 3132Q-V 클러스터 스위치를 교체할 때는 특정 구성 정보, 포트 연결 및 케이블 요구 사항을 숙지해야 합니다. 
+summary: Cisco Nexus 3132Q-V 클러스터 스위치를 교체하기 전에 구성, 포트 연결 및 케이블 요구 사항을 검토하십시오. 
 ---
-= Cisco Nexus 3132Q-V 클러스터 스위치 교체 요구 사항
+= Cisco Nexus 3132Q-V 클러스터 스위치의 교체 요구 사항을 검토합니다.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-클러스터 스위치를 교체할 때는 구성 요구 사항, 포트 연결 및 케이블링 요구 사항을 반드시 숙지해야 합니다.
+Cisco Nexus 3132Q-V 클러스터 스위치를 교체하기 전에 구성 요구 사항, 포트 연결 및 케이블링 요구 사항을 검토하십시오.
 
 
 

@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: switch-cisco-9336c-fx2-shared/setup-and-configure-9336c-shared.html 
 keywords:  
-summary:  
+summary: Cisco Nexus 9336C-FX2 공유 스위치를 구성하여 클러스터 및 스토리지 통합 운영을 준비하십시오. 
 ---
 = Cisco Nexus 9336C-FX2 공유 스위치 구성
 :hardbreaks:
@@ -14,7 +14,7 @@ summary:
 
 
 [role="lead"]
-Cisco Nexus 9336C-FX2 공유 스위치를 구성하려면 다음 지침을 따르세요.
+Cisco Nexus 9336C-FX2 공유 스위치를 구성하여 결합된 클러스터 및 스토리지 네트워크 운영을 준비하십시오.
 
 .시작하기 전에
 다음 사항이 있는지 확인하세요.

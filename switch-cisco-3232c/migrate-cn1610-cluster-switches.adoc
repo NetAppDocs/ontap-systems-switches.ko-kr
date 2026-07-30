@@ -2,16 +2,16 @@
 permalink: switch-cisco-3232c/migrate-cn1610-cluster-switches.html 
 sidebar: sidebar 
 keywords: migrate, cn1610 switch, cisco nexus 3232c cluster 
-summary: 클러스터에 있는 기존 CN1610 클러스터 스위치를 Cisco Nexus 3232C 클러스터 스위치로 교체하려면 특정 작업 순서를 수행해야 합니다. 
+summary: NetApp CN1610 클러스터 스위치에서 Cisco Nexus 3232C 클러스터 스위치로 클러스터 운영을 중단하지 않고 마이그레이션하십시오. 
 ---
-= CN1610 클러스터 스위치를 Cisco Nexus 3232C 클러스터 스위치로 마이그레이션
+= NetApp CN1610 클러스터 스위치에서 Cisco Nexus 3232C 클러스터 스위치로 마이그레이션
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-클러스터에 있는 기존 CN1610 클러스터 스위치를 Cisco Nexus 3232C 클러스터 스위치로 교체하려면 특정 작업 순서를 수행해야 합니다.
+기존 NetApp CN1610 클러스터 스위치를 클러스터 운영을 중단하지 않고 Cisco Nexus 3232C 클러스터 스위치로 마이그레이션합니다.
 
 
 

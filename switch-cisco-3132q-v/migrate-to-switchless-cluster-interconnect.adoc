@@ -2,7 +2,7 @@
 permalink: switch-cisco-3132q-v/migrate-to-switchless-cluster-interconnect.html 
 sidebar: sidebar 
 keywords: migrate, switchless cluster interconnect, cisco nexus 3132q-v 
-summary: ONTAP 9.3 이상에서는 스위치드 클러스터 네트워크가 있는 클러스터에서 두 개의 노드가 직접 연결된 클러스터로 마이그레이션할 수 있습니다. 
+summary: ONTAP 9.3 이상의 경우 Cisco Nexus 3132Q-V 클러스터 스위치를 스위치가 없는 연결로 교체하십시오. 
 ---
 = Cisco Nexus 3132Q-V 클러스터 스위치를 스위치가 없는 연결로 교체
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: ONTAP 9.3 이상에서는 스위치드 클러스터 네트워크가 있
 
 
 [role="lead"]
-ONTAP 9.3 이상 버전에서는 스위치 클러스터 네트워크를 사용하는 클러스터에서 두 노드가 직접 연결된 클러스터로 마이그레이션할 수 있습니다.
+ONTAP 9.3 이상 버전에서는 Cisco Nexus 3132Q-V 클러스터 스위치를 직접 연결 방식으로 교체하여 스위치로 연결된 클러스터에서 두 노드가 직접 연결된 클러스터로 마이그레이션할 수 있습니다.
 
 [NOTE]
 ====

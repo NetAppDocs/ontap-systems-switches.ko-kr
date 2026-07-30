@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: switch-cisco-9332d-gx2b/maintain-reset-switch-9332d.html 
 keywords: reset switch factory defaults 
-summary: Cisco Nexus 9332D-GX2B 스위치를 폐기하거나 스위치에 오류가 발생하여 복구할 수 없는 경우, 수동으로 재구성해야 할 때 스위치를 초기 공장 기본 설정으로 재설정할 수 있습니다. 
+summary: 구성할 수 없는 Cisco Nexus 9332D-GX2B 스위치를 폐기하거나 복구할 때 공장 초기 설정으로 재설정합니다. 
 ---
-= 스위치를 공장 기본 설정으로 재설정 - Cisco Nexus 9332D-GX2B
+= Cisco Nexus 9332D-GX2B 스위치를 공장 기본 설정으로 재설정합니다.
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Cisco Nexus 9332D-GX2B 스위치를 폐기하거나 스위치에 오류
 
 
 [role="lead"]
-Cisco Nexus 9332D-GX2B 스위치를 폐기하거나 스위치에 오류가 발생하여 복구할 수 없는 경우, 수동으로 재구성해야 할 때 스위치를 초기 공장 기본 설정으로 재설정할 수 있습니다.
+Cisco Nexus 9332D-GX2B 스위치를 폐기하거나 고장 발생 시 일반적인 구성 방법으로 복구할 수 없는 경우, 스위치를 공장 초기 설정으로 재설정하십시오.
 
 .시작하기 전에
 직렬 콘솔을 사용하여 스위치에 연결해야 합니다.

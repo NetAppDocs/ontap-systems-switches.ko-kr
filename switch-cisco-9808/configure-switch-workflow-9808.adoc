@@ -2,16 +2,16 @@
 permalink: switch-cisco-9808/configure-switch-workflow-9808.html 
 sidebar: sidebar 
 keywords: switches, initial installation, configure switch-cisco-9808 switch 
-summary: Cisco 9808 스위치는 새로운 AFX 2K 시스템 설치, 슈퍼바이저 모듈 교체 또는 스위치를 공장 기본 설정으로 재설정하는 과정에서 구성합니다. 
+summary: Cisco AFX 2K 시스템 설치, 슈퍼바이저 모듈 교체 또는 공장 초기화를 위해 Cisco Nexus 9808 스위치를 구성하려면 다음 워크플로를 따르십시오. 
 ---
-= 스위치 워크플로 구성 - Cisco Nexus 9808
+= Cisco Nexus 9808 스위치 구성 워크플로
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Cisco Nexus 9808 스위치는 새로운 AFX 2K 시스템 설치, 슈퍼바이저 모듈 교체 또는 스위치를 공장 기본 설정으로 재설정하는 과정에서 구성합니다.
+AFX 2K 시스템 설치, 슈퍼바이저 모듈 교체 또는 스위치를 공장 초기 설정으로 재설정할 때 Cisco Nexus 9808 스위치를 구성하려면 다음 워크플로를 따르십시오.
 
 필요에 따라 link:install-configure-switches-in-afx-workflow-9808.html["새로운 AFX 2K 시스템 설치 및 설정"], link:maintain-replace-frus-9808.html["FRU 교체"], 또는 link:maintain-reset-switch-9808.html["스위치를 공장 기본 설정으로 재설정"]할 때 이 워크플로 또는 이 워크플로 내의 개별 항목으로 안내될 수 있습니다.
 

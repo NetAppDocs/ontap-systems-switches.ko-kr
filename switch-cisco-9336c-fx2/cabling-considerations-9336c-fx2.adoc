@@ -2,16 +2,16 @@
 permalink: switch-cisco-9336c-fx2/cabling-considerations-9336c-fx2.html 
 sidebar: sidebar 
 keywords: 9336c-fx2 cabling setup, 9336c-fx2 switches configuration, nx-os 
-summary: Cisco 9336C-FX2 스위치를 구성하기 전에 다음 정보를 검토하세요. 
+summary: Cisco Nexus 9336C-FX2 및 9336C-FX2-T 클러스터 스위치를 배포하기 전에 케이블 연결 및 구성 고려 사항을 검토하십시오. 
 ---
-= 케이블링 및 구성 고려 사항 검토
+= Cisco Nexus 9336C-FX2 클러스터 스위치의 케이블 연결 및 구성 고려 사항을 검토하십시오.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-9336C-FX2 및 9336C-FX2-T 스위치를 구성하기 전에 다음 고려 사항을 검토하세요.
+Cisco Nexus 9336C-FX2 및 9336C-FX2-T 클러스터 스위치를 배포하기 전에 케이블 연결 및 구성 고려 사항을 검토하십시오.
 
 
 

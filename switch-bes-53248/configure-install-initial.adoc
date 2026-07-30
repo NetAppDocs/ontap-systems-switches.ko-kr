@@ -2,16 +2,16 @@
 permalink: switch-bes-53248/configure-install-initial.html 
 sidebar: sidebar 
 keywords: switches initial setup,initial setup,efos download 
-summary: 이 절차를 사용하여 BES-53248 클러스터 스위치의 초기 설치를 수행할 수 있습니다. 
+summary: EFOS 소프트웨어 설치 및 클러스터 배포를 위해 Broadcom BES-53248 클러스터 스위치의 초기 구성을 수행하십시오. 
 ---
-= BES-53248 클러스터 스위치 구성
+= Broadcom BES-53248 클러스터 스위치 구성
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-BES-53248 클러스터 스위치의 초기 설정을 수행하려면 다음 단계를 따르세요.
+EFOS 소프트웨어 설치 및 클러스터 배포를 위해 Broadcom BES-53248 클러스터 스위치의 초기 구성을 수행하십시오.
 
 .시작하기 전에
 * 하드웨어는 다음에 설명된 대로 설치되었습니다.link:install-hardware-bes53248.html["하드웨어 설치"] .

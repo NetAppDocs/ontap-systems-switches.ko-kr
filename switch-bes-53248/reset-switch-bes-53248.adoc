@@ -2,14 +2,14 @@
 permalink: switch-bes-53248/reset-switch-bes-53248.html 
 sidebar: sidebar 
 keywords: BES-53248 reset switch to factory defaults, BES-53248 switches configuration, efos 
-summary: Broadcom BES-53248 스위치를 구성하기 전에 다음 정보를 검토하세요. 
+summary: 현재 스위치 구성을 지워 Broadcom BES-53248 클러스터 스위치를 공장 기본값으로 재설정합니다. 
 ---
-= BES-53248 클러스터 스위치를 공장 기본값으로 재설정합니다.
+= Broadcom BES-53248 클러스터 스위치를 공장 기본값으로 재설정합니다
 :allow-uri-read: 
 
 
 [role="lead"]
-BES-53248 클러스터 스위치를 공장 기본값으로 재설정하려면 BES-53248 스위치 설정을 지워야 합니다.
+Broadcom BES-53248 클러스터 스위치를 공장 초기 설정으로 재설정하려면 현재 스위치 구성을 지우고 스위치를 원래 설정으로 복원하십시오.
 
 .이 작업에 관하여
 * 직렬 콘솔을 사용하여 스위치에 연결해야 합니다.

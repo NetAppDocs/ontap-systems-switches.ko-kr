@@ -2,16 +2,16 @@
 permalink: switch-nvidia-sn2100-storage/configure-sn2100-storage.html 
 sidebar: sidebar 
 keywords: switches hardware installation 
-summary: NVIDIA SN2100 하드웨어를 설치하려면 NVIDIA 설명서를 참조하십시오. 
+summary: NVIDIA 설명서를 참조하여 NVIDIA SN2100 스토리지 스위치를 구성하십시오. 
 ---
-= NVIDIA SN2100 스위치 구성
+= NVIDIA SN2100 스토리지 스위치 구성
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-SN2100 스위치를 구성하려면 NVIDIA 설명서를 참조하세요.
+NVIDIA 설명서를 참조하여 NVIDIA SN2100 스토리지 스위치를 구성하십시오.
 
 .단계
 . 검토하다link:configure-reqs-sn2100-storage.html["구성 요구 사항"] .

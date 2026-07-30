@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: switch-cisco-9336c-fx2-shared/components-9336c-shared.html 
 keywords: shared storage cluster switch 
-summary: ONTAP 9.9.1부터 Cisco Nexus 9336C-FX2 스위치를 사용하여 스토리지와 클러스터 기능을 공유 스위치 시나리오로 결합할 수 있습니다. 
+summary: Cisco Nexus 9336C-FX2 공유 스위치의 구성 요소와 부품 번호를 파악하여 하드웨어 설치 및 지속적인 유지 관리를 지원합니다. 
 ---
-= Cisco Nexus 9336C-FX2 공유 스위치의 구성 요소 및 부품 번호
+= Cisco Nexus 9336C-FX2 공유 스위치의 구성 요소 및 부품 번호를 검토하십시오.
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: ONTAP 9.9.1부터 Cisco Nexus 9336C-FX2 스위치를 사용하여 스�
 
 
 [role="lead"]
-Cisco Nexus 9336C-FX2 스위치 설치 및 유지관리를 위해서는 구성 요소 및 부품 번호 목록을 반드시 검토하세요.
+Cisco Nexus 9336C-FX2 공유 스위치의 구성 요소와 부품 번호를 파악하여 하드웨어 설치 및 지속적인 유지 관리를 지원합니다.
 
 다음 표에는 9336C-FX2 스위치, 팬 및 전원 공급 장치의 부품 번호와 설명이 나와 있습니다.
 

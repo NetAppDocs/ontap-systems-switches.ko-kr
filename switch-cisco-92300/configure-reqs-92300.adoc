@@ -2,16 +2,16 @@
 permalink: switch-cisco-92300/configure-reqs-92300.html 
 sidebar: sidebar 
 keywords: cisco nexus 92300YC 
-summary: 두 개 이상의 노드가 있는 ONTAP 클러스터를 구축하려면 지원되는 클러스터 네트워크 스위치가 두 개 필요합니다.  선택 사항인 추가 관리 스위치를 사용할 수 있습니다. 
+summary: Cisco Nexus 92300YC 클러스터 스위치를 설치 또는 업그레이드하기 전에 구성 요구 사항을 검토하십시오. 
 ---
-= Cisco Nexus 92300YC 스위치 구성 요구 사항
+= Cisco Nexus 92300YC 클러스터 스위치의 구성 요구 사항을 검토하십시오.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Cisco Nexus 92300YC 스위치 설치 및 유지 관리를 위해서는 모든 구성 및 네트워크 요구 사항을 반드시 검토하십시오.
+Cisco Nexus 92300YC 클러스터 스위치를 설치 또는 업그레이드하기 전에 구성 요구 사항을 검토하십시오.
 
 두 개 이상의 노드가 있는 ONTAP 클러스터를 구축하려면 지원되는 클러스터 네트워크 스위치가 두 개 필요합니다.  선택 사항인 추가 관리 스위치를 사용할 수 있습니다.
 

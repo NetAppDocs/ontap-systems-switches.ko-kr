@@ -2,16 +2,16 @@
 permalink: switch-cisco-9364d-gx2a/configure-install-rcf-9364d.html 
 sidebar: sidebar 
 keywords: install rcf, cisco switches 
-summary: RCF는 새로운 AFX 1K 또는 AFX 2K 시스템 설치, 스위치 교체 또는 스위치를 공장 초기 설정으로 재설정하는 과정에서 새 Cisco Nexus 9364D-GX2A 스위치에 설치합니다. 
+summary: 새로운 AFX 1K 또는 AFX 2K 시스템 설치, 스위치 교체 또는 공장 초기화 시 Cisco Nexus 9364D-GX2A 스위치에 RCF를 설치하십시오. 
 ---
-= RCF 설치 - Cisco Nexus 9364D-GX2A
+= Cisco Nexus 9364D-GX2A 스위치에 RCF 설치
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-RCF는 새로운 AFX 1K 또는 AFX 2K 시스템 설치, 스위치 교체 또는 스위치를 공장 초기 설정으로 재설정하는 과정에서 새 Cisco Nexus 9364D-GX2A 스위치에 설치합니다.
+새로운 AFX 1K 또는 AFX 2K 시스템 설치, 스위치 교체 또는 스위치를 공장 초기 설정으로 재설정할 때 Cisco Nexus 9364D-GX2A 스위치에 참조 구성 파일(RCF)을 설치하십시오.
 
 .시작하기 전에
 * 스위치가 켜져 있어야 하고 link:configure-complete-initial-setup-9364d.html["스위치 초기 설정 완료"] 절차를 완료해야 합니다.

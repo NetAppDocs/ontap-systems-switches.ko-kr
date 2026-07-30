@@ -2,16 +2,16 @@
 permalink: switch-bes-53248/configure-install-rcf.html 
 sidebar: sidebar 
 keywords: install rcf,setup rcf,rcf file 
-summary: 'BES-53248 클러스터 스위치를 구성하고 새 라이센스를 적용한 후 RCF(Reference Configuration File)를 설치할 수 있습니다.' 
+summary: '초기 구성을 완료하고 필요한 라이선스를 적용한 후 Broadcom BES-53248 클러스터 스위치에 참조 구성 파일(RCF)을 설치하십시오.' 
 ---
-= RCF(Reference Configuration File) 설치
+= Broadcom BES-53248 클러스터 스위치에 RCF 설치
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-BES-53248 클러스터 스위치를 구성하고 새 라이센스 키를 적용한 후 RCF를 설치할 수 있습니다.
+초기 구성 및 필요한 라이선스 적용을 완료한 후 Broadcom BES-53248 클러스터 스위치에 참조 구성 파일(RCF)을 설치하십시오. RCF는 클러스터 작동을 위한 포트 할당, VLAN 및 네트워크 설정을 정의합니다.
 
 
 CAUTION: EFOS 3.12 이상 버전의 경우 link:efos-install-rcf-license-file.html["참조 구성 파일(RCF) 및 라이센스 파일을 설치합니다"]에 있는 설치 단계를 따르십시오.

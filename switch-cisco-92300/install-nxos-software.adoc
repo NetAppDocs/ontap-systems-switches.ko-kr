@@ -2,16 +2,16 @@
 permalink: switch-cisco-92300/install-nxos-software.html 
 sidebar: sidebar 
 keywords: install nx-os,nx-os configure 
-summary: 이 절차를 사용하여 Nexus 92300YC 스위치에 NX-OS 소프트웨어를 설치할 수 있습니다. 
+summary: 클러스터 운영을 위해 Cisco Nexus 92300YC 클러스터 스위치에 NX-OS 소프트웨어를 설치하십시오. 
 ---
-= NX-OS 소프트웨어 설치
+= Cisco Nexus 92300YC 클러스터 스위치에 NX-OS 소프트웨어 설치
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Nexus 92300YC 스위치에 NX-OS 소프트웨어를 설치하려면 다음 절차를 따르십시오.
+Cisco Nexus 92300YC 클러스터 스위치에 NX-OS 소프트웨어를 설치하여 클러스터 운영을 준비하십시오. 스위치를 구성하거나 RCF를 설치하기 전에 NX-OS를 먼저 설치해야 합니다.
 
 NX-OS는 Cisco Systems에서 제공하는 Nexus 시리즈 이더넷 스위치와 MDS 시리즈 파이버 채널(FC) 스토리지 영역 네트워크 스위치용 네트워크 운영 체제입니다.
 

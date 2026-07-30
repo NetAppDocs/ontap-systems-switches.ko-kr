@@ -2,16 +2,16 @@
 permalink: switch-nvidia-sn2100/required-documentation-sn2100-cluster.html 
 sidebar: sidebar 
 keywords: nvidia SN2100 switches 
-summary: NVIDIA SN2100 스위치 설치 및 유지관리에 대해서는 권장 문서를 모두 검토하세요. 
+summary: NVIDIA SN2100 클러스터 스위치의 설치 및 유지 관리에 필요한 문서를 검토하십시오. 
 ---
-= NVIDIA SN2100 스위치에 대한 문서 요구 사항
+= NVIDIA SN2100 클러스터 스위치에 대한 문서 요구 사항을 검토하십시오.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-NVIDIA SN2100 스위치 설치 시에는 권장되는 모든 문서를 반드시 검토하십시오.
+NVIDIA SN2100 클러스터 스위치를 설정하고 ONTAP 클러스터로 구성하는 데 필요한 스위치 및 컨트롤러 설명서를 검토하십시오.
 
 [cols="1,2"]
 |===

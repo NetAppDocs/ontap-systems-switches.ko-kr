@@ -2,16 +2,16 @@
 permalink: switch-bes-53248/migrate-to-2n-switched.html 
 sidebar: sidebar 
 keywords: two-node switchless clusters, migrating to a two-node switched BES-53248 cluster environment,BES-53248 switches, migrating two-node switched clusters,2-node 
-summary: 2노드 스위치리스 클러스터가 있는 경우 중단 없이 Broadcom 지원 BES-53248 클러스터 스위치를 포함하는 2노드 스위치 클러스터로 마이그레이션할 수 있습니다. 
+summary: Broadcom BES-53248 클러스터 스위치를 사용하여 2노드 스위치가 없는 클러스터를 스위치드 클러스터 환경으로 마이그레이션하여 2노드 이상으로 확장할 수 있습니다. 
 ---
-= 스위치된 NetApp 클러스터 환경으로 마이그레이션
+= Broadcom BES-53248 클러스터 스위치를 사용하여 2노드 스위치 클러스터로 마이그레이션
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-기존의 2노드 _스위치리스_ 클러스터 환경이 있는 경우 Broadcom에서 지원하는 BES-53248 클러스터 스위치를 사용하여 2노드 _스위치_ 클러스터 환경으로 마이그레이션할 수 있습니다. 이를 통해 클러스터에서 두 개 이상의 노드를 확장할 수 있습니다.
+Broadcom BES-53248 클러스터 스위치를 사용하여 기존의 2노드 스위치가 없는 클러스터를 스위치드 클러스터 환경으로 마이그레이션하십시오. 이 무중단 마이그레이션을 통해 클러스터를 2개 이상의 노드로 확장할 수 있습니다.
 
 마이그레이션 프로세스는 광 포트나 Twinax 포트를 사용하는 모든 클러스터 노드 포트에서 작동하지만, 노드가 클러스터 네트워크 포트에 온보드 10GBASE-T RJ45 포트를 사용하는 경우 이 스위치에서는 지원되지 않습니다.
 

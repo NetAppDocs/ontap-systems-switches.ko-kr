@@ -2,16 +2,16 @@
 permalink: switch-cisco-92300/configure-install-initial.html 
 sidebar: sidebar 
 keywords: install cisco 92300YC cluster switch, cisco nx 92300yc 
-summary: 이 절차를 사용하여 Cisco Nexus 92300YC 스위치의 초기 설치를 수행할 수 있습니다. 
+summary: Cisco Nexus 92300YC 클러스터 스위치를 클러스터 작동을 위한 준비 상태로 구성하십시오. 
 ---
-= Cisco Nexus 92300YC 스위치 구성
+= Cisco Nexus 92300YC 클러스터 스위치 구성
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-다음 절차에 따라 Cisco Nexus 92300YC 스위치를 설정하고 구성하십시오.
+초기 설정 명령을 사용하여 Cisco Nexus 92300YC 클러스터 스위치를 구성하고 클러스터 작동을 준비합니다.
 
 .단계
 . 직렬 포트를 호스트나 직렬 포트에 연결합니다.

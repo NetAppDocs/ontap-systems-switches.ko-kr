@@ -2,16 +2,16 @@
 permalink: switch-nvidia-sn2100-storage/components-sn2100-storage.html 
 sidebar: sidebar 
 keywords: nvidia SN2100 switches 
-summary: NVIDIA SN2100 스위치를 설치하고 유지관리하려면 캐비닛과 레일 키트의 구성 요소와 부품 번호 목록을 검토하세요. 
+summary: NVIDIA SN2100 스토리지 스위치의 구성 요소와 부품 번호를 파악하여 하드웨어 설치 및 지속적인 유지 관리를 지원합니다. 
 ---
-= NVIDIA SN2100 스위치의 구성 요소 및 부품 번호
+= NVIDIA SN2100 스토리지 스위치의 구성 요소 및 부품 번호 검토
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-NVIDIA SN2100 스위치를 설치하고 유지관리하려면 캐비닛과 레일 키트의 구성 요소와 부품 번호 목록을 검토하세요.
+NVIDIA SN2100 스토리지 스위치의 구성 요소와 부품 번호를 파악하여 하드웨어 설치 및 지속적인 유지 관리를 지원합니다.
 
 
 

@@ -2,16 +2,16 @@
 permalink: switch-cisco-9336c-fx2/install-rcf-software-9336c-cluster.html 
 sidebar: sidebar 
 keywords: install rcf, cisco switches 
-summary: Nexus 9336C-FX2 스위치를 처음 설정한 후 RCF를 설치할 수 있습니다. 이 절차를 사용하여 RCF 버전을 업그레이드할 수도 있습니다. 
+summary: '초기 설정 후 Cisco Nexus 9336C-FX2 및 9336C-FX2-T 클러스터 스위치에 참조 구성 파일(RCF)을 설치하여 포트 할당, VLAN 및 네트워크 설정을 구성하십시오.' 
 ---
-= 참조 구성 파일(RCF) 설치
+= Cisco Nexus 9336C-FX2 및 9336C-FX2-T 클러스터 스위치에 RCF를 설치합니다.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Nexus 9336C-FX2 및 9336C-FX2-T 스위치를 처음 설정한 후 참조 구성 파일(RCF)을 설치합니다.
+초기 설정 후 Cisco Nexus 9336C-FX2 및 9336C-FX2-T 클러스터 스위치에 참조 구성 파일(RCF)을 설치하십시오. RCF는 클러스터 작동에 필요한 포트 할당, VLAN 및 네트워크 설정을 정의합니다.
 
 .시작하기 전에
 다음 설치 및 연결을 확인하세요.

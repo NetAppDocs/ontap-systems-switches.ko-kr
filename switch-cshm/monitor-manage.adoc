@@ -2,9 +2,9 @@
 permalink: switch-cshm/monitor-manage.html 
 sidebar: sidebar 
 keywords: create, remove, switch, cluster, monitor, health, management 
-summary: 이더넷 스위치를 수동으로 생성하고, 기본 모니터링 설정을 변경하고, 모니터링에서 삭제하는 방법을 알아보세요. 
+summary: CSHM 모니터링에서 이더넷 스위치를 수동으로 추가, 구성 또는 제거하거나 유지 관리 중에 모니터링을 일시 중지할 수 있습니다. 
 ---
-= 이더넷 스위치 모니터링 관리
+= 이더넷 스위치 상태 모니터링 관리
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

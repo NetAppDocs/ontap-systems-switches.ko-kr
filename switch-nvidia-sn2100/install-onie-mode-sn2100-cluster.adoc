@@ -2,16 +2,16 @@
 permalink: switch-nvidia-sn2100/install-onie-mode-sn2100-cluster.html 
 sidebar: sidebar 
 keywords: install cumulus onie mode, sn2100 SN2100 switches setup, cumulus linux, onie mode 
-summary: Cumulus Linux CL OS는 스위치가 Cumulus Linux 또는 ONIE를 실행 중일 때 설치할 수 있습니다. 
+summary: NVIDIA SN2100 클러스터 스위치가 ONIE 모드로 실행 중일 때 Cumulus Linux를 설치하십시오. 
 ---
-= ONIE 모드로 Cumulus Linux 설치
+= NVIDIA SN2100 클러스터 스위치에 ONIE 모드로 Cumulus Linux 설치
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-스위치가 ONIE 모드에서 실행 중일 때 Cumulus Linux(CL) OS를 설치하려면 다음 절차를 따르세요.
+스위치가 ONIE 모드로 실행 중일 때 NVIDIA SN2100 클러스터 스위치에 Cumulus Linux(CL)를 설치합니다.
 
 
 NOTE: 스위치가 ONIE 또는 Cumulus Linux를 실행 중일 때 Cumulus Linux(CL) OS를 설치할 수 있습니다(link:install-cumulus-mode-sn2100-cluster.html["Cumulus 모드로 설치"] 참조).

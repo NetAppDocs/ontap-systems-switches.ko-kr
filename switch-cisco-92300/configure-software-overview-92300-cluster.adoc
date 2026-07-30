@@ -2,7 +2,7 @@
 permalink: switch-cisco-92300/configure-software-overview-92300-cluster.html 
 sidebar: sidebar 
 keywords: switches, initial installation, configure switch-92300 switch 
-summary: Cisco Nexus 92300YC 클러스터 스위치의 소프트웨어 구성 개요 
+summary: 다음 워크플로를 따라 Cisco Nexus 92300YC 클러스터 스위치에 NX-OS 소프트웨어와 RCF를 설치하십시오. 
 ---
 = Cisco Nexus 92300YC 클러스터 스위치용 소프트웨어 설치 워크플로
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Cisco Nexus 92300YC 클러스터 스위치의 소프트웨어 구성 �
 
 
 [role="lead"]
-Cisco Nexus 92300YC 스위치용 소프트웨어를 설치 및 구성하고 참조 구성 파일(RCF)을 설치 또는 업그레이드하려면 다음 단계를 따르십시오.
+다음 워크플로를 따라 Cisco Nexus 92300YC 클러스터 스위치에 NX-OS 소프트웨어와 참조 구성 파일(RCF)을 설치하십시오.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["하나"]link:configure-install-initial.html["스위치 구성"]
 [role="quick-margin-para"]

@@ -2,16 +2,16 @@
 permalink: switch-netapp-cn1610/install-fastpath-software.html 
 sidebar: sidebar 
 keywords: install, fastpath, software 
-summary: NetApp 스위치에 FASTPATH 소프트웨어를 설치할 때는 두 번째 스위치인 cs2부터 업그레이드를 시작해야 합니다. 
+summary: 'NetApp CN1610 클러스터 스위치에 FASTPATH 소프트웨어를 설치합니다. 두 번째 스위치(cs2)부터 업그레이드를 시작하십시오.' 
 ---
-= FASTPATH 소프트웨어 설치
+= NetApp CN1610 클러스터 스위치에 FASTPATH 소프트웨어를 설치합니다.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-NetApp 스위치에 FASTPATH 소프트웨어를 설치할 때는 두 번째 스위치인 _cs2_부터 업그레이드를 시작해야 합니다.
+NetApp CN1610 클러스터 스위치에 FASTPATH 소프트웨어를 설치합니다. 두 번째 스위치인 _cs2_부터 업그레이드를 시작하십시오.
 
 
 

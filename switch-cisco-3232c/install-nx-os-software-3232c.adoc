@@ -2,16 +2,16 @@
 permalink: switch-cisco-3232c/install-nx-os-software-3232c.html 
 sidebar: sidebar 
 keywords: install, nx-os software 
-summary: 이 절차를 사용하여 Nexus 3232C 클러스터 스위치에 NX-OS 소프트웨어를 설치할 수 있습니다. 
+summary: 클러스터 운영을 위해 Cisco Nexus 3232C 클러스터 스위치에 NX-OS 소프트웨어를 설치하십시오. 
 ---
-= NX-OS 소프트웨어 설치
+= Cisco Nexus 3232C 클러스터 스위치에 NX-OS 소프트웨어 설치
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-이 절차를 사용하여 Nexus 3232C 클러스터 스위치에 NX-OS 소프트웨어를 설치할 수 있습니다.
+클러스터 운영을 위해 Cisco Nexus 3232C 클러스터 스위치에 NX-OS 소프트웨어를 설치하십시오.
 
 
 

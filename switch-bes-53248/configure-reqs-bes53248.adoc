@@ -2,16 +2,16 @@
 permalink: switch-bes-53248/configure-reqs-bes53248.html 
 sidebar: sidebar 
 keywords: bes, cluster, switch, port, assignment, table, configure, bes-53428 cluster switch port assignments - bes-53428 switches 
-summary: BES-53248 클러스터 스위치 포트 할당 표를 가이드로 사용하여 클러스터를 구성할 수 있습니다. 
+summary: 설치하기 전에 Broadcom BES-53248 클러스터 스위치의 EFOS 및 ONTAP 버전 요구 사항과 지원되는 구성을 검토하십시오. 
 ---
-= BES-53248 클러스터 스위치에 대한 구성 요구 사항
+= Broadcom BES-53248 클러스터 스위치의 구성 요구 사항을 검토하십시오.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-BES-53248 스위치 설치 및 유지관리를 위해서는 EFOS 및 ONTAP 지원과 구성 요구 사항을 검토하세요.
+설치 또는 업그레이드 전에 Broadcom BES-53248 클러스터 스위치의 EFOS 및 ONTAP 호환성 요구 사항과 포트 구성 세부 정보를 검토하십시오.
 
 
 

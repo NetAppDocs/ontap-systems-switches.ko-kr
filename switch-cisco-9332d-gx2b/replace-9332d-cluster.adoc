@@ -2,16 +2,16 @@
 permalink: switch-cisco-9332d-gx2b/replace-9332d-cluster.html 
 sidebar: sidebar 
 keywords: replacing, replace, defective, nexus, switch, cluster, network, nondisruptive, procedure, ndu, replace a cisco nexus 9332d-gx2b cluster switch - cisco nexus 9332d-gx2b 
-summary: '클러스터 네트워크에서 고장난 Nexus 9332D-GX2B 스위치를 교체하려면 다음 단계를 따르십시오. 이 작업은 네트워크 중단 없이 수행할 수 있는 절차(NDU)입니다.' 
+summary: AFX 시스템에서 작동을 중단하지 않고 결함이 있는 Cisco Nexus 9332D-GX2B 스위치를 교체합니다. 이 작업은 시스템 중단 없이 진행됩니다. 
 ---
-= 스위치 교체 - Cisco Nexus 9332D-GX2B
+= Cisco Nexus 9332D-GX2B 스위치 교체
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-공유 네트워크에서 결함이 있는 Nexus 9332D-GX2B 스위치를 교체하려면 다음 단계를 따르세요. 이는 중단 없는 절차(NDU)입니다.
+AFX 시스템에서 고장난 Cisco Nexus 9332D-GX2B 스위치를 시스템 운영 중단 없이 교체합니다. 이 비중단 교체 절차(NDU)는 교체 스위치를 준비하고 시스템 구성을 복원하는 과정을 포함합니다.
 
 
 

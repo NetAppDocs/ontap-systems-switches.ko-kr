@@ -2,16 +2,16 @@
 permalink: switch-bes-53248/install-hardware-bes53248.html 
 sidebar: sidebar 
 keywords: switches hardware installation 
-summary: BES-53248 하드웨어를 설치하려면 Broadcom 설명서를 참조하세요. 
+summary: Broadcom에서 지원하는 BES-53248 클러스터 스위치 설치 가이드에 따라 Broadcom BES-53248 클러스터 스위치 하드웨어를 설치하십시오. 
 ---
-= BES-53248 클러스터 스위치용 하드웨어 설치
+= Broadcom BES-53248 클러스터 스위치용 하드웨어 설치
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-BES-53248 하드웨어를 설치하려면 Broadcom 설명서를 참조하세요.
+Broadcom에서 지원하는 BES-53248 클러스터 스위치 설치 가이드에 따라 Broadcom BES-53248 클러스터 스위치 하드웨어를 설치하십시오.
 
 .단계
 . 검토하다link:configure-reqs-bes53248.html["구성 요구 사항"] .

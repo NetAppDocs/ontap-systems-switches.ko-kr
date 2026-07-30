@@ -2,16 +2,16 @@
 permalink: switch-nvidia-sn2100/upgrade-cl-version.html 
 sidebar: sidebar 
 keywords: nvidia SN2100 switches 
-summary: Cumulus Linux 버전을 업그레이드하려면 다음 단계를 완료하세요. 
+summary: NVIDIA SN2100 클러스터 스위치의 Cumulus Linux 버전을 업그레이드하여 ONTAP와의 호환성을 유지하고 최신 소프트웨어 기능을 활용하십시오. 
 ---
-= Cumulus Linux 버전 업그레이드
+= NVIDIA SN2100 클러스터 스위치에서 Cumulus Linux 업그레이드
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-필요에 따라 Cumulus Linux 버전을 업그레이드하려면 다음 절차를 완료하세요.
+NVIDIA SN2100 클러스터 스위치의 Cumulus Linux 버전을 업그레이드하여 ONTAP와의 호환성을 유지하고 최신 소프트웨어 기능을 활용하십시오.
 
 
 NOTE: NetApp은 ONTAP 소프트웨어 업그레이드를 먼저 완료한 다음 스위치 소프트웨어 업그레이드를 수행할 것을 권장합니다.
