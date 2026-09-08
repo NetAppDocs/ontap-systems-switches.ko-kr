@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: install, cisco, nexus, switch, pass-through, panel, netapp, cabinet, bracket, switch, install a cisco nexus 9336c-fx2 switch and pass-through panel in a netapp cabinet - cisco nexus 9336c-fx2 
 summary: Cisco Nexus 9336C-FX2 및 9336C-FX2-T 클러스터 스위치와 패스스루 패널을 스위치에 포함된 표준 브래킷을 사용하여 NetApp 캐비닛에 설치합니다. 
 ---
-= Cisco Nexus 9336C-FX2 및 9336C-FX2-T 클러스터 스위치를 NetApp 캐비닛에 설치합니다
+= Cisco Nexus 9336C-FX2 클러스터 스위치 및 패스스루 패널을 NetApp 캐비닛에 설치합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

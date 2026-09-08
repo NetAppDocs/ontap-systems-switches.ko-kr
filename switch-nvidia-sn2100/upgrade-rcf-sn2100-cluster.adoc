@@ -140,7 +140,7 @@ admin@sw1:mgmt:~$ cat /etc/issue
 
 NOTE: 수정할 수 없는 RCF 파이썬 스크립트 문제가 있는 경우 문의하세요. https://mysupport.netapp.com/["NetApp 지원"^] 도움이 필요하면.
 
-. 스위치 구성에 이전의 사용자 정의를 다시 적용합니다.  참조하다link:cabling-considerations-sn2100-cluster.html["케이블링 및 구성 고려 사항 검토"] 추가로 필요한 변경 사항에 대한 자세한 내용은 문의하세요.
+. 이전에 적용했던 스위치 구성을 다시 적용합니다. 추가 변경 사항에 대한 자세한 내용은 link:cabling-considerations-sn2100-cluster.html["케이블링 및 구성 지침을 검토하십시오."]을 참조하십시오.
 . 재부팅 후 구성을 확인하세요.
 +
 [listing, subs="+quotes"]
@@ -462,7 +462,7 @@ admin@sw1:mgmt:~$ cat /etc/issue
 
 NOTE: 수정할 수 없는 RCF 파이썬 스크립트 문제가 있는 경우 문의하세요. https://mysupport.netapp.com/["NetApp 지원"^] 도움이 필요하면.
 
-. 스위치 구성에 이전의 사용자 정의를 다시 적용합니다.  참조하다link:cabling-considerations-sn2100-cluster.html["케이블링 및 구성 고려 사항 검토"] 추가로 필요한 변경 사항에 대한 자세한 내용은 문의하세요.
+. 이전에 적용했던 스위치 구성을 다시 적용합니다. 추가 변경 사항에 대한 자세한 내용은 link:cabling-considerations-sn2100-cluster.html["케이블링 및 구성 지침을 검토하십시오."]을 참조하십시오.
 . 재부팅 후 구성을 확인하세요.
 +
 [listing, subs="+quotes"]
@@ -756,7 +756,7 @@ NOTE: 위의 3단계 *MOTD 파일 업데이트*에서 명령 `cat /etc/motd` 실
 
 NOTE: 수정할 수 없는 RCF 파이썬 스크립트 문제가 있는 경우 문의하세요. https://mysupport.netapp.com/["NetApp 지원"^] 도움이 필요하면.
 
-. 스위치 구성에 이전의 사용자 정의를 다시 적용합니다.  참조하다link:cabling-considerations-sn2100-cluster.html["케이블링 및 구성 고려 사항 검토"] 추가로 필요한 변경 사항에 대한 자세한 내용은 문의하세요.
+. 이전에 적용했던 스위치 구성을 다시 적용합니다. 추가 변경 사항에 대한 자세한 내용은 link:cabling-considerations-sn2100-cluster.html["케이블링 및 구성 지침을 검토하십시오."]을 참조하십시오.
 . 재부팅 후 구성을 확인하세요.
 +
 [listing, subs="+quotes"]

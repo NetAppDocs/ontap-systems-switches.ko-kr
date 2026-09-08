@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: nx-os software, install, cisco nexus cluster switches, 3232c, rcfs 
 summary: 'Cisco NX-OS 소프트웨어 및 참조 구성 파일(RCF)을 설치하기 전에 Cisco Nexus 3232C 클러스터 스위치를 준비하십시오.' 
 ---
-= Cisco Nexus 3232C 클러스터 스위치에 NX-OS 소프트웨어 및 RCF를 설치할 준비를 합니다.
+= Cisco Nexus 3232C 스위치에 NX-OS 및 RCF를 설치할 준비를 합니다.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

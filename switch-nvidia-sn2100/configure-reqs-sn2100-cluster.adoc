@@ -22,7 +22,7 @@ summary: 설치 또는 업그레이드 전에 NVIDIA SN2100 클러스터 스위�
 
 스위치와 함께 제공되는 표준 브래킷을 사용하여 NVIDIA 듀얼/싱글 스위치 캐비닛에 NVIDIA SN2100 스위치(X190006)를 설치합니다.
 
-케이블 연결 지침은 link:cabling-considerations-sn2100-cluster.html["케이블링 및 구성 고려 사항 검토"]을 참조하십시오.
+케이블 연결 지침은 link:cabling-considerations-sn2100-cluster.html["케이블링 및 구성 지침을 검토하십시오."]을 참조하십시오.
 
 
 

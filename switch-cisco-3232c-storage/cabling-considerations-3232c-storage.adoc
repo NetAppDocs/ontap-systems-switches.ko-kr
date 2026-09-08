@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: 3232c cabling setup, 3232c switches configuration, nx-os 
 summary: 배포 전에 Cisco Nexus 3232C 스토리지 스위치의 케이블 연결 및 구성 고려 사항을 검토하십시오. 
 ---
-= Cisco Nexus 3232C 스토리지 스위치의 케이블 연결 및 구성 고려 사항을 검토하십시오.
+= Cisco Nexus 3232C 스토리지 스위치의 케이블링 요구 사항을 검토합니다.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

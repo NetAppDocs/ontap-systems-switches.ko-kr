@@ -4,7 +4,7 @@ permalink: switch-cisco-9808/reference-documentation-9808.html
 keywords: shared storage cluster switch 
 summary: AFX 2K 시스템에서 Cisco Nexus 9808 스위치 설치 및 유지 관리를 위해 Cisco 스위치 및 NetApp 시스템 설명서를 검토하십시오. 
 ---
-= Cisco Nexus 9808 스위치에 대한 참조 문서를 검토하십시오.
+= Cisco Nexus 9808 스위치에 대한 문서 요구 사항을 검토하십시오.
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

@@ -409,7 +409,7 @@ cs2# copy running-config startup-config [#######################################
 cs2# *reload*
 This command will reboot the system. (y/n)?  [n] *y*
 ----
-. 이전에 적용했던 스위치 구성 사용자 지정을 다시 적용합니다. 추가 변경 사항에 대한 자세한 내용은 link:cabling-considerations-3132q-v.html["케이블링 및 구성 고려 사항 검토"]을 참조하십시오.
+. 이전에 적용했던 스위치 구성을 다시 적용합니다. 추가 변경 사항에 대한 자세한 내용은 link:cabling-considerations-3132q-v.html["케이블 및 구성 요구 사항을 검토하십시오."]을 참조하십시오.
 . 클러스터의 클러스터 포트 상태를 확인합니다.
 +
 .. 클러스터의 모든 노드에서 클러스터 포트가 작동 중이고 정상인지 확인하세요.

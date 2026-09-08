@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: replacing, replace, defective, nexus, switch, cluster, network, nondisruptive, procedure, ndu, replace a cisco nexus 9364d-gx2a cluster switch - cisco nexus 9364d-gx2a 
 summary: AFX 시스템에서 고장난 Cisco Nexus 9364D-GX2A 스위치를 시스템 운영 중단 없이 교체합니다. 이 작업은 시스템 운영 중단 없이 진행됩니다. 
 ---
-= Cisco Nexus 9364D-GX2A 스위치 교체
+= AFX 시스템에서 Cisco Nexus 9364D-GX2A 스위치를 교체합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

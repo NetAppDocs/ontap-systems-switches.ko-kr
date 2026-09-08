@@ -37,7 +37,7 @@ NVIDIA SN2100 클러스터 스위치를 사용하여 기존의 2노드 스위치
 * NVIDIA SN2100 노드 간 스위치와 스위치 간 연결은 Twinax 또는 파이버 케이블을 사용합니다.
 +
 
-IMPORTANT: link:cabling-considerations-sn2100-cluster.html["케이블링 및 구성 고려 사항 검토"]에서 주의 사항 및 자세한 내용을 참조하십시오. link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - 스위치"^]에는 케이블 연결에 대한 자세한 정보도 포함되어 있습니다.
+IMPORTANT: 주의사항 및 자세한 내용은 link:cabling-considerations-sn2100-cluster.html["케이블링 및 구성 지침을 검토하십시오."]을(를) 참조하십시오. link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - 스위치"^]에는 케이블 연결에 대한 자세한 정보도 포함되어 있습니다.
 
 * ISL(Inter-Switch Link) 케이블은 두 NVIDIA SN2100 스위치의 포트 swp15와 swp16에 연결됩니다.
 * 두 SN2100 스위치의 초기 사용자 정의가 완료되어 다음과 같은 결과가 나왔습니다.

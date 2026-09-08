@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: sn2100 cabling setup, msn2100 sn2100 switches configuration, cumulus linux 
 summary: 직접 연결 스토리지를 사용하지 않는 경우, NVIDIA SN2100 클러스터 스위치를 사용하여 NS224 드라이브 셸프를 스위치 연결 스토리지로 케이블 연결합니다. 
 ---
-= NVIDIA SN2100 클러스터 스위치용 스위치 연결 스토리지로 NS224 드라이브 셸프 케이블 연결
+= NVIDIA SN2100 스위치에서 NS224 쉘프를 스위치 연결 스토리지로 케이블 연결
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

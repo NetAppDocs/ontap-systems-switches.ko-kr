@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: sn2100 SN2100 cabling setup, sn2100 switches configuration, cumulus linux os 
 summary: NVIDIA SN2100 스토리지 스위치를 배포하기 전에 케이블 연결 및 구성 고려 사항을 검토하십시오. 
 ---
-= NVIDIA SN2100 스토리지 스위치의 케이블 연결 및 구성 고려 사항을 검토하십시오.
+= NVIDIA SN2100 스토리지 스위치의 케이블 연결 지침을 검토하십시오.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

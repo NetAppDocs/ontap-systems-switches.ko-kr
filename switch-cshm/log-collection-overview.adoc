@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cshm, cluster, storage, switch logs, debugging, collection 
 summary: CSHM 로그 수집 기능을 사용하여 네트워크 스위치 문제 해결을 위한 스위치 로그 및 진단 데이터를 수집하십시오. 
 ---
-= 이더넷 스위치 상태 모니터링을 위한 로그 수집에 대해 알아보기
+= 이더넷 스위치 상태 모니터링을 위한 로그 수집에 대해 알아보십시오.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

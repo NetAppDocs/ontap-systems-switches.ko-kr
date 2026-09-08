@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: rcf, install, upgrade, cluster switch, cisco nexus 3232c 
 summary: 초기 설정 후 또는 새 버전이 출시되면 Cisco Nexus 3232C 클러스터 스위치에 RCF를 설치하거나 업그레이드하십시오. 
 ---
-= Cisco Nexus 3232C 클러스터 스위치에 RCF를 설치하거나 업그레이드하는 방법에 대해 알아봅니다.
+= Cisco Nexus 3232C 클러스터 스위치의 RCF 옵션 검토
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

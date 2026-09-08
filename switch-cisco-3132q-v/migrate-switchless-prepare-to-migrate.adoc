@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cisco 3132q-v, cluster switches 
 summary: 2노드 스위치가 없는 클러스터에서 Cisco Nexus 3132Q-V 클러스터 스위치로 마이그레이션할 준비를 하십시오. 
 ---
-= 스위치가 없는 클러스터에서 Cisco Nexus 3132Q-V 클러스터 스위치로 마이그레이션할 준비를 하십시오.
+= Cisco Nexus 3132Q-V 클러스터 스위치로의 마이그레이션 준비
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
