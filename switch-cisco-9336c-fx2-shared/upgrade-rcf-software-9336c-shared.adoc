@@ -36,6 +36,13 @@ CAUTION: 새로운 스위치 소프트웨어 버전과 RCF를 설치하기 전�
 [[step-1-prepare-for-the-upgrade]]
 == 1단계: 업그레이드 준비
 
+. 계속할지 묻는 메시지가 나타나면 *y*를 입력하여 권한 수준을 고급으로 변경합니다.
++
+`set -privilege advanced`
+
++
+고급 프롬프트(`*>` )이 나타납니다.
+
 . 클러스터 스위치에 연결된 각 노드의 클러스터 포트를 표시합니다.
 +
 `network device-discovery show`
@@ -696,7 +703,7 @@ cluster1::*>
 . 스위치 cs2에서 1단계부터 21단계까지 반복합니다.
 . 클러스터 LIF에서 자동 되돌리기를 활성화합니다.
 +
-`cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert True*`
+`cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert true*`
 
 
 
@@ -994,14 +1001,16 @@ cluster1-04          true    true          false
 --
 당신은 사용할 수 있습니다 `network interface check cluster-connectivity` 클러스터 연결에 대한 접근성 검사를 시작한 다음 세부 정보를 표시하는 명령:
 
-`network interface check cluster-connectivity start`그리고 `network interface check cluster-connectivity show`
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity start -node **
+----
+*참고:* 세부 정보를 표시하려면  `show` 명령을 실행하기 전에 몇 초간 기다리십시오. 오늘 날짜와 일치하는 항목을 확인하십시오.
 
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network interface check cluster-connectivity start*
+cluster1::*> *network interface check cluster-connectivity show*
 ----
-*참고:* 실행하기 전에 몇 초 동안 기다리십시오. `show` 세부 정보를 표시하는 명령입니다.
-
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity show*

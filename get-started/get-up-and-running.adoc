@@ -50,7 +50,6 @@ AFX 시스템, 클러스터, 스토리지 및 공유 스위치를 사용하고 �
 * https://docs.netapp.com/us-en/ontap-afx/index.html["AFX 시스템"^]
 * https://docs.netapp.com/us-en/ontap-systems/aff-aseries/index.html["AFF A 시리즈 시스템"^]
 * https://docs.netapp.com/us-en/ontap-systems/aff-cseries/index.html["AFF C 시리즈 시스템"^]
-* https://docs.netapp.com/us-en/ontap-systems/allsan-landing/index.html["ASA 시스템"^]
 * https://docs.netapp.com/us-en/asa-r2/index.html["ASA r2 시스템"^]
 * https://docs.netapp.com/us-en/ontap-systems/fas/index.html["FAS 시스템"^]
 
@@ -117,7 +116,6 @@ ONTAP 시스템 설치 및 설정 지침에는 컨트롤러 포트를 스위치�
 * https://docs.netapp.com/us-en/ontap-afx/index.html["AFX 시스템"^]
 * https://docs.netapp.com/us-en/ontap-systems/aff-aseries/index.html["AFF A 시리즈 시스템"^]
 * https://docs.netapp.com/us-en/ontap-systems/aff-cseries/index.html["AFF C 시리즈 시스템"^]
-* https://docs.netapp.com/us-en/ontap-systems/allsan-landing/index.html["ASA 시스템"^]
 * https://docs.netapp.com/us-en/asa-r2/index.html["ASA r2 시스템"^]
 * https://docs.netapp.com/us-en/ontap-systems/fas/index.html["FAS 시스템"^]
 

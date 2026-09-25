@@ -417,6 +417,11 @@ Cisco 명령에 대한 자세한 내용은 link:https://www.cisco.com/c/en/us/su
 +
 `This command will reboot the system. (y/n)?  [n] *y*`
 
+
+
+
+CAUTION: RCF 업그레이드 후 9336C-FX2 스위치가 부팅되지 않으면 NetApp 기술 자료 문서 link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Cisco_9336C-FX2_Switch_Fails_to_Boot_After_RCF_Install_%E2%80%93_Boot_Variable_Cleared["RCF 설치 후 Cisco 9336C-FX2 스위치 부팅 실패 – 부팅 변수 지워짐"^]를 참조하여 다음 단계를 진행하십시오.
+
 . 클러스터의 클러스터 포트 상태를 확인합니다.
 +
 .. 클러스터의 모든 노드에서 클러스터 포트가 작동 중이고 정상인지 확인하세요.
@@ -492,34 +497,6 @@ cluster1-04/cdp
             e0a    cs1                       Ethernet1/1/2     N9K-C9336C
             e0b    cs2                       Ethernet1/1/2     N9K-C9336C
 
-cluster1::*> *system cluster-switch show -is-monitoring-enabled-operational true*
-Switch                      Type               Address          Model
---------------------------- ------------------ ---------------- -----
-cs1                         cluster-network    10.233.205.90    NX9-C9336C
-     Serial Number: FOCXXXXXXGD
-      Is Monitored: true
-            Reason: None
-  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
-                    9.3(5)
-    Version Source: CDP
-
-cs2                         cluster-network    10.233.205.91    NX9-C9336C
-     Serial Number: FOCXXXXXXGS
-      Is Monitored: true
-            Reason: None
-  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
-                    9.3(5)
-    Version Source: CDP
-
-2 entries were displayed.
-----
-스위치에 이전에 로드된 RCF 버전에 따라 cs1 스위치 콘솔에서 다음과 같은 출력이 표시될 수 있습니다.
-
-[listing]
-----
-2020 Nov 17 16:07:18 cs1 %$ VDC-1 %$ %STP-2-UNBLOCK_CONSIST_PORT: Unblocking port port-channel1 on VLAN0092. Port consistency restored.
-2020 Nov 17 16:07:23 cs1 %$ VDC-1 %$ %STP-2-BLOCK_PVID_PEER: Blocking port-channel1 on VLAN0001. Inconsistent peer vlan.
-2020 Nov 17 16:07:23 cs1 %$ VDC-1 %$ %STP-2-BLOCK_PVID_LOCAL: Blocking port-channel1 on VLAN0092. Inconsistent local vlan.
 ----
 ====
 
@@ -548,19 +525,9 @@ cluster1::*>
 . 스위치 cs2에서 1~19단계를 반복합니다.
 . 클러스터 LIF에서 자동 되돌리기를 활성화합니다.
 +
-`cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert True*`
-
-. 스위치 cs2를 재부팅하십시오.
-+
-`cs2# *reload*`
-
-+
-`This command will reboot the system. (y/n)?  [n] *y*`
+`cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert true*`
 
 
-
-
-CAUTION: RCF 업그레이드 후 9336C-FX2 스위치가 부팅되지 않으면 NetApp 기술 자료 문서 link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Cisco_9336C-FX2_Switch_Fails_to_Boot_After_RCF_Install_%E2%80%93_Boot_Variable_Cleared["RCF 설치 후 Cisco 9336C-FX2 스위치 부팅 실패 – 부팅 변수 지워짐"^]를 참조하여 다음 단계를 진행하십시오.
 
 
 
@@ -860,14 +827,16 @@ cluster1::*>
 --
 당신은 사용할 수 있습니다 `network interface check cluster-connectivity` 클러스터 연결에 대한 접근성 검사를 시작한 다음 세부 정보를 표시하는 명령:
 
-`network interface check cluster-connectivity start`그리고 `network interface check cluster-connectivity show`
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity start -node **
+----
+*참고:* 세부 정보를 표시하려면  `show` 명령을 실행하기 전에 몇 초간 기다리십시오. 오늘 날짜와 일치하는 항목을 확인하십시오.
 
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network interface check cluster-connectivity start*
+cluster1::*> *network interface check cluster-connectivity show*
 ----
-*참고:* 실행하기 전에 몇 초 동안 기다리십시오. `show` 세부 정보를 표시하는 명령입니다.
-
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity show*

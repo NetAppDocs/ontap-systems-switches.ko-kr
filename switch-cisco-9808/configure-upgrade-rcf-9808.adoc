@@ -29,12 +29,8 @@ NOTE: 지원되지 않는 버전으로 RCF 버전을 업그레이드하거나 �
 
 
 .이 작업에 관하여
-* 두 스위치의 RCF를 업그레이드하는 것은 시스템 중단 없이 진행되는 절차입니다.
-+
-** 이 절차를 수행하는 동안에는 운영 중인 스위치 간 링크(ISL)가 필요하지 않습니다. 이는 RCF 버전 변경으로 인해 ISL 연결에 일시적인 영향을 줄 수 있기 때문에 의도적으로 설계된 것입니다. 클러스터 운영에 지장이 없도록 하기 위해, 이 절차에서는 대상 스위치에서 단계를 수행하는 동안 모든 클러스터 LIF를 운영 파트너 스위치로 마이그레이션합니다.
-** 이 절차에서는 먼저 첫 번째 스위치(cs1)의 RCF를 업그레이드한 다음 두 번째 스위치(cs2)에 대해 동일한 단계를 반복합니다.
-
-
+* 클러스터 운영에 지장이 없도록 하기 위해, 이 절차에서는 대상 스위치에서 단계를 수행하는 동안 모든 클러스터 LIF를 운영 파트너 스위치로 마이그레이션하도록 합니다.
+* 이 절차 중에는 작동 가능한 스위치 간 링크(ISL)가 필요하지 않습니다. 이는 RCF 버전 변경으로 인해 ISL 연결에 일시적인 문제가 발생할 수 있기 때문에 의도적으로 설계된 것입니다.
 * 이 절차에서는 ONTAP 명령과 Cisco Nexus 9000 시리즈 스위치 명령을 사용해야 하며, 각 단계에서는 명령을 입력하는 데 사용하는 CLI를 나타냅니다.
 * 이 절차의 예에서는 다음 스위치 및 노드 명명법을 사용합니다.
 +
@@ -51,6 +47,7 @@ NOTE: 지원되지 않는 버전으로 RCF 버전을 업그레이드하거나 �
 ** 그만큼 `cluster1::*>` 프롬프트는 클러스터의 이름을 나타냅니다.
 
 
+* 이 절차에 제시된 예시는 RCF 10.1을 실행하는 스위치가 있는 AFX 2K 시스템을 기준으로 합니다. 입력 및 출력은 사용 중인 RCF 버전에 따라 다를 수 있습니다.
 
 
 
@@ -58,17 +55,14 @@ NOTE: 지원되지 않는 버전으로 RCF 버전을 업그레이드하거나 �
 [[step-1-prepare-for-the-upgrade]]
 == 1단계: 업그레이드 준비
 
-다음 단계에 대한 명령은 ONTAP CLI에서 입력합니다.
+다음 단계에서는 ONTAP CLI를 사용하여 필요에 따라 자동 케이스 생성을 억제하고, 포트의 관리 및 운영 상태를 확인하고, 클러스터 LIF에서 자동 되돌리기를 비활성화하여 RCF 업그레이드를 준비하십시오.
 
 . 이 클러스터에서 AutoSupport 활성화된 경우 AutoSupport 메시지를 호출하여 자동 케이스 생성을 억제합니다.
 +
 [source, cli]
 ----
-system node autosupport invoke -node * -type all -message MAINT=xh
+system node autosupport invoke -node * -type all -message MAINT=<number of hours down>h
 ----
-+
-여기서 _x_는 유지 관리 기간(시간)입니다.
-
 . 계속할지 묻는 메시지가 나타나면 *y*를 입력하여 권한 수준을 고급으로 변경합니다.
 +
 [source, cli]
@@ -490,10 +484,16 @@ network interface modify -vserver Cluster -lif * -auto-revert false
 
 
 
-[[step-2-configure-ports]]
-== 2단계: 포트 구성
+[[step-2-upgrade-the-rcf]]
+== 2단계: RCF 업그레이드
+
+RCF 업그레이드에는 스위치 CLI와 ONTAP CLI(다음 단계에 따라)를 사용합니다. 첫 번째 스위치(cs1)에서 RCF를 업그레이드한 다음 두 번째 스위치(cs2)에 대해 동일한 단계를 반복합니다.
 
 . 스위치 CLI를 사용하여 스위치 cs1에서 각 라인 카드에 대해 노드의 모든 포트에 연결된 포트를 모두 종료합니다.
++
+
+CAUTION: 네트워크 연결 문제를 방지하려면 연결된 *모든* 포트를 종료해야 합니다. 자세한 내용은 기술 자료 문서 link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Node_out_of_quorum_when_migrating_cluster_lif_during_switch_OS_upgrade["스위치 OS 업그레이드 중 클러스터 LIF를 마이그레이션할 때 노드가 쿼럼을 벗어났습니다."^]를 참조하십시오.
+
 +
 다음 예는 라인 카드 1 `e1`, `e1-1/1-18`, `e1/19/1-4`, `e1/20/1-4` ......... `e1/35/1-4`의 모든 포트를 종료하는 명령을 보여줍니다. 스위치의 각 라인 카드에 대해 이 명령을 반복하십시오.
 
@@ -509,10 +509,6 @@ cs1(config-if-range)# *shutdown*
 cs1(config-if-range)# *exit*
 cs1(config)# *exit*
 ----
-+
-
-CAUTION: 네트워크 연결 문제를 방지하려면 연결된 *모든* 포트를 종료해야 합니다. 자세한 내용은 기술 자료 문서 link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Node_out_of_quorum_when_migrating_cluster_lif_during_switch_OS_upgrade["스위치 OS 업그레이드 중 클러스터 LIF를 마이그레이션할 때 노드가 쿼럼을 벗어났습니다."^]를 참조하십시오.
-
 . ONTAP CLI를 사용하여 클러스터 LIF가 스위치 cs1에서 호스팅되는 포트로 페일오버되었는지 확인하십시오. 몇 초 정도 소요될 수 있습니다.
 +
 [source, cli]
@@ -590,20 +586,20 @@ node1-04          true    true          false
 ====
  `write_erase.cfg` 파일이 이미 존재하는 경우 다음과 같이  `write_erase_old.cfg`로 이름을 변경하십시오.
 
-`cs1# move bootflash:write_erase.cfg write_erase_old.cfg`
+`move bootflash:write_erase.cfg write_erase_old.cfg`
 
 ====
 +
-`cs1# show run | i "username admin password" > bootflash:write_erase.cfg`
+`show run | i "username admin password" > bootflash:write_erase.cfg`
 
 +
-`cs1# show run | section "vrf context management" >> bootflash:write_erase.cfg`
+`show run | section "vrf context management" >> bootflash:write_erase.cfg`
 
 +
-`cs1# show run | section "interface mgmt0" >> bootflash:write_erase.cfg`
+`show run | section "interface mgmt0" >> bootflash:write_erase.cfg`
 
 +
-`cs1# show run | section "switchname" >> bootflash:write_erase.cfg`
+`show run | section "switchname" >> bootflash:write_erase.cfg`
 
 +
 자세한 내용은 기술 자료 문서 link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["원격 연결을 유지하면서 Cisco 상호 연결 스위치의 구성을 지우는 방법"^]를 참조하십시오.
@@ -612,9 +608,9 @@ node1-04          true    true          false
 +
 `show file bootflash:write_erase.cfg`
 
-. 스위치 CLI를 사용하여  `write erase` 명령을 실행하여 현재 저장된 구성을 지웁니다.
+. 스위치 CLI를 사용하여 현재 저장된 구성을 지웁니다.
 +
-`cs1# *write erase*`
+`write erase`
 
 +
 `Warning: This command will erase the startup-configuration.`
@@ -624,11 +620,11 @@ node1-04          true    true          false
 
 . 스위치 CLI를 사용하여 이전에 저장한 기본 구성을 시작 구성에 복사합니다.
 +
-`cs1# *copy bootflash:write_erase.cfg startup-config*`
+`copy bootflash:write_erase.cfg startup-config`
 
 . 스위치 CLI를 사용하여 스위치를 재부팅하십시오.
 +
-`cs1# *reload*`
+`reload`
 
 +
 `This command will reboot the system. (y/n)?  [n] *y*`
@@ -639,7 +635,7 @@ SSH 키와 관련된 호스트 파일 항목을 업데이트해야 할 수도 �
 
 . 스위치 CLI를 사용하여 다음 전송 프로토콜 중 하나(FTP, TFTP, SFTP 또는 SCP)를 이용해 RCF 파일을 스위치 cs1의 부트플래시에 복사합니다.
 +
-Cisco 명령어에 대한 자세한 내용은 link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Cisco Nexus 9000 시리즈 NX-OS 명령 참조"^] 가이드의 해당 가이드를 참조하십시오.
+Cisco 명령에 대한 자세한 내용은 link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Cisco Nexus 9000 시리즈 NX-OS 명령 참조"^]의 해당 가이드를 참조하십시오.
 
 +
 `copy <protocol>: bootflash: vrf management`
@@ -662,7 +658,7 @@ Copy complete, now saving to disk (please wait)...
 ====
 . 스위치 CLI를 사용하여 이전에 다운로드한 RCF를 부트플래시에 적용합니다.
 +
-Cisco 명령어에 대한 자세한 내용은 link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Cisco Nexus 9000 시리즈 NX-OS 명령 참조"^] 가이드의 해당 가이드를 참조하십시오.
+Cisco 명령에 대한 자세한 내용은 link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Cisco Nexus 9000 시리즈 NX-OS 명령 참조"^]의 해당 가이드를 참조하십시오.
 
 +
 이 예에서는 스위치 cs1에 RCF `RCF-v10.1-NX9808-CL1-ST1.txt`가 설치되는 것을 보여줍니다.
@@ -700,17 +696,17 @@ RCF의 *설치 참고 사항*, *중요 참고 사항* 및 *배너* 섹션을 자
 
 . 스위치 CLI를 사용하여 RCF 버전, 사용자 지정 추가 기능 및 스위치 설정이 올바른지 확인한 후  `running-config` 파일을  `startup-config` 파일로 복사합니다.
 +
-Cisco 명령에 대한 자세한 내용은 https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Cisco Nexus 9000 시리즈 NX-OS 명령 참조"^] 가이드의 해당 가이드를 참조하십시오.
+Cisco 명령에 대한 자세한 내용은 link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Cisco Nexus 9000 시리즈 NX-OS 명령 참조"^]의 해당 가이드를 참조하십시오.
 
 +
-`cs1# *copy running-config startup-config*`
+`copy running-config startup-config`
 
 +
 `[########################################] 100% Copy complete`
 
 . 스위치 CLI를 사용하여 스위치 cs1을 재부팅하십시오. 스위치가 재부팅되는 동안 노드에서 보고되는 "`cluster switch health monitor`" 경고 및 "`cluster ports down`" 이벤트는 무시해도 됩니다.
 +
-`cs1# *reload*`
+`reload`
 
 +
 `This command will reboot the system. (y/n)?  [n] *y*`
@@ -766,7 +762,7 @@ e2a       Cluster      Cluster          up   9000  auto/400000 healthy  false
 e2b       Cluster      Cluster          up   9000  auto/400000 healthy  false
 ----
 ====
-... 클러스터에서 스위치 상태를 확인합니다.
+... 클러스터에서 스위치 상태를 확인하세요.
 +
 [source, cli]
 ----
@@ -1085,7 +1081,7 @@ node1-04          true     true          false
 ----
 ====
 . 스위치 cs2에서 4~18단계를 반복합니다.
-. ONTAP CLI를 사용하여 클러스터 LIF에서 자동 복원 기능을 활성화합니다.
+. ONTAP CLI를 사용하여 클러스터 LIF에서 자동 복원을 활성화합니다.
 +
 [source, cli]
 ----
@@ -1097,6 +1093,8 @@ network interface modify -vserver Cluster -lif * -auto-revert true
 
 [[step-3-verify-the-cluster-network-configuration-and-cluster-health]]
 == 3단계: 클러스터 네트워크 구성 및 클러스터 상태 확인
+
+두 스위치 모두에서 RCF 업그레이드가 완료되면 클러스터 네트워크 구성과 클러스터 상태를 확인하십시오.
 
 . 스위치 CLI를 사용하여 클러스터 포트에 연결된 스위치 포트가 *up* 상태인지 확인합니다.
 +
@@ -1649,8 +1647,10 @@ Cluster
 클러스터 LIF가 홈 포트로 돌아오지 않은 경우 로컬 노드에서 수동으로 되돌립니다.
 
 +
+[source, cli]
+----
 `network interface revert -vserver vserver_name -lif <lif-name>`
-
+----
 . ONTAP CLI를 사용하여 클러스터가 정상인지 확인합니다.
 +
 [source, cli]
@@ -1674,7 +1674,7 @@ node1-04          true    true          false
 ====
 . ONTAP CLI를 사용하여 원격 클러스터 인터페이스의 연결 상태를 확인합니다.
 +
-.. 당신은 사용할 수 있습니다 `network interface check cluster-connectivity show` 클러스터 연결에 대한 접근성 검사 세부 정보를 표시하는 명령:
+** 다음 명령을 사용하면 클러스터 연결에 대한 접근성 검사 세부 정보를 표시할 수 있습니다.
 +
 [source, cli]
 ----
@@ -1704,7 +1704,7 @@ node1-02
 .
 ----
 ====
-.. 또는 다음을 사용할 수 있습니다. `cluster ping-cluster -node <node-name>` 연결성을 확인하는 명령:
+** 또는 다음 명령을 사용하여 연결 상태를 확인할 수 있습니다.
 +
 [source, cli]
 ----

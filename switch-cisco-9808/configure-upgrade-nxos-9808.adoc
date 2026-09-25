@@ -23,6 +23,10 @@ NOTE: NetApp은 ONTAP 소프트웨어 업그레이드를 먼저 완료한 다음
 
 .이 작업에 관하여
 * 필요한 경우 link:https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/101x/upgrade/cisco-nexus-9000-nx-os-software-upgrade-downgrade-guide-101x.html["Cisco Nexus 9000 시리즈 NX-OS 소프트웨어 업그레이드 및 다운그레이드 가이드"^]에서 자세한 내용을 참조하십시오.
+* 필요한 경우, 현재 및 목표 릴리스를 기반으로 Cisco Nexus 9000 시리즈 스위치의 서비스 중 소프트웨어 업그레이드(ISSU)에 대한 정보를 제공하는 link:https://www.cisco.com/c/dam/en/us/td/docs/dcn/tools/nexus-9k3k-issu-matrix/index.html["Cisco Nexus 9000 및 3000 업그레이드 및 ISSU 매트릭스"^]를 참조할 수 있습니다.
++
+해당 페이지에서 *중단 업그레이드*를 선택하고 드롭다운 목록에서 현재 릴리스와 대상 릴리스를 선택합니다.
+
 * AFX 시스템에서 실행 중인 ONTAP 버전에 따라 스위치에서 지원되는 NX-OS 버전이 결정됩니다.
 +
 ** ONTAP 9.19.1GA 이상 버전을 실행하는 AFX 2K 시스템의 스위치는 NX-OS 10.6 이상 버전을 지원합니다.
@@ -51,6 +55,7 @@ NOTE: 지원되지 않는 버전으로 NX-OS 버전을 업그레이드하거나 
 ** 그만큼 `cluster1::*>` 프롬프트는 클러스터의 이름을 나타냅니다.
 
 
+* 이 절차에 제시된 예시는 RCF 10.1을 실행하는 스위치가 있는 AFX 2K 시스템을 기준으로 합니다. 입력 및 출력은 사용 중인 RCF 버전에 따라 다를 수 있습니다.
 
 
 
@@ -494,9 +499,9 @@ network interface modify -vserver Cluster -lif * -auto-revert false
 [[step-2-install-the-nx-os]]
 == 2단계: NX-OS 설치
 
-NX-OS를 첫 번째 스위치(cs1)에 설치하려면 새 버전의 NX-OS 및 EPLD를 설치하고 검증한 다음 클러스터의 모든 포트 상태를 확인하고 두 번째 스위치(cs2)에서 이 단계를 반복합니다.
+첫 번째 스위치(cs1)에 NX-OS를 설치하려면 새 버전의 NX-OS 및 EPLD를 설치하고 검증한 다음 클러스터의 모든 포트 상태를 확인하고 두 번째 스위치(cs2)에서 이 단계를 반복합니다.
 
-. 스위치 CLI를 사용하여 NX-OS 및 EPLD 이미지를 스위치로 복사합니다.
+. 스위치 CLI를 사용하여 NX-OS 및 EPLD 이미지를 스위치에 복사합니다.
 +
 `copy <protocol>: bootflash: vrf management`
 
@@ -595,7 +600,7 @@ cs1#
 ====
 . 스위치 CLI를 사용하여 NX-OS 및 EPLD 이미지를 설치합니다.
 +
-이미지 파일을 설치하면 스위치를 재부팅할 때마다 이미지 파일이 로드됩니다.
+이미지 파일을 설치하면 스위치가 재부팅될 때마다 해당 이미지가 로드됩니다.
 
 +
 `install all nxos bootflash:nxos.<version number>.bin`
@@ -669,7 +674,7 @@ Warning: please do not remove or power off the module at this time.
 Finishing the upgrade, switch will reboot in 10 seconds.
 ----
 ====
-. 스위치 CLI를 사용하여 스위치가 재부팅된 후 NX-OS의 새 버전을 확인하십시오.
+. 스위치 CLI를 사용하여 스위치 재부팅 후 NX-OS의 새 버전을 확인하십시오.
 +
 `show version`
 
@@ -1288,7 +1293,7 @@ node1-04             true    true          true
 
 ONTAP CLI를 사용하여 클러스터 LIF에서 자동 복원 기능을 다시 활성화하고 클러스터 LIF가 홈 포트로 복원되었는지 확인하여 NX-OS 업그레이드를 완료합니다.
 
-. 클러스터 LIF에서 자동 복원 기능을 다시 활성화합니다.
+. 클러스터 LIF에서 자동 되돌리기 기능을 다시 활성화합니다.
 +
 [source, cli]
 ----

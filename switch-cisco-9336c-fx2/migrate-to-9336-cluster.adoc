@@ -631,34 +631,33 @@ Group Port-       Type     Protocol  Member Ports
 +
 `network interface modify -vserver Cluster -lif * -auto-revert true`
 
-. 스위치 cs2에서 모든 클러스터 포트를 종료하고 다시 시작하여 홈 포트에 없는 모든 클러스터 LIF의 자동 복귀를 트리거합니다.
-+
-[listing, subs="+quotes"]
-----
-cs2> *enable*
-cs2# *configure*
-cs2(config)# *interface eth1/1-1/2*
-cs2(config-if-range)# *shutdown*
-
-(Wait for 5-10 seconds before re-enabling the ports)
-
-cs2(config-if-range)# *no shutdown*
-
-(After executing the no shutdown command, the nodes detect the change and begin to auto-revert the cluster LIFs to their home ports)
-
-cs2(config-if-range)# *exit*
-cs2(config)# *exit*
-cs2#
-----
-. 클러스터 LIF가 홈 포트로 되돌아갔는지 확인하세요(1분 정도 걸릴 수 있음).
+. 클러스터 LIF가 홈 포트로 되돌아갔는지 확인하세요.
 +
 `network interface show -vserver Cluster`
 
 +
-클러스터 LIF 중 홈 포트로 복귀되지 않은 것이 있으면 수동으로 복귀시킵니다. LIF를 소유한 로컬 노드의 각 노드 관리 LIF 또는 SP/ BMC 시스템 콘솔에 연결해야 합니다.
+.예를 보여주세요
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -vserver Cluster*
+            Logical            Status     Network            Current             Current Is
+Vserver     Interface          Admin/Oper Address/Mask       Node                Port    Home
+----------- ------------------ ---------- -----------------  ------------------- ------- ----
+Cluster
+            node1_clus1        up/up      169.254.3.4/23     node1               e0b     true
+            node1_clus2        up/up      169.254.3.5/23     node1               e0b     true
+            node2_clus1        up/up      169.254.3.8/23     node2               e0b     true
+            node2_clus2        up/up      169.254.3.9/23     node2               e0b     true
+cluster1::*>
+----
+====
++
+클러스터 LIF가 홈 포트로 복귀하지 않은 경우 로컬 노드에서 수동으로 되돌리십시오.
 
 +
-`network interface revert -vserver Cluster -lif *`
+`network interface revert -vserver Cluster -lif <lif_name>`
 
 . 클러스터가 정상인지 확인하세요.
 +
@@ -673,15 +672,16 @@ cs2#
 --
 당신은 사용할 수 있습니다 `network interface check cluster-connectivity` 클러스터 연결에 대한 접근성 검사를 시작한 다음 세부 정보를 표시하는 명령:
 
-`network interface check cluster-connectivity start`그리고 `network interface check cluster-connectivity show`
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity start -node **
+----
+*참고:* 세부 정보를 표시하려면  `show` 명령을 실행하기 전에 몇 초간 기다리십시오. 오늘 날짜와 일치하는 항목을 확인하십시오.
 
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network interface check cluster-connectivity start*
+cluster1::*> *network interface check cluster-connectivity show*
 ----
-
-NOTE: 실행하기 전에 몇 초 동안 기다리십시오. `show` 세부 정보를 표시하는 명령입니다.
-
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity show*

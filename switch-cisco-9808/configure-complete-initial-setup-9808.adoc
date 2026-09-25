@@ -18,7 +18,7 @@ summary: 새로운 AFX 2K 시스템 설치, 슈퍼바이저 모듈 교체 또는
 
 .이 작업에 관하여
 * 각 스위치에서 초기 설정을 완료해야 합니다.
-* 필요한 경우, link:https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/106x/configuration/fundamentals/cisco-nexus-9000-series-nx-os-fundamentals-configuration-guide-release-106x/m-using-nnxos-setup-utility.html["Cisco Nexus 9000 Series NX-OS 기본 구성 가이드, 릴리즈 10.6(x)"^]의 *Cisco NX-OS 설정 유틸리티 사용* 장에서 스위치 설정에 대한 정보를 참조할 수 있습니다.
+* 필요한 경우, 스위치 설정에 대한 자세한 내용은 "Cisco NX-OS 설정 유틸리티 사용" 장에서 link:https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/106x/configuration/fundamentals/cisco-nexus-9000-series-nx-os-fundamentals-configuration-guide-release-106x.html["Cisco Nexus 9000 시리즈 NX-OS 기본 구성 가이드"^]의 NX-OS 버전을 참조하십시오. 터미널 설정에 대한 정보는 "터미널 설정 및 세션 구성" 장에서 확인할 수 있습니다.
 
 
 .단계
