@@ -80,7 +80,7 @@ Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
 
 NX-OS 및 EPLD 이미지 버전을 설치하고 확인하여 첫 번째 스위치(cs1)에 NX-OS 및 EPLD 이미지를 설치한 다음, 새 AFX 시스템 설치의 일부로 NX-OS를 설치하는 경우 두 번째 스위치(cs2)에서 이 단계를 반복합니다.
 
-. NX-OS 및 EPLD 이미지를 첫 번째 스위치에 복사합니다.
+. 결합된 NX-OS 및 EPLD 이미지를 첫 번째 스위치에 복사합니다:
 +
 `copy <protocol>: bootflash: vrf management`
 

@@ -214,21 +214,21 @@ cluster1::*>
 +
 `network interface modify -vserver Cluster -lif * -auto-revert false`
 
-. NX-OS 소프트웨어와 EPLD 이미지를 다운로드하여 설치하십시오. 설치 단계는 현재 사용 중인 NX-OS 버전과 설치 대상 NX-OS 버전에 따라 다를 수 있습니다.
+. NX-OS 및 EPLD 이미지를 다운로드하여 설치하십시오. 단계는 현재 NX-OS 버전과 대상 NX-OS 버전에 따라 다를 수 있습니다.
 +
 본인의 상황에 맞는 탭을 선택하십시오.
 
 +
-** 10.4(5)(M)으로 업그레이드
-** 10.4(5)(M) 이전 버전에서 10.5(3)(F) 이후 버전으로 업그레이드
-** 10.5(3)(F)에서 이후 버전으로 업그레이드
+** 10.4(6)M 또는 이전 버전으로 업그레이드하십시오
+** 10.4(6)M 또는 이전 버전에서 10.5(3)(F) 또는 이후 버전으로 업그레이드
+** 10.5(3)F에서 이후 버전으로 업그레이드
 
 
 
 
 [role="tabbed-block"]
 ====
-.10.4(5)(M)으로 업그레이드
+.10.4(6)M 또는 이전 버전으로 업그레이드하십시오
 --
 . [[stepa]] NX-OS 소프트웨어와 EPLD 이미지를 Nexus 9336C-FX2 스위치에 복사합니다.
 +
@@ -284,24 +284,7 @@ Copy complete.
 ....
 cs2# *show version*
 Cisco Nexus Operating System (NX-OS) Software
-TAC support: http://www.cisco.com/tac
-Copyright (C) 2002-2020, Cisco and/or its affiliates.
-All rights reserved.
-The copyrights to certain works contained in this software are
-owned by other third parties and used and distributed under their own
-licenses, such as open source.  This software is provided "as is," and unless
-otherwise stated, there is no warranty, express or implied, including but not
-limited to warranties of merchantability and fitness for a particular purpose.
-Certain components of this software are licensed under
-the GNU General Public License (GPL) version 2.0 or
-GNU General Public License (GPL) version 3.0  or the GNU
-Lesser General Public License (LGPL) Version 2.1 or
-Lesser General Public License (LGPL) Version 2.0.
-A copy of each such license is available at
-http://www.opensource.org/licenses/gpl-2.0.php and
-http://opensource.org/licenses/gpl-3.0.html and
-http://www.opensource.org/licenses/lgpl-2.1.php and
-http://www.gnu.org/licenses/old-licenses/library.txt.
+...
 
 Software
   BIOS: version 08.38
@@ -331,8 +314,6 @@ plugin
 
 Active Package(s):
 
-
-cs2#
 ....
 =====
 . NX-OS 이미지를 설치합니다.
@@ -419,24 +400,7 @@ Finishing the upgrade, switch will reboot in 10 seconds.
 cs2# *show version*
 
 Cisco Nexus Operating System (NX-OS) Software
-TAC support: http://www.cisco.com/tac
-Copyright (C) 2002-2020, Cisco and/or its affiliates.
-All rights reserved.
-The copyrights to certain works contained in this software are
-owned by other third parties and used and distributed under their own
-licenses, such as open source.  This software is provided "as is," and unless
-otherwise stated, there is no warranty, express or implied, including but not
-limited to warranties of merchantability and fitness for a particular purpose.
-Certain components of this software are licensed under
-the GNU General Public License (GPL) version 2.0 or
-GNU General Public License (GPL) version 3.0  or the GNU
-Lesser General Public License (LGPL) Version 2.1 or
-Lesser General Public License (LGPL) Version 2.0.
-A copy of each such license is available at
-http://www.opensource.org/licenses/gpl-2.0.php and
-http://opensource.org/licenses/gpl-3.0.html and
-http://www.opensource.org/licenses/lgpl-2.1.php and
-http://www.gnu.org/licenses/old-licenses/library.txt.
+...
 
 Software
   BIOS: version 05.33
@@ -546,9 +510,9 @@ GEM  FPGA                        0x2
 
 
 --
-.10.4(5)(M) 이전 버전에서 10.5(3)(F) 이후 버전으로 업그레이드
+.10.4(6)M 또는 이전 버전에서 10.5(3)F 또는 이후 버전으로 업그레이드
 --
-. [[단계]] NX-OS 소프트웨어와 EPLD 이미지를 Nexus 9336C-FX2 스위치에 복사합니다.
+. [[stepa]] NX-OS 및 EPLD 결합 이미지를 Nexus 9336C-FX2 스위치에 복사합니다.
 +
 `copy <protocol>: bootflash: vrf management`
 
@@ -572,23 +536,6 @@ sftp> *get /code/nxos.10.5.3.F.bin /bootflash/nxos.10.5.3.F.bin*
 sftp> *exit*
 Copy complete, now saving to disk (please wait)...
 Copy complete.
-
-
-cs2# *copy sftp: bootflash: vrf management*
-Enter source filename: */code/n9000-epld.10.5.3.F.img*
-Enter hostname for the sftp server: *172.19.2.1*
-Enter username: *user1*
-
-Outbound-ReKey for 172.19.2.1:22
-Inbound-ReKey for 172.19.2.1:22
-user1@172.19.2.1's password:
-sftp> *progress*
-Progress meter enabled
-sftp> *get /code/n9000-epld.10.5.3.F.img /bootflash/n9000-epld.10.5.3.F.img*
-/code/n9000-epld.10.5.3.F.img  100%  161MB   9.5MB/s   00:16
-sftp> *exit*
-Copy complete, now saving to disk (please wait)...
-Copy complete.
 ....
 =====
 . NX-OS 소프트웨어의 실행 버전을 확인하세요.
@@ -602,28 +549,11 @@ Copy complete.
 ....
 cs2# *show version*
 Cisco Nexus Operating System (NX-OS) Software
-TAC support: http://www.cisco.com/tac
-Copyright (C) 2002-2020, Cisco and/or its affiliates.
-All rights reserved.
-The copyrights to certain works contained in this software are
-owned by other third parties and used and distributed under their own
-licenses, such as open source.  This software is provided "as is," and unless
-otherwise stated, there is no warranty, express or implied, including but not
-limited to warranties of merchantability and fitness for a particular purpose.
-Certain components of this software are licensed under
-the GNU General Public License (GPL) version 2.0 or
-GNU General Public License (GPL) version 3.0  or the GNU
-Lesser General Public License (LGPL) Version 2.1 or
-Lesser General Public License (LGPL) Version 2.0.
-A copy of each such license is available at
-http://www.opensource.org/licenses/gpl-2.0.php and
-http://opensource.org/licenses/gpl-3.0.html and
-http://www.opensource.org/licenses/lgpl-2.1.php and
-http://www.gnu.org/licenses/old-licenses/library.txt.
+...
 
 Software
   BIOS: version 08.38
-  NXOS: version 10.5.3(F)
+  NXOS: version 10.4.6(M)
   BIOS compile time:  05/29/2020
   NXOS image file is: bootflash:///nxos.10.5.3.F.bin
   NXOS compile time:  4/28/2020 21:00:00 [04/29/2020 02:28:31]
@@ -667,7 +597,7 @@ NX-OS 10.5(3)(F) 이상으로 업그레이드할 때 EPLD 이미지는 자동으
 이미지 파일을 설치하면 스위치를 재부팅할 때마다 이미지 파일이 로드됩니다.
 
 +
-다음 단계는 NX-OS 10.4(5)(M)에서 10.5(3)(F)로의 업그레이드를 보여줍니다. 첫 번째 단계에서는 NX-OS 업그레이드를 수행하고 두 번째 단계에서는 EPLD 이미지 업그레이드를 수행합니다.
+다음 단계는 NX-OS 10.4(5)(M)에서 10.5(3)(F)로 업그레이드하기 위한 첫 번째 설치 단계를 보여줍니다.
 
 +
 `install all nxos bootflash:<nxos_image.bin>`
@@ -735,8 +665,19 @@ Warning: please do not remove or power off the module at this time.
 [####################] 100% -- SUCCESS
 
 Finishing the upgrade, switch will reboot in 10 seconds.
+....
+=====
++
+다음 단계는 EPLD 이미지를 업데이트하기 위한 두 번째 설치 과정을 보여줍니다.
 
++
+`install all nxos bootflash:<nxos_image.bin>`
 
++
+.예
+[%collapsible]
+=====
+....
 cs2# *install all nxos bootflash:nxos.10.5.3.F.bin*   <---- 2nd pass updates EPLD image only
  
 Installer will perform compatibility check first. Please wait. 
@@ -825,6 +766,8 @@ Performing EPLD/FPGA upgrade.
 Install has been successful.
 ....
 =====
+
+
 . 스위치가 재부팅된 후 NX-OS 소프트웨어의 새 버전을 확인하세요.
 +
 `show version`
@@ -836,24 +779,7 @@ Install has been successful.
 ....
 cs2# *show version*
 Cisco Nexus Operating System (NX-OS) Software
-TAC support: http://www.cisco.com/tac
-Copyright (C) 2002-2020, Cisco and/or its affiliates.
-All rights reserved.
-The copyrights to certain works contained in this software are
-owned by other third parties and used and distributed under their own
-licenses, such as open source.  This software is provided "as is," and unless
-otherwise stated, there is no warranty, express or implied, including but not
-limited to warranties of merchantability and fitness for a particular purpose.
-Certain components of this software are licensed under
-the GNU General Public License (GPL) version 2.0 or
-GNU General Public License (GPL) version 3.0  or the GNU
-Lesser General Public License (LGPL) Version 2.1 or
-Lesser General Public License (LGPL) Version 2.0.
-A copy of each such license is available at
-http://www.opensource.org/licenses/gpl-2.0.php and
-http://opensource.org/licenses/gpl-3.0.html and
-http://www.opensource.org/licenses/lgpl-2.1.php and
-http://www.gnu.org/licenses/old-licenses/library.txt.
+...
 
 Software
   BIOS: version 05.33
@@ -883,6 +809,8 @@ plugin
 Active Package(s):
 ....
 =====
+
+
 . 스위치를 재부팅한 후 다시 로그인하여 새로운 버전의 EPLD가 성공적으로 로드되었는지 확인하세요.
 +
 `show version module 1 epld`
@@ -908,9 +836,9 @@ GEM  FPGA                        0x2
 
 
 --
-.10.5(3)(F)에서 이후 버전으로 업그레이드
+.10.5(3)F에서 이후 버전으로 업그레이드
 --
-. NX-OS 및 EPLD 이미지를 첫 번째 스위치에 복사합니다.
+. 결합된 NX-OS 및 EPLD 이미지를 첫 번째 스위치에 복사합니다.
 +
 `copy <protocol>: bootflash: vrf management`
 
@@ -949,25 +877,7 @@ Copy complete.
 =====
 ....
 cs2# *show version*
-Cisco Nexus Operating System (NX-OS) Software
-TAC support: http://www.cisco.com/tac
-Copyright (C) 2002-2025, Cisco and/or its affiliates.
-All rights reserved.
-The copyrights to certain works contained in this software are
-owned by other third parties and used and distributed under their own
-licenses, such as open source.  This software is provided "as is," and unless
-otherwise stated, there is no warranty, express or implied, including but not
-limited to warranties of merchantability and fitness for a particular purpose.
-Certain components of this software are licensed under
-the GNU General Public License (GPL) version 2.0 or
-GNU General Public License (GPL) version 3.0  or the GNU
-Lesser General Public License (LGPL) Version 2.1 or
-Lesser General Public License (LGPL) Version 2.0.
-A copy of each such license is available at
-http://www.opensource.org/licenses/gpl-2.0.php and
-http://opensource.org/licenses/gpl-3.0.html and
-http://www.opensource.org/licenses/lgpl-2.1.php and
-http://www.gnu.org/licenses/old-licenses/library.txt.
+...
 
 
 Software
@@ -1091,25 +1001,7 @@ Finishing the upgrade, switch will reboot in 10 seconds.
 =====
 ....
 cs2# *show version*
-Cisco Nexus Operating System (NX-OS) Software
-TAC support: http://www.cisco.com/tac
-Copyright (C) 2002-2025, Cisco and/or its affiliates.
-All rights reserved.
-The copyrights to certain works contained in this software are
-owned by other third parties and used and distributed under their own
-licenses, such as open source.  This software is provided "as is," and unless
-otherwise stated, there is no warranty, express or implied, including but not
-limited to warranties of merchantability and fitness for a particular purpose.
-Certain components of this software are licensed under
-the GNU General Public License (GPL) version 2.0 or
-GNU General Public License (GPL) version 3.0  or the GNU
-Lesser General Public License (LGPL) Version 2.1 or
-Lesser General Public License (LGPL) Version 2.0.
-A copy of each such license is available at
-http://www.opensource.org/licenses/gpl-2.0.php and
-http://opensource.org/licenses/gpl-3.0.html and
-http://www.opensource.org/licenses/lgpl-2.1.php and
-http://www.gnu.org/licenses/old-licenses/library.txt.
+...
 
 
 Software
@@ -1146,169 +1038,26 @@ plugin
 Active Package(s):
 ....
 =====
-. 새 버전의 EPLD가 성공적으로 로드되었는지 확인하십시오.
+. 스위치를 재부팅한 후 다시 로그인하여 새로운 버전의 EPLD가 성공적으로 로드되었는지 확인하세요.
 +
-`show install epld status`
-
-+
-이 예제는 EPLD 버전 10.5(4)(M)을 사용합니다.
+`show version module 1 epld`
 
 +
 .예
 [%collapsible]
 =====
 ....
-cs2# *show install epld status*
+cs2# *show version module 1 epld*
 
-1) Module 2 upgraded on Mon May  4 09:17:08 2026 (631239  us)
-EPLD Install Image: EPLD image file 10.5.4.M. built on Fri Apr 24 19:49:50 2026
-
-Status: EPLD Upgrade was Successful
-
-EPLD                             Curr Ver       Old Ver
--------------------------------------------------------
-MI FPGA                         0x10014         0x1000b
-IO FPGA                         0x10033         0x10006
-
-2) Module 27 upgraded on Wed Apr  1 15:03:13 2026 (193093  us)
-EPLD Install Image: EPLD image file 10.5.4.M. built on Mon Mar 16 03:28:47 2026
-
-Status: EPLD Upgrade was Successful
-
-EPLD                            Curr Ver        Old Ver
--------------------------------------------------------
-IO FPGA                         0x1002d         0x10020
-
-3) Module 28 upgraded on Wed Apr  1 14:59:53 2026 (843907  us)
-EPLD Install Image: EPLD image file 10.5.4.M. built on Mon Mar 16 03:28:47 2026
-
-Status: EPLD Upgrade was Successful
-
-EPLD                            Curr Ver        Old Ver
--------------------------------------------------------
-IO FPGA                         0x1002d         0x10020
-
-4) Module 27 upgraded on Fri Mar 27 21:55:55 2026 (132290  us)
-EPLD Install Image: EPLD image file 10.5.4.M. built on Fri Dec 12 11:15:18 2025
-
-Status: EPLD Upgrade was Successful
-
-EPLD                            Curr Ver        Old Ver
--------------------------------------------------------
-FM-19 FPGA                      0x10006         0x10000
-FM-20 FPGA                      0x10006         0x10000
-FM-21 FPGA                      0x10006         0x10000
-FM-22 FPGA                      0x10006         0x10000
-FM-23 FPGA                      0x10006         0x10000
-FM-24 FPGA                      0x10006         0x10000
-FM-25 FPGA                      0x10006         0x10000
-FM-26 FPGA                      0x10006         0x10000
-
-5) Module 27 upgraded on Fri Mar 27 21:50:16 2026 (  4899  us)
-EPLD Install Image: EPLD image file 10.5.4.M. built on Fri Dec 12 11:15:18 2025
-
-Status: EPLD Upgrade was Successful
-
-EPLD                            Curr Ver        Old Ver
--------------------------------------------------------
-FM-19 FPGA                      0x10006         0x10000
-FM-20 FPGA                      0x10006         0x10000
-FM-21 FPGA                      0x10006         0x10000
-FM-22 FPGA                      0x10006         0x10000
-FM-23 FPGA                      0x10006         0x10000
-FM-24 FPGA                      0x10006         0x10000
-FM-25 FPGA                      0x10006         0x10000
-FM-26 FPGA                      0x10006         0x10000
-
-6) Module 27 upgraded on Fri Mar 27 21:44:36 2026 (775397  us)
-EPLD Install Image: EPLD image file 10.5.4.M. built on Fri Dec 12 11:15:18 2025
-
-Status: EPLD Upgrade was Successful
-
-EPLD                            Curr Ver        Old Ver
--------------------------------------------------------
-FM-19 FPGA                      0x10006         0x10000
-FM-20 FPGA                      0x10006         0x10000
-FM-21 FPGA                      0x10006         0x10000
-FM-22 FPGA                      0x10006         0x10000
-FM-23 FPGA                      0x10006         0x10000
-FM-24 FPGA                      0x10006         0x10000
-FM-25 FPGA                      0x10006         0x10000
-FM-26 FPGA                      0x10006         0x10000
-
-7) Module 27 upgraded on Fri Mar 27 21:38:58 2026 (330582  us)
-EPLD Install Image: EPLD image file 10.5.4.M. built on Fri Dec 12 11:15:18 2025
-
-Status: EPLD Upgrade was Successful
-
-EPLD                            Curr Ver        Old Ver
--------------------------------------------------------
-FM-19 FPGA                      0x10006         0x10000
-FM-20 FPGA                      0x10006         0x10000
-FM-21 FPGA                      0x10006         0x10000
-FM-22 FPGA                      0x10006         0x10000
-FM-23 FPGA                      0x10006         0x10000
-FM-24 FPGA                      0x10006         0x10000
-FM-25 FPGA                      0x10006         0x10000
-FM-26 FPGA                      0x10006         0x10000
-
-8) Module 27 upgraded on Fri Mar 27 21:33:19 2026 (112679  us)
-EPLD Install Image: EPLD image file 10.5.4.M. built on Fri Dec 12 11:15:18 2025
-
-Status: EPLD Upgrade was Successful
-
-EPLD                            Curr Ver        Old Ver
--------------------------------------------------------
-FM-19 FPGA                      0x10006         0x10000
-FM-20 FPGA                      0x10006         0x10000
-FM-21 FPGA                      0x10006         0x10000
-FM-22 FPGA                      0x10006         0x10000
-FM-23 FPGA                      0x10006         0x10000
-FM-24 FPGA                      0x10006         0x10000
-FM-25 FPGA                      0x10006         0x10000
-FM-26 FPGA                      0x10006         0x10000
-
-9) Module 27 upgraded on Fri Mar 27 21:27:41 2026 (957182  us)
-EPLD Install Image: EPLD image file 10.5.4.M. built on Fri Dec 12 11:15:18 2025
-
-Status: EPLD Upgrade was Successful
-
-EPLD                            Curr Ver        Old Ver
--------------------------------------------------------
-FM-19 FPGA                      0x10006         0x10000
-FM-20 FPGA                      0x10006         0x10000
-FM-21 FPGA                      0x10006         0x10000
-FM-22 FPGA                      0x10006         0x10000
-FM-23 FPGA                      0x10006         0x10000
-FM-24 FPGA                      0x10006         0x10000
-FM-25 FPGA                      0x10006         0x10000
-FM-26 FPGA                      0x10006         0x10000
-
-10) Module 27 upgraded on Fri Mar 27 21:22:03 2026 ( 90303  us)
-EPLD Install Image: EPLD image file 10.5.4.M. built on Fri Dec 12 11:15:18 2025
-
-Status: EPLD Upgrade was Successful
-
-EPLD                            Curr Ver        Old Ver
--------------------------------------------------------
-FM-19 FPGA                      0x10006         0x10000
-FM-20 FPGA                      0x10006         0x10000
-FM-21 FPGA                      0x10006         0x10000
-FM-22 FPGA                      0x10006         0x10000
-FM-23 FPGA                      0x10006         0x10000
-FM-24 FPGA                      0x10006         0x10000
-FM-25 FPGA                      0x10006         0x10000
-FM-26 FPGA                      0x10006         0x10000
-
-11) Module 1 upgraded on Fri Mar 27 21:16:24 2026 (240369  us)
-EPLD Install Image: EPLD image file 10.5.4.M. built on Fri Dec 12 11:15:18 2025
-
-Status: EPLD Upgrade was Successful
-
-EPLD                            Curr Ver        Old Ver
--------------------------------------------------------
-MI FPGA                         0x10014         0x1000b
-IO FPGA                         0x10033         0x10006
+EPLD Device                     Version
+---------------------------------------
+MI   FPGA                        0x7
+IO   FPGA                        0x19
+MI   FPGA2                       0x2
+GEM  FPGA                        0x2
+GEM  FPGA                        0x2
+GEM  FPGA                        0x2
+GEM  FPGA                        0x2
 ....
 =====
 

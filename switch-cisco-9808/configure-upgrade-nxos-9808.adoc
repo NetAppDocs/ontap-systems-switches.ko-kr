@@ -501,7 +501,7 @@ network interface modify -vserver Cluster -lif * -auto-revert false
 
 첫 번째 스위치(cs1)에 NX-OS를 설치하려면 새 버전의 NX-OS 및 EPLD를 설치하고 검증한 다음 클러스터의 모든 포트 상태를 확인하고 두 번째 스위치(cs2)에서 이 단계를 반복합니다.
 
-. 스위치 CLI를 사용하여 NX-OS 및 EPLD 이미지를 스위치에 복사합니다.
+. 스위치 CLI를 사용하여 결합된 NX-OS 및 EPLD 이미지를 스위치에 복사합니다:
 +
 `copy <protocol>: bootflash: vrf management`
 

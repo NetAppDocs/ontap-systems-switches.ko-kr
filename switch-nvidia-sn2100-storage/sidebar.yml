@@ -34,8 +34,10 @@ entries:
     url: "/switch-nvidia-sn2100-storage/install-cumulus-mode-sn2100-storage.html"
   - title: ONIE 모드로 Cumulus Linux 설치
     url: "/switch-nvidia-sn2100-storage/install-onie-mode-sn2100-storage.html"
-  - title: RCF 스크립트 설치 또는 업그레이드
+  - title: RCF 설치
     url: "/switch-nvidia-sn2100-storage/install-rcf-sn2100-storage.html"
+  - title: RCF 버전을 업그레이드하세요
+    url: "/switch-nvidia-sn2100-storage/upgrade-rcf-sn2100-storage.html"
   - title: CSHM 파일 설치
     url: "/switch-nvidia-sn2100-storage/setup-install-cshm-file.html"
 - title: 스위치를 공장 기본값으로 재설정합니다
