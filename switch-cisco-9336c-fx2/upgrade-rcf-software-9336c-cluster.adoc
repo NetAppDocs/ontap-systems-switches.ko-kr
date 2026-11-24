@@ -83,7 +83,7 @@ cluster1::*>
 +
 .. 모든 클러스터 포트가 정상 상태로 *작동*되어 있는지 확인하세요.
 +
-`network port show -ipspace cluster`
+`network port show -ipspace Cluster`
 
 +
 .예를 보여주세요
@@ -91,7 +91,7 @@ cluster1::*>
 ====
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network port show -ipspace cluster*
+cluster1::*> *network port show -ipspace Cluster*
 
 Node: cluster1-01
                                                                        Ignore
@@ -277,7 +277,7 @@ cluster1::*>
 
 +
 .. 현재 사이의 사용자 정의 추가 사항을 기록합니다. `running-config` 그리고 사용 중인 RCF 파일(예: 조직의 SNMP 구성)
-.. NX-OS 10.2부터 다음을 사용하세요. `show diff running-config` 부트플래시에 저장된 RCF 파일과 비교하는 명령입니다. 그렇지 않은 경우, 제3자 diff/compare 도구를 사용하세요.
+.. NX-OS 10.2부터는  `show diff running-config` 명령을 사용하여 부트플래시에 저장된 RCF 파일과 비교하십시오. 그렇지 않으면 타사 diff/비교 툴을 사용하십시오.
 
 
 . 기본 구성 세부 정보를 저장합니다. `write_erase.cfg` 부트플래시에 있는 파일입니다.
@@ -426,7 +426,7 @@ CAUTION: RCF 업그레이드 후 9336C-FX2 스위치가 부팅되지 않으면 N
 +
 .. 클러스터의 모든 노드에서 클러스터 포트가 작동 중이고 정상인지 확인하세요.
 +
-`network port show -ipspace cluster`
+`network port show -ipspace Cluster`
 
 +
 .예를 보여주세요
@@ -434,7 +434,7 @@ CAUTION: RCF 업그레이드 후 9336C-FX2 스위치가 부팅되지 않으면 N
 ====
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network port show -ipspace cluster*
+cluster1::*> *network port show -ipspace Cluster*
 
 Node: cluster1-01
                                                                        Ignore
